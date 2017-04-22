@@ -4,7 +4,6 @@
 #+OPTIONS: title:t toc:t todo:t |:t
 #+TITLES: emacs
 #+DATE: <2017-04-22 Sat>
-#+AUTHORS: weiwu
 #+EMAIL: victor.wuv@gmail.com
 #+LANGUAGE: en
 #+SELECT_TAGS: export
