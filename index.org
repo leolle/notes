@@ -1,1 +1,4 @@
 #+INCLUDE: "./sitemap.org" :minlevel 1
++ finance
++ [[file:./finance/option.org][option]]
++ [[file:./finance/ComputationalInvestment.org][ML_investment]]
