@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-04-22 Sat 16:32 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline7">1. Object Relational Mapping</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Connecting</a></li>
+<li><a href="#orgheadline2">1.2. Declare a Mapping</a></li>
+<li><a href="#orgheadline3">1.3. Create a Schema</a></li>
+<li><a href="#orgheadline4">1.4. reate an Instance of the Mapped Class</a></li>
+<li><a href="#orgheadline5">1.5. Creating a Session</a></li>
+<li><a href="#orgheadline6">1.6. Adding and Updating Objects</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline12">2. Mapper Configuration</a>
+<ul>
+<li><a href="#orgheadline8">2.1. Types of Mappings</a></li>
+<li><a href="#orgheadline10">2.2. Declarative Mapping</a>
+<ul>
+<li><a href="#orgheadline9">2.2.1. Classical Mappings</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline11">2.3. operations:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">1</span> Object Relational Mapping</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Connecting</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+#+BEING<sub>SRC</sub> python
+&gt;&gt;&gt; from sqlalchemy import create<sub>engine</sub>
+&gt;&gt;&gt; engine = create<sub>engine</sub>('sqlite:///:memory:', echo=True)
+#+END<sub>SRC</sub>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Declare a Mapping</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+the configurational process starts by describing the database tables we’ll be dealing with, and then by defining our own classes which will be mapped to those tables. In modern SQLAlchemy, these two tasks are usually performed together, using a system known as Declarative, which allows us to create classes that include directives to describe the actual database table they will be mapped to.
+#+BEING<sub>SRC</sub> python
+&gt;&gt;&gt; from sqlalchemy.ext.declarative import declarative<sub>base</sub>
+&gt;&gt;&gt; Base = declarative<sub>base</sub>()
+&gt;&gt;&gt; from sqlalchemy import Column, Integer, String
+&gt;&gt;&gt; class User(Base):
+&#x2026;    <span class="underline"><span class="underline">tablename</span></span> = 'users'
+&#x2026;
+&#x2026;    id = Column(Integer, primary<sub>key</sub>=True)
+&#x2026;    name = Column(String)
+&#x2026;    fullname = Column(String)
+&#x2026;    password = Column(String)
+#+END<sub>SRC</sub>
+</p>
+
+<p>
+A class using Declarative at a minimum needs a tablename attribute, and at least one Column which is part of a primary key.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Create a Schema</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+When we declared our class, Declarative used a Python metaclass in order to perform additional activities once the class declaration was complete; within this phase, it then created a Table object according to our specifications, and associated it with the class by constructing a Mapper object.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> reate an Instance of the Mapped Class</h3>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Creating a Session</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+The ORM’s “handle” to the database is the Session.
+When we first set up the application, at the same level as our create<sub>engine</sub>() statement, we define a Session class which will serve as a factory for new Session objects
+#+BEING<sub>SRC</sub> python
+&gt;&gt;&gt; from sqlalchemy.orm import sessionmaker
+&gt;&gt;&gt; Session = sessionmaker(bind=engine)
+#+END<sub>SRC</sub>
+</p>
+
+<p>
+Later, when you create your engine with create<sub>engine</sub>(), connect it to the Session using configure():
+#+BEING<sub>SRC</sub> python
+&gt;&gt;&gt; Session.configure(bind=engine)  # once engine is available
+&gt;&gt;&gt; session = Session()
+#+END<sub>SRC</sub>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.6</span> Adding and Updating Objects</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+To persist our User object, we add() it to our Session:
+#+BEING<sub>SRC</sub> python
+&gt;&gt;&gt; ed<sub>user</sub> = User(name='ed', fullname='Ed Jones', password='edspassword')
+&gt;&gt;&gt; session.add(ed<sub>user</sub>)
+#+END<sub>SRC</sub>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">2</span> Mapper Configuration</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">2.1</span> Types of Mappings</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Modern SQLAlchemy features two distinct styles of mapper configuration. The “Classical” style is SQLAlchemy’s original mapping API, whereas “Declarative” is the richer and more succinct system that builds on top of “Classical”. Both styles may be used interchangeably, as the end result of each is exactly the same - a user-defined class mapped by the mapper() function onto a selectable unit, typically a Table.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">2.2</span> Declarative Mapping</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+#+BEING<sub>SRC</sub> python
+from sqlalchemy.ext.declarative import declarative<sub>base</sub>
+from sqlalchemy import Column, Integer, String, ForeignKey
+</p>
+
+<p>
+Base = declarative<sub>base</sub>()
+</p>
+
+<p>
+class User(Base):
+</p>
+
+<p>
+<span class="underline"><span class="underline">tablename</span></span> = 'user'
+</p>
+
+<p>
+id = Column(Integer, primary<sub>key</sub>=True)
+</p>
+
+<p>
+name = Column(String)
+</p>
+
+<p>
+fullname = Column(String)
+</p>
+
+<p>
+    password = Column(String)
+#+END<sub>SRC</sub>
+</p>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">2.2.1</span> Classical Mappings</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+A Classical Mapping refers to the configuration of a mapped class using the mapper() function, without using the Declarative system. This is SQLAlchemy’s original class mapping API, and is still the base mapping system provided by the ORM.
+#+BEING<sub>SRC</sub> python
+from sqlalchemy import Table, MetaData, Column, Integer, String, ForeignKey
+from sqlalchemy.orm import mapper
+</p>
+
+<p>
+metadata = MetaData()
+</p>
+
+<p>
+user = Table('user', metadata,
+</p>
+
+<p>
+Column('id', Integer, primary<sub>key</sub>=True),
+</p>
+
+<p>
+Column('name', String(50)),
+</p>
+
+<p>
+Column('fullname', String(50)),
+</p>
+
+<p>
+Column('password', String(12))
+</p>
+
+<p>
+)
+</p>
+
+<p>
+class User(object):
+    def _<sub>init</sub>_<sub>(self, name, fullname, password)</sub>:
+</p>
+
+<p>
+self.name = name
+</p>
+
+<p>
+self.fullname = fullname
+</p>
+
+<p>
+self.password = password
+</p>
+
+<p>
+mapper(User, user)
+#+END<sub>SRC</sub>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">2.3</span> operations:</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+-bulk insert &amp; update:
+#+BEING<sub>SRC</sub> python
+def setup<sub>database</sub>(num):
+</p>
+
+<p>
+Base.metadata.create<sub>all</sub>(engine)
+</p>
+
+<p>
+s = Session(engine)
+for chunk in range(0, num, 10000):
+    s.bulk<sub>insert</sub><sub>mappings</sub>(Customer, [
+        {
+            'name': 'customer name %d' % i,
+            'description': 'customer description %d' % i
+        } for i in range(chunk, chunk + 10000)
+    ])
+s.commit()
+</p>
+
+<p>
+setup<sub>database</sub>(num = 10000)
+</p>
+
+<p>
+def test<sub>orm</sub><sub>flush</sub>(n):
+    """UPDATE statements via the ORM flush process."""
+    session = Session(bind=engine)
+    for chunk in range(0, n, 1000):
+        customers = session.query(Customer).\
+            filter(Customer.id.between(chunk, chunk + 1000)).all()
+        for customer in customers:
+            customer.description += "updated"
+        session.flush()
+    session.commit()
+#+END<sub>SRC</sub>
+</p>
+
+<p>
+operations:
+-bulk insert &amp; update:
+#+BEING<sub>SRC</sub> python
+def setup<sub>database</sub>(num):
+</p>
+
+<p>
+Base.metadata.create<sub>all</sub>(engine)
+</p>
+
+<p>
+s = Session(engine)
+for chunk in range(0, num, 10000):
+    s.bulk<sub>insert</sub><sub>mappings</sub>(Customer, [
+        {
+            'name': 'customer name %d' % i,
+            'description': 'customer description %d' % i
+        } for i in range(chunk, chunk + 10000)
+    ])
+s.commit()
+</p>
+
+<p>
+setup<sub>database</sub>(num = 10000)
+</p>
+
+<p>
+def test<sub>orm</sub><sub>flush</sub>(n):
+    """UPDATE statements via the ORM flush process."""
+    session = Session(bind=engine)
+    for chunk in range(0, n, 1000):
+        customers = session.query(Customer).\
+            filter(Customer.id.between(chunk, chunk + 1000)).all()
+        for customer in customers:
+            customer.description += "updated"
+        session.flush()
+    session.commit()
+#+END<sub>SRC</sub>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
+<p class="author">Author: weiwu</p>
+<p class="date">Created: 2017-04-22 Sat 16:32</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

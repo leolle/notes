@@ -3,6 +3,7 @@
   + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
 + CS
   + [[file:./CS/Python/python.org][Python]]
+  + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
   + C++
 + Database
   + [[file:./Database/DBMS.org][DatabaseManagement]]
