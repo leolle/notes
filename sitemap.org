@@ -1,1 +1,4 @@
+#+TITLE: notes
 + finance
++ [[file:./finance/option.org][option]]
++ [[file:./finance/ComputationalInvestment.org][ML_investment]]
