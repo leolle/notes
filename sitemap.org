@@ -2,7 +2,7 @@
   + [[file:./finance/option.org][option]]
   + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
 + CS
-  + [[file:./CS/Python/python.org][python]]
+  + [[file:./CS/Python/python.org][Python]]
   + C++
 + Database
   + [[file:./Database/DBMS.org][DatabaseManagement]]

@@ -90,3 +90,18 @@ Create the following files under the org-configuration directory
 :#+STYLE: <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 **** level-1.org
 :#+STYLE: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+* Basic operations in Emacs
+** special syntax
+Insert file link:
+Press [[, file: file link, ], backspace, [, [alias, ], ].
+** insert table box
+| name1 | name2 |
+|-------+-------|
+| row1  | value |
+|       |       |
+#+BEGIN_SRC sh
+| name 1 | name 2|,
+|- tab,
+enter,
+|
+#+END_SRC
