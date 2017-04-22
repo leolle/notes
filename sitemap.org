@@ -1,3 +1,3 @@
 + finance
 + [[file:./finance/option.org][option]]
-+ [[file:./finance/ComputationalInvestment.org][ML_investment]]
++ [[file:./finance/ComputationalInvestment.org][MLInvestment]]
