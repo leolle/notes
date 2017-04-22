@@ -578,9 +578,9 @@
 # 
 # By default, all installed kernels are allowed.
 # c.KernelSpecManager.whitelist = set([])
-
 def output_post_save(model, os_path, contents_manager):
   pass
 
 c.FileContentsManager.root_dir = 'jupyters'
 c.FileContentsManager.post_save_hook = output_post_save
+
