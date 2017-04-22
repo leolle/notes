@@ -1,4 +1,4 @@
-site_name: MKLorum
+site_name: Ipython notebooks
 pages:
     - Home: index.md
     - About: about.md
