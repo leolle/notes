@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-04-22 Sat 16:32 -->
+<!-- 2017-04-22 Sat 16:39 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -178,12 +178,12 @@ for the JavaScript code in this tag.
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> Connecting</h3>
 <div class="outline-text-3" id="text-1-1">
-<p>
-#+BEING<sub>SRC</sub> python
-&gt;&gt;&gt; from sqlalchemy import create<sub>engine</sub>
-&gt;&gt;&gt; engine = create<sub>engine</sub>('sqlite:///:memory:', echo=True)
-#+END<sub>SRC</sub>
-</p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">from</span> sqlalchemy <span style="color: #F92672;">import</span> create_engine
+&gt;&gt;&gt; <span style="color: #FD971F;">engine</span> = create_engine<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'sqlite:///:memory:'</span>, echo=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 </div>
 
@@ -192,19 +192,21 @@ for the JavaScript code in this tag.
 <div class="outline-text-3" id="text-1-2">
 <p>
 the configurational process starts by describing the database tables we’ll be dealing with, and then by defining our own classes which will be mapped to those tables. In modern SQLAlchemy, these two tasks are usually performed together, using a system known as Declarative, which allows us to create classes that include directives to describe the actual database table they will be mapped to.
-#+BEING<sub>SRC</sub> python
-&gt;&gt;&gt; from sqlalchemy.ext.declarative import declarative<sub>base</sub>
-&gt;&gt;&gt; Base = declarative<sub>base</sub>()
-&gt;&gt;&gt; from sqlalchemy import Column, Integer, String
-&gt;&gt;&gt; class User(Base):
-&#x2026;    <span class="underline"><span class="underline">tablename</span></span> = 'users'
-&#x2026;
-&#x2026;    id = Column(Integer, primary<sub>key</sub>=True)
-&#x2026;    name = Column(String)
-&#x2026;    fullname = Column(String)
-&#x2026;    password = Column(String)
-#+END<sub>SRC</sub>
 </p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">from</span> sqlalchemy.ext.declarative <span style="color: #F92672;">import</span> declarative_base
+&gt;&gt;&gt; <span style="color: #FD971F;">Base</span> = declarative_base<span style="color: #AE81FF;">()</span>
+&gt;&gt;&gt; <span style="color: #F92672;">from</span> sqlalchemy <span style="color: #F92672;">import</span> Column, Integer, String
+&gt;&gt;&gt; <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">User</span><span style="color: #AE81FF;">(</span>Base<span style="color: #AE81FF;">)</span>:
+...    <span style="color: #FD971F;">__tablename__</span> = <span style="color: #E6DB74;">'users'</span>
+...
+...    <span style="color: #F92672;">id</span> = Column<span style="color: #AE81FF;">(</span>Integer, primary_key=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+...    <span style="color: #FD971F;">name</span> = Column<span style="color: #AE81FF;">(</span>String<span style="color: #AE81FF;">)</span>
+...    <span style="color: #FD971F;">fullname</span> = Column<span style="color: #AE81FF;">(</span>String<span style="color: #AE81FF;">)</span>
+...    <span style="color: #FD971F;">password</span> = Column<span style="color: #AE81FF;">(</span>String<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 
 <p>
 A class using Declarative at a minimum needs a tablename attribute, and at least one Column which is part of a primary key.
@@ -231,19 +233,23 @@ When we declared our class, Declarative used a Python metaclass in order to perf
 <p>
 The ORM’s “handle” to the database is the Session.
 When we first set up the application, at the same level as our create<sub>engine</sub>() statement, we define a Session class which will serve as a factory for new Session objects
-#+BEING<sub>SRC</sub> python
-&gt;&gt;&gt; from sqlalchemy.orm import sessionmaker
-&gt;&gt;&gt; Session = sessionmaker(bind=engine)
-#+END<sub>SRC</sub>
 </p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">from</span> sqlalchemy.orm <span style="color: #F92672;">import</span> sessionmaker
+&gt;&gt;&gt; <span style="color: #FD971F;">Session</span> = sessionmaker<span style="color: #AE81FF;">(</span>bind=engine<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 
 <p>
 Later, when you create your engine with create<sub>engine</sub>(), connect it to the Session using configure():
-#+BEING<sub>SRC</sub> python
-&gt;&gt;&gt; Session.configure(bind=engine)  # once engine is available
-&gt;&gt;&gt; session = Session()
-#+END<sub>SRC</sub>
 </p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; Session.configure<span style="color: #AE81FF;">(</span>bind=engine<span style="color: #AE81FF;">)</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">once engine is available</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">session</span> = Session<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 </div>
 </div>
 
@@ -252,11 +258,13 @@ Later, when you create your engine with create<sub>engine</sub>(), connect it to
 <div class="outline-text-3" id="text-1-6">
 <p>
 To persist our User object, we add() it to our Session:
-#+BEING<sub>SRC</sub> python
-&gt;&gt;&gt; ed<sub>user</sub> = User(name='ed', fullname='Ed Jones', password='edspassword')
-&gt;&gt;&gt; session.add(ed<sub>user</sub>)
-#+END<sub>SRC</sub>
 </p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #FD971F;">ed_user</span> = User<span style="color: #AE81FF;">(</span>name=<span style="color: #E6DB74;">'ed'</span>, fullname=<span style="color: #E6DB74;">'Ed Jones'</span>, password=<span style="color: #E6DB74;">'edspassword'</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; session.add<span style="color: #AE81FF;">(</span>ed_user<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -276,40 +284,26 @@ Modern SQLAlchemy features two distinct styles of mapper configuration. The “C
 <div id="outline-container-orgheadline10" class="outline-3">
 <h3 id="orgheadline10"><span class="section-number-3">2.2</span> Declarative Mapping</h3>
 <div class="outline-text-3" id="text-2-2">
-<p>
-#+BEING<sub>SRC</sub> python
-from sqlalchemy.ext.declarative import declarative<sub>base</sub>
-from sqlalchemy import Column, Integer, String, ForeignKey
-</p>
+<div class="org-src-container">
 
-<p>
-Base = declarative<sub>base</sub>()
-</p>
+<pre class="src src-python"><span style="color: #F92672;">from</span> sqlalchemy.ext.declarative <span style="color: #F92672;">import</span> declarative_base
+<span style="color: #F92672;">from</span> sqlalchemy <span style="color: #F92672;">import</span> Column, Integer, String, ForeignKey
 
-<p>
-class User(Base):
-</p>
+<span style="color: #FD971F;">Base</span> = declarative_base<span style="color: #AE81FF;">()</span>
 
-<p>
-<span class="underline"><span class="underline">tablename</span></span> = 'user'
-</p>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">User</span><span style="color: #AE81FF;">(</span>Base<span style="color: #AE81FF;">)</span>:
 
-<p>
-id = Column(Integer, primary<sub>key</sub>=True)
-</p>
+    <span style="color: #FD971F;">__tablename__</span> = <span style="color: #E6DB74;">'user'</span>
 
-<p>
-name = Column(String)
-</p>
+    <span style="color: #F92672;">id</span> = Column<span style="color: #AE81FF;">(</span>Integer, primary_key=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
 
-<p>
-fullname = Column(String)
-</p>
+    <span style="color: #FD971F;">name</span> = Column<span style="color: #AE81FF;">(</span>String<span style="color: #AE81FF;">)</span>
 
-<p>
-    password = Column(String)
-#+END<sub>SRC</sub>
-</p>
+    <span style="color: #FD971F;">fullname</span> = Column<span style="color: #AE81FF;">(</span>String<span style="color: #AE81FF;">)</span>
+
+    <span style="color: #FD971F;">password</span> = Column<span style="color: #AE81FF;">(</span>String<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 
 <div id="outline-container-orgheadline9" class="outline-4">
@@ -317,60 +311,38 @@ fullname = Column(String)
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 A Classical Mapping refers to the configuration of a mapped class using the mapper() function, without using the Declarative system. This is SQLAlchemy’s original class mapping API, and is still the base mapping system provided by the ORM.
-#+BEING<sub>SRC</sub> python
-from sqlalchemy import Table, MetaData, Column, Integer, String, ForeignKey
-from sqlalchemy.orm import mapper
 </p>
+<div class="org-src-container">
 
-<p>
-metadata = MetaData()
-</p>
+<pre class="src src-python"><span style="color: #F92672;">from</span> sqlalchemy <span style="color: #F92672;">import</span> Table, MetaData, Column, Integer, String, ForeignKey
+<span style="color: #F92672;">from</span> sqlalchemy.orm <span style="color: #F92672;">import</span> mapper
 
-<p>
-user = Table('user', metadata,
-</p>
+<span style="color: #FD971F;">metadata</span> = MetaData<span style="color: #AE81FF;">()</span>
 
-<p>
-Column('id', Integer, primary<sub>key</sub>=True),
-</p>
+<span style="color: #FD971F;">user</span> = Table<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'user'</span>, metadata,
 
-<p>
-Column('name', String(50)),
-</p>
+            Column<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'id'</span>, Integer, primary_key=<span style="color: #AE81FF;">True</span><span style="color: #66D9EF;">)</span>,
 
-<p>
-Column('fullname', String(50)),
-</p>
+            Column<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'name'</span>, String<span style="color: #A6E22E;">(</span><span style="color: #AE81FF;">50</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>,
 
-<p>
-Column('password', String(12))
-</p>
+            Column<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'fullname'</span>, String<span style="color: #A6E22E;">(</span><span style="color: #AE81FF;">50</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>,
 
-<p>
-)
-</p>
+            Column<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'password'</span>, String<span style="color: #A6E22E;">(</span><span style="color: #AE81FF;">12</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
 
-<p>
-class User(object):
-    def _<sub>init</sub>_<sub>(self, name, fullname, password)</sub>:
-</p>
+        <span style="color: #AE81FF;">)</span>
 
-<p>
-self.name = name
-</p>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">User</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">object</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, name, fullname, password<span style="color: #AE81FF;">)</span>:
 
-<p>
-self.fullname = fullname
-</p>
+        <span style="color: #F92672;">self</span>.name = name
 
-<p>
-self.password = password
-</p>
+        <span style="color: #F92672;">self</span>.fullname = fullname
 
-<p>
-mapper(User, user)
-#+END<sub>SRC</sub>
-</p>
+        <span style="color: #F92672;">self</span>.password = password
+
+mapper<span style="color: #AE81FF;">(</span>User, user<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -380,84 +352,72 @@ mapper(User, user)
 <div class="outline-text-3" id="text-2-3">
 <p>
 -bulk insert &amp; update:
-#+BEING<sub>SRC</sub> python
-def setup<sub>database</sub>(num):
 </p>
+<div class="org-src-container">
 
-<p>
-Base.metadata.create<sub>all</sub>(engine)
-</p>
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">setup_database</span><span style="color: #AE81FF;">(</span>num<span style="color: #AE81FF;">)</span>:
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">Base.metadata.drop_all(engine)</span>
+    Base.metadata.create_all<span style="color: #AE81FF;">(</span>engine<span style="color: #AE81FF;">)</span>
 
-<p>
-s = Session(engine)
-for chunk in range(0, num, 10000):
-    s.bulk<sub>insert</sub><sub>mappings</sub>(Customer, [
-        {
-            'name': 'customer name %d' % i,
-            'description': 'customer description %d' % i
-        } for i in range(chunk, chunk + 10000)
-    ])
-s.commit()
-</p>
+    <span style="color: #FD971F;">s</span> = Session<span style="color: #AE81FF;">(</span>engine<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">for</span> chunk <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>, num, <span style="color: #AE81FF;">10000</span><span style="color: #AE81FF;">)</span>:
+        s.bulk_insert_mappings<span style="color: #AE81FF;">(</span>Customer, <span style="color: #66D9EF;">[</span>
+            <span style="color: #A6E22E;">{</span>
+                <span style="color: #E6DB74;">'name'</span>: <span style="color: #E6DB74;">'customer name %d'</span> % i,
+                <span style="color: #E6DB74;">'description'</span>: <span style="color: #E6DB74;">'customer description %d'</span> % i
+            <span style="color: #A6E22E;">}</span> <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #A6E22E;">(</span>chunk, chunk + <span style="color: #AE81FF;">10000</span><span style="color: #A6E22E;">)</span>
+        <span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+    s.commit<span style="color: #AE81FF;">()</span>
 
-<p>
-setup<sub>database</sub>(num = 10000)
-</p>
+setup_database<span style="color: #AE81FF;">(</span>num = <span style="color: #AE81FF;">10000</span><span style="color: #AE81FF;">)</span>
 
-<p>
-def test<sub>orm</sub><sub>flush</sub>(n):
-    """UPDATE statements via the ORM flush process."""
-    session = Session(bind=engine)
-    for chunk in range(0, n, 1000):
-        customers = session.query(Customer).\
-            filter(Customer.id.between(chunk, chunk + 1000)).all()
-        for customer in customers:
-            customer.description += "updated"
-        session.flush()
-    session.commit()
-#+END<sub>SRC</sub>
-</p>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">test_orm_flush</span><span style="color: #AE81FF;">(</span>n<span style="color: #AE81FF;">)</span>:
+    <span style="color: #E6DB74;">"""UPDATE statements via the ORM flush process."""</span>
+    <span style="color: #FD971F;">session</span> = Session<span style="color: #AE81FF;">(</span>bind=engine<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">for</span> chunk <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>, n, <span style="color: #AE81FF;">1000</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #FD971F;">customers</span> = session.query<span style="color: #AE81FF;">(</span>Customer<span style="color: #AE81FF;">)</span>.\
+            <span style="color: #F92672;">filter</span><span style="color: #AE81FF;">(</span>Customer.<span style="color: #F92672;">id</span>.between<span style="color: #66D9EF;">(</span>chunk, chunk + <span style="color: #AE81FF;">1000</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>
+        <span style="color: #F92672;">for</span> customer <span style="color: #F92672;">in</span> customers:
+            <span style="color: #FD971F;">customer.description</span> += <span style="color: #E6DB74;">"updated"</span>
+        session.flush<span style="color: #AE81FF;">()</span>
+    session.commit<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 
 <p>
 operations:
 -bulk insert &amp; update:
-#+BEING<sub>SRC</sub> python
-def setup<sub>database</sub>(num):
 </p>
+<div class="org-src-container">
 
-<p>
-Base.metadata.create<sub>all</sub>(engine)
-</p>
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">setup_database</span><span style="color: #AE81FF;">(</span>num<span style="color: #AE81FF;">)</span>:
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">Base.metadata.drop_all(engine)</span>
+    Base.metadata.create_all<span style="color: #AE81FF;">(</span>engine<span style="color: #AE81FF;">)</span>
 
-<p>
-s = Session(engine)
-for chunk in range(0, num, 10000):
-    s.bulk<sub>insert</sub><sub>mappings</sub>(Customer, [
-        {
-            'name': 'customer name %d' % i,
-            'description': 'customer description %d' % i
-        } for i in range(chunk, chunk + 10000)
-    ])
-s.commit()
-</p>
+    <span style="color: #FD971F;">s</span> = Session<span style="color: #AE81FF;">(</span>engine<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">for</span> chunk <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>, num, <span style="color: #AE81FF;">10000</span><span style="color: #AE81FF;">)</span>:
+        s.bulk_insert_mappings<span style="color: #AE81FF;">(</span>Customer, <span style="color: #66D9EF;">[</span>
+            <span style="color: #A6E22E;">{</span>
+                <span style="color: #E6DB74;">'name'</span>: <span style="color: #E6DB74;">'customer name %d'</span> % i,
+                <span style="color: #E6DB74;">'description'</span>: <span style="color: #E6DB74;">'customer description %d'</span> % i
+            <span style="color: #A6E22E;">}</span> <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #A6E22E;">(</span>chunk, chunk + <span style="color: #AE81FF;">10000</span><span style="color: #A6E22E;">)</span>
+        <span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+    s.commit<span style="color: #AE81FF;">()</span>
 
-<p>
-setup<sub>database</sub>(num = 10000)
-</p>
+setup_database<span style="color: #AE81FF;">(</span>num = <span style="color: #AE81FF;">10000</span><span style="color: #AE81FF;">)</span>
 
-<p>
-def test<sub>orm</sub><sub>flush</sub>(n):
-    """UPDATE statements via the ORM flush process."""
-    session = Session(bind=engine)
-    for chunk in range(0, n, 1000):
-        customers = session.query(Customer).\
-            filter(Customer.id.between(chunk, chunk + 1000)).all()
-        for customer in customers:
-            customer.description += "updated"
-        session.flush()
-    session.commit()
-#+END<sub>SRC</sub>
-</p>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">test_orm_flush</span><span style="color: #AE81FF;">(</span>n<span style="color: #AE81FF;">)</span>:
+    <span style="color: #E6DB74;">"""UPDATE statements via the ORM flush process."""</span>
+    <span style="color: #FD971F;">session</span> = Session<span style="color: #AE81FF;">(</span>bind=engine<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">for</span> chunk <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>, n, <span style="color: #AE81FF;">1000</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #FD971F;">customers</span> = session.query<span style="color: #AE81FF;">(</span>Customer<span style="color: #AE81FF;">)</span>.\
+            <span style="color: #F92672;">filter</span><span style="color: #AE81FF;">(</span>Customer.<span style="color: #F92672;">id</span>.between<span style="color: #66D9EF;">(</span>chunk, chunk + <span style="color: #AE81FF;">1000</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>
+        <span style="color: #F92672;">for</span> customer <span style="color: #F92672;">in</span> customers:
+            <span style="color: #FD971F;">customer.description</span> += <span style="color: #E6DB74;">"updated"</span>
+        session.flush<span style="color: #AE81FF;">()</span>
+    session.commit<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -465,7 +425,7 @@ def test<sub>orm</sub><sub>flush</sub>(n):
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-04-22 Sat 16:32</p>
+<p class="date">Created: 2017-04-22 Sat 16:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
