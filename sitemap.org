@@ -1,5 +1,5 @@
 + finance
-  + [[file:./finance/option.org][option]]
+  + [[file:./finance/option.org][Option]]
   + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
 + CS
   + [[file:./CS/Python/python.org][Python]]

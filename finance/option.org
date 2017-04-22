@@ -13,16 +13,25 @@
 - put: right to sell stocks at strike price.
 
 ** Option premium:
-premium = instransic value + time value
+- premium = intrinsic value + time value
+  1. Intrinsic value in options is the in-the-money portion of the option's premium. For example, if a call options strike price is $15 and the underlying stock's market price is at $25, then the intrinsic value of the call option is $10, or $25 - $15.
+  2. Value of a call option: max[(S-K),0].
+  3. Value of a put option: max[(K-S),0].
+  4. the time value (TV) (extrinsic or instrumental value) of an option is the premium a rational investor would pay over its current exercise value (intrinsic value), based on the probability it will increase in value before expiry.
 
 ** Greeks
 
 *** delta
+Option value change respected to the stock price change.
 
 *** gamma
+Option delta change respected to the stock price change.
 
 *** theta
+Option value change respected to the time to expiration.
 
 *** rho
+Option value change respected to the interest rate change.
 
 *** vega
+Option value change respected to the volatility change.
