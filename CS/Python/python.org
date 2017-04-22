@@ -12,9 +12,6 @@
 #+SETUPFILE: ~/website/leolle.github.io/configOrg/level2.org
 
 
-#+begin_src python
-
-#+end_src
 * Python basic operations:
 ** Module
 - 当你运行一个Python模块 python fibo.py <arguments>
@@ -291,6 +288,7 @@ df = pd.Dataframe(data = w.wsd().Data[0], index=w.wsd().Times)
 
 
 *** Index
+**** Index manuplication
 - set column as datetime index
 #+begin_src python
 df = df.set_index(pd.DatetimeIndex(df['Date']))
