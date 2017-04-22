@@ -1,1 +1,26 @@
-* test
+#+TITLE: Option
+#+KEYWORDS: option
+#+Latex: t
+
+
+* Option
+
+** definition
+
+- call: right to purchase stocks at strike price.
+- put: right to sell stocks at strike price.
+
+** Option premium:
+premium = instransic value + time value
+
+** Greeks
+
+*** delta
+
+*** gamma
+
+*** theta
+
+*** rho
+
+*** vega
