@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-04-22 Sat 13:46 -->
+<!-- 2017-04-22 Sat 14:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,21 +147,27 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline5">1. Create GitHub Pages:</a>
+<li><a href="#orgheadline11">1. Create GitHub Pages:</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Create a repository</a></li>
 <li><a href="#orgheadline2">1.2. Clone the repository</a></li>
 <li><a href="#orgheadline3">1.3. Create folder structure</a></li>
-<li><a href="#orgheadline4">1.4. Add lines in spacemacs configuration file</a></li>
+<li><a href="#orgheadline4">1.4. Add lines in spacemacs configuration file to publish the org project</a></li>
+<li><a href="#orgheadline5">1.5. Insert file links in sitemap.org</a></li>
+<li><a href="#orgheadline10">1.6. The export options template</a>
+<ul>
+<li><a href="#orgheadline6">1.6.1. Insert basic information using C-c C-e # default</a></li>
+<li><a href="#orgheadline9">1.6.2. Add export templates configuration files</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">1</span> Create GitHub Pages:</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">1</span> Create GitHub Pages:</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 GitHub Pages is easy for websites for you and your projects. GitHub Pages is hosted directly from your GitHub repository.Just edit, push, and your changes are live.
@@ -211,7 +217,7 @@ Go to the folder where you want to store your project, and clone the new reposit
 </div>
 
 <div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Add lines in spacemacs configuration file</h3>
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Add lines in spacemacs configuration file to publish the org project</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
 
@@ -239,12 +245,69 @@ Go to the folder where you want to store your project, and clone the new reposit
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Insert file links in sitemap.org</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span>file:remember.org<span style="color: #66D9EF;">][</span>remember<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.6</span> The export options template</h3>
+<div class="outline-text-3" id="text-1-6">
+</div><div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">1.6.1</span> Insert basic information using C-c C-e # default</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">#+TITLE: filename with the extension omitted
+#+DATE: &lt;2013-06-04 Tue&gt;
+#+AUTHOR: Your name
+#+EMAIL: Your email address
+#+OPTIONS: '<span style="color: #F92672;">:t</span> *:t -:t <span style="color: #F92672;">::t</span> &lt;:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:comment d:<span style="color: #AE81FF;">(</span>not LOGBOOK<span style="color: #AE81FF;">)</span> date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t
+#+OPTIONS: todo:t |:t
+#+CREATOR: Emacs 24.3.50.3 <span style="color: #AE81FF;">(</span>Org mode 8.0.3<span style="color: #AE81FF;">)</span>
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.6.2</span> Add export templates configuration files</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p>
+Create the following files under the org-configuration directory
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline7"></a>level-0.org<br  /><div class="outline-text-5" id="text-1-6-2-1">
+<p>
+:#+STYLE: &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" /&gt;
+</p>
+</div></li>
+<li><a id="orgheadline8"></a>level-1.org<br  /><div class="outline-text-5" id="text-1-6-2-2">
+<p>
+:#+STYLE: &lt;link rel="stylesheet" type="text/css" href="../stylesheet.css" /&gt;
+</p>
+</div></li></ol>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-04-22 Sat 13:46</p>
+<p class="date">Created: 2017-04-22 Sat 14:12</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

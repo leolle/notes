@@ -10,7 +10,7 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
-
+#+SETUPFILE: ../configOrg/level1.org
 
 * Create GitHub Pages:
 GitHub Pages is easy for websites for you and your projects. GitHub Pages is hosted directly from your GitHub repository.Just edit, push, and your changes are live.
@@ -37,7 +37,7 @@ git clone https://github.com/username/username.github.io
    `- sitemap.org
    `- index.org`
 
-** Add lines in spacemacs configuration file
+** Add lines in spacemacs configuration file to publish the org project
 
 #+BEGIN_SRC elisp
 (require 'ox-publish)
@@ -61,3 +61,33 @@ git clone https://github.com/username/username.github.io
  )
 ))
 #+END_SRC
+
+** Insert file links in sitemap.org
+#+begin_src emacs-lisp :tangle yes
+[[file:remember.org][remember]]
+#+end_src
+
+** The export options template
+*** Insert basic information using C-c C-e # default
+#+begin_src emacs-lisp :tangle yes
+#+TITLE: filename with the extension omitted
+#+DATE: <2013-06-04 Tue>
+#+AUTHOR: Your name
+#+EMAIL: Your email address
+#+OPTIONS: ':t *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:comment d:(not LOGBOOK) date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t
+#+OPTIONS: todo:t |:t
+#+CREATOR: Emacs 24.3.50.3 (Org mode 8.0.3)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+end_src
+*** Add export templates configuration files
+Create the following files under the org-configuration directory
+**** level-0.org
+:#+STYLE: <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+**** level-1.org
+:#+STYLE: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
