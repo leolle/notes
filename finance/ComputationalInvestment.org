@@ -1,0 +1,52 @@
+#+TITLES: Machine Learning for Portfolio Mangement
+#+KEYWORDS: machine learning portfolio mangement
+#+OPTIONS: H:2 toc:2 num:3 ^:nil
+#+SETUPFILE: ../configOrg/level1.org
+#+Latex: t
+
+* Goals
+
+** Access of market data
+
+** Visualize market data
+
+** discover market data
+
+** market simulator
+
+* Week 1
+
+** access of historical equity data
+- using QSTK code for basic time series analysis of stock price data.
+
+*** Reading historical data
+#+BEGIN_SRC Python
+import QSTK.qstkutil.qsdateutil as du
+import QSTK.qstkutil.tsutil as tsu
+import QSTK.qstkutil.DataAccess as da
+
+import datetime as dt
+import matplotlib.pyplot as plt
+import pandas as pd
+#+END_SRC
+
+*** Normalized Data
+#+BEGIN_SRC Python
+na_normalized_price = na_price / na_price[0, :]
+#+END_SRC
+** first look at portfolio optimization
+ create and optimize a portfolio for the year 2011.
+*** Write python function that can simulate and assess the performance of a 4 stock portfolio
+**** input:
+- start date.
+- end date.
+- symbols.
+- allocation weight.
+**** return:
+- standard deviation of daily return of the total portfolio.
+- average daily return.
+- sharpe ratio.
+- cumulative return.
+!! daily return should use normalized data, or the daily weight will be rebalanced during the calculation.
+**** optimization:
+Use gradient ascent, but the weight allocation is not linear.

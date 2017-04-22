@@ -1,4 +1,7 @@
+#+TITLES: Option
 #+KEYWORDS: option
+#+OPTIONS: H:2 toc:2 num:3 ^:nil
+#+SETUPFILE: ../configOrg/level1.org
 #+Latex: t
 
 
