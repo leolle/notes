@@ -1,0 +1,46 @@
+#+TITLES: Database concept
+#+KEYWORDS: database
+#+OPTIONS: H:2 toc:2 num:3 ^:nil
+#+SETUPFILE: ../configOrg/level1.org
+#+Latex: t
+
+* database = set of named relations(or tables)
+- set of columns
+- each tuple has a value for each column
+- each attribute has a type(or domain)
+** schema
+- structural description of relations in dbname
+- instance
+- key: attribute whose value is unique in each tuple
+* Querying Relational Database
+** Query Language
+- Relational Algebra
+formal
+- SQL
+actual / implemented
+* Relational Algebra
+** select, project, join
+- query on set of reltations produces relations as a result
+- use operators to filter, slice, combine results.
+- Select operator:
+$\sigma_condition(Expression)$
+$\s GPA > 3.7 ^ HS < 1000 Student$
+- Project operators: picks cerntain columns
+$\pi_Apply1,Apply2,...,Applyn(Expression)$
+$ \pi_ID apply$
+$\pi_ID,StudentName(\sigma_GPA > 3.7 Student)$
+*** cross-product:
+- E1 * E2
+*** natural join
+*** theta join
+** Set operators, renaming, notation
+*** Union operator
+- List of college and student names
+*** Intersection operator
+- Join:
+  $E1 \join E2
+***
+* SQL
+** Basic select statement
+** Table variables and set operators
+*** Union, intersect, except

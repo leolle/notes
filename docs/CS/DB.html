@@ -1,0 +1,1468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-04-22 Sat 13:07 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<meta  name="keywords" content="database" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline4">1. Rational Algebra</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Basic</a></li>
+<li><a href="#orgheadline2">1.2. Addition</a></li>
+<li><a href="#orgheadline3">1.3. Modification</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline16">2. SQL Language</a>
+<ul>
+<li><a href="#orgheadline8">2.1. Command</a></li>
+<li><a href="#orgheadline9">2.2. Datatype</a></li>
+<li><a href="#orgheadline12">2.3. Join</a></li>
+<li><a href="#orgheadline15">2.4. Subquery</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline33">3. Design</a>
+<ul>
+<li><a href="#orgheadline17">3.1. Steps</a></li>
+<li><a href="#orgheadline22">3.2. Schema Pattern</a></li>
+<li><a href="#orgheadline29">3.3. Functional Dependency</a></li>
+<li><a href="#orgheadline32">3.4. Multivalued Dependency</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline40">4. Normalization</a>
+<ul>
+<li><a href="#orgheadline34">4.1. 1NF</a></li>
+<li><a href="#orgheadline35">4.2. 2NF</a></li>
+<li><a href="#orgheadline36">4.3. 3NF</a></li>
+<li><a href="#orgheadline38">4.4. Boyce-Codd Normal Form(BCNF, 3.5NF)</a></li>
+<li><a href="#orgheadline39">4.5. 4NF</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline44">5. Subclasses</a>
+<ul>
+<li><a href="#orgheadline41">5.1. Complete vs. Incomplete(Partial)</a></li>
+<li><a href="#orgheadline42">5.2. Overlapping vs. Disjoint(Exclusive)</a></li>
+<li><a href="#orgheadline43">5.3. How to design?</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline50">6. Constraints</a>
+<ul>
+<li><a href="#orgheadline45">6.1. Motivation</a></li>
+<li><a href="#orgheadline46">6.2. Syntax</a></li>
+<li><a href="#orgheadline49">6.3. Foreign Key</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline53">7. Triggers</a>
+<ul>
+<li><a href="#orgheadline51">7.1. Motivation</a></li>
+<li><a href="#orgheadline52">7.2. Usage</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline60">8. Indexes</a>
+<ul>
+<li><a href="#orgheadline54">8.1. Usage</a></li>
+<li><a href="#orgheadline55">8.2. Underlying Data Structures</a></li>
+<li><a href="#orgheadline56">8.3. SQL Syntax</a></li>
+<li><a href="#orgheadline57">8.4. Downsides</a></li>
+<li><a href="#orgheadline58">8.5. Upsides</a></li>
+<li><a href="#orgheadline59">8.6. Physical Design Advisors</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline64">9. Transaction</a>
+<ul>
+<li><a href="#orgheadline61">9.1. Motivation</a></li>
+<li><a href="#orgheadline62">9.2. Properties</a></li>
+<li><a href="#orgheadline63">9.3. Isolation levels</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> Rational Algebra</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Basic</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>select \(\sigma_{P}(r)\)</li>
+<li>project \(\Pi_{S}(r)\)</li>
+<li>rename \(\rho_{x(A_1,A_2,...,A_n)}(r)\)</li>
+<li>union \(r\cup s\)</li>
+<li>difference \(r-s\)</li>
+<li>cartesian-product \(r\times s\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Addition</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>intersection \(r\cap s = r-(r-s)\)</li>
+<li>natual join \(r\Join s = \Pi_{R\cup S}(\sigma_{r.A_1=s.A_1 \land ...}(r\times s))\)
+<ul class="org-ul">
+<li>theta join \(r\Join_{\theta}s = \sigma_{\theta}(r\times s)\)</li>
+</ul></li>
+<li><p>
+devision
+</p>
+
+<p>
+\[temp1 \leftarrow \Pi_{R-S}(r)\]
+\[temp2 \leftarrow \Pi_{R-S}((temp1\times s) - \Pi_{R-S,S}(r))\]
+\[result = temp1 - temp2\]
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> R</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Student</th>
+<th scope="col" class="org-left">Task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Peter</td>
+<td class="org-left">Database1</td>
+</tr>
+
+<tr>
+<td class="org-left">Peter</td>
+<td class="org-left">Database2</td>
+</tr>
+
+<tr>
+<td class="org-left">Peter</td>
+<td class="org-left">Compiler1</td>
+</tr>
+
+<tr>
+<td class="org-left">Sara</td>
+<td class="org-left">Database1</td>
+</tr>
+
+<tr>
+<td class="org-left">Sara</td>
+<td class="org-left">Database2</td>
+</tr>
+
+<tr>
+<td class="org-left">Mary</td>
+<td class="org-left">Database1</td>
+</tr>
+
+<tr>
+<td class="org-left">Mary</td>
+<td class="org-left">Comipler1</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> S</caption>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Database1</td>
+</tr>
+
+<tr>
+<td class="org-left">Database2</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> R&divide; S</caption>
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Student</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Peter</td>
+</tr>
+
+<tr>
+<td class="org-left">Sara</td>
+</tr>
+</tbody>
+</table></li>
+
+<li>aggregation \(group_column\zeta_{aggre\_func(column)}(r)\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Modification</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>delete \(r\leftarrow r - E\)</li>
+<li>insert \(r\leftarrow r\cup E\)</li>
+<li>update \(r\leftarrow \Pi_{F_1,F_2,...,F_n}(r)\)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">2</span> SQL Language</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">2.1</span> Command</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline5"></a>CREATE &amp; DROP &amp; ALTER<br  /><div class="outline-text-4" id="text-2-1-1">
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">CREATE</span> DATABASE dbname;
+USE DATABASE dbname;
+<span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">TABLE</span> <span style="color: #F92672;">table_name</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">column_name</span> <span style="color: #F92672;">TYPE</span> Constrains, ... <span style="color: #AE81FF;">)</span>;
+<span style="color: #F92672;">DESC</span> <span style="color: #F92672;">table_name</span>;
+<span style="color: #F92672;">DROP</span> <span style="color: #F92672;">TABLE</span>;
+<span style="color: #F92672;">ALTER</span> <span style="color: #F92672;">TABLE</span> <span style="color: #F92672;">table_name</span>
+
+<span style="color: #F92672;">ADD</span> <span style="color: #F92672;">COLUMN</span> columnName ...
+<span style="color: #F92672;">ADD</span> <span style="color: #F92672;">PRIMARY</span> <span style="color: #F92672;">KEY</span> <span style="color: #AE81FF;">(</span>columnName<span style="color: #AE81FF;">)</span>
+RENAME <span style="color: #F92672;">TO</span> tableNewName
+CHANGE <span style="color: #F92672;">COLUMN</span> columnOldName columnNewName <span style="color: #F92672;">TYPE</span> ...
+<span style="color: #F92672;">MODIFY</span> <span style="color: #F92672;">COLUMN</span> columnName <span style="color: #F92672;">TYPE</span>...
+<span style="color: #F92672;">DROP</span> <span style="color: #F92672;">COLUMN</span> columnName
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline6"></a>INSERT &amp; UPDATE &amp; DELETE<br  /><div class="outline-text-4" id="text-2-1-2">
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> tableName <span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>columnName1, columnName2, ...<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span> <span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'value1'</span>, <span style="color: #E6DB74;">'value2'</span>, ...<span style="color: #AE81FF;">)</span>;
+<span style="color: #F92672;">UPDATE</span> tableName <span style="color: #F92672;">SET</span> columnName1 = <span style="color: #E6DB74;">'value1'</span>, columnName2 = <span style="color: #E6DB74;">'value2'</span> <span style="color: #F92672;">WHERE</span> expr;
+<span style="color: #F92672;">DELETE</span> <span style="color: #F92672;">FROM</span> tableName <span style="color: #F92672;">WHERE</span> expr;
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline7"></a>Other Keywords<br  /><div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li>REGEXP pattern</li>
+<li>IN ('value1', 'value2', &#x2026;)</li>
+<li><p>
+columnName BETWEEN value1 and value2
+</p>
+
+<p>
+Equivalent to "columnName &gt; value1 and columnName &lt; value2"
+</p></li>
+
+<li><p>
+NOT
+</p>
+<p class="verse">
+When 'NOT' use with 'BETWEEN' and 'LIKE', 'NOT' must follow with 'WHERE' or 'AND/OR'.<br  />
+'NOT IN' is an exception. "IS NOT NULL" also.<br  />
+</p></li>
+
+<li><p>
+SHOW
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sql">SHOW <span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">TABLE</span> tableName;
+SHOW COLUMNS <span style="color: #F92672;">FROM</span> tableName;
+SHOW INDEX <span style="color: #F92672;">FROM</span> tableName;
+SHOW WARNINGS;
+</pre>
+</div></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>FIRST, LAST, BEFORE, AFTER, SECOND&#x2026;</li>
+
+<li><p>
+CASE
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">UPDATE</span> tableName <span style="color: #F92672;">SET</span> columnName =
+<span style="color: #F92672;">CASE</span>
+  <span style="color: #F92672;">WHEN</span> column_1 = somevalue1
+    <span style="color: #F92672;">THEN</span> newValue;
+</pre>
+</div></li>
+
+<li><p>
+ORDER BY
+</p>
+
+<p>
+ORDER BY columnName [ASC/DESC]
+</p></li>
+
+<li><p>
+SUM, AVG, MAX, MIN, COUNT
+</p>
+<ul class="org-ul">
+<li>match with GROUP_BY</li>
+</ul>
+<p>
+E.g:SUM(columnName) &#x2026; GROUP BY columnName
+</p></li>
+
+<li><p>
+GROUP BY
+</p>
+
+<p>
+remove the duplicates
+</p>
+<ul class="org-ul">
+<li>SELECT columnName1, columnName2 FROM tableName GROUP BY columnName2</li>
+</ul></li>
+
+<li><p>
+Having
+</p>
+
+<p>
+The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+E.g: HAVING count(columnName) &gt; 5
+</p></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>EXISTS, NOT EXISTS are always using in corelated subquery.</li>
+
+<li>UNION
+<ul class="org-ul">
+<li>Suppress the duplicates by default. UNION ALL can keep the duplicates.</li>
+</ul></li>
+
+<li><p>
+WITH
+</p>
+
+<p>
+Define temporary view
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">WITH</span> temp_view_name<span style="color: #AE81FF;">(</span>columnName...<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span>
+     <span style="color: #F92672;">select</span> <span style="color: #F92672;">statement</span>
+<span style="color: #F92672;">SELECT</span> ...
+<span style="color: #F92672;">FROM</span> temp_view_name
+<span style="color: #F92672;">WHERE</span> ...
+</pre>
+</div></li>
+
+<li><p>
+RECURSIVE
+</p>
+<ul class="org-ul">
+<li>CREAT RECURSIVE VIEW</li>
+<li>WITH RECURSIVE</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">WITH</span> <span style="color: #F92672;">RECURSIVE</span> empl<span style="color: #AE81FF;">(</span>employee_name, manager_name<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> <span style="color: #AE81FF;">(</span>
+     <span style="color: #F92672;">SELECT</span> employee_name, manager_name
+     <span style="color: #F92672;">FROM</span> manager
+    <span style="color: #F92672;">UNION</span>
+     <span style="color: #F92672;">SELECT</span> manager.employee_name,empl.manager_name
+     <span style="color: #F92672;">FROM</span> manager, empl
+     <span style="color: #F92672;">WHERE</span> manager.manager_name = empl.employee_name
+<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">SELECT</span> *
+<span style="color: #F92672;">FROM</span> empl
+</pre>
+</div></li>
+
+<li>GRANT &amp; REVOKE
+<ul class="org-ul">
+<li>GRANT statement ON table TO who</li>
+<li>REVOKE statement ON table FROM who</li>
+</ul></li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">2.2</span> Datatype</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+CHAR, VARCHAR, BLOB, INT, DEC, DATE, DATETIME
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">2.3</span> Join</h3>
+<div class="outline-text-3" id="text-2-3">
+</div><ol class="org-ol"><li><a id="orgheadline10"></a>Overview<br  /><div class="outline-text-4" id="text-2-3-1">
+
+<div class="figure">
+<p><img src="../resources/data/sqljoins.png" alt="sqljoins.png" />
+</p>
+</div>
+</div></li>
+<li><a id="orgheadline11"></a>Inner Join<br  /><div class="outline-text-4" id="text-2-3-2">
+<p class="verse">
+An inner join is just a cartesian join with<br  />
+some result rows removed by a condition in the query.<br  />
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">2.4</span> Subquery</h3>
+<div class="outline-text-3" id="text-2-4">
+</div><ol class="org-ol"><li><a id="orgheadline13"></a>Noncorrelated Subquery<br  /><div class="outline-text-4" id="text-2-4-1">
+<p class="verse">
+A subquery that stands alone and doesn't reference<br  />
+anything from the outer query.<br  />
+<br  />
+RDBMS will excute inner first, then excute outer.<br  />
+</p>
+</div></li>
+<li><a id="orgheadline14"></a>Correlated Subquery<br  /><div class="outline-text-4" id="text-2-4-2">
+<p class="verse">
+A subquery that relies on values returned from<br  />
+the outer query.(Slow)<br  />
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline33" class="outline-2">
+<h2 id="orgheadline33"><span class="section-number-2">3</span> Design</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.1</span> Steps</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>Find <b>the one thing</b> need to be described.</li>
+<li>List <b>necessary</b> information about this thing.(Depends on how to use this table)</li>
+<li>Break down the information <b>into pieces</b> .</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">3.2</span> Schema Pattern</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><ol class="org-ol"><li><a id="orgheadline19"></a>One to One<br  /><ul class="org-ul"><li><a id="orgheadline18"></a>When to use<br  /><div class="outline-text-5" id="text-orgheadline18">
+<ol class="org-ol">
+<li>Allow you to write fast queries.</li>
+<li>If you have a column containing values you don't yet know.Iso NULL value.</li>
+<li>Make data less accessible.</li>
+<li>To store a large piece of data, like BLOB.</li>
+</ol>
+</div></li></ul></li>
+<li><a id="orgheadline20"></a>One to Many<br  /></li>
+<li><a id="orgheadline21"></a>Many to Many<br  /><div class="outline-text-4" id="text-3-2-3">
+<p>
+use junction table.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">3.3</span> Functional Dependency</h3>
+<div class="outline-text-3" id="text-3-3">
+</div><ol class="org-ol"><li><a id="orgheadline23"></a>Definition<br  /><div class="outline-text-4" id="text-3-3-1">
+<p>
+\[\forall t,u \in R\  (t[\bar A]= u[\bar A]) \to (t[\bar B] = u[\bar B])\]
+</p>
+</div></li>
+<li><a id="orgheadline26"></a>Functional Dependency<br  /><div class="outline-text-4" id="text-3-3-2">
+<p class="verse">
+If we have a functional dependency \(\bar A \to \bar B\),<br  />
+</p>
+<ul class="org-ul">
+<li><p>
+Trivial
+</p>
+
+<p>
+\(\bar B \subseteq \bar A\) and \(\bar A \to \bar A \cup \bar B\) elso.
+</p></li>
+
+<li><p>
+Nontrivial
+</p>
+
+<p>
+\(\bar B \nsubseteq \bar A\)
+</p></li>
+
+<li><p>
+Completely nontrivial
+</p>
+
+<p>
+\(\bar A \cap \bar B = \emptyset\)
+</p></li>
+</ul>
+</div>
+
+<ul class="org-ul"><li><a id="orgheadline24"></a>Partial Functional Dependency<br  /><div class="outline-text-5" id="text-orgheadline24">
+<p>
+When a non-key column is dependent on some, but not all, of the composite PK.
+</p>
+</div></li>
+
+<li><a id="orgheadline25"></a>Transitive Functional Dependency<br  /><div class="outline-text-5" id="text-orgheadline25">
+<p>
+When any non-key column is dependent on any of the other non-key columns.
+</p>
+</div></li></ul></li>
+
+<li><a id="orgheadline27"></a>Rules For FD<br  /><div class="outline-text-4" id="text-3-3-3">
+<ul class="org-ul">
+<li><p>
+Splitting rule
+</p>
+
+<p>
+If \(\bar A \to B_1, B_2\) , then \(\bar A \to B_1\ \bar A \to B_2\)
+</p></li>
+
+<li><p>
+Combining rule
+</p>
+
+<p>
+If \(\bar A \to B_1\ \bar A \to B_2\), then \(\bar A \to B_1, B_2\)
+</p></li>
+
+<li><p>
+Transitive rule
+</p>
+
+<p>
+If \(\bar A \to \bar B\) and \(\bar B \to \bar C\), then \(\bar A \to \bar C\)
+</p></li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline28"></a>Closure of Attributes<br  /><div class="outline-text-4" id="text-3-3-4">
+<p class="verse">
+Given relation, FDs, set of attributes \(\bar A\)<br  />
+Find all B such that \(\bar A \to B\) .<br  />
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">3.4</span> Multivalued Dependency</h3>
+<div class="outline-text-3" id="text-3-4">
+</div><ol class="org-ol"><li><a id="orgheadline30"></a>Definition<br  /><div class="outline-text-4" id="text-3-4-1">
+<p class="verse">
+\(\forall t, u\in R:\ t[\bar A] = u[\bar A]\) then<br  />
+\(\exists v \in R:\)<br  />
+\(v[\bar A] = t[\bar A]\) and<br  />
+\(v[\bar B] = t[\bar B]\) and<br  />
+\(v[rest] = u[rest]\)<br  />
+<br  />
+MVD says, If two tuples have same value for \(\bar A\),<br  />
+then we have <b>every</b> combination for \(\bar B\) value and the rest.<br  />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">tuple</th>
+<th scope="col" class="org-left">\(\bar A\)</th>
+<th scope="col" class="org-left">\(\bar B\)</th>
+<th scope="col" class="org-left">rest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">\(\bar a\)</td>
+<td class="org-left">\(\bar b_1\)</td>
+<td class="org-left">\(\bar r_1\)</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">\(\bar a\)</td>
+<td class="org-left">\(\bar b_2\)</td>
+<td class="org-left">\(\bar r_2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">\(\bar a\)</td>
+<td class="org-left">\(\bar b_1\)</td>
+<td class="org-left">\(\bar r_2\)</td>
+</tr>
+</tbody>
+</table>
+<p class="verse">
+Note that, there aslo must exist w:<br  />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">w</td>
+<td class="org-left">\(\bar a\)</td>
+<td class="org-left">\(\bar b_2\)</td>
+<td class="org-left">\(\bar r_1\)</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><p>
+Trivial MVDs
+</p>
+
+<p class="verse">
+\(\bar B\subseteq \bar A\) or \(\bar A\cup \bar B = all\ attributes\)<br  />
+always satisfied MVD.<br  />
+<br  />
+E.g. for first case, Consider \(\bar{AB} \twoheadrightarrow \bar B\).<br  />
+</p></li>
+
+<li><p>
+Nontrivial
+</p>
+
+<p>
+otherwise.
+</p></li>
+</ul>
+
+<p>
+MVD is a <b>tuple-generating</b> dependency.
+</p>
+</div></li>
+
+<li><a id="orgheadline31"></a>Rules For MVD<br  /><div class="outline-text-4" id="text-3-4-2">
+<ul class="org-ul">
+<li>FD is a MVD</li>
+<li><p>
+Intersection rule
+</p>
+
+<p>
+If \((\bar A\twoheadrightarrow \bar B) \land (\bar A\twoheadrightarrow \bar C)\) ,
+then \(\bar A\twoheadrightarrow \bar B\cap \bar C\) .
+</p></li>
+
+<li><p>
+Transitive rule
+</p>
+
+<p>
+If \((\bar A\twoheadrightarrow \bar B) \land (\bar B\twoheadrightarrow \bar C)\) ,
+then \(\bar A\twoheadrightarrow \bar C - \bar B\) .
+</p></li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-2">
+<h2 id="orgheadline40"><span class="section-number-2">4</span> Normalization</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">4.1</span> 1NF</h3>
+<div class="outline-text-3" id="text-4-1">
+<p class="verse">
+Data in your column is atomic if it's been broken<br  />
+down into the smallest pieces that you need.<br  />
+</p>
+
+<ul class="org-ul">
+<li><p>
+Rule 1:
+</p>
+<p class="verse">
+A column with atomic data can't have several values of<br  />
+the same type of data in that column.<br  />
+One example obeys the rule 1:<br  />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">food_name</th>
+<th scope="col" class="org-left">ingredients</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">bread</td>
+<td class="org-left">flour, milk, egg, yeast, oil</td>
+</tr>
+
+<tr>
+<td class="org-left">salad</td>
+<td class="org-left">lettuce, tomato, cucumber</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+Rule 2:
+</p>
+<p class="verse">
+A table with atomic data can't have multiple columns<br  />
+with the same type of data.<br  />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">teacher</th>
+<th scope="col" class="org-left">student1</th>
+<th scope="col" class="org-left">student2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ms.Mary</td>
+<td class="org-left">Joe</td>
+<td class="org-left">Ron</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">4.2</span> 2NF</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>Rule 1: Be in 1NF</li>
+<li>Rule 2: Have no partial functional dependencies.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">4.3</span> 3NF</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>Rule 1: Be in 2NF</li>
+<li>Rule 2: Have no transitive dependencies.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">4.4</span> Boyce-Codd Normal Form(BCNF, 3.5NF)</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+FD leads to the BCNF.
+</p>
+<ul class="org-ul">
+<li><p>
+Definition
+</p>
+<p class="verse">
+Relation R with FDs is in BCNF if:<br  />
+For each  nontrivial \(\bar A\to B\), \(\bar A\) is a key.<br  />
+</p></li>
+</ul>
+</div>
+<ol class="org-ol"><li><a id="orgheadline37"></a>Validation Example<br  /><div class="outline-text-4" id="text-4-4-1">
+<p class="verse">
+R(A, B, C, D)<br  />
+FDs: \(AC\to D,\ D\to A,\ D\to C,\ D\to B\)<br  />
+For every \(\bar{left}\) can determine all the attributes.<br  />
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">4.5</span> 4NF</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li><p>
+Definition
+</p>
+<p class="verse">
+Relation R with MVDs is in 4NF if:<br  />
+For each nontrivial \(\bar A\twoheadrightarrow \bar B\), A is a key.<br  />
+</p></li>
+</ul>
+<p>
+4NF is in BCNF.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline44" class="outline-2">
+<h2 id="orgheadline44"><span class="section-number-2">5</span> Subclasses</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">5.1</span> Complete vs. Incomplete(Partial)</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Complete: Every object is in at least one subclass.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42"><span class="section-number-3">5.2</span> Overlapping vs. Disjoint(Exclusive)</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Overlapping: One object is in two+ subclasses.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">5.3</span> How to design?</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+3 choices:
+</p>
+<ol class="org-ol">
+<li>Subclass relations contain superclass key + specialized attrs</li>
+<li>Subclass relations contain all attributes</li>
+<li>One relation containing all superclass + subclass attrs</li>
+</ol>
+<p class="verse">
+Best translation may depend on properties:<br  />
+Heavily overlapping -&gt; design 3<br  />
+Disjoint, complete -&gt;design 2<br  />
+</p>
+<p>
+Examples:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-plantuml">@startuml
+title Subclass Example
+Superclass &lt;|-- Subclass1
+Superclass &lt;|-- Subclass2
+class Superclass{
+k PK
+A
+}
+
+class Subclass1{
+B
+}
+
+class Subclass2{
+C
+}
+@enduml
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>S(_K_, A), S1(_K_, B), S2(_K_, C)</li>
+<li>S(_K_, A), S1(_K_, A, B), S2(_K_, A, C)</li>
+<li>S(_K_, A, B, C)</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline50" class="outline-2">
+<h2 id="orgheadline50"><span class="section-number-2">6</span> Constraints</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45"><span class="section-number-3">6.1</span> Motivation</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Constrain allowable database states.(static)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline46" class="outline-3">
+<h3 id="orgheadline46"><span class="section-number-3">6.2</span> Syntax</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Major keywords: PK, FK, UNIQUE, CHECK
+</p>
+
+
+<ul class="org-ul">
+<li>Examples:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">Create</span> ...
+<span style="color: #AE81FF;">{</span>
+    columnName <span style="color: #F92672;">type</span> <span style="color: #F92672;">CHECK</span> <span style="color: #66D9EF;">(</span>columnName <span style="color: #F92672;">IN</span> <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'value1'</span>, <span style="color: #E6DB74;">'value2'</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>;
+<span style="color: #AE81FF;">}</span>
+
+<span style="color: #F92672;">ADD</span> <span style="color: #F92672;">CONSTRAINT</span> <span style="color: #F92672;">CHECK</span> columnName &gt; <span style="color: #AE81FF;">1</span>;
+
+<span style="color: #F92672;">CHECK</span> <span style="color: #E6DB74;">'A'</span> = <span style="color: #F92672;">SUBSTRING</span><span style="color: #AE81FF;">(</span>columnName, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline49" class="outline-3">
+<h3 id="orgheadline49"><span class="section-number-3">6.3</span> Foreign Key</h3>
+<div class="outline-text-3" id="text-6-3">
+</div><ol class="org-ol"><li><a id="orgheadline47"></a>Facts<br  /><div class="outline-text-4" id="text-6-3-1">
+<ol class="org-ol">
+<li>A FK can have different name than the parent key.</li>
+<li>FK values can be NULL.</li>
+<li>We can make sure a FK contains a meaningful value by using a <b>constraint</b> .</li>
+<li>The FK doesn't have to be the primary key of the parent table, but it must be unique.</li>
+</ol>
+</div></li>
+<li><a id="orgheadline48"></a>Creation<br  /><div class="outline-text-4" id="text-6-3-2">
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">tableName</span>
+<span style="color: #AE81FF;">(</span>
+    ...
+    columnName <span style="color: #F92672;">TYPE</span> <span style="color: #F92672;">NOT</span> <span style="color: #F92672;">NULL</span>,
+    <span style="color: #66D9EF;">[</span><span style="color: #F92672;">CONSTRAINT</span> <span style="color: #F92672;">constraint_name</span>,<span style="color: #66D9EF;">]</span>
+    <span style="color: #F92672;">FOREIGN</span> <span style="color: #F92672;">KEY</span> <span style="color: #66D9EF;">(</span>foreign_key_name<span style="color: #66D9EF;">)</span>
+    <span style="color: #F92672;">REFERENCES</span> parent_tableName <span style="color: #66D9EF;">(</span>parent_columnName<span style="color: #66D9EF;">)</span>
+<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+You can name constraint_name and foreign_key_name whatever you like.
+</p>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline53" class="outline-2">
+<h2 id="orgheadline53"><span class="section-number-2">7</span> Triggers</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline51" class="outline-3">
+<h3 id="orgheadline51"><span class="section-number-3">7.1</span> Motivation</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>To enforce constraints(Dynamic)</li>
+<li>Move logic from apps into DBMS</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline52" class="outline-3">
+<h3 id="orgheadline52"><span class="section-number-3">7.2</span> Usage</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li><p>
+Event-Condition-Action Rules
+</p>
+
+<p>
+When <b>event</b> occurs, check <b>condition</b>; if true, do <b>action</b>.
+</p></li>
+
+<li><p>
+Syntax
+</p>
+<p class="verse">
+Create Trigger <b>name</b><br  />
+Before|After|Instead of <b>events</b><br  />
+<b>[referencing-variables]</b><br  />
+[For Each Row]<br  />
+[when (<b>condition</b>)]<br  />
+<b>action</b><br  />
+</p>
+<ul class="org-ul">
+<li><p>
+events
+</p>
+<p class="verse">
+insert on T<br  />
+delete on T<br  />
+update [of C1,&#x2026;,Cn] on T<br  />
+</p></li>
+
+<li><p>
+[For Each Row]
+</p>
+
+<p>
+Determines whether the trigger is row-level or statement-level
+</p></li>
+
+<li><p>
+referencing-variables
+</p>
+<p class="verse">
+Depends on [For Each Row]<br  />
+old row as <b>var</b><br  />
+new row as <b>var</b><br  />
+old table as <b>var</b><br  />
+new table as <b>var</b><br  />
+</p></li>
+
+<li><p>
+condition
+</p>
+
+<p>
+In <i>when</i> or <i>where</i> clause depends on the SQL Implementation.
+</p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline60" class="outline-2">
+<h2 id="orgheadline60"><span class="section-number-2">8</span> Indexes</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">8.1</span> Usage</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+Different between full table scans and immediate location of tuples.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline55" class="outline-3">
+<h3 id="orgheadline55"><span class="section-number-3">8.2</span> Underlying Data Structures</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li><p>
+Balanced trees (B tree, B+ tree)
+</p>
+
+<p>
+When uses "&gt;, &lt;, &gt;=, &lt;=" in query.
+</p></li>
+<li><p>
+Hashtable
+</p>
+
+<p>
+When uses "=" in query.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">8.3</span> SQL Syntax</h3>
+<div class="outline-text-3" id="text-8-3">
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">CREATE</span> INDEX IndexName <span style="color: #F92672;">ON</span> T<span style="color: #AE81FF;">(</span>A1,A2...<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">UNIQUE</span> INDEX ...
+<span style="color: #F92672;">DROP</span> INDEX IndexName
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">8.4</span> Downsides</h3>
+<div class="outline-text-3" id="text-8-4">
+<ul class="org-ul">
+<li>Extra space</li>
+<li>Index creation</li>
+<li><p>
+Index maintenance(Important)
+</p>
+
+<p>
+When updates database, indexes will also be updated.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">8.5</span> Upsides</h3>
+<div class="outline-text-3" id="text-8-5">
+<p>
+Benefits depends on:
+</p>
+
+<ul class="org-ul">
+<li>Data distributions</li>
+<li>Query vs. update load</li>
+<li>Size of table(and possibly layout)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">8.6</span> Physical Design Advisors</h3>
+<div class="outline-text-3" id="text-8-6">
+<ul class="org-ul">
+<li>Input (database statistics and workload)</li>
+<li>Output (recommended indexes)</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="../resources/data/QueryOptimizer.png" alt="QueryOptimizer.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline64" class="outline-2">
+<h2 id="orgheadline64"><span class="section-number-2">9</span> Transaction</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">9.1</span> Motivation</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li>Concurrent database access</li>
+<li>Resilience to system failures</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62"><span class="section-number-3">9.2</span> Properties</h3>
+<div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li><p>
+A(Atomicity)
+</p>
+
+<p>
+Each transaction is "all-or-nothing", never left half done.
+</p></li>
+
+<li><p>
+C(Consistency)
+</p>
+<p class="verse">
+Can assume all constrants hold when transaction begins.<br  />
+Must guarantee all constraints hold when transaction ends.<br  />
+Serializability -&gt; constraints always hold<br  />
+</p></li>
+<li><p>
+I(Isolation)
+</p>
+<p class="verse">
+Serializability: Execution must be equivalent to some<br  />
+sequential(serial) order of all transactions.(e.g. T9, T1, T2, T3, &#x2026;)<br  />
+</p></li>
+<li><p>
+D(Durability)
+</p>
+<p class="verse">
+If system crashes after transaction commits,<br  />
+all effects of transaction remain in database.<br  />
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">9.3</span> Isolation levels</h3>
+<div class="outline-text-3" id="text-9-3">
+<ul class="org-ul">
+<li>dirty data: written by an uncommitted transaction</li>
+<li><p>
+nonrepeatable reads: an item read multiple times cannot change values
+</p>
+<pre class="example">
+T1:    Update Student Set GPA=(1.1)*GPA
+T2.S1: Select AVG(GPA) From Student
+T2.S2: Select MAX(GPA) From Student
+</pre>
+<p class="verse">
+T2.S1 may excute before T1, T2.S2 may excute after T1.<br  />
+The GPAs in S1 and S2 are different, leads to a nonrepatable reads violation.<br  />
+</p></li>
+<li><p>
+phantoms
+</p>
+<pre class="example">
+T1:    Insert Into Student [100 new tuples]
+T2.S1: Select AVG(GPA) From Student
+T2.S2: Select MAX(GPA) From Student
+</pre>
+<p class="verse">
+T2.S1 may excute before T1, T2.S2 may excute after T1.<br  />
+[100 new tuples] are known as the phantoms tuples.<br  />
+</p></li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">levels</th>
+<th scope="col" class="org-left">dirty reads</th>
+<th scope="col" class="org-left">nonrepeatable reads</th>
+<th scope="col" class="org-left">phantoms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Read Uncommitted</td>
+<td class="org-left">Y</td>
+<td class="org-left">Y</td>
+<td class="org-left">Y</td>
+</tr>
+
+<tr>
+<td class="org-left">Read Committed</td>
+<td class="org-left">N</td>
+<td class="org-left">Y</td>
+<td class="org-left">Y</td>
+</tr>
+
+<tr>
+<td class="org-left">Repeatable Read</td>
+<td class="org-left">N</td>
+<td class="org-left">N</td>
+<td class="org-left">Y</td>
+</tr>
+
+<tr>
+<td class="org-left">Serializable</td>
+<td class="org-left">N</td>
+<td class="org-left">N</td>
+<td class="org-left">N</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Standard default: <b>Serializable</b></li>
+<li>Some systems have default <b>Repeatable Read</b></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: weiwu</p>
+<p class="date">Created: 2017-04-22 Sat 13:07</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

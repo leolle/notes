@@ -1,0 +1,573 @@
+#+TITLES: Database concept
+#+KEYWORDS: database
+#+OPTIONS: H:2 toc:2 num:3 ^:nil
+#+SETUPFILE: ../configOrg/level1.org
+#+Latex: t
+* Rational Algebra
+** Basic
+- select $\sigma_{P}(r)$
+- project $\Pi_{S}(r)$
+- rename $\rho_{x(A_1,A_2,...,A_n)}(r)$
+- union $r\cup s$
+- difference $r-s$
+- cartesian-product $r\times s$
+** Addition
+- intersection $r\cap s = r-(r-s)$
+- natual join $r\Join s = \Pi_{R\cup S}(\sigma_{r.A_1=s.A_1 \land ...}(r\times s))$
+  - theta join $r\Join_{\theta}s = \sigma_{\theta}(r\times s)$
+- devision
+
+  $$temp1 \leftarrow \Pi_{R-S}(r)$$
+  $$temp2 \leftarrow \Pi_{R-S}((temp1\times s) - \Pi_{R-S,S}(r))$$
+  $$result = temp1 - temp2$$
+
+  #+CAPTION: R
+  | Student | Task      |
+  |---------+-----------|
+  | Peter   | Database1 |
+  | Peter   | Database2 |
+  | Peter   | Compiler1 |
+  | Sara    | Database1 |
+  | Sara    | Database2 |
+  | Mary    | Database1 |
+  | Mary    | Comipler1 |
+
+  #+CAPTION: S
+  | Task      |
+  |-----------|
+  | Database1 |
+  | Database2 |
+
+  #+CAPTION: R\div S
+  | Student |
+  |---------|
+  | Peter   |
+  | Sara    |
+
+- aggregation $group_column\zeta_{aggre\_func(column)}(r)$
+** Modification
+- delete $r\leftarrow r - E$
+- insert $r\leftarrow r\cup E$
+- update $r\leftarrow \Pi_{F_1,F_2,...,F_n}(r)$
+* SQL Language
+** Command
+*** CREATE & DROP & ALTER
+#+BEGIN_SRC sql
+  CREATE DATABASE dbname;
+  USE DATABASE dbname;
+  CREATE TABLE table_name (column_name TYPE Constrains, ... );
+  DESC table_name;
+  DROP TABLE;
+  ALTER TABLE table_name
+
+  ADD COLUMN columnName ...
+  ADD PRIMARY KEY (columnName)
+  RENAME TO tableNewName
+  CHANGE COLUMN columnOldName columnNewName TYPE ...
+  MODIFY COLUMN columnName TYPE...
+  DROP COLUMN columnName
+#+END_SRC
+*** INSERT & UPDATE & DELETE
+#+BEGIN_SRC sql
+  INSERT INTO tableName [(columnName1, columnName2, ...)] VALUES ('value1', 'value2', ...);
+  UPDATE tableName SET columnName1 = 'value1', columnName2 = 'value2' WHERE expr;
+  DELETE FROM tableName WHERE expr;
+#+END_SRC
+
+*** Other Keywords
+- REGEXP pattern
+- IN ('value1', 'value2', ...)
+- columnName BETWEEN value1 and value2
+
+  Equivalent to "columnName > value1 and columnName < value2"
+
+- NOT
+  #+BEGIN_VERSE
+  When 'NOT' use with 'BETWEEN' and 'LIKE', 'NOT' must follow with 'WHERE' or 'AND/OR'.
+  'NOT IN' is an exception. "IS NOT NULL" also.
+  #+END_VERSE
+
+- SHOW
+  #+BEGIN_SRC sql
+    SHOW CREATE TABLE tableName;
+    SHOW COLUMNS FROM tableName;
+    SHOW INDEX FROM tableName;
+    SHOW WARNINGS;
+  #+END_SRC
+
+
+- FIRST, LAST, BEFORE, AFTER, SECOND...
+
+- CASE
+  #+BEGIN_SRC sql
+    UPDATE tableName SET columnName =
+    CASE
+      WHEN column_1 = somevalue1
+        THEN newValue;
+  #+END_SRC
+
+- ORDER BY
+
+  ORDER BY columnName [ASC/DESC]
+
+- SUM, AVG, MAX, MIN, COUNT
+  - match with GROUP_BY
+
+	E.g:SUM(columnName) ... GROUP BY columnName
+
+- GROUP BY
+
+  remove the duplicates
+  - SELECT columnName1, columnName2 FROM tableName GROUP BY columnName2
+
+- Having
+
+  The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+  E.g: HAVING count(columnName) > 5
+
+
+- EXISTS, NOT EXISTS are always using in corelated subquery.
+
+- UNION
+  - Suppress the duplicates by default. UNION ALL can keep the duplicates.
+
+- WITH
+
+  Define temporary view
+  #+BEGIN_SRC sql
+    WITH temp_view_name(columnName...) as
+         select statement
+    SELECT ...
+    FROM temp_view_name
+    WHERE ...
+  #+END_SRC
+
+- RECURSIVE
+  - CREAT RECURSIVE VIEW
+  - WITH RECURSIVE
+  #+BEGIN_SRC sql
+    WITH RECURSIVE empl(employee_name, manager_name) as (
+         SELECT employee_name, manager_name
+         FROM manager
+        UNION
+         SELECT manager.employee_name,empl.manager_name
+         FROM manager, empl
+         WHERE manager.manager_name = empl.employee_name
+    )
+    SELECT *
+    FROM empl
+  #+END_SRC
+
+- GRANT & REVOKE
+  - GRANT statement ON table TO who
+  - REVOKE statement ON table FROM who
+
+** Datatype
+CHAR, VARCHAR, BLOB, INT, DEC, DATE, DATETIME
+** Join
+*** Overview
+#+ATTR_HTML: align="center"
+[[file:../resources/data/sqljoins.png]]
+*** Inner Join
+#+BEGIN_VERSE
+An inner join is just a cartesian join with
+some result rows removed by a condition in the query.
+#+END_VERSE
+
+** Subquery
+*** Noncorrelated Subquery
+#+BEGIN_VERSE
+A subquery that stands alone and doesn't reference
+anything from the outer query.
+
+RDBMS will excute inner first, then excute outer.
+#+END_VERSE
+*** Correlated Subquery
+#+BEGIN_VERSE
+A subquery that relies on values returned from
+the outer query.(Slow)
+#+END_VERSE
+
+* Design
+** Steps
+1) Find *the one thing* need to be described.
+2) List *necessary* information about this thing.(Depends on how to use this table)
+3) Break down the information *into pieces* .
+
+** Schema Pattern
+*** One to One
+**** When to use
+1) Allow you to write fast queries.
+2) If you have a column containing values you don't yet know.Iso NULL value.
+3) Make data less accessible.
+4) To store a large piece of data, like BLOB.
+*** One to Many
+*** Many to Many
+use junction table.
+
+** Functional Dependency
+*** Definition
+$$\forall t,u \in R\  (t[\bar A]= u[\bar A]) \to (t[\bar B] = u[\bar B])$$
+*** Functional Dependency
+#+BEGIN_VERSE
+If we have a functional dependency $\bar A \to \bar B$,
+#+END_VERSE
+- Trivial
+
+  $\bar B \subseteq \bar A$ and $\bar A \to \bar A \cup \bar B$ elso.
+
+- Nontrivial
+
+  $\bar B \nsubseteq \bar A$
+
+- Completely nontrivial
+
+  $\bar A \cap \bar B = \emptyset$
+
+**** Partial Functional Dependency
+When a non-key column is dependent on some, but not all, of the composite PK.
+
+**** Transitive Functional Dependency
+When any non-key column is dependent on any of the other non-key columns.
+
+*** Rules For FD
+- Splitting rule
+
+  If $\bar A \to B_1, B_2$ , then $\bar A \to B_1\ \bar A \to B_2$
+
+- Combining rule
+
+  If $\bar A \to B_1\ \bar A \to B_2$, then $\bar A \to B_1, B_2$
+
+- Transitive rule
+
+  If $\bar A \to \bar B$ and $\bar B \to \bar C$, then $\bar A \to \bar C$
+
+*** Closure of Attributes
+#+BEGIN_VERSE
+Given relation, FDs, set of attributes $\bar A$
+Find all B such that $\bar A \to B$ .
+#+END_VERSE
+
+** Multivalued Dependency
+*** Definition
+#+BEGIN_VERSE
+$\forall t, u\in R:\ t[\bar A] = u[\bar A]$ then
+$\exists v \in R:$
+$v[\bar A] = t[\bar A]$ and
+$v[\bar B] = t[\bar B]$ and
+$v[rest] = u[rest]$
+
+MVD says, If two tuples have same value for $\bar A$,
+then we have *every* combination for $\bar B$ value and the rest.
+#+END_VERSE
+| tuple | $\bar A$ | $\bar B$   | rest       |
+|-------+----------+------------+------------|
+| t     | $\bar a$ | $\bar b_1$ | $\bar r_1$ |
+| u     | $\bar a$ | $\bar b_2$ | $\bar r_2$ |
+| v     | $\bar a$ | $\bar b_1$ | $\bar r_2$ |
+#+BEGIN_VERSE
+Note that, there aslo must exist w:
+#+END_VERSE
+| w | $\bar a$ | $\bar b_2$ | $\bar r_1$ |
+
+- Trivial MVDs
+
+  #+BEGIN_VERSE
+  $\bar B\subseteq \bar A$ or $\bar A\cup \bar B = all\ attributes$
+  always satisfied MVD.
+
+  E.g. for first case, Consider $\bar{AB} \twoheadrightarrow \bar B$.
+  #+END_VERSE
+
+- Nontrivial
+
+  otherwise.
+
+MVD is a *tuple-generating* dependency.
+
+*** Rules For MVD
+- FD is a MVD
+- Intersection rule
+
+  If $(\bar A\twoheadrightarrow \bar B) \land (\bar A\twoheadrightarrow \bar C)$ ,
+  then $\bar A\twoheadrightarrow \bar B\cap \bar C$ .
+
+- Transitive rule
+
+  If $(\bar A\twoheadrightarrow \bar B) \land (\bar B\twoheadrightarrow \bar C)$ ,
+  then $\bar A\twoheadrightarrow \bar C - \bar B$ .
+
+* Normalization
+** 1NF
+#+BEGIN_VERSE
+Data in your column is atomic if it's been broken
+down into the smallest pieces that you need.
+#+END_VERSE
+
+- Rule 1:
+  #+BEGIN_VERSE
+  A column with atomic data can't have several values of
+  the same type of data in that column.
+  One example obeys the rule 1:
+  #+END_VERSE
+  | food_name | ingredients                  |
+  |-----------+------------------------------|
+  | bread     | flour, milk, egg, yeast, oil |
+  | salad     | lettuce, tomato, cucumber    |
+
+- Rule 2:
+  #+BEGIN_VERSE
+  A table with atomic data can't have multiple columns
+  with the same type of data.
+  #+END_VERSE
+  | teacher | student1 | student2 |
+  |---------+----------+----------|
+  | Ms.Mary | Joe      | Ron      |
+
+** 2NF
+- Rule 1: Be in 1NF
+- Rule 2: Have no partial functional dependencies.
+
+** 3NF
+- Rule 1: Be in 2NF
+- Rule 2: Have no transitive dependencies.
+
+** Boyce-Codd Normal Form(BCNF, 3.5NF)
+FD leads to the BCNF.
+- Definition
+  #+BEGIN_VERSE
+  Relation R with FDs is in BCNF if:
+  For each  nontrivial $\bar A\to B$, $\bar A$ is a key.
+  #+END_VERSE
+*** Validation Example
+#+BEGIN_VERSE
+R(A, B, C, D)
+FDs: $AC\to D,\ D\to A,\ D\to C,\ D\to B$
+For every $\bar{left}$ can determine all the attributes.
+#+END_VERSE
+
+** 4NF
+- Definition
+  #+BEGIN_VERSE
+  Relation R with MVDs is in 4NF if:
+  For each nontrivial $\bar A\twoheadrightarrow \bar B$, A is a key.
+  #+END_VERSE
+4NF is in BCNF.
+
+* Subclasses
+** Complete vs. Incomplete(Partial)
+Complete: Every object is in at least one subclass.
+** Overlapping vs. Disjoint(Exclusive)
+Overlapping: One object is in two+ subclasses.
+** How to design?
+3 choices:
+1) Subclass relations contain superclass key + specialized attrs
+2) Subclass relations contain all attributes
+3) One relation containing all superclass + subclass attrs
+#+BEGIN_VERSE
+Best translation may depend on properties:
+Heavily overlapping -> design 3
+Disjoint, complete ->design 2
+#+END_VERSE
+Examples:
+#+BEGIN_SRC plantuml :file ../resources/data/SubclassExample.png :cmdline -charset UTF-8
+@startuml
+title Subclass Example
+Superclass <|-- Subclass1
+Superclass <|-- Subclass2
+class Superclass{
+k PK
+A
+}
+
+class Subclass1{
+B
+}
+
+class Subclass2{
+C
+}
+@enduml
+#+END_SRC
+
+#+results:
+[[file:../resources/data/SubclassExample.png]]
+
+1) S(_K_, A), S1(_K_, B), S2(_K_, C)
+2) S(_K_, A), S1(_K_, A, B), S2(_K_, A, C)
+3) S(_K_, A, B, C)
+* Constraints
+** Motivation
+Constrain allowable database states.(static)
+
+** Syntax
+Major keywords: PK, FK, UNIQUE, CHECK
+
+
+- Examples:
+#+BEGIN_SRC sql
+Create ...
+{
+    columnName type CHECK (columnName IN ('value1', 'value2'));
+}
+
+ADD CONSTRAINT CHECK columnName > 1;
+
+CHECK 'A' = SUBSTRING(columnName, 1, 1);
+#+END_SRC
+
+** Foreign Key
+*** Facts
+1) A FK can have different name than the parent key.
+2) FK values can be NULL.
+3) We can make sure a FK contains a meaningful value by using a *constraint* .
+4) The FK doesn't have to be the primary key of the parent table, but it must be unique.
+*** Creation
+#+BEGIN_SRC sql
+  CREATE TABLE tableName
+  (
+      ...
+      columnName TYPE NOT NULL,
+      [CONSTRAINT constraint_name,]
+      FOREIGN KEY (foreign_key_name)
+      REFERENCES parent_tableName (parent_columnName)
+  )
+#+END_SRC
+You can name constraint_name and foreign_key_name whatever you like.
+
+* Triggers
+** Motivation
+- To enforce constraints(Dynamic)
+- Move logic from apps into DBMS
+
+** Usage
+- Event-Condition-Action Rules
+
+  When *event* occurs, check *condition*; if true, do *action*.
+
+- Syntax
+  #+BEGIN_VERSE
+  Create Trigger *name*
+  Before|After|Instead of *events*
+  *[referencing-variables]*
+  [For Each Row]
+  [when (*condition*)]
+  *action*
+  #+END_VERSE
+  - events
+    #+BEGIN_VERSE
+    insert on T
+    delete on T
+    update [of C1,...,Cn] on T
+    #+END_VERSE
+
+  - [For Each Row]
+
+    Determines whether the trigger is row-level or statement-level
+
+  - referencing-variables
+    #+BEGIN_VERSE
+    Depends on [For Each Row]
+    old row as *var*
+    new row as *var*
+    old table as *var*
+    new table as *var*
+    #+END_VERSE
+
+  - condition
+
+    In /when/ or /where/ clause depends on the SQL Implementation.
+
+* Indexes
+** Usage
+Different between full table scans and immediate location of tuples.
+** Underlying Data Structures
+- Balanced trees (B tree, B+ tree)
+
+  When uses ">, <, >=, <=" in query.
+- Hashtable
+
+  When uses "=" in query.
+** SQL Syntax
+#+BEGIN_SRC sql
+  CREATE INDEX IndexName ON T(A1,A2...)
+  CREATE UNIQUE INDEX ...
+  DROP INDEX IndexName
+#+END_SRC
+** Downsides
+- Extra space
+- Index creation
+- Index maintenance(Important)
+
+  When updates database, indexes will also be updated.
+** Upsides
+Benefits depends on:
+
+- Data distributions
+- Query vs. update load
+- Size of table(and possibly layout)
+** Physical Design Advisors
+- Input (database statistics and workload)
+- Output (recommended indexes)
+
+#+ATTR_HTML: align="center"
+[[file:../resources/data/QueryOptimizer.png]]
+
+* Transaction
+** Motivation
+- Concurrent database access
+- Resilience to system failures
+** Properties
+- A(Atomicity)
+
+  Each transaction is "all-or-nothing", never left half done.
+
+- C(Consistency)
+  #+BEGIN_VERSE
+  Can assume all constrants hold when transaction begins.
+  Must guarantee all constraints hold when transaction ends.
+  Serializability -> constraints always hold
+  #+END_VERSE
+- I(Isolation)
+  #+BEGIN_VERSE
+  Serializability: Execution must be equivalent to some
+  sequential(serial) order of all transactions.(e.g. T9, T1, T2, T3, ...)
+  #+END_VERSE
+- D(Durability)
+  #+BEGIN_VERSE
+  If system crashes after transaction commits,
+  all effects of transaction remain in database.
+  #+END_VERSE
+** Isolation levels
+- dirty data: written by an uncommitted transaction
+- nonrepeatable reads: an item read multiple times cannot change values
+  #+BEGIN_EXAMPLE
+  T1:    Update Student Set GPA=(1.1)*GPA
+  T2.S1: Select AVG(GPA) From Student
+  T2.S2: Select MAX(GPA) From Student
+  #+END_EXAMPLE
+  #+BEGIN_VERSE
+  T2.S1 may excute before T1, T2.S2 may excute after T1.
+  The GPAs in S1 and S2 are different, leads to a nonrepatable reads violation.
+  #+END_VERSE
+- phantoms
+  #+BEGIN_EXAMPLE
+  T1:    Insert Into Student [100 new tuples]
+  T2.S1: Select AVG(GPA) From Student
+  T2.S2: Select MAX(GPA) From Student
+  #+END_EXAMPLE
+  #+BEGIN_VERSE
+  T2.S1 may excute before T1, T2.S2 may excute after T1.
+  [100 new tuples] are known as the phantoms tuples.
+  #+END_VERSE
+
+| levels           | dirty reads | nonrepeatable reads | phantoms |
+|------------------+-------------+---------------------+----------|
+| Read Uncommitted | Y           | Y                   | Y        |
+| Read Committed   | N           | Y                   | Y        |
+| Repeatable Read  | N           | N                   | Y        |
+| Serializable     | N           | N                   | N        |
+
+- Standard default: *Serializable*
+- Some systems have default *Repeatable Read*

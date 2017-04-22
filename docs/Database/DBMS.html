@@ -9,6 +9,7 @@
 <title></title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="weiwu" />
+<meta  name="keywords" content="database" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -140,23 +141,165 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<ul class="org-ul">
-<li>finance</li>
-<li><a href="./finance/option.html">option</a></li>
-<li><a href="./finance/ComputationalInvestment.html">MLInvestment</a></li>
-<li>CS
-<ul class="org-ul">
-<li>Python</li>
-<li>C++</li>
-</ul></li>
-<li>Database
-<ul class="org-ul">
-<li><a href="./Database/DBMS.html">DatabaseManagement</a></li>
-</ul></li>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline2">1. database = set of named relations(or tables)</a>
+<ul>
+<li><a href="#orgheadline1">1.1. schema</a></li>
 </ul>
+</li>
+<li><a href="#orgheadline4">2. Querying Relational Database</a>
+<ul>
+<li><a href="#orgheadline3">2.1. Query Language</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline12">3. Relational Algebra</a>
+<ul>
+<li><a href="#orgheadline8">3.1. select, project, join</a></li>
+<li><a href="#orgheadline11">3.2. Set operators, renaming, notation</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline16">4. SQL</a>
+<ul>
+<li><a href="#orgheadline13">4.1. Basic select statement</a></li>
+<li><a href="#orgheadline15">4.2. Table variables and set operators</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">1</span> database = set of named relations(or tables)</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>set of columns</li>
+<li>each tuple has a value for each column</li>
+<li>each attribute has a type(or domain)</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> schema</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>structural description of relations in dbname</li>
+<li>instance</li>
+<li>key: attribute whose value is unique in each tuple</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">2</span> Querying Relational Database</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.1</span> Query Language</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Relational Algebra</li>
+</ul>
+<p>
+formal
+</p>
+<ul class="org-ul">
+<li>SQL</li>
+</ul>
+<p>
+actual / implemented
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">3</span> Relational Algebra</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">3.1</span> select, project, join</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>query on set of reltations produces relations as a result</li>
+<li>use operators to filter, slice, combine results.</li>
+<li>Select operator:</li>
+</ul>
+<p>
+\(\sigma_condition(Expression)\)
+\(\s GPA > 3.7 ^ HS < 1000 Student\)
+</p>
+<ul class="org-ul">
+<li>Project operators: picks cerntain columns</li>
+</ul>
+<p>
+\(\pi_Apply1,Apply2,...,Applyn(Expression)\)
+\( \pi_ID apply\)
+\(\pi_ID,StudentName(\sigma_GPA > 3.7 Student)\)
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline5"></a>cross-product:<br  /><div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li>E1 * E2</li>
+</ul>
+</div></li>
+<li><a id="orgheadline6"></a>natural join<br  /></li>
+<li><a id="orgheadline7"></a>theta join<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">3.2</span> Set operators, renaming, notation</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><ol class="org-ol"><li><a id="orgheadline9"></a>Union operator<br  /><div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li>List of college and student names</li>
+</ul>
+</div></li>
+<li><a id="orgheadline10"></a>Intersection operator<br  /><div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li>Join:
+$E1 \join E2</li>
+</ul>
+<p>
+<b>*</b>
+</p>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">4</span> SQL</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">4.1</span> Basic select statement</h3>
+</div>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">4.2</span> Table variables and set operators</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><ol class="org-ol"><li><a id="orgheadline14"></a>Union, intersect, except<br  /></li></ol>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: weiwu</p>
