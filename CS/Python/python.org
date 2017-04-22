@@ -99,7 +99,7 @@ b = t[1]
 
 ** Operator
 - The ^ symbol
-  The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.
+  - The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.
 
 ** list operations:
 
@@ -118,20 +118,15 @@ print [item for item, count in collections.Counter(a).items() if count > 1]
 - read file to a list:
 #+begin_src python
 with open(r'y:\codes\data\smart_beta_etf_list.txt', 'rb') as f:
-#+end_src
-
-- etf_list = f.readlines()
-# you may also want to remove whitespace characters like `\n` at the end of each line
-#+begin_src python
-
-#+end_src
+etf_list = f.readlines()
 etf_list = [x.strip() for x in etf_list]
+# you may also want to remove whitespace characters like `\n` at the end of each line
+#+end_src
 
 - save a list to a file:
 #+begin_src python
-
-#+end_src
 thefile = open('test.txt', 'w')
+#+end_src
 
 - for item in thelist:
 #+begin_src python
@@ -220,7 +215,7 @@ int64
 #+end_src
 
 - To preserve dtypes while iterating over the rows, it is better to use itertuples()
-which returns tuples of the values and which is generally faster as iterrows.
+  - which returns tuples of the values and which is generally faster as iterrows.
 
 ** magic method:
 - getitem in a class allows its instances to use the [ ] (indexer) operators
@@ -279,7 +274,9 @@ pivoted = df.pivot('name1','name2','name3')
 #+end_src
 
 - change the time or date or a datetime:
+#+begin_src python
 end = end.replace(hour=23, minute=59, second=59)
+#+end_src
 
 - 万德 wind python pandas
 #+begin_src python
@@ -371,7 +368,9 @@ df2[~df2.index.duplicated()]
 
 ** numpy
 - count nan:
+#+begin_src python
 np.count_nonzero(~np.isnan(df['series']))
+#+end_src
 
 ** plot:
 pandas plot.

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-04-22 Sat 16:15 -->
+<!-- 2017-04-22 Sat 16:19 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -353,7 +353,9 @@ python setup.py install
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>The ^ symbol
-The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.</li>
+<ul class="org-ul">
+<li>The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.</li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -387,31 +389,20 @@ The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #F92672;">with</span> <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'y:\codes\data\smart_beta_etf_list.txt'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> f:
+<span style="color: #FD971F;">etf_list</span> = f.readlines<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">etf_list</span> = <span style="color: #AE81FF;">[</span>x.strip<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">for</span> x <span style="color: #F92672;">in</span> etf_list<span style="color: #AE81FF;">]</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">you may also want to remove whitespace characters like `\n` at the end of each line</span>
 </pre>
 </div>
-
-<ul class="org-ul">
-<li>etf<sub>list</sub> = f.readlines()</li>
-</ul>
-
-<div class="org-src-container">
-
-<pre class="src src-python"></pre>
-</div>
-<p>
-etf<sub>list</sub> = [x.strip() for x in etf<sub>list</sub>]
-</p>
 
 <ul class="org-ul">
 <li>save a list to a file:</li>
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-python"></pre>
+<pre class="src src-python"><span style="color: #FD971F;">thefile</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'test.txt'</span>, <span style="color: #E6DB74;">'w'</span><span style="color: #AE81FF;">)</span>
+</pre>
 </div>
-<p>
-thefile = open('test.txt', 'w')
-</p>
 
 <ul class="org-ul">
 <li>for item in thelist:</li>
@@ -539,11 +530,11 @@ int64
 </div>
 
 <ul class="org-ul">
-<li>To preserve dtypes while iterating over the rows, it is better to use itertuples()</li>
+<li>To preserve dtypes while iterating over the rows, it is better to use itertuples()
+<ul class="org-ul">
+<li>which returns tuples of the values and which is generally faster as iterrows.</li>
+</ul></li>
 </ul>
-<p>
-which returns tuples of the values and which is generally faster as iterrows.
-</p>
 </div>
 </div>
 </div>
@@ -644,9 +635,11 @@ b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="colo
 <ul class="org-ul">
 <li>change the time or date or a datetime:</li>
 </ul>
-<p>
-end = end.replace(hour=23, minute=59, second=59)
-</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">end</span> = end.replace<span style="color: #AE81FF;">(</span>hour=<span style="color: #AE81FF;">23</span>, minute=<span style="color: #AE81FF;">59</span>, second=<span style="color: #AE81FF;">59</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 
 <ul class="org-ul">
 <li>万德 wind python pandas</li>
@@ -806,9 +799,11 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 <ul class="org-ul">
 <li>count nan:</li>
 </ul>
-<p>
-np.count<sub>nonzero</sub>(~np.isnan(df['series']))
-</p>
+<div class="org-src-container">
+
+<pre class="src src-python">np.count_nonzero<span style="color: #AE81FF;">(</span>~np.isnan<span style="color: #66D9EF;">(</span>df<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'series'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 </div>
 
@@ -870,7 +865,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-04-22 Sat 16:15</p>
+<p class="date">Created: 2017-04-22 Sat 16:19</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
