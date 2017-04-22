@@ -3,6 +3,8 @@
   + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
 + CS
   + [[file:./CS/Python/python.org][Python]]
+    + Ipython notebooks
+      + [[file:./ipynb/site/index.html][JupyterNotebooks]]
   + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
   + C++
 + Database
