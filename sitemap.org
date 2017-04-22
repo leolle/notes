@@ -1,6 +1,6 @@
 + finance
-+ [[file:./finance/option.org][option]]
-+ [[file:./finance/ComputationalInvestment.org][MLInvestment]]
+  + [[file:./finance/option.org][option]]
+  + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
 + CS
   + Python
   + C++
