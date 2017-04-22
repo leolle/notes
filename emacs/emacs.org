@@ -1,0 +1,63 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: emacs
+#+DATE: <2017-04-22 Sat>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* Create GitHub Pages:
+GitHub Pages is easy for websites for you and your projects. GitHub Pages is hosted directly from your GitHub repository.Just edit, push, and your changes are live.
+Tutorial of how to create studying notes pages hosted on GitHub Pages.
+
+** Create a repository
+Head over to Github and create a new repository named username.github.io, where username is your username on Github.
+
+** Clone the repository
+Go to the folder where you want to store your project, and clone the new repository:
+#+BEGIN_SRC sh
+git clone https://github.com/username/username.github.io
+#+END_SRC
+
+** Create folder structure
+~/repository name/
+   |- css/
+   |  `- stylesheet.css
+   |- img/
+   |- index.org
+   |- docs
+   |- CS
+   |- finance
+   `- sitemap.org
+   `- index.org`
+
+** Add lines in spacemacs configuration file
+#+BEGIN_SRC elisp
+(require 'ox-publish)
+(setq org-publish-project-alist
+'(
+("org-notes"
+ :base-directory "~/repository_folder/"
+ :base-extension "org"
+ :publishing-directory "~/repository_folder/docs/"
+ :recursive t
+ :publishing-function org-html-publish-to-html
+ :headline-levels 4             ; Just the default for this project.
+ :auto-preamble t
+ )
+("org-static"
+ :base-directory "~/repository_folder/"
+ :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+ :publishing-directory "~/repository_folder/docs/"
+ :recursive t
+ :publishing-function org-publish-attachment
+ )
+))
+
+#END_SRC
