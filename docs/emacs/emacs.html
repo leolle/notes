@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-04-22 Sat 13:43 -->
+<!-- 2017-04-22 Sat 13:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -197,22 +197,15 @@ Go to the folder where you want to store your project, and clone the new reposit
 <div class="outline-text-3" id="text-1-3">
 <p>
 ~/repository name/
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">`- stylesheet.css</th>
-</tr>
-</thead>
-</table>
-<p>
-`- sitemap.org
-`- index.org`
+   &#x00ad; css/
+   \  `- stylesheet.css
+   &#x00ad; img/
+   &#x00ad; index.org
+   &#x00ad; docs
+   &#x00ad; CS
+   &#x00ad; finance
+   `- sitemap.org
+   `- index.org`
 </p>
 </div>
 </div>
@@ -220,33 +213,30 @@ Go to the folder where you want to store your project, and clone the new reposit
 <div id="outline-container-orgheadline4" class="outline-3">
 <h3 id="orgheadline4"><span class="section-number-3">1.4</span> Add lines in spacemacs configuration file</h3>
 <div class="outline-text-3" id="text-1-4">
-<p>
-#+BEGIN<sub>SRC</sub> elisp
-(require 'ox-publish)
-(setq org-publish-project-alist
-'(
-("org-notes"
- :base-directory "~/repository<sub>folder</sub>/"
- :base-extension "org"
- :publishing-directory "~/repository<sub>folder</sub>/docs/"
- :recursive t
- :publishing-function org-html-publish-to-html
- :headline-levels 4             ; Just the default for this project.
- :auto-preamble t
- )
-("org-static"
- :base-directory "~/repository<sub>folder</sub>/"
- :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
- :publishing-directory "~/repository<sub>folder</sub>/docs/"
- :recursive t
- :publishing-function org-publish-attachment
- )
-))
-</p>
+<div class="org-src-container">
 
-<p>
-#END<sub>SRC</sub>
-</p>
+<pre class="src src-elisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">require</span> '<span style="color: #AE81FF;">ox-publish</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">(</span>setq org-publish-project-alist
+'<span style="color: #66D9EF;">(</span>
+<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"org-notes"</span>
+ <span style="color: #F92672;">:base-directory</span> <span style="color: #E6DB74;">"~/repository_folder/"</span>
+ <span style="color: #F92672;">:base-extension</span> <span style="color: #E6DB74;">"org"</span>
+ <span style="color: #F92672;">:publishing-directory</span> <span style="color: #E6DB74;">"~/repository_folder/docs/"</span>
+ <span style="color: #F92672;">:recursive</span> t
+ <span style="color: #F92672;">:publishing-function</span> org-html-publish-to-html
+ <span style="color: #F92672;">:headline-levels</span> <span style="color: #AE81FF;">4</span>             <span style="color: #75715E;">; </span><span style="color: #75715E;">Just the default for this project.</span>
+ <span style="color: #F92672;">:auto-preamble</span> t
+ <span style="color: #A6E22E;">)</span>
+<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"org-static"</span>
+ <span style="color: #F92672;">:base-directory</span> <span style="color: #E6DB74;">"~/repository_folder/"</span>
+ <span style="color: #F92672;">:base-extension</span> <span style="color: #E6DB74;">"css</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">js</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">png</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">jpg</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">gif</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">pdf</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">mp3</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">ogg</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">swf"</span>
+ <span style="color: #F92672;">:publishing-directory</span> <span style="color: #E6DB74;">"~/repository_folder/docs/"</span>
+ <span style="color: #F92672;">:recursive</span> t
+ <span style="color: #F92672;">:publishing-function</span> org-publish-attachment
+ <span style="color: #A6E22E;">)</span>
+<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -254,7 +244,7 @@ Go to the folder where you want to store your project, and clone the new reposit
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-04-22 Sat 13:43</p>
+<p class="date">Created: 2017-04-22 Sat 13:46</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

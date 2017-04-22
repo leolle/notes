@@ -27,17 +27,18 @@ git clone https://github.com/username/username.github.io
 
 ** Create folder structure
 ~/repository name/
-   |- css/
-   |  `- stylesheet.css
-   |- img/
-   |- index.org
-   |- docs
-   |- CS
-   |- finance
+   \- css/
+   \  `- stylesheet.css
+   \- img/
+   \- index.org
+   \- docs
+   \- CS
+   \- finance
    `- sitemap.org
    `- index.org`
 
 ** Add lines in spacemacs configuration file
+
 #+BEGIN_SRC elisp
 (require 'ox-publish)
 (setq org-publish-project-alist
@@ -59,5 +60,4 @@ git clone https://github.com/username/username.github.io
  :publishing-function org-publish-attachment
  )
 ))
-
-#END_SRC
+#+END_SRC
