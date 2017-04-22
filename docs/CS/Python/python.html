@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-04-22 Sat 15:12 -->
+<!-- 2017-04-22 Sat 15:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -169,44 +169,55 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Python basic operations:</a></li>
-<li><a href="#orgheadline4">2. Data Analysis:</a>
+<li><a href="#orgheadline2">1. Python basic operations:</a>
 <ul>
-<li><a href="#orgheadline2">2.1. pandas:</a></li>
-<li><a href="#orgheadline3">2.2. plot:</a></li>
+<li><a href="#orgheadline1">1.1. 生成器</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline5">2. Data Analysis:</a>
+<ul>
+<li><a href="#orgheadline3">2.1. pandas:</a></li>
+<li><a href="#orgheadline4">2.2. plot:</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Python basic operations:</h2>
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">1</span> Python basic operations:</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>当你运行一个Python模块 python fibo.py &lt;arguments&gt;</li>
 
 <li>模块中的代码将会被执行，就像导入它一样，不过此时name 被设置为 “main“。这意味着，通过在你的模块末尾添加此代码.</li>
+
 <li>can’t import module from upper directory.
 
 <ul class="org-ul">
 <li>need to add the working directory to .bashrc PYTHONPATH</li>
 <li>using ipython.</li>
 </ul></li>
-</ul>
-<p>
-import os
-</p>
 
-<ul class="org-ul">
-<li>print os.path.abspath(ylib._<sub>file</sub>__)</li>
+<li>check module path:</li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">print</span> os.path.abspath<span style="color: #AE81FF;">(</span>ylib.__file__<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
 <ul class="org-ul">
 <li>make a python 3 virtual environment:</li>
 </ul>
-<p>
-mkvirtual -p python3 ENVNAME
-</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">mkvirtual -p python3 ENVNAME
+</pre>
+</div>
+
+
 <ul class="org-ul">
 <li>get specific timezone datetime</li>
 </ul>
@@ -252,14 +263,12 @@ mkvirtual -p python3 ENVNAME
 </div>
 
 <ul class="org-ul">
-<li>function parameter</li>
-</ul>
-<p>
-pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves.
-the sequence of the parameters are certain, you can’t change it.
-函数中改变形参值不会改变原值。
-</p>
+<li>function parameter
 <ul class="org-ul">
+<li>pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.</li>
+</ul></li>
+
+<li>函数中改变形参值不会改变原值。</li>
 <li>a, b = b, a + b # 相当于：</li>
 </ul>
 <div class="org-src-container">
@@ -271,15 +280,14 @@ the sequence of the parameters are certain, you can’t change it.
 </div>
 
 <ul class="org-ul">
-<li>The ^ symbol is for the bitwise ‘xor’ operation:</li>
+<li>The ^ symbol
+The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.</li>
 </ul>
-<p>
-but in Python, the exponent operator symbol is **.
-</p>
+</div>
 
-<ul class="org-ul">
-<li>生成器</li>
-</ul>
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 生成器</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
 要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator：
@@ -457,12 +465,13 @@ create, select, update, delete.
 </ul>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">2</span> Data Analysis:</h2>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">2</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> pandas:</h3>
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.1</span> pandas:</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>generate a dataframe:</li>
@@ -694,8 +703,8 @@ np.count<sub>nonzero</sub>(~np.isnan(df['series']))
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> plot:</h3>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.2</span> plot:</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 pandas plot.
@@ -755,7 +764,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-04-22 Sat 15:12</p>
+<p class="date">Created: 2017-04-22 Sat 15:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

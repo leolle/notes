@@ -16,16 +16,24 @@
 - 当你运行一个Python模块 python fibo.py <arguments>
 
 - 模块中的代码将会被执行，就像导入它一样，不过此时name 被设置为 “main“。这意味着，通过在你的模块末尾添加此代码.
+
 - can’t import module from upper directory.
 
     - need to add the working directory to .bashrc PYTHONPATH
     - using ipython.
-import os
 
-    - print os.path.abspath(ylib.__file__)
+- check module path:
+#+begin_src python
+import os
+print os.path.abspath(ylib.__file__)
+#+end_src
 
 - make a python 3 virtual environment:
+#+begin_src sh
 mkvirtual -p python3 ENVNAME
+#+end_src
+
+
 - get specific timezone datetime
 #+begin_src python
 tz = pytz.timezone('America/Los_Angeles')
@@ -55,9 +63,9 @@ print [item for item, count in collections.Counter(a).items() if count > 1]
 #+end_src
 
 - function parameter
-pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves.
-the sequence of the parameters are certain, you can’t change it.
-函数中改变形参值不会改变原值。
+  - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
+
+- 函数中改变形参值不会改变原值。
 - a, b = b, a + b # 相当于：
 #+begin_src python
 t = (b, a + b) # t是一个tuple
@@ -65,10 +73,10 @@ a = t[0]
 b = t[1]
 #+end_src
 
-- The ^ symbol is for the bitwise ‘xor’ operation:
-but in Python, the exponent operator symbol is **.
+- The ^ symbol
+  The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.
 
-- 生成器
+** 生成器
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
 要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator：
 如果要一个一个打印出来，可以通过next()函数获得generator的下一个返回值：
