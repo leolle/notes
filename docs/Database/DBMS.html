@@ -3,13 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-04-22 Sat 13:07 -->
+<!-- 2017-04-23 Sun 09:21 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="weiwu" />
-<meta  name="keywords" content="database" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -280,7 +279,7 @@ actual / implemented
 <li><a id="orgheadline10"></a>Intersection operator<br  /><div class="outline-text-4" id="text-3-2-2">
 <ul class="org-ul">
 <li>Join:
-$E1 \join E2</li>
+\(E1 \join E2\)</li>
 </ul>
 <p>
 <b>*</b>
@@ -293,7 +292,19 @@ $E1 \join E2</li>
 <div class="outline-text-2" id="text-4">
 </div><div id="outline-container-orgheadline13" class="outline-3">
 <h3 id="orgheadline13"><span class="section-number-3">4.1</span> Basic select statement</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Three tables.</li>
+</ul>
+<p>
+College(cName, state, enrollment)
+Student(sID, sName, GPA, sizeHS)
+Apply(sID, cName, major, decision)
+unique index: cName, sID, and sID+cName+major.
+</p>
 </div>
+</div>
+
 <div id="outline-container-orgheadline15" class="outline-3">
 <h3 id="orgheadline15"><span class="section-number-3">4.2</span> Table variables and set operators</h3>
 <div class="outline-text-3" id="text-4-2">
@@ -303,7 +314,7 @@ $E1 \join E2</li>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-04-22 Sat 13:07</p>
+<p class="date">Created: 2017-04-23 Sun 09:21</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

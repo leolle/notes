@@ -2,3 +2,4 @@
 #+EMAIL: victor.wuv@gmail.com
 #+STYLE: <link rel="stylesheet" href="/css/stylesheet.css" type="text/css"/>
 #+LINK_HOME: index.html
+#+STARTUP: overview

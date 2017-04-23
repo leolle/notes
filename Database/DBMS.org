@@ -1,8 +1,9 @@
 #+TITLES: Database concept
-#+KEYWORDS: database
+#+KEYWORD: database
 #+OPTIONS: H:2 toc:2 num:3 ^:nil
 #+SETUPFILE: ../configOrg/level1.org
 #+Latex: t
+#+LaTex_CLASS: article
 
 * database = set of named relations(or tables)
 - set of columns
@@ -38,9 +39,15 @@ $\pi_ID,StudentName(\sigma_GPA > 3.7 Student)$
 - List of college and student names
 *** Intersection operator
 - Join:
-  $E1 \join E2
+  $E1 \join E2$
 ***
 * SQL
 ** Basic select statement
+- Three tables.
+College(cName, state, enrollment)
+Student(sID, sName, GPA, sizeHS)
+Apply(sID, cName, major, decision)
+unique index: cName, sID, and sID+cName+major.
+
 ** Table variables and set operators
 *** Union, intersect, except

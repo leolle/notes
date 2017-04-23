@@ -1,0 +1,115 @@
+% Created 2017-04-23 Sun 09:13
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setcounter{secnumdepth}{3}
+\author{weiwu}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={weiwu},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 24.5.1 (Org mode 8.3.4)},
+ pdflang={English}}
+\begin{document}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+t
+
+\section{database = set of named relations(or tables)}
+\label{sec:orgheadline2}
+\begin{itemize}
+\item set of columns
+\item each tuple has a value for each column
+\item each attribute has a type(or domain)
+\end{itemize}
+\subsection{schema}
+\label{sec:orgheadline1}
+\begin{itemize}
+\item structural description of relations in dbname
+\item instance
+\item key: attribute whose value is unique in each tuple
+\end{itemize}
+\section{Querying Relational Database}
+\label{sec:orgheadline4}
+\subsection{Query Language}
+\label{sec:orgheadline3}
+\begin{itemize}
+\item Relational Algebra
+\end{itemize}
+formal
+\begin{itemize}
+\item SQL
+\end{itemize}
+actual / implemented
+\section{Relational Algebra}
+\label{sec:orgheadline12}
+\subsection{select, project, join}
+\label{sec:orgheadline8}
+\begin{itemize}
+\item query on set of reltations produces relations as a result
+\item use operators to filter, slice, combine results.
+\item Select operator:
+\end{itemize}
+\(\sigma_condition(Expression)\)
+\(\s GPA > 3.7 ^ HS < 1000 Student\)
+\begin{itemize}
+\item Project operators: picks cerntain columns
+\end{itemize}
+\(\pi_Apply1,Apply2,...,Applyn(Expression)\)
+\(\pi_ID apply\)
+\(\pi_ID,StudentName(\sigma_GPA > 3.7 Student)\)
+\begin{enumerate}
+\item cross-product:
+\label{sec:orgheadline5}
+\begin{itemize}
+\item E1 * E2
+\end{itemize}
+\item natural join
+\label{sec:orgheadline6}
+\item theta join
+\label{sec:orgheadline7}
+\end{enumerate}
+\subsection{Set operators, renaming, notation}
+\label{sec:orgheadline11}
+\begin{enumerate}
+\item Union operator
+\label{sec:orgheadline9}
+\begin{itemize}
+\item List of college and student names
+\end{itemize}
+\item Intersection operator
+\label{sec:orgheadline10}
+\begin{itemize}
+\item Join:
+\$E1 \join E2
+\end{itemize}
+\textbf{*}
+\end{enumerate}
+\section{SQL}
+\label{sec:orgheadline16}
+\subsection{Basic select statement}
+\label{sec:orgheadline13}
+\subsection{Table variables and set operators}
+\label{sec:orgheadline15}
+\begin{enumerate}
+\item Union, intersect, except
+\label{sec:orgheadline14}
+\end{enumerate}
+\end{document}
