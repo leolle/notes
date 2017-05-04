@@ -172,3 +172,8 @@ C-x n w     (widen)
 Widen buffer to remove narrowing.
 C-c *     (org-toggle-heading)
 Turn a normal line or plain list item into a headline (so that it becomes a subheading at its location). Also turn a headline into a normal line by removing the stars. If there is an active region, turn all lines in the region into headlines. If the first line in the region was an item, turn only the item lines into headlines. Finally, if the first line is a headline, remove the stars from all headlines in the region.
+** Latex
+*** Greeks:
+$$\alpha, \beta, \gamma$$
+*** Superscript, subscript
+$$R_{sun} = 6.96 x 10^8 m$$
