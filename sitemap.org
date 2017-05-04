@@ -1,6 +1,7 @@
 + finance
   + [[file:./finance/option.org][Option]]
   + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
+  + [[file:./finance/FundAnalysis.org][FundAnalysis]]
 + CS
   + [[file:./CS/Python/python.org][Python]]
     + Ipython notebooks

@@ -24,12 +24,12 @@ actual / implemented
 - query on set of reltations produces relations as a result
 - use operators to filter, slice, combine results.
 - Select operator:
-$\sigma_condition(Expression)$
-$\s GPA > 3.7 ^ HS < 1000 Student$
+$$\sigma_condition(Expression)$$
+$$\s GPA > 3.7 ^ HS < 1000 Student$$
 - Project operators: picks cerntain columns
-$\pi_Apply1,Apply2,...,Applyn(Expression)$
-$ \pi_ID apply$
-$\pi_ID,StudentName(\sigma_GPA > 3.7 Student)$
+$$\pi_Apply1,Apply2,...,Applyn(Expression)$$
+$$ \pi_ID apply$$
+$$\pi_ID,StudentName(\sigma_GPA > 3.7 Student)$$
 *** cross-product:
 - E1 * E2
 *** natural join
@@ -49,5 +49,83 @@ Student(sID, sName, GPA, sizeHS)
 Apply(sID, cName, major, decision)
 unique index: cName, sID, and sID+cName+major.
 
+- Select decision of students whose high school size is less than 1000, major is computer science and the application college is Standford.
+
+#+BEGIN_SRC sql
+select sname, GPA, decision
+from Student, Apply
+where Student.sID = Apply.sID
+and sizeHS < 1000 and major = 'CS' and cname = 'Standford'
+order by GPA desc;
+#+END_SRC
 ** Table variables and set operators
-*** Union, intersect, except
+*** Table variables
+using for alternative name readable, express relation with other prompts.
+*** Set operators
+**** Union, intersect, except
+- select student enrollment.
+#+BEGIN_SRC sql
+select S.sID, sName, GPA, A.cName, enrollment
+from Student S, College C, Apply A
+where A.sID = S.sID and A.cName = C.cName;
+#+END_SRC
+- select students having the same GPA.
+#+BEGIN_SRC sql
+select S1.sID, S1.sName, S1.GPA, S2.sID, S2.sName, S2.GPA,
+from Student S1, Student S2
+where S1.GPA = S2.GPA and S1.sID > S2.sID;
+#+END_SRC
+***** Union
+- select union of college names and students names.
+Remember: union will remove duplicates for us.
+#+BEGIN_SRC sql
+select cName as name from College
+union
+select sName as name from Student;
+#+END_SRC
+***** Intersect
+- select students both select cs and ee.
+#+BEGIN_SRC sql
+select sID from Apply where major = 'CS'
+intersect
+select sID from Apply where major = 'EE';
+#+END_SRC
+***** Except
+- select students who apply cs but not ee.
+#+BEGIN_SRC sql
+select sID from Apply where major = 'CS'
+except
+select sID from Apply where major = 'EE';
+#+END_SRC
+**** Subqueries in WHERE
+- select IDs and names of students who have aplied to major in CS at some college.
+#+BEGIN_SRC sql
+select sID, sName
+from Student
+where sID in (select sID from Apply where major = 'CS');
+#+END_SRC
+
+- select max value from a column.
+#+BEGIN_SRC sql
+select cName
+from College C1
+where not exists (select * from College C2
+where C2.enrollment > C1.enrollment);
+#+END_SRC
+
+***** all, any, exists, not exists.
+- Students not from the smallest high school.
+#+BEGIN_SRC sql
+select sID, sName, sizeHS
+from Student
+where sizeHS > any(select sizeHS from Student);
+#+END_SRC
+
+**** Subqueries from select and from
+- Students whoses scaled GPA changes GPA by more than 1.
+#+BEGIN_SRC sql
+select *
+from (select sID, sName, GPA, GPA*(sizeHS/1000.0) as scaledGPA
+from Student) as G
+where (G.scaledGPA - GPA) > 1.0;
+#+END_SRC

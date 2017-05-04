@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-04-23 Sun 09:21 -->
+<!-- 2017-05-04 Thu 11:20 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -185,10 +185,10 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline11">3.2. Set operators, renaming, notation</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">4. SQL</a>
+<li><a href="#orgheadline24">4. SQL</a>
 <ul>
 <li><a href="#orgheadline13">4.1. Basic select statement</a></li>
-<li><a href="#orgheadline15">4.2. Table variables and set operators</a></li>
+<li><a href="#orgheadline23">4.2. Table variables and set operators</a></li>
 </ul>
 </li>
 </ul>
@@ -248,16 +248,16 @@ actual / implemented
 <li>Select operator:</li>
 </ul>
 <p>
-\(\sigma_condition(Expression)\)
-\(\s GPA > 3.7 ^ HS < 1000 Student\)
+\[\sigma_condition(Expression)\]
+\[\s GPA > 3.7 ^ HS < 1000 Student\]
 </p>
 <ul class="org-ul">
 <li>Project operators: picks cerntain columns</li>
 </ul>
 <p>
-\(\pi_Apply1,Apply2,...,Applyn(Expression)\)
-\( \pi_ID apply\)
-\(\pi_ID,StudentName(\sigma_GPA > 3.7 Student)\)
+\[\pi_Apply1,Apply2,...,Applyn(Expression)\]
+\[ \pi_ID apply\]
+\[\pi_ID,StudentName(\sigma_GPA > 3.7 Student)\]
 </p>
 </div>
 <ol class="org-ol"><li><a id="orgheadline5"></a>cross-product:<br  /><div class="outline-text-4" id="text-3-1-1">
@@ -287,8 +287,8 @@ actual / implemented
 </div></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">4</span> SQL</h2>
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">4</span> SQL</h2>
 <div class="outline-text-2" id="text-4">
 </div><div id="outline-container-orgheadline13" class="outline-3">
 <h3 id="orgheadline13"><span class="section-number-3">4.1</span> Basic select statement</h3>
@@ -302,19 +302,148 @@ Student(sID, sName, GPA, sizeHS)
 Apply(sID, cName, major, decision)
 unique index: cName, sID, and sID+cName+major.
 </p>
+
+<ul class="org-ul">
+<li>Select decision of students whose high school size is less than 1000, major is computer science and the application college is Standford.</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sname, GPA, decision
+<span style="color: #F92672;">from</span> Student, Apply
+<span style="color: #F92672;">where</span> Student.sID = Apply.sID
+<span style="color: #F92672;">and</span> sizeHS &lt; <span style="color: #AE81FF;">1000</span> <span style="color: #F92672;">and</span> major = <span style="color: #E6DB74;">'CS'</span> <span style="color: #F92672;">and</span> cname = <span style="color: #E6DB74;">'Standford'</span>
+<span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> GPA <span style="color: #F92672;">desc</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">4.2</span> Table variables and set operators</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><ol class="org-ol"><li><a id="orgheadline14"></a>Table variables<br  /><div class="outline-text-4" id="text-4-2-1">
+<p>
+using for alternative name readable, express relation with other prompts.
+</p>
+</div></li>
+<li><a id="orgheadline22"></a>Set operators<br  /><ul class="org-ul"><li><a id="orgheadline15"></a>Union, intersect, except<br  /><div class="outline-text-5" id="text-orgheadline15">
+<ul class="org-ul">
+<li>select student enrollment.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> S.sID, sName, GPA, A.cName, enrollment
+<span style="color: #F92672;">from</span> Student S, College C, Apply A
+<span style="color: #F92672;">where</span> A.sID = S.sID <span style="color: #F92672;">and</span> A.cName = C.cName;
+</pre>
+</div>
+<ul class="org-ul">
+<li>select students having the same GPA.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> S1.sID, S1.sName, S1.GPA, S2.sID, S2.sName, S2.GPA,
+<span style="color: #F92672;">from</span> Student S1, Student S2
+<span style="color: #F92672;">where</span> S1.GPA = S2.GPA <span style="color: #F92672;">and</span> S1.sID &gt; S2.sID;
+</pre>
+</div>
+</div>
+<ul class="org-ul"><li><a id="orgheadline16"></a>Union<br  /><div class="outline-text-6" id="text-orgheadline16">
+<ul class="org-ul">
+<li>select union of college names and students names.</li>
+</ul>
+<p>
+Remember: union will remove duplicates for us.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> cName <span style="color: #F92672;">as</span> <span style="color: #F92672;">name</span> <span style="color: #F92672;">from</span> College
+<span style="color: #F92672;">union</span>
+<span style="color: #F92672;">select</span> sName <span style="color: #F92672;">as</span> <span style="color: #F92672;">name</span> <span style="color: #F92672;">from</span> Student;
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline17"></a>Intersect<br  /><div class="outline-text-6" id="text-orgheadline17">
+<ul class="org-ul">
+<li>select students both select cs and ee.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'CS'</span>
+<span style="color: #F92672;">intersect</span>
+<span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'EE'</span>;
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline18"></a>Except<br  /><div class="outline-text-6" id="text-orgheadline18">
+<ul class="org-ul">
+<li>select students who apply cs but not ee.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'CS'</span>
+<span style="color: #F92672;">except</span>
+<span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'EE'</span>;
+</pre>
+</div>
+</div></li></ul></li>
+<li><a id="orgheadline19"></a>Subqueries in WHERE<br  /><div class="outline-text-5" id="text-orgheadline19">
+<ul class="org-ul">
+<li>select IDs and names of students who have aplied to major in CS at some college.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sID, sName
+<span style="color: #F92672;">from</span> Student
+<span style="color: #F92672;">where</span> sID <span style="color: #F92672;">in</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'CS'</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select max value from a column.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> cName
+<span style="color: #F92672;">from</span> College C1
+<span style="color: #F92672;">where</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">exists</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> * <span style="color: #F92672;">from</span> College C2
+<span style="color: #F92672;">where</span> C2.enrollment &gt; C1.enrollment<span style="color: #AE81FF;">)</span>;
+</pre>
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">4.2</span> Table variables and set operators</h3>
-<div class="outline-text-3" id="text-4-2">
-</div><ol class="org-ol"><li><a id="orgheadline14"></a>Union, intersect, except<br  /></li></ol>
+<ul class="org-ul"><li><a id="orgheadline20"></a>all, any, exists, not exists.<br  /><div class="outline-text-6" id="text-orgheadline20">
+<ul class="org-ul">
+<li>Students not from the smallest high school.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sID, sName, sizeHS
+<span style="color: #F92672;">from</span> Student
+<span style="color: #F92672;">where</span> sizeHS &gt; <span style="color: #F92672;">any</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> sizeHS <span style="color: #F92672;">from</span> Student<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+</div></li></ul></li>
+
+<li><a id="orgheadline21"></a>Subqueries from select and from<br  /><div class="outline-text-5" id="text-orgheadline21">
+<ul class="org-ul">
+<li>Students whoses scaled GPA changes GPA by more than 1.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> *
+<span style="color: #F92672;">from</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> sID, sName, GPA, GPA*<span style="color: #66D9EF;">(</span>sizeHS/<span style="color: #AE81FF;">1000</span>.<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span> <span style="color: #F92672;">as</span> scaledGPA
+<span style="color: #F92672;">from</span> Student<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> G
+<span style="color: #F92672;">where</span> <span style="color: #AE81FF;">(</span>G.scaledGPA - GPA<span style="color: #AE81FF;">)</span> &gt; <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">0</span>;
+</pre>
+</div>
+</div></li></ul></li></ol>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-04-23 Sun 09:21</p>
+<p class="date">Created: 2017-05-04 Thu 11:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

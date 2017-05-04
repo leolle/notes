@@ -140,39 +140,65 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
-<ul class="org-ul">
-<li>finance
-<ul class="org-ul">
-<li><a href="./finance/option.html">Option</a></li>
-<li><a href="./finance/ComputationalInvestment.html">MLInvestment</a></li>
-<li><a href="./finance/FundAnalysis.html">FundAnalysis</a></li>
-</ul></li>
-<li>CS
-<ul class="org-ul">
-<li><a href="./CS/Python/python.html">Python</a>
-<ul class="org-ul">
-<li>Ipython notebooks
-<ul class="org-ul">
-<li><a href="./ipynb/site/index.html">JupyterNotebooks</a></li>
-</ul></li>
-</ul></li>
-<li><a href="./CS/Python/sqlalchemy.html">SQLAlchemy</a></li>
-<li>C++</li>
-</ul></li>
-<li>Database
-<ul class="org-ul">
-<li><a href="./Database/DBMS.html">DatabaseManagement</a></li>
-</ul></li>
-<li>Emacs
-<ul class="org-ul">
-<li><a href="./emacs/emacs.html">Emacs</a></li>
-</ul></li>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline3">1. Basics</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Holding Based Approach(HBA)</a></li>
+<li><a href="#orgheadline2">1.2. Return Based Analysis(ABA)</a></li>
+</ul>
+</li>
 </ul>
 </div>
+</div>
+
+
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">1</span> Basics</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Holding Based Approach(HBA)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+\[h=S/beta+/mu\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Return Based Analysis(ABA)</h3>
+</div>
+</div>
+</div>
 <div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-04 Thu&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
 <p class="date">Created: 2017-05-04 Thu 11:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
