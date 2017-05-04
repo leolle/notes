@@ -6,6 +6,7 @@
 #+DATE: <2017-04-22 Sat>
 #+EMAIL: victor.wuv@gmail.com
 #+LANGUAGE: en
+#+STARTUP: latexpreview
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)

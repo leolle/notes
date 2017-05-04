@@ -4,6 +4,7 @@
 #+OPTIONS: title:t toc:t todo:t |:t
 #+TITLES: FundAnalysis
 #+DATE: <2017-05-04 Thu>
+#+STARTUP: latexpreview
 #+AUTHORS: weiwu
 #+EMAIL: victor.wuv@gmail.com
 #+LANGUAGE: en
