@@ -16,5 +16,5 @@
 * Basics
 
 ** Holding Based Approach(HBA)
-$$h=S/beta+/mu$$
+$$h=S\beta+\mu$$
 ** Return Based Analysis(ABA)
