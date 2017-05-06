@@ -15,6 +15,6 @@
   + [[file:./emacs/emacs.org][Emacs]]
 + Business
   + [[file:./Business/O2O.html][O2O]]
-  + [[file:./docs/Business/巴菲特投资哲学.html][巴菲特投资哲学]]
+  + [[file:./Business/巴菲特投资哲学.html][巴菲特的投资哲学]]
 + Books
   + [[file:./books/有效network.html][network]]
