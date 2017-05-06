@@ -62,6 +62,11 @@ git clone https://github.com/username/username.github.io
 ))
 #+END_SRC
 
+** Publish personal html files
+- copy html and attachment folders under the main folder.
+- insert the link in the sitemap org file.
+- publish all.
+- copy html and attachment folder under the docs folder.
 ** Insert file links in sitemap.org
 #+begin_src emacs-lisp :tangle yes
 [[file:remember.org][remember]]
