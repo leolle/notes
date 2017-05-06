@@ -6,6 +6,7 @@
   + [[file:./CS/Python/python.org][Python]]
     + Ipython notebooks
       + [[file:./ipynb/site/index.html][JupyterNotebooks]]
+    + [[file:~/share/html/high_performance_of_python.html][HighPerformancePython]]
   + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
   + C++
 + Database
