@@ -16,5 +16,6 @@
 + Business
   + [[file:./Business/O2O.html][O2O]]
   + [[file:./Business/巴菲特投资哲学.html][巴菲特的投资哲学]]
+  + [[file:./Business/经济停滞.html][经济停滞]]
 + Books
   + [[file:./books/有效network.html][network]]
