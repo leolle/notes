@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-04-22</lastmod>
+     <lastmod>2017-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,23 @@
     
     <url>
      <loc>/about/</loc>
-     <lastmod>2017-04-22</lastmod>
+     <lastmod>2017-05-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/python_rules/</loc>
+     <lastmod>2017-05-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/python_style_rules/</loc>
+     <lastmod>2017-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

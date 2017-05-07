@@ -15,23 +15,70 @@
 
 #+end_src
 
-* Variables, Operators and Expressions
+* C++ Basics
 
-** logic operation
+** Comments
+- //
+- /* */
+** Variables, Operators and Expressions
+
+*** naming
+
+**** Variables:
+
+***** common variables names
+#+begin_src c++
+int price_count_reader;    // No abbreviation.
+int num_errors;            // "num" is a widespread convention.
+int num_dns_connections;   // Most people know what "DNS" stands for.
+#+end_src
+
+***** Class Data Members
+Data members of classes, both static and non-static, are named like ordinary nonmember variables, but with a trailing underscore.
+#+begin_src c++
+class TableInfo {
+  ...
+ private:
+  string table_name_;  // OK - underscore at end.
+  string tablename_;   // OK.
+  static Pool<TableInfo>* pool_;  // OK.
+};
+#+end_src
+
+**** Constant Names
+Variables declared constexpr or const, and whose value is fixed for the duration of the program, are named with a leading "k" followed by mixed case. For example:
+#+begin_src c++
+const int kDaysInAWeek = 7;
+#+end_src
+
+**** Function Names
+#+begin_src c++ :tangle yes
+AddTableEntry()
+DeleteUrl()
+OpenFileOrDie()
+#+end_src
+
+**** File Names
+- my_useful_class.cc
+- my-useful-class.cc
+- myusefulclass.cc
+- myusefulclass_test.cc // _unittest and _regtest are deprecated.
+*** logic operation
 - --i and i--.
 - logical and arithmetic shift.
 
-** scientific output expression
+*** scientific output expression
 - use “%10.1f” as format specifier.
 
-* Pointers and Arrays
+** Pointers and Arrays
 
-** swap value of two variables using pointers
+*** swap value of two variables using pointers
 #+begin_src c++
-i = 123;
-j = 456;
+int i = 123;
+int j = 456;
 int *p = &i;
 int *o = &j;
-i = p;
-j = o;
+int temp = *p;
+p = o;
+o = temp;
 #+end_src
