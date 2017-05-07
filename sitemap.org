@@ -9,6 +9,7 @@
     + [[file:./CS/Python/high_performance_python.html][HighPerformanceOfPython]]
   + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
   + C++
+    + [[file:./CS/C++/C++.org][C++ObjectOrientedProgramming]]
 + Database
   + [[file:./Database/DBMS.org][DatabaseManagement]]
 + Emacs

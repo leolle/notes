@@ -1,0 +1,37 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: C++
+#+DATE: <2017-05-07 Sun>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+#+begin_src c++
+
+#+end_src
+
+* Variables, Operators and Expressions
+
+** logic operation
+- --i and i--.
+- logical and arithmetic shift.
+
+** scientific output expression
+- use “%10.1f” as format specifier.
+
+* Pointers and Arrays
+
+** swap value of two variables using pointers
+#+begin_src c++
+i = 123;
+j = 456;
+int *p = &i;
+int *o = &j;
+i = p;
+j = o;
+#+end_src
