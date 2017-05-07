@@ -27,14 +27,6 @@
 
     
     <url>
-     <loc>/test/</loc>
-     <lastmod>2017-05-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
      <loc>/about/</loc>
      <lastmod>2017-05-07</lastmod>
      <changefreq>daily</changefreq>
