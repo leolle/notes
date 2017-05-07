@@ -56,6 +56,13 @@ Option value change respected to the interest rate change.
 *** vega
 Option value change respected to the volatility change.
 
+** Market microstructure and products
+
+** Basics of vanilla option risk
+
+** Risks of exotic options
+
+** Option theory
 * Future
 
 *基差=现货价格-期货价格
