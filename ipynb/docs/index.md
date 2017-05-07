@@ -1,4 +1,4 @@
-# Welcome to MKLorum
+# Welcome to Ipython markdown forum
 
 For full documentation visit [mkdocs.org](http://mkdocs.org).
 
@@ -6,7 +6,9 @@ For full documentation visit [mkdocs.org](http://mkdocs.org).
 
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.
+* `workon data_analysis` - work on a virtual environement of python.
 * `mkdocs build` - Build the documentation site.
+* `mkdocs build --clean` - Clean extra files.
 * `mkdocs help` - Print this help message.
 
 ## Project layout

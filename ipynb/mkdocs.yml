@@ -1,7 +1,8 @@
 site_name: Ipython notebooks
 pages:
     - Home: index.md
-    - About: about.md
     - Python 风格指南: python_rules.md
     - Python风格规范: python_style_rules.md
+    - test: test.org
+    - About: about.md
 theme: readthedocs
