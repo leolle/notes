@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-07 Sun 08:57 -->
+<!-- 2017-05-07 Sun 11:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,15 +147,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline3">1. Variables, Operators and Expressions</a>
+<li><a href="#orgheadline14">1. C++ Basics</a>
 <ul>
-<li><a href="#orgheadline1">1.1. logic operation</a></li>
-<li><a href="#orgheadline2">1.2. scientific output expression</a></li>
+<li><a href="#orgheadline1">1.1. Comments</a></li>
+<li><a href="#orgheadline11">1.2. Variables, Operators and Expressions</a>
+<ul>
+<li><a href="#orgheadline8">1.2.1. naming</a></li>
+<li><a href="#orgheadline9">1.2.2. logic operation</a></li>
+<li><a href="#orgheadline10">1.2.3. scientific output expression</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline5">2. Pointers and Arrays</a>
+<li><a href="#orgheadline13">1.3. Pointers and Arrays</a>
 <ul>
-<li><a href="#orgheadline4">2.1. swap value of two variables using pointers</a></li>
+<li><a href="#orgheadline12">1.3.1. swap value of two variables using pointers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -166,12 +172,84 @@ for the JavaScript code in this tag.
 <pre class="src src-c++"></pre>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">1</span> Variables, Operators and Expressions</h2>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">1</span> C++ Basics</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> logic operation</h3>
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Comments</h3>
 <div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>//</li>
+<li><i>* *</i></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.2</span> Variables, Operators and Expressions</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.2.1</span> naming</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline4"></a>Variables:<br  /><ol class="org-ol"><li><a id="orgheadline2"></a>common variables names<br  /><div class="outline-text-6" id="text-1-2-1-1-1">
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">price_count_reader</span>;    <span style="color: #75715E;">// </span><span style="color: #75715E;">No abbreviation.</span>
+<span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">num_errors</span>;            <span style="color: #75715E;">// </span><span style="color: #75715E;">"num" is a widespread convention.</span>
+<span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">num_dns_connections</span>;   <span style="color: #75715E;">// </span><span style="color: #75715E;">Most people know what "DNS" stands for.</span>
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline3"></a>Class Data Members<br  /><div class="outline-text-6" id="text-1-2-1-1-2">
+<p>
+Data members of classes, both static and non-static, are named like ordinary nonmember variables, but with a trailing underscore.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">TableInfo</span> <span style="color: #AE81FF;">{</span>
+  ...
+ <span style="color: #F92672;">private</span>:
+  <span style="color: #66D9EF;">string</span> <span style="color: #FD971F;">table_name_</span>;  <span style="color: #75715E;">// </span><span style="color: #75715E;">OK - underscore at end.</span>
+  <span style="color: #66D9EF;">string</span> <span style="color: #FD971F;">tablename_</span>;   <span style="color: #75715E;">// </span><span style="color: #75715E;">OK.</span>
+  <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">Pool</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">TableInfo</span><span style="color: #66D9EF;">&gt;</span>* <span style="color: #FD971F;">pool_</span>;  <span style="color: #75715E;">// </span><span style="color: #75715E;">OK.</span>
+<span style="color: #AE81FF;">}</span>;
+</pre>
+</div>
+</div></li></ol></li>
+
+<li><a id="orgheadline5"></a>Constant Names<br  /><div class="outline-text-5" id="text-1-2-1-2">
+<p>
+Variables declared constexpr or const, and whose value is fixed for the duration of the program, are named with a leading "k" followed by mixed case. For example:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #F92672;">const</span> <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">kDaysInAWeek</span> = <span style="color: #AE81FF;">7</span>;
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline6"></a>Function Names<br  /><div class="outline-text-5" id="text-1-2-1-3">
+<div class="org-src-container">
+
+<pre class="src src-c++">AddTableEntry<span style="color: #AE81FF;">()</span>
+DeleteUrl<span style="color: #AE81FF;">()</span>
+OpenFileOrDie<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline7"></a>File Names<br  /><div class="outline-text-5" id="text-1-2-1-4">
+<ul class="org-ul">
+<li>my<sub>useful</sub><sub>class.cc</sub></li>
+<li>my-useful-class.cc</li>
+<li>myusefulclass.cc</li>
+<li>myusefulclass<sub>test.cc</sub> // _unittest and _regtest are deprecated.</li>
+</ul>
+</div></li></ol>
+</div>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.2.2</span> logic operation</h4>
+<div class="outline-text-4" id="text-1-2-2">
 <ul class="org-ul">
 <li>&#x2013;i and i&#x2013;.</li>
 <li>logical and arithmetic shift.</li>
@@ -179,9 +257,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> scientific output expression</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">1.2.3</span> scientific output expression</h4>
+<div class="outline-text-4" id="text-1-2-3">
 <ul class="org-ul">
 <li>use “%10.1f” as format specifier.</li>
 </ul>
@@ -189,21 +267,37 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">2</span> Pointers and Arrays</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.1</span> swap value of two variables using pointers</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">1.3</span> Pointers and Arrays</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.3.1</span> swap value of two variables using pointers</h4>
+<div class="outline-text-4" id="text-1-3-1">
 <div class="org-src-container">
 
-<pre class="src src-c++">i = <span style="color: #AE81FF;">123</span>;
-j = <span style="color: #AE81FF;">456</span>;
-<span style="color: #66D9EF;">int</span> *<span style="color: #FD971F;">p</span> = &amp;i;
-<span style="color: #66D9EF;">int</span> *<span style="color: #FD971F;">o</span> = &amp;j;
-i = p;
-j = o;
+<pre class="src src-c++"><span style="color: #F92672;">#include</span> <span style="color: #E6DB74;">&lt;stdio.h&gt;</span>
+
+<span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">Swap</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">a</span>, <span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">b</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">temp</span>;   <span style="color: #75715E;">//</span><span style="color: #75715E;">use the variable temp to store one value.</span>
+  temp = <span style="color: #66D9EF;">(</span>*b<span style="color: #66D9EF;">)</span>;  <span style="color: #75715E;">//</span><span style="color: #75715E;">temp equals to content of pointer b</span>
+  <span style="color: #66D9EF;">(</span>*b<span style="color: #66D9EF;">)</span> = <span style="color: #66D9EF;">(</span>*a<span style="color: #66D9EF;">)</span>;  <span style="color: #75715E;">//</span><span style="color: #75715E;">pointer b equals to content of pointer a</span>
+  <span style="color: #66D9EF;">(</span>*a<span style="color: #66D9EF;">)</span> = temp;  <span style="color: #75715E;">//</span><span style="color: #75715E;">content of pointer a equals to temp</span>
+
+<span style="color: #AE81FF;">}</span>
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span>
+<span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i</span> = <span style="color: #AE81FF;">123</span>, <span style="color: #FD971F;">j</span> = <span style="color: #AE81FF;">456</span>;
+  <span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">x</span> = &amp;i;  <span style="color: #75715E;">//</span><span style="color: #75715E;">x points to i</span>
+  <span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">y</span> = &amp;j;  <span style="color: #75715E;">//</span><span style="color: #75715E;">y points to j</span>
+  printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"Before swapping: i = %d, j = %d\n"</span>,i , j<span style="color: #66D9EF;">)</span>;
+
+  Swap<span style="color: #66D9EF;">(</span>x, y<span style="color: #66D9EF;">)</span>;
+  printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"After swapping: i = %d, j = %d\n"</span>,i , j<span style="color: #66D9EF;">)</span>;
+<span style="color: #F92672;">return</span> <span style="color: #AE81FF;">0</span>;
+<span style="color: #AE81FF;">}</span>
 </pre>
+</div>
 </div>
 </div>
 </div>
@@ -212,7 +306,7 @@ j = o;
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-07 Sun&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-07 Sun 08:57</p>
+<p class="date">Created: 2017-05-07 Sun 11:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

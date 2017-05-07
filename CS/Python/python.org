@@ -52,7 +52,7 @@ python setup.py install
 from future import division
 print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 #+end_src
--
+
 ** unittest:
 - check data operation:
   - create, select, update, delete.
