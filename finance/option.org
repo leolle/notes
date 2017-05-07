@@ -19,6 +19,26 @@
   3. Value of a put option: max[(K-S),0].
   4. the time value (TV) (extrinsic or instrumental value) of an option is the premium a rational investor would pay over its current exercise value (intrinsic value), based on the probability it will increase in value before expiry.
 
+** Black Scholes vs Monte Carlo vs Binomial tree
+*** Black Scholes:
+known input factors such as time to expiration, volatility, interest rate, current stock price, strike price, dividend yield. It's based on risk neutral process under some reasonable assumptions.
+- the underlying stock price follows a geometric Brownian motion
+- The model is based on a normal distribution of underlying asset returns
+- The option is European and can only be exercised at expiration
+- No dividends are paid out during the life of the option
+- Efficient markets (i.e., market movements cannot be predicted)
+- There are no transaction costs in buying the option
+- The risk-free rate and volatility of the underlying are known and constant
+- That the returns on the underlying are normally distributed
+
+**** Advantages & Limitations
+***** Advantage: The main advantage of the Black-Scholes model is speed -- it lets you calculate a very large number of option prices in a very short time.
+
+***** Limitation: The Black-Scholes model has one major limitation:  it cannot be used to accurately price options with an American-style exercise as it only calculates the option price at one point in time --  at expiration. It does not consider the steps along the way where there could be the possibility of early exercise of an American option.
+*** Monte Carlo and binomial tree use numerical simulation procedures.
+**** Advantages & Limitations
+***** Advantage: The big advantage the binomial model has over the Black-Scholes model is that it can be used to accurately price American options.
+***** Limitation:  The main limitation of the binomial model is its relatively slow speed.
 ** Greeks
 
 *** delta
