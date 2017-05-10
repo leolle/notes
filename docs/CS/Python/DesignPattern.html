@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-10 Wed 11:56 -->
+<!-- 2017-05-10 Wed 16:11 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -160,6 +160,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline8">5. Iterator</a></li>
 <li><a href="#orgheadline9">6. Factory</a></li>
 <li><a href="#orgheadline10">7. Observer</a></li>
+<li><a href="#orgheadline11">8. Table-Driven</a></li>
 </ul>
 </div>
 </div>
@@ -251,7 +252,8 @@ Each State object decides what other states it can move to, based on the “inpu
 </p>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">A State has an operation, and can be moved</span>
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/State.py</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">A State has an operation, and can be moved</span>
 <span style="color: #75715E;"># </span><span style="color: #75715E;">into the next State given an Input:</span>
 <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">State</span>:
     <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
@@ -259,6 +261,141 @@ Each State object decides what other states it can move to, based on the “inpu
     <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
         <span style="color: #F92672;">assert</span> <span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">"next not implemented"</span>
 </pre>
+</div>
+
+<p>
+The StateMachine keeps track of the current state, which is initialized by the constructor. The runAll( )
+method takes a list of Input objects. This method not only moves to the next state, but it also calls run( )
+for each state object
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/StateMachine.py</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Takes a list of Inputs to move from State to</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">State using a template method.</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">StateMachine</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, initialState<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.currentState = initialState
+        <span style="color: #F92672;">self</span>.currentState.run<span style="color: #AE81FF;">()</span>
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Template method:</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">runAll</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, inputs<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> inputs:
+            <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+            <span style="color: #F92672;">self</span>.currentState = <span style="color: #F92672;">self</span>.currentState.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+            <span style="color: #F92672;">self</span>.currentState.run<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/mouse/MouseAction.py</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">MouseAction</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, action<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.action = action
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__str__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>: <span style="color: #F92672;">return</span> <span style="color: #F92672;">self</span>.action
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__cmp__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, other<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> <span style="color: #F92672;">cmp</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>.action, other.action<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Necessary when __cmp__ or __eq__ is defined</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">in order to make this class usable as a</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">dictionary key:</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__hash__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> <span style="color: #F92672;">hash</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>.action<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Static fields; an enumeration of instances:</span>
+<span style="color: #FD971F;">MouseAction.appears</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse appears"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.runsAway</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse runs away"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.enters</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse enters trap"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.escapes</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse escapes"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.trapped</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse trapped"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.removed</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse removed"</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/mouse/MouseMoves.txt</span>
+mouse appears
+mouse runs away
+mouse appears
+mouse enters trap
+mouse escapes
+mouse appears
+mouse enters trap
+mouse trapped
+mouse removed
+mouse appears
+mouse runs away
+mouse appears
+mouse enters trap
+mouse trapped
+mouse removed
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/mousetrap1/MouseTrapTest.py</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">State Machine pattern using 'if' statements</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">to determine the next state.</span>
+<span style="color: #F92672;">import</span> string, sys
+<span style="color: #FD971F;">sys.path</span> += <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'../stateMachine'</span>, <span style="color: #E6DB74;">'../mouse'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">from</span> State <span style="color: #F92672;">import</span> State
+<span style="color: #F92672;">from</span> StateMachine <span style="color: #F92672;">import</span> StateMachine
+<span style="color: #F92672;">from</span> MouseAction <span style="color: #F92672;">import</span> MouseAction
+<span style="color: #75715E;"># </span><span style="color: #75715E;">A different subclass for each state:</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Waiting</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Waiting: Broadcasting cheese smell"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.appears:
+      <span style="color: #F92672;">return</span> MouseTrap.luring
+    <span style="color: #F92672;">return</span> MouseTrap.waiting
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Luring</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Luring: Presenting Cheese, door open"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.runsAway:
+      <span style="color: #F92672;">return</span> MouseTrap.waiting
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.enters:
+      <span style="color: #F92672;">return</span> MouseTrap.trapping
+    <span style="color: #F92672;">return</span> MouseTrap.luring
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Trapping</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Trapping: Closing door"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.escapes:
+      <span style="color: #F92672;">return</span> MouseTrap.waiting
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.trapped:
+      <span style="color: #F92672;">return</span> MouseTrap.holding
+    <span style="color: #F92672;">return</span> MouseTrap.trapping
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Holding</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Holding: Mouse caught"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.removed:
+      <span style="color: #F92672;">return</span> MouseTrap.waiting
+    <span style="color: #F92672;">return</span> MouseTrap.holding
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">MouseTrap</span><span style="color: #AE81FF;">(</span>StateMachine<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Initial state</span>
+    StateMachine.__init__<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, MouseTrap.waiting<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Static variable initialization:</span>
+<span style="color: #FD971F;">MouseTrap.waiting</span> = Waiting<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.luring</span> = Luring<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.trapping</span> = Trapping<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.holding</span> = Holding<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">moves</span> = <span style="color: #F92672;">map</span><span style="color: #AE81FF;">(</span>string.strip,
+  <span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"../mouse/MouseMoves.txt"</span><span style="color: #66D9EF;">)</span>.readlines<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+MouseTrap<span style="color: #AE81FF;">()</span>.runAll<span style="color: #AE81FF;">(</span><span style="color: #F92672;">map</span><span style="color: #66D9EF;">(</span>MouseAction, moves<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-python"></pre>
 </div>
 </div>
 </div>
@@ -556,11 +693,15 @@ Each State object decides what other states it can move to, based on the “inpu
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">8</span> Table-Driven</h2>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-10 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-10 Wed 11:56</p>
+<p class="date">Created: 2017-05-10 Wed 16:11</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

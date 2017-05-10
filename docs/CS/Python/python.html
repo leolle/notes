@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-07 Sun 11:44 -->
+<!-- 2017-05-10 Wed 16:11 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -547,10 +547,18 @@ int64
 <li>getattr overrides Python’s default mechanism for member access.</li>
 <li>getattr magic method only gets invoked for attributes that are not in the dict magic attribute. Implementing getattr causes the hasattr built-in function to always return True, unless an exception is raised from within getattr.</li>
 <li>setattr allows you to override Python’s default mechanism for member assignment.</li>
+<li>The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards).</li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">print</span> `a`
+<span style="color: #F92672;">print</span> <span style="color: #F92672;">repr</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)</span>
+</pre>
 </div>
 </div>
 </div>
+</div>
+
 
 
 
@@ -863,7 +871,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-07 Sun 11:44</p>
+<p class="date">Created: 2017-05-10 Wed 16:11</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
