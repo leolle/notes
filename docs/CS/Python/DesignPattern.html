@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-10 Wed 11:12 -->
+<!-- 2017-05-10 Wed 11:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -158,8 +158,13 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline6">3. State Machine</a></li>
 <li><a href="#orgheadline7">4. Decorator</a></li>
 <li><a href="#orgheadline8">5. Iterator</a></li>
-<li><a href="#orgheadline9">6. Factory</a></li>
-<li><a href="#orgheadline10">7. Observer</a></li>
+<li><a href="#orgheadline11">6. Factory</a>
+<ul>
+<li><a href="#orgheadline9">6.1. 在简单工厂中，如果需要新增类，例如加一个中学生类（MiddleStudent），就需要新写一个类，同时要修改工厂类的map_，加入'中 学生':MiddleStudent()。这样就违背了封闭开放原则中的一个类写好后，尽量不要修改里面的内容，这个原则。而在工厂方法中，需要增加一个 中学生类和一个中学生工厂类（MiddleStudentFactory），虽然比较繁琐，但是符合封闭开放原则。在工厂方法中，将判断输入的类型，返回 相应的类这个过程从工厂类中移到了客户端中实现，所以当需要新增类是，也是要修改代码的，不过是改客户端的代码而不是工厂类的代码。</a></li>
+<li><a href="#orgheadline10">6.2. 对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline12">7. Observer</a></li>
 </ul>
 </div>
 </div>
@@ -211,7 +216,8 @@ objects connect with other objects, when changing in the system doesn't require 
 <h2 id="orgheadline5"><span class="section-number-2">2</span> Singleton</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-单例模式是日常应用中最广泛的模式了，其目的就是令到单个进程中只存在一个类的实例，从而可以实现数据的共享，节省系统开销，防止io阻塞等等。
+单例模式是日常应用中最广泛的模式了，其目的就是令到单个进程中只存在一个类的实例，从而可以实现数据的共享，节省系统开销，防止io阻塞等等。A way to provide one and only one object
+of a particular type.
 但是在多进程的应用中，单例模式就实现不了了，例如一些web应用，django，这些，因为会启动多条进程来监听http请求，这样的会通过单例模式是实现不了数据共享的，也就是实现不了单例模式的目的了，这时需要用进程间通信方法来实现数据共享，当然也可以尝试使用redis这些nosql数据库实现数据共享，因为它们的读取数据较快。
 </p>
 
@@ -245,24 +251,314 @@ a.f<span style="color: #AE81FF;">()</span>
 
 <div id="outline-container-orgheadline7" class="outline-2">
 <h2 id="orgheadline7"><span class="section-number-2">4</span> Decorator</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+假如我们需要开发一个程序来展示一个人穿衣服的过程。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Person</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>,name<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'%s&#24320;&#22987;&#31359;&#34915;'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wear_tshirt</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;TShirst'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wear_trouser</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#35044;&#23376;'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wear_shoe</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;T&#38795;&#23376;'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wear_tie</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#39046;&#24102;'</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span>==<span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">person</span>=Person<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kevin'</span><span style="color: #AE81FF;">)</span>
+    person.wear_shoe<span style="color: #AE81FF;">()</span>
+    person.wear_tie<span style="color: #AE81FF;">()</span>
+    person.wear_trouser<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<p>
+这样写无疑是最快的，代码最简洁的，但是扩展性比较差，例如客户要求我们增加一个穿袜子的动作，我们就需要修改Person类，但是根据封闭-开发原则中的封闭原则，一个类写完之后是尽量不要修改它的，所以我们就需要另外一种实现方式
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> abc <span style="color: #F92672;">import</span> ABCMeta, abstractmethod
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Person</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, name<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'%s&#24320;&#22987;&#31359;&#34915;'</span> % name
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Finery</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #FD971F;">__metaclass__</span> = ABCMeta
+    <span style="color: #66D9EF;">@abstractmethod</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">TShirt</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;TShirst'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Trouser</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#35044;&#23376;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Shoe</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#38795;&#23376;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Tie</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#39046;&#24102;'</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">person</span> = Person<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kevin'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">finerys</span>=<span style="color: #AE81FF;">[]</span>
+    finerys.append<span style="color: #AE81FF;">(</span>TShirt<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+    finerys.append<span style="color: #AE81FF;">(</span>Trouser<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+    finerys.append<span style="color: #AE81FF;">(</span>Shoe<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+    finerys.append<span style="color: #AE81FF;">(</span>Tie<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">map</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x:x.show<span style="color: #66D9EF;">()</span>,finerys<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+首先定义一个积累Finery,定义一个抽象方法show,然后每一个穿衣动作都写一个类，重写show方法。
+如果客户修改需求，我们就新增加一个类就可以了。
+装饰模式的做法：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> abc <span style="color: #F92672;">import</span> ABCMeta, abstractmethod
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Person</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, name<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.name = name
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">decorator</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, component<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.component = component
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'%s&#24320;&#22987;&#31359;&#34915;'</span> % <span style="color: #F92672;">self</span>.name
+        <span style="color: #F92672;">self</span>.component.show<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Finery</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.component = <span style="color: #AE81FF;">None</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">decorator</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, component<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.component = component
+
+    <span style="color: #FD971F;">__metaclass__</span> = ABCMeta
+
+    <span style="color: #66D9EF;">@abstractmethod</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">if</span> <span style="color: #F92672;">self</span>.component:
+            <span style="color: #F92672;">self</span>.component.show<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">TShirt</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        Finery.show<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;TShirst'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Trouser</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        Finery.show<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#35044;&#23376;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Shoe</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        Finery.show<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#38795;&#23376;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Tie</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        Finery.show<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#39046;&#24102;'</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">person</span> = Person<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kevin'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">tshirt</span> = TShirt<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">trouser</span> = Trouser<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">shoe</span> = Shoe<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">tie</span> = Tie<span style="color: #AE81FF;">()</span>
+
+    trouser.decorator<span style="color: #AE81FF;">(</span>tshirt<span style="color: #AE81FF;">)</span>
+    shoe.decorator<span style="color: #AE81FF;">(</span>trouser<span style="color: #AE81FF;">)</span>
+    tie.decorator<span style="color: #AE81FF;">(</span>shoe<span style="color: #AE81FF;">)</span>
+    person.decorator<span style="color: #AE81FF;">(</span>tie<span style="color: #AE81FF;">)</span>
+    person.show<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<p>
+每个类都有show方法，衣服类都有decorator方法，利用这个方法，动态地把不同衣服的show方法装饰到person这个类上，这样做一方面可以令person类更为精简，因为在实际应用中Person类可能会有很多方法，而穿衣服这个需求只是其中一个，另一方面是，增加Person类的可扩展性，例如如果Person类已经写好了，现在新的需求需要在某一次调用Person类的show方法的时候增加穿衣服的功能，这种模式就能很好地实现了。
+</p>
+</div>
 </div>
 
 <div id="outline-container-orgheadline8" class="outline-2">
 <h2 id="orgheadline8"><span class="section-number-2">5</span> Iterator</h2>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">6</span> Factory</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">6</span> Factory</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+需求：有一个学雷锋活动，有买米和扫地两个内容，参与的人有大学生和社区志愿者，他们各自的方法不一样。
+如果用简单工厂模式实现:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">LeiFeng</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Student</span><span style="color: #AE81FF;">(</span>LeiFeng<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;&#24110;&#20320;&#20080;&#31859;'</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;&#24110;&#20320;&#25195;&#22320;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Volunteer</span><span style="color: #AE81FF;">(</span>LeiFeng<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;&#24110;&#20320;&#20080;&#31859;'</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;&#24110;&#20320;&#25195;&#22320;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">LeiFengFactory</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">create_lei_feng</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">type</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #FD971F;">map_</span> = <span style="color: #AE81FF;">{</span>
+            <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;'</span>: Student<span style="color: #66D9EF;">()</span>,
+            <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;'</span>: Volunteer<span style="color: #66D9EF;">()</span>
+        <span style="color: #AE81FF;">}</span>
+        <span style="color: #F92672;">return</span> map_<span style="color: #AE81FF;">[</span><span style="color: #F92672;">type</span><span style="color: #AE81FF;">]</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">leifeng1</span> = LeiFengFactory<span style="color: #AE81FF;">()</span>.create_lei_feng<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#22823;&#23398;&#29983;'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">leifeng2</span> = LeiFengFactory<span style="color: #AE81FF;">()</span>.create_lei_feng<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#22823;&#23398;&#29983;'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">leifeng3</span> = LeiFengFactory<span style="color: #AE81FF;">()</span>.create_lei_feng<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#22823;&#23398;&#29983;'</span><span style="color: #AE81FF;">)</span>
+    leifeng1.buy_rice<span style="color: #AE81FF;">()</span>
+    leifeng1.sweep<span style="color: #AE81FF;">()</span>
+</pre>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">7</span> Observer</h2>
+<p>
+写一个雷锋类，定义买米和扫地两个方法，写一个学生类和社区志愿者类，继承雷锋类，写一个工厂类，根据输入的类型返回学生类或志愿者类。
+用工厂方法模式实现：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">LeiFeng</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Student</span><span style="color: #AE81FF;">(</span>LeiFeng<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;&#24110;&#20320;&#20080;&#31859;'</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;&#24110;&#20320;&#25195;&#22320;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Volunteer</span><span style="color: #AE81FF;">(</span>LeiFeng<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;&#24110;&#20320;&#20080;&#31859;'</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;&#24110;&#20320;&#25195;&#22320;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">LeiFengFactory</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">create_lei_feng</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">StudentFactory</span><span style="color: #AE81FF;">(</span>LeiFengFactory<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">create_lei_feng</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> Student<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">VolunteerFactory</span><span style="color: #AE81FF;">(</span>LeiFengFactory<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">create_lei_feng</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> Volunteer<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">myFactory</span> = StudentFactory<span style="color: #AE81FF;">()</span>
+
+    <span style="color: #FD971F;">leifeng1</span> = myFactory.create_lei_feng<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">leifeng2</span> = myFactory.create_lei_feng<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">leifeng3</span> = myFactory.create_lei_feng<span style="color: #AE81FF;">()</span>
+
+    leifeng1.buy_rice<span style="color: #AE81FF;">()</span>
+    leifeng1.sweep<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<p>
+雷锋类，大学生类，志愿者类和简单工厂一样，新写一个工厂方法基类，定义一个工厂方法接口（工厂方法模式的工厂方法应该就是指这个方法），然后写一个学生工厂类，志愿者工厂类，重新工厂方法，返回各自的类。
+工厂方法相对于简单工厂的优点：
+</p>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">6.1</span> 在简单工厂中，如果需要新增类，例如加一个中学生类（MiddleStudent），就需要新写一个类，同时要修改工厂类的map_，加入'中 学生':MiddleStudent()。这样就违背了封闭开放原则中的一个类写好后，尽量不要修改里面的内容，这个原则。而在工厂方法中，需要增加一个 中学生类和一个中学生工厂类（MiddleStudentFactory），虽然比较繁琐，但是符合封闭开放原则。在工厂方法中，将判断输入的类型，返回 相应的类这个过程从工厂类中移到了客户端中实现，所以当需要新增类是，也是要修改代码的，不过是改客户端的代码而不是工厂类的代码。</h3>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">6.2</span> 对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+leifeng1 = LeiFengFactory().create<sub>lei</sub><sub>feng</sub>('大学生')
+中的大学生改成社区志愿者，这里就需要改三处地方，但是在工厂方法中，只需要吧
+myFactory = StudentFactory()
+改成
+myFactory = VolunteerFactory()
+就可以了。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">7</span> Observer</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Receptionist</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.observes=<span style="color: #AE81FF;">[]</span>
+        <span style="color: #F92672;">self</span>.status=<span style="color: #E6DB74;">''</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">attach</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>,observe<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.observes.append<span style="color: #AE81FF;">(</span>observe<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">notify</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">for</span> observe <span style="color: #F92672;">in</span> <span style="color: #F92672;">self</span>.observes:
+            observe.update<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">StockObserve</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>,name,receptionist<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.name=name
+        <span style="color: #F92672;">self</span>.receptionist=receptionist
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">update</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'%s,%s&#20572;&#27490;&#30475;&#32929;&#31080;'</span>%<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>.receptionist.status,<span style="color: #F92672;">self</span>.name<span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span>==<span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">receptionist</span>=Receptionist<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">observe1</span>=StockObserve<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#24352;&#19977;'</span>,receptionist<span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">observe2</span>=StockObserve<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#26446;&#22235;'</span>,receptionist<span style="color: #AE81FF;">)</span>
+    receptionist.attach<span style="color: #AE81FF;">(</span>observe1<span style="color: #AE81FF;">)</span>
+    receptionist.attach<span style="color: #AE81FF;">(</span>observe2<span style="color: #AE81FF;">)</span>
+
+    <span style="color: #FD971F;">receptionist.status</span>=<span style="color: #E6DB74;">'&#32769;&#26495;&#26469;&#20102;'</span>
+    receptionist.notify<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-10 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-10 Wed 11:12</p>
+<p class="date">Created: 2017-05-10 Wed 11:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

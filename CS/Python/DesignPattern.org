@@ -32,7 +32,8 @@ objects connect with other objects, when changing in the system doesn't require 
 - Observer
 - Visitor
 * Singleton
-单例模式是日常应用中最广泛的模式了，其目的就是令到单个进程中只存在一个类的实例，从而可以实现数据的共享，节省系统开销，防止io阻塞等等。
+单例模式是日常应用中最广泛的模式了，其目的就是令到单个进程中只存在一个类的实例，从而可以实现数据的共享，节省系统开销，防止io阻塞等等。A way to provide one and only one object
+of a particular type.
 但是在多进程的应用中，单例模式就实现不了了，例如一些web应用，django，这些，因为会启动多条进程来监听http请求，这样的会通过单例模式是实现不了数据共享的，也就是实现不了单例模式的目的了，这时需要用进程间通信方法来实现数据共享，当然也可以尝试使用redis这些nosql数据库实现数据共享，因为它们的读取数据较快。
 
 #+begin_src python :tangle yes
@@ -58,9 +59,260 @@ print 'done'
 * State Machine
 
 * Decorator
+假如我们需要开发一个程序来展示一个人穿衣服的过程。
+#+begin_src python :tangle yes
+class Person():
+    def __init__(self,name):
+        print '%s开始穿衣'%name
+    def wear_tshirt(self):
+        print '穿TShirst'
+    def wear_trouser(self):
+        print '穿裤子'
+    def wear_shoe(self):
+        print '穿T鞋子'
+    def wear_tie(self):
+        print '穿领带'
+
+if __name__=='__main__':
+    person=Person('kevin')
+    person.wear_shoe()
+    person.wear_tie()
+    person.wear_trouser()
+#+end_src
+这样写无疑是最快的，代码最简洁的，但是扩展性比较差，例如客户要求我们增加一个穿袜子的动作，我们就需要修改Person类，但是根据封闭-开发原则中的封闭原则，一个类写完之后是尽量不要修改它的，所以我们就需要另外一种实现方式
+
+#+begin_src python :tangle yes
+from abc import ABCMeta, abstractmethod
+class Person():
+    def __init__(self, name):
+        print '%s开始穿衣' % name
+
+class Finery():
+    __metaclass__ = ABCMeta
+    @abstractmethod
+    def show(self):
+        pass
+class TShirt(Finery):
+    def show(self):
+        print '穿TShirst'
+
+class Trouser(Finery):
+    def show(self):
+        print '穿裤子'
+
+class Shoe(Finery):
+    def show(self):
+        print '穿鞋子'
+
+class Tie(Finery):
+    def show(self):
+        print '穿领带'
+
+if __name__ == '__main__':
+    person = Person('kevin')
+    finerys=[]
+    finerys.append(TShirt())
+    finerys.append(Trouser())
+    finerys.append(Shoe())
+    finerys.append(Tie())
+    map(lambda x:x.show(),finerys)
+#+end_src
+首先定义一个积累Finery,定义一个抽象方法show,然后每一个穿衣动作都写一个类，重写show方法。
+如果客户修改需求，我们就新增加一个类就可以了。
+装饰模式的做法：
+
+#+begin_src python :tangle yes
+from abc import ABCMeta, abstractmethod
+
+class Person():
+    def __init__(self, name):
+        self.name = name
+
+    def decorator(self, component):
+        self.component = component
+
+    def show(self):
+        print '%s开始穿衣' % self.name
+        self.component.show()
+
+class Finery():
+    def __init__(self):
+        self.component = None
+
+    def decorator(self, component):
+        self.component = component
+
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
+    def show(self):
+        if self.component:
+            self.component.show()
+
+class TShirt(Finery):
+    def show(self):
+        Finery.show(self)
+        print '穿TShirst'
+
+class Trouser(Finery):
+    def show(self):
+        Finery.show(self)
+        print '穿裤子'
+
+class Shoe(Finery):
+    def show(self):
+        Finery.show(self)
+        print '穿鞋子'
+
+class Tie(Finery):
+    def show(self):
+        Finery.show(self)
+        print '穿领带'
+
+if __name__ == '__main__':
+    person = Person('kevin')
+    tshirt = TShirt()
+    trouser = Trouser()
+    shoe = Shoe()
+    tie = Tie()
+
+    trouser.decorator(tshirt)
+    shoe.decorator(trouser)
+    tie.decorator(shoe)
+    person.decorator(tie)
+    person.show()
+#+end_src
+每个类都有show方法，衣服类都有decorator方法，利用这个方法，动态地把不同衣服的show方法装饰到person这个类上，这样做一方面可以令person类更为精简，因为在实际应用中Person类可能会有很多方法，而穿衣服这个需求只是其中一个，另一方面是，增加Person类的可扩展性，例如如果Person类已经写好了，现在新的需求需要在某一次调用Person类的show方法的时候增加穿衣服的功能，这种模式就能很好地实现了。
 
 * Iterator
 
 * Factory
+需求：有一个学雷锋活动，有买米和扫地两个内容，参与的人有大学生和社区志愿者，他们各自的方法不一样。
+如果用简单工厂模式实现:
+#+begin_src python :tangle yes
+class LeiFeng():
+    def buy_rice(self):
+        pass
+
+    def sweep(self):
+        pass
+
+class Student(LeiFeng):
+    def buy_rice(self):
+        print '大学生帮你买米'
+
+    def sweep(self):
+        print '大学生帮你扫地'
+
+class Volunteer(LeiFeng):
+    def buy_rice(self):
+        print '社区志愿者帮你买米'
+
+    def sweep(self):
+        print '社区志愿者帮你扫地'
+
+class LeiFengFactory():
+    def create_lei_feng(self, type):
+        map_ = {
+            '大学生': Student(),
+            '社区志愿者': Volunteer()
+        }
+        return map_[type]
+
+if __name__ == '__main__':
+    leifeng1 = LeiFengFactory().create_lei_feng('大学生')
+    leifeng2 = LeiFengFactory().create_lei_feng('大学生')
+    leifeng3 = LeiFengFactory().create_lei_feng('大学生')
+    leifeng1.buy_rice()
+    leifeng1.sweep()
+#+end_src
+
+写一个雷锋类，定义买米和扫地两个方法，写一个学生类和社区志愿者类，继承雷锋类，写一个工厂类，根据输入的类型返回学生类或志愿者类。
+用工厂方法模式实现：
+#+begin_src python :tangle yes
+class LeiFeng():
+    def buy_rice(self):
+        pass
+
+    def sweep(self):
+        pass
+
+class Student(LeiFeng):
+    def buy_rice(self):
+        print '大学生帮你买米'
+
+    def sweep(self):
+        print '大学生帮你扫地'
+
+class Volunteer(LeiFeng):
+    def buy_rice(self):
+        print '社区志愿者帮你买米'
+
+    def sweep(self):
+        print '社区志愿者帮你扫地'
+
+class LeiFengFactory():
+    def create_lei_feng(self):
+        pass
+
+class StudentFactory(LeiFengFactory):
+    def create_lei_feng(self):
+        return Student()
+
+class VolunteerFactory(LeiFengFactory):
+    def create_lei_feng(self):
+        return Volunteer()
+
+if __name__ == '__main__':
+    myFactory = StudentFactory()
+
+    leifeng1 = myFactory.create_lei_feng()
+    leifeng2 = myFactory.create_lei_feng()
+    leifeng3 = myFactory.create_lei_feng()
+
+    leifeng1.buy_rice()
+    leifeng1.sweep()
+#+end_src
+雷锋类，大学生类，志愿者类和简单工厂一样，新写一个工厂方法基类，定义一个工厂方法接口（工厂方法模式的工厂方法应该就是指这个方法），然后写一个学生工厂类，志愿者工厂类，重新工厂方法，返回各自的类。
+工厂方法相对于简单工厂的优点：
+
+** 在简单工厂中，如果需要新增类，例如加一个中学生类（MiddleStudent），就需要新写一个类，同时要修改工厂类的map_，加入'中 学生':MiddleStudent()。这样就违背了封闭开放原则中的一个类写好后，尽量不要修改里面的内容，这个原则。而在工厂方法中，需要增加一个 中学生类和一个中学生工厂类（MiddleStudentFactory），虽然比较繁琐，但是符合封闭开放原则。在工厂方法中，将判断输入的类型，返回 相应的类这个过程从工厂类中移到了客户端中实现，所以当需要新增类是，也是要修改代码的，不过是改客户端的代码而不是工厂类的代码。
+
+** 对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把
+
+leifeng1 = LeiFengFactory().create_lei_feng('大学生')
+中的大学生改成社区志愿者，这里就需要改三处地方，但是在工厂方法中，只需要吧
+myFactory = StudentFactory()
+改成
+myFactory = VolunteerFactory()
+就可以了。
 
 * Observer
+#+begin_src python :tangle yes
+class Receptionist():
+    def __init__(self):
+        self.observes=[]
+        self.status=''
+    def attach(self,observe):
+        self.observes.append(observe)
+    def notify(self):
+        for observe in self.observes:
+            observe.update()
+
+class StockObserve():
+    def __init__(self,name,receptionist):
+        self.name=name
+        self.receptionist=receptionist
+    def update(self):
+        print '%s,%s停止看股票'%(self.receptionist.status,self.name)
+
+if __name__=='__main__':
+    receptionist=Receptionist()
+    observe1=StockObserve('张三',receptionist)
+    observe2=StockObserve('李四',receptionist)
+    receptionist.attach(observe1)
+    receptionist.attach(observe2)
+
+    receptionist.status='老板来了'
+    receptionist.notify()
+#+end_src
