@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-10 Wed 11:42 -->
+<!-- 2017-05-10 Wed 11:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -158,13 +158,8 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline6">3. State Machine</a></li>
 <li><a href="#orgheadline7">4. Decorator</a></li>
 <li><a href="#orgheadline8">5. Iterator</a></li>
-<li><a href="#orgheadline11">6. Factory</a>
-<ul>
-<li><a href="#orgheadline9">6.1. 在简单工厂中，如果需要新增类，例如加一个中学生类（MiddleStudent），就需要新写一个类，同时要修改工厂类的map_，加入'中 学生':MiddleStudent()。这样就违背了封闭开放原则中的一个类写好后，尽量不要修改里面的内容，这个原则。而在工厂方法中，需要增加一个 中学生类和一个中学生工厂类（MiddleStudentFactory），虽然比较繁琐，但是符合封闭开放原则。在工厂方法中，将判断输入的类型，返回 相应的类这个过程从工厂类中移到了客户端中实现，所以当需要新增类是，也是要修改代码的，不过是改客户端的代码而不是工厂类的代码。</a></li>
-<li><a href="#orgheadline10">6.2. 对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline12">7. Observer</a></li>
+<li><a href="#orgheadline9">6. Factory</a></li>
+<li><a href="#orgheadline10">7. Observer</a></li>
 </ul>
 </div>
 </div>
@@ -397,8 +392,8 @@ a.f<span style="color: #AE81FF;">()</span>
 <h2 id="orgheadline8"><span class="section-number-2">5</span> Iterator</h2>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">6</span> Factory</h2>
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">6</span> Factory</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 需求：有一个学雷锋活动，有买米和扫地两个内容，参与的人有大学生和社区志愿者，他们各自的方法不一样。
@@ -498,15 +493,13 @@ a.f<span style="color: #AE81FF;">()</span>
 雷锋类，大学生类，志愿者类和简单工厂一样，新写一个工厂方法基类，定义一个工厂方法接口（工厂方法模式的工厂方法应该就是指这个方法），然后写一个学生工厂类，志愿者工厂类，重新工厂方法，返回各自的类。
 工厂方法相对于简单工厂的优点：
 </p>
-</div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">6.1</span> 在简单工厂中，如果需要新增类，例如加一个中学生类（MiddleStudent），就需要新写一个类，同时要修改工厂类的map_，加入'中 学生':MiddleStudent()。这样就违背了封闭开放原则中的一个类写好后，尽量不要修改里面的内容，这个原则。而在工厂方法中，需要增加一个 中学生类和一个中学生工厂类（MiddleStudentFactory），虽然比较繁琐，但是符合封闭开放原则。在工厂方法中，将判断输入的类型，返回 相应的类这个过程从工厂类中移到了客户端中实现，所以当需要新增类是，也是要修改代码的，不过是改客户端的代码而不是工厂类的代码。</h3>
-</div>
+<ul class="org-ul">
+<li>在简单工厂中，如果需要新增类，例如加一个中学生类（MiddleStudent），就需要新写一个类，同时要修改工厂类的map_，加入'中 学生':MiddleStudent()。这样就违背了封闭开放原则中的一个类写好后，尽量不要修改里面的内容，这个原则。而在工厂方法中，需要增加一个 中学生类和一个中学生工厂类（MiddleStudentFactory），虽然比较繁琐，但是符合封闭开放原则。在工厂方法中，将判断输入的类型，返回 相应的类这个过程从工厂类中移到了客户端中实现，所以当需要新增类是，也是要修改代码的，不过是改客户端的代码而不是工厂类的代码。</li>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">6.2</span> 对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把</h3>
-<div class="outline-text-3" id="text-6-2">
+<li>对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把</li>
+</ul>
+
 <p>
 leifeng1 = LeiFengFactory().create<sub>lei</sub><sub>feng</sub>('大学生')
 中的大学生改成社区志愿者，这里就需要改三处地方，但是在工厂方法中，只需要吧
@@ -517,10 +510,9 @@ myFactory = VolunteerFactory()
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">7</span> Observer</h2>
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">7</span> Observer</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 
@@ -558,7 +550,7 @@ myFactory = VolunteerFactory()
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-10 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-10 Wed 11:42</p>
+<p class="date">Created: 2017-05-10 Wed 11:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
