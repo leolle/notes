@@ -6,10 +6,10 @@
   + [[file:./Math/Statistics.org][Statistics]]
 + CS
   + [[file:./CS/Python/python.org][Python]]
-    + Ipython notebooks
-      + [[file:./ipynb/site/index.html][JupyterNotebooks]]
     + [[file:./CS/Python/DesignPattern.org][DesignPattern]]
     + [[file:./CS/Python/high_performance_python.html][HighPerformanceOfPython]]
+    + Ipython notebooks
+      + [[file:./ipynb/site/index.html][JupyterNotebooks]]
   + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
   + C++
     + [[file:./CS/C++/C++.org][C++ObjectOrientedProgramming]]
