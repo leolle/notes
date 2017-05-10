@@ -21,15 +21,14 @@
 
 ** Black Scholes vs Monte Carlo vs Binomial tree
 *** Black Scholes:
-known input factors such as time to expiration, volatility, interest rate, current stock price, strike price, dividend yield. It's based on risk neutral process under some reasonable assumptions.
-- the underlying stock price follows a geometric Brownian motion
-- The model is based on a normal distribution of underlying asset returns
-- The option is European and can only be exercised at expiration
-- No dividends are paid out during the life of the option
-- Efficient markets (i.e., market movements cannot be predicted)
-- There are no transaction costs in buying the option
-- The risk-free rate and volatility of the underlying are known and constant
-- That the returns on the underlying are normally distributed
+Known input factors such as time to expiration, volatility, interest rate, current stock price, strike price, dividend yield. It's based on risk neutral process under some reasonable assumptions.
+- The underlying stock price follows a geometric Brownian motion.
+- The model is based on a normal distribution of underlying asset returns.
+- The option is European and can only be exercised at expiration.
+- No dividends are paid out during the life of the option.
+- Efficient markets (i.e., market movements cannot be predicted).
+- There are no transaction costs in buying the option.
+- The risk-free rate and volatility of the underlying are known and constant.
 
 **** Advantages & Limitations
 ***** Advantage: The main advantage of the Black-Scholes model is speed -- it lets you calculate a very large number of option prices in a very short time.
