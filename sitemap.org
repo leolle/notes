@@ -3,6 +3,7 @@
   + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
   + [[file:./finance/FundAnalysis.org][FundAnalysis]]
 + Mathematics
+  + [[file:./Math/knowledge_tree.html][KnowledgeTree]]
   + [[file:./Math/Statistics.org][Statistics]]
 + CS
   + [[file:./CS/Python/python.org][Python]]
