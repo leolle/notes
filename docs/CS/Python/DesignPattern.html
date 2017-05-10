@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-10 Wed 11:44 -->
+<!-- 2017-05-10 Wed 11:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -497,17 +497,8 @@ a.f<span style="color: #AE81FF;">()</span>
 <ul class="org-ul">
 <li>在简单工厂中，如果需要新增类，例如加一个中学生类（MiddleStudent），就需要新写一个类，同时要修改工厂类的map_，加入'中 学生':MiddleStudent()。这样就违背了封闭开放原则中的一个类写好后，尽量不要修改里面的内容，这个原则。而在工厂方法中，需要增加一个 中学生类和一个中学生工厂类（MiddleStudentFactory），虽然比较繁琐，但是符合封闭开放原则。在工厂方法中，将判断输入的类型，返回 相应的类这个过程从工厂类中移到了客户端中实现，所以当需要新增类是，也是要修改代码的，不过是改客户端的代码而不是工厂类的代码。</li>
 
-<li>对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把</li>
+<li>对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把leifeng1 = LeiFengFactory().create<sub>lei</sub><sub>feng</sub>('大学生')中的大学生改成社区志愿者，这里就需要改三处地方，但是在工厂方法中，只需要myFactory = StudentFactory()改成myFactory = VolunteerFactory()就可以了。</li>
 </ul>
-
-<p>
-leifeng1 = LeiFengFactory().create<sub>lei</sub><sub>feng</sub>('大学生')
-中的大学生改成社区志愿者，这里就需要改三处地方，但是在工厂方法中，只需要吧
-myFactory = StudentFactory()
-改成
-myFactory = VolunteerFactory()
-就可以了。
-</p>
 </div>
 </div>
 
@@ -550,7 +541,7 @@ myFactory = VolunteerFactory()
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-10 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-10 Wed 11:44</p>
+<p class="date">Created: 2017-05-10 Wed 11:46</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
