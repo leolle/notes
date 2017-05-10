@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-10 Wed 16:11 -->
+<!-- 2017-05-10 Wed 16:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -392,10 +392,85 @@ MouseTrap<span style="color: #AE81FF;">()</span>.runAll<span style="color: #AE81
 </pre>
 </div>
 
-
+<p>
+The StateT class is an implementation of State (so that the same StateMachine class can be used from the
+previous example) that adds a Map and a method to initialize the map from a two-dimensional array. The
+next( ) method has a base-class implementation which must be called from the overridden derived class
+next( ) methods after they test for a null Map (and initialize it if it’s null):
+</p>
 <div class="org-src-container">
 
-<pre class="src src-python"></pre>
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/mousetrap2/MouseTrap2Test.py</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">A better mousetrap using tables</span>
+<span style="color: #F92672;">import</span> string, sys
+<span style="color: #FD971F;">sys.path</span> += <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'../stateMachine'</span>, <span style="color: #E6DB74;">'../mouse'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">from</span> State <span style="color: #F92672;">import</span> State
+<span style="color: #F92672;">from</span> StateMachine <span style="color: #F92672;">import</span> StateMachine
+<span style="color: #F92672;">from</span> MouseAction <span style="color: #F92672;">import</span> MouseAction
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">StateT</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">None</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">self</span>.transitions.has_key<span style="color: #AE81FF;">(</span><span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+      <span style="color: #F92672;">return</span> <span style="color: #F92672;">self</span>.transitions<span style="color: #AE81FF;">[</span><span style="color: #F92672;">input</span><span style="color: #AE81FF;">]</span>
+    <span style="color: #F92672;">else</span>:
+      <span style="color: #F92672;">raise</span> <span style="color: #E6DB74;">"Input not supported for current state"</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Waiting</span><span style="color: #AE81FF;">(</span>StateT<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Waiting: Broadcasting cheese smell"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Lazy initialization:</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.transitions:
+      <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">{</span>
+        MouseAction.appears : MouseTrap.luring
+      <span style="color: #AE81FF;">}</span>
+    <span style="color: #F92672;">return</span> StateT.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Luring</span><span style="color: #AE81FF;">(</span>StateT<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Luring: Presenting Cheese, door open"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Lazy initialization:</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.transitions:
+      <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">{</span>
+        MouseAction.enters : MouseTrap.trapping,
+        MouseAction.runsAway : MouseTrap.waiting
+      <span style="color: #AE81FF;">}</span>
+    <span style="color: #F92672;">return</span> StateT.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Trapping</span><span style="color: #AE81FF;">(</span>StateT<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Trapping: Closing door"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Lazy initialization:</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.transitions:
+      <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">{</span>
+        MouseAction.escapes : MouseTrap.waiting,
+        MouseAction.trapped : MouseTrap.holding
+      <span style="color: #AE81FF;">}</span>
+    <span style="color: #F92672;">return</span> StateT.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Holding</span><span style="color: #AE81FF;">(</span>StateT<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Holding: Mouse caught"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">Lazy initialization:</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.transitions:
+      <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">{</span>
+      MouseAction.removed : MouseTrap.waiting
+    <span style="color: #AE81FF;">}</span>
+    <span style="color: #F92672;">return</span> StateT.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">MouseTrap</span><span style="color: #AE81FF;">(</span>StateMachine<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Initial state</span>
+    StateMachine.__init__<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, MouseTrap.waiting<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Static variable initialization:</span>
+<span style="color: #FD971F;">MouseTrap.waiting</span> = Waiting<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.luring</span> = Luring<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.trapping</span> = Trapping<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.holding</span> = Holding<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">moves</span> = <span style="color: #F92672;">map</span><span style="color: #AE81FF;">(</span>string.strip,
+<span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"../mouse/MouseMoves.txt"</span><span style="color: #66D9EF;">)</span>.readlines<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">mouseMoves</span> = <span style="color: #F92672;">map</span><span style="color: #AE81FF;">(</span>MouseAction, moves<span style="color: #AE81FF;">)</span>
+MouseTrap<span style="color: #AE81FF;">()</span>.runAll<span style="color: #AE81FF;">(</span>mouseMoves<span style="color: #AE81FF;">)</span>
+</pre>
 </div>
 </div>
 </div>
@@ -701,7 +776,7 @@ MouseTrap<span style="color: #AE81FF;">()</span>.runAll<span style="color: #AE81
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-10 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-10 Wed 16:11</p>
+<p class="date">Created: 2017-05-10 Wed 16:50</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

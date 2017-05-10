@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-10 Wed 16:11 -->
+<!-- 2017-05-10 Wed 16:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -229,6 +229,29 @@ Remember, everything in python is an object.</li>
 <li>using ipython.</li>
 </ul></li>
 
+<li>import module temperarily from parental directory without add path to the system.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">folder1</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\__init__.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\State.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\StateMachine.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\mouse_folder</span>
+<span style="color: #75715E;">#        </span><span style="color: #75715E;">\MouseAction.py</span>
+<span style="color: #F92672;">import</span> os,sys,inspect
+<span style="color: #FD971F;">currentdir</span> = os.path.dirname<span style="color: #AE81FF;">(</span>os.path.abspath<span style="color: #66D9EF;">(</span>inspect.getfile<span style="color: #A6E22E;">(</span>inspect.currentframe<span style="color: #E6DB74;">()</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">parentdir</span> = os.path.dirname<span style="color: #AE81FF;">(</span>currentdir<span style="color: #AE81FF;">)</span>
+sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>,parentdir+<span style="color: #E6DB74;">'\\mouse'</span><span style="color: #AE81FF;">)</span>
+sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>,parentdir<span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">from</span> State <span style="color: #F92672;">import</span> State
+<span style="color: #F92672;">from</span> StateMachine <span style="color: #F92672;">import</span> StateMachine
+<span style="color: #F92672;">from</span> MouseAction <span style="color: #F92672;">import</span> MouseAction
+</pre>
+</div>
+
+<ul class="org-ul">
 <li>check module path:</li>
 </ul>
 <div class="org-src-container">
@@ -871,7 +894,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-10 Wed 16:11</p>
+<p class="date">Created: 2017-05-10 Wed 16:50</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

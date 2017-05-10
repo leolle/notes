@@ -33,6 +33,25 @@
     - need to add the working directory to .bashrc PYTHONPATH
     - using ipython.
 
+- import module temperarily from parental directory without add path to the system.
+#+begin_src python :tangle yes
+# folder1
+#    \__init__.py
+#    \State.py
+#    \StateMachine.py
+#    \mouse_folder
+#        \MouseAction.py
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0,parentdir+'\\mouse')
+sys.path.insert(0,parentdir)
+
+from State import State
+from StateMachine import StateMachine
+from MouseAction import MouseAction
+#+end_src
+
 - check module path:
 #+begin_src python
 import os
