@@ -1,0 +1,66 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: DesignPattern
+#+DATE: <2017-05-10 Wed>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+#+begin_src python :tangle yes
+
+#+end_src
+
+A pattern as an especially clever and insightful way of solving a particular class.
+of problems
+
+
+* Classifying Patterns
+** Creational
+- Singleton
+- Factory method
+- Prototype
+
+** Structural
+objects connect with other objects, when changing in the system doesn't require changes to those connection.
+
+** Behavioral
+- Observer
+- Visitor
+* Singleton
+单例模式是日常应用中最广泛的模式了，其目的就是令到单个进程中只存在一个类的实例，从而可以实现数据的共享，节省系统开销，防止io阻塞等等。
+但是在多进程的应用中，单例模式就实现不了了，例如一些web应用，django，这些，因为会启动多条进程来监听http请求，这样的会通过单例模式是实现不了数据共享的，也就是实现不了单例模式的目的了，这时需要用进程间通信方法来实现数据共享，当然也可以尝试使用redis这些nosql数据库实现数据共享，因为它们的读取数据较快。
+
+#+begin_src python :tangle yes
+class Singleton(object):
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls,'_the_instance'):
+            cls._the_instance=object.__new__(cls,*args, **kwargs)
+        return cls._the_instance
+
+class A(Singleton):
+    print 'init before'
+    def __init__(self):
+        print 'i am __init__'
+    def f(self):
+        print 'i am f'
+
+a=A()
+b=A()
+a.f()
+print 'done'
+#+end_src
+
+* State Machine
+
+* Decorator
+
+* Iterator
+
+* Factory
+
+* Observer
