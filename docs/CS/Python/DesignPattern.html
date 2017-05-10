@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-10 Wed 11:46 -->
+<!-- 2017-05-10 Wed 11:56 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -242,6 +242,25 @@ a.f<span style="color: #AE81FF;">()</span>
 
 <div id="outline-container-orgheadline6" class="outline-2">
 <h2 id="orgheadline6"><span class="section-number-2">3</span> State Machine</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+While State has a way to allow the client programmer to change the implementation, StateMachine imposes
+a structure to automatically change the implementation from one object to the next. The current implementation represents the state that a system is in, and the system behaves differently from one state to the next
+(because it uses State). Basically, this is a “state machine” using objects.
+Each State object decides what other states it can move to, based on the “input”.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">A State has an operation, and can be moved</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">into the next State given an Input:</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">State</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">assert</span> <span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">"run not implemented"</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">assert</span> <span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">"next not implemented"</span>
+</pre>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgheadline7" class="outline-2">
@@ -541,7 +560,7 @@ a.f<span style="color: #AE81FF;">()</span>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-10 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-10 Wed 11:46</p>
+<p class="date">Created: 2017-05-10 Wed 11:56</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

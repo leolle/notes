@@ -57,6 +57,19 @@ print 'done'
 #+end_src
 
 * State Machine
+While State has a way to allow the client programmer to change the implementation, StateMachine imposes
+a structure to automatically change the implementation from one object to the next. The current implementation represents the state that a system is in, and the system behaves differently from one state to the next
+(because it uses State). Basically, this is a “state machine” using objects.
+Each State object decides what other states it can move to, based on the “input”.
+#+begin_src python :tangle yes
+# A State has an operation, and can be moved
+# into the next State given an Input:
+class State:
+    def run(self):
+        assert 0, "run not implemented"
+    def next(self, input):
+        assert 0, "next not implemented"
+#+end_src
 
 * Decorator
 假如我们需要开发一个程序来展示一个人穿衣服的过程。
