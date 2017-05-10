@@ -1,4 +1,4 @@
-+ finance
++ Finance
   + [[file:./finance/option.org][Option]]
   + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
   + [[file:./finance/FundAnalysis.org][FundAnalysis]]

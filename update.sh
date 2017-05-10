@@ -3,7 +3,7 @@
 rm -rf ./docs/docs/
 cp -R -u ./ipynb/site/fonts ./docs/ipynb/site/
 cp -R -u ./ipynb/site/ ./docs/ipynb/
-cp ./ipynb/site/404.html ./ipynb/site/index.html ./ipynb/site/sitemap.xml ~/website/leolle.github.io/docs/ipynb/site
+#cp ./ipynb/site/404.html ./ipynb/site/index.html ./ipynb/site/sitemap.xml ~/website/leolle.github.io/docs/ipynb/site
 git add *
 git commit -m "update notes"
 git push
