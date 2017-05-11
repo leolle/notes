@@ -102,7 +102,7 @@
 *** Capital Market Line
 
 ** Principal Component Analysis
-
+[[file:./py4fi/PCA.html][PCA]]
 *** The DAX index and its 30 stocks
 
 *** Applying PCA
