@@ -7,6 +7,7 @@
   + [[file:./Math/Statistics.org][Statistics]]
 + CS
   + [[file:./CS/Python/python.org][Python]]
+    + [[file:./CS/Python/PythonForFinance.md][PythonForFinance]]
     + [[file:./CS/Python/DesignPattern.org][DesignPattern]]
     + [[file:./CS/Python/high_performance_python.html][HighPerformanceOfPython]]
     + Ipython notebooks

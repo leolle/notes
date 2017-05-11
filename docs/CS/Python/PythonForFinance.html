@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-05-11 Thu 19:21 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline4">1. Introductory Examples</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Implied Volatilities</a></li>
+<li><a href="#orgheadline2">1.2. Monte Carlo Simulation</a></li>
+<li><a href="#orgheadline3">1.3. Technical Analysis</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline8">2. Data Visualization</a>
+<ul>
+<li><a href="#orgheadline5">2.1. Two-Dementional Plotting</a></li>
+<li><a href="#orgheadline6">2.2. Financial plots</a></li>
+<li><a href="#orgheadline7">2.3. 3D plotting</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline13">3. Financial Time Series</a>
+<ul>
+<li><a href="#orgheadline9">3.1. pandas</a></li>
+<li><a href="#orgheadline10">3.2. Financial Data</a></li>
+<li><a href="#orgheadline11">3.3. Regression Analysis</a></li>
+<li><a href="#orgheadline12">3.4. High-Frequency Data</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline14">4. Performance Python</a></li>
+<li><a href="#orgheadline26">5. Mathematical Tools</a>
+<ul>
+<li><a href="#orgheadline17">5.1. Approximation</a>
+<ul>
+<li><a href="#orgheadline15">5.1.1. Regression</a></li>
+<li><a href="#orgheadline16">5.1.2. Interpolation</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline21">5.2. Convex Optimization</a>
+<ul>
+<li><a href="#orgheadline18">5.2.1. Global Optimization</a></li>
+<li><a href="#orgheadline19">5.2.2. Local Optimization</a></li>
+<li><a href="#orgheadline20">5.2.3. Constrained Optimization</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline24">5.3. Integration</a>
+<ul>
+<li><a href="#orgheadline22">5.3.1. Numerical Integration</a></li>
+<li><a href="#orgheadline23">5.3.2. Integration by simulation</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline25">5.4. Symbolic Computation</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline38">6. Stochastics</a>
+<ul>
+<li><a href="#orgheadline27">6.1. Random Numbers</a></li>
+<li><a href="#orgheadline37">6.2. Simulation</a>
+<ul>
+<li><a href="#orgheadline28">6.2.1. Random Variables</a></li>
+<li><a href="#orgheadline29">6.2.2. Stochastic Processes</a></li>
+<li><a href="#orgheadline30">6.2.3. Variance Reduction</a></li>
+<li><a href="#orgheadline33">6.2.4. Valuation</a></li>
+<li><a href="#orgheadline36">6.2.5. Risk Measure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline52">7. Statistics</a>
+<ul>
+<li><a href="#orgheadline41">7.1. Normality Tests</a>
+<ul>
+<li><a href="#orgheadline39">7.1.1. Benchmark Case</a></li>
+<li><a href="#orgheadline40">7.1.2. Real-World data</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline44">7.2. Portfolio Optimization</a>
+<ul>
+<li><a href="#orgheadline42">7.2.1. Efficient frontier</a></li>
+<li><a href="#orgheadline43">7.2.2. Capital Market Line</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline48">7.3. Principal Component Analysis</a>
+<ul>
+<li><a href="#orgheadline45">7.3.1. The DAX index and its 30 stocks</a></li>
+<li><a href="#orgheadline46">7.3.2. Applying PCA</a></li>
+<li><a href="#orgheadline47">7.3.3. Constructing a PCA Index</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline51">7.4. Bayesian Regression</a>
+<ul>
+<li><a href="#orgheadline49">7.4.1. Bayes's formula</a></li>
+<li><a href="#orgheadline50">7.4.2. PyMC3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline58">8. Valuation Framework</a>
+<ul>
+<li><a href="#orgheadline53">8.1. Fundamental Theorem of Asset pricing</a></li>
+<li><a href="#orgheadline57">8.2. Risk-Neutral discounting</a>
+<ul>
+<li><a href="#orgheadline54">8.2.1. modeling and handling dates</a></li>
+<li><a href="#orgheadline55">8.2.2. constant short rate</a></li>
+<li><a href="#orgheadline56">8.2.3. Market environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline64">9. Simulation of Financial Models</a>
+<ul>
+<li><a href="#orgheadline59">9.1. Random Number Generation</a></li>
+<li><a href="#orgheadline60">9.2. Generic Simulation Class</a></li>
+<li><a href="#orgheadline61">9.3. Geometric Brownian Motion</a></li>
+<li><a href="#orgheadline62">9.4. Jump Diffusion</a></li>
+<li><a href="#orgheadline63">9.5. Square-Root Diffusion</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline69">10. Derivatives Valuation</a>
+<ul>
+<li><a href="#orgheadline65">10.1. Generic Valuation Class</a></li>
+<li><a href="#orgheadline66">10.2. European Exercise</a></li>
+<li><a href="#orgheadline68">10.3. American Excercise</a>
+<ul>
+<li><a href="#orgheadline67">10.3.1. Least-Square Monte Carlo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline72">11. Portfolio Valuation</a>
+<ul>
+<li><a href="#orgheadline70">11.1. Derivatives positions</a></li>
+<li><a href="#orgheadline71">11.2. Derivatives portfolio</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline79">12. Volatility Options</a>
+<ul>
+<li><a href="#orgheadline76">12.1. The VSTOXX Data</a>
+<ul>
+<li><a href="#orgheadline73">12.1.1. VSTOXX Index Data</a></li>
+<li><a href="#orgheadline74">12.1.2. VSTOXX Futures Data</a></li>
+<li><a href="#orgheadline75">12.1.3. VSTOXX Options Data</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline77">12.2. Model Calibration</a></li>
+<li><a href="#orgheadline78">12.3. American Options on the VSTOXX</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> Introductory Examples</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Implied Volatilities</h3>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Monte Carlo Simulation</h3>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Technical Analysis</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">2</span> Data Visualization</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.1</span> Two-Dementional Plotting</h3>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.2</span> Financial plots</h3>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.3</span> 3D plotting</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">3</span> Financial Time Series</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">3.1</span> pandas</h3>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">3.2</span> Financial Data</h3>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">3.3</span> Regression Analysis</h3>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">3.4</span> High-Frequency Data</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">4</span> Performance Python</h2>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">5</span> Mathematical Tools</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">5.1</span> Approximation</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15"><span class="section-number-4">5.1.1</span> Regression</h4>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">5.1.2</span> Interpolation</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">5.2</span> Convex Optimization</h3>
+<div class="outline-text-3" id="text-5-2">
+</div><div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">5.2.1</span> Global Optimization</h4>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">5.2.2</span> Local Optimization</h4>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">5.2.3</span> Constrained Optimization</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">5.3</span> Integration</h3>
+<div class="outline-text-3" id="text-5-3">
+</div><div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">5.3.1</span> Numerical Integration</h4>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">5.3.2</span> Integration by simulation</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">5.4</span> Symbolic Computation</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline38" class="outline-2">
+<h2 id="orgheadline38"><span class="section-number-2">6</span> Stochastics</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">6.1</span> Random Numbers</h3>
+</div>
+
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">6.2</span> Simulation</h3>
+<div class="outline-text-3" id="text-6-2">
+</div><div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">6.2.1</span> Random Variables</h4>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">6.2.2</span> Stochastic Processes</h4>
+</div>
+
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">6.2.3</span> Variance Reduction</h4>
+</div>
+
+<div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33"><span class="section-number-4">6.2.4</span> Valuation</h4>
+<div class="outline-text-4" id="text-6-2-4">
+</div><ol class="org-ol"><li><a id="orgheadline31"></a>European options<br  /></li>
+
+<li><a id="orgheadline32"></a>American options<br  /></li></ol>
+</div>
+
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36"><span class="section-number-4">6.2.5</span> Risk Measure</h4>
+<div class="outline-text-4" id="text-6-2-5">
+</div><ol class="org-ol"><li><a id="orgheadline34"></a>VaR<br  /></li>
+
+<li><a id="orgheadline35"></a>Credit Value Adjustments<br  /></li></ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline52" class="outline-2">
+<h2 id="orgheadline52"><span class="section-number-2">7</span> Statistics</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">7.1</span> Normality Tests</h3>
+<div class="outline-text-3" id="text-7-1">
+</div><div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39"><span class="section-number-4">7.1.1</span> Benchmark Case</h4>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">7.1.2</span> Real-World data</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">7.2</span> Portfolio Optimization</h3>
+<div class="outline-text-3" id="text-7-2">
+</div><div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">7.2.1</span> Efficient frontier</h4>
+</div>
+
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43"><span class="section-number-4">7.2.2</span> Capital Market Line</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48"><span class="section-number-3">7.3</span> Principal Component Analysis</h3>
+<div class="outline-text-3" id="text-7-3">
+</div><div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45"><span class="section-number-4">7.3.1</span> The DAX index and its 30 stocks</h4>
+</div>
+
+<div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46"><span class="section-number-4">7.3.2</span> Applying PCA</h4>
+</div>
+
+<div id="outline-container-orgheadline47" class="outline-4">
+<h4 id="orgheadline47"><span class="section-number-4">7.3.3</span> Constructing a PCA Index</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline51" class="outline-3">
+<h3 id="orgheadline51"><span class="section-number-3">7.4</span> Bayesian Regression</h3>
+<div class="outline-text-3" id="text-7-4">
+</div><div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">7.4.1</span> Bayes's formula</h4>
+</div>
+
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">7.4.2</span> PyMC3</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline58" class="outline-2">
+<h2 id="orgheadline58"><span class="section-number-2">8</span> Valuation Framework</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53"><span class="section-number-3">8.1</span> Fundamental Theorem of Asset pricing</h3>
+</div>
+
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">8.2</span> Risk-Neutral discounting</h3>
+<div class="outline-text-3" id="text-8-2">
+</div><div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54"><span class="section-number-4">8.2.1</span> modeling and handling dates</h4>
+</div>
+
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">8.2.2</span> constant short rate</h4>
+</div>
+
+<div id="outline-container-orgheadline56" class="outline-4">
+<h4 id="orgheadline56"><span class="section-number-4">8.2.3</span> Market environment</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline64" class="outline-2">
+<h2 id="orgheadline64"><span class="section-number-2">9</span> Simulation of Financial Models</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">9.1</span> Random Number Generation</h3>
+</div>
+
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="section-number-3">9.2</span> Generic Simulation Class</h3>
+</div>
+
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">9.3</span> Geometric Brownian Motion</h3>
+</div>
+
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62"><span class="section-number-3">9.4</span> Jump Diffusion</h3>
+</div>
+
+<div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">9.5</span> Square-Root Diffusion</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline69" class="outline-2">
+<h2 id="orgheadline69"><span class="section-number-2">10</span> Derivatives Valuation</h2>
+<div class="outline-text-2" id="text-10">
+</div><div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65"><span class="section-number-3">10.1</span> Generic Valuation Class</h3>
+</div>
+
+<div id="outline-container-orgheadline66" class="outline-3">
+<h3 id="orgheadline66"><span class="section-number-3">10.2</span> European Exercise</h3>
+</div>
+
+<div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68"><span class="section-number-3">10.3</span> American Excercise</h3>
+<div class="outline-text-3" id="text-10-3">
+</div><div id="outline-container-orgheadline67" class="outline-4">
+<h4 id="orgheadline67"><span class="section-number-4">10.3.1</span> Least-Square Monte Carlo</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline72" class="outline-2">
+<h2 id="orgheadline72"><span class="section-number-2">11</span> Portfolio Valuation</h2>
+<div class="outline-text-2" id="text-11">
+</div><div id="outline-container-orgheadline70" class="outline-3">
+<h3 id="orgheadline70"><span class="section-number-3">11.1</span> Derivatives positions</h3>
+</div>
+
+<div id="outline-container-orgheadline71" class="outline-3">
+<h3 id="orgheadline71"><span class="section-number-3">11.2</span> Derivatives portfolio</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline79" class="outline-2">
+<h2 id="orgheadline79"><span class="section-number-2">12</span> Volatility Options</h2>
+<div class="outline-text-2" id="text-12">
+</div><div id="outline-container-orgheadline76" class="outline-3">
+<h3 id="orgheadline76"><span class="section-number-3">12.1</span> The VSTOXX Data</h3>
+<div class="outline-text-3" id="text-12-1">
+</div><div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73"><span class="section-number-4">12.1.1</span> VSTOXX Index Data</h4>
+</div>
+
+<div id="outline-container-orgheadline74" class="outline-4">
+<h4 id="orgheadline74"><span class="section-number-4">12.1.2</span> VSTOXX Futures Data</h4>
+</div>
+
+<div id="outline-container-orgheadline75" class="outline-4">
+<h4 id="orgheadline75"><span class="section-number-4">12.1.3</span> VSTOXX Options Data</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline77" class="outline-3">
+<h3 id="orgheadline77"><span class="section-number-3">12.2</span> Model Calibration</h3>
+</div>
+
+<div id="outline-container-orgheadline78" class="outline-3">
+<h3 id="orgheadline78"><span class="section-number-3">12.3</span> American Options on the VSTOXX</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-11 Thu&gt;</span></span></p>
+<p class="author">Author: weiwu</p>
+<p class="date">Created: 2017-05-11 Thu 19:21</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
