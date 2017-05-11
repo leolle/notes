@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Python 风格指南 - Ipython notebooks</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Python \u98ce\u683c\u6307\u5357";
+    var mkdocs_page_input_path = "python_rules.md";
+    var mkdocs_page_url = "/python_rules/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Ipython notebooks</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Python 风格指南</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#python">Python语言规范</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#lint">Lint</a></li>
+        
+            <li><a class="toctree-l3" href="#_1">导入</a></li>
+        
+            <li><a class="toctree-l3" href="#_2">包</a></li>
+        
+            <li><a class="toctree-l3" href="#_3">异常</a></li>
+        
+            <li><a class="toctree-l3" href="#_4">全局变量</a></li>
+        
+            <li><a class="toctree-l3" href="#_5">嵌套/局部/内部类或函数</a></li>
+        
+            <li><a class="toctree-l3" href="#list-comprehensions">列表推导(List Comprehensions)</a></li>
+        
+            <li><a class="toctree-l3" href="#_6">默认迭代器和操作符</a></li>
+        
+            <li><a class="toctree-l3" href="#_7">生成器</a></li>
+        
+            <li><a class="toctree-l3" href="#lambda">Lambda函数</a></li>
+        
+            <li><a class="toctree-l3" href="#_8">条件表达式</a></li>
+        
+            <li><a class="toctree-l3" href="#_9">默认参数值</a></li>
+        
+            <li><a class="toctree-l3" href="#properties">属性(properties)</a></li>
+        
+            <li><a class="toctree-l3" href="#truefalse">True/False的求值</a></li>
+        
+            <li><a class="toctree-l3" href="#_10">过时的语言特性</a></li>
+        
+            <li><a class="toctree-l3" href="#lexical-scoping">词法作用域(Lexical Scoping)</a></li>
+        
+            <li><a class="toctree-l3" href="#_11">函数与方法装饰器</a></li>
+        
+            <li><a class="toctree-l3" href="#_12">线程</a></li>
+        
+            <li><a class="toctree-l3" href="#_13">威力过大的特性</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../python_style_rules/">Python风格规范</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Ipython notebooks</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Python 风格指南</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="python">Python语言规范</h1>
+<h2 id="lint">Lint</h2>
+<p>.. tip::
+    对你的代码运行pylint</p>
+<p>定义:
+    pylint是一个在Python源代码中查找bug的工具. 对于C和C++这样的不那么动态的(译者注: 原文是less dynamic)语言, 这些bug通常由编译器来捕获. 由于Python的动态特性, 有些警告可能不对. 不过伪告警应该很少.</p>
+<p>优点:
+    可以捕获容易忽视的错误, 例如输入错误, 使用未赋值的变量等.</p>
+<p>缺点:
+    pylint不完美. 要利用其优势, 我们有时侯需要: a) 围绕着它来写代码 b) 抑制其告警 c) 改进它, 或者d) 忽略它.</p>
+<p>结论:
+    确保对你的代码运行pylint.抑制不准确的警告,以便能够将其他警告暴露出来。</p>
+<pre><code>你可以通过设置一个行注释来抑制告警. 例如:
+
+.. code-block:: python
+
+    dict = 'something awful'  # Bad Idea... pylint: disable=redefined-builtin
+
+pylint警告是以一个数字编号(如 ``C0112`` )和一个符号名(如 ``empty-docstring`` )来标识的. 在编写新代码或更新已有代码时对告警进行医治, 推荐使用符号名来标识.
+
+如果警告的符号名不够见名知意，那么请对其增加一个详细解释。
+
+采用这种抑制方式的好处是我们可以轻松查找抑制并回顾它们.
+
+你可以使用命令 ``pylint --list-msgs`` 来获取pylint告警列表. 你可以使用命令 ``pylint --help-msg=C6409`` , 以获取关于特定消息的更多信息.
+
+相比较于之前使用的 ``pylint: disable-msg`` , 本文推荐使用 ``pylint: disable`` .
+
+要抑制"参数未使用"告警, 你可以用"_"作为参数标识符, 或者在参数名前加"unused\_". 遇到不能改变参数名的情况, 你可以通过在函数开头"提到"它们来消除告警. 例如:
+
+.. code-block:: python
+
+    def foo(a, unused_b, unused_c, d=None, e=None):
+        _ = d, e
+        return a
+</code></pre>
+<h2 id="_1">导入</h2>
+<p>.. tip::
+    仅对包和模块使用导入</p>
+<p>定义:
+    模块间共享代码的重用机制.</p>
+<p>优点:
+    命名空间管理约定十分简单. 每个标识符的源都用一种一致的方式指示. x.Obj表示Obj对象定义在模块x中.</p>
+<p>缺点:
+    模块名仍可能冲突. 有些模块名太长, 不太方便.</p>
+<p>结论:
+    使用 <code>import x</code> 来导入包和模块.</p>
+<pre><code>使用 ``from x import y`` , 其中x是包前缀, y是不带前缀的模块名.
+
+使用 ``from x import y as z``, 如果两个要导入的模块都叫做y或者y太长了.
+
+例如, 模块 ``sound.effects.echo`` 可以用如下方式导入:
+
+.. code-block:: python
+
+    from sound.effects import echo
+    ...
+    echo.EchoFilter(input, output, delay=0.7, atten=4)
+
+导入时不要使用相对名称. 即使模块在同一个包中, 也要使用完整包名. 这能帮助你避免无意间导入一个包两次.
+</code></pre>
+<h2 id="_2">包</h2>
+<p>.. tip::
+    使用模块的全路径名来导入每个模块</p>
+<p>优点:
+    避免模块名冲突. 查找包更容易.</p>
+<p>缺点:
+    部署代码变难, 因为你必须复制包层次.</p>
+<p>结论:
+    所有的新代码都应该用完整包名来导入每个模块.</p>
+<pre><code>应该像下面这样导入:
+
+.. code-block:: python
+
+    # Reference in code with complete name.
+    import sound.effects.echo
+
+    # Reference in code with just module name (preferred).
+    from sound.effects import echo
+</code></pre>
+<h2 id="_3">异常</h2>
+<p>.. tip::
+    允许使用异常, 但必须小心</p>
+<p>定义:
+    异常是一种跳出代码块的正常控制流来处理错误或者其它异常条件的方式.</p>
+<p>优点:
+    正常操作代码的控制流不会和错误处理代码混在一起. 当某种条件发生时, 它也允许控制流跳过多个框架. 例如, 一步跳出N个嵌套的函数, 而不必继续执行错误的代码.</p>
+<p>缺点:
+    可能会导致让人困惑的控制流. 调用库时容易错过错误情况.</p>
+<p>结论:
+    异常必须遵守特定条件:</p>
+<pre><code>#. 像这样触发异常: ``raise MyException("Error message")`` 或者 ``raise MyException`` . 不要使用两个参数的形式( ``raise MyException, "Error message"`` )或者过时的字符串异常( ``raise "Error message"`` ).
+#. 模块或包应该定义自己的特定域的异常基类, 这个基类应该从内建的Exception类继承. 模块的异常基类应该叫做"Error".
+
+    .. code-block:: python
+
+        class Error(Exception):
+            pass
+
+#. 永远不要使用 ``except:`` 语句来捕获所有异常, 也不要捕获 ``Exception`` 或者 ``StandardError`` , 除非你打算重新触发该异常, 或者你已经在当前线程的最外层(记得还是要打印一条错误消息). 在异常这方面, Python非常宽容, ``except:`` 真的会捕获包括Python语法错误在内的任何错误. 使用 ``except:`` 很容易隐藏真正的bug.
+#. 尽量减少try/except块中的代码量. try块的体积越大, 期望之外的异常就越容易被触发. 这种情况下, try/except块将隐藏真正的错误.
+#. 使用finally子句来执行那些无论try块中有没有异常都应该被执行的代码. 这对于清理资源常常很有用, 例如关闭文件.
+#. 当捕获异常时, 使用 ``as`` 而不要用逗号. 例如
+
+    .. code-block:: python
+
+        try:
+            raise Error
+        except Error as error:
+            pass
+</code></pre>
+<h2 id="_4">全局变量</h2>
+<p>.. tip::
+    避免全局变量</p>
+<p>定义:
+    定义在模块级的变量.</p>
+<p>优点:
+    偶尔有用.</p>
+<p>缺点:
+    导入时可能改变模块行为, 因为导入模块时会对模块级变量赋值.</p>
+<p>结论:
+    避免使用全局变量, 用类变量来代替. 但也有一些例外:</p>
+<pre><code>#. 脚本的默认选项.
+#. 模块级常量. 例如:　PI = 3.14159. 常量应该全大写, 用下划线连接.
+#. 有时候用全局变量来缓存值或者作为函数返回值很有用.
+#. 如果需要, 全局变量应该仅在模块内部可用, 并通过模块级的公共函数来访问.
+</code></pre>
+<h2 id="_5">嵌套/局部/内部类或函数</h2>
+<p>.. tip::
+    鼓励使用嵌套/本地/内部类或函数</p>
+<p>定义:
+    类可以定义在方法, 函数或者类中. 函数可以定义在方法或函数中. 封闭区间中定义的变量对嵌套函数是只读的.</p>
+<p>优点:
+    允许定义仅用于有效范围的工具类和函数.</p>
+<p>缺点:
+    嵌套类或局部类的实例不能序列化(pickled).</p>
+<p>结论:
+    推荐使用.</p>
+<h2 id="list-comprehensions">列表推导(List Comprehensions)</h2>
+<p>.. tip::
+    可以在简单情况下使用</p>
+<p>定义:
+    列表推导(list comprehensions)与生成器表达式(generator expression)提供了一种简洁高效的方式来创建列表和迭代器, 而不必借助map(), filter(), 或者lambda.</p>
+<p>优点:
+    简单的列表推导可以比其它的列表创建方法更加清晰简单. 生成器表达式可以十分高效, 因为它们避免了创建整个列表.</p>
+<p>缺点:
+    复杂的列表推导或者生成器表达式可能难以阅读.</p>
+<p>结论:
+    适用于简单情况. 每个部分应该单独置于一行: 映射表达式, for语句, 过滤器表达式. 禁止多重for语句或过滤器表达式. 复杂情况下还是使用循环.</p>
+<pre><code>.. code-block:: python
+
+    Yes:
+      result = []
+      for x in range(10):
+          for y in range(5):
+              if x * y &gt; 10:
+                  result.append((x, y))
+
+      for x in xrange(5):
+          for y in xrange(5):
+              if x != y:
+                  for z in xrange(5):
+                      if y != z:
+                          yield (x, y, z)
+
+      return ((x, complicated_transform(x))
+              for x in long_generator_function(parameter)
+              if x is not None)
+
+      squares = [x * x for x in range(10)]
+
+      eat(jelly_bean for jelly_bean in jelly_beans
+          if jelly_bean.color == 'black')
+
+.. code-block:: python
+
+    No:
+      result = [(x, y) for x in range(10) for y in range(5) if x * y &gt; 10]
+
+      return ((x, y, z)
+              for x in xrange(5)
+              for y in xrange(5)
+              if x != y
+              for z in xrange(5)
+              if y != z)
+</code></pre>
+<h2 id="_6">默认迭代器和操作符</h2>
+<p>.. tip::
+    如果类型支持, 就使用默认迭代器和操作符. 比如列表, 字典及文件等.</p>
+<p>定义:
+    容器类型, 像字典和列表, 定义了默认的迭代器和关系测试操作符(in和not in)</p>
+<p>优点:
+    默认操作符和迭代器简单高效, 它们直接表达了操作, 没有额外的方法调用. 使用默认操作符的函数是通用的. 它可以用于支持该操作的任何类型.</p>
+<p>缺点:
+    你没法通过阅读方法名来区分对象的类型(例如, has_key()意味着字典). 不过这也是优点.</p>
+<p>结论:
+    如果类型支持, 就使用默认迭代器和操作符, 例如列表, 字典和文件. 内建类型也定义了迭代器方法. 优先考虑这些方法, 而不是那些返回列表的方法. 当然，这样遍历容器时，你将不能修改容器.</p>
+<pre><code>.. code-block:: python
+
+    Yes:  for key in adict: ...
+          if key not in adict: ...
+          if obj in alist: ...
+          for line in afile: ...
+          for k, v in dict.iteritems(): ...
+
+.. code-block:: python
+
+    No:   for key in adict.keys(): ...
+          if not adict.has_key(key): ...
+          for line in afile.readlines(): ...
+</code></pre>
+<h2 id="_7">生成器</h2>
+<p>.. tip::
+    按需使用生成器.</p>
+<p>定义:
+    所谓生成器函数, 就是每当它执行一次生成(yield)语句, 它就返回一个迭代器, 这个迭代器生成一个值. 生成值后, 生成器函数的运行状态将被挂起, 直到下一次生成.</p>
+<p>优点:
+    简化代码, 因为每次调用时, 局部变量和控制流的状态都会被保存. 比起一次创建一系列值的函数, 生成器使用的内存更少.</p>
+<p>缺点:
+    没有.</p>
+<p>结论:
+    鼓励使用. 注意在生成器函数的文档字符串中使用"Yields:"而不是"Returns:".</p>
+<pre><code>(译者注: 参看 :ref:`注释&lt;comments&gt;` )
+</code></pre>
+<h2 id="lambda">Lambda函数</h2>
+<p>.. tip::
+    适用于单行函数</p>
+<p>定义:
+    与语句相反, lambda在一个表达式中定义匿名函数. 常用于为 <code>map()</code> 和 <code>filter()</code> 之类的高阶函数定义回调函数或者操作符.</p>
+<p>优点:
+    方便.</p>
+<p>缺点:
+    比本地函数更难阅读和调试. 没有函数名意味着堆栈跟踪更难理解. 由于lambda函数通常只包含一个表达式, 因此其表达能力有限.</p>
+<p>结论:
+    适用于单行函数. 如果代码超过60-80个字符, 最好还是定义成常规(嵌套)函数.</p>
+<pre><code>对于常见的操作符，例如乘法操作符，使用 ``operator`` 模块中的函数以代替lambda函数. 例如, 推荐使用 ``operator.mul`` , 而不是 ``lambda x, y: x * y`` .
+</code></pre>
+<h2 id="_8">条件表达式</h2>
+<p>.. tip::
+    适用于单行函数</p>
+<p>定义:
+    条件表达式是对于if语句的一种更为简短的句法规则. 例如: <code>x = 1 if cond else 2</code> .</p>
+<p>优点:
+    比if语句更加简短和方便.</p>
+<p>缺点:
+    比if语句难于阅读. 如果表达式很长， 难于定位条件.</p>
+<p>结论:
+    适用于单行函数. 在其他情况下，推荐使用完整的if语句.</p>
+<h2 id="_9">默认参数值</h2>
+<p>.. tip::
+    适用于大部分情况.</p>
+<p>定义:
+    你可以在函数参数列表的最后指定变量的值, 例如, <code>def foo(a, b = 0):</code> . 如果调用foo时只带一个参数, 则b被设为0. 如果带两个参数, 则b的值等于第二个参数.</p>
+<p>优点:
+    你经常会碰到一些使用大量默认值的函数, 但偶尔(比较少见)你想要覆盖这些默认值. 默认参数值提供了一种简单的方法来完成这件事, 你不需要为这些罕见的例外定义大量函数. 同时, Python也不支持重载方法和函数, 默认参数是一种"仿造"重载行为的简单方式.</p>
+<p>缺点:
+    默认参数只在模块加载时求值一次. 如果参数是列表或字典之类的可变类型, 这可能会导致问题. 如果函数修改了对象(例如向列表追加项), 默认值就被修改了.</p>
+<p>结论:
+    鼓励使用, 不过有如下注意事项:</p>
+<pre><code>不要在函数或方法定义中使用可变对象作为默认值.
+
+.. code-block:: python
+
+    Yes: def foo(a, b=None):
+             if b is None:
+                 b = []
+
+.. code-block:: python
+
+    No:  def foo(a, b=[]):
+             ...
+    No:  def foo(a, b=time.time()):  # The time the module was loaded???
+             ...
+    No:  def foo(a, b=FLAGS.my_thing):  # sys.argv has not yet been parsed...
+             ...
+</code></pre>
+<h2 id="properties">属性(properties)</h2>
+<p>.. tip::
+    访问和设置数据成员时, 你通常会使用简单, 轻量级的访问和设置函数. 建议用属性（properties）来代替它们.</p>
+<p>定义:
+    一种用于包装方法调用的方式. 当运算量不大, 它是获取和设置属性(attribute)的标准方式.</p>
+<p>优点:
+    通过消除简单的属性(attribute)访问时显式的get和set方法调用, 可读性提高了. 允许懒惰的计算. 用Pythonic的方式来维护类的接口. 就性能而言, 当直接访问变量是合理的, 添加访问方法就显得琐碎而无意义. 使用属性(properties)可以绕过这个问题. 将来也可以在不破坏接口的情况下将访问方法加上.</p>
+<p>缺点:
+    属性(properties)是在get和set方法声明后指定, 这需要使用者在接下来的代码中注意: set和get是用于属性(properties)的(除了用 <code>@property</code> 装饰器创建的只读属性).  必须继承自object类. 可能隐藏比如操作符重载之类的副作用. 继承时可能会让人困惑.</p>
+<p>结论:
+    你通常习惯于使用访问或设置方法来访问或设置数据, 它们简单而轻量. 不过我们建议你在新的代码中使用属性. 只读属性应该用 <code>@property</code> <code>装饰器 &lt;http://google-styleguide.googlecode.com/svn/trunk/pyguide.html#Function_and_Method_Decorators&gt;</code>_ 来创建.</p>
+<pre><code>如果子类没有覆盖属性, 那么属性的继承可能看上去不明显. 因此使用者必须确保访问方法间接被调用, 以保证子类中的重载方法被属性调用(使用模板方法设计模式).
+
+.. code-block:: python
+
+    Yes: import math
+
+         class Square(object):
+             """A square with two properties: a writable area and a read-only perimeter.
+
+             To use:
+             &gt;&gt;&gt; sq = Square(3)
+             &gt;&gt;&gt; sq.area
+             9
+             &gt;&gt;&gt; sq.perimeter
+             12
+             &gt;&gt;&gt; sq.area = 16
+             &gt;&gt;&gt; sq.side
+             4
+             &gt;&gt;&gt; sq.perimeter
+             16
+             """
+
+             def __init__(self, side):
+                 self.side = side
+
+             def __get_area(self):
+                 """Calculates the 'area' property."""
+                 return self.side ** 2
+
+             def ___get_area(self):
+                 """Indirect accessor for 'area' property."""
+                 return self.__get_area()
+
+             def __set_area(self, area):
+                 """Sets the 'area' property."""
+                 self.side = math.sqrt(area)
+
+             def ___set_area(self, area):
+                 """Indirect setter for 'area' property."""
+                 self._SetArea(area)
+
+             area = property(___get_area, ___set_area,
+                             doc="""Gets or sets the area of the square.""")
+
+             @property
+             def perimeter(self):
+                 return self.side * 4
+
+
+(译者注: 老实说, 我觉得这段示例代码很不恰当, 有必要这么蛋疼吗?)
+</code></pre>
+<h2 id="truefalse">True/False的求值</h2>
+<p>.. tip::
+    尽可能使用隐式false</p>
+<p>定义:
+    Python在布尔上下文中会将某些值求值为false. 按简单的直觉来讲, 就是所有的"空"值都被认为是false. 因此0， None, [], {}, "" 都被认为是false.</p>
+<p>优点:
+    使用Python布尔值的条件语句更易读也更不易犯错. 大部分情况下, 也更快.</p>
+<p>缺点:
+    对C/C++开发人员来说, 可能看起来有点怪.</p>
+<p>结论:
+    尽可能使用隐式的false, 例如: 使用 <code>if foo:</code> 而不是 <code>if foo != []:</code> . 不过还是有一些注意事项需要你铭记在心:</p>
+<pre><code>#. 永远不要用==或者!=来比较单件, 比如None. 使用is或者is not.
+#. 注意: 当你写下 ``if x:`` 时, 你其实表示的是 ``if x is not None`` . 例如: 当你要测试一个默认值是None的变量或参数是否被设为其它值. 这个值在布尔语义下可能是false!
+#. 永远不要用==将一个布尔量与false相比较. 使用 ``if not x:`` 代替. 如果你需要区分false和None, 你应该用像 ``if not x and x is not None:`` 这样的语句.
+#. 对于序列(字符串, 列表, 元组), 要注意空序列是false. 因此 ``if not seq:`` 或者 ``if seq:`` 比 ``if len(seq):`` 或 ``if not len(seq):`` 要更好.
+#. 处理整数时, 使用隐式false可能会得不偿失(即不小心将None当做0来处理). 你可以将一个已知是整型(且不是len()的返回结果)的值与0比较.
+
+    .. code-block:: python
+
+        Yes: if not users:
+                 print 'no users'
+
+             if foo == 0:
+                 self.handle_zero()
+
+             if i % 10 == 0:
+                 self.handle_multiple_of_ten()
+
+    .. code-block:: python
+
+        No:  if len(users) == 0:
+                 print 'no users'
+
+             if foo is not None and not foo:
+                 self.handle_zero()
+
+             if not i % 10:
+                 self.handle_multiple_of_ten()
+
+#. 注意'0'(字符串)会被当做true.
+</code></pre>
+<h2 id="_10">过时的语言特性</h2>
+<p>.. tip::
+    尽可能使用字符串方法取代字符串模块. 使用函数调用语法取代apply(). 使用列表推导, for循环取代filter(), map()以及reduce().</p>
+<p>定义:
+    当前版本的Python提供了大家通常更喜欢的替代品.</p>
+<p>结论:
+    我们不使用不支持这些特性的Python版本, 所以没理由不用新的方式.</p>
+<pre><code>.. code-block:: python
+
+    Yes: words = foo.split(':')
+
+         [x[1] for x in my_list if x[2] == 5]
+
+         map(math.sqrt, data)    # Ok. No inlined lambda expression.
+
+         fn(*args, **kwargs)
+
+.. code-block:: python
+
+    No:  words = string.split(foo, ':')
+
+         map(lambda x: x[1], filter(lambda x: x[2] == 5, my_list))
+
+         apply(fn, args, kwargs)
+</code></pre>
+<h2 id="lexical-scoping">词法作用域(Lexical Scoping)</h2>
+<p>.. tip::
+    推荐使用</p>
+<p>定义:
+    嵌套的Python函数可以引用外层函数中定义的变量, 但是不能够对它们赋值. 变量绑定的解析是使用词法作用域, 也就是基于静态的程序文本. 对一个块中的某个名称的任何赋值都会导致Python将对该名称的全部引用当做局部变量, 甚至是赋值前的处理. 如果碰到global声明, 该名称就会被视作全局变量.</p>
+<pre><code>一个使用这个特性的例子:
+
+.. code-block:: python
+
+    def get_adder(summand1):
+        """Returns a function that adds numbers to a given number."""
+        def adder(summand2):
+            return summand1 + summand2
+
+        return adder
+
+(译者注: 这个例子有点诡异, 你应该这样使用这个函数: ``sum = get_adder(summand1)(summand2)`` )
+</code></pre>
+<p>优点:
+    通常可以带来更加清晰, 优雅的代码. 尤其会让有经验的Lisp和Scheme(还有Haskell, ML等)程序员感到欣慰.</p>
+<p>缺点:
+    可能导致让人迷惑的bug. 例如下面这个依据 <code>PEP-0227 &lt;http://www.python.org/dev/peps/pep-0227/&gt;</code>_ 的例子:</p>
+<pre><code>.. code-block:: python
+
+    i = 4
+    def foo(x):
+        def bar():
+            print i,
+        # ...
+        # A bunch of code here
+        # ...
+        for i in x:  # Ah, i *is* local to Foo, so this is what Bar sees
+            print i,
+        bar()
+
+因此 ``foo([1, 2, 3])`` 会打印 ``1 2 3 3`` , 不是 ``1 2 3 4`` .
+
+(译者注: x是一个列表, for循环其实是将x中的值依次赋给i.这样对i的赋值就隐式的发生了, 整个foo函数体中的i都会被当做局部变量, 包括bar()中的那个. 这一点与C++之类的静态语言还是有很大差别的.)
+</code></pre>
+<p>结论:
+    鼓励使用.</p>
+<h2 id="_11">函数与方法装饰器</h2>
+<p>.. tip::
+    如果好处很显然, 就明智而谨慎的使用装饰器</p>
+<p>定义:
+    <code>用于函数及方法的装饰器 &lt;https://docs.python.org/release/2.4.3/whatsnew/node6.html&gt;</code>_ (也就是@标记). 最常见的装饰器是@classmethod 和@staticmethod, 用于将常规函数转换成类方法或静态方法. 不过, 装饰器语法也允许用户自定义装饰器. 特别地, 对于某个函数 <code>my_decorator</code> , 下面的两段代码是等效的:</p>
+<pre><code>.. code-block:: python
+
+     class C(object):
+        @my_decorator
+        def method(self):
+            # method body ...
+
+.. code-block:: python
+
+    class C(object):
+        def method(self):
+            # method body ...
+        method = my_decorator(method)
+</code></pre>
+<p>优点:
+    优雅的在函数上指定一些转换. 该转换可能减少一些重复代码, 保持已有函数不变(enforce invariants), 等.</p>
+<p>缺点:
+    装饰器可以在函数的参数或返回值上执行任何操作, 这可能导致让人惊异的隐藏行为. 而且, 装饰器在导入时执行. 从装饰器代码的失败中恢复更加不可能.</p>
+<p>结论:
+    如果好处很显然, 就明智而谨慎的使用装饰器. 装饰器应该遵守和函数一样的导入和命名规则. 装饰器的python文档应该清晰的说明该函数是一个装饰器. 请为装饰器编写单元测试.</p>
+<pre><code>避免装饰器自身对外界的依赖(即不要依赖于文件, socket, 数据库连接等), 因为装饰器运行时这些资源可能不可用(由 ``pydoc`` 或其它工具导入). 应该保证一个用有效参数调用的装饰器在所有情况下都是成功的.
+
+装饰器是一种特殊形式的"顶级代码". 参考后面关于 :ref:`Main &lt;main&gt;` 的话题.
+</code></pre>
+<h2 id="_12">线程</h2>
+<p>.. tip::
+    不要依赖内建类型的原子性.</p>
+<p>虽然Python的内建类型例如字典看上去拥有原子操作, 但是在某些情形下它们仍然不是原子的(即: 如果<strong>hash</strong>或<strong>eq</strong>被实现为Python方法)且它们的原子性是靠不住的. 你也不能指望原子变量赋值(因为这个反过来依赖字典).</p>
+<p>优先使用Queue模块的 <code>Queue</code> 数据类型作为线程间的数据通信方式. 另外, 使用threading模块及其锁原语(locking primitives). 了解条件变量的合适使用方式, 这样你就可以使用 <code>threading.Condition</code> 来取代低级别的锁了.</p>
+<h2 id="_13">威力过大的特性</h2>
+<p>.. tip::
+    避免使用这些特性</p>
+<p>定义:
+    Python是一种异常灵活的语言, 它为你提供了很多花哨的特性, 诸如元类(metaclasses), 字节码访问, 任意编译(on-the-fly compilation), 动态继承, 对象父类重定义(object reparenting), 导入黑客(import hacks), 反射, 系统内修改(modification of system internals), 等等.</p>
+<p>优点:
+    强大的语言特性, 能让你的代码更紧凑.</p>
+<p>缺点:
+    使用这些很"酷"的特性十分诱人, 但不是绝对必要. 使用奇技淫巧的代码将更加难以阅读和调试. 开始可能还好(对原作者而言), 但当你回顾代码, 它们可能会比那些稍长一点但是很直接的代码更加难以理解.</p>
+<p>结论:
+    在你的代码中避免这些特性.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../python_style_rules/" class="btn btn-neutral float-right" title="Python风格规范">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../python_style_rules/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
