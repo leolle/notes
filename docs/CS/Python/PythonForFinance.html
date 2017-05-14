@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-12 Fri 23:15 -->
+<!-- 2017-05-14 Sun 21:25 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -140,6 +140,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -290,23 +312,40 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline81">14. 非结构化数据可视化</a></li>
-<li><a href="#orgheadline82">15. 最优化算法（锥优化、随机优化优先）</a></li>
-<li><a href="#orgheadline83">16. Graphical Models, e.g.,</a></li>
-<li><a href="#orgheadline84">17. Genetic Algorithm</a></li>
-<li><a href="#orgheadline85">18. First order and Propositional Rule Based Systems, e.g.,</a></li>
-<li><a href="#orgheadline86">19. Recurrent Nets, e.g.,</a></li>
-<li><a href="#orgheadline87">20. Natural language processing, e.g.</a></li>
-<li><a href="#orgheadline88">21. Reinforcement Learning</a></li>
-<li><a href="#orgheadline89">22. Decision Trees (ensambles)</a></li>
-<li><a href="#orgheadline90">23. Instance Based Learning</a></li>
-<li><a href="#orgheadline91">24. Times Series Analysis, e.g.,</a></li>
-<li><a href="#orgheadline92">25. Ux design and Psychology</a></li>
+<li><a href="#orgheadline88">15. 最优化算法（锥优化、随机优化优先）</a>
+<ul>
+<li><a href="#orgheadline84">15.1. Gradient descent</a>
+<ul>
+<li><a href="#orgheadline82">15.1.1. Gradient descent</a></li>
+<li><a href="#orgheadline83">15.1.2. Conjugate gradient method</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline87">15.2. Stochastic optimization</a>
+<ul>
+<li><a href="#orgheadline85">15.2.1. Random search</a></li>
+<li><a href="#orgheadline86">15.2.2. Bayesian optimization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline89">16. Graphical Models, e.g.,</a></li>
+<li><a href="#orgheadline90">17. Genetic Algorithm</a></li>
+<li><a href="#orgheadline91">18. First order and Propositional Rule Based Systems, e.g.,</a></li>
+<li><a href="#orgheadline92">19. Recurrent Nets, e.g.,</a></li>
+<li><a href="#orgheadline93">20. Natural language processing, e.g.</a></li>
+<li><a href="#orgheadline94">21. Reinforcement Learning</a></li>
+<li><a href="#orgheadline95">22. Decision Trees (ensambles)</a></li>
+<li><a href="#orgheadline96">23. Instance Based Learning</a></li>
+<li><a href="#orgheadline97">24. Times Series Analysis, e.g.,</a></li>
+<li><a href="#orgheadline98">25. Ux design and Psychology</a></li>
+<li><a href="#orgheadline99">26. Track</a></li>
 </ul>
 </div>
 </div>
 <p>
 #+todo
 </p>
+
 <div id="outline-container-orgheadline1" class="outline-2">
 <h2 id="orgheadline1"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> </h2>
 <div class="outline-text-2" id="text-1">
@@ -517,7 +556,11 @@ for the JavaScript code in this tag.
 <div id="outline-container-orgheadline52" class="outline-3">
 <h3 id="orgheadline52"><span class="section-number-3">8.4</span> Bayesian Regression</h3>
 <div class="outline-text-3" id="text-8-4">
-</div><div id="outline-container-orgheadline50" class="outline-4">
+<p>
+A Bayesian network, Bayes network, belief network, Bayes(ian) model or probabilistic directed acyclic graphical model is a probabilistic graphical model (a type of statistical model) that represents a set of random variables and their conditional dependencies via a directed acyclic graph (DAG). For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used to compute the probabilities of the presence of various diseases.
+</p>
+</div>
+<div id="outline-container-orgheadline50" class="outline-4">
 <h4 id="orgheadline50"><span class="section-number-4">8.4.1</span> Bayes's formula</h4>
 </div>
 
@@ -639,13 +682,92 @@ for the JavaScript code in this tag.
 <h2 id="orgheadline81"><span class="section-number-2">14</span> 非结构化数据可视化</h2>
 </div>
 
-<div id="outline-container-orgheadline82" class="outline-2">
-<h2 id="orgheadline82"><span class="section-number-2">15</span> 最优化算法（锥优化、随机优化优先）</h2>
+<div id="outline-container-orgheadline88" class="outline-2">
+<h2 id="orgheadline88"><span class="section-number-2">15</span> 最优化算法（锥优化、随机优化优先）</h2>
+<div class="outline-text-2" id="text-15">
+</div><div id="outline-container-orgheadline84" class="outline-3">
+<h3 id="orgheadline84"><span class="section-number-3">15.1</span> Gradient descent</h3>
+<div class="outline-text-3" id="text-15-1">
+<p>
+In optimization, gradient method is an algorithm to solve problems of the form \[min \f(x)\].
+</p>
+</div>
+
+<div id="outline-container-orgheadline82" class="outline-4">
+<h4 id="orgheadline82"><span class="section-number-4">15.1.1</span> Gradient descent</h4>
+<div class="outline-text-4" id="text-15-1-1">
+<p>
+Gradient descent is a first-order iterative optimization algorithm. To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or of the approximate gradient) of the function at the current point. If instead one takes steps proportional to the positive of the gradient, one approaches a local maximum of that function; the procedure is then known as gradient ascent.
+</p>
+
+<p>
+Limitations: For some of the above examples, gradient descent is relatively slow close to the minimum: technically, its asymptotic rate of convergence is inferior to many other methods. For poorly conditioned convex problems, gradient descent increasingly 'zigzags' as the gradients point nearly orthogonally to the shortest direction to a minimum point. For more details, see the comments below.
+</p>
+
+<p>
+For non-differentiable functions, gradient methods are ill-defined.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline83" class="outline-4">
+<h4 id="orgheadline83"><span class="section-number-4">15.1.2</span> Conjugate gradient method</h4>
+<div class="outline-text-4" id="text-15-1-2">
+<p>
+In mathematics, the conjugate gradient method is an algorithm for the numerical solution of particular systems of linear equations, namely those whose matrix is symmetric and positive-definite.
+\[Ax=b, u_tAv=0\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline87" class="outline-3">
+<h3 id="orgheadline87"><span class="section-number-3">15.2</span> Stochastic optimization</h3>
+<div class="outline-text-3" id="text-15-2">
+<p>
+Stochastic optimization (SO) methods are optimization methods that generate and use random variables. For stochastic problems, the random variables appear in the formulation of the optimization problem itself, which involve random objective functions or random constraints. Stochastic optimization methods also include methods with random iterates. Some stochastic optimization methods use random iterates to solve stochastic problems, combining both meanings of stochastic optimization. Stochastic optimization methods generalize deterministic methods for deterministic problems.
+</p>
+</div>
+
+<div id="outline-container-orgheadline85" class="outline-4">
+<h4 id="orgheadline85"><span class="section-number-4">15.2.1</span> Random search</h4>
+<div class="outline-text-4" id="text-15-2-1">
+<p>
+Random search (RS) is a family of numerical optimization methods that do not require the gradient of the problem to be optimized, and RS can hence be used on functions that are not continuous or differentiable. Such optimization methods are also known as direct-search, derivative-free, or black-box methods.
+</p>
+
+<p>
+The name "random search" is attributed to Rastrigin who made an early presentation of RS along with basic mathematical analysis. RS works by iteratively moving to better positions in the search-space, which are sampled from a hypersphere surrounding the current position.
+</p>
+
+<p>
+The basic RS algorithm can then be described as:
+</p>
+
+<p>
+Initialize x with a random position in the search-space.
+Until a termination criterion is met (e.g. number of iterations performed, or adequate fitness reached), repeat the following:
+Sample a new position y from the hypersphere of a given radius surrounding the current position x (see e.g. Marsaglia's technique for sampling a hypersphere.)
+If f(y) &lt; f(x) then move to the new position by setting x = y
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline86" class="outline-4">
+<h4 id="orgheadline86"><span class="section-number-4">15.2.2</span> Bayesian optimization</h4>
+<div class="outline-text-4" id="text-15-2-2">
+<p>
+Bayesian optimization is a sequential design strategy for global optimization of black-box functions that doesn't require derivatives.
+</p>
+</div>
+</div>
+</div>
 </div>
 
 
-<div id="outline-container-orgheadline83" class="outline-2">
-<h2 id="orgheadline83"><span class="section-number-2">16</span> Graphical Models, e.g.,</h2>
+
+<div id="outline-container-orgheadline89" class="outline-2">
+<h2 id="orgheadline89"><span class="section-number-2">16</span> Graphical Models, e.g.,</h2>
 <div class="outline-text-2" id="text-16">
 <ul class="org-ul">
 <li>Conditional Random Fields</li>
@@ -653,11 +775,20 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline84" class="outline-2">
-<h2 id="orgheadline84"><span class="section-number-2">17</span> Genetic Algorithm</h2>
+<div id="outline-container-orgheadline90" class="outline-2">
+<h2 id="orgheadline90"><span class="section-number-2">17</span> Genetic Algorithm</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+In computer science and operations research, a genetic algorithm (GA) is a metaheuristic inspired by the process of natural selection that belongs to the larger class of evolutionary algorithms (EA). Genetic algorithms are commonly used to generate high-quality solutions to optimization and search problems by relying on bio-inspired operators such as mutation, crossover and selection.
+The evolution usually starts from a population of randomly generated individuals, and is an iterative process, with the population in each iteration called a generation. In each generation, the fitness of every individual in the population is evaluated; the fitness is usually the value of the objective function in the optimization problem being solved. The more fit individuals are stochastically selected from the current population, and each individual's genome is modified (recombined and possibly randomly mutated) to form a new generation. The new generation of candidate solutions is then used in the next iteration of the algorithm. Commonly, the algorithm terminates when either a maximum number of generations has been produced, or a satisfactory fitness level has been reached for the population.
+</p>
 </div>
-<div id="outline-container-orgheadline85" class="outline-2">
-<h2 id="orgheadline85"><span class="section-number-2">18</span> First order and Propositional Rule Based Systems, e.g.,</h2>
+</div>
+
+
+
+<div id="outline-container-orgheadline91" class="outline-2">
+<h2 id="orgheadline91"><span class="section-number-2">18</span> First order and Propositional Rule Based Systems, e.g.,</h2>
 <div class="outline-text-2" id="text-18">
 <ul class="org-ul">
 <li>Tractable Markov Logic</li>
@@ -666,16 +797,16 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline86" class="outline-2">
-<h2 id="orgheadline86"><span class="section-number-2">19</span> Recurrent Nets, e.g.,</h2>
+<div id="outline-container-orgheadline92" class="outline-2">
+<h2 id="orgheadline92"><span class="section-number-2">19</span> Recurrent Nets, e.g.,</h2>
 <div class="outline-text-2" id="text-19">
 <ul class="org-ul">
 <li>LSTM</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline87" class="outline-2">
-<h2 id="orgheadline87"><span class="section-number-2">20</span> Natural language processing, e.g.</h2>
+<div id="outline-container-orgheadline93" class="outline-2">
+<h2 id="orgheadline93"><span class="section-number-2">20</span> Natural language processing, e.g.</h2>
 <div class="outline-text-2" id="text-20">
 <ul class="org-ul">
 <li>Auto text generation</li>
@@ -683,14 +814,14 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline88" class="outline-2">
-<h2 id="orgheadline88"><span class="section-number-2">21</span> Reinforcement Learning</h2>
+<div id="outline-container-orgheadline94" class="outline-2">
+<h2 id="orgheadline94"><span class="section-number-2">21</span> Reinforcement Learning</h2>
 </div>
-<div id="outline-container-orgheadline89" class="outline-2">
-<h2 id="orgheadline89"><span class="section-number-2">22</span> Decision Trees (ensambles)</h2>
+<div id="outline-container-orgheadline95" class="outline-2">
+<h2 id="orgheadline95"><span class="section-number-2">22</span> Decision Trees (ensambles)</h2>
 </div>
-<div id="outline-container-orgheadline90" class="outline-2">
-<h2 id="orgheadline90"><span class="section-number-2">23</span> Instance Based Learning</h2>
+<div id="outline-container-orgheadline96" class="outline-2">
+<h2 id="orgheadline96"><span class="section-number-2">23</span> Instance Based Learning</h2>
 <div class="outline-text-2" id="text-23">
 <ul class="org-ul">
 <li>SVM</li>
@@ -699,8 +830,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline91" class="outline-2">
-<h2 id="orgheadline91"><span class="section-number-2">24</span> Times Series Analysis, e.g.,</h2>
+<div id="outline-container-orgheadline97" class="outline-2">
+<h2 id="orgheadline97"><span class="section-number-2">24</span> Times Series Analysis, e.g.,</h2>
 <div class="outline-text-2" id="text-24">
 <ul class="org-ul">
 <li>Co-integration</li>
@@ -708,14 +839,191 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline92" class="outline-2">
-<h2 id="orgheadline92"><span class="section-number-2">25</span> Ux design and Psychology</h2>
+<div id="outline-container-orgheadline98" class="outline-2">
+<h2 id="orgheadline98"><span class="section-number-2">25</span> Ux design and Psychology</h2>
+</div>
+<div id="outline-container-orgheadline99" class="outline-2">
+<h2 id="orgheadline99"><span class="section-number-2">26</span> Track</h2>
+<div class="outline-text-2" id="text-26">
+<p>
+#+begining<sub>src</sub> org
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">programming</th>
+<th scope="col" class="org-right">level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Lisp</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">VBA</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">C/C++</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-left">SQL</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">Matlab</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">R</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">Python</td>
+<td class="org-right">7</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Machine Learning</td>
+<td class="org-left">Models</td>
+<td class="org-right">level</td>
+</tr>
+
+<tr>
+<td class="org-left">Neural Networks</td>
+<td class="org-left">Convolutional neural network</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">long short-term memory</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Autoencoder</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Bayesian networks</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">PCA</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">K-Means</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SVM</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Optimization</td>
+<td class="org-left">Linear OLS(mean variance)</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Genetic Algorithm</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">h(params,x)函数：hypothesis</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">J(params,x,y)函数：cost function</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">grad(params,x,y)函数：Gradient Descent</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Time Series</td>
+<td class="org-left">autoregressive(AR)</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">moving average (MA)</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">autoregressive moving average (ARMA)</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">autoregressive integrated moving average (ARIMA)</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+<p>
+#+end<sub>src</sub>
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-11 Thu&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-12 Fri 23:15</p>
+<p class="date">Created: 2017-05-14 Sun 21:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

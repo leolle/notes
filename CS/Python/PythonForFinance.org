@@ -13,36 +13,6 @@
 
 #+todo
 
-#+begining_src org
-| programming | level |
-|-------------+-------|
-| Lisp        |     1 |
-| VBA         |     3 |
-| C/C++       |     6 |
-| SQL         |     5 |
-| Matlab      |     5 |
-| R           |     4 |
-| Python      |     7 |
-
-| Machine Learning | Models                                           | level |
-| Neural Networks  | Convolutional neural network                     |     0 |
-|                  | long short-term memory                           |     0 |
-|                  | Autoencoder                                      |     0 |
-|                  | Bayesian networks                                |     1 |
-|                  | PCA                                              |     5 |
-|                  | K-Means                                          |     1 |
-|                  | SVM                                              |     1 |
-| Optimization     | Linear OLS(mean variance)                        |     4 |
-|                  | Genetic Algorithm                                |     0 |
-|                  | h(params,x)函数：hypothesis                      |     0 |
-|                  | J(params,x,y)函数：cost function                 |     0 |
-|                  | grad(params,x,y)函数：Gradient Descent           |     1 |
-| Time Series      | autoregressive(AR)                               |     1 |
-|                  | moving average (MA)                              |     2 |
-|                  | autoregressive moving average (ARMA)             |     1 |
-|                  | autoregressive integrated moving average (ARIMA) |     1 |
-#+end_src
-
 * TODO
 
 - [X] 算法与数据结构
@@ -231,12 +201,12 @@ In mathematics, the conjugate gradient method is an algorithm for the numerical 
 $$Ax=b, u_tAv=0$$
 
 ** Stochastic optimization
-Stochastic optimization (SO) methods are optimization methods that generate and use random variables. For stochastic problems, the random variables appear in the formulation of the optimization problem itself, which involve random objective functions or random constraints. Stochastic optimization methods also include methods with random iterates. Some stochastic optimization methods use random iterates to solve stochastic problems, combining both meanings of stochastic optimization.[1] Stochastic optimization methods generalize deterministic methods for deterministic problems.
+Stochastic optimization (SO) methods are optimization methods that generate and use random variables. For stochastic problems, the random variables appear in the formulation of the optimization problem itself, which involve random objective functions or random constraints. Stochastic optimization methods also include methods with random iterates. Some stochastic optimization methods use random iterates to solve stochastic problems, combining both meanings of stochastic optimization. Stochastic optimization methods generalize deterministic methods for deterministic problems.
 
 *** Random search
 Random search (RS) is a family of numerical optimization methods that do not require the gradient of the problem to be optimized, and RS can hence be used on functions that are not continuous or differentiable. Such optimization methods are also known as direct-search, derivative-free, or black-box methods.
 
-The name "random search" is attributed to Rastrigin[1] who made an early presentation of RS along with basic mathematical analysis. RS works by iteratively moving to better positions in the search-space, which are sampled from a hypersphere surrounding the current position.
+The name "random search" is attributed to Rastrigin who made an early presentation of RS along with basic mathematical analysis. RS works by iteratively moving to better positions in the search-space, which are sampled from a hypersphere surrounding the current position.
 
 The basic RS algorithm can then be described as:
 
@@ -246,7 +216,7 @@ Sample a new position y from the hypersphere of a given radius surrounding the c
 If f(y) < f(x) then move to the new position by setting x = y
 
 *** Bayesian optimization
-Bayesian optimization is a sequential design strategy for global optimization of black-box functions[1] that doesn't require derivatives.
+Bayesian optimization is a sequential design strategy for global optimization of black-box functions that doesn't require derivatives.
 
 
 
@@ -254,7 +224,7 @@ Bayesian optimization is a sequential design strategy for global optimization of
 	* Conditional Random Fields
 	* Bayesian Networks
 * Genetic Algorithm
-In computer science and operations research, a genetic algorithm (GA) is a metaheuristic inspired by the process of natural selection that belongs to the larger class of evolutionary algorithms (EA). Genetic algorithms are commonly used to generate high-quality solutions to optimization and search problems by relying on bio-inspired operators such as mutation, crossover and selection.[1]
+In computer science and operations research, a genetic algorithm (GA) is a metaheuristic inspired by the process of natural selection that belongs to the larger class of evolutionary algorithms (EA). Genetic algorithms are commonly used to generate high-quality solutions to optimization and search problems by relying on bio-inspired operators such as mutation, crossover and selection.
 The evolution usually starts from a population of randomly generated individuals, and is an iterative process, with the population in each iteration called a generation. In each generation, the fitness of every individual in the population is evaluated; the fitness is usually the value of the objective function in the optimization problem being solved. The more fit individuals are stochastically selected from the current population, and each individual's genome is modified (recombined and possibly randomly mutated) to form a new generation. The new generation of candidate solutions is then used in the next iteration of the algorithm. Commonly, the algorithm terminates when either a maximum number of generations has been produced, or a satisfactory fitness level has been reached for the population.
 
 
@@ -278,3 +248,35 @@ The evolution usually starts from a population of randomly generated individuals
 	* Co-integration
 	* VAR
 * Ux design and Psychology
+* Track
+#+CAPTION: 标题区域
+#+ATTR_HTML: border="1" rules="all" frame="border"
+#+begining_src org
+| programming | level |
+|-------------+-------|
+| Lisp        |     1 |
+| VBA         |     3 |
+| C/C++       |     6 |
+| SQL         |     5 |
+| Matlab      |     5 |
+| R           |     4 |
+| Python      |     7 |
+
+| Machine Learning | Models                                           | level |
+| Neural Networks  | Convolutional neural network                     |     0 |
+|                  | long short-term memory                           |     0 |
+|                  | Autoencoder                                      |     0 |
+|                  | Bayesian networks                                |     1 |
+|                  | PCA                                              |     5 |
+|                  | K-Means                                          |     1 |
+|                  | SVM                                              |     1 |
+| Optimization     | Linear OLS(mean variance)                        |     4 |
+|                  | Genetic Algorithm                                |     0 |
+|                  | h(params,x)函数：hypothesis                      |     0 |
+|                  | J(params,x,y)函数：cost function                 |     0 |
+|                  | grad(params,x,y)函数：Gradient Descent           |     1 |
+| Time Series      | autoregressive(AR)                               |     1 |
+|                  | moving average (MA)                              |     2 |
+|                  | autoregressive moving average (ARMA)             |     1 |
+|                  | autoregressive integrated moving average (ARIMA) |     1 |
+#+end_src
