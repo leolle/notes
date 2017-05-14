@@ -65,6 +65,10 @@ mkvirtual -p python3 ENVNAME
 
 - install setup.py:
 python setup.py install
+to virtual environment:
+/home/weiwu/.virtualenvs/data_analysis/bin/python2 setup.py install
+- install from github:
+pip install git+https://github.com/quantopian/zipline.git
 
 - percentage output format:
 #+begin_src python
