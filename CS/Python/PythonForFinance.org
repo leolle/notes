@@ -11,6 +11,47 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
+#+todo
+| programming | level |
+|-------------+-------|
+| Lisp        |     1 |
+| VBA         |     3 |
+| C/C++       |     6 |
+| SQL         |     5 |
+| Matlab      |     5 |
+| R           |     4 |
+| Python      |     7 |
+
+| Machine Learning | Models                                           | level |
+| Neural Networks  | Convolutional neural network                     |     0 |
+|                  | long short-term memory                           |     0 |
+|                  | Autoencoder                                      |     0 |
+|                  | Bayesian networks                                |     1 |
+|                  | PCA                                              |     5 |
+|                  | K-Means                                          |     1 |
+|                  | SVM                                              |     1 |
+| Optimization     | Linear OLS(mean variance)                        |     4 |
+|                  | Genetic Algorithm                                |     0 |
+|                  | h(params,x)函数：hypothesis                      |     0 |
+|                  | J(params,x,y)函数：cost function                 |     0 |
+|                  | grad(params,x,y)函数：Gradient Descent           |     1 |
+| Time Series      | autoregressive(AR)                               |     1 |
+|                  | moving average (MA)                              |     2 |
+|                  | autoregressive moving average (ARMA)             |     1 |
+|                  | autoregressive integrated moving average (ARIMA) |     1 |
+
+
+* TODO
+
+- [X] 算法与数据结构
+- [ ] 机器学习
+- [ ] Hadoop
+- [ ] Hbase
+- [ ] 图形数据库, Tableau
+- [ ] HANA
+- [ ] Message Queue
+- [ ] Tomcat
+
 * Introductory Examples
 
 ** Implied Volatilities
@@ -110,7 +151,7 @@
 *** Constructing a PCA Index
 
 ** Bayesian Regression
-
+A Bayesian network, Bayes network, belief network, Bayes(ian) model or probabilistic directed acyclic graphical model is a probabilistic graphical model (a type of statistical model) that represents a set of random variables and their conditional dependencies via a directed acyclic graph (DAG). For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used to compute the probabilities of the presence of various diseases.
 *** Bayes's formula
 
 *** PyMC3
@@ -168,3 +209,70 @@
 ** Model Calibration
 
 ** American Options on the VSTOXX
+
+* 非结构化数据可视化
+
+* 最优化算法（锥优化、随机优化优先）
+
+** Gradient descent
+In optimization, gradient method is an algorithm to solve problems of the form $$min \f(x)$$.
+
+*** Gradient descent
+Gradient descent is a first-order iterative optimization algorithm. To find a local minimum of a function using gradient descent, one takes steps proportional to the negative of the gradient (or of the approximate gradient) of the function at the current point. If instead one takes steps proportional to the positive of the gradient, one approaches a local maximum of that function; the procedure is then known as gradient ascent.
+
+Limitations: For some of the above examples, gradient descent is relatively slow close to the minimum: technically, its asymptotic rate of convergence is inferior to many other methods. For poorly conditioned convex problems, gradient descent increasingly 'zigzags' as the gradients point nearly orthogonally to the shortest direction to a minimum point. For more details, see the comments below.
+
+For non-differentiable functions, gradient methods are ill-defined.
+
+*** Conjugate gradient method
+In mathematics, the conjugate gradient method is an algorithm for the numerical solution of particular systems of linear equations, namely those whose matrix is symmetric and positive-definite.
+$$Ax=b, u_tAv=0$$
+
+** Stochastic optimization
+Stochastic optimization (SO) methods are optimization methods that generate and use random variables. For stochastic problems, the random variables appear in the formulation of the optimization problem itself, which involve random objective functions or random constraints. Stochastic optimization methods also include methods with random iterates. Some stochastic optimization methods use random iterates to solve stochastic problems, combining both meanings of stochastic optimization.[1] Stochastic optimization methods generalize deterministic methods for deterministic problems.
+
+*** Random search
+Random search (RS) is a family of numerical optimization methods that do not require the gradient of the problem to be optimized, and RS can hence be used on functions that are not continuous or differentiable. Such optimization methods are also known as direct-search, derivative-free, or black-box methods.
+
+The name "random search" is attributed to Rastrigin[1] who made an early presentation of RS along with basic mathematical analysis. RS works by iteratively moving to better positions in the search-space, which are sampled from a hypersphere surrounding the current position.
+
+The basic RS algorithm can then be described as:
+
+Initialize x with a random position in the search-space.
+Until a termination criterion is met (e.g. number of iterations performed, or adequate fitness reached), repeat the following:
+Sample a new position y from the hypersphere of a given radius surrounding the current position x (see e.g. Marsaglia's technique for sampling a hypersphere.)
+If f(y) < f(x) then move to the new position by setting x = y
+
+*** Bayesian optimization
+Bayesian optimization is a sequential design strategy for global optimization of black-box functions[1] that doesn't require derivatives.
+
+
+
+* Graphical Models, e.g.,
+	* Conditional Random Fields
+	* Bayesian Networks
+* Genetic Algorithm
+In computer science and operations research, a genetic algorithm (GA) is a metaheuristic inspired by the process of natural selection that belongs to the larger class of evolutionary algorithms (EA). Genetic algorithms are commonly used to generate high-quality solutions to optimization and search problems by relying on bio-inspired operators such as mutation, crossover and selection.[1]
+The evolution usually starts from a population of randomly generated individuals, and is an iterative process, with the population in each iteration called a generation. In each generation, the fitness of every individual in the population is evaluated; the fitness is usually the value of the objective function in the optimization problem being solved. The more fit individuals are stochastically selected from the current population, and each individual's genome is modified (recombined and possibly randomly mutated) to form a new generation. The new generation of candidate solutions is then used in the next iteration of the algorithm. Commonly, the algorithm terminates when either a maximum number of generations has been produced, or a satisfactory fitness level has been reached for the population.
+
+
+
+* First order and Propositional Rule Based Systems, e.g.,
+	* Tractable Markov Logic
+	* Prolog
+	* Lifted Inverse Deduction Algorithms
+* Recurrent Nets, e.g.,
+	* LSTM
+* Natural language processing, e.g.
+	* Auto text generation
+	* Auto Text Summary
+* Reinforcement Learning
+* Decision Trees (ensambles)
+* Instance Based Learning
+	* SVM
+	* k-nearest neighbor
+	* Amazon Netflix Recommendation system
+* Times Series Analysis, e.g.,
+	* Co-integration
+	* VAR
+* Ux design and Psychology

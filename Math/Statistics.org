@@ -45,6 +45,7 @@
 ** Bagging, Random Forests, Boosting
 
 * Support Vector Machine
+Support vector machines (SVMs) are a set of related supervised learning methods used for classification and regression. Given a set of training examples, each marked as belonging to one of two categories, an SVM training algorithm builds a model that predicts whether a new example falls into one category or the other.
 
 ** Maximal Margin Classifier
 
@@ -57,6 +58,7 @@
 ** Principal Components Analysis
 
 ** Clustering Methods
+Cluster analysis is the assignment of a set of observations into subsets (called clusters) so that observations within the same cluster are similar according to some predesignated criterion or criteria, while observations drawn from different clusters are dissimilar. Different clustering techniques make different assumptions on the structure of the data, often defined by some similarity metric and evaluated for example by internal compactness (similarity between members of the same cluster) and separation between different clusters. Other methods are based on estimated density and graph connectivity. Clustering is a method of unsupervised learning, and a common technique for statistical data analysis.
 
 *** K-Means Clustering
 

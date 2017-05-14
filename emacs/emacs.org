@@ -67,6 +67,11 @@ git clone https://github.com/username/username.github.io
 - insert the link in the sitemap org file.
 - publish all.
 - copy html and attachment folder under the docs folder.
+
+** Attach markdown files in the org file.
+
+** Publish ipython file directly.
+
 ** Insert file links in sitemap.org
 #+begin_src emacs-lisp :tangle yes
 [[file:remember.org][remember]]
