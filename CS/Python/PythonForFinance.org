@@ -12,6 +12,8 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
 #+todo
+
+#+begining_src org
 | programming | level |
 |-------------+-------|
 | Lisp        |     1 |
@@ -39,7 +41,7 @@
 |                  | moving average (MA)                              |     2 |
 |                  | autoregressive moving average (ARMA)             |     1 |
 |                  | autoregressive integrated moving average (ARIMA) |     1 |
-
+#+end_src
 
 * TODO
 
