@@ -253,8 +253,22 @@ print `a`
 print repr(a)
 #+end_src
 
+**
+**
 
+** fetch data from yahoo
+#+begin_src python
+import pandas as pd
+import datetime as dt
+import numpy as np
+import pandas.io.data as web
 
+data = pd.DataFrame()
+symbols = ['GLD', 'GDX']
+for sym in symbols:
+    data[sym] = web.DataReader(sym, data_source='yahoo', start='20100510')['Adj Close']
+data = data.dropna()
+#+end_src
 
 * Data Analysis:
 
@@ -404,8 +418,9 @@ np.count_nonzero(~np.isnan(df['series']))
 ** plot:
 pandas plot.
 using matplotlib:
-- import matplotlib.pyplot as plt
+- multiple subplots
 #+begin_src python
+import matplotlib.pyplot as plt
 fig = plt.figure()
 ax1 = fig.add_subplot(2, 2, 1)
 ax2 = fig.add_subplot(2, 2, 2)
@@ -414,6 +429,11 @@ fig, axes = plt.subplots(2,3)
 fig, ax : tuple
 #+end_src
 
+- plot a secondary y scale
+#+begin_src python
+df.price.plot(legend=True)
+(100-df.pct_long).plot(secondary_y=True, style='g', legend=True)
+#+end_src
 - highlight a certain value in the plot:
 #+begin_src python
 a['DGAZ.US'].hist(bins=50)
