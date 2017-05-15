@@ -51,6 +51,7 @@
 ** High-Frequency Data
 
 * Performance Python
+[[file:./py4fi/PerformanceOfPythonParadigms.html][PerformancePython]]
 
 * Mathematical Tools
 
