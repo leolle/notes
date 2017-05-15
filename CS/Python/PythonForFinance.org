@@ -47,6 +47,7 @@
 ** Financial Data
 
 ** Regression Analysis
+[[file:./py4fi/sentiment.html][sentiment]]
 
 ** High-Frequency Data
 
@@ -117,6 +118,7 @@
 
 ** Principal Component Analysis
 [[file:./py4fi/PCA.html][PCA]]
+
 *** The DAX index and its 30 stocks
 
 *** Applying PCA
@@ -124,7 +126,9 @@
 *** Constructing a PCA Index
 
 ** Bayesian Regression
+[[file:./py4fi/BayesFormula.html][Bayes]]
 A Bayesian network, Bayes network, belief network, Bayes(ian) model or probabilistic directed acyclic graphical model is a probabilistic graphical model (a type of statistical model) that represents a set of random variables and their conditional dependencies via a directed acyclic graph (DAG). For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used to compute the probabilities of the presence of various diseases.
+
 *** Bayes's formula
 
 *** PyMC3
