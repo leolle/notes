@@ -112,7 +112,19 @@
 *** Real-World data
 
 ** Portfolio Optimization
+[[file:./py4fi/Optimization.html][Optimization]]
+OLS assumptions:
+- Linear in Parameters
+- Random Sample of n Observations
+- Zero Conditional Mean
+- No Perfect Collinearity
+- Homoskedasticity
 
+Pitfall of Modern Portfolio Theory(MPT):
+- It is based on the historical return performance. If the political visk shows up or the fund changes policy or manager, the corporate or the fund performance may change.
+
+Black–Litterman model:
+It is a mathematical model for portfolio allocation developed in 1990 at Goldman Sachs by Fischer Black and Robert Litterman, and published in 1992. It seeks to overcome problems that institutional investors have encountered in applying modern portfolio theory in practice, although the covariances of a few assets can be adequately estimated, it is difficult to come up with reasonable estimates of expected returns. The model starts with the equilibrium assumption that the asset allocation of a representative agent should be proportional to the market values of the available assets, and then modifies that to take into account the 'views' (i.e., the specific opinions about asset returns) of the investor in question to arrive at a bespoke asset allocation.
 *** Efficient frontier
 
 *** Capital Market Line
