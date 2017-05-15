@@ -60,7 +60,6 @@
 ** Approximation
 
 *** Regression
-[[file:./py4fi/Regression.html][Regression]]
 
 *** Interpolation
 
