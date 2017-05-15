@@ -55,10 +55,12 @@
 [[file:./py4fi/PerformanceOfPythonParadigms.html][PerformancePython]]
 
 * Mathematical Tools
+[[file:./py4fi/Regression.html][Regression]]
 
 ** Approximation
 
 *** Regression
+[[file:./py4fi/Regression.html][Regression]]
 
 *** Interpolation
 
