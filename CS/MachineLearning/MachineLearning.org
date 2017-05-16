@@ -19,6 +19,9 @@ Study of algorithms that
 - improve their performance P
 - at some task T
 - with experience E
+
+** Well defined machine learning problem
+
 ** Decision tree learning
 
 ** Course logistics
