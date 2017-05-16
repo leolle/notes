@@ -32,7 +32,9 @@
 
     - need to add the working directory to .bashrc PYTHONPATH
     - using ipython.
-
+- Add custom folder path to the Windows environment.
+  add PYTHONEXE%; to System Variable;
+  add System variable name: PYTHONEXE , value: C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
 - import module temperarily from parental directory without add path to the system.
 #+begin_src python :tangle yes
 # folder1

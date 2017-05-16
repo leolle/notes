@@ -23,5 +23,5 @@ Study of algorithms that
 ** Well defined machine learning problem
 
 ** Decision tree learning
-
+$$H = {H|h: X \to Y}$$
 ** Course logistics
