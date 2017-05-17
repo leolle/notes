@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-04-22 Sat 13:01 -->
+<!-- 2017-05-17 Wed 23:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -156,10 +156,11 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline4">1.4. market simulator</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline14">2. Week 1</a>
+<li><a href="#orgheadline15">2. Week 1</a>
 <ul>
-<li><a href="#orgheadline8">2.1. access of historical equity data</a></li>
-<li><a href="#orgheadline13">2.2. first look at portfolio optimization</a></li>
+<li><a href="#orgheadline6">2.1. Tutorials</a></li>
+<li><a href="#orgheadline9">2.2. access of historical equity data</a></li>
+<li><a href="#orgheadline14">2.3. first look at portfolio optimization</a></li>
 </ul>
 </li>
 </ul>
@@ -186,18 +187,31 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">2</span> Week 1</h2>
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">2</span> Week 1</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.1</span> access of historical equity data</h3>
+</div><div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.1</span> Tutorials</h3>
 <div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>QSTK Tutorial 1 Reading data and basic time series operations and plotting</li>
+<li>QSTK Tutorial 2 Reading CSV data (not QSTK specific)</li>
+<li>QSTK Tutorial 3 Tips for accessing historical data via DataAccess + a quick and dirty portfolio back test, only has initial portfolio weight, not rebalance.</li>
+<li>QSTK Tutorial 4 Creating a an equity allocation DataFrame using random number, including cash.</li>
+<li>QSTK Tutorial 5 Using qstksim to back test an allocation strategy, rebalance everyday.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">2.2</span> access of historical equity data</h3>
+<div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>using QSTK code for basic time series analysis of stock price data.</li>
 </ul>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline6"></a>Reading historical data<br  /><div class="outline-text-4" id="text-2-1-1">
+<ol class="org-ol"><li><a id="orgheadline7"></a>Reading historical data<br  /><div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
 
 <pre class="src src-Python">import QSTK.qstkutil.qsdateutil as du
@@ -211,7 +225,7 @@ import pandas as pd
 </div>
 </div></li>
 
-<li><a id="orgheadline7"></a>Normalized Data<br  /><div class="outline-text-4" id="text-2-1-2">
+<li><a id="orgheadline8"></a>Normalized Data<br  /><div class="outline-text-4" id="text-2-2-2">
 <div class="org-src-container">
 
 <pre class="src src-Python">na_normalized_price = na_price / na_price[0, :]
@@ -219,14 +233,14 @@ import pandas as pd
 </div>
 </div></li></ol>
 </div>
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.2</span> first look at portfolio optimization</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">2.3</span> first look at portfolio optimization</h3>
+<div class="outline-text-3" id="text-2-3">
 <p>
 create and optimize a portfolio for the year 2011.
 </p>
 </div>
-<ol class="org-ol"><li><a id="orgheadline12"></a>Write python function that can simulate and assess the performance of a 4 stock portfolio<br  /><ul class="org-ul"><li><a id="orgheadline9"></a>input:<br  /><div class="outline-text-5" id="text-orgheadline9">
+<ol class="org-ol"><li><a id="orgheadline13"></a>Write python function that can simulate and assess the performance of a 4 stock portfolio<br  /><ul class="org-ul"><li><a id="orgheadline10"></a>input:<br  /><div class="outline-text-5" id="text-orgheadline10">
 <ul class="org-ul">
 <li>start date.</li>
 <li>end date.</li>
@@ -234,7 +248,7 @@ create and optimize a portfolio for the year 2011.
 <li>allocation weight.</li>
 </ul>
 </div></li>
-<li><a id="orgheadline10"></a>return:<br  /><div class="outline-text-5" id="text-orgheadline10">
+<li><a id="orgheadline11"></a>return:<br  /><div class="outline-text-5" id="text-orgheadline11">
 <ul class="org-ul">
 <li>standard deviation of daily return of the total portfolio.</li>
 <li>average daily return.</li>
@@ -245,7 +259,7 @@ create and optimize a portfolio for the year 2011.
 !! daily return should use normalized data, or the daily weight will be rebalanced during the calculation.
 </p>
 </div></li>
-<li><a id="orgheadline11"></a>optimization:<br  /><div class="outline-text-5" id="text-orgheadline11">
+<li><a id="orgheadline12"></a>optimization:<br  /><div class="outline-text-5" id="text-orgheadline12">
 <p>
 Use gradient ascent, but the weight allocation is not linear.
 </p>
@@ -255,7 +269,7 @@ Use gradient ascent, but the weight allocation is not linear.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-04-22 Sat 13:01</p>
+<p class="date">Created: 2017-05-17 Wed 23:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -16,6 +16,13 @@
 
 * Week 1
 
+** Tutorials
+- QSTK Tutorial 1 Reading data and basic time series operations and plotting
+- QSTK Tutorial 2 Reading CSV data (not QSTK specific)
+- QSTK Tutorial 3 Tips for accessing historical data via DataAccess + a quick and dirty portfolio back test, only has initial portfolio weight, not rebalance.
+- QSTK Tutorial 4 Creating a an equity allocation DataFrame using random number, including cash.
+- QSTK Tutorial 5 Using qstksim to back test an allocation strategy, rebalance everyday.
+
 ** access of historical equity data
 - using QSTK code for basic time series analysis of stock price data.
 

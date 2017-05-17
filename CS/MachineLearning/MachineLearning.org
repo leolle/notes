@@ -24,4 +24,16 @@ Study of algorithms that
 
 ** Decision tree learning
 $$H = {H|h: X \to Y}$$
+
+*** Top-Down induction of DTree
+- A \to the best decision attribute for next node.
+- Assign A as decision attribute for node.
+- For each value of A, create new descendant of node.
+- Sort training examples to leaf nodes.
+- If training examples perfectly classified, then STOP, Else iterate over new leaf nodes.
+
+*** Entropy
+Entropy H(X) of a random variable X:
+$$H(X) = -\Sum{P(X=i)log_2*P(X=i)}$$
+
 ** Course logistics

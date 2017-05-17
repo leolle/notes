@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-16 Tue 21:46 -->
+<!-- 2017-05-17 Wed 23:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -169,12 +169,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline5">1. Week 1</a>
+<li><a href="#orgheadline7">1. Week 1</a>
 <ul>
 <li><a href="#orgheadline1">1.1. What is machine learning</a></li>
 <li><a href="#orgheadline2">1.2. Well defined machine learning problem</a></li>
-<li><a href="#orgheadline3">1.3. Decision tree learning</a></li>
-<li><a href="#orgheadline4">1.4. Course logistics</a></li>
+<li><a href="#orgheadline5">1.3. Decision tree learning</a>
+<ul>
+<li><a href="#orgheadline3">1.3.1. Top-Down induction of DTree</a></li>
+<li><a href="#orgheadline4">1.3.2. Entropy</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline6">1.4. Course logistics</a></li>
 </ul>
 </li>
 </ul>
@@ -182,8 +187,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">1</span> Week 1</h2>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">1</span> Week 1</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> What is machine learning</h3>
@@ -203,23 +208,47 @@ Study of algorithms that
 <h3 id="orgheadline2"><span class="section-number-3">1.2</span> Well defined machine learning problem</h3>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Decision tree learning</h3>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.3</span> Decision tree learning</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 \[H = {H|h: X \to Y}\]
 </p>
 </div>
+
+<div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">1.3.1</span> Top-Down induction of DTree</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li>A &rarr; the best decision attribute for next node.</li>
+<li>Assign A as decision attribute for node.</li>
+<li>For each value of A, create new descendant of node.</li>
+<li>Sort training examples to leaf nodes.</li>
+<li>If training examples perfectly classified, then STOP, Else iterate over new leaf nodes.</li>
+</ul>
 </div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Course logistics</h3>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">1.3.2</span> Entropy</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+Entropy H(X) of a random variable X:
+\[H(X) = -\Sum{P(X=i)log_2*P(X=i)}\]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.4</span> Course logistics</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-16 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-16 Tue 21:46</p>
+<p class="date">Created: 2017-05-17 Wed 23:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
