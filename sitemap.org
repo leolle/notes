@@ -7,7 +7,11 @@
   + [[file:./Math/Statistics.org][Statistics]]
 + CS
   + MachineLearning
+<<<<<<< HEAD
     + [[file:./CS/MachineLearning/MachineLearning.org][ML]]
+=======
+    +  [[file:./CS/MachineLearning/MachineLearning.org][ML]]
+>>>>>>> f1a1b08e1dbb14ea82852390b4881f553e59072a
   + [[file:./CS/Python/python.org][Python]]
     + [[file:./CS/Python/PythonForFinance.org][PythonForFinance]]
     + [[file:./CS/Python/DesignPattern.org][DesignPattern]]
