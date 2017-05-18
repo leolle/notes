@@ -37,3 +37,50 @@ Entropy H(X) of a random variable X:
 $$H(X) = -\Sum{P(X=i)log_2*P(X=i)}$$
 
 ** Course logistics
+- Linear Regression
+- Logistic Regression
+- Neural Networks
+- Support Vector Machines
+- K-means Clustering
+- Principal Components
+- Analysis
+- Anomaly Detection
+- Collaborative Filtering
+- Object Recognition
+
+** Model Representation
+To establish notation for future use, we’ll use x(i) to denote the “input” variables (living area in this example),
+also called input features, and y(i) to denote the “output” or target variable that we are trying to predict (price).
+(x(i),y(i)) is called a training example.
+m—is called a training set.
+
+** Cost Function
+
+** Linear Regression with One Variable
+
+** Linear Algebra Review
+
+* Week 2 Linear Regression with Multiple Variables
+
+* Week 3
+** Logistic Regression
+** Regularization
+* Week 4
+** Neural Networks: Representation
+* Week 5
+** Neural Networks: Learning
+* Week 6
+** Advice for Applying Machine Learning
+** Machine Learning System Design
+* Week 7
+** Support Vector Machines
+* Week 8
+** Unsupervised Learning
+** Dimensionality Reduction
+* Week 9
+** Anomaly Detection
+** Recommender Systems
+* Week 10
+** Large Scale Machine Learning
+* Week 11
+** Application Example: Photo OCR
