@@ -48,6 +48,14 @@ $$H(X) = -\Sum{P(X=i)log_2*P(X=i)}$$
 - Collaborative Filtering
 - Object Recognition
 
+** Model Representation
+To establish notation for future use, we’ll use x(i) to denote the “input” variables (living area in this example),
+also called input features, and y(i) to denote the “output” or target variable that we are trying to predict (price).
+(x(i),y(i)) is called a training example.
+m—is called a training set.
+
+** Cost Function
+
 ** Linear Regression with One Variable
 
 ** Linear Algebra Review
