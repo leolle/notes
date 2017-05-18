@@ -418,7 +418,10 @@ df2[~df2.index.duplicated()]
 #+begin_src python
 np.count_nonzero(~np.isnan(df['series']))
 #+end_src
-
+- count number of negative value:
+#+begin_src python
+np.sum((df < 0).values.ravel())
+#+end_src
 ** plot:
 pandas plot.
 using matplotlib:
