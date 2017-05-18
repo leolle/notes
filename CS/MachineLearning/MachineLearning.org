@@ -21,6 +21,8 @@ Study of algorithms that
 - with experience E
 
 ** Well defined machine learning problem
+- supervised learning
+- unsupervised learning
 
 ** Decision tree learning
 $$H = {H|h: X \to Y}$$
