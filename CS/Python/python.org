@@ -112,6 +112,10 @@ for i in tqdm(range(10)):
 time.strptime(string[, format])
 #+end_src
 
+- datetime, Timestamp, datetime64
+pandas, Timestamp
+datetime, utc
+datetime64
 ** Function
 - function parameter
   - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
@@ -413,6 +417,11 @@ sym = grouped.last()
 df2[~df2.index.duplicated()]
 #+end_SRC
 
+**** convert a dataframe to an array:
+#+begin_src emacs-lisp :tangle yes
+pd.dataframe.to_matrix()
+#+end_src
+
 ** numpy
 - count nan:
 #+begin_src python
@@ -447,6 +456,23 @@ a['DGAZ.US'].hist(bins=50)
 plt.axvline(a['DGAZ.US'][-1], color='b', linestyle='dashed', linewidth=2)
 #+end_src
 
+- plot a 3d figure:
+#+begin_src python :tangle yes
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+
+strike = np.linspace(50, 150, 5)
+ttm = np.linspace(0.5, 2.5, 8)
+
+strike, ttm = np.meshgrid(strike, ttm)
+iv = (strike - 100) ** 2 / (100 * strike) / ttm
+fig = plt.figure(figsize=(9,6))
+ax = fig.gca(projection='3d')
+surf = ax.plot_surface(strike, ttm, iv, rstride=2, cstride=2,
+                       cmap=plt.cm.coolwarm, linewidth=0.5,
+                       antialiased=True)
+fig.colorbar(surf, shrink=0.5, aspect=5)
+#+end_src
 fig is the :class:matplotlib.figure.Figure object.
 
 - ax can be either a single axis object or an array of axis
