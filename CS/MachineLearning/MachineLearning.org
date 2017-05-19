@@ -44,8 +44,7 @@ $$H(X) = -\Sum{P(X=i)log_2*P(X=i)}$$
 - Neural Networks
 - Support Vector Machines
 - K-means Clustering
-- Principal Components
-- Analysis
+- Principal Components Analysis
 - Anomaly Detection
 - Collaborative Filtering
 - Object Recognition
@@ -63,7 +62,7 @@ m—is called a training set.
 ** Linear Algebra Review
 
 * Week 2 Linear Regression with Multiple Variables
-
+- normalization
 * Week 3
 ** Logistic Regression
 ** Regularization
