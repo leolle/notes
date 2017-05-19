@@ -60,7 +60,9 @@ m—is called a training set.
 ** Linear Regression with One Variable
 
 ** Linear Algebra Review
-
+- Vector
+- Matrix
+-
 * Week 2 Linear Regression with Multiple Variables
 - normalization
 * Week 3
