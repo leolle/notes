@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-17 Wed 23:01 -->
+<!-- 2017-05-19 Fri 09:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -868,9 +868,16 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 <pre class="src src-python">np.count_nonzero<span style="color: #AE81FF;">(</span>~np.isnan<span style="color: #66D9EF;">(</span>df<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'series'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-</div>
-</div>
+<ul class="org-ul">
+<li>count number of negative value:</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-python">np.<span style="color: #F92672;">sum</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span>df &lt; <span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span>.values.ravel<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline20" class="outline-3">
 <h3 id="orgheadline20"><span class="section-number-3">2.3</span> plot:</h3>
 <div class="outline-text-3" id="text-2-3">
@@ -939,7 +946,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-17 Wed 23:01</p>
+<p class="date">Created: 2017-05-19 Fri 09:10</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

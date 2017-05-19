@@ -67,6 +67,10 @@ m—is called a training set.
 * Week 3
 ** Logistic Regression
 ** Regularization
+** Classification
+*** Linear Discriminant Analysis
+
+*** Comparison
 * Week 4
 ** Neural Networks: Representation
 * Week 5
@@ -75,7 +79,14 @@ m—is called a training set.
 ** Advice for Applying Machine Learning
 ** Machine Learning System Design
 * Week 7
-** Support Vector Machines
+** Support Vector Machine
+Support vector machines (SVMs) are a set of related supervised learning methods used for classification and regression. Given a set of training examples, each marked as belonging to one of two categories, an SVM training algorithm builds a model that predicts whether a new example falls into one category or the other.
+
+*** Maximal Margin Classifier
+
+*** Support Vector Classifiers
+
+*** Support Vector Machines
 * Week 8
 ** Unsupervised Learning
 ** Dimensionality Reduction
@@ -86,3 +97,24 @@ m—is called a training set.
 ** Large Scale Machine Learning
 * Week 11
 ** Application Example: Photo OCR
+* Tree-Based Methods
+
+** Decision Trees
+
+** Bagging, Random Forests, Boosting
+
+* Unsupervised Learning
+
+** Principal Components Analysis
+
+** Clustering Methods
+Cluster analysis is the assignment of a set of observations into subsets (called clusters) so that observations within the same cluster are similar according to some predesignated criterion or criteria, while observations drawn from different clusters are dissimilar. Different clustering techniques make different assumptions on the structure of the data, often defined by some similarity metric and evaluated for example by internal compactness (similarity between members of the same cluster) and separation between different clusters. Other methods are based on estimated density and graph connectivity. Clustering is a method of unsupervised learning, and a common technique for statistical data analysis.
+
+*** K-Means Clustering
+
+*** Hierarchical Clustering
+* Resampling Methods
+
+** Cross-Validation
+
+** The Bootstrap
