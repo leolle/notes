@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-19 Fri 09:15 -->
+<!-- 2017-05-20 Sat 21:06 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -275,7 +275,6 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-
 <div id="outline-container-orgheadline11" class="outline-2">
 <h2 id="orgheadline11"><span class="section-number-2">1</span> Week 1</h2>
 <div class="outline-text-2" id="text-1">
@@ -366,6 +365,13 @@ m—is called a training set.
 
 <div id="outline-container-orgheadline8" class="outline-3">
 <h3 id="orgheadline8"><span class="section-number-3">1.6</span> Cost Function</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+\(J(\Theta_1,\Theta_2)\)
+contour is the bow projected on the 2D surface.
+A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line.
+</p>
+</div>
 </div>
 
 <div id="outline-container-orgheadline9" class="outline-3">
@@ -374,12 +380,36 @@ m—is called a training set.
 
 <div id="outline-container-orgheadline10" class="outline-3">
 <h3 id="orgheadline10"><span class="section-number-3">1.8</span> Linear Algebra Review</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li>Vector</li>
+<li>Matrix</li>
+<li></li>
+</ul>
 </div>
 </div>
-
+</div>
 <div id="outline-container-orgheadline12" class="outline-2">
 <h2 id="orgheadline12"><span class="section-number-2">2</span> Week 2 Linear Regression with Multiple Variables</h2>
 <div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Gradient Descent:</li>
+</ul>
+<p>
+Taking the derivative (the tangential line to a function) of our cost function.
+The slope of the tangent is the derivative at that point and it will give us a direction to move towards.
+We make steps down the cost function in the direction with the steepest descent.
+The size of each step is determined by the parameter α, which is called the learning rate.
+</p>
+<ul class="org-ul">
+<li>Algorithm:</li>
+</ul>
+<p>
+\[\Theta_j = \Theta_j + \Alpha\Derivative{J(\Theta_0,\Theta_1)}\]
+Update simutaneously:
+\[Temp_0 := \Theta_0 - \Alpha\Derivative{J(\Theta_0,\Theta_1)} \]
+\[Temp_1 := \Theta_1 - \Alpha\Derivative{J(\Theta_0,\Theta_1)} \]
+</p>
 <ul class="org-ul">
 <li>normalization</li>
 </ul>
@@ -437,7 +467,9 @@ m—is called a training set.
 <h3 id="orgheadline29"><span class="section-number-3">7.1</span> Support Vector Machine</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
-Support vector machines (SVMs) are a set of related supervised learning methods used for classification and regression. Given a set of training examples, each marked as belonging to one of two categories, an SVM training algorithm builds a model that predicts whether a new example falls into one category or the other.
+Support vector machines (SVMs) are a set of related supervised learning methods used for classification and regression.
+Given a set of training examples, each marked as belonging to one of two categories,
+an SVM training algorithm builds a model that predicts whether a new example falls into one category or the other.
 </p>
 </div>
 
@@ -539,7 +571,7 @@ Cluster analysis is the assignment of a set of observations into subsets (called
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-16 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-19 Fri 09:15</p>
+<p class="date">Created: 2017-05-20 Sat 21:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

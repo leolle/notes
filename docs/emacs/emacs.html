@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-12 Fri 23:13 -->
+<!-- 2017-05-20 Sat 21:06 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -193,13 +193,14 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline16">2.2. insert table box</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline22">3. ORG Mode</a>
+<li><a href="#orgheadline23">3. ORG Mode</a>
 <ul>
 <li><a href="#orgheadline18">3.1. Structure editing</a></li>
-<li><a href="#orgheadline21">3.2. Latex</a>
+<li><a href="#orgheadline22">3.2. Latex</a>
 <ul>
 <li><a href="#orgheadline19">3.2.1. Greeks:</a></li>
 <li><a href="#orgheadline20">3.2.2. Superscript, subscript</a></li>
+<li><a href="#orgheadline21">3.2.3. Derivatives, Limits, Sums and Integrals</a></li>
 </ul>
 </li>
 </ul>
@@ -436,8 +437,8 @@ Or change the start-up configuration.
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">3</span> ORG Mode</h2>
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">3</span> ORG Mode</h2>
 <div class="outline-text-2" id="text-3">
 </div><div id="outline-container-orgheadline18" class="outline-3">
 <h3 id="orgheadline18"><span class="section-number-3">3.1</span> Structure editing</h3>
@@ -506,8 +507,8 @@ Turn a normal line or plain list item into a headline (so that it becomes a subh
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">3.2</span> Latex</h3>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">3.2</span> Latex</h3>
 <div class="outline-text-3" id="text-3-2">
 </div><div id="outline-container-orgheadline19" class="outline-4">
 <h4 id="orgheadline19"><span class="section-number-4">3.2.1</span> Greeks:</h4>
@@ -525,13 +526,90 @@ Turn a normal line or plain list item into a headline (so that it becomes a subh
 </p>
 </div>
 </div>
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">3.2.3</span> Derivatives, Limits, Sums and Integrals</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+\[\frac{du}{dt}\]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\frac{du}{dt}
+</pre>
+</div>
+<p>
+the Heat Equation$$\[ \frac{\partial u}{\partial t}
+   = h<sup>2</sup> \left( \frac{\partial^2 u}{\partial x^2}
+</p>
+<ul class="org-ul">
+<li>\frac{\partial^2 u}{\partial y^2}</li>
+<li>\frac{\partial^2 u}{\partial z^2} \right) \]$$</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\[ \frac{\partial u}{\partial t}
+   = h^2 \left<span style="color: #AE81FF;">(</span> \frac{\partial^2 u}{\partial x^2}
+      + \frac{\partial^2 u}{\partial y^2}
+      + \frac{\partial^2 u}{\partial z^2} \right<span style="color: #AE81FF;">)</span> \]
+</pre>
+</div>
+<p>
+\[\lim_{x \to +\infty}, \inf_{x > s}\]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\lim_{x \to +\infty}, \inf_{x &gt; s}
+</pre>
+</div>
+<p>
+\[\[ \sum_{k=1}^n k^2 = \frac{1}{2} n (n+1).\] \]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\[ \sum_{k=1}^n k^2 = \frac{1}{2} n <span style="color: #AE81FF;">(</span>n+1<span style="color: #AE81FF;">)</span>.\]
+</pre>
+</div>
+<p>
+\[\[ \int_a^b f(x)\,dx.\] \]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\[ \int_a^b f<span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span>\,dx.\]
+</pre>
+</div>
+<p>
+\[\[ \int_0^{+\infty} x^n e^{-x} \,dx = n!.\]
+\[ \int \cos \theta \,d\theta = \sin \theta.\]
+\[ \int_{x^2 + y^2 \leq R^2} f(x,y)\,dx\,dy
+   = \int_{\theta=0}^{2\pi} \int_{r=0}^R
+      f(r\cos\theta,r\sin\theta) r\,dr\,d\theta.\] \]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\[ \int_0^{+\infty} x^n e^{-x} \,dx = n!.\]
+\[ \int \cos \theta \,d\theta = \sin \theta.\]
+\[ \int_{x^2 + y^2 \leq R^2} f<span style="color: #AE81FF;">(</span>x,y<span style="color: #AE81FF;">)</span>\,dx\,dy
+   = \int_{\theta=0}^{2\pi} \int_{r=0}^R
+      f<span style="color: #AE81FF;">(</span>r\cos\theta,r\sin\theta<span style="color: #AE81FF;">)</span> r\,dr\,d\theta.\]
+</pre>
+</div>
+<p>
+\[\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] \]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\[ \int \!\!\! \int_D f<span style="color: #AE81FF;">(</span>x,y<span style="color: #AE81FF;">)</span>\,dx\,dy.\]
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-12 Fri 23:13</p>
+<p class="date">Created: 2017-05-20 Sat 21:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
