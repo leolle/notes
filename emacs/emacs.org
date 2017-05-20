@@ -188,3 +188,46 @@ Turn a normal line or plain list item into a headline (so that it becomes a subh
 $$\alpha, \beta, \gamma$$
 *** Superscript, subscript
 $$R_{sun} = 6.96 x 10^8 m$$
+*** Derivatives, Limits, Sums and Integrals
+$$\frac{du}{dt}$$
+#+begin_src emacs-lisp :tangle yes
+\frac{du}{dt}
+#+end_src
+the Heat Equation$$\[ \frac{\partial u}{\partial t}
+   = h^2 \left( \frac{\partial^2 u}{\partial x^2}
+      + \frac{\partial^2 u}{\partial y^2}
+      + \frac{\partial^2 u}{\partial z^2} \right) \]$$
+#+begin_src emacs-lisp :tangle yes
+\[ \frac{\partial u}{\partial t}
+   = h^2 \left( \frac{\partial^2 u}{\partial x^2}
+      + \frac{\partial^2 u}{\partial y^2}
+      + \frac{\partial^2 u}{\partial z^2} \right) \]
+#+end_src
+$$\lim_{x \to +\infty}, \inf_{x > s}$$
+#+begin_src emacs-lisp :tangle yes
+\lim_{x \to +\infty}, \inf_{x > s}
+#+end_src
+$$\[ \sum_{k=1}^n k^2 = \frac{1}{2} n (n+1).\] $$
+#+begin_src emacs-lisp :tangle yes
+\[ \sum_{k=1}^n k^2 = \frac{1}{2} n (n+1).\]
+#+end_src
+$$\[ \int_a^b f(x)\,dx.\] $$
+#+begin_src emacs-lisp :tangle yes
+\[ \int_a^b f(x)\,dx.\]
+#+end_src
+$$\[ \int_0^{+\infty} x^n e^{-x} \,dx = n!.\]
+\[ \int \cos \theta \,d\theta = \sin \theta.\]
+\[ \int_{x^2 + y^2 \leq R^2} f(x,y)\,dx\,dy
+   = \int_{\theta=0}^{2\pi} \int_{r=0}^R
+      f(r\cos\theta,r\sin\theta) r\,dr\,d\theta.\] $$
+#+begin_src emacs-lisp :tangle yes
+\[ \int_0^{+\infty} x^n e^{-x} \,dx = n!.\]
+\[ \int \cos \theta \,d\theta = \sin \theta.\]
+\[ \int_{x^2 + y^2 \leq R^2} f(x,y)\,dx\,dy
+   = \int_{\theta=0}^{2\pi} \int_{r=0}^R
+      f(r\cos\theta,r\sin\theta) r\,dr\,d\theta.\]
+#+end_src
+$$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
+#+begin_src emacs-lisp :tangle yes
+\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\]
+#+end_src
