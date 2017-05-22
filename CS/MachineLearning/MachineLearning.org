@@ -65,6 +65,7 @@ m—is called a training set.
 -
 * Week 2 Linear Regression with Multiple Variables
 - normalization
+$$\theta_0 = \theta_0 - \alpha\partial{J(\theta)}{\theta}$$
 * Week 3
 ** Logistic Regression
 ** Regularization
