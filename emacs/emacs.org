@@ -127,6 +127,15 @@ Or change the start-up configuration.
      #+STARTUP: showall
      #+STARTUP: showeverything
 #+end_src
+
+** shortcut :
+*获取帮助*
+-  =C-h k= 寻找快捷键的帮助信息: after the command enter the key combination.
+-  =C-h v= 寻找变量的帮助信息
+-  =C-h f= 寻找函数的帮助信息
+-  =C-l= move the current cursor to the center of the screen.
+
+- <s, press tab to get the src box.
 * ORG Mode
 ** Structure editing
 M-<RET>     (org-insert-heading)

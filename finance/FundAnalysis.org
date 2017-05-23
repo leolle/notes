@@ -23,3 +23,20 @@ $$h=S\beta+\mu$$
 *** Fama-French 3 factors model
 **** 按照“价值—成长”定位分为：价值型、平衡型、成长型。价值型基金是为了通过购买股票获得当期收益，即通过上市公司分红而获得收益；成长型基金是购买当期被低估的股票，为了获得资本增值，等待价格上涨带来的收益；平衡型基金则既要获得当期收益，同样要获得资本增值。
 **** 按照投资股票规模大小来区分：大盘型、中盘型、小盘型。简而言之，基金投资于大盘、中盘、小盘股，那么该基金的基金风格就是对应的大盘基金、中盘基金、小盘基金。
+** 中性策略
+ 中性策略就是构建投资组合，使得组合与市场之间相关系数为0，也就是投资组合不随市场的波动而波动。
+*** 中性策略根据实现手段可分为贝塔中性、市值中性和行业中性。
+- 贝塔中性是指投资组合的贝塔值为0。
+- 市值中性是指组合中多头部位中大、中、小盘股票的配比与空头部位指数的配比一致，做到市值中性不一定能实现贝塔中性，例如多头选一篮子创业板股票，空头用同市值的沪深300股指期货对冲，显然空头头寸无法覆盖多头头寸全部的风险敞口。
+- 行业中性是指多头头寸与空头头寸行业板块配置一致，没有偏配，一般做到市值中性与行业中性的组合可以近似认为达到贝塔中性。A market-neutral strategy is a type of investment strategy undertaken by an investor or an investment manager that seeks to profit from both increasing and decreasing prices in one or more markets, while attempting to completely avoid some specific form of market risk. Market-neutral strategies are often attained by taking matching long and short positions in different stocks to increase the return from making good stock selections and decreasing the return from broad market movements.
+*** How to Build a Sector-Neutral Stock Portfolio
+- Regardless of your investing style, you may not realize that if you focus on a particular type of stock, you could be creating an undiversified portfolio and taking unintended sector risk.
+- We believe most investors should try to build a "sector-neutral" portfolio when implementing their favorite stock-selection strategy.
+- sector neutrality won't typically result in much of a hit to your overall average returns, and you can still pick stocks using your favorite style.
+*** A pure growth and value portfolio skews sector allocations most at IT, energy and consumer discretionary.
+The benchmark may have a different weight decomposition that have a underweight on some sector or overweight on other sectors.
+*** Steps:
+**** First, the model ranks roughly 3,200 of the largest (by market cap) U.S. stocks from best to worst within each sector;
+**** then, we calculate the correlation of those rankings with how the stocks actually performed 12 months later after receiving their rating. coefficient is ranging from -1 to +1.
+**** Weight the dollars that you invest in both large- and small-caps to match your individual asset allocation plan, and make sure each of the 10 sectors is represented in proportion to its benchmark weight.
+- For example, let’s say you have $10,000 to invest, equally allocated to large and small cap stocks. Owning 40 stocks equally weighted means that you would hold $250 in each position ($10,000 divided by 40). If a sector's weight is 20% of the benchmark, then 20% of your portfolio, or $2,000, would be invested in that sector. Because you’re investing $500 in each stock, you would hold 4 stocks in this sector ($2,000 divided by $500). Since you have equally allocated your capital to large and small cap stocks, you would own 2 large and 2 small cap stocks.
