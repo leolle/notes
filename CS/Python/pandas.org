@@ -1,0 +1,43 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: pandas
+#+DATE: <2017-05-24 Wed>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* Building Criteria
+- Dynamically reduce a list of criteria using a binary operators
+#+begin_src python :tangle yes
+In [19]: df = pd.DataFrame(
+   ....:      {'AAA' : [4,5,6,7], 'BBB' : [10,20,30,40],'CCC' : [100,50,-30,-50]}); df
+   ....:
+Out[19]:
+   AAA  BBB  CCC
+0    4   10  100
+1    5   20   50
+2    6   30  -30
+3    7   40  -50
+
+In [20]: Crit1 = df.AAA <= 5.5
+
+In [21]: Crit2 = df.BBB == 10.0
+
+In [22]: Crit3 = df.CCC > -40.0
+In [24]: CritList = [Crit1,Crit2,Crit3]
+
+In [25]: AllCrit = functools.reduce(lambda x,y: x & y, CritList)
+
+In [26]: df[AllCrit]
+Out[26]:
+   AAA  BBB  CCC
+0    4   10  100
+#+end_src
+
+* Selection
