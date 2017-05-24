@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-19 Fri 09:10 -->
+<!-- 2017-05-20 Sat 21:06 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -186,15 +186,15 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline10">1.9. fetch data from yahoo</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">2. Data Analysis:</a>
+<li><a href="#orgheadline22">2. Data Analysis:</a>
 <ul>
-<li><a href="#orgheadline18">2.1. pandas:</a>
+<li><a href="#orgheadline19">2.1. pandas:</a>
 <ul>
-<li><a href="#orgheadline17">2.1.1. Index</a></li>
+<li><a href="#orgheadline18">2.1.1. Index</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline19">2.2. numpy</a></li>
-<li><a href="#orgheadline20">2.3. plot:</a></li>
+<li><a href="#orgheadline20">2.2. numpy</a></li>
+<li><a href="#orgheadline21">2.3. plot:</a></li>
 </ul>
 </li>
 </ul>
@@ -357,9 +357,17 @@ pip install git+<a href="https://github.com/quantopian/zipline.git">https://gith
 <pre class="src src-python">time.strptime<span style="color: #AE81FF;">(</span>string<span style="color: #66D9EF;">[</span>, <span style="color: #F92672;">format</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-</div>
-</div>
 
+<ul class="org-ul">
+<li>datetime, Timestamp, datetime64</li>
+</ul>
+<p>
+pandas, Timestamp
+datetime, utc
+datetime64
+</p>
+</div>
+</div>
 <div id="outline-container-orgheadline4" class="outline-3">
 <h3 id="orgheadline4"><span class="section-number-3">1.4</span> Function</h3>
 <div class="outline-text-3" id="text-1-4">
@@ -620,11 +628,11 @@ int64
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">2</span> Data Analysis:</h2>
+<div id="outline-container-orgheadline22" class="outline-2">
+<h2 id="orgheadline22"><span class="section-number-2">2</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">2.1</span> pandas:</h3>
+</div><div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">2.1</span> pandas:</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>generate a dataframe:</li>
@@ -716,8 +724,8 @@ b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="colo
 </div>
 
 
-<div id="outline-container-orgheadline17" class="outline-4">
-<h4 id="orgheadline17"><span class="section-number-4">2.1.1</span> Index</h4>
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">2.1.1</span> Index</h4>
 <div class="outline-text-4" id="text-2-1-1">
 </div><ol class="org-ol"><li><a id="orgheadline12"></a>Index manuplication<br  /><div class="outline-text-5" id="text-2-1-1-1">
 <ul class="org-ul">
@@ -853,12 +861,20 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 <pre class="src src-python">df2<span style="color: #AE81FF;">[</span>~df2.index.duplicated<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
 </pre>
 </div>
-</div></li></ol></li></ol>
+</div></li></ol></li>
+
+<li><a id="orgheadline17"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-2-1-1-4">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">pd.dataframe.to_matrix<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div></li></ol>
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">2.2</span> numpy</h3>
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">2.2</span> numpy</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>count nan:</li>
@@ -878,8 +894,8 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">2.3</span> plot:</h3>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">2.3</span> plot:</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 pandas plot.
@@ -919,6 +935,27 @@ plt.axvline<span style="color: #AE81FF;">(</span>a<span style="color: #66D9EF;">
 </pre>
 </div>
 
+<ul class="org-ul">
+<li>plot a 3d figure:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> mpl_toolkits.mplot3d <span style="color: #F92672;">import</span> Axes3D
+<span style="color: #F92672;">import</span> matplotlib.pyplot <span style="color: #F92672;">as</span> plt
+
+<span style="color: #FD971F;">strike</span> = np.linspace<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">50</span>, <span style="color: #AE81FF;">150</span>, <span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ttm</span> = np.linspace<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>, <span style="color: #AE81FF;">2</span>.<span style="color: #AE81FF;">5</span>, <span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">strike</span>, <span style="color: #FD971F;">ttm</span> = np.meshgrid<span style="color: #AE81FF;">(</span>strike, ttm<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">iv</span> = <span style="color: #AE81FF;">(</span>strike - <span style="color: #AE81FF;">100</span><span style="color: #AE81FF;">)</span> ** <span style="color: #AE81FF;">2</span> / <span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">100</span> * strike<span style="color: #AE81FF;">)</span> / ttm
+<span style="color: #FD971F;">fig</span> = plt.figure<span style="color: #AE81FF;">(</span>figsize=<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">9</span>,<span style="color: #AE81FF;">6</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ax</span> = fig.gca<span style="color: #AE81FF;">(</span>projection=<span style="color: #E6DB74;">'3d'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">surf</span> = ax.plot_surface<span style="color: #AE81FF;">(</span>strike, ttm, iv, rstride=<span style="color: #AE81FF;">2</span>, cstride=<span style="color: #AE81FF;">2</span>,
+                       cmap=plt.cm.coolwarm, linewidth=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>,
+                       antialiased=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+fig.colorbar<span style="color: #AE81FF;">(</span>surf, shrink=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>, aspect=<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <p>
 fig is the :class:matplotlib.figure.Figure object.
 </p>
@@ -946,7 +983,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-19 Fri 09:10</p>
+<p class="date">Created: 2017-05-20 Sat 21:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

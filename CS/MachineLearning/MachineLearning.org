@@ -10,7 +10,7 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
-
+#+STARTUP: latexpreview
 
 * Week 1
 
@@ -56,6 +56,9 @@ also called input features, and y(i) to denote the “output” or target variab
 m—is called a training set.
 
 ** Cost Function
+$J(\Theta_1,\Theta_2)$
+contour is the bow projected on the 2D surface.
+A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line.
 
 ** Linear Regression with One Variable
 
@@ -64,6 +67,16 @@ m—is called a training set.
 - Matrix
 -
 * Week 2 Linear Regression with Multiple Variables
+- Gradient Descent:
+Taking the derivative (the tangential line to a function) of our cost function.
+The slope of the tangent is the derivative at that point and it will give us a direction to move towards.
+We make steps down the cost function in the direction with the steepest descent.
+The size of each step is determined by the parameter α, which is called the learning rate.
+- Algorithm:
+$$\Theta_j = \Theta_j + \Alpha\Derivative{J(\Theta_0,\Theta_1)}$$
+Update simutaneously:
+$$Temp_0 := \Theta_0 - \Alpha\Derivative{J(\Theta_0,\Theta_1)} $$
+$$Temp_1 := \Theta_1 - \Alpha\Derivative{J(\Theta_0,\Theta_1)} $$
 - normalization
 $$\theta_0 = \theta_0 - \alpha\partial{J(\theta)}{\theta}$$
 * Week 3
@@ -82,7 +95,9 @@ $$\theta_0 = \theta_0 - \alpha\partial{J(\theta)}{\theta}$$
 ** Machine Learning System Design
 * Week 7
 ** Support Vector Machine
-Support vector machines (SVMs) are a set of related supervised learning methods used for classification and regression. Given a set of training examples, each marked as belonging to one of two categories, an SVM training algorithm builds a model that predicts whether a new example falls into one category or the other.
+Support vector machines (SVMs) are a set of related supervised learning methods used for classification and regression.
+Given a set of training examples, each marked as belonging to one of two categories,
+an SVM training algorithm builds a model that predicts whether a new example falls into one category or the other.
 
 *** Maximal Margin Classifier
 
