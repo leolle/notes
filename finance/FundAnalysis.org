@@ -39,8 +39,8 @@ The benchmark may have a different weight decomposition that have a underweight 
 **** First, the model ranks roughly 3,623  (by exposure signal)  stocks  within each sector;
 **** selecting stocks from sectors:
 - 在Pool里面的信号值[0, 1)代表该stock是否在benchmark里。由pool和benchmark我们能得到每只股票的行业分类，以及由他们之间交集得到的待选股票池。
-1、把每个行业里面的股票按signal的信号强度(P(i,j),i:行业，j股票名)可以排序。
-2、从每个行业里面按quantile从步骤1排序后的股票池里面选股票，得到两个结果，具体每个行业的股票（S(i,j)，i:行业，j股票名）和每个行业股票的数量N(i)。
-3、利用benchmark的weight数据得到每个行业所占的权重W(i)。结果即为行业中性下每只股票的权重。
-4、W(i)/N(i)等权重赋值到挑选出来的股票S(i,j)。
+- 1、把每个行业里面的股票按signal的信号强度(P(i,j),i:行业，j股票名)可以排序。
+- 2、从每个行业里面按quantile从步骤1排序后的股票池里面选股票，得到两个结果，具体每个行业的股票（S(i,j)，i:行业，j股票名）和每个行业股票的数量N(i)。
+- 3、利用benchmark的weight数据得到每个行业所占的权重W(i)。结果即为行业中性下每只股票的权重。
+- 4、W(i)/N(i)等权重赋值到挑选出来的股票S(i,j)。
 - For example, let’s say you have $10,000 to invest, equally allocated to large and small cap stocks. Owning 40 stocks equally weighted means that you would hold $250 in each position ($10,000 divided by 40). If a sector's weight is 20% of the benchmark, then 20% of your portfolio, or $2,000, would be invested in that sector. Because you’re investing $500 in each stock, you would hold 4 stocks in this sector ($2,000 divided by $500). Since you have equally allocated your capital to large and small cap stocks, you would own 2 large and 2 small cap stocks.
