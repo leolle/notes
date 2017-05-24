@@ -131,7 +131,8 @@ b = t[1]
 ** Operator
 - The ^ symbol
   - The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.
-
+- the minimum value between nan and infinity is infinity.
+min(np.nan, np.inf) = np.inf
 ** list operations:
 
 - find difference of two lists:

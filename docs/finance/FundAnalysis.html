@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-23 Tue 23:06 -->
+<!-- 2017-05-24 Wed 09:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -169,7 +169,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline14">1. Basics</a>
+<li><a href="#orgheadline13">1. Basics</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Holding Based Approach(HBA)</a></li>
 <li><a href="#orgheadline5">1.2. Return Based Analysis(ABA)</a>
@@ -177,12 +177,12 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline4">1.2.1. Fama-French 3 factors model</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">1.3. 中性策略</a>
+<li><a href="#orgheadline12">1.3. 中性策略</a>
 <ul>
 <li><a href="#orgheadline6">1.3.1. 中性策略根据实现手段可分为贝塔中性、市值中性和行业中性。</a></li>
 <li><a href="#orgheadline7">1.3.2. How to Build a Sector-Neutral Stock Portfolio</a></li>
 <li><a href="#orgheadline8">1.3.3. A pure growth and value portfolio skews sector allocations most at IT, energy and consumer discretionary.</a></li>
-<li><a href="#orgheadline12">1.3.4. Steps:</a></li>
+<li><a href="#orgheadline11">1.3.4. Steps:</a></li>
 </ul>
 </li>
 </ul>
@@ -193,8 +193,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">1</span> Basics</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">1</span> Basics</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> Holding Based Approach(HBA)</h3>
@@ -218,8 +218,8 @@ for the JavaScript code in this tag.
 <li><a id="orgheadline3"></a>按照投资股票规模大小来区分：大盘型、中盘型、小盘型。简而言之，基金投资于大盘、中盘、小盘股，那么该基金的基金风格就是对应的大盘基金、中盘基金、小盘基金。<br  /></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">1.3</span> 中性策略</h3>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">1.3</span> 中性策略</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 中性策略就是构建投资组合，使得组合与市场之间相关系数为0，也就是投资组合不随市场的波动而波动。
@@ -253,12 +253,20 @@ The benchmark may have a different weight decomposition that have a underweight 
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-4">
-<h4 id="orgheadline12"><span class="section-number-4">1.3.4</span> Steps:</h4>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">1.3.4</span> Steps:</h4>
 <div class="outline-text-4" id="text-1-3-4">
-</div><ol class="org-ol"><li><a id="orgheadline9"></a>First, the model ranks roughly 3,200 of the largest (by market cap) U.S. stocks from best to worst within each sector;<br  /></li>
-<li><a id="orgheadline10"></a>then, we calculate the correlation of those rankings with how the stocks actually performed 12 months later after receiving their rating. coefficient is ranging from -1 to +1.<br  /></li>
-<li><a id="orgheadline11"></a>Weight the dollars that you invest in both large- and small-caps to match your individual asset allocation plan, and make sure each of the 10 sectors is represented in proportion to its benchmark weight.<br  /><div class="outline-text-5" id="text-1-3-4-3">
+</div><ol class="org-ol"><li><a id="orgheadline9"></a>First, the model ranks roughly 3,623  (by exposure signal)  stocks  within each sector;<br  /></li>
+<li><a id="orgheadline10"></a>selecting stocks from sectors:<br  /><div class="outline-text-5" id="text-1-3-4-2">
+<ul class="org-ul">
+<li>在Pool里面的信号值[0, 1)代表该stock是否在benchmark里。由pool和benchmark我们能得到每只股票的行业分类，以及由他们之间交集得到的待选股票池。</li>
+</ul>
+<p>
+1、把每个行业里面的股票按signal的信号强度(P(i,j),i:行业，j股票名)可以排序。
+2、从每个行业里面按quantile从步骤1排序后的股票池里面选股票，得到两个结果，具体每个行业的股票（S(i,j)，i:行业，j股票名）和每个行业股票的数量N(i)。
+3、利用benchmark的weight数据得到每个行业所占的权重W(i)。结果即为行业中性下每只股票的权重。
+4、W(i)/N(i)等权重赋值到挑选出来的股票S(i,j)。
+</p>
 <ul class="org-ul">
 <li>For example, let’s say you have $10,000 to invest, equally allocated to large and small cap stocks. Owning 40 stocks equally weighted means that you would hold $250 in each position ($10,000 divided by 40). If a sector's weight is 20% of the benchmark, then 20% of your portfolio, or $2,000, would be invested in that sector. Because you’re investing $500 in each stock, you would hold 4 stocks in this sector ($2,000 divided by $500). Since you have equally allocated your capital to large and small cap stocks, you would own 2 large and 2 small cap stocks.</li>
 </ul>
@@ -270,7 +278,7 @@ The benchmark may have a different weight decomposition that have a underweight 
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-04 Thu&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-23 Tue 23:06</p>
+<p class="date">Created: 2017-05-24 Wed 09:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
