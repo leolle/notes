@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-24 Wed 23:17 -->
+<!-- 2017-05-25 Thu 09:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -155,14 +155,14 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgheadline4">3. MultiIndexing</a></li>
 <li><a href="#orgheadline5">4. Grouping</a></li>
-<li><a href="#orgheadline11">5. MultiIndex / Advanced Indexing</a>
+<li><a href="#orgheadline14">5. MultiIndex / Advanced Indexing</a>
 <ul>
-<li><a href="#orgheadline10">5.1. Hierarchical indexing (MultiIndex)</a>
+<li><a href="#orgheadline13">5.1. Hierarchical indexing (MultiIndex)</a>
 <ul>
-<li><a href="#orgheadline6">5.1.1. Creating a MultiIndex (hierarchical index) object</a></li>
-<li><a href="#orgheadline7">5.1.2. group by</a></li>
-<li><a href="#orgheadline8">5.1.3. pivoting</a></li>
-<li><a href="#orgheadline9">5.1.4. reshaping data</a></li>
+<li><a href="#orgheadline9">5.1.1. Creating a MultiIndex (hierarchical index) object</a></li>
+<li><a href="#orgheadline10">5.1.2. group by</a></li>
+<li><a href="#orgheadline11">5.1.3. pivoting</a></li>
+<li><a href="#orgheadline12">5.1.4. reshaping data</a></li>
 </ul>
 </li>
 </ul>
@@ -515,26 +515,155 @@ split-apply-combine
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">5</span> MultiIndex / Advanced Indexing</h2>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">5</span> MultiIndex / Advanced Indexing</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">5.1</span> Hierarchical indexing (MultiIndex)</h3>
+</div><div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">5.1</span> Hierarchical indexing (MultiIndex)</h3>
 <div class="outline-text-3" id="text-5-1">
-</div><div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6"><span class="section-number-4">5.1.1</span> Creating a MultiIndex (hierarchical index) object</h4>
+</div><div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">5.1.1</span> Creating a MultiIndex (hierarchical index) object</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+A MultiIndex can be created from
+</p>
+<ul class="org-ul">
+<li>a list of arrays (using MultiIndex.from<sub>arrays</sub>)</li>
+<li>an array of tuples (using MultiIndex.from<sub>tuples</sub>)</li>
+<li>a crossed set of iterables (using MultiIndex.from<sub>product</sub>).</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">level0</td>
+<td class="org-left">a</td>
+<td class="org-left">a</td>
+<td class="org-left">b</td>
+<td class="org-left">b</td>
+</tr>
+
+<tr>
+<td class="org-left">level1</td>
+<td class="org-left">aa</td>
+<td class="org-left">ab</td>
+<td class="org-left">bb</td>
+<td class="org-left">ba</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+All of the MultiIndex constructors accept a names argument which stores string names for the levels themselves. The method get<sub>level</sub><sub>values</sub> will return a vector of the labels for each location at a particular level:
+</p>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">5.1.2</span> group by</h4>
+<ol class="org-ol"><li><a id="orgheadline6"></a>Basic indexing on axis with MultiIndex<br  /><div class="outline-text-5" id="text-5-1-1-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">26</span><span style="color: #AE81FF;">]</span>: df<span style="color: #AE81FF;">[</span>'bar', 'one'<span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">26</span><span style="color: #AE81FF;">]</span>:
+A    <span style="color: #AE81FF;">0.895717</span>
+B    <span style="color: #AE81FF;">0.410835</span>
+C   <span style="color: #AE81FF;">-1.413681</span>
+Name: <span style="color: #AE81FF;">(</span>bar, one<span style="color: #AE81FF;">)</span>, dtype: float64
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline8"></a>Advanced indexing<br  /><div class="outline-text-5" id="text-5-1-1-2">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">38</span><span style="color: #AE81FF;">]</span>: df = df.T
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">39</span><span style="color: #AE81FF;">]</span>: df
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">39</span><span style="color: #AE81FF;">]</span>:
+                     A         B         C
+first second
+bar   one     <span style="color: #AE81FF;">0.895717</span>  <span style="color: #AE81FF;">0.410835</span> <span style="color: #AE81FF;">-1.413681</span>
+      two     <span style="color: #AE81FF;">0.805244</span>  <span style="color: #AE81FF;">0.813850</span>  <span style="color: #AE81FF;">1.607920</span>
+baz   one    <span style="color: #AE81FF;">-1.206412</span>  <span style="color: #AE81FF;">0.132003</span>  <span style="color: #AE81FF;">1.024180</span>
+      two     <span style="color: #AE81FF;">2.565646</span> <span style="color: #AE81FF;">-0.827317</span>  <span style="color: #AE81FF;">0.569605</span>
+foo   one     <span style="color: #AE81FF;">1.431256</span> <span style="color: #AE81FF;">-0.076467</span>  <span style="color: #AE81FF;">0.875906</span>
+      two     <span style="color: #AE81FF;">1.340309</span> <span style="color: #AE81FF;">-1.187678</span> <span style="color: #AE81FF;">-2.211372</span>
+qux   one    <span style="color: #AE81FF;">-1.170299</span>  <span style="color: #AE81FF;">1.130127</span>  <span style="color: #AE81FF;">0.974466</span>
+      two    <span style="color: #AE81FF;">-0.226169</span> <span style="color: #AE81FF;">-1.436737</span> <span style="color: #AE81FF;">-2.006747</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">40</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span>'bar'<span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">40</span><span style="color: #AE81FF;">]</span>:
+               A         B         C
+second
+one     <span style="color: #AE81FF;">0.895717</span>  <span style="color: #AE81FF;">0.410835</span> <span style="color: #AE81FF;">-1.413681</span>
+two     <span style="color: #AE81FF;">0.805244</span>  <span style="color: #AE81FF;">0.813850</span>  <span style="color: #AE81FF;">1.607920</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">41</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span>'bar', 'two'<span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">41</span><span style="color: #AE81FF;">]</span>:
+A    <span style="color: #AE81FF;">0.805244</span>
+B    <span style="color: #AE81FF;">0.813850</span>
+C    <span style="color: #AE81FF;">1.607920</span>
+Name: <span style="color: #AE81FF;">(</span>bar, two<span style="color: #AE81FF;">)</span>, dtype: float64
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">43</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>'baz', 'two'<span style="color: #66D9EF;">)</span>:<span style="color: #66D9EF;">(</span>'qux', 'one'<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">43</span><span style="color: #AE81FF;">]</span>:
+                     A         B         C
+first second
+baz   two     <span style="color: #AE81FF;">2.565646</span> <span style="color: #AE81FF;">-0.827317</span>  <span style="color: #AE81FF;">0.569605</span>
+foo   one     <span style="color: #AE81FF;">1.431256</span> <span style="color: #AE81FF;">-0.076467</span>  <span style="color: #AE81FF;">0.875906</span>
+      two     <span style="color: #AE81FF;">1.340309</span> <span style="color: #AE81FF;">-1.187678</span> <span style="color: #AE81FF;">-2.211372</span>
+qux   one    <span style="color: #AE81FF;">-1.170299</span>  <span style="color: #AE81FF;">1.130127</span>  <span style="color: #AE81FF;">0.974466</span>
+</pre>
+</div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">5.1.3</span> pivoting</h4>
+<ol class="org-ol"><li><a id="orgheadline7"></a>Using slicers<br  /><div class="outline-text-6" id="text-5-1-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">51</span><span style="color: #AE81FF;">]</span>: dfmi.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>slice<span style="color: #A6E22E;">(</span>'A1','A3'<span style="color: #A6E22E;">)</span>, slice<span style="color: #A6E22E;">(</span>None<span style="color: #A6E22E;">)</span>, <span style="color: #A6E22E;">[</span>'C1', 'C3'<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>, :<span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">51</span><span style="color: #AE81FF;">]</span>:
+lvl0           a         b
+lvl1         bar  foo  bah  foo
+A1 B0 C1 D0   <span style="color: #AE81FF;">73</span>   <span style="color: #AE81FF;">72</span>   <span style="color: #AE81FF;">75</span>   <span style="color: #AE81FF;">74</span>
+         D1   <span style="color: #AE81FF;">77</span>   <span style="color: #AE81FF;">76</span>   <span style="color: #AE81FF;">79</span>   <span style="color: #AE81FF;">78</span>
+      C3 D0   <span style="color: #AE81FF;">89</span>   <span style="color: #AE81FF;">88</span>   <span style="color: #AE81FF;">91</span>   <span style="color: #AE81FF;">90</span>
+         D1   <span style="color: #AE81FF;">93</span>   <span style="color: #AE81FF;">92</span>   <span style="color: #AE81FF;">95</span>   <span style="color: #AE81FF;">94</span>
+   B1 C1 D0  <span style="color: #AE81FF;">105</span>  <span style="color: #AE81FF;">104</span>  <span style="color: #AE81FF;">107</span>  <span style="color: #AE81FF;">106</span>
+         D1  <span style="color: #AE81FF;">109</span>  <span style="color: #AE81FF;">108</span>  <span style="color: #AE81FF;">111</span>  <span style="color: #AE81FF;">110</span>
+      C3 D0  <span style="color: #AE81FF;">121</span>  <span style="color: #AE81FF;">120</span>  <span style="color: #AE81FF;">123</span>  <span style="color: #AE81FF;">122</span>
+...          ...  ...  ...  ...
+A3 B0 C1 D1  <span style="color: #AE81FF;">205</span>  <span style="color: #AE81FF;">204</span>  <span style="color: #AE81FF;">207</span>  <span style="color: #AE81FF;">206</span>
+      C3 D0  <span style="color: #AE81FF;">217</span>  <span style="color: #AE81FF;">216</span>  <span style="color: #AE81FF;">219</span>  <span style="color: #AE81FF;">218</span>
+         D1  <span style="color: #AE81FF;">221</span>  <span style="color: #AE81FF;">220</span>  <span style="color: #AE81FF;">223</span>  <span style="color: #AE81FF;">222</span>
+   B1 C1 D0  <span style="color: #AE81FF;">233</span>  <span style="color: #AE81FF;">232</span>  <span style="color: #AE81FF;">235</span>  <span style="color: #AE81FF;">234</span>
+         D1  <span style="color: #AE81FF;">237</span>  <span style="color: #AE81FF;">236</span>  <span style="color: #AE81FF;">239</span>  <span style="color: #AE81FF;">238</span>
+      C3 D0  <span style="color: #AE81FF;">249</span>  <span style="color: #AE81FF;">248</span>  <span style="color: #AE81FF;">251</span>  <span style="color: #AE81FF;">250</span>
+         D1  <span style="color: #AE81FF;">253</span>  <span style="color: #AE81FF;">252</span>  <span style="color: #AE81FF;">255</span>  <span style="color: #AE81FF;">254</span>
+
+<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">24</span> rows x <span style="color: #AE81FF;">4</span> columns<span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div></li></ol></li></ol>
+</div>
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">5.1.2</span> group by</h4>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">5.1.4</span> reshaping data</h4>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">5.1.3</span> pivoting</h4>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">5.1.4</span> reshaping data</h4>
 </div>
 </div>
 </div>
@@ -542,7 +671,7 @@ split-apply-combine
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-24 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-24 Wed 23:17</p>
+<p class="date">Created: 2017-05-25 Thu 09:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

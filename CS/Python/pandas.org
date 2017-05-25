@@ -293,7 +293,89 @@ split-apply-combine
 ** Hierarchical indexing (MultiIndex)
 
 *** Creating a MultiIndex (hierarchical index) object
+A MultiIndex can be created from
+- a list of arrays (using MultiIndex.from_arrays)
+- an array of tuples (using MultiIndex.from_tuples)
+- a crossed set of iterables (using MultiIndex.from_product).
+| level0 | a  | a  | b  | b |
+| level1 | aa | ab | bb | ba |
 
+All of the MultiIndex constructors accept a names argument which stores string names for the levels themselves. The method get_level_values will return a vector of the labels for each location at a particular level:
+
+**** Basic indexing on axis with MultiIndex
+#+begin_src emacs-lisp :tangle yes
+In [26]: df['bar', 'one']
+Out[26]:
+A    0.895717
+B    0.410835
+C   -1.413681
+Name: (bar, one), dtype: float64
+#+end_src
+
+**** Advanced indexing
+#+begin_src emacs-lisp :tangle yes
+In [38]: df = df.T
+
+In [39]: df
+Out[39]:
+                     A         B         C
+first second
+bar   one     0.895717  0.410835 -1.413681
+      two     0.805244  0.813850  1.607920
+baz   one    -1.206412  0.132003  1.024180
+      two     2.565646 -0.827317  0.569605
+foo   one     1.431256 -0.076467  0.875906
+      two     1.340309 -1.187678 -2.211372
+qux   one    -1.170299  1.130127  0.974466
+      two    -0.226169 -1.436737 -2.006747
+
+In [40]: df.loc['bar']
+Out[40]:
+               A         B         C
+second
+one     0.895717  0.410835 -1.413681
+two     0.805244  0.813850  1.607920
+
+In [41]: df.loc['bar', 'two']
+Out[41]:
+A    0.805244
+B    0.813850
+C    1.607920
+Name: (bar, two), dtype: float64
+In [43]: df.loc[('baz', 'two'):('qux', 'one')]
+Out[43]:
+                     A         B         C
+first second
+baz   two     2.565646 -0.827317  0.569605
+foo   one     1.431256 -0.076467  0.875906
+      two     1.340309 -1.187678 -2.211372
+qux   one    -1.170299  1.130127  0.974466
+#+end_src
+
+***** Using slicers
+#+begin_src emacs-lisp :tangle yes
+In [51]: dfmi.loc[(slice('A1','A3'), slice(None), ['C1', 'C3']), :]
+Out[51]:
+lvl0           a         b
+lvl1         bar  foo  bah  foo
+A1 B0 C1 D0   73   72   75   74
+         D1   77   76   79   78
+      C3 D0   89   88   91   90
+         D1   93   92   95   94
+   B1 C1 D0  105  104  107  106
+         D1  109  108  111  110
+      C3 D0  121  120  123  122
+...          ...  ...  ...  ...
+A3 B0 C1 D1  205  204  207  206
+      C3 D0  217  216  219  218
+         D1  221  220  223  222
+   B1 C1 D0  233  232  235  234
+         D1  237  236  239  238
+      C3 D0  249  248  251  250
+         D1  253  252  255  254
+
+[24 rows x 4 columns]
+#+end_src
 ***  group by
 
 ***  pivoting
