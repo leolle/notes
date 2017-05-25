@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-05-24 Wed 23:17 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Building Criteria</a></li>
+<li><a href="#orgheadline3">2. Selection</a>
+<ul>
+<li><a href="#orgheadline2">2.1. Using both row labels and value conditionals</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline4">3. MultiIndexing</a></li>
+<li><a href="#orgheadline5">4. Grouping</a></li>
+<li><a href="#orgheadline11">5. MultiIndex / Advanced Indexing</a>
+<ul>
+<li><a href="#orgheadline10">5.1. Hierarchical indexing (MultiIndex)</a>
+<ul>
+<li><a href="#orgheadline6">5.1.1. Creating a MultiIndex (hierarchical index) object</a></li>
+<li><a href="#orgheadline7">5.1.2. group by</a></li>
+<li><a href="#orgheadline8">5.1.3. pivoting</a></li>
+<li><a href="#orgheadline9">5.1.4. reshaping data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Building Criteria</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Dynamically reduce a list of criteria using a binary operators</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">19</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">df</span> = pd.DataFrame<span style="color: #AE81FF;">(</span>
+   ....:      <span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'AAA'</span> : <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">4</span>,<span style="color: #AE81FF;">5</span>,<span style="color: #AE81FF;">6</span>,<span style="color: #AE81FF;">7</span><span style="color: #A6E22E;">]</span>, <span style="color: #E6DB74;">'BBB'</span> : <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">10</span>,<span style="color: #AE81FF;">20</span>,<span style="color: #AE81FF;">30</span>,<span style="color: #AE81FF;">40</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'CCC'</span> : <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">100</span>,<span style="color: #AE81FF;">50</span>,-<span style="color: #AE81FF;">30</span>,-<span style="color: #AE81FF;">50</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>; df
+   ....:
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">19</span><span style="color: #AE81FF;">]</span>:
+   AAA  BBB  CCC
+<span style="color: #AE81FF;">0</span>    <span style="color: #AE81FF;">4</span>   <span style="color: #AE81FF;">10</span>  <span style="color: #AE81FF;">100</span>
+<span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">5</span>   <span style="color: #AE81FF;">20</span>   <span style="color: #AE81FF;">50</span>
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">6</span>   <span style="color: #AE81FF;">30</span>  -<span style="color: #AE81FF;">30</span>
+<span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">7</span>   <span style="color: #AE81FF;">40</span>  -<span style="color: #AE81FF;">50</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">20</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">Crit1</span> = df.AAA &lt;= <span style="color: #AE81FF;">5</span>.<span style="color: #AE81FF;">5</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">21</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">Crit2</span> = df.BBB == <span style="color: #AE81FF;">10</span>.<span style="color: #AE81FF;">0</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">22</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">Crit3</span> = df.CCC &gt; -<span style="color: #AE81FF;">40</span>.<span style="color: #AE81FF;">0</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">24</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">CritList</span> = <span style="color: #AE81FF;">[</span>Crit1,Crit2,Crit3<span style="color: #AE81FF;">]</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">25</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">AllCrit</span> = functools.<span style="color: #F92672;">reduce</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x,y: x &amp; y, CritList<span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">26</span><span style="color: #AE81FF;">]</span>: df<span style="color: #AE81FF;">[</span>AllCrit<span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">26</span><span style="color: #AE81FF;">]</span>:
+   AAA  BBB  CCC
+<span style="color: #AE81FF;">0</span>    <span style="color: #AE81FF;">4</span>   <span style="color: #AE81FF;">10</span>  <span style="color: #AE81FF;">100</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">2</span> Selection</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Using both row labels and value conditionals</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">27</span><span style="color: #AE81FF;">]</span>: df = pd.DataFrame<span style="color: #AE81FF;">(</span>
+   ....:      {'AAA' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">4</span>,<span style="color: #AE81FF;">5</span>,<span style="color: #AE81FF;">6</span>,<span style="color: #AE81FF;">7</span><span style="color: #66D9EF;">]</span>, 'BBB' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">10</span>,<span style="color: #AE81FF;">20</span>,<span style="color: #AE81FF;">30</span>,<span style="color: #AE81FF;">40</span><span style="color: #66D9EF;">]</span>,'CCC' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">100</span>,<span style="color: #AE81FF;">50</span>,<span style="color: #AE81FF;">-30</span>,<span style="color: #AE81FF;">-50</span><span style="color: #66D9EF;">]</span>}<span style="color: #AE81FF;">)</span><span style="color: #75715E;">; </span><span style="color: #75715E;">df</span>
+   ....:
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">27</span><span style="color: #AE81FF;">]</span>:
+   AAA  BBB  CCC
+<span style="color: #AE81FF;">0</span>    <span style="color: #AE81FF;">4</span>   <span style="color: #AE81FF;">10</span>  <span style="color: #AE81FF;">100</span>
+<span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">5</span>   <span style="color: #AE81FF;">20</span>   <span style="color: #AE81FF;">50</span>
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">6</span>   <span style="color: #AE81FF;">30</span>  <span style="color: #AE81FF;">-30</span>
+<span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">7</span>   <span style="color: #AE81FF;">40</span>  <span style="color: #AE81FF;">-50</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">28</span><span style="color: #AE81FF;">]</span>: df<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>df.AAA &lt;= <span style="color: #AE81FF;">6</span><span style="color: #66D9EF;">)</span> &amp; <span style="color: #66D9EF;">(</span>df.index.isin<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">0</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">4</span><span style="color: #E6DB74;">]</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">28</span><span style="color: #AE81FF;">]</span>:
+   AAA  BBB  CCC
+<span style="color: #AE81FF;">0</span>    <span style="color: #AE81FF;">4</span>   <span style="color: #AE81FF;">10</span>  <span style="color: #AE81FF;">100</span>
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">6</span>   <span style="color: #AE81FF;">30</span>  <span style="color: #AE81FF;">-30</span>
+</pre>
+</div>
+
+<p>
+There are 2 explicit slicing methods, with a third general case
+</p>
+
+<p>
+Positional-oriented (Python slicing style : exclusive of end)
+Label-oriented (Non-Python slicing style : inclusive of end)
+General (Either slicing style : depends on if the slice contains labels or positions)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">35</span><span style="color: #AE81FF;">]</span>: df2.iloc<span style="color: #AE81FF;">[</span>1:3<span style="color: #AE81FF;">]</span> #Position-oriented
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">35</span><span style="color: #AE81FF;">]</span>:
+   AAA  BBB  CCC
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">5</span>   <span style="color: #AE81FF;">20</span>   <span style="color: #AE81FF;">50</span>
+<span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">6</span>   <span style="color: #AE81FF;">30</span>  <span style="color: #AE81FF;">-30</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">36</span><span style="color: #AE81FF;">]</span>: df2.loc<span style="color: #AE81FF;">[</span>1:3<span style="color: #AE81FF;">]</span> #Label-oriented
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">36</span><span style="color: #AE81FF;">]</span>:
+   AAA  BBB  CCC
+<span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">4</span>   <span style="color: #AE81FF;">10</span>  <span style="color: #AE81FF;">100</span>
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">5</span>   <span style="color: #AE81FF;">20</span>   <span style="color: #AE81FF;">50</span>
+<span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">6</span>   <span style="color: #AE81FF;">30</span>  <span style="color: #AE81FF;">-30</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Panels</li>
+</ul>
+<p>
+Extend a panel frame by transposing, adding a new dimension, and transposing back to the original dimensions.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">43</span><span style="color: #AE81FF;">]</span>: pf = pd.Panel<span style="color: #AE81FF;">(</span>{'df1'<span style="color: #F92672;">:df1</span>,'df2'<span style="color: #F92672;">:df2</span>,'df3'<span style="color: #F92672;">:df3}</span><span style="color: #AE81FF;">)</span><span style="color: #75715E;">;</span><span style="color: #75715E;">pf</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">43</span><span style="color: #AE81FF;">]</span>:
+&lt;class 'pandas.core.panel.Panel'&gt;
+Dimensions: <span style="color: #AE81FF;">3</span> <span style="color: #AE81FF;">(</span>items<span style="color: #AE81FF;">)</span> x <span style="color: #AE81FF;">100</span> <span style="color: #AE81FF;">(</span>major_axis<span style="color: #AE81FF;">)</span> x <span style="color: #AE81FF;">4</span> <span style="color: #AE81FF;">(</span>minor_axis<span style="color: #AE81FF;">)</span>
+Items axis: df1 to df3
+Major_axis axis: 2013-01-01 00:00:00 to 2013-04-10 00:00:00
+Minor_axis axis: A to D
+</pre>
+</div>
+
+<p>
+-New Columns
+Efficiently and dynamically creating new columns using applymap.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">48</span><span style="color: #AE81FF;">]</span>: df = pd.DataFrame<span style="color: #AE81FF;">(</span>
+   ....:      {'AAA' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">]</span>, 'BBB' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">]</span>, 'CCC' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>}<span style="color: #AE81FF;">)</span><span style="color: #75715E;">; </span><span style="color: #75715E;">df</span>
+   ....:
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">48</span><span style="color: #AE81FF;">]</span>:
+   AAA  BBB  CCC
+<span style="color: #AE81FF;">0</span>    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">2</span>
+<span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">1</span>
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">3</span>
+<span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">49</span><span style="color: #AE81FF;">]</span>: source_cols = df.columns # or some subset would work too.
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">50</span><span style="color: #AE81FF;">]</span>: new_cols = <span style="color: #AE81FF;">[</span>str<span style="color: #66D9EF;">(</span>x<span style="color: #66D9EF;">)</span> + <span style="color: #E6DB74;">"_cat"</span> for x in source_cols<span style="color: #AE81FF;">]</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">51</span><span style="color: #AE81FF;">]</span>: categories = {1 : 'Alpha', <span style="color: #AE81FF;">2</span> : 'Beta', <span style="color: #AE81FF;">3</span> : 'Charlie' }
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">52</span><span style="color: #AE81FF;">]</span>: df<span style="color: #AE81FF;">[</span>new_cols<span style="color: #AE81FF;">]</span> = df<span style="color: #AE81FF;">[</span>source_cols<span style="color: #AE81FF;">]</span>.applymap<span style="color: #AE81FF;">(</span>categories.get<span style="color: #AE81FF;">)</span><span style="color: #75715E;">;</span><span style="color: #75715E;">df</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">52</span><span style="color: #AE81FF;">]</span>:
+   AAA  BBB  CCC  AAA_cat BBB_cat  CCC_cat
+<span style="color: #AE81FF;">0</span>    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">2</span>    Alpha   Alpha     Beta
+<span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">1</span>     Beta   Alpha    Alpha
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">3</span>    Alpha    Beta  Charlie
+<span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1</span>  Charlie    Beta    Alpha
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">3</span> MultiIndexing</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Creating a multi-index from a labeled frame
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">56</span><span style="color: #AE81FF;">]</span>: df = pd.DataFrame<span style="color: #AE81FF;">(</span>{'row' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">0</span>,<span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">]</span>,
+   ....:                    'One_X' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1.1</span>,<span style="color: #AE81FF;">1.1</span>,<span style="color: #AE81FF;">1.1</span><span style="color: #66D9EF;">]</span>,
+   ....:                    'One_Y' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1.2</span>,<span style="color: #AE81FF;">1.2</span>,<span style="color: #AE81FF;">1.2</span><span style="color: #66D9EF;">]</span>,
+   ....:                    'Two_X' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1.11</span>,<span style="color: #AE81FF;">1.11</span>,<span style="color: #AE81FF;">1.11</span><span style="color: #66D9EF;">]</span>,
+   ....:                    'Two_Y' : <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1.22</span>,<span style="color: #AE81FF;">1.22</span>,<span style="color: #AE81FF;">1.22</span><span style="color: #66D9EF;">]</span>}<span style="color: #AE81FF;">)</span><span style="color: #75715E;">; </span><span style="color: #75715E;">df</span>
+   ....:
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">56</span><span style="color: #AE81FF;">]</span>:
+   One_X  One_Y  Two_X  Two_Y  row
+<span style="color: #AE81FF;">0</span>    <span style="color: #AE81FF;">1.1</span>    <span style="color: #AE81FF;">1.2</span>   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>    <span style="color: #AE81FF;">0</span>
+<span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">1.1</span>    <span style="color: #AE81FF;">1.2</span>   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>    <span style="color: #AE81FF;">1</span>
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1.1</span>    <span style="color: #AE81FF;">1.2</span>   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>    <span style="color: #AE81FF;">2</span>
+
+# As Labelled Index
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">57</span><span style="color: #AE81FF;">]</span>: df = df.set_index<span style="color: #AE81FF;">(</span>'row'<span style="color: #AE81FF;">)</span><span style="color: #75715E;">;</span><span style="color: #75715E;">df</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">57</span><span style="color: #AE81FF;">]</span>:
+     One_X  One_Y  Two_X  Two_Y
+row
+<span style="color: #AE81FF;">0</span>      <span style="color: #AE81FF;">1.1</span>    <span style="color: #AE81FF;">1.2</span>   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>
+<span style="color: #AE81FF;">1</span>      <span style="color: #AE81FF;">1.1</span>    <span style="color: #AE81FF;">1.2</span>   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>
+<span style="color: #AE81FF;">2</span>      <span style="color: #AE81FF;">1.1</span>    <span style="color: #AE81FF;">1.2</span>   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>
+
+# With Hierarchical Columns
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">58</span><span style="color: #AE81FF;">]</span>: df.columns = pd.MultiIndex.from_tuples<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>tuple<span style="color: #A6E22E;">(</span>c.split<span style="color: #E6DB74;">(</span>'_'<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span> for c in df.columns<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span><span style="color: #75715E;">;</span><span style="color: #75715E;">df</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">58</span><span style="color: #AE81FF;">]</span>:
+     One        Two
+       X    Y     X     Y
+row
+<span style="color: #AE81FF;">0</span>    <span style="color: #AE81FF;">1.1</span>  <span style="color: #AE81FF;">1.2</span>  <span style="color: #AE81FF;">1.11</span>  <span style="color: #AE81FF;">1.22</span>
+<span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">1.1</span>  <span style="color: #AE81FF;">1.2</span>  <span style="color: #AE81FF;">1.11</span>  <span style="color: #AE81FF;">1.22</span>
+<span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1.1</span>  <span style="color: #AE81FF;">1.2</span>  <span style="color: #AE81FF;">1.11</span>  <span style="color: #AE81FF;">1.22</span>
+# Now stack &amp; Reset
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">59</span><span style="color: #AE81FF;">]</span>: df = df.stack<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>.reset_index<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span><span style="color: #75715E;">;</span><span style="color: #75715E;">df</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">59</span><span style="color: #AE81FF;">]</span>:
+    level_1     X     Y
+row
+<span style="color: #AE81FF;">0</span>       One  <span style="color: #AE81FF;">1.10</span>  <span style="color: #AE81FF;">1.20</span>
+<span style="color: #AE81FF;">0</span>       Two  <span style="color: #AE81FF;">1.11</span>  <span style="color: #AE81FF;">1.22</span>
+<span style="color: #AE81FF;">1</span>       One  <span style="color: #AE81FF;">1.10</span>  <span style="color: #AE81FF;">1.20</span>
+<span style="color: #AE81FF;">1</span>       Two  <span style="color: #AE81FF;">1.11</span>  <span style="color: #AE81FF;">1.22</span>
+<span style="color: #AE81FF;">2</span>       One  <span style="color: #AE81FF;">1.10</span>  <span style="color: #AE81FF;">1.20</span>
+<span style="color: #AE81FF;">2</span>       Two  <span style="color: #AE81FF;">1.11</span>  <span style="color: #AE81FF;">1.22</span>
+# And fix the labels <span style="color: #AE81FF;">(</span>Notice the label 'level_1' got added automatically<span style="color: #AE81FF;">)</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">60</span><span style="color: #AE81FF;">]</span>: df.columns = <span style="color: #AE81FF;">[</span>'Sample','All_X','All_Y'<span style="color: #AE81FF;">]</span><span style="color: #75715E;">;</span><span style="color: #75715E;">df</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">60</span><span style="color: #AE81FF;">]</span>:
+    Sample  All_X  All_Y
+row
+<span style="color: #AE81FF;">0</span>      One   <span style="color: #AE81FF;">1.10</span>   <span style="color: #AE81FF;">1.20</span>
+<span style="color: #AE81FF;">0</span>      Two   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>
+<span style="color: #AE81FF;">1</span>      One   <span style="color: #AE81FF;">1.10</span>   <span style="color: #AE81FF;">1.20</span>
+<span style="color: #AE81FF;">1</span>      Two   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>
+<span style="color: #AE81FF;">2</span>      One   <span style="color: #AE81FF;">1.10</span>   <span style="color: #AE81FF;">1.20</span>
+<span style="color: #AE81FF;">2</span>      Two   <span style="color: #AE81FF;">1.11</span>   <span style="color: #AE81FF;">1.22</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Slicing</li>
+</ul>
+<p>
+Slicing a multi-index with xs
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">64</span><span style="color: #AE81FF;">]</span>: coords = <span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>'AA','one'<span style="color: #66D9EF;">)</span>,<span style="color: #66D9EF;">(</span>'AA','six'<span style="color: #66D9EF;">)</span>,<span style="color: #66D9EF;">(</span>'BB','one'<span style="color: #66D9EF;">)</span>,<span style="color: #66D9EF;">(</span>'BB','two'<span style="color: #66D9EF;">)</span>,<span style="color: #66D9EF;">(</span>'BB','six'<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">65</span><span style="color: #AE81FF;">]</span>: index = pd.MultiIndex.from_tuples<span style="color: #AE81FF;">(</span>coords<span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">66</span><span style="color: #AE81FF;">]</span>: df = pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">11</span>,<span style="color: #AE81FF;">22</span>,<span style="color: #AE81FF;">33</span>,<span style="color: #AE81FF;">44</span>,<span style="color: #AE81FF;">55</span><span style="color: #66D9EF;">]</span>,index,<span style="color: #66D9EF;">[</span>'MyData'<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span><span style="color: #75715E;">; </span><span style="color: #75715E;">df</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">66</span><span style="color: #AE81FF;">]</span>:
+        MyData
+AA one      <span style="color: #AE81FF;">11</span>
+   six      <span style="color: #AE81FF;">22</span>
+BB one      <span style="color: #AE81FF;">33</span>
+   two      <span style="color: #AE81FF;">44</span>
+   six      <span style="color: #AE81FF;">55</span>
+</pre>
+</div>
+<p>
+To take the cross section of the 1st level and 1st axis the index:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">67</span><span style="color: #AE81FF;">]</span>: df.xs<span style="color: #AE81FF;">(</span>'BB',level=0,axis=0<span style="color: #AE81FF;">)</span>  #Note : level and axis are optional, and default to zero
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">67</span><span style="color: #AE81FF;">]</span>:
+     MyData
+one      <span style="color: #AE81FF;">33</span>
+two      <span style="color: #AE81FF;">44</span>
+six      <span style="color: #AE81FF;">55</span>
+</pre>
+</div>
+
+<p>
+Slicing a multi-index with xs, method #2
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">69</span><span style="color: #AE81FF;">]</span>: index = list<span style="color: #AE81FF;">(</span>itertools.product<span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">[</span>'Ada','Quinn','Violet'<span style="color: #A6E22E;">]</span>,<span style="color: #A6E22E;">[</span>'Comp','Math','Sci'<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">70</span><span style="color: #AE81FF;">]</span>: headr = list<span style="color: #AE81FF;">(</span>itertools.product<span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">[</span>'Exams','Labs'<span style="color: #A6E22E;">]</span>,<span style="color: #A6E22E;">[</span>'I','II'<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">71</span><span style="color: #AE81FF;">]</span>: indx = pd.MultiIndex.from_tuples<span style="color: #AE81FF;">(</span>index,names=<span style="color: #66D9EF;">[</span>'Student','Course'<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">72</span><span style="color: #AE81FF;">]</span>: cols = pd.MultiIndex.from_tuples<span style="color: #AE81FF;">(</span>headr<span style="color: #AE81FF;">)</span> #Notice these are un-named
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">73</span><span style="color: #AE81FF;">]</span>: data = <span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span>70+x+y+<span style="color: #A6E22E;">(</span>x*y<span style="color: #A6E22E;">)</span>%3 for x in range<span style="color: #A6E22E;">(</span><span style="color: #AE81FF;">4</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">]</span> for y in range<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">9</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">74</span><span style="color: #AE81FF;">]</span>: df = pd.DataFrame<span style="color: #AE81FF;">(</span>data,indx,cols<span style="color: #AE81FF;">)</span><span style="color: #75715E;">; </span><span style="color: #75715E;">df</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">74</span><span style="color: #AE81FF;">]</span>:
+               Exams     Labs
+                   I  II    I  II
+Student Course
+Ada     Comp      <span style="color: #AE81FF;">70</span>  <span style="color: #AE81FF;">71</span>   <span style="color: #AE81FF;">72</span>  <span style="color: #AE81FF;">73</span>
+        Math      <span style="color: #AE81FF;">71</span>  <span style="color: #AE81FF;">73</span>   <span style="color: #AE81FF;">75</span>  <span style="color: #AE81FF;">74</span>
+        Sci       <span style="color: #AE81FF;">72</span>  <span style="color: #AE81FF;">75</span>   <span style="color: #AE81FF;">75</span>  <span style="color: #AE81FF;">75</span>
+Quinn   Comp      <span style="color: #AE81FF;">73</span>  <span style="color: #AE81FF;">74</span>   <span style="color: #AE81FF;">75</span>  <span style="color: #AE81FF;">76</span>
+        Math      <span style="color: #AE81FF;">74</span>  <span style="color: #AE81FF;">76</span>   <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">77</span>
+        Sci       <span style="color: #AE81FF;">75</span>  <span style="color: #AE81FF;">78</span>   <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">78</span>
+Violet  Comp      <span style="color: #AE81FF;">76</span>  <span style="color: #AE81FF;">77</span>   <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">79</span>
+        Math      <span style="color: #AE81FF;">77</span>  <span style="color: #AE81FF;">79</span>   <span style="color: #AE81FF;">81</span>  <span style="color: #AE81FF;">80</span>
+        Sci       <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">81</span>   <span style="color: #AE81FF;">81</span>  <span style="color: #AE81FF;">81</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">75</span><span style="color: #AE81FF;">]</span>: All = slice<span style="color: #AE81FF;">(</span>None<span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">76</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span>'Violet'<span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">76</span><span style="color: #AE81FF;">]</span>:
+       Exams     Labs
+           I  II    I  II
+Course
+Comp      <span style="color: #AE81FF;">76</span>  <span style="color: #AE81FF;">77</span>   <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">79</span>
+Math      <span style="color: #AE81FF;">77</span>  <span style="color: #AE81FF;">79</span>   <span style="color: #AE81FF;">81</span>  <span style="color: #AE81FF;">80</span>
+Sci       <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">81</span>   <span style="color: #AE81FF;">81</span>  <span style="color: #AE81FF;">81</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">77</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>All,'Math'<span style="color: #66D9EF;">)</span>,All<span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">77</span><span style="color: #AE81FF;">]</span>:
+               Exams     Labs
+                   I  II    I  II
+Student Course
+Ada     Math      <span style="color: #AE81FF;">71</span>  <span style="color: #AE81FF;">73</span>   <span style="color: #AE81FF;">75</span>  <span style="color: #AE81FF;">74</span>
+Quinn   Math      <span style="color: #AE81FF;">74</span>  <span style="color: #AE81FF;">76</span>   <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">77</span>
+Violet  Math      <span style="color: #AE81FF;">77</span>  <span style="color: #AE81FF;">79</span>   <span style="color: #AE81FF;">81</span>  <span style="color: #AE81FF;">80</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">78</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>slice<span style="color: #A6E22E;">(</span>'Ada','Quinn'<span style="color: #A6E22E;">)</span>,'Math'<span style="color: #66D9EF;">)</span>,All<span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">78</span><span style="color: #AE81FF;">]</span>:
+               Exams     Labs
+                   I  II    I  II
+Student Course
+Ada     Math      <span style="color: #AE81FF;">71</span>  <span style="color: #AE81FF;">73</span>   <span style="color: #AE81FF;">75</span>  <span style="color: #AE81FF;">74</span>
+Quinn   Math      <span style="color: #AE81FF;">74</span>  <span style="color: #AE81FF;">76</span>   <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">77</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">79</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>All,'Math'<span style="color: #66D9EF;">)</span>,<span style="color: #66D9EF;">(</span>'Exams'<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">79</span><span style="color: #AE81FF;">]</span>:
+                 I  II
+Student Course
+Ada     Math    <span style="color: #AE81FF;">71</span>  <span style="color: #AE81FF;">73</span>
+Quinn   Math    <span style="color: #AE81FF;">74</span>  <span style="color: #AE81FF;">76</span>
+Violet  Math    <span style="color: #AE81FF;">77</span>  <span style="color: #AE81FF;">79</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">80</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>All,'Math'<span style="color: #66D9EF;">)</span>,<span style="color: #66D9EF;">(</span>All,'II'<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">80</span><span style="color: #AE81FF;">]</span>:
+               Exams Labs
+                  II   II
+Student Course
+Ada     Math      <span style="color: #AE81FF;">73</span>   <span style="color: #AE81FF;">74</span>
+Quinn   Math      <span style="color: #AE81FF;">76</span>   <span style="color: #AE81FF;">77</span>
+Violet  Math      <span style="color: #AE81FF;">79</span>   <span style="color: #AE81FF;">80</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Sorting</li>
+</ul>
+<p>
+Sort by specific column or an ordered list of columns, with a multi-index.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">4</span> Grouping</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+split-apply-combine
+</p>
+<ul class="org-ul">
+<li>Splitting the data into groups based on some criteria</li>
+<li>Applying a function to each group independently</li>
+<li>##Combining## the results into a data structure</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">5</span> MultiIndex / Advanced Indexing</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">5.1</span> Hierarchical indexing (MultiIndex)</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">5.1.1</span> Creating a MultiIndex (hierarchical index) object</h4>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">5.1.2</span> group by</h4>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">5.1.3</span> pivoting</h4>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">5.1.4</span> reshaping data</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-24 Wed&gt;</span></span></p>
+<p class="author">Author: weiwu</p>
+<p class="date">Created: 2017-05-24 Wed 23:17</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
