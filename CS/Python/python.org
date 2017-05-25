@@ -262,8 +262,13 @@ print `a`
 print repr(a)
 #+end_src
 
-**
-**
+** collections — High-performance container datatypes
+
+| module      | function                                                             |
+|-------------+----------------------------------------------------------------------|
+| deque       | list-like container with fast appends and pops on either end         |
+| Counter     | dict subclass for counting hashable objects                          |
+| defaultdict | dict subclass that calls a factory function to supply missing values |
 
 ** fetch data from yahoo
 #+begin_src python
