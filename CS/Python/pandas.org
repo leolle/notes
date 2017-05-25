@@ -288,6 +288,13 @@ split-apply-combine
 - Applying a function to each group independently
 - ##Combining## the results into a data structure
 
+** Splitting an object into groups
+#+begin_src emacs-lisp :tangle yes
+# default is axis=0
+>>> grouped = obj.groupby(key)
+>>> grouped = obj.groupby(key, axis=1)
+>>> grouped = obj.groupby([key1, key2])
+#+end_src
 * MultiIndex / Advanced Indexing
 
 ** Hierarchical indexing (MultiIndex)
@@ -312,7 +319,7 @@ C   -1.413681
 Name: (bar, one), dtype: float64
 #+end_src
 
-**** Advanced indexing
+** Advanced indexing
 #+begin_src emacs-lisp :tangle yes
 In [38]: df = df.T
 
@@ -352,7 +359,7 @@ foo   one     1.431256 -0.076467  0.875906
 qux   one    -1.170299  1.130127  0.974466
 #+end_src
 
-***** Using slicers
+*** Using slicers
 #+begin_src emacs-lisp :tangle yes
 In [51]: dfmi.loc[(slice('A1','A3'), slice(None), ['C1', 'C3']), :]
 Out[51]:
