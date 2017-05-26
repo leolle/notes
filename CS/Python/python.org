@@ -79,6 +79,19 @@ pip install git+https://github.com/quantopian/zipline.git
 from future import division
 print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 #+end_src
+** Float point issue
+Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
+On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
+#+begin_src emacs-lisp :tangle yes
+0.00011001100110011001100110011001100110011001100110011010
+#+end_src
+#+begin_src emacs-lisp :tangle yes
+>>> round(2.675, 2)
+2.67
+#+end_src
+it’s again replaced with a binary approximation, whose exact value is
+
+2.67499999999999982236431605997495353221893310546875
 
 ** unittest:
 - check data operation:
