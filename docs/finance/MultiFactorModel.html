@@ -143,63 +143,92 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<ul class="org-ul">
-<li>Finance
-<ul class="org-ul">
-<li><a href="./finance/option.html">Option</a></li>
-<li><a href="./finance/ComputationalInvestment.html">MLInvestment</a></li>
-<li><a href="./finance/FundAnalysis.html">FundAnalysis</a></li>
-</ul></li>
-<li>Mathematics
-<ul class="org-ul">
-<li><a href="./Math/knowledge_tree.html">MathMap</a></li>
-<li><a href="./Math/Statistics.html">Statistics</a></li>
-</ul></li>
-<li>CS
-<ul class="org-ul">
-<li>MachineLearning
-<ul class="org-ul">
-<li><a href="./CS/MachineLearning/MachineLearning.html">ML</a></li>
-</ul></li>
-<li><a href="./CS/Python/python.html">Python</a>
-<ul class="org-ul">
-<li><a href="./CS/Python/PythonForFinance.html">PythonForFinance</a></li>
-<li><a href="./CS/Python/DesignPattern.html">DesignPattern</a></li>
-<li><a href="./CS/Python/high_performance_python.html">HighPerformanceOfPython</a></li>
-<li>Ipython notebooks
-<ul class="org-ul">
-<li><a href="./ipynb/site/index.html">JupyterNotebooks</a></li>
-</ul></li>
-<li><a href="./CS/Python/python_rules.html">PythonRules</a></li>
-</ul></li>
-<li><a href="./CS/Python/sqlalchemy.html">SQLAlchemy</a></li>
-<li>C++
-<ul class="org-ul">
-<li><a href="./CS/C++/C++.html">C++ObjectOrientedProgramming</a></li>
-</ul></li>
-</ul></li>
-<li>Database
-<ul class="org-ul">
-<li><a href="./Database/DBMS.html">DatabaseManagement</a></li>
-</ul></li>
-<li>Emacs
-<ul class="org-ul">
-<li><a href="./emacs/emacs.html">Emacs</a></li>
-</ul></li>
-<li>Business
-<ul class="org-ul">
-<li><a href="./Business/O2O.html">O2O</a></li>
-<li><a href="./Business/巴菲特投资哲学.html">巴菲特的投资哲学</a></li>
-<li><a href="./Business/经济停滞.html">经济停滞</a></li>
-<li><a href="./Business/风格分析.htm">FundReturnBasedStyleApproach</a></li>
-</ul></li>
-<li>Books
-<ul class="org-ul">
-<li><a href="./books/有效network.html">network</a></li>
-</ul></li>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline16">1. 量化选股</a>
+<ul>
+<li><a href="#orgheadline10">1.1. 基本面选股</a>
+<ul>
+<li><a href="#orgheadline7">1.1.1. 多因子模型</a></li>
+<li><a href="#orgheadline8">1.1.2. 风格轮动模型</a></li>
+<li><a href="#orgheadline9">1.1.3. 行业轮动模型</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline15">1.2. 市场行为选股</a>
+<ul>
+<li><a href="#orgheadline11">1.2.1. 资金流选股</a></li>
+<li><a href="#orgheadline12">1.2.2. 动量反转模型</a></li>
+<li><a href="#orgheadline13">1.2.3. 一致预期模型</a></li>
+<li><a href="#orgheadline14">1.2.4. 趋势追踪模型</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">1</span> 量化选股</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.1</span> 基本面选股</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">1.1.1</span> 多因子模型</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+优点是可以综合很多信息后给出一个选股结果. 综合因子的方法有打分法和回归法两种，打分法较为常见。
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline6"></a>steps:<br  /><ol class="org-ol"><li><a id="orgheadline4"></a>备选因子选取<br  /><ol class="org-ol"><li><a id="orgheadline1"></a>估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）<br  /></li>
+
+<li><a id="orgheadline2"></a>成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)<br  /></li>
+
+<li><a id="orgheadline3"></a>资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）<br  /></li></ol></li>
+
+<li><a id="orgheadline5"></a>因子有效性检验<br  /><div class="outline-text-6" id="text-1-1-1-1-2">
+<p>
+采用排序的方法检验备选因子的有效性。
+</p>
+</div></li></ol></li></ol>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.1.2</span> 风格轮动模型</h4>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.1.3</span> 行业轮动模型</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">1.2</span> 市场行为选股</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">1.2.1</span> 资金流选股</h4>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.2.2</span> 动量反转模型</h4>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">1.2.3</span> 一致预期模型</h4>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">1.2.4</span> 趋势追踪模型</h4>
+</div>
+</div>
+</div>
+</div>
 <div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-26 Fri&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
 <p class="date">Created: 2017-05-26 Fri 14:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>

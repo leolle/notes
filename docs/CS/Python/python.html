@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-25 Thu 09:31 -->
+<!-- 2017-05-26 Fri 14:02 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -169,33 +169,34 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline12">1. Python basic operations:</a>
+<li><a href="#orgheadline13">1. Python basic operations:</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Module</a></li>
-<li><a href="#orgheadline2">1.2. unittest:</a></li>
-<li><a href="#orgheadline3">1.3. Time</a></li>
-<li><a href="#orgheadline4">1.4. Function</a></li>
-<li><a href="#orgheadline5">1.5. Operator</a></li>
-<li><a href="#orgheadline6">1.6. list operations:</a></li>
-<li><a href="#orgheadline8">1.7. 生成器</a>
+<li><a href="#orgheadline2">1.2. Float point issue</a></li>
+<li><a href="#orgheadline3">1.3. unittest:</a></li>
+<li><a href="#orgheadline4">1.4. Time</a></li>
+<li><a href="#orgheadline5">1.5. Function</a></li>
+<li><a href="#orgheadline6">1.6. Operator</a></li>
+<li><a href="#orgheadline7">1.7. list operations:</a></li>
+<li><a href="#orgheadline9">1.8. 生成器</a>
 <ul>
-<li><a href="#orgheadline7">1.7.1. loop</a></li>
+<li><a href="#orgheadline8">1.8.1. loop</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">1.8. magic method:</a></li>
-<li><a href="#orgheadline10">1.9. collections — High-performance container datatypes</a></li>
-<li><a href="#orgheadline11">1.10. fetch data from yahoo</a></li>
+<li><a href="#orgheadline10">1.9. magic method:</a></li>
+<li><a href="#orgheadline11">1.10. collections — High-performance container datatypes</a></li>
+<li><a href="#orgheadline12">1.11. fetch data from yahoo</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline23">2. Data Analysis:</a>
+<li><a href="#orgheadline24">2. Data Analysis:</a>
 <ul>
-<li><a href="#orgheadline20">2.1. pandas:</a>
+<li><a href="#orgheadline21">2.1. pandas:</a>
 <ul>
-<li><a href="#orgheadline19">2.1.1. Index</a></li>
+<li><a href="#orgheadline20">2.1.1. Index</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">2.2. numpy</a></li>
-<li><a href="#orgheadline22">2.3. plot:</a></li>
+<li><a href="#orgheadline22">2.2. numpy</a></li>
+<li><a href="#orgheadline23">2.3. plot:</a></li>
 </ul>
 </li>
 </ul>
@@ -203,8 +204,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">1</span> Python basic operations:</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">1</span> Python basic operations:</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> Module</h3>
@@ -302,10 +303,37 @@ pip install git+<a href="https://github.com/quantopian/zipline.git">https://gith
 </div>
 </div>
 </div>
-
 <div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> unittest:</h3>
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Float point issue</h3>
 <div class="outline-text-3" id="text-1-2">
+<p>
+Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
+On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">0.00011001100110011001100110011001100110011001100110011010</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">&gt;&gt;&gt; round<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2.675</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">2.67</span>
+</pre>
+</div>
+<p>
+it’s again replaced with a binary approximation, whose exact value is
+</p>
+
+<p>
+2.67499999999999982236431605997495353221893310546875
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> unittest:</h3>
+<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>check data operation:
 <ul class="org-ul">
@@ -323,9 +351,9 @@ pip install git+<a href="https://github.com/quantopian/zipline.git">https://gith
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Time</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Time</h3>
+<div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>get specific timezone datetime</li>
 </ul>
@@ -369,9 +397,9 @@ datetime64
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Function</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Function</h3>
+<div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>function parameter
 <ul class="org-ul">
@@ -391,9 +419,9 @@ datetime64
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Operator</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.6</span> Operator</h3>
+<div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>The ^ symbol
 <ul class="org-ul">
@@ -406,9 +434,9 @@ min(np.nan, np.inf) = np.inf
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">1.6</span> list operations:</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">1.7</span> list operations:</h3>
+<div class="outline-text-3" id="text-1-7">
 <ul class="org-ul">
 <li>find difference of two lists:</li>
 </ul>
@@ -492,9 +520,9 @@ choose extend mode: replace ',' as \r\n
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">1.7</span> 生成器</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">1.8</span> 生成器</h3>
+<div class="outline-text-3" id="text-1-8">
 <p>
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
@@ -534,9 +562,9 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">1.7.1</span> loop</h4>
-<div class="outline-text-4" id="text-1-7-1">
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.8.1</span> loop</h4>
+<div class="outline-text-4" id="text-1-8-1">
 <ul class="org-ul">
 <li>iterate key and value in a dictionary:</li>
 </ul>
@@ -585,9 +613,9 @@ int64
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">1.8</span> magic method:</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.9</span> magic method:</h3>
+<div class="outline-text-3" id="text-1-9">
 <ul class="org-ul">
 <li>getitem in a class allows its instances to use the [ ] (indexer) operators</li>
 <li>setitem Called to implement assignment to self[key]</li>
@@ -606,9 +634,9 @@ int64
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">1.9</span> collections — High-performance container datatypes</h3>
-<div class="outline-text-3" id="text-1-9">
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.10</span> collections — High-performance container datatypes</h3>
+<div class="outline-text-3" id="text-1-10">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -643,9 +671,9 @@ int64
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">1.10</span> fetch data from yahoo</h3>
-<div class="outline-text-3" id="text-1-10">
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">1.11</span> fetch data from yahoo</h3>
+<div class="outline-text-3" id="text-1-11">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #F92672;">import</span> pandas <span style="color: #F92672;">as</span> pd
@@ -664,11 +692,11 @@ int64
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-2">
-<h2 id="orgheadline23"><span class="section-number-2">2</span> Data Analysis:</h2>
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">2</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">2.1</span> pandas:</h3>
+</div><div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">2.1</span> pandas:</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <a href="./pandas.html">pandas</a>
@@ -763,10 +791,10 @@ b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="colo
 </div>
 
 
-<div id="outline-container-orgheadline19" class="outline-4">
-<h4 id="orgheadline19"><span class="section-number-4">2.1.1</span> Index</h4>
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">2.1.1</span> Index</h4>
 <div class="outline-text-4" id="text-2-1-1">
-</div><ol class="org-ol"><li><a id="orgheadline13"></a>Index manuplication<br  /><div class="outline-text-5" id="text-2-1-1-1">
+</div><ol class="org-ol"><li><a id="orgheadline14"></a>Index manuplication<br  /><div class="outline-text-5" id="text-2-1-1-1">
 <ul class="org-ul">
 <li>set column as datetime index</li>
 </ul>
@@ -836,7 +864,7 @@ df2.plot<span style="color: #AE81FF;">(</span>ax=ax<span style="color: #AE81FF;"
 </div></li>
 
 
-<li><a id="orgheadline14"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-2-1-1-2">
+<li><a id="orgheadline15"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-2-1-1-2">
 <ul class="org-ul">
 <li>A MultiIndex can be created from a list of arrays (using MultiIndex.from<sub>arrays</sub>), an array of tuples (using MultiIndex.from<sub>tuples</sub>), or a crossed set of iterables (using MultiIndex.from<sub>product</sub>).</li>
 </ul>
@@ -885,7 +913,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline17"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline15"></a>#1<br  /><div class="outline-text-6" id="text-2-1-1-3-1">
+<li><a id="orgheadline18"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline16"></a>#1<br  /><div class="outline-text-6" id="text-2-1-1-3-1">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FD971F;">grouped</span> = sym.groupby<span style="color: #AE81FF;">(</span>level=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
@@ -894,7 +922,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline16"></a>#2<br  /><div class="outline-text-6" id="text-2-1-1-3-2">
+<li><a id="orgheadline17"></a>#2<br  /><div class="outline-text-6" id="text-2-1-1-3-2">
 <div class="org-src-container">
 
 <pre class="src src-python">df2<span style="color: #AE81FF;">[</span>~df2.index.duplicated<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
@@ -902,7 +930,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li></ol></li>
 
-<li><a id="orgheadline18"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-2-1-1-4">
+<li><a id="orgheadline19"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-2-1-1-4">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">pd.dataframe.to_matrix<span style="color: #AE81FF;">()</span>
@@ -912,8 +940,8 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">2.2</span> numpy</h3>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">2.2</span> numpy</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>count nan:</li>
@@ -933,8 +961,8 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">2.3</span> plot:</h3>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">2.3</span> plot:</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 pandas plot.
@@ -1022,7 +1050,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-25 Thu 09:31</p>
+<p class="date">Created: 2017-05-26 Fri 14:02</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
