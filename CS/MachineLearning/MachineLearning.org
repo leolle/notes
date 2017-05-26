@@ -18,6 +18,7 @@
 Study of algorithms that
 - improve their performance P
 - at some task T
+training data set, validation data set, test data set.
 - with experience E
 
 ** Well defined machine learning problem
@@ -104,6 +105,17 @@ an SVM training algorithm builds a model that predicts whether a new example fal
 *** Support Vector Classifiers
 
 *** Support Vector Machines
+#+begin_src emacs-lisp :tangle yes
+from sklearn import svm
+training_X = target
+training_y = target names
+svm_model = svm.SVC(gamma=0.01, C=100.)
+svm_model.fit(training_X, training_y)
+predicts = svm_model.predict(test_X)
+from sklearn.metrics import accuracy_score
+accuracy_score(y_true, predicts)
+
+#+end_src
 * Week 8
 ** Unsupervised Learning
 ** Dimensionality Reduction
