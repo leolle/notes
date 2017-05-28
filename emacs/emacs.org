@@ -241,24 +241,13 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 #+begin_src emacs-lisp :tangle yes
 \[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\]
 #+end_src
-* Spacemacs rocks day 1
+* 第一天：准备开始
+
+** 基础操作
 - C-h t to open the tutorial.
 - cursor movement(C-f C-b C-n C-p C-a C-e)
 - kill one line(C-k)
 - one file can only have one major mode, but multiple minor mode.
--
-
-** active functionality buildingin
-- =C-h k= check key bind function. =C-h w= check words. =C-h f= check function.
-** elisp
-#+begin_src emacs-lisp :tangle yes
-(+ 2 2)
-#+end_src
-
-* 第一天：准备开始
-
-** 基础操作
-
 因为 Control 键在 Emacs 中极为常用，所以为了更方便地使用 Emacs 的键位修改，需要
 对其做出修改。建议将大写锁定键（Caps Lock）替换为 Control 键。这里是一个可以参考
 的把大写锁定键替换为 Control 键的教程：[[https://www.emacswiki.org/emacs/MovingTheCtrlKey][移动 Control 键 (Moving The Ctrl Key)。]]如
@@ -304,6 +293,7 @@ Emacs 是一个富文档编辑器（Self document, extensible editor）而下面
 -  =C-h k= 寻找快捷键的帮助信息
 -  =C-h v= 寻找变量的帮助信息
 -  =C-h f= 寻找函数的帮助信息
+
 
 ** 学习基础 Elisp
 
