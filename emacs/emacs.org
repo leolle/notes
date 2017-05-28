@@ -244,10 +244,12 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 * 第一天：准备开始
 
 ** 基础操作
-- C-h t to open the tutorial.
+- =C-h t= to open the tutorial.
 - cursor movement(C-f C-b C-n C-p C-a C-e)
-- kill one line(C-k)
+- kill one line(=C-k=)
 - one file can only have one major mode, but multiple minor mode.
+- =C-x C-r= open file as read only.
+- =C-h m= view install modes and packages.
 因为 Control 键在 Emacs 中极为常用，所以为了更方便地使用 Emacs 的键位修改，需要
 对其做出修改。建议将大写锁定键（Caps Lock）替换为 Control 键。这里是一个可以参考
 的把大写锁定键替换为 Control 键的教程：[[https://www.emacswiki.org/emacs/MovingTheCtrlKey][移动 Control 键 (Moving The Ctrl Key)。]]如
@@ -390,7 +392,7 @@ Mode 通常是定义对于一种文件类型编辑的核心规则，例如语法
 你也可以使用 =C-x C-e= 来执行某一行的 Lisp 代码。这些可使刚刚修改的配置文件生效。
 当然你也可以将这些函数绑定为快捷键。
 - learn elisp shortcut.
-#+begin_src
+#+begin_src emacs-lisp
 ;; This gives an introduction to Emacs Lisp in 15 minutes (v0.2d)
 ;;
 ;; Author: Bastien / @bzg2 / https://bzg.fr
@@ -758,20 +760,15 @@ CLOSED: [2017-05-28 Sun 12:23]
 简单的 Org-mode 使用，它可以列出提纲，并方便地使用 =tab= 键来对其进行展开与关闭。
 =C-c C-t= 可以将一个条目转换成一条待办事件。
 
-#+BEGIN_SRC org
+#+begin_src emacs-lisp
     * 为一级标题
     ** 为二级标题
     *** 为三级标题并以此类推
-#+END_SRC
+#+end_src
 - =C-c C-t= insert todo item. =C-c C-t= on todo item, label DONE.
 - [ ], =C-c C-c= check in the check box.
+- =<s TAB= auto complete source code block.
 * 第二天：高级自定义
-
-视频地址如下
-
--  [[http://v.youku.com/v_show/id_XMTUxMzQyODI4MA==.html][优酷视频]]
--  [[http://pan.baidu.com/s/1c2Cw9ck][百度网盘]]
--  [[https://youtu.be/aQRZxaU3pAI][YouTube]]
 
 *说在最前面*
 
