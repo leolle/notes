@@ -27,16 +27,15 @@ git clone https://github.com/username/username.github.io
 #+END_SRC
 
 ** Create folder structure
-~/repository name/
-   \- css/
-   \  `- stylesheet.css
-   \- img/
-   \- index.org
-   \- docs
-   \- CS
-   \- finance
-   `- sitemap.org
-   `- index.org`
+#+BEGIN_EXAMPLE
+[[repository name]]
+├── css/
+├── img/
+├── index.org
+├── docs/
+├── CS
+└── sitemap.org
+#+END_EXAMPLE
 
 ** Add lines in spacemacs configuration file to publish the org project
 
