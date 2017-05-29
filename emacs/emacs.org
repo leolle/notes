@@ -2876,3 +2876,41 @@ $ ./configure
 Do make uninstall to uninstall.
 $ sudo make uninstall
 #+END_SRC
+** Spacemacs Dired
+| Keybinding | Description                                   |
+| SPC f j    | 打开 dired 目录                               |
+| +          | 创建目录                                      |
+| R          | Rename                                        |
+| C          | copy                                          |
+| D          | delete                                        |
+| qq         | exit                                          |
+| ---        | ---                                           |
+| =C-x 4 d=  | To display the Dired buffer in another window |
+| q          | bury the Dired buffer                         |
+|            |                                               |
+** magit
+| workflow                       | Keybinding | Description             |
+|--------------------------------+------------+-------------------------|
+| init, commit                   |            |                         |
+|                                | SPC g i    | magit-init              |
+|                                | SPC g s    | magit-status            |
+|                                | s-1        | goto unstaged section   |
+|                                | =TAB=      | view diffs(code review) |
+|                                | s          | stage all changes       |
+|                                | =C-c C-c=  | commit                  |
+| Commits in Action              |            |                         |
+|                                | c a        | Ammend                  |
+|                                | r          | squash unpushed commits |
+| Branching basics               |            |                         |
+|                                | b B        | create branch           |
+|                                | m m        | merge                   |
+|                                | b b        | switch branch           |
+| pull, push & send Pull request |            |                         |
+|                                | P P        |                         |
+|                                | f f/ f o   | fetch branch            |
+|                                | F          | pull                    |
+|                                | s-g        | send pull request       |
+| Misc                           | =M-m g s=  | view github files       |
+| stage                          | s          | stage                   |
+|                                | u          | unstage                 |
+|                                | c          | actions                  |
