@@ -12,9 +12,9 @@
 #+HTML_HEAD: <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/lisp.min.js"></script>
 #+HTML_HEAD: <script>hljs.initHighlightingOnLoad();</script>
 
-#+AUTHOR: zilongshanren
+#+AUTHORS: zilongshanren
 #+CREATOR: li-xinyang
-#+TITLE: Master Emacs in 21 Days
+#+TITLES: Master Emacs in 21 Days
 #+EMAIL: guanghui.qu@cocos2d-x.org
 #+OPTIONS: toc:3 num:nil
 #+STARTUP: showall

@@ -137,6 +137,8 @@ Or change the start-up configuration.
 -  =C-l= move the current cursor to the center of the screen.
 
 - <s, press tab to get the src box.
+
+
 * ORG Mode
 ** Structure editing
 M-<RET>     (org-insert-heading)
@@ -754,8 +756,7 @@ lete *Any* thing）。因为默认的插件管理系统提供的插件十分有�
     (global-company-mode 1)
 #+END_SRC
 - navigate in the global company mode =M-p M-n=
-*** DONE Org-mode
-CLOSED: [2017-05-28 Sun 12:23]
+*** Org-mode
 
 简单的 Org-mode 使用，它可以列出提纲，并方便地使用 =tab= 键来对其进行展开与关闭。
 =C-c C-t= 可以将一个条目转换成一条待办事件。
@@ -1109,11 +1110,6 @@ Emacs 提供的默认 JavaScript Major Mode 并不是非常好用。所以我们
 
 * 第三天：配置文件模块化（上）
 
-视频地址如下
-
-- [[http://v.youku.com/v_show/id_XMTUyNzA0MTMxNg%3D%3D.html?f%3D26962151&o%3D1][优酷视频]]
-- [[http://pan.baidu.com/s/1nuJWyLF][百度网盘]]
-- [[https://www.youtube.com/watch?v%3DZ83xnsiLtI0&feature%3Dyoutu.be][YouTube]]
 
 ** 多文件存储配置文件(上)
 
@@ -1310,12 +1306,6 @@ Major Mode，它提供语法高亮以及缩进等基本的编辑支持功能，�
 注明：为了保持阅读的完整性，部分第三天的关于默认编辑器优化的内容被移至第四天。
 
 * 第四天：配置文件模块化（下）以及使用优化
-
-视频地址如下
-
-- [[http://v.youku.com/v_show/id_XMTUzMDAwMDYwMA%3D%3D.html][优酷视频]]
-- [[http://pan.baidu.com/s/1o8QWrHK][百度网盘]]
-- [[https://www.youtube.com/watch?v%3DBGecmDgPAiw][YouTube]]
 
 ** 配置文件模块化（下）
 
@@ -1537,11 +1527,6 @@ Emacs 的配置文件（笔者和他的师傅其实更倾向于模块管理配�
 
 * 第五天：打造前端开发神器
 
-视频地址如下
-
-- [[http://pan.baidu.com/s/1slOOWSd][百度网盘]]
-- [[http://v.youku.com/v_show/id_XMTU0NjMyNDg5Ng%3D%3D.html][优酷]]
-- [[https://www.youtube.com/watch?v%3DBpjwzSB2d00&feature%3Dyoutu.be][YouTube]]
 
 照例我们先修复一些现在存在的小问题。首先是自动配对的小问题，在 Emacs Lisp 中我们
 有时候只需要一个 ='= 但是 Emacs 很好心的帮我们做了补全，但这并不是我们需要的。我
@@ -1766,12 +1751,6 @@ iedit 是一个可以同时编辑多个区域的插件，它类似 Sublime Text 
 
 * 第六天：代码片段与语法检查器
 
-视频地址如下
-
-- [[http://pan.baidu.com/s/1miLBw5E][百度网盘]]
-- [[http://v.youku.com/v_show/id_XMTU0NjYwNzQ3Mg%3D%3D.html][优酷]]
-- [[https://www.youtube.com/watch?v%3DWIzWxTc1KUI&featur][YouTube]]
-
 在开始前我们需要注意的是之前模块化的配置文件 =init-keybindings.el= 应该放在所有
 调用模块的最后面，因为也许在设置快捷键时某些函数还未被加载。
 
@@ -1929,12 +1908,6 @@ eslint 检查器的配置也可以使用项目目录下的 =.eslintrc= 来进行
 简单的使用方法就是使用 =~= 来定义模板，然后调用 =aya-create= 再使用 =aya-expand= 来使用模板。
 * 第七天：Evil 模式
 
-视频地址如下，
-
-- [[http://pan.baidu.com/s/1dEIlXID][百度网盘]]
-- [[http://v.youku.com/v_show/id_XMTU1NTk4MzUyNA%3D%3D.html][优酷]]
-- [[https://www.youtube.com/watch?v%3DI_wU_-al6TY&feature%3Dyoutu.be][YouTube]]
-
 开始之前我们先将 =C-w= 来使其可以向后删除一个单词，这样就可以与 Shell 中的快捷键操作同步。
 
 #+BEGIN_SRC emacs-lisp
@@ -2084,12 +2057,6 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 
 * 第八天：Cask 介绍与实践
 
-视频地址如下:
-
-- [[http://pan.baidu.com/s/1o83r1vc][百度网盘]]
-- [[http://v.youku.com/v_show/id_XMTU3MzEyNDkxNg==.html][优酷]]
-- [[https://www.youtube.com/watch?v=BJxEZGmypS0&index=2&list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG][YouTube]]
-
 什么是 Cask:
 
 Cask 是一个 Emacs Lisp 的项目管理工具.
@@ -2166,12 +2133,6 @@ define-advice 是一个 Emacs25 中加入的宏, 在 Emacs24 中不能使用, �
 defadvice 可以.
 
 * 第九天：Macro 与 Use-package
-
-视频地址如下:
-
-- [[http://pan.baidu.com/s/1c1Gnkcw][百度网盘]]
-- [[http://v.youku.com/v_show/id_XMTU4MDU2NjE3Ng==.html][优酷]]
-- [[https://www.youtube.com/watch?v=BmYtd0QHgSg&index=1&list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG][YouTube]]
 
 这次主要介绍 Emacs Lisp 中的宏(Macro)以及 Use-package 插件.
 
@@ -2445,12 +2406,6 @@ Use-package 的更多信息参见以下地址: [[https://github.com/jwiegley/use
 
 * 第十天: Company-mode 与 auto-completion
 
-视频地址如下:
-
-- [[http://pan.baidu.com/s/1hsyfnXq][百度网盘]]
-- [[http://v.youku.com/v_show/id_XMTYwMzc0NDg0OA==.html][优酷]]
-- [[https://www.youtube.com/watch?v=c5ggww2WMAs][YouTube]]
-
 内容概要:
 
 1. 给出 Cask 和 Use-package 的简单示例
@@ -2598,12 +2553,6 @@ company-dabbrev-code: 类似于 company-dabbrev, 但是 dabbrev 对代码和注�
 更多的内容可以查看该文档, 同时在网页右侧的链接中有更多的详细内容.
 * 第十一天: Spacemacs 简介及安装
 
-视频地址如下:
-
-- [[http://pan.baidu.com/s/1eRTHBLC][百度网盘]]
-- [[http://v.youku.com/v_show/id_XMTYxMzYyNjc4MA==.html][优酷]]
-- [[https://www.youtube.com/watch?v=JP_RQQfm-vY&list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG&index=11][Youtube]]
-
 从今天的内容开始介绍 Spacemacs. 地址: [[https://github.com/syl20bnr/spacemacs][Spacemacs]]
 
 今天的内容包括:
@@ -2739,12 +2688,6 @@ Spacemacs 提供了一个方式, 你只需将需要安装的 package 加入到 *
 #+END_SRC
 
 * 第十二天: 创建你的第一个 Spacemacs Layer
-
-视频地址如下:
-
-- [[http://pan.baidu.com/s/1mi1vZTI][百度网盘]]
-- [[http://v.youku.com/v_show/id_XMTYyODgxNjU0OA==.html][优酷]]
-- [[https://www.youtube.com/watch?v=pSIM1P8i2LU&index=10&list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG][YouTube]]
 
 主要内容:
 
@@ -2895,3 +2838,20 @@ Spacemacs 提供了一个方式, 你只需将需要安装的 package 加入到 *
 ** 文档
 
 spacemacs 的文档保存在 doc 目录下, 包含有 CONVENTIONS.org, DOCUMENTATION.org 等文档文件, 建议大家多多阅读.
+
+* emacs python workflow.
+
+** install elpy, jedi
+#+BEGIN_SRC
+sudo pip install jedi flake8 ipython==5.3
+#+END_SRC
+
+install package jedi elpy magit
+** Keybinding
+| Keybinding | Description                    |
+| C-M-i      | anaconda-mode-complete         |
+| M-.        | anaconda-mode-find-definitions |
+| M-,        | anaconda-mode-find-assignments |
+| M-r        | anaconda-mode-find-references  |
+| M-*        | anaconda-mode-go-back          |
+|    M-?	        |     anaconda-mode-show-doc                           |
