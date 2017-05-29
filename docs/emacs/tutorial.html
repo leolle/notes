@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-29 Mon 20:11 -->
+<!-- 2017-05-29 Mon 20:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -94,6 +94,15 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="readtheorg/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-table-headers/0.1.19/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="readtheorg/js/readtheorg.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/languages/lisp.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -140,28 +149,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -169,643 +156,232 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline14">1. Create GitHub Pages:</a>
+<li><a href="#orgheadline1">Spacemacs Rocks 第二季</a></li>
+<li><a href="#orgheadline2">第一天：准备开始</a>
 <ul>
-<li><a href="#orgheadline1">1.1. Create a repository</a></li>
-<li><a href="#orgheadline2">1.2. Clone the repository</a></li>
-<li><a href="#orgheadline3">1.3. Create folder structure</a></li>
-<li><a href="#orgheadline4">1.4. Add lines in spacemacs configuration file to publish the org project</a></li>
-<li><a href="#orgheadline5">1.5. Publish personal html files</a></li>
-<li><a href="#orgheadline6">1.6. Attach markdown files in the org file.</a></li>
-<li><a href="#orgheadline7">1.7. Publish ipython file directly.</a></li>
-<li><a href="#orgheadline8">1.8. Insert file links in sitemap.org</a></li>
-<li><a href="#orgheadline13">1.9. The export options template</a>
+<li><a href="#orgheadline3">基础操作</a></li>
+<li><a href="#orgheadline4">内置功能</a></li>
+<li><a href="#orgheadline5">学习基础 Elisp</a>
 <ul>
-<li><a href="#orgheadline9">1.9.1. Insert basic information using C-c C-e # default</a></li>
-<li><a href="#orgheadline12">1.9.2. Add export templates configuration files</a></li>
+<li><a href="#orgheadline6">开始 Hacking！</a></li>
+<li><a href="#orgheadline7">插件管理</a></li>
+<li><a href="#orgheadline8">Org-mode</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline18">2. Basic operations in Emacs</a>
+<li><a href="#orgheadline11">为一级标题</a>
 <ul>
-<li><a href="#orgheadline15">2.1. special syntax</a></li>
-<li><a href="#orgheadline16">2.2. insert table box</a></li>
-<li><a href="#orgheadline17">2.3. shortcut :</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline24">3. ORG Mode</a>
+<li><a href="#orgheadline10">为二级标题</a>
 <ul>
-<li><a href="#orgheadline19">3.1. Structure editing</a></li>
-<li><a href="#orgheadline23">3.2. Latex</a>
-<ul>
-<li><a href="#orgheadline20">3.2.1. Greeks:</a></li>
-<li><a href="#orgheadline21">3.2.2. Superscript, subscript</a></li>
-<li><a href="#orgheadline22">3.2.3. Derivatives, Limits, Sums and Integrals</a></li>
+<li><a href="#orgheadline9">为三级标题并以此类推</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline31">4. 第一天：准备开始</a>
+<li><a href="#orgheadline12">第二天：高级自定义</a>
 <ul>
-<li><a href="#orgheadline25">4.1. 基础操作</a></li>
-<li><a href="#orgheadline26">4.2. 内置功能</a></li>
-<li><a href="#orgheadline30">4.3. 学习基础 Elisp</a>
+<li><a href="#orgheadline13">Emacs 也很美</a></li>
+<li><a href="#orgheadline14">JavaScript IDE</a>
 <ul>
-<li><a href="#orgheadline27">4.3.1. 开始 Hacking！</a></li>
-<li><a href="#orgheadline28">4.3.2. 插件管理</a></li>
-<li><a href="#orgheadline29">4.3.3. Org-mode</a></li>
+<li><a href="#orgheadline15">Org-mode 进阶</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline34">5. 为一级标题</a>
+<li><a href="#orgheadline16">第三天：配置文件模块化（上）</a>
 <ul>
-<li><a href="#orgheadline33">5.1. 为二级标题</a>
+<li><a href="#orgheadline17">多文件存储配置文件(上)</a></li>
+<li><a href="#orgheadline18">Major 与 Minor Mode 详解</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline19">第四天：配置文件模块化（下）以及使用优化</a>
 <ul>
-<li><a href="#orgheadline32">5.1.1. 为三级标题并以此类推</a></li>
+<li><a href="#orgheadline20">配置文件模块化（下）</a></li>
+<li><a href="#orgheadline21">更好的默认设置</a>
+<ul>
+<li><a href="#orgheadline22">代码缩进</a></li>
+<li><a href="#orgheadline23">缩写补全</a></li>
+<li><a href="#orgheadline24">Hippie 补全</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline25">Dired Mode</a></li>
+<li><a href="#orgheadline26">Org-mode 管理 Emacs 配置</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline27">第五天：打造前端开发神器</a>
+<ul>
+<li><a href="#orgheadline28">web-mode</a></li>
+<li><a href="#orgheadline29">js2-refactor</a></li>
+<li><a href="#orgheadline30">优化 occur 与 imenu</a></li>
+<li><a href="#orgheadline31">expand-region</a></li>
+<li><a href="#orgheadline32">iedit</a></li>
+<li><a href="#orgheadline33">Org 导出</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline34">第六天：代码片段与语法检查器</a>
+<ul>
+<li><a href="#orgheadline35">Org-mode 进阶使用</a></li>
+<li><a href="#orgheadline36">批量修改文件名</a></li>
+<li><a href="#orgheadline37">搜索与替换</a></li>
+<li><a href="#orgheadline38">语法检查器（Linter）</a></li>
+<li><a href="#orgheadline39">代码块</a>
+<ul>
+<li><a href="#orgheadline40">auto-yasnippet</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline38">6. 第二天：高级自定义</a>
+<li><a href="#orgheadline41">第七天：Evil 模式</a>
 <ul>
-<li><a href="#orgheadline35">6.1. Emacs 也很美</a></li>
-<li><a href="#orgheadline37">6.2. JavaScript IDE</a>
+<li><a href="#orgheadline42">Evil 的安装</a></li>
+<li><a href="#orgheadline48">Evil 模式插件</a>
 <ul>
-<li><a href="#orgheadline36">6.2.1. Org-mode 进阶</a></li>
+<li><a href="#orgheadline43">Leader Key</a></li>
+<li><a href="#orgheadline44">Window-numbering</a></li>
+<li><a href="#orgheadline45">Evil-Surround</a></li>
+<li><a href="#orgheadline46">Evil-nerd-commenter</a></li>
+<li><a href="#orgheadline47">Which-key</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline49">Org Mode 中的搜索</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline50">第八天：Cask 介绍与实践</a>
+<ul>
+<li><a href="#orgheadline51">Cask 的安装</a></li>
+<li><a href="#orgheadline52">为何使用 Cask</a></li>
+<li><a href="#orgheadline55">故障排除</a>
+<ul>
+<li><a href="#orgheadline53">Emacs24.5 时不能安装 <b>let-alist</b></a></li>
+<li><a href="#orgheadline54">在 Emacs24.5 中没有定义 define-advice</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline41">7. 第三天：配置文件模块化（上）</a>
+<li><a href="#orgheadline56">第九天：Macro 与 Use-package</a>
 <ul>
-<li><a href="#orgheadline39">7.1. 多文件存储配置文件(上)</a></li>
-<li><a href="#orgheadline40">7.2. Major 与 Minor Mode 详解</a></li>
+<li><a href="#orgheadline60">Macro</a>
+<ul>
+<li><a href="#orgheadline57">什么是 Macro</a></li>
+<li><a href="#orgheadline58">backquote</a></li>
+<li><a href="#orgheadline59">为什么使用宏</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline49">8. 第四天：配置文件模块化（下）以及使用优化</a>
+<li><a href="#orgheadline68">Use-package</a>
 <ul>
-<li><a href="#orgheadline42">8.1. 配置文件模块化（下）</a></li>
-<li><a href="#orgheadline46">8.2. 更好的默认设置</a>
-<ul>
-<li><a href="#orgheadline43">8.2.1. 代码缩进</a></li>
-<li><a href="#orgheadline44">8.2.2. 缩写补全</a></li>
-<li><a href="#orgheadline45">8.2.3. Hippie 补全</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline47">8.3. Dired Mode</a></li>
-<li><a href="#orgheadline48">8.4. Org-mode 管理 Emacs 配置</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline56">9. 第五天：打造前端开发神器</a>
-<ul>
-<li><a href="#orgheadline50">9.1. web-mode</a></li>
-<li><a href="#orgheadline51">9.2. js2-refactor</a></li>
-<li><a href="#orgheadline52">9.3. 优化 occur 与 imenu</a></li>
-<li><a href="#orgheadline53">9.4. expand-region</a></li>
-<li><a href="#orgheadline54">9.5. iedit</a></li>
-<li><a href="#orgheadline55">9.6. Org 导出</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline63">10. 第六天：代码片段与语法检查器</a>
-<ul>
-<li><a href="#orgheadline57">10.1. Org-mode 进阶使用</a></li>
-<li><a href="#orgheadline58">10.2. 批量修改文件名</a></li>
-<li><a href="#orgheadline59">10.3. 搜索与替换</a></li>
-<li><a href="#orgheadline60">10.4. 语法检查器（Linter）</a></li>
-<li><a href="#orgheadline62">10.5. 代码块</a>
-<ul>
-<li><a href="#orgheadline61">10.5.1. auto-yasnippet</a></li>
+<li><a href="#orgheadline61">简介</a></li>
+<li><a href="#orgheadline66">一些简单的用法</a></li>
+<li><a href="#orgheadline67">为什么使用 Use-package</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline72">11. 第七天：Evil 模式</a>
+<li><a href="#orgheadline69">第十天: Company-mode 与 auto-completion</a>
 <ul>
-<li><a href="#orgheadline64">11.1. Evil 的安装</a></li>
-<li><a href="#orgheadline70">11.2. Evil 模式插件</a>
-<ul>
-<li><a href="#orgheadline65">11.2.1. Leader Key</a></li>
-<li><a href="#orgheadline66">11.2.2. Window-numbering</a></li>
-<li><a href="#orgheadline67">11.2.3. Evil-Surround</a></li>
-<li><a href="#orgheadline68">11.2.4. Evil-nerd-commenter</a></li>
-<li><a href="#orgheadline69">11.2.5. Which-key</a></li>
+<li><a href="#orgheadline70">升级 Package 之后有 BUG 怎么办</a></li>
+<li><a href="#orgheadline71">Use-package 的更多用法</a></li>
+<li><a href="#orgheadline72">Company-mode 的工作原理</a></li>
+<li><a href="#orgheadline73">为什么有时 Python 的补全 不工作</a></li>
+<li><a href="#orgheadline74">Group Backend</a></li>
+<li><a href="#orgheadline75">怎样写一个简单的补全后端</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline71">11.3. Org Mode 中的搜索</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline78">12. 第八天：Cask 介绍与实践</a>
+<li><a href="#orgheadline76">第十一天: Spacemacs 简介及安装</a>
 <ul>
-<li><a href="#orgheadline73">12.1. Cask 的安装</a></li>
-<li><a href="#orgheadline74">12.2. 为何使用 Cask</a></li>
-<li><a href="#orgheadline77">12.3. 故障排除</a>
+<li><a href="#orgheadline77">安装 Spacemacs</a></li>
+<li><a href="#orgheadline78">添加内置的 layer</a></li>
+<li><a href="#orgheadline86">一些简单的配置</a>
 <ul>
-<li><a href="#orgheadline75">12.3.1. Emacs24.5 时不能安装 <b>let-alist</b></a></li>
-<li><a href="#orgheadline76">12.3.2. 在 Emacs24.5 中没有定义 define-advice</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgheadline91">13. 第九天：Macro 与 Use-package</a>
-<ul>
-<li><a href="#orgheadline82">13.1. Macro</a>
-<ul>
-<li><a href="#orgheadline79">13.1.1. 什么是 Macro</a></li>
-<li><a href="#orgheadline80">13.1.2. backquote</a></li>
-<li><a href="#orgheadline81">13.1.3. 为什么使用宏</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline90">13.2. Use-package</a>
-<ul>
-<li><a href="#orgheadline83">13.2.1. 简介</a></li>
-<li><a href="#orgheadline88">13.2.2. 一些简单的用法</a></li>
-<li><a href="#orgheadline89">13.2.3. 为什么使用 Use-package</a></li>
+<li><a href="#orgheadline79">启动时全屏显示</a></li>
+<li><a href="#orgheadline80">ivy layer</a></li>
+<li><a href="#orgheadline81">查看 layer 下的 文档信息</a></li>
+<li><a href="#orgheadline82">删除安装的 package</a></li>
+<li><a href="#orgheadline83">安装 package</a></li>
+<li><a href="#orgheadline84">配置 customize-group</a></li>
+<li><a href="#orgheadline85">修改主题</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline98">14. 第十天: Company-mode 与 auto-completion</a>
+<li><a href="#orgheadline87">第十二天: 创建你的第一个 Spacemacs Layer</a>
 <ul>
-<li><a href="#orgheadline92">14.1. 升级 Package 之后有 BUG 怎么办</a></li>
-<li><a href="#orgheadline93">14.2. Use-package 的更多用法</a></li>
-<li><a href="#orgheadline94">14.3. Company-mode 的工作原理</a></li>
-<li><a href="#orgheadline95">14.4. 为什么有时 Python 的补全 不工作</a></li>
-<li><a href="#orgheadline96">14.5. Group Backend</a></li>
-<li><a href="#orgheadline97">14.6. 怎样写一个简单的补全后端</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline109">15. 第十一天: Spacemacs 简介及安装</a>
-<ul>
-<li><a href="#orgheadline99">15.1. 安装 Spacemacs</a></li>
-<li><a href="#orgheadline100">15.2. 添加内置的 layer</a></li>
-<li><a href="#orgheadline108">15.3. 一些简单的配置</a>
-<ul>
-<li><a href="#orgheadline101">15.3.1. 启动时全屏显示</a></li>
-<li><a href="#orgheadline102">15.3.2. ivy layer</a></li>
-<li><a href="#orgheadline103">15.3.3. 查看 layer 下的 文档信息</a></li>
-<li><a href="#orgheadline104">15.3.4. 删除安装的 package</a></li>
-<li><a href="#orgheadline105">15.3.5. 安装 package</a></li>
-<li><a href="#orgheadline106">15.3.6. 配置 customize-group</a></li>
-<li><a href="#orgheadline107">15.3.7. 修改主题</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgheadline115">16. 第十二天: 创建你的第一个 Spacemacs Layer</a>
-<ul>
-<li><a href="#orgheadline110">16.1. 如何更新 Sapcemacs</a></li>
-<li><a href="#orgheadline111">16.2. variables 变量</a></li>
-<li><a href="#orgheadline112">16.3. 定制 modeline</a></li>
-<li><a href="#orgheadline113">16.4. 创建自己的 layer</a></li>
-<li><a href="#orgheadline114">16.5. 文档</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline120">17. emacs python workflow.</a>
-<ul>
-<li><a href="#orgheadline116">17.1. install elpy, jedi</a></li>
-<li><a href="#orgheadline117">17.2. Keybinding</a></li>
-<li><a href="#orgheadline118">17.3. upgrade git</a></li>
-<li><a href="#orgheadline119">17.4. reinstall EMACS</a></li>
+<li><a href="#orgheadline88">如何更新 Sapcemacs</a></li>
+<li><a href="#orgheadline89">variables 变量</a></li>
+<li><a href="#orgheadline90">定制 modeline</a></li>
+<li><a href="#orgheadline91">创建自己的 layer</a></li>
+<li><a href="#orgheadline92">文档</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <p>
-C-h t
-tutorial
+<a href="https://travis-ci.org/emacs-china/Spacemacs-rocks.svg?branch=master">https://travis-ci.org/emacs-china/Spacemacs-rocks.svg?branch=master</a>
 </p>
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">1</span> Create GitHub Pages:</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-GitHub Pages is easy for websites for you and your projects. GitHub Pages is hosted directly from your GitHub repository.Just edit, push, and your changes are live.
-Tutorial of how to create studying notes pages hosted on GitHub Pages.
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">Spacemacs Rocks 第二季</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+
+<div class="figure">
+<p><img src="./Artwork.png" alt="Artwork.png" />
 </p>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Create a repository</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
-Head over to Github and create a new repository named username.github.io, where username is your username on Github.
+<b>GitHub</b> <a href="https://github.com/emacs-china/Spacemacs-rocks">Spacemacs Rocks</a> <b>作者</b> <a href="https://github.com/zilongshanren/">zilongshanren</a> <b>编者</b> <a href="https://github.com/li-xinyang">li-xinyang</a>, <a href="https://github.com/lsytj0413">lsytj0413</a>
+</p>
+
+<p>
+在这一季中我们计划用 21 天学习 Emacs 以及 Spacemacs 的使用。从基础安装开始到可以
+运用到工作生产环节中。为了确保学习质量，请务必完成和理解计划中的每一项学习任务。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Clone the repository</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2">第一天：准备开始</h2>
+<div class="outline-text-2" id="text-orgheadline2">
 <p>
-Go to the folder where you want to store your project, and clone the new repository:
+视频地址如下
 </p>
-<div class="org-src-container">
 
-<pre class="src src-sh">git clone https://github.com/username/username.github.io
-</pre>
-</div>
-</div>
+<ul class="org-ul">
+<li><a href="http://v.youku.com/v_show/id_XMTUwNjU0MjE0OA==.html">优酷视频</a></li>
+<li><a href="http://pan.baidu.com/s/1gep9DQV">百度网盘</a></li>
+<li><a href="https://www.youtube.com/watch?v=2Q0MhOR59u8">YouTube</a></li>
+</ul>
+
+<p>
+<b>说在最前面</b>
+</p>
+
+<p>
+如果你第一次听说 Emacs 你可以在<a href="http://emacs.sexy/">性感的 Emacs（Emacs is Sexy）</a>一文中找到使用它的理
+由！我相信你一定会被它的强大所吸引。
+</p>
+
+<p>
+如果你还没有安装 Emacs 可以在 <a href="http://emacsformacosx.com/builds">Mac OS X 安装链接</a>以及 <a href="http://emacsbinw64.sourceforge.net/">Window 安装链接</a>找到它。本文
+我们使用的为 Emacs 25.0.x Pretest 版本，一些配置在 Emacs 24 中可能并不适用。
+</p>
+
+<p>
+在开始本教程之前请务必先完成 Emacs 提供的官方教程（完成时间大约 30 分钟），它可
+以通过使用 <code>C-h t</code> （同时按住 Ctrl 与 h 键，接着按 t 键 <code>t</code> 在这里代表 tutorial）
+在 Emacs 中直接将其打开。
+</p>
+
+<p>
+Emacs Lisp 是 Emacs 所用的编程语言，你可以在阅读<a href="https://learnxinyminutes.com/docs/elisp/">这篇教程（Learn X in Y Minutes）</a>
+后很快地了解它的基础用法。
+</p>
 </div>
 
 <div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Create folder structure</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-~/repository name/
-   &#x00ad; css/
-   \  `- stylesheet.css
-   &#x00ad; img/
-   &#x00ad; index.org
-   &#x00ad; docs
-   &#x00ad; CS
-   &#x00ad; finance
-   `- sitemap.org
-   `- index.org`
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Add lines in spacemacs configuration file to publish the org project</h3>
-<div class="outline-text-3" id="text-1-4">
-<div class="org-src-container">
-
-<pre class="src src-elisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">require</span> '<span style="color: #AE81FF;">ox-publish</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span>setq org-publish-project-alist
-'<span style="color: #66D9EF;">(</span>
-<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"org-notes"</span>
- <span style="color: #F92672;">:base-directory</span> <span style="color: #E6DB74;">"~/repository_folder/"</span>
- <span style="color: #F92672;">:base-extension</span> <span style="color: #E6DB74;">"org"</span>
- <span style="color: #F92672;">:publishing-directory</span> <span style="color: #E6DB74;">"~/repository_folder/docs/"</span>
- <span style="color: #F92672;">:recursive</span> t
- <span style="color: #F92672;">:publishing-function</span> org-html-publish-to-html
- <span style="color: #F92672;">:headline-levels</span> <span style="color: #AE81FF;">4</span>             <span style="color: #75715E;">; </span><span style="color: #75715E;">Just the default for this project.</span>
- <span style="color: #F92672;">:auto-preamble</span> t
- <span style="color: #A6E22E;">)</span>
-<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"org-static"</span>
- <span style="color: #F92672;">:base-directory</span> <span style="color: #E6DB74;">"~/repository_folder/"</span>
- <span style="color: #F92672;">:base-extension</span> <span style="color: #E6DB74;">"css</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">js</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">png</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">jpg</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">gif</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">pdf</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">mp3</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">ogg</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">|</span><span style="color: #E6DB74;">swf"</span>
- <span style="color: #F92672;">:publishing-directory</span> <span style="color: #E6DB74;">"~/repository_folder/docs/"</span>
- <span style="color: #F92672;">:recursive</span> t
- <span style="color: #F92672;">:publishing-function</span> org-publish-attachment
- <span style="color: #A6E22E;">)</span>
-<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Publish personal html files</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>copy html and attachment folders under the main folder.</li>
-<li>insert the link in the sitemap org file.</li>
-<li>publish all.</li>
-<li>copy html and attachment folder under the docs folder.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">1.6</span> Attach markdown files in the org file.</h3>
-</div>
-
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">1.7</span> Publish ipython file directly.</h3>
-</div>
-
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">1.8</span> Insert file links in sitemap.org</h3>
-<div class="outline-text-3" id="text-1-8">
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span>file:remember.org<span style="color: #66D9EF;">][</span>remember<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">1.9</span> The export options template</h3>
-<div class="outline-text-3" id="text-1-9">
-</div><div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">1.9.1</span> Insert basic information using C-c C-e # default</h4>
-<div class="outline-text-4" id="text-1-9-1">
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">#+TITLE: filename with the extension omitted
-#+DATE: &lt;2013-06-04 Tue&gt;
-#+AUTHOR: Your name
-#+EMAIL: Your email address
-#+OPTIONS: '<span style="color: #F92672;">:t</span> *:t -:t <span style="color: #F92672;">::t</span> &lt;:t H:3 \n:nil ^:t arch:headline author:t c:nil
-#+OPTIONS: creator:comment d:<span style="color: #AE81FF;">(</span>not LOGBOOK<span style="color: #AE81FF;">)</span> date:t e:t email:nil f:t inline:t
-#+OPTIONS: num:t p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t
-#+OPTIONS: todo:t |:t
-#+CREATOR: Emacs 24.3.50.3 <span style="color: #AE81FF;">(</span>Org mode 8.0.3<span style="color: #AE81FF;">)</span>
-#+DESCRIPTION:
-#+EXCLUDE_TAGS: noexport
-#+KEYWORDS:
-#+LANGUAGE: en
-#+SELECT_TAGS: export
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline12" class="outline-4">
-<h4 id="orgheadline12"><span class="section-number-4">1.9.2</span> Add export templates configuration files</h4>
-<div class="outline-text-4" id="text-1-9-2">
-<p>
-Create the following files under the org-configuration directory
-</p>
-</div>
-<ol class="org-ol"><li><a id="orgheadline10"></a>level-0.org<br  /><div class="outline-text-5" id="text-1-9-2-1">
-<p>
-:#+STYLE: &lt;link rel="stylesheet" type="text/css" href="stylesheet.css" /&gt;
-</p>
-</div></li>
-<li><a id="orgheadline11"></a>level-1.org<br  /><div class="outline-text-5" id="text-1-9-2-2">
-<p>
-:#+STYLE: &lt;link rel="stylesheet" type="text/css" href="../stylesheet.css" /&gt;
-</p>
-</div></li></ol>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">2</span> Basic operations in Emacs</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.1</span> special syntax</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-Insert file link:
-Press [[, file: file link, ], backspace, [, [alias, ], ].
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">2.2</span> insert table box</h3>
-<div class="outline-text-3" id="text-2-2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">name1</th>
-<th scope="col" class="org-left">name2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">row1</td>
-<td class="org-left">value</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-<div class="org-src-container">
-
-<pre class="src src-sh">| name <span style="color: #AE81FF;">1</span> | name <span style="color: #AE81FF;">2</span>|,
-|- tab,
-enter,
-|
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>Initial visibility</li>
-</ul>
-<p>
-Show all shortcut: C-u C-u &lt;TAB&gt;, shirt+&lt;TAB&gt;
-</p>
-
-<p>
-Or change the start-up configuration.
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">#+STARTUP: overview
-#+STARTUP: content
-#+STARTUP: showall
-#+STARTUP: showeverything
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">2.3</span> shortcut :</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-<b>获取帮助</b>
-</p>
-<ul class="org-ul">
-<li><code>C-h k</code> 寻找快捷键的帮助信息: after the command enter the key combination.</li>
-<li><code>C-h v</code> 寻找变量的帮助信息</li>
-<li><code>C-h f</code> 寻找函数的帮助信息</li>
-<li><code>C-l</code> move the current cursor to the center of the screen.</li>
-
-<li>&lt;s, press tab to get the src box.</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgheadline24" class="outline-2">
-<h2 id="orgheadline24"><span class="section-number-2">3</span> ORG Mode</h2>
-<div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">3.1</span> Structure editing</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-M-&lt;RET&gt;     (org-insert-heading)
-Insert a new heading/item with the same level as the one at point.
-If the command is used at the beginning of a line, and if there is a heading or a plain list item (see Plain lists) at point, the new heading/item is created before the current line. When used at the beginning of a regular line of text, turn that line into a heading.
-</p>
-
-<p>
-When this command is used in the middle of a line, the line is split and the rest of the line becomes the new item or headline. If you do not want the line to be split, customize org-M-RET-may-split-line.
-</p>
-
-<p>
-Calling the command with a C-u prefix unconditionally inserts a new heading at the end of the current subtree, thus preserving its contents. With a double C-u C-u prefix, the new heading is created at the end of the parent subtree instead.
-</p>
-
-<p>
-C-&lt;RET&gt;     (org-insert-heading-respect-content)
-Insert a new heading at the end of the current subtree.
-M-S-&lt;RET&gt;     (org-insert-todo-heading)
-Insert new TODO entry with same level as current heading. See also the variable org-treat-insert-todo-heading-as-state-change.
-C-S-&lt;RET&gt;     (org-insert-todo-heading-respect-content)
-Insert new TODO entry with same level as current heading. Like C-&lt;RET&gt;, the new headline will be inserted after the current subtree.
-&lt;TAB&gt;     (org-cycle)
-In a new entry with no text yet, the first &lt;TAB&gt; demotes the entry to become a child of the previous one. The next &lt;TAB&gt; makes it a parent, and so on, all the way to top level. Yet another &lt;TAB&gt;, and you are back to the initial level.
-M-&lt;left&gt;     (org-do-promote)
-Promote current heading by one level.
-M-&lt;right&gt;     (org-do-demote)
-Demote current heading by one level.
-M-S-&lt;left&gt;     (org-promote-subtree)
-Promote the current subtree by one level.
-M-S-&lt;right&gt;     (org-demote-subtree)
-Demote the current subtree by one level.
-M-S-&lt;up&gt;     (org-move-subtree-up)
-Move subtree up (swap with previous subtree of same level).
-M-S-&lt;down&gt;     (org-move-subtree-down)
-Move subtree down (swap with next subtree of same level).
-M-h     (org-mark-element)
-Mark the element at point. Hitting repeatedly will mark subsequent elements of the one just marked. E.g., hitting &lt;M-h&gt; on a paragraph will mark it, hitting &lt;M-h&gt; immediately again will mark the next one.
-C-c @     (org-mark-subtree)
-Mark the subtree at point. Hitting repeatedly will mark subsequent subtrees of the same level than the marked subtree.
-C-c C-x C-w     (org-cut-subtree)
-Kill subtree, i.e., remove it from buffer but save in kill ring. With a numeric prefix argument N, kill N sequential subtrees.
-C-c C-x M-w     (org-copy-subtree)
-Copy subtree to kill ring. With a numeric prefix argument N, copy the N sequential subtrees.
-C-c C-x C-y     (org-paste-subtree)
-Yank subtree from kill ring. This does modify the level of the subtree to make sure the tree fits in nicely at the yank position. The yank level can also be specified with a numeric prefix argument, or by yanking after a headline marker like ‘****’.
-C-y     (org-yank)
-Depending on the options org-yank-adjusted-subtrees and org-yank-folded-subtrees, Org's internal yank command will paste subtrees folded and in a clever way, using the same command as C-c C-x C-y. With the default settings, no level adjustment will take place, but the yanked tree will be folded unless doing so would swallow text previously visible. Any prefix argument to this command will force a normal yank to be executed, with the prefix passed along. A good way to force a normal yank is C-u C-y. If you use yank-pop after a yank, it will yank previous kill items plainly, without adjustment and folding.
-C-c C-x c     (org-clone-subtree-with-time-shift)
-Clone a subtree by making a number of sibling copies of it. You will be prompted for the number of copies to make, and you can also specify if any timestamps in the entry should be shifted. This can be useful, for example, to create a number of tasks related to a series of lectures to prepare. For more details, see the docstring of the command org-clone-subtree-with-time-shift.
-C-c C-w     (org-refile)
-Refile entry or region to a different location. See Refile and copy.
-C-c ^     (org-sort)
-Sort same-level entries. When there is an active region, all entries in the region will be sorted. Otherwise the children of the current headline are sorted. The command prompts for the sorting method, which can be alphabetically, numerically, by time (first timestamp with active preferred, creation time, scheduled time, deadline time), by priority, by TODO keyword (in the sequence the keywords have been defined in the setup) or by the value of a property. Reverse sorting is possible as well. You can also supply your own function to extract the sorting key. With a C-u prefix, sorting will be case-sensitive.
-C-x n s     (org-narrow-to-subtree)
-Narrow buffer to current subtree.
-C-x n b     (org-narrow-to-block)
-Narrow buffer to current block.
-C-x n w     (widen)
-Widen buffer to remove narrowing.
-C-c *     (org-toggle-heading)
-Turn a normal line or plain list item into a headline (so that it becomes a subheading at its location). Also turn a headline into a normal line by removing the stars. If there is an active region, turn all lines in the region into headlines. If the first line in the region was an item, turn only the item lines into headlines. Finally, if the first line is a headline, remove the stars from all headlines in the region.
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">3.2</span> Latex</h3>
-<div class="outline-text-3" id="text-3-2">
-</div><div id="outline-container-orgheadline20" class="outline-4">
-<h4 id="orgheadline20"><span class="section-number-4">3.2.1</span> Greeks:</h4>
-<div class="outline-text-4" id="text-3-2-1">
-<p>
-\[\alpha, \beta, \gamma\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline21" class="outline-4">
-<h4 id="orgheadline21"><span class="section-number-4">3.2.2</span> Superscript, subscript</h4>
-<div class="outline-text-4" id="text-3-2-2">
-<p>
-\[R_{sun} = 6.96 x 10^8 m\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22"><span class="section-number-4">3.2.3</span> Derivatives, Limits, Sums and Integrals</h4>
-<div class="outline-text-4" id="text-3-2-3">
-<p>
-\[\frac{du}{dt}\]
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">\frac{du}{dt}
-</pre>
-</div>
-<p>
-the Heat Equation$$\[ \frac{\partial u}{\partial t}
-   = h<sup>2</sup> \left( \frac{\partial^2 u}{\partial x^2}
-</p>
-<ul class="org-ul">
-<li>\frac{\partial^2 u}{\partial y^2}</li>
-<li>\frac{\partial^2 u}{\partial z^2} \right) \]$$</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">\[ \frac{\partial u}{\partial t}
-   = h^2 \left<span style="color: #AE81FF;">(</span> \frac{\partial^2 u}{\partial x^2}
-      + \frac{\partial^2 u}{\partial y^2}
-      + \frac{\partial^2 u}{\partial z^2} \right<span style="color: #AE81FF;">)</span> \]
-</pre>
-</div>
-<p>
-\[\lim_{x \to +\infty}, \inf_{x > s}\]
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">\lim_{x \to +\infty}, \inf_{x &gt; s}
-</pre>
-</div>
-<p>
-\[\[ \sum_{k=1}^n k^2 = \frac{1}{2} n (n+1).\] \]
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">\[ \sum_{k=1}^n k^2 = \frac{1}{2} n <span style="color: #AE81FF;">(</span>n+1<span style="color: #AE81FF;">)</span>.\]
-</pre>
-</div>
-<p>
-\[\[ \int_a^b f(x)\,dx.\] \]
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">\[ \int_a^b f<span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span>\,dx.\]
-</pre>
-</div>
-<p>
-\[\[ \int_0^{+\infty} x^n e^{-x} \,dx = n!.\]
-\[ \int \cos \theta \,d\theta = \sin \theta.\]
-\[ \int_{x^2 + y^2 \leq R^2} f(x,y)\,dx\,dy
-   = \int_{\theta=0}^{2\pi} \int_{r=0}^R
-      f(r\cos\theta,r\sin\theta) r\,dr\,d\theta.\] \]
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">\[ \int_0^{+\infty} x^n e^{-x} \,dx = n!.\]
-\[ \int \cos \theta \,d\theta = \sin \theta.\]
-\[ \int_{x^2 + y^2 \leq R^2} f<span style="color: #AE81FF;">(</span>x,y<span style="color: #AE81FF;">)</span>\,dx\,dy
-   = \int_{\theta=0}^{2\pi} \int_{r=0}^R
-      f<span style="color: #AE81FF;">(</span>r\cos\theta,r\sin\theta<span style="color: #AE81FF;">)</span> r\,dr\,d\theta.\]
-</pre>
-</div>
-<p>
-\[\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] \]
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">\[ \int \!\!\! \int_D f<span style="color: #AE81FF;">(</span>x,y<span style="color: #AE81FF;">)</span>\,dx\,dy.\]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline31" class="outline-2">
-<h2 id="orgheadline31"><span class="section-number-2">4</span> 第一天：准备开始</h2>
-<div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">4.1</span> 基础操作</h3>
-<div class="outline-text-3" id="text-4-1">
-<ul class="org-ul">
-<li><code>C-h t</code> to open the tutorial.</li>
-<li>cursor movement(C-f C-b C-n C-p C-a C-e)</li>
-<li>kill one line(<code>C-k</code>)</li>
-<li>one file can only have one major mode, but multiple minor mode.</li>
-<li><code>C-x C-r</code> open file as read only.</li>
-<li><code>C-h m</code> view install modes and packages.</li>
-</ul>
+<h3 id="orgheadline3">基础操作</h3>
+<div class="outline-text-3" id="text-orgheadline3">
 <p>
 因为 Control 键在 Emacs 中极为常用，所以为了更方便地使用 Emacs 的键位修改，需要
 对其做出修改。建议将大写锁定键（Caps Lock）替换为 Control 键。这里是一个可以参考
@@ -855,9 +431,9 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">4.2</span> 内置功能</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4">内置功能</h3>
+<div class="outline-text-3" id="text-orgheadline4">
 <p>
 Emacs 功能强大，但是部分功能默认情况下并未开启。下面就有几个例子，
 </p>
@@ -883,10 +459,9 @@ Emacs 是一个富文档编辑器（Self document, extensible editor）而下面
 </div>
 </div>
 
-
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">4.3</span> 学习基础 Elisp</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5">学习基础 Elisp</h3>
+<div class="outline-text-3" id="text-orgheadline5">
 <p>
 请务必完成<a href="https://learnxinyminutes.com/docs/elisp/">这篇教程（Learn X in Y Minutes）</a>来了解 Elisp 的使用（阅读时间大约 15
 分钟），你也可以在<a href="https://learnxinyminutes.com/docs/zh-cn/elisp-cn/">这里</a>找到它的中文版。Emacs Lisp 为一个函数式的语言，所以它全部
@@ -927,9 +502,9 @@ Emacs 是一个富文档编辑器（Self document, extensible editor）而下面
 </div>
 </div>
 
-<div id="outline-container-orgheadline27" class="outline-4">
-<h4 id="orgheadline27"><span class="section-number-4">4.3.1</span> 开始 Hacking！</h4>
-<div class="outline-text-4" id="text-4-3-1">
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6">开始 Hacking！</h4>
+<div class="outline-text-4" id="text-orgheadline6">
 <p>
 Emacs 的配置文件默认保存在 <code>~/.emacs.d/init.el</code> 文件中。（如果其不存在可自行创建，
 配置文件也可保存在 <code>~/.emacs</code> 文件中，他们之间的区别我们会在后面做讨论）
@@ -1003,364 +578,12 @@ Mode 通常是定义对于一种文件类型编辑的核心规则，例如语法
 你也可以使用 <code>C-x C-e</code> 来执行某一行的 Lisp 代码。这些可使刚刚修改的配置文件生效。
 当然你也可以将这些函数绑定为快捷键。
 </p>
-<ul class="org-ul">
-<li>learn elisp shortcut.</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp"><span style="color: #75715E;">;; </span><span style="color: #75715E;">This gives an introduction to Emacs Lisp in 15 minutes (v0.2d)</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Author: Bastien / @bzg2 / https://bzg.fr</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">First make sure you read this text by Peter Norvig:</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">http://norvig.com/21-days.html</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Then install GNU Emacs 24.3:</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Debian: apt-get install emacs (or see your distro instructions)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">OSX: http://emacsformacosx.com/emacs-builds/Emacs-24.3-universal-10.6.8.dmg</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Windows: http://ftp.gnu.org/gnu/windows/emacs/emacs-24.3-bin-i386.zip</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">More general information can be found at:</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">http://www.gnu.org/software/emacs/#Obtaining</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Important warning:</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Going through this tutorial won't damage your computer unless</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">you get so angry that you throw it on the floor.  In that case,</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">I hereby decline any responsibility.  Have fun!</span>
-
-<span style="color: #75715E;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Fire up Emacs.</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Hit the `q' key to dismiss the welcome message.</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Now look at the gray line at the bottom of the window:</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">"*scratch*" is the name of the editing space you are now in.</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">This editing space is called a "buffer".</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">The scratch buffer is the default buffer when opening Emacs.</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">You are never editing files: you are editing buffers that you</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">can save to a file.</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">"Lisp interaction" refers to a set of commands available here.</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Emacs has a built-in set of commands available in every buffer,</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">and several subsets of commands available when you activate a</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">specific mode.  Here we use the `</span><span style="color: #AE81FF;">lisp-interaction-mode</span><span style="color: #75715E;">', which</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">comes with commands to evaluate and navigate within Elisp code.</span>
-
-<span style="color: #75715E;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Semi-colons start comments anywhere on a line.</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Elisp programs are made of symbolic expressions ("sexps"):</span>
-<span style="color: #AE81FF;">(</span>+ <span style="color: #AE81FF;">2</span> <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">This symbolic expression reads as "Add 2 to 2".</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Sexps are enclosed into parentheses, possibly nested:</span>
-<span style="color: #AE81FF;">(</span>+ <span style="color: #AE81FF;">2</span> <span style="color: #66D9EF;">(</span>+ <span style="color: #AE81FF;">1</span> <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">A symbolic expression contains atoms or other symbolic</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">expressions.  In the above examples, 1 and 2 are atoms,</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">(+ 2 (+ 1 1)) and (+ 1 1) are symbolic expressions.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">From `</span><span style="color: #AE81FF;">lisp-interaction-mode</span><span style="color: #75715E;">' you can evaluate sexps.</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Put the cursor right after the closing parenthesis then</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">hold down the control and hit the j keys ("C-j" for short).</span>
-
-<span style="color: #AE81FF;">(</span>+ <span style="color: #AE81FF;">3</span> <span style="color: #66D9EF;">(</span>+ <span style="color: #AE81FF;">1</span> <span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;;           </span><span style="color: #75715E;">^ cursor here</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-j</span><span style="color: #75715E;">' =&gt; 6</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-j</span><span style="color: #75715E;">' inserts the result of the evaluation in the buffer.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' displays the same result in Emacs bottom line,</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">called the "minibuffer".  We will generally use `</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">',</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">as we don't want to clutter the buffer with useless text.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">setq</span><span style="color: #75715E;">' stores a value into a variable:</span>
-<span style="color: #AE81FF;">(</span>setq my-name <span style="color: #E6DB74;">"Bastien"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' =&gt; "Bastien" (displayed in the mini-buffer)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">insert</span><span style="color: #75715E;">' will insert "Hello!" where the cursor is:</span>
-<span style="color: #AE81FF;">(</span>insert <span style="color: #E6DB74;">"Hello!"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' =&gt; "Hello!"</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">We used `</span><span style="color: #AE81FF;">insert</span><span style="color: #75715E;">' with only one argument "Hello!", but</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">we can pass more arguments -- here we use two:</span>
-
-<span style="color: #AE81FF;">(</span>insert <span style="color: #E6DB74;">"Hello"</span> <span style="color: #E6DB74;">" world!"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' =&gt; "Hello world!"</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">You can use variables instead of strings:</span>
-<span style="color: #AE81FF;">(</span>insert <span style="color: #E6DB74;">"Hello, I am "</span> my-name<span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' =&gt; "Hello, I am Bastien"</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">You can combine sexps into functions:</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">hello</span> <span style="color: #66D9EF;">()</span> <span style="color: #66D9EF;">(</span>insert <span style="color: #E6DB74;">"Hello, I am "</span> my-name<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' =&gt; hello</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">You can evaluate functions:</span>
-<span style="color: #AE81FF;">(</span>hello<span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' =&gt; Hello, I am Bastien</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">The empty parentheses in the function's definition means that</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">it does not accept arguments.  But always using `</span><span style="color: #AE81FF;">my-name</span><span style="color: #75715E;">' is</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">boring, let's tell the function to accept one argument (here</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">the argument is called "name"):</span>
-
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">hello</span> <span style="color: #66D9EF;">(</span>name<span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">(</span>insert <span style="color: #E6DB74;">"Hello "</span> name<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' =&gt; hello</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Now let's call the function with the string "you" as the value</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">for its unique argument:</span>
-<span style="color: #AE81FF;">(</span>hello <span style="color: #E6DB74;">"you"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">' =&gt; "Hello you"</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Yeah!</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Take a breath.</span>
-
-<span style="color: #75715E;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Now switch to a new buffer named "*test*" in another window:</span>
-
-<span style="color: #AE81FF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">'</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">=&gt; [screen has two windows and cursor is in the *test* buffer]</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Mouse over the top window and left-click to go back.  Or you can</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">use `</span><span style="color: #AE81FF;">C-xo</span><span style="color: #75715E;">' (i.e. hold down control-x and hit o) to go to the other</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">window interactively.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">You can combine several sexps with `</span><span style="color: #AE81FF;">progn</span><span style="color: #75715E;">':</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">progn</span>
-  <span style="color: #66D9EF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>hello <span style="color: #E6DB74;">"you"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">'</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">=&gt; [The screen has two windows and cursor is in the *test* buffer]</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Now if you don't mind, I'll stop asking you to hit `</span><span style="color: #AE81FF;">C-xC-e</span><span style="color: #75715E;">': do it</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">for every sexp that follows.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Always go back to the *scratch* buffer with the mouse or `</span><span style="color: #AE81FF;">C-xo</span><span style="color: #75715E;">'.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">It's often useful to erase the buffer:</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">progn</span>
-  <span style="color: #66D9EF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>erase-buffer<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>hello <span style="color: #E6DB74;">"there"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Or to go back to the other window:</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">progn</span>
-  <span style="color: #66D9EF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>erase-buffer<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>hello <span style="color: #E6DB74;">"you"</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>other-window <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">You can bind a value to a local variable with `</span><span style="color: #AE81FF;">let</span><span style="color: #75715E;">':</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">let</span> <span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">(</span>local-name <span style="color: #E6DB74;">"you"</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>erase-buffer<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>hello local-name<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>other-window <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">No need to use `</span><span style="color: #AE81FF;">progn</span><span style="color: #75715E;">' in that case, since `</span><span style="color: #AE81FF;">let</span><span style="color: #75715E;">' also combines</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">several sexps.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Let's format a string:</span>
-<span style="color: #AE81FF;">(</span>format <span style="color: #E6DB74;">"Hello %s!\n"</span> <span style="color: #E6DB74;">"visitor"</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">%s is a place-holder for a string, replaced by "visitor".</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">\n is the newline character.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Let's refine our function by using format:</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">hello</span> <span style="color: #66D9EF;">(</span>name<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>insert <span style="color: #A6E22E;">(</span>format <span style="color: #E6DB74;">"Hello %s!\n"</span> name<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #AE81FF;">(</span>hello <span style="color: #E6DB74;">"you"</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Let's create another function which uses `</span><span style="color: #AE81FF;">let</span><span style="color: #75715E;">':</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">greeting</span> <span style="color: #66D9EF;">(</span>name<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">let</span> <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>your-name <span style="color: #E6DB74;">"Bastien"</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span>insert <span style="color: #E6DB74;">(</span>format <span style="color: #E6DB74;">"Hello %s!\n\nI am %s."</span>
-                    name       <span style="color: #75715E;">; </span><span style="color: #75715E;">the argument of the function</span>
-                    your-name  <span style="color: #75715E;">; </span><span style="color: #75715E;">the let-bound variable "Bastien"</span>
-                    <span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">And evaluate it:</span>
-<span style="color: #AE81FF;">(</span>greeting <span style="color: #E6DB74;">"you"</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Some functions are interactive:</span>
-<span style="color: #AE81FF;">(</span>read-from-minibuffer <span style="color: #E6DB74;">"Enter your name: "</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Evaluating this function returns what you entered at the prompt.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Let's make our `</span><span style="color: #AE81FF;">greeting</span><span style="color: #75715E;">' function prompt for your name:</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">greeting</span> <span style="color: #66D9EF;">(</span>from-name<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">let</span> <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>your-name <span style="color: #FD971F;">(</span>read-from-minibuffer <span style="color: #E6DB74;">"Enter your name: "</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span>insert <span style="color: #E6DB74;">(</span>format <span style="color: #E6DB74;">"Hello!\n\nI am %s and you are %s."</span>
-                    from-name <span style="color: #75715E;">; </span><span style="color: #75715E;">the argument of the function</span>
-                    your-name <span style="color: #75715E;">; </span><span style="color: #75715E;">the let-bound var, entered at prompt</span>
-                    <span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #AE81FF;">(</span>greeting <span style="color: #E6DB74;">"Bastien"</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Let's complete it by displaying the results in the other window:</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">greeting</span> <span style="color: #66D9EF;">(</span>from-name<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">let</span> <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>your-name <span style="color: #FD971F;">(</span>read-from-minibuffer <span style="color: #E6DB74;">"Enter your name: "</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span>erase-buffer<span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span>insert <span style="color: #E6DB74;">(</span>format <span style="color: #E6DB74;">"Hello %s!\n\nI am %s."</span> your-name from-name<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span>other-window <span style="color: #AE81FF;">1</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Now test it:</span>
-<span style="color: #AE81FF;">(</span>greeting <span style="color: #E6DB74;">"Bastien"</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Take a breath.</span>
-
-<span style="color: #75715E;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Let's store a list of names:</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">If you want to create a literal list of data, use ' to stop it from</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">being evaluated - literally, "quote" the data.</span>
-<span style="color: #AE81FF;">(</span>setq list-of-names '<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"Sarah"</span> <span style="color: #E6DB74;">"Chloe"</span> <span style="color: #E6DB74;">"Mathilde"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Get the first element of this list with `</span><span style="color: #AE81FF;">car</span><span style="color: #75715E;">':</span>
-<span style="color: #AE81FF;">(</span>car list-of-names<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Get a list of all but the first element with `</span><span style="color: #AE81FF;">cdr</span><span style="color: #75715E;">':</span>
-<span style="color: #AE81FF;">(</span>cdr list-of-names<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Add an element to the beginning of a list with `</span><span style="color: #AE81FF;">push</span><span style="color: #75715E;">':</span>
-<span style="color: #AE81FF;">(</span>push <span style="color: #E6DB74;">"Stephanie"</span> list-of-names<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #d0bf8f;">NOTE</span><span style="color: #75715E;">: `</span><span style="color: #AE81FF;">car</span><span style="color: #75715E;">' and `</span><span style="color: #AE81FF;">cdr</span><span style="color: #75715E;">' don't modify the list, but `</span><span style="color: #AE81FF;">push</span><span style="color: #75715E;">' does.</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">This is an important difference: some functions don't have any</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">side-effects (like `</span><span style="color: #AE81FF;">car</span><span style="color: #75715E;">') while others have (like `</span><span style="color: #AE81FF;">push</span><span style="color: #75715E;">').</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Let's call `</span><span style="color: #AE81FF;">hello</span><span style="color: #75715E;">' for each element in `</span><span style="color: #AE81FF;">list-of-names</span><span style="color: #75715E;">':</span>
-<span style="color: #AE81FF;">(</span>mapcar 'hello list-of-names<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Refine `</span><span style="color: #AE81FF;">greeting</span><span style="color: #75715E;">' to say hello to everyone in `</span><span style="color: #AE81FF;">list-of-names</span><span style="color: #75715E;">':</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">greeting</span> <span style="color: #66D9EF;">()</span>
-    <span style="color: #66D9EF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>erase-buffer<span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>mapcar 'hello list-of-names<span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>other-window <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #AE81FF;">(</span>greeting<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Remember the `</span><span style="color: #AE81FF;">hello</span><span style="color: #75715E;">' function we defined above?  It takes one</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">argument, a name.  `</span><span style="color: #AE81FF;">mapcar</span><span style="color: #75715E;">' calls `</span><span style="color: #AE81FF;">hello</span><span style="color: #75715E;">', successively using each</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">element of `</span><span style="color: #AE81FF;">list-of-names</span><span style="color: #75715E;">' as the argument for `</span><span style="color: #AE81FF;">hello</span><span style="color: #75715E;">'.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Now let's arrange a bit what we have in the displayed buffer:</span>
-
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">replace-hello-by-bonjour</span> <span style="color: #66D9EF;">()</span>
-    <span style="color: #66D9EF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>goto-char <span style="color: #A6E22E;">(</span>point-min<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span><span style="color: #F92672;">while</span> <span style="color: #A6E22E;">(</span>search-forward <span style="color: #E6DB74;">"Hello"</span><span style="color: #A6E22E;">)</span>
-      <span style="color: #A6E22E;">(</span>replace-match <span style="color: #E6DB74;">"Bonjour"</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>other-window <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">(goto-char (point-min)) goes to the beginning of the buffer.</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">(search-forward "Hello") searches for the string "Hello".</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">(while x y) evaluates the y sexp(s) while x returns something.</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">If x returns `</span><span style="color: #AE81FF;">nil</span><span style="color: #75715E;">' (nothing), we exit the while loop.</span>
-
-<span style="color: #AE81FF;">(</span>replace-hello-by-bonjour<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">You should see all occurrences of "Hello" in the *test* buffer</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">replaced by "Bonjour".</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">You should also get an error: "Search failed: Hello".</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">To avoid this error, you need to tell `</span><span style="color: #AE81FF;">search-forward</span><span style="color: #75715E;">' whether it</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">should stop searching at some point in the buffer, and whether it</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">should silently fail when nothing is found:</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">(search-forward "Hello" nil 't) does the trick:</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">The `</span><span style="color: #AE81FF;">nil</span><span style="color: #75715E;">' argument says: the search is not bound to a position.</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">The `'t' argument says: silently fail when nothing is found.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">We use this sexp in the function below, which doesn't throw an error:</span>
-
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">hello-to-bonjour</span> <span style="color: #66D9EF;">()</span>
-    <span style="color: #66D9EF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>erase-buffer<span style="color: #66D9EF;">)</span>
-    <span style="color: #75715E;">;; </span><span style="color: #75715E;">Say hello to names in `</span><span style="color: #AE81FF;">list-of-names</span><span style="color: #75715E;">'</span>
-    <span style="color: #66D9EF;">(</span>mapcar 'hello list-of-names<span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>goto-char <span style="color: #A6E22E;">(</span>point-min<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #75715E;">;; </span><span style="color: #75715E;">Replace "Hello" by "Bonjour"</span>
-    <span style="color: #66D9EF;">(</span><span style="color: #F92672;">while</span> <span style="color: #A6E22E;">(</span>search-forward <span style="color: #E6DB74;">"Hello"</span> nil 't<span style="color: #A6E22E;">)</span>
-      <span style="color: #A6E22E;">(</span>replace-match <span style="color: #E6DB74;">"Bonjour"</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>other-window <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #AE81FF;">(</span>hello-to-bonjour<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Let's colorize the names:</span>
-
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">boldify-names</span> <span style="color: #66D9EF;">()</span>
-    <span style="color: #66D9EF;">(</span>switch-to-buffer-other-window <span style="color: #E6DB74;">"*test*"</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>goto-char <span style="color: #A6E22E;">(</span>point-min<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span><span style="color: #F92672;">while</span> <span style="color: #A6E22E;">(</span>re-search-forward <span style="color: #E6DB74;">"Bonjour </span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">(</span><span style="color: #E6DB74;">.+</span><span style="color: #AE81FF;">\\</span><span style="color: #E6DB74;">)</span><span style="color: #E6DB74;">!"</span> nil 't<span style="color: #A6E22E;">)</span>
-      <span style="color: #A6E22E;">(</span>add-text-properties <span style="color: #E6DB74;">(</span>match-beginning <span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">)</span>
-                           <span style="color: #E6DB74;">(</span>match-end <span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">)</span>
-                           <span style="color: #E6DB74;">(</span>list 'face 'bold<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>other-window <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">This functions introduces `</span><span style="color: #AE81FF;">re-search-forward</span><span style="color: #75715E;">': instead of</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">searching for the string "Bonjour", you search for a pattern,</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">using a "regular expression" (abbreviated in the prefix "re-").</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">The regular expression is "Bonjour \\(.+\\)!" and it reads:</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">the string "Bonjour ", and</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">a group of            | this is the \\( ... \\) construct</span>
-<span style="color: #75715E;">;;   </span><span style="color: #75715E;">any character       | this is the .</span>
-<span style="color: #75715E;">;;   </span><span style="color: #75715E;">possibly repeated   | this is the +</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">and the "!" string.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Ready?  Test it!</span>
-
-<span style="color: #AE81FF;">(</span>boldify-names<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">`</span><span style="color: #AE81FF;">add-text-properties</span><span style="color: #75715E;">' adds... text properties, like a face.</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">OK, we are done.  Happy hacking!</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">If you want to know more about a variable or a function:</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">C-h v a-variable RET</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">C-h f a-function RET</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">To read the Emacs Lisp manual with Emacs:</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">C-h i m elisp RET</span>
-<span style="color: #75715E;">;;</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">To read an online introduction to Emacs Lisp:</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">https://www.gnu.org/software/emacs/manual/html_node/eintr/index.html</span>
-
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">Thanks to these people for their feedback and suggestions:</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">- Wes Hardaker</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">- notbob</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">- Kevin Montuori</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">- Arne Babenhauserheide</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">- Alan Schmitt</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">- LinXitoW</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">- Aaron Meurer</span>
-</pre>
 </div>
 </div>
-</div>
-<div id="outline-container-orgheadline28" class="outline-4">
-<h4 id="orgheadline28"><span class="section-number-4">4.3.2</span> 插件管理</h4>
-<div class="outline-text-4" id="text-4-3-2">
+
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7">插件管理</h4>
+<div class="outline-text-4" id="text-orgheadline7">
 <p>
 使用默认的插件管理系统（可在菜单栏 <code>Options &gt; Manage Emacs Packages</code> 中找到）安
 装 <a href="http://company-mode.github.io/">Company</a> 插件，他是一个用于代码补全的插件。它的名字代表补全一切的意思（ <b>Comp</b>
@@ -1378,50 +601,54 @@ lete <b>Any</b> thing）。因为默认的插件管理系统提供的插件十�
 <span style="color: #AE81FF;">(</span>global-company-mode <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-<ul class="org-ul">
-<li>navigate in the global company mode <code>M-p M-n</code></li>
-</ul>
 </div>
 </div>
-<div id="outline-container-orgheadline29" class="outline-4">
-<h4 id="orgheadline29"><span class="section-number-4">4.3.3</span> Org-mode</h4>
-<div class="outline-text-4" id="text-4-3-3">
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8">Org-mode</h4>
+<div class="outline-text-4" id="text-orgheadline8">
 <p>
 简单的 Org-mode 使用，它可以列出提纲，并方便地使用 <code>tab</code> 键来对其进行展开与关闭。
 <code>C-c C-t</code> 可以将一个条目转换成一条待办事件。
 </p>
 
 <p>
-#+BEGIN<sub>SRC</sub> emacs-lisp
+#+BEGIN<sub>SRC</sub> org
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline34" class="outline-2">
-<h2 id="orgheadline34"><span class="section-number-2">5</span> 为一级标题</h2>
-<div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">5.1</span> 为二级标题</h3>
-<div class="outline-text-3" id="text-5-1">
-</div><div id="outline-container-orgheadline32" class="outline-4">
-<h4 id="orgheadline32"><span class="section-number-4">5.1.1</span> 为三级标题并以此类推</h4>
-<div class="outline-text-4" id="text-5-1-1">
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11">为一级标题</h2>
+<div class="outline-text-2" id="text-orgheadline11">
+</div><div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10">为二级标题</h3>
+<div class="outline-text-3" id="text-orgheadline10">
+</div><div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9">为三级标题并以此类推</h4>
+<div class="outline-text-4" id="text-orgheadline9">
 <p>
 #+END<sub>SRC</sub>
 </p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12">第二天：高级自定义</h2>
+<div class="outline-text-2" id="text-orgheadline12">
+<p>
+视频地址如下
+</p>
+
 <ul class="org-ul">
-<li><code>C-c C-t</code> insert todo item. <code>C-c C-t</code> on todo item, label DONE.</li>
-<li>[ ], <code>C-c C-c</code> check in the check box.</li>
-<li><code>&lt;s TAB</code> auto complete source code block.</li>
+<li><a href="http://v.youku.com/v_show/id_XMTUxMzQyODI4MA==.html">优酷视频</a></li>
+<li><a href="http://pan.baidu.com/s/1c2Cw9ck">百度网盘</a></li>
+<li><a href="https://youtu.be/aQRZxaU3pAI">YouTube</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline38" class="outline-2">
-<h2 id="orgheadline38"><span class="section-number-2">6</span> 第二天：高级自定义</h2>
-<div class="outline-text-2" id="text-6">
+
 <p>
 <b>说在最前面</b>
 </p>
@@ -1531,9 +758,9 @@ variable）的时候，比如这里的 <code>cursor-type</code> ，我们需要�
 </ul>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">6.1</span> Emacs 也很美</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13">Emacs 也很美</h3>
+<div class="outline-text-3" id="text-orgheadline13">
 <p>
 <b>配置插件源</b>
 </p>
@@ -1752,9 +979,9 @@ variable）的时候，比如这里的 <code>cursor-type</code> ，我们需要�
 </div>
 </div>
 
-<div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">6.2</span> JavaScript IDE</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14">JavaScript IDE</h3>
+<div class="outline-text-3" id="text-orgheadline14">
 <p>
 Emacs 提供的默认 JavaScript Major Mode 并不是非常好用。所以我们可以将默认的模式
 替换成 <a href="https://github.com/mooz/js2-mode">js2-mode</a> 一个比默认模式好用的 Major Mode。我们可以通过 MELPA 来下载它，然
@@ -1839,9 +1066,9 @@ Emacs 提供的默认 JavaScript Major Mode 并不是非常好用。所以我们
 </p>
 </div>
 
-<div id="outline-container-orgheadline36" class="outline-4">
-<h4 id="orgheadline36"><span class="section-number-4">6.2.1</span> Org-mode 进阶</h4>
-<div class="outline-text-4" id="text-6-2-1">
+<div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15">Org-mode 进阶</h4>
+<div class="outline-text-4" id="text-orgheadline15">
 <p>
 在 Org-mode 中你可以直接开启新的缓冲区（Buffer）直接用相应的 Major Mode 来编辑代
 码块内的内容。在代码块中使用 =C-c '= 会直接打开对应模式的缓冲区（不仅限于 Lisp）。
@@ -1904,12 +1131,23 @@ Emacs 提供的默认 JavaScript Major Mode 并不是非常好用。所以我们
 </div>
 </div>
 
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="section-number-2">7</span> 第三天：配置文件模块化（上）</h2>
-<div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39"><span class="section-number-3">7.1</span> 多文件存储配置文件(上)</h3>
-<div class="outline-text-3" id="text-7-1">
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16">第三天：配置文件模块化（上）</h2>
+<div class="outline-text-2" id="text-orgheadline16">
+<p>
+视频地址如下
+</p>
+
+<ul class="org-ul">
+<li><a href="http://v.youku.com/v_show/id_XMTUyNzA0MTMxNg==.html?f=26962151&amp;o=1">优酷视频</a></li>
+<li><a href="http://pan.baidu.com/s/1nuJWyLF">百度网盘</a></li>
+<li><a href="https://www.youtube.com/watch?v=Z83xnsiLtI0&amp;feature=youtu.be">YouTube</a></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17">多文件存储配置文件(上)</h3>
+<div class="outline-text-3" id="text-orgheadline17">
 <p>
 将不同的配置代码放置到不同的文件中，使其模块化，这让我们的后续维护变得更加简单。
 下面是我们现在的 <code>~/.emacs.d/</code> 目录中的样子，
@@ -2122,9 +1360,9 @@ custome.el              # 存放使用编辑器接口产生的配置信息
 </div>
 </div>
 
-<div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40"><span class="section-number-3">7.2</span> Major 与 Minor Mode 详解</h3>
-<div class="outline-text-3" id="text-7-2">
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18">Major 与 Minor Mode 详解</h3>
+<div class="outline-text-3" id="text-orgheadline18">
 <p>
 在这一节我们将详细介绍 Major Mode 与 Minor Mode 去区别。每一个文件类型都对应一个
 Major Mode，它提供语法高亮以及缩进等基本的编辑支持功能，然后而 Minor Mode 则提供
@@ -2154,12 +1392,23 @@ Major Mode，它提供语法高亮以及缩进等基本的编辑支持功能，�
 </div>
 </div>
 
-<div id="outline-container-orgheadline49" class="outline-2">
-<h2 id="orgheadline49"><span class="section-number-2">8</span> 第四天：配置文件模块化（下）以及使用优化</h2>
-<div class="outline-text-2" id="text-8">
-</div><div id="outline-container-orgheadline42" class="outline-3">
-<h3 id="orgheadline42"><span class="section-number-3">8.1</span> 配置文件模块化（下）</h3>
-<div class="outline-text-3" id="text-8-1">
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19">第四天：配置文件模块化（下）以及使用优化</h2>
+<div class="outline-text-2" id="text-orgheadline19">
+<p>
+视频地址如下
+</p>
+
+<ul class="org-ul">
+<li><a href="http://v.youku.com/v_show/id_XMTUzMDAwMDYwMA==.html">优酷视频</a></li>
+<li><a href="http://pan.baidu.com/s/1o8QWrHK">百度网盘</a></li>
+<li><a href="https://www.youtube.com/watch?v=BGecmDgPAiw">YouTube</a></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20">配置文件模块化（下）</h3>
+<div class="outline-text-3" id="text-orgheadline20">
 <p>
 在这一部分我们首先需要知道的是什么是 <code>features</code> 。在 Emacs 中每一个 <code>feature</code> 都
 是一个 Elisp 符号，用于代表一个 Lisp 插件（Package）。
@@ -2197,9 +1446,9 @@ Major Mode，它提供语法高亮以及缩进等基本的编辑支持功能，�
 </div>
 </div>
 
-<div id="outline-container-orgheadline46" class="outline-3">
-<h3 id="orgheadline46"><span class="section-number-3">8.2</span> 更好的默认设置</h3>
-<div class="outline-text-3" id="text-8-2">
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21">更好的默认设置</h3>
+<div class="outline-text-3" id="text-orgheadline21">
 <p>
 在这一节我们会配置我们的编辑器使其有更好的使用体验。整个过程就如同搭积木一般，将
 更好的体验建立在已有的功能基础之上。这样的优化使整个过程变得更高效，也更有趣。
@@ -2264,9 +1513,9 @@ Major Mode，它提供语法高亮以及缩进等基本的编辑支持功能，�
 </div>
 </div>
 
-<div id="outline-container-orgheadline43" class="outline-4">
-<h4 id="orgheadline43"><span class="section-number-4">8.2.1</span> 代码缩进</h4>
-<div class="outline-text-4" id="text-8-2-1">
+<div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22">代码缩进</h4>
+<div class="outline-text-4" id="text-orgheadline22">
 <p>
 <code>indent-region</code> 可以帮我们重新缩进所选区域的代码，但是每一次都选中十分麻烦。使用
 下面的代码可以一次重新缩进全部缓冲区的代码。（之后也会介绍更好用的，代码格式美化
@@ -2304,9 +1553,9 @@ Major Mode，它提供语法高亮以及缩进等基本的编辑支持功能，�
 </div>
 </div>
 
-<div id="outline-container-orgheadline44" class="outline-4">
-<h4 id="orgheadline44"><span class="section-number-4">8.2.2</span> 缩写补全</h4>
-<div class="outline-text-4" id="text-8-2-2">
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23">缩写补全</h4>
+<div class="outline-text-4" id="text-orgheadline23">
 <p>
 使用下面的代码我们可以开启 <code>abbrev</code> 模式并定义一个缩写表，每当我们输入下面的缩写
 并以空格结束时，Emacs 就会将其自动展开成为我们所需要的字符串。
@@ -2330,9 +1579,9 @@ Major Mode，它提供语法高亮以及缩进等基本的编辑支持功能，�
 </div>
 </div>
 
-<div id="outline-container-orgheadline45" class="outline-4">
-<h4 id="orgheadline45"><span class="section-number-4">8.2.3</span> Hippie 补全</h4>
-<div class="outline-text-4" id="text-8-2-3">
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24">Hippie 补全</h4>
+<div class="outline-text-4" id="text-orgheadline24">
 <p>
 Company 有时候补全功能并不是非常理想，这时就可以使用 Hippie Expand 来完成补全。
 Company Mode 补全效果不理想的原因是在不同的区域中会使用不同的后端函数来完成补全，
@@ -2372,9 +1621,9 @@ Company Mode 补全效果不理想的原因是在不同的区域中会使用不�
 </div>
 </div>
 
-<div id="outline-container-orgheadline47" class="outline-3">
-<h3 id="orgheadline47"><span class="section-number-3">8.3</span> Dired Mode</h3>
-<div class="outline-text-3" id="text-8-3">
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25">Dired Mode</h3>
+<div class="outline-text-3" id="text-orgheadline25">
 <p>
 Dired Mode 是一个强大的模式它能让我们完成和文件管理相关的所有操作。
 </p>
@@ -2457,9 +1706,9 @@ Emacs 重用唯一的一个缓冲区作为 Dired Mode 显示专用缓冲区。
 </div>
 </div>
 
-<div id="outline-container-orgheadline48" class="outline-3">
-<h3 id="orgheadline48"><span class="section-number-3">8.4</span> Org-mode 管理 Emacs 配置</h3>
-<div class="outline-text-3" id="text-8-4">
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26">Org-mode 管理 Emacs 配置</h3>
+<div class="outline-text-3" id="text-orgheadline26">
 <p>
 Org-mode 下的文学编程将颠覆你对于 Emacs 的看法。因为我们也可以使用 Org 来管理
 Emacs 的配置文件（笔者和他的师傅其实更倾向于模块管理配置文件）。
@@ -2489,9 +1738,19 @@ Emacs 的配置文件（笔者和他的师傅其实更倾向于模块管理配�
 </div>
 </div>
 
-<div id="outline-container-orgheadline56" class="outline-2">
-<h2 id="orgheadline56"><span class="section-number-2">9</span> 第五天：打造前端开发神器</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgheadline27" class="outline-2">
+<h2 id="orgheadline27">第五天：打造前端开发神器</h2>
+<div class="outline-text-2" id="text-orgheadline27">
+<p>
+视频地址如下
+</p>
+
+<ul class="org-ul">
+<li><a href="http://pan.baidu.com/s/1slOOWSd">百度网盘</a></li>
+<li><a href="http://v.youku.com/v_show/id_XMTU0NjMyNDg5Ng==.html">优酷</a></li>
+<li><a href="https://www.youtube.com/watch?v=BpjwzSB2d00&amp;feature=youtu.be">YouTube</a></li>
+</ul>
+
 <p>
 照例我们先修复一些现在存在的小问题。首先是自动配对的小问题，在 Emacs Lisp 中我们
 有时候只需要一个 ='= 但是 Emacs 很好心的帮我们做了补全，但这并不是我们需要的。我
@@ -2571,9 +1830,9 @@ Lisp 的宏（Macro）类似于 C++ 中的模板，并可以生产新的代码�
 </div>
 </div>
 
-<div id="outline-container-orgheadline50" class="outline-3">
-<h3 id="orgheadline50"><span class="section-number-3">9.1</span> web-mode</h3>
-<div class="outline-text-3" id="text-9-1">
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28">web-mode</h3>
+<div class="outline-text-3" id="text-orgheadline28">
 <p>
 Emacs 自带的 HTML Mode 使用起来并不是那么的方便，而 web-mode 则是一个非常常用也
 很强大的用于编辑前端代码的 Major Mode（你可以在<a href="https://github.com/fxbois/web-mode">这里</a>找到更多关于它的信息）。
@@ -2661,9 +1920,9 @@ Emacs 自带的 HTML Mode 使用起来并不是那么的方便，而 web-mode �
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline51" class="outline-3">
-<h3 id="orgheadline51"><span class="section-number-3">9.2</span> js2-refactor</h3>
-<div class="outline-text-3" id="text-9-2">
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29">js2-refactor</h3>
+<div class="outline-text-3" id="text-orgheadline29">
 <p>
 js2-refactor 是一个用于重构 JavaScript 的插件，它是一个 Minor Mode，你可以在
 <a href="https://github.com/magnars/js2-refactor.el">GitHub</a> 找到更多关于这个插件的信息。
@@ -2691,9 +1950,9 @@ js2-refactor 是一个用于重构 JavaScript 的插件，它是一个 Minor Mod
 </div>
 </div>
 
-<div id="outline-container-orgheadline52" class="outline-3">
-<h3 id="orgheadline52"><span class="section-number-3">9.3</span> 优化 occur 与 imenu</h3>
-<div class="outline-text-3" id="text-9-3">
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30">优化 occur 与 imenu</h3>
+<div class="outline-text-3" id="text-orgheadline30">
 <p>
 下面的代码用于配置 Occur Mode 使其默认搜索当前被选中的或者在光标下的字符串：
 </p>
@@ -2762,9 +2021,9 @@ imenu 可以显示当前所有缓冲区的列表，下面的配置可以让其�
 </div>
 </div>
 
-<div id="outline-container-orgheadline53" class="outline-3">
-<h3 id="orgheadline53"><span class="section-number-3">9.4</span> expand-region</h3>
-<div class="outline-text-3" id="text-9-4">
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31">expand-region</h3>
+<div class="outline-text-3" id="text-orgheadline31">
 <p>
 使用同样的方法将 expand-region 添加至我们的插件列表中，重启 Emacs 安装插件。
 </p>
@@ -2785,9 +2044,9 @@ imenu 可以显示当前所有缓冲区的列表，下面的配置可以让其�
 </div>
 </div>
 
-<div id="outline-container-orgheadline54" class="outline-3">
-<h3 id="orgheadline54"><span class="section-number-3">9.5</span> iedit</h3>
-<div class="outline-text-3" id="text-9-5">
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32">iedit</h3>
+<div class="outline-text-3" id="text-orgheadline32">
 <p>
 iedit 是一个可以同时编辑多个区域的插件，它类似 Sublime Text 中的多光标编辑。它的 GitHub 仓库在<a href="https://github.com/victorhge/iedit">这里</a>。
 </p>
@@ -2808,9 +2067,9 @@ iedit 是一个可以同时编辑多个区域的插件，它类似 Sublime Text 
 </div>
 </div>
 
-<div id="outline-container-orgheadline55" class="outline-3">
-<h3 id="orgheadline55"><span class="section-number-3">9.6</span> Org 导出</h3>
-<div class="outline-text-3" id="text-9-6">
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33">Org 导出</h3>
+<div class="outline-text-3" id="text-orgheadline33">
 <p>
 使用 <code>C-c C-e</code> 可以将 Org-mode 文档导出为你需要的格式，例如 HTML 或者 PDF 文件。
 你现在看到的这本教程就是由 Org-mode 所导出生成的。
@@ -2819,9 +2078,19 @@ iedit 是一个可以同时编辑多个区域的插件，它类似 Sublime Text 
 </div>
 </div>
 
-<div id="outline-container-orgheadline63" class="outline-2">
-<h2 id="orgheadline63"><span class="section-number-2">10</span> 第六天：代码片段与语法检查器</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-orgheadline34" class="outline-2">
+<h2 id="orgheadline34">第六天：代码片段与语法检查器</h2>
+<div class="outline-text-2" id="text-orgheadline34">
+<p>
+视频地址如下
+</p>
+
+<ul class="org-ul">
+<li><a href="http://pan.baidu.com/s/1miLBw5E">百度网盘</a></li>
+<li><a href="http://v.youku.com/v_show/id_XMTU0NjYwNzQ3Mg==.html">优酷</a></li>
+<li><a href="https://www.youtube.com/watch?v=WIzWxTc1KUI&amp;featur">YouTube</a></li>
+</ul>
+
 <p>
 在开始前我们需要注意的是之前模块化的配置文件 <code>init-keybindings.el</code> 应该放在所有
 调用模块的最后面，因为也许在设置快捷键时某些函数还未被加载。
@@ -2842,9 +2111,9 @@ iedit 是一个可以同时编辑多个区域的插件，它类似 Sublime Text 
 </div>
 </div>
 
-<div id="outline-container-orgheadline57" class="outline-3">
-<h3 id="orgheadline57"><span class="section-number-3">10.1</span> Org-mode 进阶使用</h3>
-<div class="outline-text-3" id="text-10-1">
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35">Org-mode 进阶使用</h3>
+<div class="outline-text-3" id="text-orgheadline35">
 <p>
 在学习代码片段和语法检查器（Linter）之前，我们先来学习一下如何使用 Org-mode 来做
 学习笔记和安排工作时间。我们用下面的配置代码来设置一个模板（其中设置了待办事项的
@@ -2929,9 +2198,9 @@ Org-pomodoro 是一个番茄时间工作法的插件（更多关于这个工作�
 </div>
 </div>
 
-<div id="outline-container-orgheadline58" class="outline-3">
-<h3 id="orgheadline58"><span class="section-number-3">10.2</span> 批量修改文件名</h3>
-<div class="outline-text-3" id="text-10-2">
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36">批量修改文件名</h3>
+<div class="outline-text-3" id="text-orgheadline36">
 <p>
 <code>C-x C-q</code> 就可以直接在 Dired Mode 中进行编辑，使用之前学的 iedit-mode 和区域选择
 就可以直接对多个文件进行重命名编辑了。
@@ -2939,9 +2208,9 @@ Org-pomodoro 是一个番茄时间工作法的插件（更多关于这个工作�
 </div>
 </div>
 
-<div id="outline-container-orgheadline59" class="outline-3">
-<h3 id="orgheadline59"><span class="section-number-3">10.3</span> 搜索与替换</h3>
-<div class="outline-text-3" id="text-10-3">
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37">搜索与替换</h3>
+<div class="outline-text-3" id="text-orgheadline37">
 <p>
 全局搜索在我们的编辑工作中是不可缺少的，今天我们介绍的是 ag。它是非常快速的命令
 行搜索工具，它是 Linux 的所有搜索工具中最快的。
@@ -2985,9 +2254,9 @@ pacman -S mingw-w64-x86_64-ag # 64 位电脑
 </div>
 </div>
 
-<div id="outline-container-orgheadline60" class="outline-3">
-<h3 id="orgheadline60"><span class="section-number-3">10.4</span> 语法检查器（Linter）</h3>
-<div class="outline-text-3" id="text-10-4">
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38">语法检查器（Linter）</h3>
+<div class="outline-text-3" id="text-orgheadline38">
 <p>
 语法检查器可以在开发动态语言（Interpreted/Dynamic Programming Language）时极大的
 提高你的开发效率，它会实时的检查你的代码并将句法错误（Syntax Error）与静态语义
@@ -3024,9 +2293,9 @@ eslint 检查器的配置也可以使用项目目录下的 <code>.eslintrc</code
 </div>
 </div>
 
-<div id="outline-container-orgheadline62" class="outline-3">
-<h3 id="orgheadline62"><span class="section-number-3">10.5</span> 代码块</h3>
-<div class="outline-text-3" id="text-10-5">
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39">代码块</h3>
+<div class="outline-text-3" id="text-orgheadline39">
 <p>
 <code>yasnippet</code> 是一个代码块补全的插件（<a href="https://github.com/capitaomorte/yasnippet">GitHub</a> 地址）。使用下面的配置文件将其在所有
 的编程语言的模式中激活。
@@ -3044,9 +2313,9 @@ eslint 检查器的配置也可以使用项目目录下的 <code>.eslintrc</code
 </p>
 </div>
 
-<div id="outline-container-orgheadline61" class="outline-4">
-<h4 id="orgheadline61"><span class="section-number-4">10.5.1</span> auto-yasnippet</h4>
-<div class="outline-text-4" id="text-10-5-1">
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40">auto-yasnippet</h4>
+<div class="outline-text-4" id="text-orgheadline40">
 <p>
 <a href="https://github.com/abo-abo/auto-yasnippet">auto-yasnippet</a> 也是一个非常好用代码块补全插件。安装并未其设置快捷键，
 </p>
@@ -3065,9 +2334,19 @@ eslint 检查器的配置也可以使用项目目录下的 <code>.eslintrc</code
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline72" class="outline-2">
-<h2 id="orgheadline72"><span class="section-number-2">11</span> 第七天：Evil 模式</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-orgheadline41" class="outline-2">
+<h2 id="orgheadline41">第七天：Evil 模式</h2>
+<div class="outline-text-2" id="text-orgheadline41">
+<p>
+视频地址如下，
+</p>
+
+<ul class="org-ul">
+<li><a href="http://pan.baidu.com/s/1dEIlXID">百度网盘</a></li>
+<li><a href="http://v.youku.com/v_show/id_XMTU1NTk4MzUyNA==.html">优酷</a></li>
+<li><a href="https://www.youtube.com/watch?v=I_wU_-al6TY&amp;feature=youtu.be">YouTube</a></li>
+</ul>
+
 <p>
 开始之前我们先将 <code>C-w</code> 来使其可以向后删除一个单词，这样就可以与 Shell 中的快捷键操作同步。
 </p>
@@ -3101,9 +2380,9 @@ Evil 模式中的 State 就相当与 Vim 中的模式，常用的模式有下面
 </p>
 </div>
 
-<div id="outline-container-orgheadline64" class="outline-3">
-<h3 id="orgheadline64"><span class="section-number-3">11.1</span> Evil 的安装</h3>
-<div class="outline-text-3" id="text-11-1">
+<div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42">Evil 的安装</h3>
+<div class="outline-text-3" id="text-orgheadline42">
 <p>
 照例我们需要将 Evil 插件添加至我们的插件列表中来完成安装。在重启 Emacs 完成安装
 后可以添加下面的代码将其激活。
@@ -3145,12 +2424,12 @@ Emacs State 中，这样我们之前的 Emacs State 里面定义的 <code>C-w</c
 </div>
 </div>
 
-<div id="outline-container-orgheadline70" class="outline-3">
-<h3 id="orgheadline70"><span class="section-number-3">11.2</span> Evil 模式插件</h3>
-<div class="outline-text-3" id="text-11-2">
-</div><div id="outline-container-orgheadline65" class="outline-4">
-<h4 id="orgheadline65"><span class="section-number-4">11.2.1</span> Leader Key</h4>
-<div class="outline-text-4" id="text-11-2-1">
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48">Evil 模式插件</h3>
+<div class="outline-text-3" id="text-orgheadline48">
+</div><div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43">Leader Key</h4>
+<div class="outline-text-4" id="text-orgheadline43">
 <p>
 在 Emacs 中使用 Leader Key 可以通过 <a href="https://github.com/cofi/evil-leader">evil-leader</a> 来实现。你需要做的就是在安装后将其激活即可。
 </p>
@@ -3200,9 +2479,9 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 </div>
 </div>
 
-<div id="outline-container-orgheadline66" class="outline-4">
-<h4 id="orgheadline66"><span class="section-number-4">11.2.2</span> Window-numbering</h4>
-<div class="outline-text-4" id="text-11-2-2">
+<div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44">Window-numbering</h4>
+<div class="outline-text-4" id="text-orgheadline44">
 <p>
 这个插件可以让我们快速的使用 Leader Key 与数字键的组合来在多个窗口之间进行跳转。
 它的 GitHub 地址可以在<a href="https://github.com/nschum/window-numbering.el">这里</a>找到。
@@ -3220,9 +2499,9 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 </div>
 </div>
 
-<div id="outline-container-orgheadline67" class="outline-4">
-<h4 id="orgheadline67"><span class="section-number-4">11.2.3</span> Evil-Surround</h4>
-<div class="outline-text-4" id="text-11-2-3">
+<div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45">Evil-Surround</h4>
+<div class="outline-text-4" id="text-orgheadline45">
 <p>
 <a href="https://github.com/timcharper/evil-surround">Evil-surround</a> 是一个 Vim 上非常常用的插件改写的，使用它可以快速的将选中区域进行
 匹配的操作，例如选中区域两边同时进行添加或修改括号，引号等操作。
@@ -3247,9 +2526,9 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 </div>
 
 
-<div id="outline-container-orgheadline68" class="outline-4">
-<h4 id="orgheadline68"><span class="section-number-4">11.2.4</span> Evil-nerd-commenter</h4>
-<div class="outline-text-4" id="text-11-2-4">
+<div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46">Evil-nerd-commenter</h4>
+<div class="outline-text-4" id="text-orgheadline46">
 <p>
 这是一个快速添加与取消注释的插件，它的 GitHub 地址在<a href="https://github.com/redguardtoo/evil-nerd-commenter">这里</a>。
 </p>
@@ -3277,9 +2556,9 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 </div>
 </div>
 
-<div id="outline-container-orgheadline69" class="outline-4">
-<h4 id="orgheadline69"><span class="section-number-4">11.2.5</span> Which-key</h4>
-<div class="outline-text-4" id="text-11-2-5">
+<div id="outline-container-orgheadline47" class="outline-4">
+<h4 id="orgheadline47">Which-key</h4>
+<div class="outline-text-4" id="text-orgheadline47">
 <p>
 <a href="https://github.com/justbur/emacs-which-key">which-key</a> 可以显示当前组合键下所有可以使用的全部组合键的选项。使用这个插件可以很
 好的解决快捷键太多的问题，我们无需在记忆任何快捷键，而是根据自己的需求使用不同分
@@ -3299,9 +2578,9 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 </div>
 </div>
 
-<div id="outline-container-orgheadline71" class="outline-3">
-<h3 id="orgheadline71"><span class="section-number-3">11.3</span> Org Mode 中的搜索</h3>
-<div class="outline-text-3" id="text-11-3">
+<div id="outline-container-orgheadline49" class="outline-3">
+<h3 id="orgheadline49">Org Mode 中的搜索</h3>
+<div class="outline-text-3" id="text-orgheadline49">
 <p>
 <code>C-c a</code> 中可以根据提示使用 <code>s</code> 来进行关键字所搜。使用 <code>t</code> 则可以进行代办事项的搜索。
 </p>
@@ -3312,9 +2591,19 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 
 
 
-<div id="outline-container-orgheadline78" class="outline-2">
-<h2 id="orgheadline78"><span class="section-number-2">12</span> 第八天：Cask 介绍与实践</h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-orgheadline50" class="outline-2">
+<h2 id="orgheadline50">第八天：Cask 介绍与实践</h2>
+<div class="outline-text-2" id="text-orgheadline50">
+<p>
+视频地址如下:
+</p>
+
+<ul class="org-ul">
+<li><a href="http://pan.baidu.com/s/1o83r1vc">百度网盘</a></li>
+<li><a href="http://v.youku.com/v_show/id_XMTU3MzEyNDkxNg==.html">优酷</a></li>
+<li><a href="https://www.youtube.com/watch?v=BJxEZGmypS0&amp;index=2&amp;list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG">YouTube</a></li>
+</ul>
+
 <p>
 什么是 Cask:
 </p>
@@ -3324,9 +2613,9 @@ Cask 是一个 Emacs Lisp 的项目管理工具.
 </p>
 </div>
 
-<div id="outline-container-orgheadline73" class="outline-3">
-<h3 id="orgheadline73"><span class="section-number-3">12.1</span> Cask 的安装</h3>
-<div class="outline-text-3" id="text-12-1">
+<div id="outline-container-orgheadline51" class="outline-3">
+<h3 id="orgheadline51">Cask 的安装</h3>
+<div class="outline-text-3" id="text-orgheadline51">
 <p>
 Cask 的地址: <a href="https://github.com/cask/cask">Cask</a>
 </p>
@@ -3388,9 +2677,9 @@ Cask 的地址: <a href="https://github.com/cask/cask">Cask</a>
 </div>
 </div>
 
-<div id="outline-container-orgheadline74" class="outline-3">
-<h3 id="orgheadline74"><span class="section-number-3">12.2</span> 为何使用 Cask</h3>
-<div class="outline-text-3" id="text-12-2">
+<div id="outline-container-orgheadline52" class="outline-3">
+<h3 id="orgheadline52">为何使用 Cask</h3>
+<div class="outline-text-3" id="text-orgheadline52">
 <ul class="org-ul">
 <li>使用 Cask 文件保存包的信息, 可以通过 <b>Cask install</b> 自动安装</li>
 <li>当有多个版本的 Emacs 时, 将各版本的包单独存放</li>
@@ -3398,12 +2687,12 @@ Cask 的地址: <a href="https://github.com/cask/cask">Cask</a>
 </div>
 </div>
 
-<div id="outline-container-orgheadline77" class="outline-3">
-<h3 id="orgheadline77"><span class="section-number-3">12.3</span> 故障排除</h3>
-<div class="outline-text-3" id="text-12-3">
-</div><div id="outline-container-orgheadline75" class="outline-4">
-<h4 id="orgheadline75"><span class="section-number-4">12.3.1</span> Emacs24.5 时不能安装 <b>let-alist</b></h4>
-<div class="outline-text-4" id="text-12-3-1">
+<div id="outline-container-orgheadline55" class="outline-3">
+<h3 id="orgheadline55">故障排除</h3>
+<div class="outline-text-3" id="text-orgheadline55">
+</div><div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53">Emacs24.5 时不能安装 <b>let-alist</b></h4>
+<div class="outline-text-4" id="text-orgheadline53">
 <p>
 解决方案: 将 Gnu 的源加入源列表中, 示例代码如下(加入 Cask 文件)
 </p>
@@ -3416,9 +2705,9 @@ Cask 的地址: <a href="https://github.com/cask/cask">Cask</a>
 </div>
 </div>
 
-<div id="outline-container-orgheadline76" class="outline-4">
-<h4 id="orgheadline76"><span class="section-number-4">12.3.2</span> 在 Emacs24.5 中没有定义 define-advice</h4>
-<div class="outline-text-4" id="text-12-3-2">
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54">在 Emacs24.5 中没有定义 define-advice</h4>
+<div class="outline-text-4" id="text-orgheadline54">
 <p>
 define-advice 是一个 Emacs25 中加入的宏, 在 Emacs24 中不能使用, 可以使用
 <b>defadvice</b> 代替:
@@ -3448,20 +2737,30 @@ defadvice 可以.
 </div>
 </div>
 
-<div id="outline-container-orgheadline91" class="outline-2">
-<h2 id="orgheadline91"><span class="section-number-2">13</span> 第九天：Macro 与 Use-package</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-orgheadline56" class="outline-2">
+<h2 id="orgheadline56">第九天：Macro 与 Use-package</h2>
+<div class="outline-text-2" id="text-orgheadline56">
+<p>
+视频地址如下:
+</p>
+
+<ul class="org-ul">
+<li><a href="http://pan.baidu.com/s/1c1Gnkcw">百度网盘</a></li>
+<li><a href="http://v.youku.com/v_show/id_XMTU4MDU2NjE3Ng==.html">优酷</a></li>
+<li><a href="https://www.youtube.com/watch?v=BmYtd0QHgSg&amp;index=1&amp;list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG">YouTube</a></li>
+</ul>
+
 <p>
 这次主要介绍 Emacs Lisp 中的宏(Macro)以及 Use-package 插件.
 </p>
 </div>
 
-<div id="outline-container-orgheadline82" class="outline-3">
-<h3 id="orgheadline82"><span class="section-number-3">13.1</span> Macro</h3>
-<div class="outline-text-3" id="text-13-1">
-</div><div id="outline-container-orgheadline79" class="outline-4">
-<h4 id="orgheadline79"><span class="section-number-4">13.1.1</span> 什么是 Macro</h4>
-<div class="outline-text-4" id="text-13-1-1">
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60">Macro</h3>
+<div class="outline-text-3" id="text-orgheadline60">
+</div><div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57">什么是 Macro</h4>
+<div class="outline-text-4" id="text-orgheadline57">
 <p>
 宏是一种可以生成代码的代码. 类比与 C 语言中的宏以及 C++中的模板. 先看一个简单的例子:
 </p>
@@ -3504,9 +2803,9 @@ defadvice 可以.
 </div>
 </div>
 
-<div id="outline-container-orgheadline80" class="outline-4">
-<h4 id="orgheadline80"><span class="section-number-4">13.1.2</span> backquote</h4>
-<div class="outline-text-4" id="text-13-1-2">
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58">backquote</h4>
+<div class="outline-text-4" id="text-orgheadline58">
 <p>
 backquote 是指反引号(`), 即键盘上数字 1 左边的键.
 </p>
@@ -3622,9 +2921,9 @@ backquote 的作用与 quote 相似, 同样不对后面的表达式求值, 但�
 </div>
 </div>
 
-<div id="outline-container-orgheadline81" class="outline-4">
-<h4 id="orgheadline81"><span class="section-number-4">13.1.3</span> 为什么使用宏</h4>
-<div class="outline-text-4" id="text-13-1-3">
+<div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59">为什么使用宏</h4>
+<div class="outline-text-4" id="text-orgheadline59">
 <p>
 使用宏可以减少重复的代码, 以下是一个使用宏来定义函数的例子:
 </p>
@@ -3698,12 +2997,12 @@ prelude-duckduckgo
 </div>
 
 
-<div id="outline-container-orgheadline90" class="outline-3">
-<h3 id="orgheadline90"><span class="section-number-3">13.2</span> Use-package</h3>
-<div class="outline-text-3" id="text-13-2">
-</div><div id="outline-container-orgheadline83" class="outline-4">
-<h4 id="orgheadline83"><span class="section-number-4">13.2.1</span> 简介</h4>
-<div class="outline-text-4" id="text-13-2-1">
+<div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68">Use-package</h3>
+<div class="outline-text-3" id="text-orgheadline68">
+</div><div id="outline-container-orgheadline61" class="outline-4">
+<h4 id="orgheadline61">简介</h4>
+<div class="outline-text-4" id="text-orgheadline61">
 <p>
 Use-package 是一个宏, 它能让你将一个包的 <b>require</b> 和它的相关的初始化等配置组织
 在一起, 避免对同一个包的配置代码散落在不同的文件中.
@@ -3715,10 +3014,12 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 </div>
 </div>
 
-<div id="outline-container-orgheadline88" class="outline-4">
-<h4 id="orgheadline88"><span class="section-number-4">13.2.2</span> 一些简单的用法</h4>
-<div class="outline-text-4" id="text-13-2-2">
-</div><ol class="org-ol"><li><a id="orgheadline84"></a>更安全的 require<br  /><div class="outline-text-5" id="text-13-2-2-1">
+<div id="outline-container-orgheadline66" class="outline-4">
+<h4 id="orgheadline66">一些简单的用法</h4>
+<div class="outline-text-4" id="text-orgheadline66">
+</div><div id="outline-container-orgheadline62" class="outline-5">
+<h5 id="orgheadline62">更安全的 require</h5>
+<div class="outline-text-5" id="text-orgheadline62">
 <p>
 在 Emacs 中, 当我们要引入一个包时, 通常会使用以下代码:
 </p>
@@ -3759,9 +3060,12 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 可以看到, <b>Use-package</b> 使用 <b>ignore</b> 来避免抛出错误, 这样当某个包不存在时,
 <b>eamcs</b> 也能够正常启动.
 </p>
-</div></li>
+</div>
+</div>
 
-<li><a id="orgheadline85"></a>将配置集中<br  /><div class="outline-text-5" id="text-13-2-2-2">
+<div id="outline-container-orgheadline63" class="outline-5">
+<h5 id="orgheadline63">将配置集中</h5>
+<div class="outline-text-5" id="text-orgheadline63">
 <p>
 当我们引入某个包时, 有可能需要定义一些与这个包相关的变量, 使用 <b>Use-package</b> 实
 现这个需求如下:
@@ -3792,9 +3096,12 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 <p>
 <b>init</b> 与 <b>config</b> 之后只能接单个表达式语句, 如果需要执行多个语句, 可以用 <b>progn</b> .
 </p>
-</div></li>
+</div>
+</div>
 
-<li><a id="orgheadline86"></a>autoload<br  /><div class="outline-text-5" id="text-13-2-2-3">
+<div id="outline-container-orgheadline64" class="outline-5">
+<h5 id="orgheadline64">autoload</h5>
+<div class="outline-text-5" id="text-orgheadline64">
 <p>
 使用 require 时会引入这个包, 但是当你的包很多时会影响启动速度. 而使用 autoload
 则可以在真正需要这个包时再 require, 提高启动速度, 避免无谓的 require.
@@ -3819,9 +3126,12 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 存在, 如果存在则在 <b>package-name</b> 的路径下加载. <b>defer</b> 也可以让 <b>package-name</b>
 进行延迟加载.
 </p>
-</div></li>
+</div>
+</div>
 
-<li><a id="orgheadline87"></a>键绑定<br  /><div class="outline-text-5" id="text-13-2-2-4">
+<div id="outline-container-orgheadline65" class="outline-5">
+<h5 id="orgheadline65">键绑定</h5>
+<div class="outline-text-5" id="text-orgheadline65">
 <p>
 在之前的代码中, 如果我们需要绑定一个键, 需要使用 <b>global-key-bind</b> 或
 <b>define-key</b> 实现, 而使用*Use-package* 实现更简单:
@@ -3841,14 +3151,15 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
   <span style="color: #66D9EF;">(</span><span style="color: #F92672;">use-package</span> <span style="color: #AE81FF;">moccur-edit</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-</div></li></ol>
+</div>
+</div>
 </div>
 
 
 
-<div id="outline-container-orgheadline89" class="outline-4">
-<h4 id="orgheadline89"><span class="section-number-4">13.2.3</span> 为什么使用 Use-package</h4>
-<div class="outline-text-4" id="text-13-2-3">
+<div id="outline-container-orgheadline67" class="outline-4">
+<h4 id="orgheadline67">为什么使用 Use-package</h4>
+<div class="outline-text-4" id="text-orgheadline67">
 <ol class="org-ol">
 <li>Use-package 能让相关的配置更为集中, 避免配置分散带来的维护困难</li>
 <li>Use-package 有完善的错误处理, 使配置代码更为健壮</li>
@@ -3859,9 +3170,19 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 </div>
 </div>
 
-<div id="outline-container-orgheadline98" class="outline-2">
-<h2 id="orgheadline98"><span class="section-number-2">14</span> 第十天: Company-mode 与 auto-completion</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-orgheadline69" class="outline-2">
+<h2 id="orgheadline69">第十天: Company-mode 与 auto-completion</h2>
+<div class="outline-text-2" id="text-orgheadline69">
+<p>
+视频地址如下:
+</p>
+
+<ul class="org-ul">
+<li><a href="http://pan.baidu.com/s/1hsyfnXq">百度网盘</a></li>
+<li><a href="http://v.youku.com/v_show/id_XMTYwMzc0NDg0OA==.html">优酷</a></li>
+<li><a href="https://www.youtube.com/watch?v=c5ggww2WMAs">YouTube</a></li>
+</ul>
+
 <p>
 内容概要:
 </p>
@@ -3881,9 +3202,9 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 </ol>
 </div>
 
-<div id="outline-container-orgheadline92" class="outline-3">
-<h3 id="orgheadline92"><span class="section-number-3">14.1</span> 升级 Package 之后有 BUG 怎么办</h3>
-<div class="outline-text-3" id="text-14-1">
+<div id="outline-container-orgheadline70" class="outline-3">
+<h3 id="orgheadline70">升级 Package 之后有 BUG 怎么办</h3>
+<div class="outline-text-3" id="text-orgheadline70">
 <p>
 有些时候我们将一个 Package 升级到最新的版本(例如 github 上最新的 commit), 而该版本可能会存在一些 BUG, 这就会导致我们的配置不能使用.
 </p>
@@ -3915,9 +3236,9 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 </div>
 </div>
 
-<div id="outline-container-orgheadline93" class="outline-3">
-<h3 id="orgheadline93"><span class="section-number-3">14.2</span> Use-package 的更多用法</h3>
-<div class="outline-text-3" id="text-14-2">
+<div id="outline-container-orgheadline71" class="outline-3">
+<h3 id="orgheadline71">Use-package 的更多用法</h3>
+<div class="outline-text-3" id="text-orgheadline71">
 <p>
 如果我们启用 <b>exec-path-from-shell</b> , 在 emacs 启动时可能会提示 <b>PATH</b> 变量重复定义, 解决方案如下:
 </p>
@@ -3959,9 +3280,9 @@ ensure 子句来确保 Package 被安装. 如果要使用 stable 版, 则添加�
 </div>
 </div>
 
-<div id="outline-container-orgheadline94" class="outline-3">
-<h3 id="orgheadline94"><span class="section-number-3">14.3</span> Company-mode 的工作原理</h3>
-<div class="outline-text-3" id="text-14-3">
+<div id="outline-container-orgheadline72" class="outline-3">
+<h3 id="orgheadline72">Company-mode 的工作原理</h3>
+<div class="outline-text-3" id="text-orgheadline72">
 <p>
 Company-mode 需要配合后端使用, 所有的 backend 都保存在 <b>company-backends</b> 这个变量中, 例如在我的环境中该变量值如下:
 </p>
@@ -4003,9 +3324,9 @@ Company-mode 会依次调用该变量中的 backend, 并判断该 backend 是否
 </div>
 </div>
 
-<div id="outline-container-orgheadline95" class="outline-3">
-<h3 id="orgheadline95"><span class="section-number-3">14.4</span> 为什么有时 Python 的补全 不工作</h3>
-<div class="outline-text-3" id="text-14-4">
+<div id="outline-container-orgheadline73" class="outline-3">
+<h3 id="orgheadline73">为什么有时 Python 的补全 不工作</h3>
+<div class="outline-text-3" id="text-orgheadline73">
 <p>
 有时在编写 Python 代码的时候补全不能工作, 这时我们可以先查看 <b>company-backends</b> 的值, 查看是否需要安装 <b>company-anaconda</b> 用于补全.
 </p>
@@ -4060,9 +3381,9 @@ Company-mode 会依次调用该变量中的 backend, 并判断该 backend 是否
 </div>
 </div>
 
-<div id="outline-container-orgheadline96" class="outline-3">
-<h3 id="orgheadline96"><span class="section-number-3">14.5</span> Group Backend</h3>
-<div class="outline-text-3" id="text-14-5">
+<div id="outline-container-orgheadline74" class="outline-3">
+<h3 id="orgheadline74">Group Backend</h3>
+<div class="outline-text-3" id="text-orgheadline74">
 <p>
 company-dabbrev-code: 类似于 company-dabbrev, 但是 dabbrev 对代码和注释都进行补全, dabbrev-code 只补全代码.
 </p>
@@ -4087,9 +3408,9 @@ company-dabbrev-code: 类似于 company-dabbrev, 但是 dabbrev 对代码和注�
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline97" class="outline-3">
-<h3 id="orgheadline97"><span class="section-number-3">14.6</span> 怎样写一个简单的补全后端</h3>
-<div class="outline-text-3" id="text-14-6">
+<div id="outline-container-orgheadline75" class="outline-3">
+<h3 id="orgheadline75">怎样写一个简单的补全后端</h3>
+<div class="outline-text-3" id="text-orgheadline75">
 <p>
 因为视频时间关系, 大家可以去阅读以下文章:
 </p>
@@ -4113,9 +3434,19 @@ company-dabbrev-code: 类似于 company-dabbrev, 但是 dabbrev 对代码和注�
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline109" class="outline-2">
-<h2 id="orgheadline109"><span class="section-number-2">15</span> 第十一天: Spacemacs 简介及安装</h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-orgheadline76" class="outline-2">
+<h2 id="orgheadline76">第十一天: Spacemacs 简介及安装</h2>
+<div class="outline-text-2" id="text-orgheadline76">
+<p>
+视频地址如下:
+</p>
+
+<ul class="org-ul">
+<li><a href="http://pan.baidu.com/s/1eRTHBLC">百度网盘</a></li>
+<li><a href="http://v.youku.com/v_show/id_XMTYxMzYyNjc4MA==.html">优酷</a></li>
+<li><a href="https://www.youtube.com/watch?v=JP_RQQfm-vY&amp;list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG&amp;index=11">Youtube</a></li>
+</ul>
+
 <p>
 从今天的内容开始介绍 Spacemacs. 地址: <a href="https://github.com/syl20bnr/spacemacs">Spacemacs</a>
 </p>
@@ -4131,9 +3462,9 @@ company-dabbrev-code: 类似于 company-dabbrev, 但是 dabbrev 对代码和注�
 </ol>
 </div>
 
-<div id="outline-container-orgheadline99" class="outline-3">
-<h3 id="orgheadline99"><span class="section-number-3">15.1</span> 安装 Spacemacs</h3>
-<div class="outline-text-3" id="text-15-1">
+<div id="outline-container-orgheadline77" class="outline-3">
+<h3 id="orgheadline77">安装 Spacemacs</h3>
+<div class="outline-text-3" id="text-orgheadline77">
 <p>
 安装 Spacemacs 非常简单, 只需要将 github 上的仓库克隆即可, 即执行以下命令(如有必要可以先备份以前的配置):
 </p>
@@ -4202,9 +3533,9 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 </div>
 </div>
 
-<div id="outline-container-orgheadline100" class="outline-3">
-<h3 id="orgheadline100"><span class="section-number-3">15.2</span> 添加内置的 layer</h3>
-<div class="outline-text-3" id="text-15-2">
+<div id="outline-container-orgheadline78" class="outline-3">
+<h3 id="orgheadline78">添加内置的 layer</h3>
+<div class="outline-text-3" id="text-orgheadline78">
 <p>
 在安装完成 Spacemacs 之后, 按下 <b>SPC f e d</b> 打开 ~/.spacemacs 文件, 修改 <b>dotspacemacs-configuration-layers</b> 变量的值,
 将 auto-completion, better-defaults, emacs-lisp, git, markdown, org, spell-checking, syntax-checking 等 layer 加入列表.
@@ -4216,12 +3547,12 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 </div>
 </div>
 
-<div id="outline-container-orgheadline108" class="outline-3">
-<h3 id="orgheadline108"><span class="section-number-3">15.3</span> 一些简单的配置</h3>
-<div class="outline-text-3" id="text-15-3">
-</div><div id="outline-container-orgheadline101" class="outline-4">
-<h4 id="orgheadline101"><span class="section-number-4">15.3.1</span> 启动时全屏显示</h4>
-<div class="outline-text-4" id="text-15-3-1">
+<div id="outline-container-orgheadline86" class="outline-3">
+<h3 id="orgheadline86">一些简单的配置</h3>
+<div class="outline-text-3" id="text-orgheadline86">
+</div><div id="outline-container-orgheadline79" class="outline-4">
+<h4 id="orgheadline79">启动时全屏显示</h4>
+<div class="outline-text-4" id="text-orgheadline79">
 <p>
 在 dotspacemacs/init 函数中, 将 dotspacemacs-fullscreen-at-startup 变量设置为 t 即可. 代码如下:
 </p>
@@ -4237,27 +3568,27 @@ dotspacemacs-maximized-at-startup t
 </div>
 </div>
 
-<div id="outline-container-orgheadline102" class="outline-4">
-<h4 id="orgheadline102"><span class="section-number-4">15.3.2</span> ivy layer</h4>
-<div class="outline-text-4" id="text-15-3-2">
+<div id="outline-container-orgheadline80" class="outline-4">
+<h4 id="orgheadline80">ivy layer</h4>
+<div class="outline-text-4" id="text-orgheadline80">
 <p>
 将 ivy 加入 <b>dotspacemacs-configuration-layers</b> 列表中. 按下 <b>CTRL s</b> 使用 swiper 可以进行搜索.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline103" class="outline-4">
-<h4 id="orgheadline103"><span class="section-number-4">15.3.3</span> 查看 layer 下的 文档信息</h4>
-<div class="outline-text-4" id="text-15-3-3">
+<div id="outline-container-orgheadline81" class="outline-4">
+<h4 id="orgheadline81">查看 layer 下的 文档信息</h4>
+<div class="outline-text-4" id="text-orgheadline81">
 <p>
 按下 <b>SPC h SPC</b> 即会弹出一个信息窗口, 可以从窗口中选择具体的 layer 或者其他信息进行查看.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline104" class="outline-4">
-<h4 id="orgheadline104"><span class="section-number-4">15.3.4</span> 删除安装的 package</h4>
-<div class="outline-text-4" id="text-15-3-4">
+<div id="outline-container-orgheadline82" class="outline-4">
+<h4 id="orgheadline82">删除安装的 package</h4>
+<div class="outline-text-4" id="text-orgheadline82">
 <p>
 只需要将需要删除的 package 名称加入到 <b>dotspacemacs-excluded-packages</b> 变量中, 在下一次启动 emacs 时即会删除该 package.
 示例代码如下:
@@ -4272,9 +3603,9 @@ dotspacemacs-excluded-packages '<span style="color: #AE81FF;">(</span>vi-tilde-f
 </div>
 </div>
 
-<div id="outline-container-orgheadline105" class="outline-4">
-<h4 id="orgheadline105"><span class="section-number-4">15.3.5</span> 安装 package</h4>
-<div class="outline-text-4" id="text-15-3-5">
+<div id="outline-container-orgheadline83" class="outline-4">
+<h4 id="orgheadline83">安装 package</h4>
+<div class="outline-text-4" id="text-orgheadline83">
 <p>
 在 Spacemacs 中安装 package 时最好不要使用 <b>package-install</b>, 因为这样安装的 package 会在下一次启动时被删除.
 </p>
@@ -4295,9 +3626,9 @@ dotspacemacs-additional-packages '<span style="color: #AE81FF;">(</span>youdao-d
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline106" class="outline-4">
-<h4 id="orgheadline106"><span class="section-number-4">15.3.6</span> 配置 customize-group</h4>
-<div class="outline-text-4" id="text-15-3-6">
+<div id="outline-container-orgheadline84" class="outline-4">
+<h4 id="orgheadline84">配置 customize-group</h4>
+<div class="outline-text-4" id="text-orgheadline84">
 <p>
 如果使用 customize-group 对配置进行了修改, 你可以以下代码将生成的 <b>custom.el</b> 配置文件纳入 ~/.spacemacs.d 目录中进行统一管理:
 </p>
@@ -4311,9 +3642,9 @@ dotspacemacs-additional-packages '<span style="color: #AE81FF;">(</span>youdao-d
 </div>
 </div>
 
-<div id="outline-container-orgheadline107" class="outline-4">
-<h4 id="orgheadline107"><span class="section-number-4">15.3.7</span> 修改主题</h4>
-<div class="outline-text-4" id="text-15-3-7">
+<div id="outline-container-orgheadline85" class="outline-4">
+<h4 id="orgheadline85">修改主题</h4>
+<div class="outline-text-4" id="text-orgheadline85">
 <p>
 只需修改 <b>dotspacemacs-themes</b> 变量的值, 将主题加入列表即可. 在列表中靠前的主题会优先使用.
 示例代码如下:
@@ -4341,9 +3672,19 @@ dotspacemacs-themes '<span style="color: #AE81FF;">(</span>
 </div>
 </div>
 
-<div id="outline-container-orgheadline115" class="outline-2">
-<h2 id="orgheadline115"><span class="section-number-2">16</span> 第十二天: 创建你的第一个 Spacemacs Layer</h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-orgheadline87" class="outline-2">
+<h2 id="orgheadline87">第十二天: 创建你的第一个 Spacemacs Layer</h2>
+<div class="outline-text-2" id="text-orgheadline87">
+<p>
+视频地址如下:
+</p>
+
+<ul class="org-ul">
+<li><a href="http://pan.baidu.com/s/1mi1vZTI">百度网盘</a></li>
+<li><a href="http://v.youku.com/v_show/id_XMTYyODgxNjU0OA==.html">优酷</a></li>
+<li><a href="https://www.youtube.com/watch?v=pSIM1P8i2LU&amp;index=10&amp;list=PL-61yFRAEMlXDnsm3VHfrAm4oT6vVylRG">YouTube</a></li>
+</ul>
+
 <p>
 主要内容:
 </p>
@@ -4357,9 +3698,9 @@ dotspacemacs-themes '<span style="color: #AE81FF;">(</span>
 </ol>
 </div>
 
-<div id="outline-container-orgheadline110" class="outline-3">
-<h3 id="orgheadline110"><span class="section-number-3">16.1</span> 如何更新 Sapcemacs</h3>
-<div class="outline-text-3" id="text-16-1">
+<div id="outline-container-orgheadline88" class="outline-3">
+<h3 id="orgheadline88">如何更新 Sapcemacs</h3>
+<div class="outline-text-3" id="text-orgheadline88">
 <p>
 可以通过 git 的方式来更新代码, 假设我们使用的是 develop 分支:
 </p>
@@ -4378,9 +3719,9 @@ git merge upstream/develop
 </div>
 </div>
 
-<div id="outline-container-orgheadline111" class="outline-3">
-<h3 id="orgheadline111"><span class="section-number-3">16.2</span> variables 变量</h3>
-<div class="outline-text-3" id="text-16-2">
+<div id="outline-container-orgheadline89" class="outline-3">
+<h3 id="orgheadline89">variables 变量</h3>
+<div class="outline-text-3" id="text-orgheadline89">
 <p>
 每一个 layer 都可以配置一些变量, 可以通过 <b>SPC h SPC</b> 然后输入 layer 名称, 点击对应的选项即可打开该 layer 的 README.org 文件.
 然后按下 SPC f j 进入 dired 模式, 选择 config.el 文件打开, 该文件中即定义了该 layer 的变量.
@@ -4417,9 +3758,9 @@ git merge upstream/develop
 </div>
 </div>
 
-<div id="outline-container-orgheadline112" class="outline-3">
-<h3 id="orgheadline112"><span class="section-number-3">16.3</span> 定制 modeline</h3>
-<div class="outline-text-3" id="text-16-3">
+<div id="outline-container-orgheadline90" class="outline-3">
+<h3 id="orgheadline90">定制 modeline</h3>
+<div class="outline-text-3" id="text-orgheadline90">
 <p>
 在 emacs25.1 中, 该版本的 modeline 和以前版本不同, 可以通过如下方式将 modeline 修改为以前的显示形状:
 </p>
@@ -4436,9 +3777,9 @@ git merge upstream/develop
 </div>
 </div>
 
-<div id="outline-container-orgheadline113" class="outline-3">
-<h3 id="orgheadline113"><span class="section-number-3">16.4</span> 创建自己的 layer</h3>
-<div class="outline-text-3" id="text-16-4">
+<div id="outline-container-orgheadline91" class="outline-3">
+<h3 id="orgheadline91">创建自己的 layer</h3>
+<div class="outline-text-3" id="text-orgheadline91">
 <p>
 假设我们需要创建一个 layer, 名叫 zilongshanren, 并且在 layer 下包含一个名叫 youdao-dictionary 的 package.
 </p>
@@ -4586,122 +3927,19 @@ git merge upstream/develop
 </div>
 </div>
 
-<div id="outline-container-orgheadline114" class="outline-3">
-<h3 id="orgheadline114"><span class="section-number-3">16.5</span> 文档</h3>
-<div class="outline-text-3" id="text-16-5">
+<div id="outline-container-orgheadline92" class="outline-3">
+<h3 id="orgheadline92">文档</h3>
+<div class="outline-text-3" id="text-orgheadline92">
 <p>
 spacemacs 的文档保存在 doc 目录下, 包含有 CONVENTIONS.org, DOCUMENTATION.org 等文档文件, 建议大家多多阅读.
 </p>
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgheadline120" class="outline-2">
-<h2 id="orgheadline120"><span class="section-number-2">17</span> emacs python workflow.</h2>
-<div class="outline-text-2" id="text-17">
-</div><div id="outline-container-orgheadline116" class="outline-3">
-<h3 id="orgheadline116"><span class="section-number-3">17.1</span> install elpy, jedi</h3>
-<div class="outline-text-3" id="text-17-1">
-<div class="org-src-container">
-
-<pre class="src src-shell">sudo pip install jedi epc pylint flake8 <span style="color: #FD971F;">ipython</span>==<span style="color: #AE81FF;">5.3</span>
-</pre>
-</div>
-
-<p>
-install package jedi elpy magit
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline117" class="outline-3">
-<h3 id="orgheadline117"><span class="section-number-3">17.2</span> Keybinding</h3>
-<div class="outline-text-3" id="text-17-2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Keybinding</td>
-<td class="org-left">Description</td>
-</tr>
-
-<tr>
-<td class="org-left">C-M-i</td>
-<td class="org-left">anaconda-mode-complete</td>
-</tr>
-
-<tr>
-<td class="org-left">M-.</td>
-<td class="org-left">anaconda-mode-find-definitions</td>
-</tr>
-
-<tr>
-<td class="org-left">M-,</td>
-<td class="org-left">anaconda-mode-find-assignments</td>
-</tr>
-
-<tr>
-<td class="org-left">M-r</td>
-<td class="org-left">anaconda-mode-find-references</td>
-</tr>
-
-<tr>
-<td class="org-left">M-*</td>
-<td class="org-left">anaconda-mode-go-back</td>
-</tr>
-
-<tr>
-<td class="org-left">M-?</td>
-<td class="org-left">anaconda-mode-show-doc</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-orgheadline118" class="outline-3">
-<h3 id="orgheadline118"><span class="section-number-3">17.3</span> upgrade git</h3>
-<div class="outline-text-3" id="text-17-3">
-<div class="org-src-container">
-
-<pre class="src src-shell">sudo add-apt-repository ppa:git-core/ppa -y
-sudo apt-get update
-sudo apt-get install git -y
-git --version
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline119" class="outline-3">
-<h3 id="orgheadline119"><span class="section-number-3">17.4</span> reinstall EMACS</h3>
-<div class="outline-text-3" id="text-17-4">
-<div class="org-src-container">
-
-<pre class="src src-shell">Check emacs version.
-$ emacs --version
-Download the same emacs version you have installed<span style="color: #F92672;"> in</span> the past.
-$ wget https://ftp.gnu.org/gnu/emacs/emacs-$<span style="color: #FD971F;">VERSION</span>.tar.xz
-Extract tarball.
-$ tar xJvf emacs-$<span style="color: #FD971F;">VERSION</span>.tar.xz
-Run ./configure to generate the make file. If you remember the option you have given when you install it, add those command line flags, too. <span style="color: #AE81FF;">(</span>e.g. --with-x=no<span style="color: #AE81FF;">)</span>
-$ cd emacs-$<span style="color: #FD971F;">VERSION</span>
-$ ./configure
-Do make uninstall to uninstall.
-$ sudo make uninstall
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-29 Mon 20:11</p>
+<p class="date">Created: 2017-05-29 Mon 20:10</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

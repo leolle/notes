@@ -2842,8 +2842,8 @@ spacemacs 的文档保存在 doc 目录下, 包含有 CONVENTIONS.org, DOCUMENTA
 * emacs python workflow.
 
 ** install elpy, jedi
-#+BEGIN_SRC
-sudo pip install jedi flake8 ipython==5.3
+#+BEGIN_SRC shell
+sudo pip install jedi epc pylint flake8 ipython==5.3
 #+END_SRC
 
 install package jedi elpy magit
@@ -2854,4 +2854,26 @@ install package jedi elpy magit
 | M-,        | anaconda-mode-find-assignments |
 | M-r        | anaconda-mode-find-references  |
 | M-*        | anaconda-mode-go-back          |
-|    M-?	        |     anaconda-mode-show-doc                           |
+| M-?	       | anaconda-mode-show-doc         |
+** upgrade git
+#+BEGIN_SRC shell
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update
+sudo apt-get install git -y
+git --version
+
+#+END_SRC
+** reinstall EMACS
+#+BEGIN_SRC shell
+Check emacs version.
+$ emacs --version
+Download the same emacs version you have installed in the past.
+$ wget https://ftp.gnu.org/gnu/emacs/emacs-$VERSION.tar.xz
+Extract tarball.
+$ tar xJvf emacs-$VERSION.tar.xz
+Run ./configure to generate the make file. If you remember the option you have given when you install it, add those command line flags, too. (e.g. --with-x=no)
+$ cd emacs-$VERSION
+$ ./configure
+Do make uninstall to uninstall.
+$ sudo make uninstall
+#+END_SRC
