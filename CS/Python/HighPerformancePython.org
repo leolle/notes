@@ -1,0 +1,182 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: HighPerformancePython
+#+DATE: <2017-05-30 Tue>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Using the cProfile Module
+** simple decorator to measure the time spending on a function.
+#+BEGIN_SRC python
+from functools import wraps
+def timefn(fn):
+    @wraps(fn)
+    def measure_time(*args, **kwargs):
+        t1 = time.time()
+        result = fn(*args, **kwargs)
+        t2 = time.time()
+        print ("@timefn:" + fn.func_name + " took " + str(t2 - t1) + " seconds")
+        return result
+    return measure_time
+
+@timefn
+def calculate_z_serial_purepython(maxiter, zs, cs):
+#+END_SRC
+** Inside Ipython:
+#+BEGIN_SRC python
+%timeit calc_pure_python(desired_width=1000, max_iterations=300)
+or
+%%time calc_pure_python(desired_width=1000, max_iterations=300)
+#+END_SRC
+** python -m cProfile -s cumulative julia1_nopil.py
+
+** python -m cProfile -o profile.stats julia1.py
+#+BEGIN_SRC python
+In [1]: import pstats
+In [2]: p = pstats.Stats("profile.stats")
+In [3]: p.sort_stats("cumulative")
+Out[3]: <pstats.Stats instance at 0x177dcf8>
+In [4]: p.print_stats()
+p.print_callers()
+
+p.print_callees() # flip callee around
+#+END_SRC
+
+** Using line_profiler for line by line measurements
+#+BEGIN_SRC python
+pip install line_profiler.
+kernprof.py -l -v julia1_lineprofiler.py
+@profile # add decorator on the function called.
+
+#+END_SRC
+
+** Using memory_profiler to Diagnose Memory Usage
+*** Could we use less RAM by rewriting this function to work more efficiently?
+*** Could we use more RAM and save CPU cycles by caching?
+**  Unit testing during optimization to maintain correctness
+#+BEGIN_SRC python
+# ex.py
+import unittest
+@profile
+def some_fn(nbr):
+return nbr * 2
+class TestCase(unittest.TestCase):
+def test(self):
+result = some_fn(2)
+self.assertEquals(result, 4)
+
+$ nosetests ex.py
+#+END_SRC
+* list and tuple
+** characteristics
+These differences outline the philosophical difference between the two: tuples are for
+describing multiple properties of one unchanging thing, and lists can be used to store
+collections of data about completely disparate objects
+ even if we create a list without append (and thus we don’t have the extra
+headroom introduced by an append operation), it will still be larger in memory than a
+tuple with the same data
+** hash tables
+Once a list has been sorted, we can find our desired element using a binary search (Example 3-3), which has an average case complexity of O(log n). It achieves this by first looking at the middle of the list and comparing this value with the desired value. If this midpoint’s value is less than our desired value, then we consider the right half of the list, and we continue halving the list like this until the value is found, or until the value is known not to occur in the sorted list. As a result, we do not need to read all values in the list, as was necessary for the linear search; instead, we only read a small subset of them
+
+* dictionary and set
+
+** What are dictionaries and sets good for?
+
+Sets and dictionaries are ideal data structures to be used when your data has no intrinsic order, but does have a unique object that can be used to reference it (the reference object is normally a string, but can be any hashable type). This reference object is called the “key,” while the data is the “value.”
+
+** How are dictionaries and sets the same?
+
+a set is simply a collection of unique keys
+
+** What is the overhead when using a dictionary?
+
+creating hash function
+
+** How can I optimize the performance of a dictionary?
+
+#+BEGIN_SRC python
+wdict = {}
+for word in words:
+    try:
+        wdict[word] += 1
+    except KeyError:
+        wdict[word] = 1
+
+wdict = {}
+get = wdict.get
+for word in words:
+    wdict[word] = get(word, 0) + 1
+#+END_SRC
+
+
+** How does Python use dictionaries to keep track of namespaces?
+
+searching local variables first
+
+global variable
+
+__builtin__
+* Iterators and Generators
+** How do generators save memory?
+
+Since xrange already returns an iterator, calling iter on it is a trivial operation, and it simply returns the original object (so type(xrange(1,10)) == type(iter(xrange(1,10)))). However, since range returns a list, we must create a new object, a list iterator, that will iterate over all values in the list.
+
+** When is the best time to use a generator?
+
+#+BEGIN_SRC python
+def fibonacci():
+i, j = 0, 1
+while True:
+yield j
+i, j = j, i + j
+
+def fibonacci_transform():
+count = 0
+for f in fibonacci():
+if f > 5000:
+break
+if f % 2:
+count += 1
+return count
+#+END_SRC
+
+
+
+** How can I use itertools to create complex generator workflows?
+
+** When is lazy evaluation beneficial, and when is it not?
+
+* Matrix and vector computation
+** how to use perf stat to understand CPU performance
+** how efficiently the CPU's caches are utilized.
+* Compiling to C
+** How can I have my Python code run as lower-level code?
+
+** What is the difference between a JIT compiler and an AOT compiler?
+
+** What tasks can compiled Python code perform faster than native Python?
+
+** Why do type annotations speed up compiled Python code?
+
+** How can I write modules for Python using C or Fortran?
+
+** How can I use libraries from C or Fortran in Python?
+* RAM
+** memory_profiler for tracking RAM usage.
+** Why should I use less RAM?
+
+** Why are numpy and array better for storing lots of numbers?
+
+** How can lots of text be efficiently stored in RAM?
+
+** How could I count (approximately!) to 1e77 using just 1 byte?
+
+** What are Bloom filters and why might I need them?
+
+*  Using the dis Module to Examine CPython Bytecode

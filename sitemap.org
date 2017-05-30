@@ -12,6 +12,7 @@
     + [[file:./CS/Python/PythonForFinance.org][PythonForFinance]]
     + [[file:./CS/Python/DesignPattern.org][DesignPattern]]
     + [[file:./CS/Python/high_performance_python.html][HighPerformanceOfPython]]
+    + [[file:./CS/Python/HighPerformancePython][ProfilePython]]
     + Ipython notebooks
       + [[file:./ipynb/site/index.html][JupyterNotebooks]]
     + [[file:./CS/Python/python_rules.html][PythonRules]]
