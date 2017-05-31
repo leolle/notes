@@ -139,6 +139,7 @@ Or change the start-up configuration.
 
 
 * ORG Mode
+[[http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4][Example]]
 ** Structure editing
 M-<RET>     (org-insert-heading)
 Insert a new heading/item with the same level as the one at point.
@@ -241,6 +242,46 @@ $$\[ \int_0^{+\infty} x^n e^{-x} \,dx = n!.\]
 $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 #+begin_src emacs-lisp :tangle yes
 \[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\]
+#+end_src
+** ditaa figures
+*** Connected elements with colors
+#+begin_src ditaa :file ditaa-seqboxes.png
++------+   +-----+   +-----+   +-----+
+|{io}  |   |{d}  |   |{s}  |   |cBLU |
+| Foo  +---+ Bar +---+ Baz +---+ Moo |
+|      |   |     |   |     |   |     |
++------+   +-----+   +--+--+   +-----+
+                        |
+           /-----\      |      +------+
+           |     |      |      | c1AB |
+           | Goo +------+---=--+ Shoo |
+           \-----/             |      |
+                               +------+
+#+end_src
+** UML diagrams with PlantUML
+*** Class diagrams
+#+begin_src plantuml :file class_diagram.png
+skinparam monochrome true
+FitsHdu <|-- PrimaryHdu
+FitsHdu <|-- ExtensionHdu
+
+FitsHdu : header
+FitsHdu : getHeaderKeyword()
+
+ExtensionHdu <|-- ImageHdu
+ImageHdu : image
+ImageHdu : getPixel(row, column)
+
+ExtensionHdu <|-- BinaryTableHdu
+BinaryTableHdu : table
+BinaryTableHdu : getRow(row)
+BinaryTableHdu : getColumn(column)
+#+end_src
+*** Sequences diagrams
+#+begin_src plantuml :file sequence_diagram.png
+skinparam monochrome true
+ Foo -> Bar: synchronous call
+ Foo ->> Bar: asynchronous call
 #+end_src
 * 第一天：准备开始
 

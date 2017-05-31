@@ -1,0 +1,101 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: EffectivePython
+#+DATE: <2017-05-31 Wed>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* Pythonic Thinking
+
+* Functions
+
+* Classes and inheritance
+
+* Metaclasses and atributes
+
+* Concurrency and parallelism
+
+* Built-in modules
+
+* Collaboration
+
+** Documenting
+Write docstrings for every function, class, and module.
+
+** Packages
+#+BEGIN_EXAMPLE
+--main.py
+--mypackage
+    |-- __init__.py
+    |-- mypackage/models.py
+    |-- mypackage/utils.py
+#+END_EXAMPLE
+#+BEGIN_SRC
+# main.py
+from mypackage import utils
+#+END_SRC
+
+*** stable API
+The value of __all__ is a list of every name to
+export from the module as part of its public API.
+#+BEGIN_SRC python
+# utils.py
+from . models import Projectile
+all__ = [‘simulate_collision’]
+def _dot_product(a, b):
+# …
+def simulate_collision(a, b):
+# …
+# __init__.py
+all__ = []
+from . models import *
+all__ += models.__all__
+from . utils import *
+all__ += utils.__all__
+# api_consumer.py
+from mypackage import *
+a = Projectile(1.5, 3)
+b = Projectile(4, 1.7)
+after_a, after_b = simulate_collision(a, b)
+#+END_SRC
+internal-only functions like mypackage.utils._dot_product will not be
+available to the API consumer on mypackage because they weren’t present in all__. Being omitted from __all__ means they weren’t imported by the from mypackage import * statement.
+* Production
+** Test Everything with unittest
+#+BEGIN_SRC python
+# utils.py
+def to_str(data):
+if isinstance(data, str):
+return data
+elif isinstance(data, bytes):
+return data.decode(‘utf-8’)
+else:
+raise TypeError(‘Must supply str or bytes, ‘
+‘found: %r’ % data)
+#+END_SRC
+#+BEGIN_SRC python
+# utils_test.py
+from unittest import TestCase, main
+from utils import to_str
+class UtilsTestCase(TestCase):
+def test_to_str_bytes(self):
+self.assertEqual(‘hello’, to_str(b’hello’))
+def test_to_str_str(self):
+self.assertEqual(‘hello’, to_str(‘hello’))
+def test_to_str_bad(self):
+self.assertRaises(TypeError, to_str, object())
+if __name__ == ‘__main__’:
+main()
+#+END_SRC
+The TestCase class provides helper methods for making assertions in your tests, such as assertEqual for verifying equality, assertTrue for verifying Boolean expressions, and assertRaises for verifying that exceptions are raised when appropriate (see help(TestCase) for more). You can define your own helper methods in TestCase subclasses to make your tests more readable; just ensure that your method names don’t begin with the word test.
+*** unittest.mock built-in module
+[[http://nose.readthedocs.org][NoseTest]]
+** Profile before optimizing
+** Use tracemalloc to Understand Memory Usage and Leaks
