@@ -37,7 +37,7 @@ Write docstrings for every function, class, and module.
     |-- mypackage/models.py
     |-- mypackage/utils.py
 #+END_EXAMPLE
-#+BEGIN_SRC
+#+BEGIN_SRC python
 # main.py
 from mypackage import utils
 #+END_SRC
