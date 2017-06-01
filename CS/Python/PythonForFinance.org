@@ -177,6 +177,12 @@ Out[22]:
        x: array([  3.16847434e-01,   8.62049147e-16,   2.64774759e-01,
          4.18377806e-01,   0.00000000e+00])
 #+END_SRC
+
+**** algorithms for minimizing with constraints:
+scipy.optimize.minimize
+scipy.optimize.minimize(fun, x0, args=(), method=None, jac=None, hess=None, hessp=None, bounds=None, constraints=(), tol=None, callback=None, options=None)
+
+
 *** Efficient frontier
 
 *** Capital Market Line
