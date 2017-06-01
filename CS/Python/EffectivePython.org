@@ -73,11 +73,11 @@ available to the API consumer on mypackage because they weren’t present in all
 # utils.py
 def to_str(data):
 if isinstance(data, str):
-return data
+    return data
 elif isinstance(data, bytes):
-return data.decode(‘utf-8’)
+    return data.decode(‘utf-8’)
 else:
-raise TypeError(‘Must supply str or bytes, ‘
+    raise TypeError(‘Must supply str or bytes, ‘
 ‘found: %r’ % data)
 #+END_SRC
 #+BEGIN_SRC python
@@ -85,17 +85,46 @@ raise TypeError(‘Must supply str or bytes, ‘
 from unittest import TestCase, main
 from utils import to_str
 class UtilsTestCase(TestCase):
-def test_to_str_bytes(self):
-self.assertEqual(‘hello’, to_str(b’hello’))
-def test_to_str_str(self):
-self.assertEqual(‘hello’, to_str(‘hello’))
-def test_to_str_bad(self):
-self.assertRaises(TypeError, to_str, object())
+    def test_to_str_bytes(self):
+        self.assertEqual(‘hello’, to_str(b’hello’))
+    def test_to_str_str(self):
+        self.assertEqual(‘hello’, to_str(‘hello’))
+    def test_to_str_bad(self):
+        self.assertRaises(TypeError, to_str, object())
 if __name__ == ‘__main__’:
-main()
+    main()
 #+END_SRC
 The TestCase class provides helper methods for making assertions in your tests, such as assertEqual for verifying equality, assertTrue for verifying Boolean expressions, and assertRaises for verifying that exceptions are raised when appropriate (see help(TestCase) for more). You can define your own helper methods in TestCase subclasses to make your tests more readable; just ensure that your method names don’t begin with the word test.
 *** unittest.mock built-in module
 [[http://nose.readthedocs.org][NoseTest]]
 ** Profile before optimizing
+1. 如何查看python程序的运行效率：
+The dynamic nature of Python causes surprising behaviors in its runtime performance.
+Operations you might assume are slow are actually very fast (string manipulation,
+generators). Language features you might assume are fast are actually very slow (attribute
+access, function calls). The true source of slowdowns in a Python program can be obscure.
+The best approach is to ignore your intuition and directly measure the performance of a
+program before you try to optimize it. Python provides a built-in profiler for determining
+which parts of a program are responsible for its execution time. This lets you focus your
+optimization efforts on the biggest sources of trouble and ignore parts of the program that
+don’t impact speed.
+STEPS:
+1). install snakeviz using pip from cmd.
+#+BEGIN_SRC shell
+pip install snakeviz
+#+END_SRC
+
+2). profile the test python file using below command.
+#+BEGIN_SRC shell
+$ python -m cProfile -o profile.stats test.py
+# test.py
+from random import randint
+max_size = 10**4
+data = [randint(0, max_size) for _ in range(max_size)]
+test = lambda: insertion_sort(data)
+#+END_SRC
+3). check the efficiency result from profile.stats file.
+#+BEGIN_SRC shell
+$ snakeviz profile.stats
+#+END_SRC
 ** Use tracemalloc to Understand Memory Usage and Leaks

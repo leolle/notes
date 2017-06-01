@@ -125,6 +125,58 @@ Pitfall of Modern Portfolio Theory(MPT):
 
 Black–Litterman model:
 It is a mathematical model for portfolio allocation developed in 1990 at Goldman Sachs by Fischer Black and Robert Litterman, and published in 1992. It seeks to overcome problems that institutional investors have encountered in applying modern portfolio theory in practice, although the covariances of a few assets can be adequately estimated, it is difficult to come up with reasonable estimates of expected returns. The model starts with the equilibrium assumption that the asset allocation of a representative agent should be proportional to the market values of the available assets, and then modifies that to take into account the 'views' (i.e., the specific opinions about asset returns) of the investor in question to arrive at a bespoke asset allocation.
+
+**** steps:
+input: weights, percentage return, percentage volatility, constraints, boundaries.
+percentage return = np.sum(rets.mean() * weights) * 252
+rets = np.log(data / data.shift(1))
+constraints = ({'type': 'eq', 'fun': lambda x:  np.sum(x) - 1})
+
+calculate:
+#+BEGIN_SRC python
+def statistics(weights):
+    ''' Return portfolio statistics.
+
+    Parameters
+    ==========
+    weights : array-like
+        weights for different securities in portfolio
+
+    Returns
+    =======
+    pret : float
+        expected portfolio return
+    pvol : float
+        expected portfolio volatility
+    pret / pvol : float
+        Sharpe ratio for rf=0
+    '''
+    weights = np.array(weights)
+    pret = np.sum(rets.mean() * weights) * 252
+    pvol = np.sqrt(np.dot(weights.T, np.dot(rets.cov() * 252, weights)))
+    return np.array([pret, pvol, pret / pvol])
+def min_func_sharpe(weights):
+    return -statistics(weights)[2]
+opts = sco.minimize(min_func_sharpe, noa * [1. / noa,], method='SLSQP',
+                       bounds=bnds, constraints=cons)
+#+END_SRC
+
+output:
+#+BEGIN_SRC python
+opts
+Out[22]:
+     fun: -0.89964063622932411
+     jac: array([  3.65152955e-05,   2.00167218e+00,  -1.04084611e-04,
+         3.82214785e-05,   7.63027400e-01,   0.00000000e+00])
+ message: 'Optimization terminated successfully.'
+    nfev: 63
+     nit: 9
+    njev: 9
+  status: 0
+ success: True
+       x: array([  3.16847434e-01,   8.62049147e-16,   2.64774759e-01,
+         4.18377806e-01,   0.00000000e+00])
+#+END_SRC
 *** Efficient frontier
 
 *** Capital Market Line

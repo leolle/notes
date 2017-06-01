@@ -127,6 +127,12 @@ time.strptime(string[, format])
 
 - datetime, Timestamp, datetime64
 pandas, Timestamp
+-- DatetimeIndex is composed by Timestamps.
+#+BEGIN_SRC python
+#Timestamp to string:i
+str_timestamp = pd.to_datetime(Timestamp, format = '%Y%m%d')
+str_timestamp = str_timestamp.strftime('%Y-%m-%d')
+#+END_SRC
 datetime, utc
 datetime64
 ** Function

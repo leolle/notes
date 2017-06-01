@@ -73,6 +73,12 @@ self.assertEquals(result, 4)
 
 $ nosetests ex.py
 #+END_SRC
+** use snakeeviz in python3
+#+BEGIN_SRC python
+pip install snakeviz
+
+snakeviz profile.stats
+#+END_SRC
 * list and tuple
 ** characteristics
 These differences outline the philosophical difference between the two: tuples are for

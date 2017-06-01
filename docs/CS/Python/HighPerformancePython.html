@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-05-30 Tue 23:18 -->
+<!-- 2017-06-01 Thu 14:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,7 +147,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline10">1. Using the cProfile Module</a>
+<li><a href="#orgheadline11">1. Using the cProfile Module</a>
 <ul>
 <li><a href="#orgheadline1">1.1. simple decorator to measure the time spending on a function.</a></li>
 <li><a href="#orgheadline2">1.2. Inside Ipython:</a></li>
@@ -161,64 +161,65 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline9">1.7. Unit testing during optimization to maintain correctness</a></li>
+<li><a href="#orgheadline10">1.8. use snakeeviz in python3</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">2. list and tuple</a>
+<li><a href="#orgheadline14">2. list and tuple</a>
 <ul>
-<li><a href="#orgheadline11">2.1. characteristics</a></li>
-<li><a href="#orgheadline12">2.2. hash tables</a></li>
+<li><a href="#orgheadline12">2.1. characteristics</a></li>
+<li><a href="#orgheadline13">2.2. hash tables</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline19">3. dictionary and set</a>
+<li><a href="#orgheadline20">3. dictionary and set</a>
 <ul>
-<li><a href="#orgheadline14">3.1. What are dictionaries and sets good for?</a></li>
-<li><a href="#orgheadline15">3.2. How are dictionaries and sets the same?</a></li>
-<li><a href="#orgheadline16">3.3. What is the overhead when using a dictionary?</a></li>
-<li><a href="#orgheadline17">3.4. How can I optimize the performance of a dictionary?</a></li>
-<li><a href="#orgheadline18">3.5. How does Python use dictionaries to keep track of namespaces?</a></li>
+<li><a href="#orgheadline15">3.1. What are dictionaries and sets good for?</a></li>
+<li><a href="#orgheadline16">3.2. How are dictionaries and sets the same?</a></li>
+<li><a href="#orgheadline17">3.3. What is the overhead when using a dictionary?</a></li>
+<li><a href="#orgheadline18">3.4. How can I optimize the performance of a dictionary?</a></li>
+<li><a href="#orgheadline19">3.5. How does Python use dictionaries to keep track of namespaces?</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline24">4. Iterators and Generators</a>
+<li><a href="#orgheadline25">4. Iterators and Generators</a>
 <ul>
-<li><a href="#orgheadline20">4.1. How do generators save memory?</a></li>
-<li><a href="#orgheadline21">4.2. When is the best time to use a generator?</a></li>
-<li><a href="#orgheadline22">4.3. How can I use itertools to create complex generator workflows?</a></li>
-<li><a href="#orgheadline23">4.4. When is lazy evaluation beneficial, and when is it not?</a></li>
+<li><a href="#orgheadline21">4.1. How do generators save memory?</a></li>
+<li><a href="#orgheadline22">4.2. When is the best time to use a generator?</a></li>
+<li><a href="#orgheadline23">4.3. How can I use itertools to create complex generator workflows?</a></li>
+<li><a href="#orgheadline24">4.4. When is lazy evaluation beneficial, and when is it not?</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline27">5. Matrix and vector computation</a>
+<li><a href="#orgheadline28">5. Matrix and vector computation</a>
 <ul>
-<li><a href="#orgheadline25">5.1. how to use perf stat to understand CPU performance</a></li>
-<li><a href="#orgheadline26">5.2. how efficiently the CPU's caches are utilized.</a></li>
+<li><a href="#orgheadline26">5.1. how to use perf stat to understand CPU performance</a></li>
+<li><a href="#orgheadline27">5.2. how efficiently the CPU's caches are utilized.</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline34">6. Compiling to C</a>
+<li><a href="#orgheadline35">6. Compiling to C</a>
 <ul>
-<li><a href="#orgheadline28">6.1. How can I have my Python code run as lower-level code?</a></li>
-<li><a href="#orgheadline29">6.2. What is the difference between a JIT compiler and an AOT compiler?</a></li>
-<li><a href="#orgheadline30">6.3. What tasks can compiled Python code perform faster than native Python?</a></li>
-<li><a href="#orgheadline31">6.4. Why do type annotations speed up compiled Python code?</a></li>
-<li><a href="#orgheadline32">6.5. How can I write modules for Python using C or Fortran?</a></li>
-<li><a href="#orgheadline33">6.6. How can I use libraries from C or Fortran in Python?</a></li>
+<li><a href="#orgheadline29">6.1. How can I have my Python code run as lower-level code?</a></li>
+<li><a href="#orgheadline30">6.2. What is the difference between a JIT compiler and an AOT compiler?</a></li>
+<li><a href="#orgheadline31">6.3. What tasks can compiled Python code perform faster than native Python?</a></li>
+<li><a href="#orgheadline32">6.4. Why do type annotations speed up compiled Python code?</a></li>
+<li><a href="#orgheadline33">6.5. How can I write modules for Python using C or Fortran?</a></li>
+<li><a href="#orgheadline34">6.6. How can I use libraries from C or Fortran in Python?</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41">7. RAM</a>
+<li><a href="#orgheadline42">7. RAM</a>
 <ul>
-<li><a href="#orgheadline35">7.1. memory<sub>profiler</sub> for tracking RAM usage.</a></li>
-<li><a href="#orgheadline36">7.2. Why should I use less RAM?</a></li>
-<li><a href="#orgheadline37">7.3. Why are numpy and array better for storing lots of numbers?</a></li>
-<li><a href="#orgheadline38">7.4. How can lots of text be efficiently stored in RAM?</a></li>
-<li><a href="#orgheadline39">7.5. How could I count (approximately!) to 1e77 using just 1 byte?</a></li>
-<li><a href="#orgheadline40">7.6. What are Bloom filters and why might I need them?</a></li>
+<li><a href="#orgheadline36">7.1. memory<sub>profiler</sub> for tracking RAM usage.</a></li>
+<li><a href="#orgheadline37">7.2. Why should I use less RAM?</a></li>
+<li><a href="#orgheadline38">7.3. Why are numpy and array better for storing lots of numbers?</a></li>
+<li><a href="#orgheadline39">7.4. How can lots of text be efficiently stored in RAM?</a></li>
+<li><a href="#orgheadline40">7.5. How could I count (approximately!) to 1e77 using just 1 byte?</a></li>
+<li><a href="#orgheadline41">7.6. What are Bloom filters and why might I need them?</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline42">8. Using the dis Module to Examine CPython Bytecode</a></li>
+<li><a href="#orgheadline43">8. Using the dis Module to Examine CPython Bytecode</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">1</span> Using the cProfile Module</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">1</span> Using the cProfile Module</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> simple decorator to measure the time spending on a function.</h3>
@@ -319,12 +320,24 @@ $ nosetests ex.py
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.8</span> use snakeeviz in python3</h3>
+<div class="outline-text-3" id="text-1-8">
+<div class="org-src-container">
+
+<pre class="src src-python">pip install snakeviz
+
+snakeviz profile.stats
+</pre>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">2</span> list and tuple</h2>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">2</span> list and tuple</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.1</span> characteristics</h3>
+</div><div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">2.1</span> characteristics</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 These differences outline the philosophical difference between the two: tuples are for
@@ -336,8 +349,8 @@ tuple with the same data
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.2</span> hash tables</h3>
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">2.2</span> hash tables</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Once a list has been sorted, we can find our desired element using a binary search (Example 3-3), which has an average case complexity of O(log n). It achieves this by first looking at the middle of the list and comparing this value with the desired value. If this midpoint’s value is less than our desired value, then we consider the right half of the list, and we continue halving the list like this until the value is found, or until the value is known not to occur in the sorted list. As a result, we do not need to read all values in the list, as was necessary for the linear search; instead, we only read a small subset of them
@@ -346,11 +359,11 @@ Once a list has been sorted, we can find our desired element using a binary sear
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">3</span> dictionary and set</h2>
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">3</span> dictionary and set</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">3.1</span> What are dictionaries and sets good for?</h3>
+</div><div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.1</span> What are dictionaries and sets good for?</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Sets and dictionaries are ideal data structures to be used when your data has no intrinsic order, but does have a unique object that can be used to reference it (the reference object is normally a string, but can be any hashable type). This reference object is called the “key,” while the data is the “value.”
@@ -358,8 +371,8 @@ Sets and dictionaries are ideal data structures to be used when your data has no
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">3.2</span> How are dictionaries and sets the same?</h3>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.2</span> How are dictionaries and sets the same?</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 a set is simply a collection of unique keys
@@ -367,8 +380,8 @@ a set is simply a collection of unique keys
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">3.3</span> What is the overhead when using a dictionary?</h3>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.3</span> What is the overhead when using a dictionary?</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 creating hash function
@@ -376,8 +389,8 @@ creating hash function
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">3.4</span> How can I optimize the performance of a dictionary?</h3>
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">3.4</span> How can I optimize the performance of a dictionary?</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 
@@ -398,8 +411,8 @@ creating hash function
 </div>
 
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">3.5</span> How does Python use dictionaries to keep track of namespaces?</h3>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">3.5</span> How does Python use dictionaries to keep track of namespaces?</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 searching local variables first
@@ -415,11 +428,11 @@ _<sub>builtin</sub>__
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline24" class="outline-2">
-<h2 id="orgheadline24"><span class="section-number-2">4</span> Iterators and Generators</h2>
+<div id="outline-container-orgheadline25" class="outline-2">
+<h2 id="orgheadline25"><span class="section-number-2">4</span> Iterators and Generators</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">4.1</span> How do generators save memory?</h3>
+</div><div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">4.1</span> How do generators save memory?</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Since xrange already returns an iterator, calling iter on it is a trivial operation, and it simply returns the original object (so type(xrange(1,10)) == type(iter(xrange(1,10)))). However, since range returns a list, we must create a new object, a list iterator, that will iterate over all values in the list.
@@ -427,8 +440,8 @@ Since xrange already returns an iterator, calling iter on it is a trivial operat
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">4.2</span> When is the best time to use a generator?</h3>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">4.2</span> When is the best time to use a generator?</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 
@@ -453,87 +466,87 @@ Since xrange already returns an iterator, calling iter on it is a trivial operat
 
 
 
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">4.3</span> How can I use itertools to create complex generator workflows?</h3>
-</div>
-
 <div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">4.4</span> When is lazy evaluation beneficial, and when is it not?</h3>
+<h3 id="orgheadline23"><span class="section-number-3">4.3</span> How can I use itertools to create complex generator workflows?</h3>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">4.4</span> When is lazy evaluation beneficial, and when is it not?</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline27" class="outline-2">
-<h2 id="orgheadline27"><span class="section-number-2">5</span> Matrix and vector computation</h2>
+<div id="outline-container-orgheadline28" class="outline-2">
+<h2 id="orgheadline28"><span class="section-number-2">5</span> Matrix and vector computation</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">5.1</span> how to use perf stat to understand CPU performance</h3>
+</div><div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">5.1</span> how to use perf stat to understand CPU performance</h3>
 </div>
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">5.2</span> how efficiently the CPU's caches are utilized.</h3>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">5.2</span> how efficiently the CPU's caches are utilized.</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline34" class="outline-2">
-<h2 id="orgheadline34"><span class="section-number-2">6</span> Compiling to C</h2>
+<div id="outline-container-orgheadline35" class="outline-2">
+<h2 id="orgheadline35"><span class="section-number-2">6</span> Compiling to C</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-orgheadline28" class="outline-3">
-<h3 id="orgheadline28"><span class="section-number-3">6.1</span> How can I have my Python code run as lower-level code?</h3>
-</div>
-
-<div id="outline-container-orgheadline29" class="outline-3">
-<h3 id="orgheadline29"><span class="section-number-3">6.2</span> What is the difference between a JIT compiler and an AOT compiler?</h3>
+</div><div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">6.1</span> How can I have my Python code run as lower-level code?</h3>
 </div>
 
 <div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">6.3</span> What tasks can compiled Python code perform faster than native Python?</h3>
+<h3 id="orgheadline30"><span class="section-number-3">6.2</span> What is the difference between a JIT compiler and an AOT compiler?</h3>
 </div>
 
 <div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">6.4</span> Why do type annotations speed up compiled Python code?</h3>
+<h3 id="orgheadline31"><span class="section-number-3">6.3</span> What tasks can compiled Python code perform faster than native Python?</h3>
 </div>
 
 <div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">6.5</span> How can I write modules for Python using C or Fortran?</h3>
+<h3 id="orgheadline32"><span class="section-number-3">6.4</span> Why do type annotations speed up compiled Python code?</h3>
 </div>
 
 <div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">6.6</span> How can I use libraries from C or Fortran in Python?</h3>
-</div>
-</div>
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="section-number-2">7</span> RAM</h2>
-<div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">7.1</span> memory<sub>profiler</sub> for tracking RAM usage.</h3>
-</div>
-<div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">7.2</span> Why should I use less RAM?</h3>
+<h3 id="orgheadline33"><span class="section-number-3">6.5</span> How can I write modules for Python using C or Fortran?</h3>
 </div>
 
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">6.6</span> How can I use libraries from C or Fortran in Python?</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="section-number-2">7</span> RAM</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">7.1</span> memory<sub>profiler</sub> for tracking RAM usage.</h3>
+</div>
 <div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">7.3</span> Why are numpy and array better for storing lots of numbers?</h3>
+<h3 id="orgheadline37"><span class="section-number-3">7.2</span> Why should I use less RAM?</h3>
 </div>
 
 <div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38"><span class="section-number-3">7.4</span> How can lots of text be efficiently stored in RAM?</h3>
+<h3 id="orgheadline38"><span class="section-number-3">7.3</span> Why are numpy and array better for storing lots of numbers?</h3>
 </div>
 
 <div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39"><span class="section-number-3">7.5</span> How could I count (approximately!) to 1e77 using just 1 byte?</h3>
+<h3 id="orgheadline39"><span class="section-number-3">7.4</span> How can lots of text be efficiently stored in RAM?</h3>
 </div>
 
 <div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40"><span class="section-number-3">7.6</span> What are Bloom filters and why might I need them?</h3>
+<h3 id="orgheadline40"><span class="section-number-3">7.5</span> How could I count (approximately!) to 1e77 using just 1 byte?</h3>
+</div>
+
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">7.6</span> What are Bloom filters and why might I need them?</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline42" class="outline-2">
-<h2 id="orgheadline42"><span class="section-number-2">8</span> Using the dis Module to Examine CPython Bytecode</h2>
+<div id="outline-container-orgheadline43" class="outline-2">
+<h2 id="orgheadline43"><span class="section-number-2">8</span> Using the dis Module to Examine CPython Bytecode</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-30 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-05-30 Tue 23:18</p>
+<p class="date">Created: 2017-06-01 Thu 14:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
