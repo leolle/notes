@@ -127,4 +127,6 @@ test = lambda: insertion_sort(data)
 #+BEGIN_SRC shell
 $ snakeviz profile.stats
 #+END_SRC
+*** enhancing performance with Cython(writing C extensions for pandas)
+
 ** Use tracemalloc to Understand Memory Usage and Leaks
