@@ -14,6 +14,46 @@
 
 * Pythonic Thinking
 
+** PEP 8 style guide
+
+*** Naming:
+- Protected instance attributes should be in _leading_underscore format.
+- Private instance attributes should be in __double_leading_underscore
+format.
+- Classes and exceptions should be in CapitalizedWord format.
+- Module-level constants should be in ALL_CAPS format.
+- Instance methods in classes should use self as the name of the first parameter
+(which refers to the object).
+- Class methods should use cls as the name of the first parameter (which refers to
+the class).
+*** Expressions and Statements:
+- Always use absolute names for modules when importing them, not names relative to the current module’s own path. For example, to import the foo module from the bar package, you should do from bar import foo, not just import foo.
+- If you must do relative imports, use the explicit syntax from . import foo.
+- Imports should be in sections in the following order: standard library modules, thirdparty modules, your own modules. Each subsection should have imports in alphabetical order.
+** Differences between bytes, str, and unicode
+- In Python 3, there are two types that represent sequences of characters: bytes and str. Instances of bytes contain raw 8-bit values. Instances of str contain Unicode characters.
+- In Python 2, there are two types that represent sequences of characters: str and unicode. In contrast to Python 3, instances of str contain raw 8-bit values. Instances of unicode contain Unicode characters.
+- To convert Unicode characters to binary data, you must use the encode method. To convert binary data to Unicode characters, you must use the decode method.
+- When you’re writing Python programs, it’s important to do encoding and decoding of Unicode at the furthest boundary of your interfaces. The core of your program should use Unicode character types (str in Python 3, unicode in Python 2) and should not assume anything about character encodings.
+** Slice Sequences
+
+- Slicing lets you access a subset of a sequence’s items with minimal effort. The simplest uses for slicing are the built-in types list, str, and bytes.
+- Python has special syntax for the stride of a slice in the form somelist[start:end:stride].
+** Enumerate
+enumerate wraps any iterator with a lazy generator.
+#+BEGIN_SRC python
+for i, flavor in enumerate(flavor_list):
+print(‘%d: %s’ % (i + 1, flavor))
+>>>
+1: vanilla
+2: chocolate
+3: pecan
+4: strawberry
+#+END_SRC
+** zip
+There are two problems with the zip built-in.
+- The first issue is that in Python 2 zip is not a generator; it will fully exhaust the supplied iterators and return a list of all the tuples it creates. This could potentially use a lot of memory and cause your program to crash. If you want to zip very large iterators in Python 2, you should use izip from the itertools built-in module.
+- The second issue is that zip behaves strangely if the input iterators are of different lengths.
 * Functions
 
 * Classes and inheritance
@@ -24,6 +64,62 @@
 
 * Built-in modules
 
+** pickle
+- The pickle built-in module is only useful for serializing and deserializing objects between trusted programs.
+- The pickle module may break down when used for more than trivial use cases.
+- Use the copyreg built-in module with pickle to add missing attribute values, allow versioning of classes, and provide stable import paths.
+
+** datetime
+converting time between UTC and local clocks.
+#+BEGIN_SRC python
+# UTC to local
+from time import localtime, strftime
+now = 1407694710
+local_tuple = localtime(now)
+time_format = ‘%Y-%m-%d %H:%M:%S’
+time_str = strftime(time_format, local_tuple)
+print(time_str)
+# local to UTC
+time_tuple = strptime(time_str, time_format)
+utc_now = mktime(time_tuple)
+print(utc_now)
+#+END_SRC
+#+BEGIN_SRC python
+# take present time in UTC and convert it to local time.
+from datetime import datetime, timezone
+now = datetime(2014, 8, 10, 18, 18, 30)
+now_utc = now.replace(tzinfo=timezone.utc)
+now_local = now_utc.astimezone()
+print(now_local)
+>>>
+2014-08-10 11:18:30-07:00
+#+END_SRC
+
+** Ordered dictionary
+Standard dictionaries are unordered. That means a dict with the same keys and values can result in different orders of iteration. This behavior is a surprising byproduct of the way the dictionary’s fast hash table is implemented.
+The OrderedDict class from the collections module is a special type of dictionary that keeps track of the order in which its keys were inserted. Iterating the keys of an OrderedDict has predictable behavior. This can vastly simplify testing and debugging by making all code deterministic.
+
+** Default Dictionary
+One problem with dictionaries is that you can’t assume any keys are already present.
+If you wish to increment a counter stored in a dictionary when that counter key is not existed in the dictionary before, you have to assign a default value to that key.
+#+BEGIN_SRC python
+stats = {}
+key = 'my_counter'
+if key not in stats:
+stats[key] = 0
+stats[key] += 1
+
+# Using defaultdict doesn't have such problem.
+from collections import defaultdict
+stats = defaultdict(int)
+stats['my_counter'] += 1
+#+END_SRC
+
+** Decimal for precision
+#+BEGIN_SRC python
+rounded = number.quantize(Decimal(‘0.01’), rounding=ROUND_UP)
+print(rounded)
+#+END_SRC
 * Collaboration
 
 ** Documenting
@@ -67,6 +163,19 @@ after_a, after_b = simulate_collision(a, b)
 #+END_SRC
 internal-only functions like mypackage.utils._dot_product will not be
 available to the API consumer on mypackage because they weren’t present in all__. Being omitted from __all__ means they weren’t imported by the from mypackage import * statement.
+
+** Virtual environments
+
+- By default, pip installs new packages in a global location. That
+causes all Python programs on your system to be affected by these installed modules. If one package requires newer version of another package, which could cause conflict version dependency issue.
+pip3 show flask
+pip3 show Sphinx
+- use the pip freeze command to save all
+of your explicit package dependencies into a file.
+#+BEGIN_SRC python
+pip freeze > requirements.txt
+pip install -r requirements.txt
+#+END_SRC
 * Production
 ** Test Everything with unittest
 #+BEGIN_SRC python
