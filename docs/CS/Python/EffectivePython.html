@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-03 Sat 13:31 -->
+<!-- 2017-06-04 Sun 23:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -515,13 +515,12 @@ pip install -r requirements.txt
 
 <pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">utils.py</span>
 <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">to_str</span><span style="color: #AE81FF;">(</span>data<span style="color: #AE81FF;">)</span>:
-<span style="color: #F92672;">if</span> <span style="color: #F92672;">isinstance</span><span style="color: #AE81FF;">(</span>data, <span style="color: #F92672;">str</span><span style="color: #AE81FF;">)</span>:
-    <span style="color: #F92672;">return</span> data
-<span style="color: #F92672;">elif</span> <span style="color: #F92672;">isinstance</span><span style="color: #AE81FF;">(</span>data, <span style="color: #F92672;">bytes</span><span style="color: #AE81FF;">)</span>:
-    <span style="color: #F92672;">return</span> data.decode<span style="color: #AE81FF;">(</span>&#8216;utf-<span style="color: #AE81FF;">8</span>&#8217;<span style="color: #AE81FF;">)</span>
-<span style="color: #F92672;">else</span>:
-    <span style="color: #F92672;">raise</span> <span style="color: #66D9EF;">TypeError</span><span style="color: #AE81FF;">(</span>&#8216;Must supply <span style="color: #F92672;">str</span> <span style="color: #F92672;">or</span> <span style="color: #F92672;">bytes</span>, &#8216;
-&#8216;found: %r&#8217; % data<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">isinstance</span><span style="color: #AE81FF;">(</span>data, <span style="color: #F92672;">str</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> data
+    <span style="color: #F92672;">elif</span> <span style="color: #F92672;">isinstance</span><span style="color: #AE81FF;">(</span>data, <span style="color: #F92672;">bytes</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> data.decode<span style="color: #AE81FF;">(</span>&#8216;utf-<span style="color: #AE81FF;">8</span>&#8217;<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">else</span>:
+        <span style="color: #F92672;">raise</span> <span style="color: #66D9EF;">TypeError</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Must supply str or bytes,''found: %r'</span> % data<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 <div class="org-src-container">
@@ -531,12 +530,12 @@ pip install -r requirements.txt
 <span style="color: #F92672;">from</span> utils <span style="color: #F92672;">import</span> to_str
 <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">UtilsTestCase</span><span style="color: #AE81FF;">(</span>TestCase<span style="color: #AE81FF;">)</span>:
     <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">test_to_str_bytes</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
-        <span style="color: #F92672;">self</span>.assertEqual<span style="color: #AE81FF;">(</span>&#8216;hello&#8217;, to_str<span style="color: #66D9EF;">(</span>b&#8217;hello&#8217;<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">self</span>.assertEqual<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'hello'</span>, to_str<span style="color: #66D9EF;">(</span>b<span style="color: #E6DB74;">'hello'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
     <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">test_to_str_str</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
-        <span style="color: #F92672;">self</span>.assertEqual<span style="color: #AE81FF;">(</span>&#8216;hello&#8217;, to_str<span style="color: #66D9EF;">(</span>&#8216;hello&#8217;<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">self</span>.assertEqual<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'hello'</span>, to_str<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'hello'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
     <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">test_to_str_bad</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
         <span style="color: #F92672;">self</span>.assertRaises<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">TypeError</span>, to_str, <span style="color: #F92672;">object</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
-<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == &#8216;__main__&#8217;:
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
     main<span style="color: #AE81FF;">()</span>
 </pre>
 </div>
@@ -613,7 +612,7 @@ from random import randint
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-31 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-06-03 Sat 13:31</p>
+<p class="date">Created: 2017-06-04 Sun 23:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
