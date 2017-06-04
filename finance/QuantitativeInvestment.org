@@ -14,3 +14,14 @@
 
 * 量化选股
 [[file:./MultiFactorModel.org][MultiFactorModel]]
+
+* Performance analytics:
+
+** percentage change:
+$$percentage change(P_n) = value / value.shift(1)$$
+** cumlative return:
+$$total_return = (1+P_1)*(1+P_2)*...(1+P_n) - 1.0$$
+** annualized return:
+$$annualized return = (1 + cumulative return)^(252/periods) - 1.0$$
+$$(annualized return + 1)^(periods/252) = 1 + cumulative return$$
+***
