@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-04 Sun 23:55 -->
+<!-- 2017-06-05 Mon 14:06 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -529,12 +529,22 @@ pip install -r requirements.txt
 <span style="color: #F92672;">from</span> unittest <span style="color: #F92672;">import</span> TestCase, main
 <span style="color: #F92672;">from</span> utils <span style="color: #F92672;">import</span> to_str
 <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">UtilsTestCase</span><span style="color: #AE81FF;">(</span>TestCase<span style="color: #AE81FF;">)</span>:
+    <span style="color: #66D9EF;">@classmethod</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">setUpClass</span><span style="color: #AE81FF;">(</span>cls<span style="color: #AE81FF;">)</span>:
+        <span style="color: #FD971F;">cls.dates</span> = pd.date_range<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'20160101'</span>, periods = <span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #FD971F;">cls.dataDf</span> = pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'date'</span>: cls.dates,
+            <span style="color: #E6DB74;">'count'</span>: np.array<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">7</span>, <span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">66</span>, <span style="color: #AE81FF;">9</span><span style="color: #E6DB74;">]</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+
     <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">test_to_str_bytes</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
         <span style="color: #F92672;">self</span>.assertEqual<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'hello'</span>, to_str<span style="color: #66D9EF;">(</span>b<span style="color: #E6DB74;">'hello'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
     <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">test_to_str_str</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
         <span style="color: #F92672;">self</span>.assertEqual<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'hello'</span>, to_str<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'hello'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
     <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">test_to_str_bad</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
         <span style="color: #F92672;">self</span>.assertRaises<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">TypeError</span>, to_str, <span style="color: #F92672;">object</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+
+
 <span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
     main<span style="color: #AE81FF;">()</span>
 </pre>
@@ -612,7 +622,7 @@ from random import randint
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-31 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-06-04 Sun 23:55</p>
+<p class="date">Created: 2017-06-05 Mon 14:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

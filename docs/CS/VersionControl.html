@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-05 Mon 14:06 -->
+<!-- 2017-06-05 Mon 15:48 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -140,28 +140,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -169,116 +147,131 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 量化选股</a></li>
-<li><a href="#orgheadline11">2. Performance analytics:</a>
+<li><a href="#orgheadline10">1. SVN</a>
 <ul>
-<li><a href="#orgheadline2">2.1. percentage change:</a></li>
-<li><a href="#orgheadline3">2.2. cumlative return:</a></li>
-<li><a href="#orgheadline4">2.3. annualized return:</a></li>
-<li><a href="#orgheadline5">2.4. annualized volatility:</a></li>
-<li><a href="#orgheadline6">2.5. annualized downrisk volatility:</a></li>
-<li><a href="#orgheadline7">2.6. downside standard deviation:</a></li>
-<li><a href="#orgheadline8">2.7. sharpe ratio:</a></li>
-<li><a href="#orgheadline9">2.8. sortino ratio:</a></li>
-<li><a href="#orgheadline10">2.9. return standard deviation:</a></li>
+<li><a href="#orgheadline1">1.1. svn checkout/co</a></li>
+<li><a href="#orgheadline2">1.2. svn add</a></li>
+<li><a href="#orgheadline3">1.3. svn propset</a></li>
+<li><a href="#orgheadline4">1.4. svn delete</a></li>
+<li><a href="#orgheadline5">1.5. svn status</a></li>
+<li><a href="#orgheadline6">1.6. svn update/up</a></li>
+<li><a href="#orgheadline7">1.7. svn commit/ci</a></li>
+<li><a href="#orgheadline8">1.8. svn diff</a></li>
+<li><a href="#orgheadline9">1.9. svn move</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline11">2. GIT</a></li>
 </ul>
 </div>
 </div>
-<p>
-#+AUTHORS weiwu
-</p>
 
-
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 量化选股</h2>
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">1</span> SVN</h2>
 <div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> svn checkout/co</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-<a href="./MultiFactorModel.html">MultiFactorModel</a>
+svn checkout or svn co. This command is used to pull an SVN tree such as svn://linuxfromscratch.org/BLFS/trunk/BOOK (the BLFS Development book) from the server.
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> svn add</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+svn add. When you are creating a new file or directory, you need to tell the SVN server about it. This command does that. Note that the file won't appear in the repository until you do an svn commit (see below).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> svn propset</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+svn propset. When you are creating a new file or directory, you generally need to tell the SVN to apply properties to the file in places that have keywords in a special format such as $Date: 2012-07-29 17:46:27 -0600 (Sun, 29 Jul 2012) $. Note that the keyword value won't appear in the file until you do an svn commit (see below).
+</p>
+
+<p>
+Normally, the command you want is
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">svn propset svn:keywords <span style="color: #E6DB74;">"Date LastChangedBy"</span> /path/to/filename.xml
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> svn delete</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+svn delete. This does what it says! When you do an svn commit the file will be deleted from your local sand box immediately as well as from the repository after committing.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> svn status</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+svn status. This command prints the status of working directories and files. If you have made local changes, it'll show your locally modified items. If you use the &#x2013;verbose switch, it will show revision information on every item. With the &#x2013;show-updates (-u) switch, it will show any server out-of-date information.
+</p>
+
+<p>
+You should always do a manual svn status &#x2013;show-updates before trying to commit changes in order to check that everything is OK and ready to go.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.6</span> svn update/up</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+svn update or svn up. This command syncs your local sand box with the server. If you have made local changes, it will try and merge any changes on the server with your changes on your machine.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">1.7</span> svn commit/ci</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+svn commit or svn ci. This command recursively sends your changes to the SVN server. It will commit changed files, added files, and deleted files. Note that you can commit a change to an individual file or changes to files in a specific directory path by adding the name of the file/directory to the end of the command. The -m option should always be used to pass a log message to the command. Please don't use empty log messages (see later in this document the policy which governs the log messages).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">1.8</span> svn diff</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+svn diff. This is useful for two different purposes. First, those without write access to the BLFS SVN server can use it to generate patches to send to the BLFS-Dev mailing list. To do this, simply edit the files in your local sand box then run svn diff &gt; FILE.patch from the root of your BLFS directory. You can then attach this file to a message to the BLFS-Dev mailing list where someone with editing rights can pick it up and apply it to the book. The second use is to find out what has changed between two revisions using: svn diff -r revision1:revision2 FILENAME. For example: svn diff -r 168:169 index.xml will output a diff showing the changes between revisions 168 and 169 of index.xml.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">1.9</span> svn move</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+svn move SRC DEST or svn mv SRC DEST or svn rename SRC DEST or svn ren SRC DEST. This command moves a file from one directory to another or renames a file. The file will be moved on your local sand box immediately as well as on the repository after committing.
+</p>
+</div>
+</div>
+</div>
+
 
 <div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">2</span> Performance analytics:</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> percentage change:</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-\[percentage change(P_n) = value / value.shift(1)\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> cumlative return:</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-\[total_return = (1+P_1)*(1+P_2)*...(1+P_n) - 1.0\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.3</span> annualized return:</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-\[annualized return = (1 + cumulative return)^(252/periods) - 1.0\]
-\[(annualized return + 1)^(periods/252) = 1 + cumulative return\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.4</span> annualized volatility:</h3>
-<div class="outline-text-3" id="text-2-4">
-<p>
-\(\sigma = standard deviation of returns(degree of freedom N -1)\)
-\[annualized volatility = \sigma * \sqrt(periods)\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.5</span> annualized downrisk volatility:</h3>
-</div>
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.6</span> downside standard deviation:</h3>
-<div class="outline-text-3" id="text-2-6">
-<p>
-Downside deviation is a measure of downside risk that focuses on returns that fall below a minimum threshold or minimum acceptable return (MAR). It is used in the calculation of a risk measure known as the Sortino Ratio.
-$$MAR=\sqrt{E[(X-E[X])<sup>2</sup>]1{X&lt;E[X]}])<sup>0.5</sup>}
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.7</span> sharpe ratio:</h3>
-<div class="outline-text-3" id="text-2-7">
-<p>
-\[sharpe ratio = (E[annual returns] - interest rate)/\sigma_annual\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.8</span> sortino ratio:</h3>
-<div class="outline-text-3" id="text-2-8">
-<p>
-\[SR = \div{annual return - R_f, Downside Risk}\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.9</span> return standard deviation:</h3>
-<div class="outline-text-3" id="text-2-9">
-<p>
-\(\sigma = standard deviation of returns(degree of freedom N -1)\)
-</p>
-</div>
-</div>
+<h2 id="orgheadline11"><span class="section-number-2">2</span> GIT</h2>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-26 Fri&gt;</span></span></p>
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-05 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-06-05 Mon 14:06</p>
+<p class="date">Created: 2017-06-05 Mon 15:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

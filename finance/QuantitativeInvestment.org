@@ -24,4 +24,16 @@ $$total_return = (1+P_1)*(1+P_2)*...(1+P_n) - 1.0$$
 ** annualized return:
 $$annualized return = (1 + cumulative return)^(252/periods) - 1.0$$
 $$(annualized return + 1)^(periods/252) = 1 + cumulative return$$
-***
+** annualized volatility:
+$\sigma = standard deviation of returns(degree of freedom N -1)$
+$$annualized volatility = \sigma * \sqrt(periods)$$
+** annualized downrisk volatility:
+** downside standard deviation:
+Downside deviation is a measure of downside risk that focuses on returns that fall below a minimum threshold or minimum acceptable return (MAR). It is used in the calculation of a risk measure known as the Sortino Ratio.
+$$MAR=\sqrt{E[(X-E[X])^2]1{X<E[X]}])^0.5}
+** sharpe ratio:
+$$sharpe ratio = (E[annual returns] - interest rate)/\sigma_annual$$
+** sortino ratio:
+$$SR = \div{annual return - R_f, Downside Risk}$$
+** return standard deviation:
+$\sigma = standard deviation of returns(degree of freedom N -1)$
