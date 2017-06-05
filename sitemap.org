@@ -17,13 +17,13 @@
     + Ipython notebooks
       + [[file:./ipynb/site/index.html][JupyterNotebooks]]
     + [[file:./CS/Python/python_rules.html][PythonRules]]
-  + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
   + C++
     + [[file:./CS/C++/C++.org][C++ObjectOrientedProgramming]]
   + VersionControl
     + [[file:./CS/VersionControl.org][VersionControl]]
 + Database
   + [[file:./Database/DBMS.org][DatabaseManagement]]
+  + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
 + Emacs
   + [[file:./emacs/emacs.org][Emacs]]
 + Business

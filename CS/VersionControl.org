@@ -42,7 +42,7 @@ You should always do a manual svn status --show-updates before trying to commit 
 
 ** svn update/up
 
-svn update or svn up. This command syncs your local sand box with the server. If you have made local changes, it will try and merge any changes on the server with your changes on your machine.
+svn update or svn up. svn update brings changes from the repository into your working copy. If no revision given, it brings your working copy up-to-date with the HEAD revision. Otherwise, it synchronizes the working copy to the revision given by the --revision switch. As part of the synchronization, svn update also removes any stale locks (see the section called “svn cleanup”) found in the working copy.
 
 ** svn commit/ci
 
@@ -56,5 +56,9 @@ svn diff. This is useful for two different purposes. First, those without write 
 
 svn move SRC DEST or svn mv SRC DEST or svn rename SRC DEST or svn ren SRC DEST. This command moves a file from one directory to another or renames a file. The file will be moved on your local sand box immediately as well as on the repository after committing.
 
+** svn commit
+#+BEGIN_SRC shell
+svn ci -m "Added new package baldrick" filename
+#+END_SRC
 
 * GIT
