@@ -21,6 +21,8 @@
     + [[file:./CS/C++/C++.org][C++ObjectOrientedProgramming]]
   + VersionControl
     + [[file:./CS/VersionControl.org][VersionControl]]
+  + Linux
+    + [[file:./CS/Linux/Linux.org][Linux]]
 + Database
   + [[file:./Database/DBMS.org][DatabaseManagement]]
   + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
