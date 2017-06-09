@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-05 Mon 15:48 -->
+<!-- 2017-06-09 Fri 09:54 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,7 +147,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline10">1. SVN</a>
+<li><a href="#orgheadline11">1. SVN</a>
 <ul>
 <li><a href="#orgheadline1">1.1. svn checkout/co</a></li>
 <li><a href="#orgheadline2">1.2. svn add</a></li>
@@ -158,15 +158,16 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline7">1.7. svn commit/ci</a></li>
 <li><a href="#orgheadline8">1.8. svn diff</a></li>
 <li><a href="#orgheadline9">1.9. svn move</a></li>
+<li><a href="#orgheadline10">1.10. svn commit</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline11">2. GIT</a></li>
+<li><a href="#orgheadline12">2. GIT</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">1</span> SVN</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">1</span> SVN</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> svn checkout/co</h3>
@@ -230,7 +231,7 @@ You should always do a manual svn status &#x2013;show-updates before trying to c
 <h3 id="orgheadline6"><span class="section-number-3">1.6</span> svn update/up</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
-svn update or svn up. This command syncs your local sand box with the server. If you have made local changes, it will try and merge any changes on the server with your changes on your machine.
+svn update or svn up. svn update brings changes from the repository into your working copy. If no revision given, it brings your working copy up-to-date with the HEAD revision. Otherwise, it synchronizes the working copy to the revision given by the &#x2013;revision switch. As part of the synchronization, svn update also removes any stale locks (see the section called “svn cleanup”) found in the working copy.
 </p>
 </div>
 </div>
@@ -261,17 +262,27 @@ svn move SRC DEST or svn mv SRC DEST or svn rename SRC DEST or svn ren SRC DEST.
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.10</span> svn commit</h3>
+<div class="outline-text-3" id="text-1-10">
+<div class="org-src-container">
+
+<pre class="src src-shell">svn ci -m <span style="color: #E6DB74;">"Added new package baldrick"</span> filename
+</pre>
+</div>
+</div>
+</div>
 </div>
 
-
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">2</span> GIT</h2>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">2</span> GIT</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-05 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-06-05 Mon 15:48</p>
+<p class="date">Created: 2017-06-09 Fri 09:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

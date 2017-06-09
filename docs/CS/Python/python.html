@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-03 Sat 13:31 -->
+<!-- 2017-06-09 Fri 09:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -507,6 +507,7 @@ pickle.dump<span style="color: #AE81FF;">(</span>data1, output<span style="color
 pickle.dump<span style="color: #AE81FF;">(</span>selfref_list, output, -<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
 
 output.close<span style="color: #AE81FF;">()</span>
+pickle.dump<span style="color: #AE81FF;">(</span> x0, <span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span> <span style="color: #E6DB74;">"x0.pkl"</span>, <span style="color: #E6DB74;">"wb"</span> <span style="color: #66D9EF;">)</span> <span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 </div>
@@ -887,8 +888,18 @@ b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="colo
 <pre class="src src-python"><span style="color: #FD971F;">df</span> = pd.Dataframe<span style="color: #AE81FF;">(</span>data = w.wsd<span style="color: #66D9EF;">()</span>.Data<span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span>, index=w.wsd<span style="color: #66D9EF;">()</span>.Times<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-</div>
 
+<ul class="org-ul">
+<li>check DatetimeIndex difference:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">to check the frequency of the strategy, DAILY or MONTHLY</span>
+<span style="color: #FD971F;">dt_diff</span> = df_single_period_return.index.to_series<span style="color: #AE81FF;">()</span>.diff<span style="color: #AE81FF;">()</span>.mean<span style="color: #AE81FF;">()</span>
+<span style="color: #F92672;">if</span> dt_diff &lt; pd.Timedelta<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'3 days'</span><span style="color: #AE81FF;">)</span>:
+</pre>
+</div>
+</div>
 
 <div id="outline-container-orgheadline24" class="outline-4">
 <h4 id="orgheadline24"><span class="section-number-4">2.1.1</span> Index</h4>
@@ -1149,7 +1160,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-06-03 Sat 13:31</p>
+<p class="date">Created: 2017-06-09 Fri 09:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

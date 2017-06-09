@@ -192,6 +192,8 @@ pickle.dump(data1, output)
 pickle.dump(selfref_list, output, -1)
 
 output.close()
+pickle.dump( x0, open( "x0.pkl", "wb" ) )
+
 #+END_SRC
 
 *** load:
@@ -415,6 +417,12 @@ end = end.replace(hour=23, minute=59, second=59)
 df = pd.Dataframe(data = w.wsd().Data[0], index=w.wsd().Times)
 #+end_src
 
+- check DatetimeIndex difference:
+#+BEGIN_SRC python
+# to check the frequency of the strategy, DAILY or MONTHLY
+dt_diff = df_single_period_return.index.to_series().diff().mean()
+if dt_diff < pd.Timedelta('3 days'):
+#+END_SRC
 
 *** Index
 **** Index manuplication
