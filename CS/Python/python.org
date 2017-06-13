@@ -193,7 +193,6 @@ pickle.dump(selfref_list, output, -1)
 
 output.close()
 pickle.dump( x0, open( "x0.pkl", "wb" ) )
-
 #+END_SRC
 
 *** load:
