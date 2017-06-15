@@ -187,6 +187,21 @@ scipy.optimize.minimize(fun, x0, args=(), method=None, jac=None, hess=None, hess
 
 *** Capital Market Line
 
+**** 3 scenarios:
+- solve minimum risk for maximum return above target .
+Here we find the portfolio that minimizes
+the return variance (which is associated with the risk of the portfolio) subject to achieving a minimum acceptable mean return rmin, and satisfying the portfolio
+budget and no-shorting constraints.
+# solves the Quadratic Programming, where x is the allocation of the portfolio:
+# minimize   x'Px + q'x
+# subject to Gx <= h
+# -c_1*w_1 - c_2*w_2 - ... - c_n*w_n <= -target return
+#            Ax == b
+# w_1 + w_2 + ... + w_n == b
+- solve maximum return for risk under target.
+
+- solve for minimum risk.
+- solve for maximum return.
 ** Principal Component Analysis
 [[file:./py4fi/PCA.html][PCA]]
 
