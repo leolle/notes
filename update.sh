@@ -8,5 +8,5 @@ git add *
 git commit -m "update notes"
 git checkout master
 git merge home
-git push
+git push origin master
 git checkout home
