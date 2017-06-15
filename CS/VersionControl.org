@@ -133,6 +133,7 @@ Fast-forward
 
 ** 解决冲突
 用带参数的git log也可以看到分支的合并情况：
+
 #+begin_src emacs-lisp :tangle yes
 $ git log --graph --pretty=oneline --abbrev-commit
    59bc1cb conflict fixed
