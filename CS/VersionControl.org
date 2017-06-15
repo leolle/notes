@@ -62,3 +62,155 @@ svn ci -m "Added new package baldrick" filename
 #+END_SRC
 
 * GIT
+
+** 创建版本库
+#+begin_src emacs-lisp :tangle yes
+$ mkdir learngit
+$ cd learngit
+$ pwd
+/Users/michael/learngit
+# 通过git init命令把这个目录变成Git可以管理的仓库：
+$ git init
+Initialized empty Git repository in /Users/michael/learngit/.git/
+#+end_src
+千万不要使用Windows自带的记事本编辑任何文本文件。原因是Microsoft开发记事本的团队使用了一个非常弱智的行为来保存UTF-8编码的文件，他们自作聪明地在每个文件开头添加了0xefbbbf（十六进制）的字符，你会遇到很多不可思议的问题，比如，网页第一行可能会显示一个“?”，明明正确的程序一编译就报语法错误，等等，都是由记事本的弱智行为带来的。
+
+** 用命令git add告诉Git，把文件添加到仓库：
+#+begin_src emacs-lisp :tangle yes
+$ git add readme.txt
+#+end_src
+
+** 用命令git commit告诉Git，把文件提交到仓库：
+#+begin_src emacs-lisp :tangle yes
+$ git commit -m "wrote a readme file"
+[master (root-commit) cb926e7] wrote a readme file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 readme.txt
+#+end_src
+
+** 版本回退
+- HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id
+- 用git log可以查看提交历史，以便确定要回退到哪个版本。
+- 用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+#+begin_src emacs-lisp :tangle yes
+$ git log --pretty=oneline # 如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数：
+3628164fb26d48395383f8f31179f24e0882e1e0 append GPL
+ea34578d5496d7dd233c827ed32a8cd576c5ee85 add distributed
+cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file
+
+$ git reset --hard HEAD^
+HEAD is now at ea34578 add distributed
+#+end_src
+
+** 撤销修改
+#+begin_src emacs-lisp :tangle yes
+$ git checkout -- readme.txt
+#+end_src
+用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区：
+#+begin_src emacs-lisp :tangle yes
+$ git reset HEAD readme.txt
+Unstaged changes after reset:
+M       readme.txt
+#+end_src
+
+** 创建与合并分支
+
+*** master分支是一条线，Git用master指向最新的提交，再用HEAD指向master
+
+*** 当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上.
+
+*** 假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并.
+#+begin_src emacs-lisp :tangle yes
+$ git checkout master
+Switched to branch 'master'
+
+$ git merge dev
+Updating d17efd8..fec145a
+Fast-forward
+ readme.txt |    1 +
+ 1 file changed, 1 insertion(+)
+#+end_src
+
+** 解决冲突
+用带参数的git log也可以看到分支的合并情况：
+#+begin_src emacs-lisp :tangle yes
+$ git log --graph --pretty=oneline --abbrev-commit
+   59bc1cb conflict fixed
+|\
+| * 75a857c AND simple
+ | 400b400 & simple
+|/
+ fec145a branch test
+...
+#+end_src
+** 分支管理策略
+准备合并dev分支，请注意--no-ff参数，表示禁用Fast forward：
+#+begin_src emacs-lisp :tangle yes
+$ git merge --no-ff -m "merge with no-ff" dev
+#+end_src
+在实际开发中，我们应该按照几个基本原则进行分支管理：
+
+首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；
+
+那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；
+
+你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
+** Bug分支
+- 当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：
+- 并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？
+幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+- 首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支：
+#+begin_src emacs-lisp :tangle yes
+$ git stash
+Saved working directory and index state WIP on dev: 6224937 add merge
+HEAD is now at 6224937 add merge
+$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 6 commits.
+$ git checkout -b issue-101
+Switched to a new branch 'issue-101'
+$ git add readme.txt
+$ git commit -m "fix bug 101"
+[issue-101 cc17032] fix bug 101
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+#+end_src
+- 修复完成后，切换到master分支，并完成合并，最后删除issue-101分支：
+#+begin_src emacs-lisp :tangle yes
+$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+$ git merge --no-ff -m "merged bug fix 101" issue-101
+Merge made by the 'recursive' strategy.
+ readme.txt |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git branch -d issue-101
+Deleted branch issue-101 (was cc17032).
+#+end_src
+- 工作区是干净的，刚才的工作现场存到哪去了？用git stash list命令看看：
+#+begin_src emacs-lisp :tangle yes
+$ git checkout dev
+Switched to branch 'dev'
+$ git status
+# On branch dev
+nothing to commit (working directory clean)
+$ git stash list
+stash@{0}: WIP on dev: 6224937 add merge
+#+end_src
+需要恢复一下，有两个办法：
+
+一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+
+另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+** 多人协作
+推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送.
+** Switching remote URLs from HTTPS to SSH
+#+begin_src emacs-lisp :tangle yes
+git remote -v
+origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
+origin  https://github.com/USERNAME/REPOSITORY.git (push)
+#+end_src
+
+*** Change your remote's URL from HTTPS to SSH with the git remote set-url command.
+#+begin_src emacs-lisp :tangle yes
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+#+end_src
