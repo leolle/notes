@@ -331,6 +331,59 @@ The evolution usually starts from a population of randomly generated individuals
 	* Auto Text Summary
 * Reinforcement Learning
 * Decision Trees (ensambles)
+** 数据处理：离散化
+离散化指把连续型数据切分为若干“段”，也称bin，是数据分析中常用的手段。切分的原则有等距，等频，优化，或根据数据特点而定。在营销数据挖掘中，离散化得到普遍采用。究其原因，有这样几点：
+- 算法需要。例如决策树，NaiveBayes等算法本身不能直接使用连续型变量，连续型数据只有经离散处理后才能进入算法引擎。
+- 离散化可以有效地克服数据中隐藏的缺陷：使模型结果更加稳定。例如，数据中的极端值是影响模型效果的一个重要因素。极端值导致模型参数过高或过低，或导致模型被虚假现象“迷惑”，把原来不存在的关系作为重要模式来学习。而离散化，尤其是等距离散，可以有效地减弱极端值和异常值的影响.
+- 有利于对非线性关系进行诊断和描述：对连续型数据进行离散处理后，自变量和目标变量之间的关系变得清晰化。如果两者之间是非线性关系，可以重新定义离散后变量每段的取值，如采取0，1的形式， 由一个变量派生为多个哑变量，分别确定每段和目标变量间的联系。这样做，虽然减少了模型的自由度，但可以大大提高模型的灵活度。
+- 等距:将连续型变量的取值范围均匀划成n等份，每份的间距相等。例如，客户订阅刊物的时间是一个连续型变量，可以从几天到几年。采取等距切分可以把1年以下的客户划分成一组，1-2年的客户为一组，2-3年为一组..，以此类分，组距都是一年。
+- 等频:把观察点均匀分为n等份，每份内包含的观察点数相同。还取上面的例子，设该杂志订户共有5万人，等频分段需要先把订户按订阅时间按顺序排列，排列好后可以按5000人一组，把全部订户均匀分为十段。
+- 离散化处理不免要损失一部分信息。很显然，对连续型数据进行分段后，同一个段内的观察点之间的差异便消失了。
+** 随机森林
+随机森林指的是利用多棵树对样本进行训练并预测的一种分类器。决策树是一种基本的分类器，一般是将特征分为两类（决策树也可以用来回归，不过本文中暂且不表）。构建好的决策树呈树形结构，可以认为是if-then规则的集合，主要优点是模型具有可读性，分类速度快。
+*** 随机森林的构建过程
+**** 数据的随机选取：
+- 从原始的数据集中采取有放回的抽样，构造子数据集，子数据集的数据量是和原始数据集相同的。不同子数据集的元素可以重复，同一个子数据集中的元素也可以重复。
+- 第二，利用子数据集来构建子决策树，将这个数据放到每个子决策树中，每个子决策树输出一个结果。
+- 最后，如果有了新的数据需要通过随机森林得到分类结果，就可以通过对子决策树的判断结果的投票，得到随机森林的输出结果了。如下图，假设随机森林中有3棵子决策树，2棵子树的分类结果是A类，1棵子树的分类结果是B类，那么随机森林的分类结果就是A类。
+**** 待选特征的随机选取
+与数据集的随机选取类似，随机森林中的子树的每一个分裂过程并未用到所有的待选特征，而是从所有的待选特征中随机选取一定的特征，之后再在随机选取的特征中选取最优的特征。这样能够使得随机森林中的决策树都能够彼此不同，提升系统的多样性，从而提升分类性能。
+**** Random Forest的具体使用-sklearn
+以上介绍了随机森林的工作原理，那么在python环境下，我们可以利用python环境下的sklearn包来帮助我们完成任务。举个小例子：
+　　特征是通过收盘价数据计算的SMA，WMA，MOM指标，训练样本的特征是从2007-1-4到2016-6-2中截止前一天的SMA，WMA，MOM指标，训练样本的标类别是2007-1-4日到2016-6-2中每一天的涨跌情况，涨了就是True，跌了就是False，测试样本是2016-6-3日的三个指标以及涨跌情况。我们可以判定之后判断结果是正确还是错误，如果通过Random Forest判断的结果和当天的涨跌情况相符，则输出True，如果判断结果和当天的涨跌情况不符，则输出False。
+#+BEGIN_SRC python
+import talib
+from jqdata import *
+test_stock = '399300.XSHE'
+start_date = datetime.date(2007, 1, 4)
+end_date = datetime.date(2016, 6, 3)
+trading_days = get_all_trade_days()
+start_date_index = trading_days.index(start_date)
+end_date_index = trading_days.index(end_date)
+x_all = []
+y_all = []
+
+for index in range(start_date_index, end_date_index):    # 得到计算指标的所有数据    start_day = trading_days[index - 30]    end_day = trading_days[index]    stock_data = get_price(test_stock, start_date=start_day, end_date=end_day, frequency='daily', fields=['close'])    close_prices = stock_data['close'].values        #通过数据计算指标    # -2是保证获取的数据是昨天的，-1就是通过今天的数据计算出来的指标    sma_data = talib.SMA(close_prices)[-2]     wma_data = talib.WMA(close_prices)[-2]    mom_data = talib.MOM(close_prices)[-2]        features = []    features.append(sma_data)    features.append(wma_data)    features.append(mom_data)        label = False    if close_prices[-1] > close_prices[-2]:        label = True    x_all.append(features)    y_all.append(label) # 准备算法需要用到的数据
+ x_train = x_all[: -1]
+ y_train = y_all[: -1]
+ x_test = x_all[-1]
+ y_test = y_all[-1]
+ print('data done')
+
+ 输出：
+data done
+
+from sklearn.ensemble import RandomForestClassifier
+#开始利用机器学习算法计算，括号里面的n_estimators就是森林中包含的树的数目啦
+clf = RandomForestClassifier(n_estimators=10)
+#训练的代码clf.fit(x_train, y_train)
+#
+得到测试结果的代码prediction = clf.predict(x_test)
+# 看看预测对了没print(prediction == y_test)
+print('all done')
+输出：
+[ True]all done
+#+END_SRC
 * Instance Based Learning
 	* SVM
 	* k-nearest neighbor

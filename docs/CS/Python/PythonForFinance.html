@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-15 Thu 17:25 -->
+<!-- 2017-06-16 Fri 09:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -334,11 +334,20 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline95">19. Recurrent Nets, e.g.,</a></li>
 <li><a href="#orgheadline96">20. Natural language processing, e.g.</a></li>
 <li><a href="#orgheadline97">21. Reinforcement Learning</a></li>
-<li><a href="#orgheadline98">22. Decision Trees (ensambles)</a></li>
-<li><a href="#orgheadline99">23. Instance Based Learning</a></li>
-<li><a href="#orgheadline100">24. Times Series Analysis, e.g.,</a></li>
-<li><a href="#orgheadline101">25. Ux design and Psychology</a></li>
-<li><a href="#orgheadline102">26. Track</a></li>
+<li><a href="#orgheadline104">22. Decision Trees (ensambles)</a>
+<ul>
+<li><a href="#orgheadline98">22.1. 数据处理：离散化</a></li>
+<li><a href="#orgheadline103">22.2. 随机森林</a>
+<ul>
+<li><a href="#orgheadline102">22.2.1. 随机森林的构建过程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline105">23. Instance Based Learning</a></li>
+<li><a href="#orgheadline106">24. Times Series Analysis, e.g.,</a></li>
+<li><a href="#orgheadline107">25. Ux design and Psychology</a></li>
+<li><a href="#orgheadline108">26. Track</a></li>
 </ul>
 </div>
 </div>
@@ -948,11 +957,93 @@ The evolution usually starts from a population of randomly generated individuals
 <div id="outline-container-orgheadline97" class="outline-2">
 <h2 id="orgheadline97"><span class="section-number-2">21</span> Reinforcement Learning</h2>
 </div>
-<div id="outline-container-orgheadline98" class="outline-2">
-<h2 id="orgheadline98"><span class="section-number-2">22</span> Decision Trees (ensambles)</h2>
+<div id="outline-container-orgheadline104" class="outline-2">
+<h2 id="orgheadline104"><span class="section-number-2">22</span> Decision Trees (ensambles)</h2>
+<div class="outline-text-2" id="text-22">
+</div><div id="outline-container-orgheadline98" class="outline-3">
+<h3 id="orgheadline98"><span class="section-number-3">22.1</span> 数据处理：离散化</h3>
+<div class="outline-text-3" id="text-22-1">
+<p>
+离散化指把连续型数据切分为若干“段”，也称bin，是数据分析中常用的手段。切分的原则有等距，等频，优化，或根据数据特点而定。在营销数据挖掘中，离散化得到普遍采用。究其原因，有这样几点：
+</p>
+<ul class="org-ul">
+<li>算法需要。例如决策树，NaiveBayes等算法本身不能直接使用连续型变量，连续型数据只有经离散处理后才能进入算法引擎。</li>
+<li>离散化可以有效地克服数据中隐藏的缺陷：使模型结果更加稳定。例如，数据中的极端值是影响模型效果的一个重要因素。极端值导致模型参数过高或过低，或导致模型被虚假现象“迷惑”，把原来不存在的关系作为重要模式来学习。而离散化，尤其是等距离散，可以有效地减弱极端值和异常值的影响.</li>
+<li>有利于对非线性关系进行诊断和描述：对连续型数据进行离散处理后，自变量和目标变量之间的关系变得清晰化。如果两者之间是非线性关系，可以重新定义离散后变量每段的取值，如采取0，1的形式， 由一个变量派生为多个哑变量，分别确定每段和目标变量间的联系。这样做，虽然减少了模型的自由度，但可以大大提高模型的灵活度。</li>
+<li>等距:将连续型变量的取值范围均匀划成n等份，每份的间距相等。例如，客户订阅刊物的时间是一个连续型变量，可以从几天到几年。采取等距切分可以把1年以下的客户划分成一组，1-2年的客户为一组，2-3年为一组..，以此类分，组距都是一年。</li>
+<li>等频:把观察点均匀分为n等份，每份内包含的观察点数相同。还取上面的例子，设该杂志订户共有5万人，等频分段需要先把订户按订阅时间按顺序排列，排列好后可以按5000人一组，把全部订户均匀分为十段。</li>
+<li>离散化处理不免要损失一部分信息。很显然，对连续型数据进行分段后，同一个段内的观察点之间的差异便消失了。</li>
+</ul>
 </div>
-<div id="outline-container-orgheadline99" class="outline-2">
-<h2 id="orgheadline99"><span class="section-number-2">23</span> Instance Based Learning</h2>
+</div>
+<div id="outline-container-orgheadline103" class="outline-3">
+<h3 id="orgheadline103"><span class="section-number-3">22.2</span> 随机森林</h3>
+<div class="outline-text-3" id="text-22-2">
+<p>
+随机森林指的是利用多棵树对样本进行训练并预测的一种分类器。决策树是一种基本的分类器，一般是将特征分为两类（决策树也可以用来回归，不过本文中暂且不表）。构建好的决策树呈树形结构，可以认为是if-then规则的集合，主要优点是模型具有可读性，分类速度快。
+</p>
+</div>
+<div id="outline-container-orgheadline102" class="outline-4">
+<h4 id="orgheadline102"><span class="section-number-4">22.2.1</span> 随机森林的构建过程</h4>
+<div class="outline-text-4" id="text-22-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline99"></a>数据的随机选取：<br  /><div class="outline-text-5" id="text-22-2-1-1">
+<ul class="org-ul">
+<li>从原始的数据集中采取有放回的抽样，构造子数据集，子数据集的数据量是和原始数据集相同的。不同子数据集的元素可以重复，同一个子数据集中的元素也可以重复。</li>
+<li>第二，利用子数据集来构建子决策树，将这个数据放到每个子决策树中，每个子决策树输出一个结果。</li>
+<li>最后，如果有了新的数据需要通过随机森林得到分类结果，就可以通过对子决策树的判断结果的投票，得到随机森林的输出结果了。如下图，假设随机森林中有3棵子决策树，2棵子树的分类结果是A类，1棵子树的分类结果是B类，那么随机森林的分类结果就是A类。</li>
+</ul>
+</div></li>
+<li><a id="orgheadline100"></a>待选特征的随机选取<br  /><div class="outline-text-5" id="text-22-2-1-2">
+<p>
+与数据集的随机选取类似，随机森林中的子树的每一个分裂过程并未用到所有的待选特征，而是从所有的待选特征中随机选取一定的特征，之后再在随机选取的特征中选取最优的特征。这样能够使得随机森林中的决策树都能够彼此不同，提升系统的多样性，从而提升分类性能。
+</p>
+</div></li>
+<li><a id="orgheadline101"></a>Random Forest的具体使用-sklearn<br  /><div class="outline-text-5" id="text-22-2-1-3">
+<p>
+以上介绍了随机森林的工作原理，那么在python环境下，我们可以利用python环境下的sklearn包来帮助我们完成任务。举个小例子：
+　　特征是通过收盘价数据计算的SMA，WMA，MOM指标，训练样本的特征是从2007-1-4到2016-6-2中截止前一天的SMA，WMA，MOM指标，训练样本的标类别是2007-1-4日到2016-6-2中每一天的涨跌情况，涨了就是True，跌了就是False，测试样本是2016-6-3日的三个指标以及涨跌情况。我们可以判定之后判断结果是正确还是错误，如果通过Random Forest判断的结果和当天的涨跌情况相符，则输出True，如果判断结果和当天的涨跌情况不符，则输出False。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> talib
+<span style="color: #F92672;">from</span> jqdata <span style="color: #F92672;">import</span> *
+<span style="color: #FD971F;">test_stock</span> = <span style="color: #E6DB74;">'399300.XSHE'</span>
+<span style="color: #FD971F;">start_date</span> = datetime.date<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2007</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">end_date</span> = datetime.date<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2016</span>, <span style="color: #AE81FF;">6</span>, <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">trading_days</span> = get_all_trade_days<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">start_date_index</span> = trading_days.index<span style="color: #AE81FF;">(</span>start_date<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">end_date_index</span> = trading_days.index<span style="color: #AE81FF;">(</span>end_date<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">x_all</span> = <span style="color: #AE81FF;">[]</span>
+<span style="color: #FD971F;">y_all</span> = <span style="color: #AE81FF;">[]</span>
+
+<span style="color: #F92672;">for</span> index <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>start_date_index, end_date_index<span style="color: #AE81FF;">)</span>:    <span style="color: #75715E;"># </span><span style="color: #75715E;">&#24471;&#21040;&#35745;&#31639;&#25351;&#26631;&#30340;&#25152;&#26377;&#25968;&#25454;    start_day = trading_days[index - 30]    end_day = trading_days[index]    stock_data = get_price(test_stock, start_date=start_day, end_date=end_day, frequency='daily', fields=['close'])    close_prices = stock_data['close'].values        #&#36890;&#36807;&#25968;&#25454;&#35745;&#31639;&#25351;&#26631;    # -2&#26159;&#20445;&#35777;&#33719;&#21462;&#30340;&#25968;&#25454;&#26159;&#26152;&#22825;&#30340;&#65292;-1&#23601;&#26159;&#36890;&#36807;&#20170;&#22825;&#30340;&#25968;&#25454;&#35745;&#31639;&#20986;&#26469;&#30340;&#25351;&#26631;    sma_data = talib.SMA(close_prices)[-2]     wma_data = talib.WMA(close_prices)[-2]    mom_data = talib.MOM(close_prices)[-2]        features = []    features.append(sma_data)    features.append(wma_data)    features.append(mom_data)        label = False    if close_prices[-1] &gt; close_prices[-2]:        label = True    x_all.append(features)    y_all.append(label) # &#20934;&#22791;&#31639;&#27861;&#38656;&#35201;&#29992;&#21040;&#30340;&#25968;&#25454;</span>
+ <span style="color: #FD971F;">x_train</span> = x_all<span style="color: #AE81FF;">[</span>: -<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+ <span style="color: #FD971F;">y_train</span> = y_all<span style="color: #AE81FF;">[</span>: -<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+ <span style="color: #FD971F;">x_test</span> = x_all<span style="color: #AE81FF;">[</span>-<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+ <span style="color: #FD971F;">y_test</span> = y_all<span style="color: #AE81FF;">[</span>-<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+ <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'data done'</span><span style="color: #AE81FF;">)</span>
+
+ &#36755;&#20986;&#65306;
+data done
+
+<span style="color: #F92672;">from</span> sklearn.ensemble <span style="color: #F92672;">import</span> RandomForestClassifier
+<span style="color: #75715E;">#</span><span style="color: #75715E;">&#24320;&#22987;&#21033;&#29992;&#26426;&#22120;&#23398;&#20064;&#31639;&#27861;&#35745;&#31639;&#65292;&#25324;&#21495;&#37324;&#38754;&#30340;n_estimators&#23601;&#26159;&#26862;&#26519;&#20013;&#21253;&#21547;&#30340;&#26641;&#30340;&#25968;&#30446;&#21862;</span>
+<span style="color: #FD971F;">clf</span> = RandomForestClassifier<span style="color: #AE81FF;">(</span>n_estimators=<span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">&#35757;&#32451;&#30340;&#20195;&#30721;clf.fit(x_train, y_train)</span>
+<span style="color: #75715E;">#</span>
+<span style="color: #FD971F;">&#24471;&#21040;&#27979;&#35797;&#32467;&#26524;&#30340;&#20195;&#30721;prediction</span> = clf.predict<span style="color: #AE81FF;">(</span>x_test<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#30475;&#30475;&#39044;&#27979;&#23545;&#20102;&#27809;print(prediction == y_test)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'all done'</span><span style="color: #AE81FF;">)</span>
+&#36755;&#20986;&#65306;
+<span style="color: #AE81FF;">[</span> <span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">]</span><span style="color: #F92672;">all</span> done
+</pre>
+</div>
+</div></li></ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline105" class="outline-2">
+<h2 id="orgheadline105"><span class="section-number-2">23</span> Instance Based Learning</h2>
 <div class="outline-text-2" id="text-23">
 <ul class="org-ul">
 <li>SVM</li>
@@ -961,8 +1052,8 @@ The evolution usually starts from a population of randomly generated individuals
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline100" class="outline-2">
-<h2 id="orgheadline100"><span class="section-number-2">24</span> Times Series Analysis, e.g.,</h2>
+<div id="outline-container-orgheadline106" class="outline-2">
+<h2 id="orgheadline106"><span class="section-number-2">24</span> Times Series Analysis, e.g.,</h2>
 <div class="outline-text-2" id="text-24">
 <ul class="org-ul">
 <li>Co-integration</li>
@@ -970,11 +1061,11 @@ The evolution usually starts from a population of randomly generated individuals
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline101" class="outline-2">
-<h2 id="orgheadline101"><span class="section-number-2">25</span> Ux design and Psychology</h2>
+<div id="outline-container-orgheadline107" class="outline-2">
+<h2 id="orgheadline107"><span class="section-number-2">25</span> Ux design and Psychology</h2>
 </div>
-<div id="outline-container-orgheadline102" class="outline-2">
-<h2 id="orgheadline102"><span class="section-number-2">26</span> Track</h2>
+<div id="outline-container-orgheadline108" class="outline-2">
+<h2 id="orgheadline108"><span class="section-number-2">26</span> Track</h2>
 <div class="outline-text-2" id="text-26">
 <p>
 #+begining<sub>src</sub> org
@@ -1154,7 +1245,7 @@ The evolution usually starts from a population of randomly generated individuals
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-11 Thu&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-06-15 Thu 17:25</p>
+<p class="date">Created: 2017-06-16 Fri 09:23</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
