@@ -8,7 +8,7 @@
 + CS
   + MachineLearning
     + [[file:./CS/MachineLearning/MachineLearning.org][ML]]
-  + [[file:./CS/Python/python.org][Python]]
+  + [[file:./CS/Python/python2.org][Python]]
     + [[file:./CS/Python/PythonForFinance.org][PythonForFinance]]
     + [[file:./CS/Python/DesignPattern.org][DesignPattern]]
     + [[file:./CS/Python/EffectivePython.org][EffectivePython]]
