@@ -102,6 +102,12 @@ $ git reset --hard HEAD^
 HEAD is now at ea34578 add distributed
 #+end_src
 
+- *push the editted previous version*
+#+BEGIN_SRC shell
+$ git push -f origin
+
+#+END_SRC
+
 ** 撤销修改
 #+begin_src emacs-lisp :tangle yes
 $ git checkout -- readme.txt
