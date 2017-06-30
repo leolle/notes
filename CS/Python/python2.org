@@ -156,7 +156,9 @@ datetime64
 - function parameter
   - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
 
-- 函数中改变形参值不会改变原值。
+- if the input argument is un-mutable,函数中改变形参值不会改变原值。
+if the input is mutable, operate on the input like append operation will change the input argument.
+
 - a, b = b, a + b # 相当于：
 #+begin_src python
 t = (b, a + b) # t是一个tuple
