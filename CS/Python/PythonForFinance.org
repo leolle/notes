@@ -60,7 +60,31 @@
 ** Approximation
 
 *** Regression
+$$standard error = \d{standard deviation}{\sqrt{N}}$$
+- The standard error is a measure of sample variability.
+- population standard deviation. $\sqrt{N-1}$
 
+**** linear regression
+- linear regression deals with estimating a variable from another variable.
+$$ Y = Xk + \epsinon$$
+
+***** The dependent variable (Dep. Variable) states the name of the variable that is fitted.  
+***** Model states what model we used in the fit; except OLS, there are several other models such as   weighted least squares (WLS).
+***** The number of observations (No. Observations) are listed and the degrees of freedom of the residuals (Df Residuals), that is, the number of observations (59) minus the parameters determined through the fitting 2 (k and   k).  
+***** Df Model shows how many parameters were determined (except the constant, that is, intercept).
+***** The table to the right of the top table shows you information on how well the model fits the data.
+***** R-squared was covered before; here, the adjusted R-square value (Adj. R-squared) is also listed and this is the R-square value corrected for the number of data points and degrees of freedom.
+***** The   F-statistic number gives you an estimate of how significant the fit is. Practically, it is the mean squared error of the model divided by the mean squared error of the residuals.
+***** The next value, Prob (F-statistic), gives you the probability to get the F-statistic value if the null hypothesis is true, that is, the variables are not related.
+***** After this, three sets of   log-likelihood function values follow: the value of the log-likelihood value of the fit, the   Akaike Information Criterion (AIC), and   Bayes Information Criterion (BIC). The AIC and BIC are various ways of adjusting the log-likelihood function for the number of observations and model type.
+**** multiple regression
+- a variable is estimated from two or more others.
+**** logistic regression
+Logistic regression fits models to one or more discrete variables, which are sometimes binary(that is, can only take the values 0 or 1).
+- One of the main differences between binary logistic and linear regression is that in binary logistic regression, we are fitting the probability of an outcome given a measured (discrete or continuous) variable,
+- while linear regression models deal with characterizing the dependency of two or more continuous variables on each other.
+- Logistic regression gives the probability of an occurrence given some observed variable( s). Probability is sometimes expressed as P( Y | X) and read as   Probability that the value is Y given the variable X.
+$$ln(p/(1-p)) = m + kx$$
 *** Interpolation
 
 ** Convex Optimization
