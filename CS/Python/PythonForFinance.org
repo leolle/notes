@@ -86,7 +86,15 @@ Logistic regression fits models to one or more discrete variables, which are som
 - Logistic regression gives the probability of an occurrence given some observed variable( s). Probability is sometimes expressed as P( Y | X) and read as   Probability that the value is Y given the variable X.
 $$ln(p/(1-p)) = m + kx$$
 *** Interpolation
+*** Clustering
+**** K-means nearest neighbor algorithm for cluster finding.
+The K-means algorithm is also referred to as vector quantization. What the algorithm does is finds the cluster (centroid) positions that minimize the distances to all points in the cluster.
+**** hierarchical clustering.
+Hierarchical clustering is connectivity-based clustering. It assumes that the clusters are connected, or in another word, linked.
+***** Agglomerative clustering starts out with each point in its own cluster and then merges the two clusters with the lowest dissimilarity, that is, the bottom-up approach
+***** Divisive clustering is, as the name suggests, a top-down approach where we start out with one single cluster that is divided into smaller and smaller clusters
 
+Magnus Vilhelm Persson. Mastering Python Data Analysis (Kindle Locations 2335-2338). Packt Publishing. Kindle Edition.
 ** Convex Optimization
 
 *** Global Optimization
