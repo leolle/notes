@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-06-26 Mon 13:47 -->
+<!-- 2017-07-04 Tue 14:37 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -325,18 +325,19 @@ The left-to-right evaluation order of the iterables is guaranteed. This makes po
 <p>
 zip() in conjunction with the * operator can be used to unzip a list:
 </p>
+<div class="org-src-container">
 
-<p>
-&gt;&gt;&gt;
-&gt;&gt;&gt; x = [1, 2, 3]
-&gt;&gt;&gt; y = [4, 5, 6]
-&gt;&gt;&gt; zipped = zip(x, y)
+<pre class="src src-shell">&gt;&gt;&gt;
+&gt;&gt;&gt; <span style="color: #FD971F;">x</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1,</span> <span style="color: #AE81FF;">2,</span> <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">y</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">4,</span> <span style="color: #AE81FF;">5,</span> <span style="color: #AE81FF;">6</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">zipped</span> = zip<span style="color: #AE81FF;">(</span>x, y<span style="color: #AE81FF;">)</span>
 &gt;&gt;&gt; zipped
-[(1, 4), (2, 5), (3, 6)]
-&gt;&gt;&gt; x2, y2 = zip(*zipped)
-&gt;&gt;&gt; x <code>= list(x2) and y =</code> list(y2)
+<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1,</span> <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">)</span>, <span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">2,</span> <span style="color: #AE81FF;">5</span><span style="color: #66D9EF;">)</span>, <span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">3,</span> <span style="color: #AE81FF;">6</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; x2, <span style="color: #FD971F;">y2</span> = zip<span style="color: #AE81FF;">(</span>*zipped<span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">x</span> == list<span style="color: #AE81FF;">(</span>x2<span style="color: #AE81FF;">)</span> and <span style="color: #FD971F;">y</span> == list<span style="color: #AE81FF;">(</span>y2<span style="color: #AE81FF;">)</span>
 True
-</p>
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline3" class="outline-3">
@@ -452,7 +453,13 @@ datetime64
 <li>pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.</li>
 </ul></li>
 
-<li>函数中改变形参值不会改变原值。</li>
+<li>if the input argument is un-mutable,函数中改变形参值不会改变原值。</li>
+</ul>
+<p>
+if the input is mutable, operate on the input like append operation will change the input argument.
+</p>
+
+<ul class="org-ul">
 <li>a, b = b, a + b # 相当于：</li>
 </ul>
 <div class="org-src-container">
@@ -1160,7 +1167,7 @@ fig is the :class:matplotlib.figure.Figure object.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-06-26 Mon 13:47</p>
+<p class="date">Created: 2017-07-04 Tue 14:37</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
