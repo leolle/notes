@@ -1,6 +1,6 @@
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
-#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:auto timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
 #+TITLES: MultiFactorModel
 #+DATE: <2017-05-26 Fri>
@@ -10,6 +10,18 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* Capital asset pricing model
+capital asset pricing model (CAPM) is a model used to determine a theoretically appropriate required rate of return of an asset, to make decisions about adding assets to a well-diversified portfolio.
+
+** overview
+- The model takes into account the asset's sensitivity to non-diversifiable risk (also known as systematic risk or market risk), often represented by the quantity beta (β) in the financial industry, as well as the expected return of the market and the expected return of a theoretical risk-free asset.
+- $r_a = r_f + \beta (r_m - r_f)$
+
+** breaking down
+- two factors: time value of money and risk.
+- individual risk premium equals the market premium times beta.
 
 * One factor model
 associated with the Capital Asset Pricing Model (CAPM).
@@ -48,6 +60,7 @@ SMB accounts for publicly traded companies with small market caps that generate 
 
 *** excess return on the market, portfolio's return less the risk free rate of return
 
+* Risk Model
 
 
 

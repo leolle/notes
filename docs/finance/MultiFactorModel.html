@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-05 Wed 11:02 -->
+<!-- 2017-07-05 Wed 13:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,38 +147,45 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. One factor model</a></li>
-<li><a href="#orgheadline11">2. Multi-Factor Model</a>
+<li><a href="#orgheadline3">1. Capital asset pricing model</a>
 <ul>
-<li><a href="#orgheadline2">2.1. What is a 'Multi-Factor Model'</a></li>
-<li><a href="#orgheadline3">2.2. BREAKING DOWN 'Multi-Factor Model'</a></li>
-<li><a href="#orgheadline4">2.3. Categories of Multi-Factor Models</a></li>
-<li><a href="#orgheadline5">2.4. Beta</a></li>
-<li><a href="#orgheadline6">2.5. Multi-Factor Model Formula</a></li>
-<li><a href="#orgheadline10">2.6. Fama and French Three-Factor Model</a>
+<li><a href="#orgheadline1">1.1. overview</a></li>
+<li><a href="#orgheadline2">1.2. breaking down</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline4">2. One factor model</a></li>
+<li><a href="#orgheadline14">3. Multi-Factor Model</a>
 <ul>
-<li><a href="#orgheadline7">2.6.1. size of firms, SMB (small minus big)</a></li>
-<li><a href="#orgheadline8">2.6.2. book-to-market values, HML (high minus low)</a></li>
-<li><a href="#orgheadline9">2.6.3. excess return on the market, portfolio's return less the risk free rate of return</a></li>
+<li><a href="#orgheadline5">3.1. What is a 'Multi-Factor Model'</a></li>
+<li><a href="#orgheadline6">3.2. BREAKING DOWN 'Multi-Factor Model'</a></li>
+<li><a href="#orgheadline7">3.3. Categories of Multi-Factor Models</a></li>
+<li><a href="#orgheadline8">3.4. Beta</a></li>
+<li><a href="#orgheadline9">3.5. Multi-Factor Model Formula</a></li>
+<li><a href="#orgheadline13">3.6. Fama and French Three-Factor Model</a>
+<ul>
+<li><a href="#orgheadline10">3.6.1. size of firms, SMB (small minus big)</a></li>
+<li><a href="#orgheadline11">3.6.2. book-to-market values, HML (high minus low)</a></li>
+<li><a href="#orgheadline12">3.6.3. excess return on the market, portfolio's return less the risk free rate of return</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline27">3. 量化选股</a>
+<li><a href="#orgheadline15">4. Risk Model</a></li>
+<li><a href="#orgheadline31">5. 量化选股</a>
 <ul>
-<li><a href="#orgheadline21">3.1. 基本面选股</a>
+<li><a href="#orgheadline25">5.1. 基本面选股</a>
 <ul>
-<li><a href="#orgheadline18">3.1.1. 多因子模型</a></li>
-<li><a href="#orgheadline19">3.1.2. 风格轮动模型</a></li>
-<li><a href="#orgheadline20">3.1.3. 行业轮动模型</a></li>
+<li><a href="#orgheadline22">5.1.1. 多因子模型</a></li>
+<li><a href="#orgheadline23">5.1.2. 风格轮动模型</a></li>
+<li><a href="#orgheadline24">5.1.3. 行业轮动模型</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">3.2. 市场行为选股</a>
+<li><a href="#orgheadline30">5.2. 市场行为选股</a>
 <ul>
-<li><a href="#orgheadline22">3.2.1. 资金流选股</a></li>
-<li><a href="#orgheadline23">3.2.2. 动量反转模型</a></li>
-<li><a href="#orgheadline24">3.2.3. 一致预期模型</a></li>
-<li><a href="#orgheadline25">3.2.4. 趋势追踪模型</a></li>
+<li><a href="#orgheadline26">5.2.1. 资金流选股</a></li>
+<li><a href="#orgheadline27">5.2.2. 动量反转模型</a></li>
+<li><a href="#orgheadline28">5.2.3. 一致预期模型</a></li>
+<li><a href="#orgheadline29">5.2.4. 趋势追踪模型</a></li>
 </ul>
 </li>
 </ul>
@@ -187,37 +194,67 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> One factor model</h2>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">1</span> Capital asset pricing model</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+capital asset pricing model (CAPM) is a model used to determine a theoretically appropriate required rate of return of an asset, to make decisions about adding assets to a well-diversified portfolio.
+</p>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> overview</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>The model takes into account the asset's sensitivity to non-diversifiable risk (also known as systematic risk or market risk), often represented by the quantity beta (β) in the financial industry, as well as the expected return of the market and the expected return of a theoretical risk-free asset.</li>
+<li>$r_a = r_f + \beta (r_m - r_f)$</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> breaking down</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>two factors: time value of money and risk.</li>
+<li>individual risk premium equals the market premium times beta.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">2</span> One factor model</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 associated with the Capital Asset Pricing Model (CAPM).
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">2</span> Multi-Factor Model</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> What is a 'Multi-Factor Model'</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">3</span> Multi-Factor Model</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">3.1</span> What is a 'Multi-Factor Model'</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 A multi-factor model is a financial model that employs multiple factors in its computations to explain market phenomena and/or equilibrium asset prices. The multi-factor model can be used to explain either an individual security or a portfolio of securities.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> BREAKING DOWN 'Multi-Factor Model'</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">3.2</span> BREAKING DOWN 'Multi-Factor Model'</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 Multi-factor models are used to construct portfolios with certain characteristics, such as risk, or to track indexes.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.3</span> Categories of Multi-Factor Models</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">3.3</span> Categories of Multi-Factor Models</h3>
+<div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Multi-factor models can be divided into three categories: macroeconomic models, fundamental models and statistical models.</li>
 <li>Macroeconomic models compare a security's return to such factors as employment, inflation and interest.</li>
@@ -226,9 +263,9 @@ Multi-factor models are used to construct portfolios with certain characteristic
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.4</span> Beta</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">3.4</span> Beta</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 The beta of a security measures the systemic risk of the security in relation to the overall market.
 </p>
@@ -239,9 +276,9 @@ The beta of a security measures the systemic risk of the security in relation to
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.5</span> Multi-Factor Model Formula</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">3.5</span> Multi-Factor Model Formula</h3>
+<div class="outline-text-3" id="text-3-5">
 <p>
 Ri = ai + _i(m) * Rm + _i(1) * F1 + _i(2) * F2 +&#x2026;+<sub>i</sub>(N) * FN + ei
 </p>
@@ -259,20 +296,20 @@ Where:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.6</span> Fama and French Three-Factor Model</h3>
-<div class="outline-text-3" id="text-2-6">
-</div><div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">2.6.1</span> size of firms, SMB (small minus big)</h4>
-<div class="outline-text-4" id="text-2-6-1">
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">3.6</span> Fama and French Three-Factor Model</h3>
+<div class="outline-text-3" id="text-3-6">
+</div><div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">3.6.1</span> size of firms, SMB (small minus big)</h4>
+<div class="outline-text-4" id="text-3-6-1">
 <p>
 SMB accounts for publicly traded companies with small market caps that generate higher returns
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">2.6.2</span> book-to-market values, HML (high minus low)</h4>
-<div class="outline-text-4" id="text-2-6-2">
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">3.6.2</span> book-to-market values, HML (high minus low)</h4>
+<div class="outline-text-4" id="text-3-6-2">
 <ul class="org-ul">
 <li>HML accounts for values stocks with high book-to-market ratios that generate higher returns in comparison to the market.</li>
 <li>HML accounts for the spread in returns between value and growth stocks and argues that companies with high book-to-market ratios, also known as value stocks, outperform those with lower book-to-market values, known as growth stocks.</li>
@@ -280,12 +317,15 @@ SMB accounts for publicly traded companies with small market caps that generate 
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">2.6.3</span> excess return on the market, portfolio's return less the risk free rate of return</h4>
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">3.6.3</span> excess return on the market, portfolio's return less the risk free rate of return</h4>
 </div>
 </div>
 </div>
 
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">4</span> Risk Model</h2>
+</div>
 
 
 
@@ -294,59 +334,59 @@ SMB accounts for publicly traded companies with small market caps that generate 
 
 
 
-<div id="outline-container-orgheadline27" class="outline-2">
-<h2 id="orgheadline27"><span class="section-number-2">3</span> 量化选股</h2>
-<div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">3.1</span> 基本面选股</h3>
-<div class="outline-text-3" id="text-3-1">
-</div><div id="outline-container-orgheadline18" class="outline-4">
-<h4 id="orgheadline18"><span class="section-number-4">3.1.1</span> 多因子模型</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<div id="outline-container-orgheadline31" class="outline-2">
+<h2 id="orgheadline31"><span class="section-number-2">5</span> 量化选股</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">5.1</span> 基本面选股</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">5.1.1</span> 多因子模型</h4>
+<div class="outline-text-4" id="text-5-1-1">
 <p>
 优点是可以综合很多信息后给出一个选股结果. 综合因子的方法有打分法和回归法两种，打分法较为常见。
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline17"></a>steps:<br  /><ol class="org-ol"><li><a id="orgheadline15"></a>备选因子选取<br  /><ol class="org-ol"><li><a id="orgheadline12"></a>估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）<br  /></li>
+<ol class="org-ol"><li><a id="orgheadline21"></a>steps:<br  /><ol class="org-ol"><li><a id="orgheadline19"></a>备选因子选取<br  /><ol class="org-ol"><li><a id="orgheadline16"></a>估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）<br  /></li>
 
-<li><a id="orgheadline13"></a>成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)<br  /></li>
+<li><a id="orgheadline17"></a>成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)<br  /></li>
 
-<li><a id="orgheadline14"></a>资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）<br  /></li></ol></li>
+<li><a id="orgheadline18"></a>资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）<br  /></li></ol></li>
 
-<li><a id="orgheadline16"></a>因子有效性检验<br  /><div class="outline-text-6" id="text-3-1-1-1-2">
+<li><a id="orgheadline20"></a>因子有效性检验<br  /><div class="outline-text-6" id="text-5-1-1-1-2">
 <p>
 采用排序的方法检验备选因子的有效性。
 </p>
 </div></li></ol></li></ol>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-4">
-<h4 id="orgheadline19"><span class="section-number-4">3.1.2</span> 风格轮动模型</h4>
-</div>
-
-<div id="outline-container-orgheadline20" class="outline-4">
-<h4 id="orgheadline20"><span class="section-number-4">3.1.3</span> 行业轮动模型</h4>
-</div>
-</div>
-
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">3.2</span> 市场行为选股</h3>
-<div class="outline-text-3" id="text-3-2">
-</div><div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22"><span class="section-number-4">3.2.1</span> 资金流选股</h4>
-</div>
-
 <div id="outline-container-orgheadline23" class="outline-4">
-<h4 id="orgheadline23"><span class="section-number-4">3.2.2</span> 动量反转模型</h4>
+<h4 id="orgheadline23"><span class="section-number-4">5.1.2</span> 风格轮动模型</h4>
 </div>
 
 <div id="outline-container-orgheadline24" class="outline-4">
-<h4 id="orgheadline24"><span class="section-number-4">3.2.3</span> 一致预期模型</h4>
+<h4 id="orgheadline24"><span class="section-number-4">5.1.3</span> 行业轮动模型</h4>
+</div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-4">
-<h4 id="orgheadline25"><span class="section-number-4">3.2.4</span> 趋势追踪模型</h4>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">5.2</span> 市场行为选股</h3>
+<div class="outline-text-3" id="text-5-2">
+</div><div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">5.2.1</span> 资金流选股</h4>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">5.2.2</span> 动量反转模型</h4>
+</div>
+
+<div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">5.2.3</span> 一致预期模型</h4>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">5.2.4</span> 趋势追踪模型</h4>
 </div>
 </div>
 </div>
@@ -354,7 +394,7 @@ SMB accounts for publicly traded companies with small market caps that generate 
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-26 Fri&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-05 Wed 11:02</p>
+<p class="date">Created: 2017-07-05 Wed 13:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

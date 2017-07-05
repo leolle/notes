@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-05 Wed 11:02 -->
+<!-- 2017-07-05 Wed 13:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -470,7 +470,7 @@ for the JavaScript code in this tag.
 <li>linear regression deals with estimating a variable from another variable.</li>
 </ul>
 <p>
-\[ Y = Xk + \epsinon\]
+\[ Y = Xk + \epsilon\]
 </p>
 </div>
 
@@ -627,15 +627,13 @@ Magnus Vilhelm Persson. Mastering Python Data Analysis (Kindle Locations 2335-23
 <div class="outline-text-4" id="text-8-2-1">
 <p>
 In algebra, a quadratic function, a quadratic polynomial, a polynomial of degree 2, or simply a quadratic, is a polynomial function in one or more variables in which the highest-degree term is of the second degree. For example, a quadratic function in three variables x, y, and z contains exclusively terms x2, y2, z2, xy, xz, yz, x, y, z, and a constant:
-</p>
-
-<p>
-{\displaystyle f(x,y,z)=ax<sup>2</sup>+by<sup>2</sup>+cz<sup>2</sup>+dxy+exz+fyz+gx+hy+iz+j,} f(x,y,z)=ax<sup>2</sup>+by<sup>2</sup>+cz<sup>2</sup>+dxy+exz+fyz+gx+hy+iz+j,
+\[
+{\displaystyle f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,} f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,
 with at least one of the coefficients a, b, c, d, e, or f of the second-degree terms being non-zero.
+\]
 </p>
 </div>
 </div>
-
 <div id="outline-container-orgheadline61" class="outline-4">
 <h4 id="orgheadline61"><span class="section-number-4">8.2.2</span> Quadratic programming</h4>
 <div class="outline-text-4" id="text-8-2-2">
@@ -657,17 +655,14 @@ the process of solving an optimization problem defined by a system of equalities
 <div class="outline-text-4" id="text-8-2-4">
 <p>
 Quadratic programming is particularly simple when Q is positive definite and there are only equality constraints; specifically, the solution process is linear. By using Lagrange multipliers and seeking the extremum of the Lagrangian, it may be readily shown that the solution to the equality constrained problem
-</p>
-
-<p>
+\[
 {\displaystyle {\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x} } {\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x}
 {\displaystyle {\text{subject to}}\quad E\mathbf {x} =\mathbf {d} } {\text{subject to}}\quad E\mathbf {x} =\mathbf {d}
+\]
 is given by the linear system
-</p>
-
-<p>
-{\displaystyle {\begin{bmatrix}Q&amp;-E<sup>T</sup>\\E&amp;0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\&lambda; \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} {\displaystyle {\begin{bmatrix}Q&amp;-E<sup>T</sup>\\E&amp;0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\&lambda; \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}}
-where {\displaystyle &lambda; } &lambda;  is a set of Lagrange multipliers which come out of the solution alongside {\displaystyle \mathbf {x} } \mathbf {x} .
+\[
+{\displaystyle {\begin{bmatrix}Q&-E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} {\displaystyle {\begin{bmatrix}Q&-E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} \]
+where \({\displaystyle \lambda } \lambda\)  is a set of Lagrange multipliers which come out of the solution alongside \({\displaystyle \mathbf {x} } \mathbf {x}\) .
 </p>
 
 
@@ -1191,185 +1186,44 @@ data done
 <div id="outline-container-orgheadline129" class="outline-2">
 <h2 id="orgheadline129"><span class="section-number-2">26</span> Track</h2>
 <div class="outline-text-2" id="text-26">
-<p>
-#+begining<sub>src</sub> org
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<div class="org-src-container">
+<label class="org-src-name">标题区域</label>
+<pre class="src src-org"><span style="color: #A6E22E;">| programming | level |</span>
+<span style="color: #A6E22E;">|-------------+-------|</span>
+<span style="color: #A6E22E;">| Lisp        |     1 |</span>
+<span style="color: #A6E22E;">| VBA         |     3 |</span>
+<span style="color: #A6E22E;">| C/C++       |     6 |</span>
+<span style="color: #A6E22E;">| SQL         |     5 |</span>
+<span style="color: #A6E22E;">| Matlab      |     5 |</span>
+<span style="color: #A6E22E;">| R           |     4 |</span>
+<span style="color: #A6E22E;">| Python      |     7 |</span>
 
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-right" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">programming</th>
-<th scope="col" class="org-right">level</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Lisp</td>
-<td class="org-right">1</td>
-</tr>
-
-<tr>
-<td class="org-left">VBA</td>
-<td class="org-right">3</td>
-</tr>
-
-<tr>
-<td class="org-left">C/C++</td>
-<td class="org-right">6</td>
-</tr>
-
-<tr>
-<td class="org-left">SQL</td>
-<td class="org-right">5</td>
-</tr>
-
-<tr>
-<td class="org-left">Matlab</td>
-<td class="org-right">5</td>
-</tr>
-
-<tr>
-<td class="org-left">R</td>
-<td class="org-right">4</td>
-</tr>
-
-<tr>
-<td class="org-left">Python</td>
-<td class="org-right">7</td>
-</tr>
-</tbody>
-</table>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Machine Learning</td>
-<td class="org-left">Models</td>
-<td class="org-right">level</td>
-</tr>
-
-<tr>
-<td class="org-left">Neural Networks</td>
-<td class="org-left">Convolutional neural network</td>
-<td class="org-right">0</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">long short-term memory</td>
-<td class="org-right">0</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Autoencoder</td>
-<td class="org-right">0</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Bayesian networks</td>
-<td class="org-right">1</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">PCA</td>
-<td class="org-right">5</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">K-Means</td>
-<td class="org-right">1</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">SVM</td>
-<td class="org-right">1</td>
-</tr>
-
-<tr>
-<td class="org-left">Optimization</td>
-<td class="org-left">Linear OLS(mean variance)</td>
-<td class="org-right">4</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Genetic Algorithm</td>
-<td class="org-right">0</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">h(params,x)函数：hypothesis</td>
-<td class="org-right">0</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">J(params,x,y)函数：cost function</td>
-<td class="org-right">0</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">grad(params,x,y)函数：Gradient Descent</td>
-<td class="org-right">1</td>
-</tr>
-
-<tr>
-<td class="org-left">Time Series</td>
-<td class="org-left">autoregressive(AR)</td>
-<td class="org-right">1</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">moving average (MA)</td>
-<td class="org-right">2</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">autoregressive moving average (ARMA)</td>
-<td class="org-right">1</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">autoregressive integrated moving average (ARIMA)</td>
-<td class="org-right">1</td>
-</tr>
-</tbody>
-</table>
-<p>
-#+end<sub>src</sub>
-</p>
+<span style="color: #A6E22E;">| Machine Learning | Models                                           | level |</span>
+<span style="color: #A6E22E;">| Neural Networks  | Convolutional neural network                     |     0 |</span>
+<span style="color: #A6E22E;">|                  | long short-term memory                           |     0 |</span>
+<span style="color: #A6E22E;">|                  | Autoencoder                                      |     0 |</span>
+<span style="color: #A6E22E;">|                  | Bayesian networks                                |     1 |</span>
+<span style="color: #A6E22E;">|                  | PCA                                              |     5 |</span>
+<span style="color: #A6E22E;">|                  | K-Means                                          |     1 |</span>
+<span style="color: #A6E22E;">|                  | SVM                                              |     1 |</span>
+<span style="color: #A6E22E;">| Optimization     | Linear OLS(mean variance)                        |     4 |</span>
+<span style="color: #A6E22E;">|                  | Genetic Algorithm                                |     0 |</span>
+<span style="color: #A6E22E;">|                  | h(params,x)&#20989;&#25968;&#65306;hypothesis                      |     0 |</span>
+<span style="color: #A6E22E;">|                  | J(params,x,y)&#20989;&#25968;&#65306;cost function                 |     0 |</span>
+<span style="color: #A6E22E;">|                  | grad(params,x,y)&#20989;&#25968;&#65306;Gradient Descent           |     1 |</span>
+<span style="color: #A6E22E;">| Time Series      | autoregressive(AR)                               |     1 |</span>
+<span style="color: #A6E22E;">|                  | moving average (MA)                              |     2 |</span>
+<span style="color: #A6E22E;">|                  | autoregressive moving average (ARMA)             |     1 |</span>
+<span style="color: #A6E22E;">|                  | autoregressive integrated moving average (ARIMA) |     1 |</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-11 Thu&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-05 Wed 11:02</p>
+<p class="date">Created: 2017-07-05 Wed 13:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
