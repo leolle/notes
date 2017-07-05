@@ -62,7 +62,15 @@ svn ci -m "Added new package baldrick" filename
 #+END_SRC
 
 * GIT
+** update git version:
+#+BEGIN_SRC shell
+sudo apt-get install python-software-properties software-properties-common
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update
+sudo apt-get install git -y
+git --version
 
+#+END_SRC
 ** 创建版本库
 #+begin_src emacs-lisp :tangle yes
 $ mkdir learngit
@@ -101,6 +109,12 @@ cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file
 $ git reset --hard HEAD^
 HEAD is now at ea34578 add distributed
 #+end_src
+
+- *push the editted previous version*
+#+BEGIN_SRC shell
+$ git push -f origin
+
+#+END_SRC
 
 ** 撤销修改
 #+begin_src emacs-lisp :tangle yes

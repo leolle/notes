@@ -1,0 +1,42 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: Regular_Expression
+#+DATE: <2017-06-23 Fri>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* Matching characters
+
+** metacharacters
+#+begin_src emacs-lisp :tangle yes
+. ^ $ * + ? { } [ ] \ | ( )
+#+end_src
+- The first metacharacters we’ll look at are [ and ]. They’re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a '-'. For example, [abc] will match any of the characters a, b, or c; this is the same as [a-c], which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be [a-z].
+- You can match the characters not listed within the class by complementing the set.
+ This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [^5] will match any character except '5'.
+- \. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It’s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a [ or \, you can precede them with a backslash to remove their special meaning: \[ or \\.
+- \d
+Matches any decimal digit; this is equivalent to the class [0-9].
+- \D
+Matches any non-digit character; this is equivalent to the class [^0-9].
+- \s
+Matches any whitespace character; this is equivalent to the class [ \t\n\r\f\v].
+- \S
+Matches any non-whitespace character; this is equivalent to the class [^ \t\n\r\f\v].
+- \w
+Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_].
+- \W
+Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].
+
+* Repeating Things
+
+** *.
+ * doesn’t match the literal character *; instead, it specifies that the previous character can be matched zero or more times, instead of exactly once.
+For example, ca*t will match ct (0 a characters), cat (1 a), caaat (3 a characters), and so forth.

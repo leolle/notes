@@ -1,6 +1,6 @@
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
-#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:auto timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
 #+TITLES: MultiFactorModel
 #+DATE: <2017-05-26 Fri>
@@ -10,6 +10,64 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* Capital asset pricing model
+capital asset pricing model (CAPM) is a model used to determine a theoretically appropriate required rate of return of an asset, to make decisions about adding assets to a well-diversified portfolio.
+
+** overview
+- The model takes into account the asset's sensitivity to non-diversifiable risk (also known as systematic risk or market risk), often represented by the quantity beta (β) in the financial industry, as well as the expected return of the market and the expected return of a theoretical risk-free asset.
+- $r_a = r_f + \beta (r_m - r_f)$
+
+** breaking down
+- two factors: time value of money and risk.
+- individual risk premium equals the market premium times beta.
+
+* One factor model
+associated with the Capital Asset Pricing Model (CAPM).
+
+* Multi-Factor Model
+** What is a 'Multi-Factor Model'
+A multi-factor model is a financial model that employs multiple factors in its computations to explain market phenomena and/or equilibrium asset prices. The multi-factor model can be used to explain either an individual security or a portfolio of securities.
+** BREAKING DOWN 'Multi-Factor Model'
+Multi-factor models are used to construct portfolios with certain characteristics, such as risk, or to track indexes.
+** Categories of Multi-Factor Models
+- Multi-factor models can be divided into three categories: macroeconomic models, fundamental models and statistical models.
+- Macroeconomic models compare a security's return to such factors as employment, inflation and interest.
+- Fundamental models analyze the relationship between a security's return and its underlying financials, such as earnings.
+- Statistical models are used to compare the returns of different securities based on the statistical performance of each security in and of itself.
+** Beta
+The beta of a security measures the systemic risk of the security in relation to the overall market.
+- A beta of 1 indicates that the security theoretically experiences the same degree of volatility as the market and moves in tandem with the market.
+- A beta greater than 1 indicates the security is theoretically more volatile than the market.
+- Conversely, a beta less than 1 indicates the security is theoretically less volatile than the market.
+** Multi-Factor Model Formula
+Ri = ai + _i(m) * Rm + _i(1) * F1 + _i(2) * F2 +...+_i(N) * FN + ei
+
+Where:
+- Ri is the returns of security i
+- Rm is the market return
+- F(1, 2, 3 ... N) is each of the factors used
+- _ is the beta with respect to each factor including the market (m)
+- e is the error term
+- a is the intercept
+** Fama and French Three-Factor Model
+*** size of firms, SMB (small minus big)
+SMB accounts for publicly traded companies with small market caps that generate higher returns
+*** book-to-market values, HML (high minus low)
+- HML accounts for values stocks with high book-to-market ratios that generate higher returns in comparison to the market.
+- HML accounts for the spread in returns between value and growth stocks and argues that companies with high book-to-market ratios, also known as value stocks, outperform those with lower book-to-market values, known as growth stocks.
+
+*** excess return on the market, portfolio's return less the risk free rate of return
+
+* Risk Model
+
+
+
+
+
+
+
 
 * 量化选股
 

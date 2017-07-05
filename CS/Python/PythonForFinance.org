@@ -60,9 +60,41 @@
 ** Approximation
 
 *** Regression
+$$standard error = \d{standard deviation}{\sqrt{N}}$$
+- The standard error is a measure of sample variability.
+- population standard deviation. $\sqrt{N-1}$
 
+**** linear regression
+- linear regression deals with estimating a variable from another variable.
+$$ Y = Xk + \epsilon$$
+
+***** The dependent variable (Dep. Variable) states the name of the variable that is fitted.  
+***** Model states what model we used in the fit; except OLS, there are several other models such as   weighted least squares (WLS).
+***** The number of observations (No. Observations) are listed and the degrees of freedom of the residuals (Df Residuals), that is, the number of observations (59) minus the parameters determined through the fitting 2 (k and   k).  
+***** Df Model shows how many parameters were determined (except the constant, that is, intercept).
+***** The table to the right of the top table shows you information on how well the model fits the data.
+***** R-squared was covered before; here, the adjusted R-square value (Adj. R-squared) is also listed and this is the R-square value corrected for the number of data points and degrees of freedom.
+***** The   F-statistic number gives you an estimate of how significant the fit is. Practically, it is the mean squared error of the model divided by the mean squared error of the residuals.
+***** The next value, Prob (F-statistic), gives you the probability to get the F-statistic value if the null hypothesis is true, that is, the variables are not related.
+***** After this, three sets of   log-likelihood function values follow: the value of the log-likelihood value of the fit, the   Akaike Information Criterion (AIC), and   Bayes Information Criterion (BIC). The AIC and BIC are various ways of adjusting the log-likelihood function for the number of observations and model type.
+**** multiple regression
+- a variable is estimated from two or more others.
+**** logistic regression
+Logistic regression fits models to one or more discrete variables, which are sometimes binary(that is, can only take the values 0 or 1).
+- One of the main differences between binary logistic and linear regression is that in binary logistic regression, we are fitting the probability of an outcome given a measured (discrete or continuous) variable,
+- while linear regression models deal with characterizing the dependency of two or more continuous variables on each other.
+- Logistic regression gives the probability of an occurrence given some observed variable( s). Probability is sometimes expressed as P( Y | X) and read as   Probability that the value is Y given the variable X.
+$$ln(p/(1-p)) = m + kx$$
 *** Interpolation
+*** Clustering
+**** K-means nearest neighbor algorithm for cluster finding.
+The K-means algorithm is also referred to as vector quantization. What the algorithm does is finds the cluster (centroid) positions that minimize the distances to all points in the cluster.
+**** hierarchical clustering.
+Hierarchical clustering is connectivity-based clustering. It assumes that the clusters are connected, or in another word, linked.
+***** Agglomerative clustering starts out with each point in its own cluster and then merges the two clusters with the lowest dissimilarity, that is, the bottom-up approach
+***** Divisive clustering is, as the name suggests, a top-down approach where we start out with one single cluster that is divided into smaller and smaller clusters
 
+Magnus Vilhelm Persson. Mastering Python Data Analysis (Kindle Locations 2335-2338). Packt Publishing. Kindle Edition.
 ** Convex Optimization
 
 *** Global Optimization
@@ -113,6 +145,30 @@
 
 ** Portfolio Optimization
 [[file:./py4fi/Optimization.html][Optimization]]
+
+*** Quadratic function
+In algebra, a quadratic function, a quadratic polynomial, a polynomial of degree 2, or simply a quadratic, is a polynomial function in one or more variables in which the highest-degree term is of the second degree. For example, a quadratic function in three variables x, y, and z contains exclusively terms x2, y2, z2, xy, xz, yz, x, y, z, and a constant:
+$$
+{\displaystyle f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,} f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,
+with at least one of the coefficients a, b, c, d, e, or f of the second-degree terms being non-zero.
+$$
+*** Quadratic programming
+- Quadratic programming (QP) is the process of solving a special type of mathematical optimization problem—specifically, a (linearly constrained) quadratic optimization problem, that is, the problem of optimizing (minimizing or maximizing) a quadratic function of several variables subject to linear constraints on these variables. Quadratic programming is a particular type of nonlinear programming.
+*** Nonlinear programming
+the process of solving an optimization problem defined by a system of equalities and inequalities, collectively termed constraints, over a set of unknown real variables, along with an objective function to be maximized or minimized, where some of the constraints or the objective function are nonlinear.
+*** Equality constraints
+Quadratic programming is particularly simple when Q is positive definite and there are only equality constraints; specifically, the solution process is linear. By using Lagrange multipliers and seeking the extremum of the Lagrangian, it may be readily shown that the solution to the equality constrained problem
+$$
+{\displaystyle {\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x} } {\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x}
+{\displaystyle {\text{subject to}}\quad E\mathbf {x} =\mathbf {d} } {\text{subject to}}\quad E\mathbf {x} =\mathbf {d}
+$$
+is given by the linear system
+$$
+{\displaystyle {\begin{bmatrix}Q&-E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} {\displaystyle {\begin{bmatrix}Q&-E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} $$
+where ${\displaystyle \lambda } \lambda$  is a set of Lagrange multipliers which come out of the solution alongside ${\displaystyle \mathbf {x} } \mathbf {x}$ .
+
+
+
 OLS assumptions:
 - Linear in Parameters
 - Random Sample of n Observations
@@ -395,7 +451,7 @@ print('all done')
 * Track
 #+CAPTION: 标题区域
 #+ATTR_HTML: border="1" rules="all" frame="border"
-#+begining_src org
+#+BEGIN_SRC org
 | programming | level |
 |-------------+-------|
 | Lisp        |     1 |
@@ -423,4 +479,4 @@ print('all done')
 |                  | moving average (MA)                              |     2 |
 |                  | autoregressive moving average (ARMA)             |     1 |
 |                  | autoregressive integrated moving average (ARIMA) |     1 |
-#+end_src
+#+END_SRC

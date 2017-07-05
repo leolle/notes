@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-04 Tue 14:29 -->
+<!-- 2017-07-04 Tue 14:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -140,6 +140,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -147,101 +169,96 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline2">1. Programic Programming phylosophy</a>
+<li><a href="#orgheadline2">1. Matching characters</a>
 <ul>
-<li><a href="#orgheadline1">1.1. Don't repeat yourself</a></li>
+<li><a href="#orgheadline1">1.1. metacharacters</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline3">2. Programic methods</a></li>
-<li><a href="#orgheadline7">3. Basic Tools</a>
+<li><a href="#orgheadline4">2. Repeating Things</a>
 <ul>
-<li><a href="#orgheadline4">3.1. shell</a></li>
-<li><a href="#orgheadline5">3.2. editing</a></li>
-<li><a href="#orgheadline6">3.3. debug</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline10">4. Before starting a project</a>
-<ul>
-<li><a href="#orgheadline8">4.1. know the requirements</a></li>
-<li><a href="#orgheadline9">4.2. coding styles</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline15">5. Programic projects</a>
-<ul>
-<li><a href="#orgheadline11">5.1. team</a></li>
-<li><a href="#orgheadline12">5.2. automation</a></li>
-<li><a href="#orgheadline13">5.3. test</a></li>
-<li><a href="#orgheadline14">5.4. expectation</a></li>
+<li><a href="#orgheadline3">2.1. *.</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
+
 
 <div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">1</span> Programic Programming phylosophy</h2>
+<h2 id="orgheadline2"><span class="section-number-2">1</span> Matching characters</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Don't repeat yourself</h3>
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> metacharacters</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">. ^ $ * + ? { } <span style="color: #AE81FF;">[</span> <span style="color: #AE81FF;">]</span> \ | <span style="color: #AE81FF;">(</span> <span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>The first metacharacters we’ll look at are [ and ]. They’re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a '-'. For example, [abc] will match any of the characters a, b, or c; this is the same as [a-c], which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be [a-z].</li>
+<li>You can match the characters not listed within the class by complementing the set.
+This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [<sup>5</sup>] will match any character except '5'.</li>
+<li>\. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It’s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a [ or \, you can precede them with a backslash to remove their special meaning: \[ or \\.</li>
+<li>\d</li>
+</ul>
+<p>
+Matches any decimal digit; this is equivalent to the class [0-9].
+</p>
+<ul class="org-ul">
+<li>\D</li>
+</ul>
+<p>
+Matches any non-digit character; this is equivalent to the class [<sup>0</sup>-9].
+</p>
+<ul class="org-ul">
+<li>\s</li>
+</ul>
+<p>
+Matches any whitespace character; this is equivalent to the class [ \t\n\r\f\v].
+</p>
+<ul class="org-ul">
+<li>&sect;</li>
+</ul>
+<p>
+Matches any non-whitespace character; this is equivalent to the class [^ \t\n\r\f\v].
+</p>
+<ul class="org-ul">
+<li>\w</li>
+</ul>
+<p>
+Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_].
+</p>
+<ul class="org-ul">
+<li>\W</li>
+</ul>
+<p>
+Matches any non-alphanumeric character; this is equivalent to the class [<sup>a</sup>-zA-Z0-9_].
+</p>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">2</span> Programic methods</h2>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">2</span> Repeating Things</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.1</span> *.</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>doesn’t match the literal character *; instead, it specifies that the previous character can be matched zero or more times, instead of exactly once.</li>
+</ul>
+<p>
+For example, ca*t will match ct (0 a characters), cat (1 a), caaat (3 a characters), and so forth.
+</p>
 </div>
-
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">3</span> Basic Tools</h2>
-<div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.1</span> shell</h3>
-</div>
-
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.2</span> editing</h3>
-</div>
-
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">3.3</span> debug</h3>
-</div>
-</div>
-
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">4</span> Before starting a project</h2>
-<div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">4.1</span> know the requirements</h3>
-</div>
-
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">4.2</span> coding styles</h3>
-</div>
-</div>
-
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">5</span> Programic projects</h2>
-<div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">5.1</span> team</h3>
-</div>
-
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">5.2</span> automation</h3>
-</div>
-
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">5.3</span> test</h3>
-</div>
-
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">5.4</span> expectation</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-04 Sun&gt;</span></span></p>
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-23 Fri&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-04 Tue 14:29</p>
+<p class="date">Created: 2017-07-04 Tue 14:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
