@@ -11,6 +11,51 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
+* One factor model
+associated with the Capital Asset Pricing Model (CAPM).
+
+* Multi-Factor Model
+** What is a 'Multi-Factor Model'
+A multi-factor model is a financial model that employs multiple factors in its computations to explain market phenomena and/or equilibrium asset prices. The multi-factor model can be used to explain either an individual security or a portfolio of securities.
+** BREAKING DOWN 'Multi-Factor Model'
+Multi-factor models are used to construct portfolios with certain characteristics, such as risk, or to track indexes.
+** Categories of Multi-Factor Models
+- Multi-factor models can be divided into three categories: macroeconomic models, fundamental models and statistical models.
+- Macroeconomic models compare a security's return to such factors as employment, inflation and interest.
+- Fundamental models analyze the relationship between a security's return and its underlying financials, such as earnings.
+- Statistical models are used to compare the returns of different securities based on the statistical performance of each security in and of itself.
+** Beta
+The beta of a security measures the systemic risk of the security in relation to the overall market.
+- A beta of 1 indicates that the security theoretically experiences the same degree of volatility as the market and moves in tandem with the market.
+- A beta greater than 1 indicates the security is theoretically more volatile than the market.
+- Conversely, a beta less than 1 indicates the security is theoretically less volatile than the market.
+** Multi-Factor Model Formula
+Ri = ai + _i(m) * Rm + _i(1) * F1 + _i(2) * F2 +...+_i(N) * FN + ei
+
+Where:
+- Ri is the returns of security i
+- Rm is the market return
+- F(1, 2, 3 ... N) is each of the factors used
+- _ is the beta with respect to each factor including the market (m)
+- e is the error term
+- a is the intercept
+** Fama and French Three-Factor Model
+*** size of firms, SMB (small minus big)
+SMB accounts for publicly traded companies with small market caps that generate higher returns
+*** book-to-market values, HML (high minus low)
+- HML accounts for values stocks with high book-to-market ratios that generate higher returns in comparison to the market.
+- HML accounts for the spread in returns between value and growth stocks and argues that companies with high book-to-market ratios, also known as value stocks, outperform those with lower book-to-market values, known as growth stocks.
+
+*** excess return on the market, portfolio's return less the risk free rate of return
+
+
+
+
+
+
+
+
+
 * 量化选股
 
 ** 基本面选股
