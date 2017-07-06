@@ -140,28 +140,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -169,119 +147,18 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. 量化选股</a></li>
-<li><a href="#orgheadline2">2. Portfolio Optimization</a></li>
-<li><a href="#orgheadline12">3. Performance analytics:</a>
-<ul>
-<li><a href="#orgheadline3">3.1. percentage change:</a></li>
-<li><a href="#orgheadline4">3.2. cumlative return:</a></li>
-<li><a href="#orgheadline5">3.3. annualized return:</a></li>
-<li><a href="#orgheadline6">3.4. annualized volatility:</a></li>
-<li><a href="#orgheadline7">3.5. annualized downrisk volatility:</a></li>
-<li><a href="#orgheadline8">3.6. downside standard deviation:</a></li>
-<li><a href="#orgheadline9">3.7. sharpe ratio:</a></li>
-<li><a href="#orgheadline10">3.8. sortino ratio:</a></li>
-<li><a href="#orgheadline11">3.9. return standard deviation:</a></li>
-</ul>
-</li>
+<li><a href="#orgheadline1">1. Portfolio Optimization</a></li>
 </ul>
 </div>
 </div>
-<p>
-#+AUTHORS weiwu
-</p>
 
 
 <div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 量化选股</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-<a href="./MultiFactorModel.html">MultiFactorModel</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Portfolio Optimization</h2>
-</div>
-
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">3</span> Performance analytics:</h2>
-<div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">3.1</span> percentage change:</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-\[percentage change(P_n) = value / value.shift(1)\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.2</span> cumlative return:</h3>
-<div class="outline-text-3" id="text-3-2">
-<p>
-\[total_return = (1+P_1)*(1+P_2)*...(1+P_n) - 1.0\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.3</span> annualized return:</h3>
-<div class="outline-text-3" id="text-3-3">
-<p>
-\[annualized return = (1 + cumulative return)^(252/periods) - 1.0\]
-\[(annualized return + 1)^(periods/252) = 1 + cumulative return\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">3.4</span> annualized volatility:</h3>
-<div class="outline-text-3" id="text-3-4">
-<p>
-\(\sigma = standard deviation of returns(degree of freedom N -1)\)
-\[annualized volatility = \sigma * \sqrt(periods)\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">3.5</span> annualized downrisk volatility:</h3>
-</div>
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">3.6</span> downside standard deviation:</h3>
-<div class="outline-text-3" id="text-3-6">
-<p>
-Downside deviation is a measure of downside risk that focuses on returns that fall below a minimum threshold or minimum acceptable return (MAR). It is used in the calculation of a risk measure known as the Sortino Ratio.
-$$MAR=\sqrt{E[(X-E[X])<sup>2</sup>]1{X&lt;E[X]}])<sup>0.5</sup>}
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">3.7</span> sharpe ratio:</h3>
-<div class="outline-text-3" id="text-3-7">
-<p>
-\[sharpe ratio = (E[annual returns] - interest rate)/\sigma_annual\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">3.8</span> sortino ratio:</h3>
-<div class="outline-text-3" id="text-3-8">
-<p>
-\[SR = \div{annual return - R_f, Downside Risk}\]
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">3.9</span> return standard deviation:</h3>
-<div class="outline-text-3" id="text-3-9">
-<p>
-\(\sigma = standard deviation of returns(degree of freedom N -1)\)
-</p>
-</div>
-</div>
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Portfolio Optimization</h2>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-26 Fri&gt;</span></span></p>
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-05 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
 <p class="date">Created: 2017-07-06 Thu 15:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
