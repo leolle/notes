@@ -94,9 +94,24 @@ SMB accounts for publicly traded companies with small market caps that generate 
 
 *** excess return on the market, portfolio's return less the risk free rate of return
 
-* Risk Model
+* Multi-Factor Risk Model
 
+** form
+$$V_{n,m} = \displaystyle\sum_{k1,k2=1}^{K} X_{n,k1} F_{k1,k2} X_{m,k2} + \delta_{n,m}$$
+where
+$V_{n,m}$ = the covariance of asset n with asset m (if n = m, this gives the variance of asset n),
+$X_{n,k1}$ = the exposure of asset n to factor k1,
+$F_{k1,k2}$ = the covariance of factor k l with factor k2 (if k l = k2, this gives the variance of factor kl), and
+$\delta_{n,m}$ = the specific covariance of asset n with asset m. By assumption, all specific risk correlations are zero, so this term is zero unless n = m. In that case, this term gives the specific variance of asset n.
 
+** building the model
+
+*** choosing the factors
+
+**** Responses to external influences
+
+*** estimating factor returns
+*** forecasting risk
 
 
 
