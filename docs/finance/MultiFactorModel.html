@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-06 Thu 15:41 -->
+<!-- 2017-07-07 Fri 10:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -181,22 +181,33 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline22">5. Risk Model</a></li>
-<li><a href="#orgheadline38">6. 量化选股</a>
+<li><a href="#orgheadline37">5. Multi-Factor Risk Model</a>
 <ul>
-<li><a href="#orgheadline32">6.1. 基本面选股</a>
+<li><a href="#orgheadline22">5.1. form</a></li>
+<li><a href="#orgheadline36">5.2. building the model</a>
 <ul>
-<li><a href="#orgheadline29">6.1.1. 多因子模型</a></li>
-<li><a href="#orgheadline30">6.1.2. 风格轮动模型</a></li>
-<li><a href="#orgheadline31">6.1.3. 行业轮动模型</a></li>
+<li><a href="#orgheadline30">5.2.1. choosing the factors</a></li>
+<li><a href="#orgheadline34">5.2.2. estimating factor returns</a></li>
+<li><a href="#orgheadline35">5.2.3. forecasting risk</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline37">6.2. 市场行为选股</a>
+</ul>
+</li>
+<li><a href="#orgheadline53">6. 量化选股</a>
 <ul>
-<li><a href="#orgheadline33">6.2.1. 资金流选股</a></li>
-<li><a href="#orgheadline34">6.2.2. 动量反转模型</a></li>
-<li><a href="#orgheadline35">6.2.3. 一致预期模型</a></li>
-<li><a href="#orgheadline36">6.2.4. 趋势追踪模型</a></li>
+<li><a href="#orgheadline47">6.1. 基本面选股</a>
+<ul>
+<li><a href="#orgheadline44">6.1.1. 多因子模型</a></li>
+<li><a href="#orgheadline45">6.1.2. 风格轮动模型</a></li>
+<li><a href="#orgheadline46">6.1.3. 行业轮动模型</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline52">6.2. 市场行为选股</a>
+<ul>
+<li><a href="#orgheadline48">6.2.1. 资金流选股</a></li>
+<li><a href="#orgheadline49">6.2.2. 动量反转模型</a></li>
+<li><a href="#orgheadline50">6.2.3. 一致预期模型</a></li>
+<li><a href="#orgheadline51">6.2.4. 趋势追踪模型</a></li>
 </ul>
 </li>
 </ul>
@@ -408,8 +419,102 @@ SMB accounts for publicly traded companies with small market caps that generate 
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">5</span> Risk Model</h2>
+<div id="outline-container-orgheadline37" class="outline-2">
+<h2 id="orgheadline37"><span class="section-number-2">5</span> Multi-Factor Risk Model</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">5.1</span> form</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+$$V_{n,m} = \displaystyle\sum_{k1,k2=1}^{K} X_{n,k1} F_{k1,k2} X_{m,k2} + \delta_{n,m}$$
+where
+$V_{n,m}$ = the covariance of asset n with asset m (if n = m, this gives the variance of asset n),
+$X_{n,k1}$ = the exposure of asset n to factor k1,
+$F_{k1,k2}$ = the covariance of factor k l with factor k2 (if k l = k2, this gives the variance of factor kl), and
+$\delta_{n,m}$ = the specific covariance of asset n with asset m. By assumption, all specific risk correlations are zero, so this term is zero unless n = m. In that case, this term gives the specific variance of asset n.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">5.2</span> building the model</h3>
+<div class="outline-text-3" id="text-5-2">
+</div><div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">5.2.1</span> choosing the factors</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+all factors must be a priori factor. even though the factor returns are uncertain, the factor exposures must be known at the beginning of the period.
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline24"></a>Responses to external influences<br  /><div class="outline-text-5" id="text-5-2-1-1">
+<p>
+These factors include
+</p>
+<ul class="org-ul">
+<li>responses to return in the bond market (sometimes called bond beta)</li>
+<li>unexpected changes in inflation (iation surprise)</li>
+<li>changes in oil prices</li>
+<li>changes in exchange rates</li>
+<li>changes in industrial production</li>
+</ul>
+</div>
+<ol class="org-ol"><li><a id="orgheadline23"></a>defects:<br  /><div class="outline-text-6" id="text-5-2-1-1-1">
+<ul class="org-ul">
+<li>the response coefficient has to be estimated through regression analysis or some similar technique. This requirement leads to errors in the estimates, commonly called the error-in-variables problem.</li>
+<li>the estimates are based on behavior during a past period, generally five years. Even if these past estimates are accurate in the statistical sense of capturing the true situation in the past, they may not accurately describe the present. In short, these response coefficients can be nonstationary.</li>
+</ul>
+</div></li></ol></li>
+
+<li><a id="orgheadline27"></a>cross-sectional comparisons of asset attributes<br  /><div class="outline-text-5" id="text-5-2-1-2">
+<p>
+These factors, which have no link to the remainder of the economy, compare attributes of the stocks.
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline25"></a>fundamental<br  /><div class="outline-text-6" id="text-5-2-1-2-1">
+<ul class="org-ul">
+<li>dividend yield</li>
+<li>earnings yield</li>
+<li>analysts' forecasts of future earnings per share</li>
+</ul>
+</div></li>
+<li><a id="orgheadline26"></a>market<br  /><div class="outline-text-6" id="text-5-2-1-2-2">
+<ul class="org-ul">
+<li>volatility</li>
+<li>return during a past period</li>
+<li>option-implied volatility</li>
+<li>share turnover</li>
+</ul>
+</div></li></ol></li>
+<li><a id="orgheadline28"></a>purely internal or statistical factors<br  /><div class="outline-text-5" id="text-5-2-1-3">
+<p>
+It is possible to amass returns data on a large number of stocks, turn the crank of a statistical meat grinder, and admire the factors the machine produces: factor ex machina.
+methods:
+</p>
+<ul class="org-ul">
+<li>principal component analysis</li>
+<li>maximum likelihood analysis</li>
+<li>expectations maximization analysis</li>
+</ul>
+</div></li>
+<li><a id="orgheadline29"></a>overall criteria:<br  /><div class="outline-text-5" id="text-5-2-1-4">
+<ul class="org-ul">
+<li>incisive</li>
+<li>intuitive</li>
+<li>interesting</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline34" class="outline-4">
+<h4 id="orgheadline34"><span class="section-number-4">5.2.2</span> estimating factor returns</h4>
+<div class="outline-text-4" id="text-5-2-2">
+</div><ol class="org-ol"><li><a id="orgheadline33"></a>exposures<br  /><ol class="org-ol"><li><a id="orgheadline31"></a>industry exposures<br  /></li>
+<li><a id="orgheadline32"></a>risk index exposures<br  /></li></ol></li></ol>
+</div>
+<div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35"><span class="section-number-4">5.2.3</span> forecasting risk</h4>
+</div>
+</div>
 </div>
 
 
@@ -417,61 +522,59 @@ SMB accounts for publicly traded companies with small market caps that generate 
 
 
 
-
-
-<div id="outline-container-orgheadline38" class="outline-2">
-<h2 id="orgheadline38"><span class="section-number-2">6</span> 量化选股</h2>
+<div id="outline-container-orgheadline53" class="outline-2">
+<h2 id="orgheadline53"><span class="section-number-2">6</span> 量化选股</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">6.1</span> 基本面选股</h3>
+</div><div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">6.1</span> 基本面选股</h3>
 <div class="outline-text-3" id="text-6-1">
-</div><div id="outline-container-orgheadline29" class="outline-4">
-<h4 id="orgheadline29"><span class="section-number-4">6.1.1</span> 多因子模型</h4>
+</div><div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44"><span class="section-number-4">6.1.1</span> 多因子模型</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <p>
 优点是可以综合很多信息后给出一个选股结果. 综合因子的方法有打分法和回归法两种，打分法较为常见。
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline28"></a>steps:<br  /><ol class="org-ol"><li><a id="orgheadline26"></a>备选因子选取<br  /><ol class="org-ol"><li><a id="orgheadline23"></a>估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）<br  /></li>
+<ol class="org-ol"><li><a id="orgheadline43"></a>steps:<br  /><ol class="org-ol"><li><a id="orgheadline41"></a>备选因子选取<br  /><ol class="org-ol"><li><a id="orgheadline38"></a>估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）<br  /></li>
 
-<li><a id="orgheadline24"></a>成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)<br  /></li>
+<li><a id="orgheadline39"></a>成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)<br  /></li>
 
-<li><a id="orgheadline25"></a>资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）<br  /></li></ol></li>
+<li><a id="orgheadline40"></a>资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）<br  /></li></ol></li>
 
-<li><a id="orgheadline27"></a>因子有效性检验<br  /><div class="outline-text-6" id="text-6-1-1-1-2">
+<li><a id="orgheadline42"></a>因子有效性检验<br  /><div class="outline-text-6" id="text-6-1-1-1-2">
 <p>
 采用排序的方法检验备选因子的有效性。
 </p>
 </div></li></ol></li></ol>
 </div>
 
-<div id="outline-container-orgheadline30" class="outline-4">
-<h4 id="orgheadline30"><span class="section-number-4">6.1.2</span> 风格轮动模型</h4>
+<div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45"><span class="section-number-4">6.1.2</span> 风格轮动模型</h4>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-4">
-<h4 id="orgheadline31"><span class="section-number-4">6.1.3</span> 行业轮动模型</h4>
+<div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46"><span class="section-number-4">6.1.3</span> 行业轮动模型</h4>
 </div>
 </div>
 
-<div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">6.2</span> 市场行为选股</h3>
+<div id="outline-container-orgheadline52" class="outline-3">
+<h3 id="orgheadline52"><span class="section-number-3">6.2</span> 市场行为选股</h3>
 <div class="outline-text-3" id="text-6-2">
-</div><div id="outline-container-orgheadline33" class="outline-4">
-<h4 id="orgheadline33"><span class="section-number-4">6.2.1</span> 资金流选股</h4>
+</div><div id="outline-container-orgheadline48" class="outline-4">
+<h4 id="orgheadline48"><span class="section-number-4">6.2.1</span> 资金流选股</h4>
 </div>
 
-<div id="outline-container-orgheadline34" class="outline-4">
-<h4 id="orgheadline34"><span class="section-number-4">6.2.2</span> 动量反转模型</h4>
+<div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">6.2.2</span> 动量反转模型</h4>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-4">
-<h4 id="orgheadline35"><span class="section-number-4">6.2.3</span> 一致预期模型</h4>
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">6.2.3</span> 一致预期模型</h4>
 </div>
 
-<div id="outline-container-orgheadline36" class="outline-4">
-<h4 id="orgheadline36"><span class="section-number-4">6.2.4</span> 趋势追踪模型</h4>
+<div id="outline-container-orgheadline51" class="outline-4">
+<h4 id="orgheadline51"><span class="section-number-4">6.2.4</span> 趋势追踪模型</h4>
 </div>
 </div>
 </div>
@@ -479,7 +582,7 @@ SMB accounts for publicly traded companies with small market caps that generate 
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-26 Fri&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-06 Thu 15:41</p>
+<p class="date">Created: 2017-07-07 Fri 10:10</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

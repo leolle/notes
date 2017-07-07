@@ -107,10 +107,44 @@ $\delta_{n,m}$ = the specific covariance of asset n with asset m. By assumption,
 ** building the model
 
 *** choosing the factors
-
+all factors must be a priori factor. even though the factor returns are uncertain, the factor exposures must be known at the beginning of the period.
 **** Responses to external influences
+These factors include
+- responses to return in the bond market (sometimes called bond beta)
+- unexpected changes in inflation (iation surprise)
+- changes in oil prices
+- changes in exchange rates
+- changes in industrial production
+***** defects:
+- the response coefficient has to be estimated through regression analysis or some similar technique. This requirement leads to errors in the estimates, commonly called the error-in-variables problem.
+- the estimates are based on behavior during a past period, generally five years. Even if these past estimates are accurate in the statistical sense of capturing the true situation in the past, they may not accurately describe the present. In short, these response coefficients can be nonstationary.
+
+**** cross-sectional comparisons of asset attributes
+These factors, which have no link to the remainder of the economy, compare attributes of the stocks.
+***** fundamental
+- dividend yield
+- earnings yield
+- analysts' forecasts of future earnings per share
+***** market
+- volatility
+- return during a past period
+- option-implied volatility
+- share turnover
+**** purely internal or statistical factors
+It is possible to amass returns data on a large number of stocks, turn the crank of a statistical meat grinder, and admire the factors the machine produces: factor ex machina.
+methods:
+- principal component analysis
+- maximum likelihood analysis
+- expectations maximization analysis
+**** overall criteria:
+- incisive
+- intuitive
+- interesting
 
 *** estimating factor returns
+**** exposures
+***** industry exposures
+***** risk index exposures
 *** forecasting risk
 
 
