@@ -1,6 +1,6 @@
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
-#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:auto timestamp:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
 #+TITLES: MultiFactorModel
 #+DATE: <2017-05-26 Fri>
@@ -95,19 +95,61 @@ SMB accounts for publicly traded companies with small market caps that generate 
 *** excess return on the market, portfolio's return less the risk free rate of return
 
 * Multi-Factor Risk Model
+** why multi factor risk model and the usage
+The asset covariance matrix is critical both for portfolio construction and for risk management purposes.
+A key challenge in estimating the asset covariance matrix lies in the sheer dimensionality of the
+problem. For instance, an active portfolio containing 2000 stocks multiplies 1000 days requires more than two million
+independent elements. If the asset covariance matrix is computed *naively* — that is, by brute force —
+then the matrix is likely to be extremely ill-conditioned. This makes the asset covariance matrix highly
+susceptible to *noise and spurious* relationships that are unlikely to persist out-of-sample. For instance, if
+the number of time observations is less than the number of stocks (as would be typical for large
+portfolios), the matrix is said to be “rank deficient,” meaning that it is possible to construct apparently
+riskless portfolios.
 
-** form
-$$V_{n,m} = \displaystyle\sum_{k1,k2=1}^{K} X_{n,k1} F_{k1,k2} X_{m,k2} + \delta_{n,m}$$
+Factor risk models were developed to provide a more *robust* solution to this problem. Stock returns are
+attributed to a factor component that affects all stocks, and an idiosyncratic component that is unique
+to the particular stock.
+
+Consider a *portfolio with weights $w_n$* , and return given by
+$$R_P = \displaystyle\sum_{n} w_n r_n.$$
+
+The portfolio factor exposures are given by the weighted average of the asset exposures, i.e.,
+$$X_k^P = \displaystyle\sum_{n}w_n X_{nk}$$.
+** structure
+*** four components:
+- a stock's exposures to the factors
+- its excess returns
+- the attributed factor returns
+- the specific returns.
+$$r_n(t) = \displaystyle\sum_{k} X_{n,k}f_k(t)+u_n(t)$$, where
+
+$X_{n,k}$ = exposure of asset n to factor k.
+
+$r_n(t)$ = the excess return(return above the risk free return) on stock n during the period from t to time t+1.
+
+$f_k(t)$ = the factor return to factor k during the period from time t to time t + 1,
+
+$u_n(t)$ = stock n's specific return during the period from time t to time t + 1. This is the return that cannot be explained by the factors.
+
+
+*** risk structure:
+$$ V_{n,m} = \displaystyle\sum_{k1,k2=1}^{K} X_{n,k1} F_{k1,k2} X_{m,k2} + \delta_{n,m} $$
 where
+
 $V_{n,m}$ = the covariance of asset n with asset m (if n = m, this gives the variance of asset n),
+
 $X_{n,k1}$ = the exposure of asset n to factor k1,
+
 $F_{k1,k2}$ = the covariance of factor k l with factor k2 (if k l = k2, this gives the variance of factor kl), and
+
 $\delta_{n,m}$ = the specific covariance of asset n with asset m. By assumption, all specific risk correlations are zero, so this term is zero unless n = m. In that case, this term gives the specific variance of asset n.
 
 ** building the model
 
 *** choosing the factors
 all factors must be a priori factor. even though the factor returns are uncertain, the factor exposures must be known at the beginning of the period.
+- The first source, due to factors, represents the systematic component.
+- The second source represents the diversifiable component that cannot be explained by the factors, and is therefore deemed idiosyncratic or asset specific.
 **** Responses to external influences
 These factors include
 - responses to return in the bond market (sometimes called bond beta)
@@ -118,7 +160,16 @@ These factors include
 ***** defects:
 - the response coefficient has to be estimated through regression analysis or some similar technique. This requirement leads to errors in the estimates, commonly called the error-in-variables problem.
 - the estimates are based on behavior during a past period, generally five years. Even if these past estimates are accurate in the statistical sense of capturing the true situation in the past, they may not accurately describe the present. In short, these response coefficients can be nonstationary.
-
+- A key assumption underlying factor risk models is that the factors capture all systematic drivers of asset returns, thus implying that the specific returns are mutually uncorrelated.
+- Another important characteristic of a high-quality factor structure is parsimony, meaning that the systematic component of asset returns is explained with the fewest possible number of factors.
+***** key of success choosing factors
+- statistical significance of the factor returns. In particular, the statistical significance of the factors should be persistent across time, and not due to isolated events that are unlikely to recur in the future.
+- Stability is another characteristic of a high-quality factor structure. Stability means that typical stock exposures do not change drastically over short periods of time.
+***** data preparation
+multi-step algorithm to identify and treat outliers. The algorithm assigns each observation into one of three groups.
+- The first group represents values so extreme that they are treated as potential data errors and removed from the estimation process.
+- The second group represents values that are regarded as legitimate, but nonetheless so large that their impact on the model must be limited. We trim these observations to three standard deviations from the mean.
+- The third group of observations, forming the bulk of the distribution, consists of values that are less than three standard deviations from the mean; these observations are left unadjusted.
 **** cross-sectional comparisons of asset attributes
 These factors, which have no link to the remainder of the economy, compare attributes of the stocks.
 ***** fundamental
@@ -143,15 +194,95 @@ methods:
 
 *** estimating factor returns
 **** exposures
+| factors                      |
+|------------------------------|
+| 负债率因子暴露（mark-cap）   |
+| 价值因子暴露（mark-cap）     |
+| 短期动量因子暴露（mark-cap） |
+| 成长因子暴露（mark-cap）_L   |
+| 规模因子暴露（mark-cap）     |
+| 中期动量因子暴露（mark-cap） |
+| 换手率因子暴露（mark-cap）   |
+| 波动率因子暴露（mark-cap）   |
+
 ***** industry exposures
+The market itself has unit exposure in total to the industries. Because large corporations can do business in several industries, the industry factors must account for multiple industry memberships.
 ***** risk index exposures
+- Volatilitydistinguishes stocks by their volatility. Assets that rank high in this dimension have been and are expected to be more volatile than average.
+- Momentum distinguishes stocks by recent performance.
+- Size distinguishes large stocks from small stocks.
+- Liquidity distinguishes stocks by how often their shares trade.
+- Growth distinguishes stocks by past and anticipated earnings growth.Value distinguishes stocks by their fundamentals, including ratios of earnings, dividends, cash flows, book value, and sales to price; is the stock cheap or expensive relative to fundamentals?
+- Earnings volatility distinguishes stocks by their earnings stability.
+- Financial leverage distinguishes firms by their debt-to-equity ratios and exposure to interest rate risk.
+****** Relying on several different descriptors can improve model robustness.
+****** all raw exposure data must be rescaled:
+$$X_{normalized} = \frac{X_{raw} - mean(X_{raw})}{SD(X_{raw})}$$
+**** returns
+- Given exposures to the industry and risk index factors, the next step is to estimate returns via multiple regressions.
+- The R2 statistic, which measures the explanatory power of the model, tends to average between 30 percent and 40 percent for models of monthly equity returns with roughly 1,000 assets and 50 factors. Larger R' statistics tend to occur in months with larger market moves.
+- formly: least squares regressions, weighting each observed return by the inverse of its specific variance.
+- Although these cross-sectional regressions can involve many variables (the USE2 model uses 68 factors), *the models do not suffer from multicollinearity.* Most of the factors are industries (55out of 68 in USEZ), which are orthogonal. In addition, tests of variance inflation factors, which measure the inflation in estimate errors attributable to multicollinearity, lie far below serious danger levels.
+**** Factor Portfolios
+$$f=(X^T W X)^{-1} (X^T W r)$$, where X is the exposure matrix, W is the diagonal matrix of regression weights, and r is the vector of excess returns.
+$$f_k = \displaystyle\sum_{n=1}^{N} C_{k,n}r_n$$
+***** Factor Covariance
+Once the factor returns each period are estimated, we can estimate a factor covariance matrix-an estimate of all the factor variances and covariances.
+***** Specific-Risk Matrixes
+$u_n$, is that component of its return that the model cannot explain. So the multiple-factor model can provide no insight into stock-specific returns.
+
+For specific risk, we need to model specific return variance, $u_n^2$ assuming that mean specific return is zero.
+
+In general, the model for specific risk is
+$$ u_n^2(t) = S(t)[1+v_n(t)]$$ with $$(1/N)\displaystyle\sum_{n=1}^{N} u_n^2(t) = S(t), (1/N)\displaystyle\sum_{n=1}^{N} v_n(t) = 0 $$
+S(t) measures the average specific variance across the universe of stocks, and $v_n$ captures the cross-sectional variation in specific variance.
 *** forecasting risk
+we use a time series model for S(t) and a linear multiple-factor model for vn(t). Models for vn(t) typically include some risk index factors, plus factors measuring recent squared specific returns.
+*** Data Requirements
+**** stock returns
+adjusted stock close price.
+**** sufficient industry identification data to calculate factor exposures
+- earnings
+- sales
+- assets segmented by industry
+- historical returns
+- associated option information
+- fundamental accounting data
+- earnings forecasts
+** Model validity
+three categories: in-sample tests, out-of-sample tests, and empirical observations.
+*** in-sample tests
+**** $R^2$ roughly 50 factors to explain the returns to roughly 1,000 assets each month.
+Monthly R2statistics for the models average about 30-40 percent, meaning
+that the model "explains," on average, about 30-40 percent of the observed
+cross-sectional variance of the universe of stock returns.
+- the R2 statistic can vary quite significantly from month to month, depending in part on the overall market return.
+ModelR2statistics are highest when the market return differs very signdicantly
+from zero. The R2statistic was very high in October 1987 because the market
+return was so extreme. In months when the market return is near zero, the R2
+statistic can be quite low, even if discrepancies between realized and modeled
+returns are small
+**** root mean square error from the regression.
+*** out-of-sample tests
+Out-of-sample tests compare forecast risk with realized risk.
 
+One out-ofsample test builds portfolios of randomly chosen assets and then compares the forecast and realized active risk of those portfolios.
+*** empirical observations
+concerning model validity are more vague than statistical tests, but they are still relevant.
+** Applications of Multiple-Factor Risk Model
+- the attribution of asset returns to chosen common factor and specific returns,
+- forecasts of the variances and covariances of these common factor and specific returns.
+*** The Present: Current Portfolio Risk Analysis.
+*** Portfolio Construction
+risk-adjusted expected return:
+$$ U = \displaystyle\sum_{n=1}^{N}h_n r_n - \lambda \displaystyle\sum_{n,m=1}^{N} h_n V_{n,m} h_m$$
+$h_n$ is the holding of asset n, $r_n$ is the expected return to asset n, $\lambda$ is a risk aversion parameter. $V_{n,m}$ covariance coming from multiple-factor risk model.
+*** Performance Analysis
+** Factor Exposures
 
-
-
-
-
+** Factor Returns
+** Factor Covariance Matrix
+** Specific Risk
 * 量化选股
 
 ** 基本面选股

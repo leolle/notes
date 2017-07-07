@@ -1,0 +1,59 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: EventStudy
+#+DATE: <2017-07-07 Fri>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Event Study
+The Event Study module is designed to evaluate the impact of discrete events on future returns. Classic examples of these events are stock splits, earnings surprises, index additions and deletions. The event study attempts to determine if there is a significant abnormal return which can be attributed to the occurrence of the event.
+Table of contents [hide]
+1 Event Definition
+2 Study Definition
+2.1 Normal Return Models
+2.1.1 Normal Return Model calculation
+2.2 Interaction factor
+3 Output
+3.1 Non-parametric Significance Test
+Event Definition
+
+* Events can be defined using ClariFI's visual query language. Any combination of fundamental, macroeconomic, or market data can be combined to create global or issue-specific values which can then be used to define event rules in the study definition. Any size universe can be studied, and historical analysis is limited only by the data available. Additionally, raw data sources representing events, such as elementized news feeds, can be used.
+
+* Study Definition
+
+Event Studies are defined by the creation of Rules which compare expressions to each other, or to constants. For example, an earnings surprise expression can be compared to a threshold value, in percentage or dollar terms, to create a "Positive Earning Surprise" event. This event will be defined to occur for an issue when that issue's earnings surprise expression value exceeds the threshold. Arbitrarily complex events can be defined in this way.
+Next, the Event Window is defined. This is the number of business days before and after the event day over which the return is to be analyzed. The return during the period before the event can give an indication of whether there is information leakage prior to the event being publicly available. The return after the event window is analyzed for the effect that the general knowledge of the event has on the issue's return.
+Event Timeline
+Enlarge
+Event Timeline
+
+* Normal Return Models
+Event Studies depend on the definition of abnormal return, that is, the return that is attributed to the occurrence of the event, to differentiate it from the normal return that would have occurred otherwise. Since the normal return is unobservable (we cannot know what the return would have been in the absence of the event), normal return models are used to isolate the event's effect.
+Typical normal return models include the "Constant Mean" model, where the issue's return is averaged over a given window prior to the event window, and this mean return is used as a constant to offset the actual return of the issue during the event window. This will essentially de-trend the return series so the event's effects can be isolated. Another typical model is the Market Model, which estimates the issue's alpha, \alpha_i, and beta, \beta_i, over a window prior to the event window (T_0, T_1]. The alpha and beta are estimated relative to a market return series r_M given by the user, and the normal return, \hat{r}_i, is then given by
+\hat{r}_i = \alpha_i + \beta_i r_M.
+These models, in addition to the ability to define issues' normal returns using ClariFI's expression language, can be used in the Event Study module to define the normal returns which will be used in the analysis.
+Normal Return Model calculation
+Therefore, to properly calculate the abnormal returns for an event, the event study must be able to load and have available all of the returns data for the issue that has the event over the dates in the event study (see the event timeline to the right). This means that if the issue is removed from the basket over the calculation time period, then the event cannot be calculated and it will be considered a failed event.
+If a lot of events fail due to missing returns data, then the basket used in the event study could be flattened to a single view basket whereby the union of all issues are present for the entire life of the basket, starting at the epoch.
+For example, assume the normal return model is set to Market with a window size of 40. Further assume we want to examine an event window of 5 days before and 20 days after the event. This means that returns data must be available for a total of 45 days (market return window size + number of days before the event) before the actual event date. If the vendor pricing data has any missing values on any of those dates, or if the issue itself is not present in the basket on one of those dates, then the normal return cannot be computed and the event is added to the list of failed events.
+** Interaction factor
+Additionally, the user can specify one or more Interaction Factors. This interaction factor is a discrete value that can be assigned to each security for the purposes of grouping. These values can come from Security Master fields such as Sector, Industry, or Country, or from ClariFI's visual query language to denote such things as market capitalization decile. Abnormal returns can be further broken down by the groups defined by these interaction factors. That is, one can analyze abnormal returns just among those issues in the Consumer Discretionary sector, or the 3rd book-to-price quintile.
+
+** Output
+
+The primary measure of the event's impact on returns is the Cumulative Abnormal Return, or CAR. For issue i, for each day \tau of the event window (T_1, T_2], this is the cumulative sum of the abnormal returns (actual return on each day - expected daily return).
+\textrm{CAR} = \sum_{t=T_1}^\tau (r_i(t)-\hat{r}_i(t)).
+
+Also of interest is the Standardized Cumulative Abnormal Return, or SCAR, where the \sigma in the denominator is the biased standard deviation of the abnormal returns.
+\textrm{SCAR} = \frac{\textrm{CAR}(T_1,\tau)}{\sigma(T_1, \tau)}.
+
+* Non-parametric Significance Test
+The Event Study report applies a non-parametric test to find statistical evidence for the presence of abnormal returns. For instance, a statistical measure of the the event's significance is the Sign Test, which is based on the sign of the abnormal return. The null hypothesis is that there are an equal number of positive and negative abnormal returns in the cross-section. To calculate the test statistic, we take the number of cases where the abnormal return is positive, N^+, and the total number of cases, N. Then, the test statistic, J_3 is given by
+J_3 = \left[\frac{N^+}{N} - 0.5\right] \frac{N^{1/2}}{0.5}\sim \mathcal{N}(0,1).
+We reject the null hypothesis if J_3 > \Phi^{-1}(\alpha) where (1-\alpha) is the test size and where \Phi(.) is the standard normal cumulative distribution function (CDF).

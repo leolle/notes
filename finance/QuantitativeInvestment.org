@@ -12,10 +12,53 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
 
-* 量化选股
+
+* Event study
+[[file:./EventStudy.org][EventStudy]]
+The Event Study module is designed to evaluate the impact of discrete events on future returns. Classic examples of these events are stock splits, earnings surprises, index additions and deletions. The event study attempts to determine if there is a significant abnormal return which can be attributed to the occurrence of the event.
+
+** Event study workflow
+** Event study report
+* Factor backtest
+* Forecast model
+* Simple forecast model
+* Transaction cost model
+* Risk model
+* Strategy simulation
+* Simulation workflow
+* Trade simulator interface
+* Report template editor
+* Script editor and debugger
+* ModelScript reference
+* Included Scripts
+* Included Cpp Scripts
+* Using Microsoft Visual Studio
+* Portfolio optimization
+* ClariFI portfolio optimization
+* Barra portfolio optimization
+* Northfield portfolio optimization
+* Axioma portfolio optimization
+* Portfolio attribution
+* Portfolio attribution process
+* Portfolio attribution export
+* Portfolio attribution report
+* Top down snapshot
+* Top down history
+* Cumulative Brinson attribution
+* Brinson attribution history
+* Contribution snapshot
+* Contribution history
+* Risk factor snapshot
+* Risk factor history
+* Risk attribution snapshot
+* Risk factor attribution
+* Process launcher
+* Cache data
+* multi-factor model
 [[file:./MultiFactorModel.org][MultiFactorModel]]
 
-* Portfolio Optimization
+[[file:./IndustryNeutral.org][行业中性]]
+
 
 * Performance analytics:
 
