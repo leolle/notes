@@ -341,6 +341,60 @@ print `a`
 print repr(a)
 #+end_src
 
+** regular express
+
+*** useage:
+- find strings
+- convert strings
+
+*** string array
+[Pp]ython: find Python or python
+
+**** parts
+re.search('[a-zA-Z0-9]', 'x')
+
+**** not
+re.search('[^0-9]', 'x')
+
+**** shortcut
+
+- word: \w
+- number: \d
+- space, tab, next line: \s
+- 0 length sub string: \b
+re.search('\bcorn\b', 'corner')
+
+**** start and end with strings
+#+BEGIN_SRC python 2
+re.search('^Python', 'Python 3')
+re.search('Python$', 'this is Python')
+#+END_SRC
+
+**** any character
+"."
+
+*** optional words
+'color' vs 'colour'
+re.search('colou?r', 'my favoriate color')
+
+*** repeat
+{N}
+
+#+BEGIN_SRC python2
+# find a telephone number
+re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
+
+#+END_SRC
+
+**** boundary of repeated times
+[\d]{3,4}
+
+**** open selection
+[\d]{3,}
+
+**** speed selection
+- +: {1,}
+- *: {0,}
 ** collections — High-performance container datatypes
 
 | module      | function                                                             |
