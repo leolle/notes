@@ -143,51 +143,6 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgheadline1">1. select stocks based on single factor.</a></li>
-<li><a href="#orgheadline5">2. 从每个行业里面挑选股票的步骤：</a>
-<ul>
-<li><a href="#orgheadline2">2.1. 把每个行业里面的股票按signal的信号强度(P(i,j),i:行业，j股票名)可以排序。</a></li>
-<li><a href="#orgheadline3">2.2. 从每个行业里面按quantile从步骤1排序后的股票池里面选股票，得到两个结果，具体每个行业的股票（S(i,j)，i:行业，j股票名）和每个行业股票的数量N(i)。</a></li>
-<li><a href="#orgheadline4">2.3. 确定权重：</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> select stocks based on single factor.</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-在Pool里面的信号值[0, 1)代表该stock是否在benchmark里。
-由pool和benchmark我们能得到每只股票的行业分类，以及由他们之间交集得到的待选股票池。
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">2</span> 从每个行业里面挑选股票的步骤：</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> 把每个行业里面的股票按signal的信号强度(P(i,j),i:行业，j股票名)可以排序。</h3>
-</div>
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> 从每个行业里面按quantile从步骤1排序后的股票池里面选股票，得到两个结果，具体每个行业的股票（S(i,j)，i:行业，j股票名）和每个行业股票的数量N(i)。</h3>
-</div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.3</span> 确定权重：</h3>
-<div class="outline-text-3" id="text-2-3">
-<ul class="org-ul">
-<li>利用benchmark的weight数据得到每个行业所占的权重W(i)。</li>
-<li>W(i)/N(i)等权重赋值到挑选出来的股票S(i,j)。结果即为行业中性下每只股票的权重。</li>
-</ul>
-</div>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-07 Fri&gt;</span></span></p>
