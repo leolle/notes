@@ -2,8 +2,10 @@
   + [[file:./finance/option.org][Option]]
   + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
   + [[file:./finance/FundAnalysis.org][FundAnalysis]]
-  + [[file:./finance/MultiFactorModel.org][MultiFactorModel]]
   + [[file:./finance/QuantitativeInvestment.org][QuantitativeInvestment]]
+    + [[file:./finance/PortfolioOptimization.org][PortfolioOptimization]]
+    + [[file:./py4fi/Optimization.html][PortfolioOptimization]
+    + [[file:./finance/MultiFactorModel.org][MultiFactorModel]]
 + Mathematics
   + [[file:./Math/knowledge_tree.html][MathMap]]
   + [[file:./Math/Statistics.org][Statistics]]

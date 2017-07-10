@@ -144,43 +144,6 @@ Magnus Vilhelm Persson. Mastering Python Data Analysis (Kindle Locations 2335-23
 *** Real-World data
 
 ** Portfolio Optimization
-[[file:./py4fi/Optimization.html][Optimization]]
-
-*** Quadratic function
-In algebra, a quadratic function, a quadratic polynomial, a polynomial of degree 2, or simply a quadratic, is a polynomial function in one or more variables in which the highest-degree term is of the second degree. For example, a quadratic function in three variables x, y, and z contains exclusively terms x2, y2, z2, xy, xz, yz, x, y, z, and a constant:
-$$
-{\displaystyle f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,} f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,
-with at least one of the coefficients a, b, c, d, e, or f of the second-degree terms being non-zero.
-$$
-*** Quadratic programming
-- Quadratic programming (QP) is the process of solving a special type of mathematical optimization problem—specifically, a (linearly constrained) quadratic optimization problem, that is, the problem of optimizing (minimizing or maximizing) a quadratic function of several variables subject to linear constraints on these variables. Quadratic programming is a particular type of nonlinear programming.
-*** Nonlinear programming
-the process of solving an optimization problem defined by a system of equalities and inequalities, collectively termed constraints, over a set of unknown real variables, along with an objective function to be maximized or minimized, where some of the constraints or the objective function are nonlinear.
-*** Equality constraints
-Quadratic programming is particularly simple when Q is positive definite and there are only equality constraints; specifically, the solution process is linear. By using Lagrange multipliers and seeking the extremum of the Lagrangian, it may be readily shown that the solution to the equality constrained problem
-$$
-{\displaystyle {\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x} } {\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x}
-{\displaystyle {\text{subject to}}\quad E\mathbf {x} =\mathbf {d} } {\text{subject to}}\quad E\mathbf {x} =\mathbf {d}
-$$
-is given by the linear system
-$$
-{\displaystyle {\begin{bmatrix}Q&-E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} {\displaystyle {\begin{bmatrix}Q&-E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} $$
-where ${\displaystyle \lambda } \lambda$  is a set of Lagrange multipliers which come out of the solution alongside ${\displaystyle \mathbf {x} } \mathbf {x}$ .
-
-
-
-OLS assumptions:
-- Linear in Parameters
-- Random Sample of n Observations
-- Zero Conditional Mean
-- No Perfect Collinearity
-- Homoskedasticity
-
-Pitfall of Modern Portfolio Theory(MPT):
-- It is based on the historical return performance. If the political visk shows up or the fund changes policy or manager, the corporate or the fund performance may change.
-
-Black–Litterman model:
-It is a mathematical model for portfolio allocation developed in 1990 at Goldman Sachs by Fischer Black and Robert Litterman, and published in 1992. It seeks to overcome problems that institutional investors have encountered in applying modern portfolio theory in practice, although the covariances of a few assets can be adequately estimated, it is difficult to come up with reasonable estimates of expected returns. The model starts with the equilibrium assumption that the asset allocation of a representative agent should be proportional to the market values of the available assets, and then modifies that to take into account the 'views' (i.e., the specific opinions about asset returns) of the investor in question to arrive at a bespoke asset allocation.
 
 **** steps:
 input: weights, percentage return, percentage volatility, constraints, boundaries.
