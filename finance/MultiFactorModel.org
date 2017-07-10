@@ -12,12 +12,20 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
 
-* Capital asset pricing model
+* Capital Asset Pricing Model
 - measure systematic risk, it depends only upon exposure to the overall market, usually proxied by a broad stock market index, such as the S&P 500. This exposure is measured by the CAPM beta.
 - capital asset pricing model (CAPM) is a model used to determine a theoretically appropriate required rate of return of an asset, to make decisions about adding assets to a well-diversified portfolio.
 - Only by exposing a well-diversified portfolio to higher market risk can an investor expect to achieve a higher rate of return.(SML) *What is the appropriate measure of risk?*
 - Beta, the coefficient of the independent variable (the market's rate of return) in an ordinary least squares regression equation to explain the dependent variable (a security's rate of return), measures a security's relative amount of systematic (market) risk.
 
+
+- The return of any stock can be separated into a systematic (market) component and a residual component. No theory is required to do this.
+- The CAPM says that the residual component of return has an expected value of zero.
+- The CAPM is easy to understand and relatively easy to implement.
+- There is a powerful logic of market efficiency behind the CAPM.
+- The CAPM thrusts the burden of proof onto the active manager. It suggests that passive management is a lowerrisk alternative to active management.
+- The CAPM provides a valuable source of consensus expectations. The active manager can succeed to the extent that his or her forecasts are superior to the CAPM consensus forecasts.
+- The CAPM is about expected returns, not risk.
 ** overview
 - The model takes into account the asset's sensitivity to non-diversifiable risk (also known as systematic risk or market risk), often represented by the quantity beta (β) in the financial industry, as well as the expected return of the market and the expected return of a theoretical risk-free asset.
 - $r_a = r_f + \beta (r_m - r_f)$

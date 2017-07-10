@@ -60,3 +60,21 @@ It is a mathematical model for portfolio allocation developed in 1990 at Goldman
 * Sparse Markowitz Portfolios
 
 * Mean-Reverting Portfolios
+
+* Active portfolio management
+
+** overview
+Modern portfolio theory looks at total risk and total return.
+
+The institutional investor cares about active risk and active return.
+For that reason, we will concentrate on the more general problem of managing relative to a benchmark.
+This focus on active management arises for several *reasons*:
+
+*** risk aversion from unknown categories.
+Clients can clump the large number of investment advisers into recognizable categories. With the advisers thus pigeonholed, the client (or consultant) can restrict searches and peer comparisons to pigeons in the same hole.
+
+*** tracking the benchmark
+The benchmark acts as a set of instructions from the fund sponsor, as principal, to the investment manager, as agent. The benchmark defines the manager’s investment neighborhood. Moves away from the benchmark carry substantial investment and business risk.
+
+*** easy tracking for management
+Benchmarks allow the trustee or sponsor to manage the aggregate portfolio without complete knowledge of the holdings of each manager. The sponsor can manage a mix of benchmarks, keeping the “big picture.""
