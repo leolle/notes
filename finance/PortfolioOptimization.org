@@ -78,3 +78,29 @@ The benchmark acts as a set of instructions from the fund sponsor, as principal,
 
 *** easy tracking for management
 Benchmarks allow the trustee or sponsor to manage the aggregate portfolio without complete knowledge of the holdings of each manager. The sponsor can manage a mix of benchmarks, keeping the “big picture.""
+
+* Portfolio Construction
+
+** input:
+- the current portfolio(with certainty)
+- alphas(often unreasonable and subject to hidden biases)
+- covariance estimates(noisy estimates)
+- transactions cost estimates(noisy estimates)
+- an active risk aversion(self-biased)
+** constraints
+*We can replace any portfolio construction process, regardless of its sophistication, by a process that first refines the alphas and then uses a simple unconstrained mean/variance optimization to determine the active positions.*
+*** alpha constraint
+- most institutional portfolio managers do not take short positions and limit the amount of cash in the portfolio.
+- Others may restrict asset coverage because of requirements concerning liquidity, self-dealing, and so on.
+- A manager may require that the portfolio be neutral across economic sectors or industries.
+- The manager may limit individual stock positions to ensure diversification of the active bets.
+- The manager may want to avoid any position based on a forecast of the benchmark portfolio’s performance.
+- portfolio holdings cannot exceed benchmark holdings by more than 5%.
+**** Scale the Alphas
+$$\alpha=volatility*IC*score$$
+**** Trim Alpha Outliers
+**** Neutralization
+**** Risk-Factor-Neutral Alphas
+*** risk aversion
+
+*** transaction cost

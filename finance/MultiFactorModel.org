@@ -36,6 +36,11 @@ S&P500.
 ** breaking down
 - two factors: time value of money and risk.
 - individual risk premium equals the market premium times beta.
+** forecast of expected return
+*** problem of using historical average returns
+ One alternative is to use historical average returns, i.e., the average return to the stock over some previous period. This is not a good idea, for two main reasons.
+- First, the historical returns contain a large amount of sample error.
+- Second, the universe of stocks changes over time: New stocks become available, and old stocks expire or merge. The stocks themselves change over time: Earnings change, capital structure may change, and the volatility of the stock may change. Historical averages are a poor alternative to consensus forecasts.
 
 * Arbitrage Pricing Theory
 
