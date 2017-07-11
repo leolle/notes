@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-10 Mon 09:11 -->
+<!-- 2017-07-11 Tue 14:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -203,7 +203,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline29">1.14. fetch data from yahoo</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41">2. Data Analysis:</a>
+<li><a href="#orgheadline45">2. Data Analysis:</a>
 <ul>
 <li><a href="#orgheadline38">2.1. pandas:</a>
 <ul>
@@ -211,7 +211,14 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline39">2.2. numpy</a></li>
-<li><a href="#orgheadline40">2.3. plot:</a></li>
+<li><a href="#orgheadline44">2.3. plot:</a>
+<ul>
+<li><a href="#orgheadline40">2.3.1. subplot with the same axis:</a></li>
+<li><a href="#orgheadline41">2.3.2. subplot with different axis</a></li>
+<li><a href="#orgheadline42">2.3.3. plot a secondary y scale</a></li>
+<li><a href="#orgheadline43">2.3.4. plot a 3d figure:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -913,8 +920,8 @@ re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
 </div>
 </div>
 
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="section-number-2">2</span> Data Analysis:</h2>
+<div id="outline-container-orgheadline45" class="outline-2">
+<h2 id="orgheadline45"><span class="section-number-2">2</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline38" class="outline-3">
 <h3 id="orgheadline38"><span class="section-number-3">2.1</span> pandas:</h3>
@@ -1192,9 +1199,12 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40"><span class="section-number-3">2.3</span> plot:</h3>
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">2.3</span> plot:</h3>
 <div class="outline-text-3" id="text-2-3">
+</div><div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">2.3.1</span> subplot with the same axis:</h4>
+<div class="outline-text-4" id="text-2-3-1">
 <p>
 pandas plot.
 using matplotlib:
@@ -1213,10 +1223,33 @@ using matplotlib:
 fig, ax : <span style="color: #F92672;">tuple</span>
 </pre>
 </div>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41"><span class="section-number-4">2.3.2</span> subplot with different axis</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<div class="org-src-container">
 
-<ul class="org-ul">
-<li>plot a secondary y scale</li>
-</ul>
+<pre class="src src-python">plt.subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+plt.boxplot<span style="color: #AE81FF;">(</span>x1<span style="color: #AE81FF;">)</span>
+plt.plot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span>, x1.ix<span style="color: #66D9EF;">[</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, <span style="color: #E6DB74;">'r*'</span>, markersize=<span style="color: #AE81FF;">15</span>.<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+
+plt.subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+x1.plot<span style="color: #AE81FF;">()</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #FD971F;">fig</span>, <span style="color: #FD971F;">axes</span> = plt.subplots<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, figsize=<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">14</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+axes<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>.boxplot<span style="color: #AE81FF;">(</span>pe000001<span style="color: #AE81FF;">)</span>
+axes<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>.plot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span>, pe000001.ix<span style="color: #66D9EF;">[</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, <span style="color: #E6DB74;">'r*'</span>, markersize=<span style="color: #AE81FF;">15</span>.<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+
+pe000001.plot<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">2.3.3</span> plot a secondary y scale</h4>
+<div class="outline-text-4" id="text-2-3-3">
 <div class="org-src-container">
 
 <pre class="src src-python">df.price.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
@@ -1232,10 +1265,12 @@ fig, ax : <span style="color: #F92672;">tuple</span>
 plt.axvline<span style="color: #AE81FF;">(</span>a<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'DGAZ.US'</span><span style="color: #66D9EF;">][</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, color=<span style="color: #E6DB74;">'b'</span>, linestyle=<span style="color: #E6DB74;">'dashed'</span>, linewidth=<span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+</div>
+</div>
 
-<ul class="org-ul">
-<li>plot a 3d figure:</li>
-</ul>
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43"><span class="section-number-4">2.3.4</span> plot a 3d figure:</h4>
+<div class="outline-text-4" id="text-2-3-4">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #F92672;">from</span> mpl_toolkits.mplot3d <span style="color: #F92672;">import</span> Axes3D
@@ -1278,10 +1313,11 @@ fig is the :class:matplotlib.figure.Figure object.
 </div>
 </div>
 </div>
+</div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-10 Mon 09:11</p>
+<p class="date">Created: 2017-07-11 Tue 14:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

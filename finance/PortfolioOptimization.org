@@ -144,3 +144,17 @@ The result is that portfolios constructed using returns-based analysis are very 
 - placing limits on active stock positions.
 - limiting turnover.
 - constraining holdings in certain categories of stocks to match the benchmark holdings.
+* Asset Allocation
+Asset allocation comes in several varieties: strategic versus tactical, and domestic versus global.
+
+The process of selecting a target asset allocation is called strategic asset allocation.
+
+The variation in asset allocation around that target is called tactical asset allocation.
+** tactical asset allocation
+- stocks
+- bonds
+- cash
+** asset allocation strategies is a three-step process:
+- forecasting returns
+- building portfolios
+- analyzing out-of-sample performance.

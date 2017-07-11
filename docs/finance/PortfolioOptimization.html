@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-10 Mon 11:47 -->
+<!-- 2017-07-11 Tue 14:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -191,6 +191,28 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
+<li><a href="#orgheadline29">6. Portfolio Construction</a>
+<ul>
+<li><a href="#orgheadline14">6.1. input:</a></li>
+<li><a href="#orgheadline24">6.2. constraints</a>
+<ul>
+<li><a href="#orgheadline19">6.2.1. alpha constraint</a></li>
+<li><a href="#orgheadline20">6.2.2. risk aversion</a></li>
+<li><a href="#orgheadline23">6.2.3. transaction cost</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline25">6.3. SCREENS</a></li>
+<li><a href="#orgheadline26">6.4. Stratification</a></li>
+<li><a href="#orgheadline27">6.5. comparison with asset selection and asset allocation</a></li>
+<li><a href="#orgheadline28">6.6. solution</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline32">7. Asset Allocation</a>
+<ul>
+<li><a href="#orgheadline30">7.1. tactical asset allocation</a></li>
+<li><a href="#orgheadline31">7.2. asset allocation strategies is a three-step process:</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -344,11 +366,180 @@ Benchmarks allow the trustee or sponsor to manage the aggregate portfolio withou
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">6</span> Portfolio Construction</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">6.1</span> input:</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>the current portfolio(with certainty)</li>
+<li>alphas(often unreasonable and subject to hidden biases)</li>
+<li>covariance estimates(noisy estimates)</li>
+<li>transactions cost estimates(noisy estimates)</li>
+<li>an active risk aversion(self-biased)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">6.2</span> constraints</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+<b>We can replace any portfolio construction process, regardless of its sophistication, by a process that first refines the alphas and then uses a simple unconstrained mean/variance optimization to determine the active positions.</b>
+</p>
+</div>
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">6.2.1</span> alpha constraint</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<ul class="org-ul">
+<li>most institutional portfolio managers do not take short positions and limit the amount of cash in the portfolio.</li>
+<li>Others may restrict asset coverage because of requirements concerning liquidity, self-dealing, and so on.</li>
+<li>A manager may require that the portfolio be neutral across economic sectors or industries.</li>
+<li>The manager may limit individual stock positions to ensure diversification of the active bets.</li>
+<li>The manager may want to avoid any position based on a forecast of the benchmark portfolio’s performance.</li>
+<li>portfolio holdings cannot exceed benchmark holdings by more than 5%.</li>
+</ul>
+</div>
+<ol class="org-ol"><li><a id="orgheadline15"></a>Scale the Alphas<br  /><div class="outline-text-5" id="text-6-2-1-1">
+<p>
+\[\alpha=volatility*IC*score\]
+</p>
+</div></li>
+<li><a id="orgheadline16"></a>Trim Alpha Outliers<br  /></li>
+<li><a id="orgheadline17"></a>Neutralization<br  /></li>
+<li><a id="orgheadline18"></a>Risk-Factor-Neutral Alphas<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">6.2.2</span> risk aversion</h4>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">6.2.3</span> transaction cost</h4>
+<div class="outline-text-4" id="text-6-2-3">
+</div><ol class="org-ol"><li><a id="orgheadline21"></a>on stock side<br  /><div class="outline-text-5" id="text-6-2-3-1">
+<ul class="org-ul">
+<li>Transactions costs increase with trade size and the desire for quick execution, which help to identify the manager as an informed trader and require increased inventory risk by the liquidity supplier.</li>
+<li>Transactions costs are difficult to measure. At the same time, accurate estimates of transactions costs, especially distinctions in transactions costs among different stock trades, can significantly affect realized value added.</li>
+<li>Transactions costs lower value added, but you can often achieve at least 75 percent of the value added with only half the turnover (and half the transactions costs). You can do better by distinguishing stocks by their transactions costs.</li>
+<li>Trading is itself a portfolio optimization problem, distinct from the portfolio construction problem. Optimal trading can lower transactions costs, though at the expense of additional short-term risk.</li>
+<li>There are several options for trade implementation, with rules of thumb on which to use when.
+<ul class="org-ul">
+<li>VWAP.</li>
+<li>BARRA model.</li>
+</ul></li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline22"></a>on portfolio side<br  /><div class="outline-text-5" id="text-6-2-3-2">
+<ul class="org-ul">
+<li>construct portfolio relative to industry neutral with categories.</li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">6.3</span> SCREENS</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li>Rank the stocks by alpha.</li>
+<li>Choose the first 50 stocks (for example).</li>
+<li>Equal-weight (or capitalization-weight) the stocks.
+<ul class="org-ul">
+<li>rebalancing:
+<ul class="org-ul">
+<li>divide the stocks into three categores, top 40, next 60, remaining 100.</li>
+<li>buy any stocks on the top 40 not in the portfolio.</li>
+<li>sell any stocks on the bottom 100 in the portfolio.</li>
+<li>holding any stocks on the middle in the portfolio.</li>
+</ul></li>
+<li>pros:
+<ul class="org-ul">
+<li>The screen enhances alphas by concentrating the portfolio in the high-alpha stocks.</li>
+<li>It strives for risk control by including a sufficient number of stocks (50 in the example) and by weighting them to avoid concentration in any single stock.</li>
+<li>Transactions costs are limited by controlling turnover through judicious choice of the size of the buy, sell, and hold lists.</li>
+</ul></li>
+<li>cons:
+<ul class="org-ul">
+<li>They ignore all information in the alphas apart from the rankings.</li>
+<li>They do not protect against biases in the alphas.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">6.4</span> Stratification</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li>splitting the list of followed stocks into categories.</li>
+<li>classify the stocks in each sector by size: big, medium, and small.</li>
+<li>industry neutral.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">6.5</span> comparison with asset selection and asset allocation</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+The result is that portfolios constructed using returns-based analysis are very close to mean/variance portfolios, although they require much more effort to construct.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">6.6</span> solution</h3>
+<div class="outline-text-3" id="text-6-6">
+<ul class="org-ul">
+<li>placing limits on active stock positions.</li>
+<li>limiting turnover.</li>
+<li>constraining holdings in certain categories of stocks to match the benchmark holdings.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-2">
+<h2 id="orgheadline32"><span class="section-number-2">7</span> Asset Allocation</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Asset allocation comes in several varieties: strategic versus tactical, and domestic versus global.
+</p>
+
+<p>
+The process of selecting a target asset allocation is called strategic asset allocation.
+</p>
+
+<p>
+The variation in asset allocation around that target is called tactical asset allocation.
+</p>
+</div>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">7.1</span> tactical asset allocation</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>stocks</li>
+<li>bonds</li>
+<li>cash</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">7.2</span> asset allocation strategies is a three-step process:</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li>forecasting returns</li>
+<li>building portfolios</li>
+<li>analyzing out-of-sample performance.</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-05 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-10 Mon 11:47</p>
+<p class="date">Created: 2017-07-11 Tue 14:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
