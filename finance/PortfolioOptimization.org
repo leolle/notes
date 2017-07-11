@@ -105,7 +105,18 @@ $$\alpha=volatility*IC*score$$
 
 *** transaction cost
 
-*** SCREENS
+**** on stock side
+- Transactions costs increase with trade size and the desire for quick execution, which help to identify the manager as an informed trader and require increased inventory risk by the liquidity supplier.
+- Transactions costs are difficult to measure. At the same time, accurate estimates of transactions costs, especially distinctions in transactions costs among different stock trades, can significantly affect realized value added.
+- Transactions costs lower value added, but you can often achieve at least 75 percent of the value added with only half the turnover (and half the transactions costs). You can do better by distinguishing stocks by their transactions costs.
+- Trading is itself a portfolio optimization problem, distinct from the portfolio construction problem. Optimal trading can lower transactions costs, though at the expense of additional short-term risk.
+- There are several options for trade implementation, with rules of thumb on which to use when.
+  - VWAP.
+  - BARRA model.
+
+**** on portfolio side
+- construct portfolio relative to industry neutral with categories.
+** SCREENS
 - Rank the stocks by alpha.
 - Choose the first 50 stocks (for example).
 - Equal-weight (or capitalization-weight) the stocks.
@@ -122,6 +133,14 @@ $$\alpha=volatility*IC*score$$
     - They ignore all information in the alphas apart from the rankings.
     - They do not protect against biases in the alphas.
 
-*** Stratification
+** Stratification
 - splitting the list of followed stocks into categories.
 - classify the stocks in each sector by size: big, medium, and small.
+- industry neutral.
+
+** comparison with asset selection and asset allocation
+The result is that portfolios constructed using returns-based analysis are very close to mean/variance portfolios, although they require much more effort to construct.
+** solution
+- placing limits on active stock positions.
+- limiting turnover.
+- constraining holdings in certain categories of stocks to match the benchmark holdings.

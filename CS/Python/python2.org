@@ -577,6 +577,7 @@ np.count_nonzero(~np.isnan(df['series']))
 np.sum((df < 0).values.ravel())
 #+end_src
 ** plot:
+*** subplot with the same axis:
 pandas plot.
 using matplotlib:
 - multiple subplots
@@ -589,8 +590,23 @@ ax3 = fig.add_subplot(2, 2, 3)
 fig, axes = plt.subplots(2,3)
 fig, ax : tuple
 #+end_src
+*** subplot with different axis
+#+BEGIN_SRC python
+plt.subplot(2, 1, 1)
+plt.boxplot(x1)
+plt.plot(1, x1.ix[-1], 'r*', markersize=15.0)
 
-- plot a secondary y scale
+plt.subplot(2, 1, 2)
+x1.plot()
+# or
+fig, axes = plt.subplots(2, 1, figsize=(10, 14))
+axes[0].boxplot(pe000001)
+axes[0].plot(1, pe000001.ix[-1], 'r*', markersize=15.0)
+
+pe000001.plot()
+#+END_SRC
+
+*** plot a secondary y scale
 #+begin_src python
 df.price.plot(legend=True)
 (100-df.pct_long).plot(secondary_y=True, style='g', legend=True)
@@ -601,7 +617,7 @@ a['DGAZ.US'].hist(bins=50)
 plt.axvline(a['DGAZ.US'][-1], color='b', linestyle='dashed', linewidth=2)
 #+end_src
 
-- plot a 3d figure:
+*** plot a 3d figure:
 #+begin_src python :tangle yes
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
