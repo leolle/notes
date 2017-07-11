@@ -104,3 +104,24 @@ $$\alpha=volatility*IC*score$$
 *** risk aversion
 
 *** transaction cost
+
+*** SCREENS
+- Rank the stocks by alpha.
+- Choose the first 50 stocks (for example).
+- Equal-weight (or capitalization-weight) the stocks.
+  - rebalancing:
+    - divide the stocks into three categores, top 40, next 60, remaining 100.
+    - buy any stocks on the top 40 not in the portfolio.
+    - sell any stocks on the bottom 100 in the portfolio.
+    - holding any stocks on the middle in the portfolio.
+  - pros:
+    - The screen enhances alphas by concentrating the portfolio in the high-alpha stocks.
+    - It strives for risk control by including a sufficient number of stocks (50 in the example) and by weighting them to avoid concentration in any single stock.
+    - Transactions costs are limited by controlling turnover through judicious choice of the size of the buy, sell, and hold lists.
+  - cons:
+    - They ignore all information in the alphas apart from the rankings.
+    - They do not protect against biases in the alphas.
+
+*** Stratification
+- splitting the list of followed stocks into categories.
+- classify the stocks in each sector by size: big, medium, and small.
