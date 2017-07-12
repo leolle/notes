@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-11 Tue 14:31 -->
+<!-- 2017-07-12 Wed 09:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -191,26 +191,27 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline29">6. Portfolio Construction</a>
+<li><a href="#orgheadline14">6. Exceptional Return, benchmarks and value added</a></li>
+<li><a href="#orgheadline30">7. Portfolio Construction</a>
 <ul>
-<li><a href="#orgheadline14">6.1. input:</a></li>
-<li><a href="#orgheadline24">6.2. constraints</a>
+<li><a href="#orgheadline15">7.1. input:</a></li>
+<li><a href="#orgheadline25">7.2. constraints</a>
 <ul>
-<li><a href="#orgheadline19">6.2.1. alpha constraint</a></li>
-<li><a href="#orgheadline20">6.2.2. risk aversion</a></li>
-<li><a href="#orgheadline23">6.2.3. transaction cost</a></li>
+<li><a href="#orgheadline20">7.2.1. alpha constraint</a></li>
+<li><a href="#orgheadline21">7.2.2. risk aversion</a></li>
+<li><a href="#orgheadline24">7.2.3. transaction cost</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline25">6.3. SCREENS</a></li>
-<li><a href="#orgheadline26">6.4. Stratification</a></li>
-<li><a href="#orgheadline27">6.5. comparison with asset selection and asset allocation</a></li>
-<li><a href="#orgheadline28">6.6. solution</a></li>
+<li><a href="#orgheadline26">7.3. SCREENS</a></li>
+<li><a href="#orgheadline27">7.4. Stratification</a></li>
+<li><a href="#orgheadline28">7.5. comparison with asset selection and asset allocation</a></li>
+<li><a href="#orgheadline29">7.6. solution</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline32">7. Asset Allocation</a>
+<li><a href="#orgheadline33">8. Asset Allocation</a>
 <ul>
-<li><a href="#orgheadline30">7.1. tactical asset allocation</a></li>
-<li><a href="#orgheadline31">7.2. asset allocation strategies is a three-step process:</a></li>
+<li><a href="#orgheadline31">8.1. tactical asset allocation</a></li>
+<li><a href="#orgheadline32">8.2. asset allocation strategies is a three-step process:</a></li>
 </ul>
 </li>
 </ul>
@@ -243,12 +244,12 @@ In algebra, a quadratic function, a quadratic polynomial, a polynomial of degree
 
 <p>
 \[
-{\displaystyle f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,} f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,
+{\displaystyle f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,} f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,\]
 with at least one of the coefficients a, b, c, d, e, or f of the second-degree terms being non-zero.
-\]
 </p>
 </div>
 </div>
+
 <div id="outline-container-orgheadline3" class="outline-3">
 <h3 id="orgheadline3"><span class="section-number-3">2.2</span> Quadratic programming</h3>
 <div class="outline-text-3" id="text-2-2">
@@ -270,20 +271,17 @@ the process of solving an optimization problem defined by a system of equalities
 <div class="outline-text-3" id="text-2-4">
 <p>
 Quadratic programming is particularly simple when Q is positive definite and there are only equality constraints; specifically, the solution process is linear. By using Lagrange multipliers and seeking the extremum of the Lagrangian, it may be readily shown that the solution to the equality constrained problem
+\[{\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x}
+{\text{subject to}}\quad E\mathbf {x} =\mathbf {d}\]
 </p>
 
 <p>
-\[
-{\displaystyle {\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x} } {\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x}
-{\displaystyle {\text{subject to}}\quad E\mathbf {x} =\mathbf {d} } {\text{subject to}}\quad E\mathbf {x} =\mathbf {d}
-\]
 is given by the linear system
 </p>
 
 <p>
-\[
-{\displaystyle {\begin{bmatrix}Q&-E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} {\displaystyle {\begin{bmatrix}Q&-E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}} \]
-where \({\displaystyle \lambda } \lambda\)  is a set of Lagrange multipliers which come out of the solution alongside \({\displaystyle \mathbf {x} } \mathbf {x}\) .
+\[{\begin{bmatrix}Q&E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}\]
+where \({\displaystyle \lambda }\)  is a set of Lagrange multipliers which come out of the solution alongside \({\displaystyle \mathbf {x} }\) .
 </p>
 
 
@@ -367,12 +365,87 @@ Benchmarks allow the trustee or sponsor to manage the aggregate portfolio withou
 </div>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-2">
-<h2 id="orgheadline29"><span class="section-number-2">6</span> Portfolio Construction</h2>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">6</span> Exceptional Return, benchmarks and value added</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">6.1</span> input:</h3>
-<div class="outline-text-3" id="text-6-1">
+<p>
+The CAPM provides consensus expected returns. A multiple-factor model can help to control risk.
+</p>
+
+<p>
+accurate forecasts of expected return.
+a riskfree component (the time premium), a benchmark component\(\beta_n \mu_B\)  (the risk premium), a benchmark timing component\(\beta_n \delta f_B\) (exceptional benchmark return), and an alpha (expected residual return). If Rn is the total return on asset n.
+\[E{R_n} = 1 + i_F + \beta_n \mu_B + \beta_n \delta f_B + \alpha_n\]
+</p>
+<ul class="org-ul">
+<li>\(\beta_n = \frac{Cov{r_n,r_B}}{Var{r_B}}\)</li>
+<li>The Risk Premium \(\beta_n \mu_B\)</li>
+</ul>
+<p>
+The expected excess return on the benchmark, \(\mu_B\), is usually estimated by analysts as a very long run (70+ years) average (although other estimation methods are common). A number between 3 and 7 percent per annum is reasonable for most equity markets.
+</p>
+<ul class="org-ul">
+<li>Exceptional Benchmark return \(\beta_n \Delta f_B\)</li>
+</ul>
+<p>
+\(\Delta f_B\) is your measure of that difference between the expected excess return on the benchmark in the near future and the long-run expected excess return.
+</p>
+<ul class="org-ul">
+<li>\(\alpha_n\)</li>
+</ul>
+<p>
+expected residual return, $&alpha;<sub>n</sub> = E{&Theta;<sub>n</sub>}.$
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">parameters</th>
+<th scope="col" class="org-left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(\beta_n\)</td>
+<td class="org-left">the forecast beta of the portfolio versus the benchmark</td>
+</tr>
+
+<tr>
+<td class="org-left">\(r_f\)</td>
+<td class="org-left">risk-free return</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\mu_B\)</td>
+<td class="org-left">benchmark return over the last period(monthly)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\Delta f_B\)</td>
+<td class="org-left">\(r_p - r_f - \mu_B\)</td>
+</tr>
+
+<tr>
+<td class="org-left">f<sub>b</sub></td>
+<td class="org-left">$\displaystyle&sum;<sub>n</sub> h<sub>B</sub>(n)E{R<sub>N</sub>}-(1+i<sub>F</sub>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline30" class="outline-2">
+<h2 id="orgheadline30"><span class="section-number-2">7</span> Portfolio Construction</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">7.1</span> input:</h3>
+<div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>the current portfolio(with certainty)</li>
 <li>alphas(often unreasonable and subject to hidden biases)</li>
@@ -382,16 +455,16 @@ Benchmarks allow the trustee or sponsor to manage the aggregate portfolio withou
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">6.2</span> constraints</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">7.2</span> constraints</h3>
+<div class="outline-text-3" id="text-7-2">
 <p>
 <b>We can replace any portfolio construction process, regardless of its sophistication, by a process that first refines the alphas and then uses a simple unconstrained mean/variance optimization to determine the active positions.</b>
 </p>
 </div>
-<div id="outline-container-orgheadline19" class="outline-4">
-<h4 id="orgheadline19"><span class="section-number-4">6.2.1</span> alpha constraint</h4>
-<div class="outline-text-4" id="text-6-2-1">
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">7.2.1</span> alpha constraint</h4>
+<div class="outline-text-4" id="text-7-2-1">
 <ul class="org-ul">
 <li>most institutional portfolio managers do not take short positions and limit the amount of cash in the portfolio.</li>
 <li>Others may restrict asset coverage because of requirements concerning liquidity, self-dealing, and so on.</li>
@@ -401,23 +474,23 @@ Benchmarks allow the trustee or sponsor to manage the aggregate portfolio withou
 <li>portfolio holdings cannot exceed benchmark holdings by more than 5%.</li>
 </ul>
 </div>
-<ol class="org-ol"><li><a id="orgheadline15"></a>Scale the Alphas<br  /><div class="outline-text-5" id="text-6-2-1-1">
+<ol class="org-ol"><li><a id="orgheadline16"></a>Scale the Alphas<br  /><div class="outline-text-5" id="text-7-2-1-1">
 <p>
 \[\alpha=volatility*IC*score\]
 </p>
 </div></li>
-<li><a id="orgheadline16"></a>Trim Alpha Outliers<br  /></li>
-<li><a id="orgheadline17"></a>Neutralization<br  /></li>
-<li><a id="orgheadline18"></a>Risk-Factor-Neutral Alphas<br  /></li></ol>
+<li><a id="orgheadline17"></a>Trim Alpha Outliers<br  /></li>
+<li><a id="orgheadline18"></a>Neutralization<br  /></li>
+<li><a id="orgheadline19"></a>Risk-Factor-Neutral Alphas<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline20" class="outline-4">
-<h4 id="orgheadline20"><span class="section-number-4">6.2.2</span> risk aversion</h4>
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">7.2.2</span> risk aversion</h4>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-4">
-<h4 id="orgheadline23"><span class="section-number-4">6.2.3</span> transaction cost</h4>
-<div class="outline-text-4" id="text-6-2-3">
-</div><ol class="org-ol"><li><a id="orgheadline21"></a>on stock side<br  /><div class="outline-text-5" id="text-6-2-3-1">
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">7.2.3</span> transaction cost</h4>
+<div class="outline-text-4" id="text-7-2-3">
+</div><ol class="org-ol"><li><a id="orgheadline22"></a>on stock side<br  /><div class="outline-text-5" id="text-7-2-3-1">
 <ul class="org-ul">
 <li>Transactions costs increase with trade size and the desire for quick execution, which help to identify the manager as an informed trader and require increased inventory risk by the liquidity supplier.</li>
 <li>Transactions costs are difficult to measure. At the same time, accurate estimates of transactions costs, especially distinctions in transactions costs among different stock trades, can significantly affect realized value added.</li>
@@ -431,16 +504,16 @@ Benchmarks allow the trustee or sponsor to manage the aggregate portfolio withou
 </ul>
 </div></li>
 
-<li><a id="orgheadline22"></a>on portfolio side<br  /><div class="outline-text-5" id="text-6-2-3-2">
+<li><a id="orgheadline23"></a>on portfolio side<br  /><div class="outline-text-5" id="text-7-2-3-2">
 <ul class="org-ul">
 <li>construct portfolio relative to industry neutral with categories.</li>
 </ul>
 </div></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">6.3</span> SCREENS</h3>
-<div class="outline-text-3" id="text-6-3">
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">7.3</span> SCREENS</h3>
+<div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>Rank the stocks by alpha.</li>
 <li>Choose the first 50 stocks (for example).</li>
@@ -469,9 +542,9 @@ Benchmarks allow the trustee or sponsor to manage the aggregate portfolio withou
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">6.4</span> Stratification</h3>
-<div class="outline-text-3" id="text-6-4">
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">7.4</span> Stratification</h3>
+<div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li>splitting the list of followed stocks into categories.</li>
 <li>classify the stocks in each sector by size: big, medium, and small.</li>
@@ -480,17 +553,17 @@ Benchmarks allow the trustee or sponsor to manage the aggregate portfolio withou
 </div>
 </div>
 
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">6.5</span> comparison with asset selection and asset allocation</h3>
-<div class="outline-text-3" id="text-6-5">
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">7.5</span> comparison with asset selection and asset allocation</h3>
+<div class="outline-text-3" id="text-7-5">
 <p>
 The result is that portfolios constructed using returns-based analysis are very close to mean/variance portfolios, although they require much more effort to construct.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline28" class="outline-3">
-<h3 id="orgheadline28"><span class="section-number-3">6.6</span> solution</h3>
-<div class="outline-text-3" id="text-6-6">
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">7.6</span> solution</h3>
+<div class="outline-text-3" id="text-7-6">
 <ul class="org-ul">
 <li>placing limits on active stock positions.</li>
 <li>limiting turnover.</li>
@@ -499,9 +572,9 @@ The result is that portfolios constructed using returns-based analysis are very 
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline32" class="outline-2">
-<h2 id="orgheadline32"><span class="section-number-2">7</span> Asset Allocation</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-orgheadline33" class="outline-2">
+<h2 id="orgheadline33"><span class="section-number-2">8</span> Asset Allocation</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 Asset allocation comes in several varieties: strategic versus tactical, and domestic versus global.
 </p>
@@ -514,9 +587,9 @@ The process of selecting a target asset allocation is called strategic asset all
 The variation in asset allocation around that target is called tactical asset allocation.
 </p>
 </div>
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">7.1</span> tactical asset allocation</h3>
-<div class="outline-text-3" id="text-7-1">
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">8.1</span> tactical asset allocation</h3>
+<div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>stocks</li>
 <li>bonds</li>
@@ -524,9 +597,9 @@ The variation in asset allocation around that target is called tactical asset al
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">7.2</span> asset allocation strategies is a three-step process:</h3>
-<div class="outline-text-3" id="text-7-2">
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">8.2</span> asset allocation strategies is a three-step process:</h3>
+<div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>forecasting returns</li>
 <li>building portfolios</li>
@@ -539,7 +612,7 @@ The variation in asset allocation around that target is called tactical asset al
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-05 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-11 Tue 14:31</p>
+<p class="date">Created: 2017-07-12 Wed 09:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
