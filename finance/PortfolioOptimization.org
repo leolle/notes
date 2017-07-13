@@ -121,6 +121,27 @@ $$\alpha=volatility*IC*score$$
 **** Trim Alpha Outliers
 **** Neutralization
 **** Risk-Factor-Neutral Alphas
+**** For index-tracking portfolios
+- Take advantage of ﬂexible options for risk control.
+  - Minimize the tracking error of your portfolio in the objective or place a hard limit on tracking error using a risk constraint.
+  - Use more than one risk model to incorporate several perspectives on risk.
+  - Include risk elements that use more than one benchmark or model portfolio.
+- Incorporate all the transaction-related costs that impact performance. The transaction cost types available in the optimizer can be used in any combination to accurately reﬂect overall costs.
+  - Capture market impact using non-linear market-impact models (quadratic, 3/2, and 5/3 powers) or a piecewiselinear approximation.
+  - Use the fully integrated Goldman Sachs Shortfall Model.
+  - Include commissions and brokerage fees using linear costs.
+- Place explicit limits on trading activity.
+  - Limit overall portfolio turnover or limit turnover of a set of assets.
+  - Place asset-specifc limits on trading; for example, limit trade size to a fraction of average daily volume.
+- Control portfolio beta using Axioma-provided historical betas, predicted betas computed relative to any benchmark you choose, or betas you supply.
+- Limit the number of names held or traded
+**** For actively managed portfolios…
+In addition to the risk and transaction cost controls available for passive portfolio management, the modeling library contains many options designed to get the most from your alpha signal.
+• Augment your risk control using the Alpha Factor. The Alpha Factor compensates for components of your alpha signal that are not included in the risk model, providing more accurate predicted risk estimates.
+• Limit risk contributions at the factor or asset level.
+• Use Robust Optimization to explicitly incorporate uncertainty in your alpha estimates.
+• Incorporate additional tilts in your objective. Tilts can be implemented on any factor, including risk factors, factors from one of Axioma’s factor libraries, or user-supplied factors.
+• Prevent small positions and small trades with threshold constraints.
 *** risk aversion
 
 *** transaction cost
