@@ -76,6 +76,27 @@ associated with the Capital Asset Pricing Model (CAPM).
 * Multi-Factor Model
 ** What is a 'Multi-Factor Model'
 A multi-factor model is a financial model that employs multiple factors in its computations to explain market phenomena and/or equilibrium asset prices. The multi-factor model can be used to explain either an individual security or a portfolio of securities.
+** Why a Multi-Factor Model?
+Computing sample statistics directly from historical data, however, is fraught with danger.
+- Weak signals
+- noise aside,
+- when a new asset enters the existing universe, there is no reliable way of calculating its relationships with the other assets,
+- data points totalling no less than the number of assets are required to accurately estimate all the variances and covariances directly. Even with a universe of 100 assets, over 1 2 · 100 · (100+ 1) > 5; 000 relationships need to be estimated. For stock markets like the U.S. (over 12,000 assets), this becomes completely infeasible.
+- A better approach is to first impose some structure on the asset returns by identifying common factors within the market | that is, factors which drive asset returns.
+
+Factors used in multi-factor models can fall into several broad categories:
+- Fundamental factors
+  - Industry and country factors reflect a company’s line of business and country of domicile.
+  - Style factors encapsulate the financial characteristics of an asset | a company’s size, debt levels, liquidity, etc. They are usually calculated from a mixture of market and fundamental (i.e. balance sheet) data.
+  - Currency factors represent the interplay between local currencies of the various assets within the model.
+  - Macroeconomic factors capture an asset’s sensitivity to variables such as GNP growth, bond yields, inflation, etc.
+
+- Statistical factors
+are mathematical constructs responsible for the observed correlations in asset returns. They are not directly connected to any observable real-world phenomena, and may change from one period to the next.
+
+r = Bf + u
+
+where r is the asset returns vector at time t, f is the factor return vector, u the set of asset specific returns.
 ** BREAKING DOWN 'Multi-Factor Model'
 Multi-factor models are used to construct portfolios with certain characteristics, such as risk, or to track indexes.
 ** Categories of Multi-Factor Models
