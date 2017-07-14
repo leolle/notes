@@ -142,6 +142,10 @@ SMB accounts for publicly traded companies with small market caps that generate 
 |------------------------------+---------------------------------------------------------------------------------------------------------------|
 | Industry Factors (32)        | GICS-based industry classification with 0/1 assignments.(see the additional AX-CN Further Results Appendix)   |
 
+** Statistical Factor Model
+| Factor Structure | 15 statistical factors                                                                          |
+| Estimation       | 2-Pass Asymptotic Principal Components factor analysis with residual variance adjusted returns. |
+|                  |                                                                                                 |
 
 * Multi-Factor Risk Model
 ** why multi factor risk model and the usage
