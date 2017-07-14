@@ -97,7 +97,7 @@ expected residual return, $\alpha_n = E{\Theta_n}.$
 | $r_f$       | risk-free return                                        |
 | $\mu_B$     | benchmark return over the last period(monthly)          |
 | $\Delta f_B$ | $r_p - r_f - \mu_B$                                     |
-| f_b         | $\displaystyle\sum_{n} h_B(n)E{R_N}-(1+i_F)             |
+| f_b         | $\displaystyle\sum_{n} h_B(n)E{R_N}-(1+i_F)$            |
 
 * Portfolio Construction
 

@@ -128,6 +128,21 @@ SMB accounts for publicly traded companies with small market caps that generate 
 
 *** excess return on the market, portfolio's return less the risk free rate of return
 
+** Fundamental Factor Model
+| Style Factors                | Description                                                                                                   |
+|------------------------------+---------------------------------------------------------------------------------------------------------------|
+| 负债率因子暴露（mark-cap）   | Total debt to market capitalization                                                                           |
+| 价值因子暴露（mark-cap）     | Book-to-price                                                                                                 |
+| 短期动量因子暴露（mark-cap） | Cumulative return over past month                                                                             |
+| 成长因子暴露（mark-cap）_L   | Plowback times return-on-equity                                                                               |
+| 规模因子暴露（mark-cap）     | Natural logarithm of market capitalization                                                                    |
+| 中期动量因子暴露（mark-cap） | Cumulative return over past year excluding most recent month                                                  |
+| 换手率因子暴露（mark-cap）   | 1 month average daily volume over market capitalization                                                       |
+| 波动率因子暴露（mark-cap）   | 3 month average of absolute return over cross-sectional standard deviation                                    |
+|------------------------------+---------------------------------------------------------------------------------------------------------------|
+| Industry Factors (32)        | GICS-based industry classification with 0/1 assignments.(see the additional AX-CN Further Results Appendix)   |
+
+
 * Multi-Factor Risk Model
 ** why multi factor risk model and the usage
 The asset covariance matrix is critical both for portfolio construction and for risk management purposes.
@@ -228,17 +243,6 @@ methods:
 
 *** estimating factor returns
 **** exposures
-| factors                      |
-|------------------------------|
-| 负债率因子暴露（mark-cap）   |
-| 价值因子暴露（mark-cap）     |
-| 短期动量因子暴露（mark-cap） |
-| 成长因子暴露（mark-cap）_L   |
-| 规模因子暴露（mark-cap）     |
-| 中期动量因子暴露（mark-cap） |
-| 换手率因子暴露（mark-cap）   |
-| 波动率因子暴露（mark-cap）   |
-
 ***** industry exposures
 The market itself has unit exposure in total to the industries. Because large corporations can do business in several industries, the industry factors must account for multiple industry memberships.
 ***** risk index exposures
