@@ -11,8 +11,9 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
-[[file:../CS/Python/py4fi/Optimization.html][PortfolioOptimization]]
-* Portfolio Optimization
+[[file:../CS/Python/py4fi/Optimization.html][PortfolioOptimizationJupyter]]
+[[file:../CS/Python/py4fi/PortfolioOptimization.html][PortfolioOptimizationReadMe]]
+* Portfolio Optimization objective functions
 - risk parity portfolios (Roncalli, 2013)
 - Black–Litterman portfolios (Black and Litterman, 1992)
 - log-optimal portfolios (Cover and Ordentlich, 1996)
