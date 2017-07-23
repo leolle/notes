@@ -11,7 +11,20 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
+* terms:
+- ad hoc
+specific.
+- excess return
+return relative to the risk-free return.
+$r = r_a - r_f$
+- expected return
+- active return
+return relative to a benchmark.
+- alpha
+expeced residual return, or expected exceptional return, or realized residual, or exceptional return.
 
+residual return plus benchmark timing return.
+$\Theta = \beta*(residual return + benchmark return exceeds consensus expected return)$
 * Capital Asset Pricing Model
 - measure systematic risk, it depends only upon exposure to the overall market, usually proxied by a broad stock market index, such as the S&P 500. This exposure is measured by the CAPM beta.
 - capital asset pricing model (CAPM) is a model used to determine a theoretically appropriate required rate of return of an asset, to make decisions about adding assets to a well-diversified portfolio.
@@ -70,6 +83,46 @@ $$E[f_1(t)] = ... = E[f_K(t)] = E[\epsilon_i(t)] = 0$$
 Pure arbitrage profits are impossible.
 $$E[r_i(t)] = P_0 + \beta_i1 P_1 + ... + \beta_iK P_K$$
 $$r_i(t) - P_0  = \beta_i1 [P_1 + f_1(t)] + ... + \beta_iK[P_K + f_K(t)] + \epsilon_i(t)$$
+* Active Portfolio Management
+** benchmark portfolio
+** exceptional returns relative to benchmark
+** trade off forecasts of exceptional return against additional risk
+** process of active management
+*** processing of raw signals into exceptional return forecasts
+*** portfolio construction, trading, performance analysis
+*** asset selection, asset allocation, benchmark timing
+** forecasting
+*** superior information
+if your forecasts match the consensus, or your forecasts differe from the consensus but contain no information, this machinery will lead you back to the benchmark.
+
+only as you develop superior information will your portfolio deviate from the benchmark.
+** success relies on breath and skill
+** mathematics cannot overcome ignorance, half-life
+how to evaluating the horizon value of information.
+** where to look for superior information
+*** forecasting factor returns
+*** forecasting asset specific return
+*** information sources that have proven valuable in the past
+** Applications
+*** Structure model 1: Given Exposure, estimate factor returns
+*** Structure model 2: Given Factor returns, estimate exposures.
+*** Statistical Model 1: Principal Components Analysis
+use the principal components to explain the other stocks, the historical return are already known, use this as the factors, then calculate the coefficients.
+*** Statistical Model 2: Maximum Likeliood factor analysis
+** Valuation from cash flows
+Risk-adjusted expectations:
+
+the modern theory of valuation prices uncertain future cash flows by risk-adjusting the expected cash flows and discounting them to the present using the risk-free rate.
+*** Valuation of equities
+the standard quantitative method is the dividend discount model, which focuses on dividends, earnings, and growth.
+
+Dividend discount model is only as good as their growth forecasts.
+
+The goal of valuation is trying to find those equities which are mispriced and to make money when the price is corrected by the market.
+** Valuation in practice
+stock value = financial value + operational value
+
+
 * One factor model
 associated with the Capital Asset Pricing Model (CAPM).
 
