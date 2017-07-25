@@ -143,83 +143,70 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<ul class="org-ul">
-<li>Calendar
-<ul class="org-ul">
-<li><a href="./Calendar/sentiment.html">NLP</a></li>
-</ul></li>
-<li>Finance
-<ul class="org-ul">
-<li><a href="./finance/option.html">Option</a></li>
-<li><a href="./finance/ComputationalInvestment.html">MLInvestment</a></li>
-<li><a href="./finance/FundAnalysis.html">FundAnalysis</a></li>
-<li><a href="./finance/QuantitativeInvestment.html">QuantitativeInvestment</a>
-<ul class="org-ul">
-<li><a href="./finance/PortfolioOptimization.html">PortfolioOptimization</a></li>
-<li><a href="./finance/MultiFactorModel.html">MultiFactorModel</a></li>
-</ul></li>
-</ul></li>
-<li>Mathematics
-<ul class="org-ul">
-<li><a href="./Math/knowledge_tree.html">MathMap</a></li>
-<li><a href="./Math/Statistics.html">Statistics</a></li>
-</ul></li>
-<li>CS
-<ul class="org-ul">
-<li>MachineLearning
-<ul class="org-ul">
-<li><a href="./CS/MachineLearning/MachineLearning.html">ML</a></li>
-<li><a href="./CS/MachineLearning/NaturalLanguageProcessing.html">SentimentAnalysis</a></li>
-</ul></li>
-<li><a href="./CS/Python/python2.html">Python</a>
-<ul class="org-ul">
-<li><a href="./CS/Python/PythonForFinance.html">PythonForFinance</a></li>
-<li><a href="./CS/Python/DesignPattern.html">DesignPattern</a></li>
-<li><a href="./CS/Python/EffectivePython.html">EffectivePython</a></li>
-<li><a href="./CS/Python/high_performance_python.html">HighPerformanceOfPython</a></li>
-<li><a href="./CS/Python/HighPerformancePython">ProfilePython</a></li>
-<li>Ipython notebooks
-<ul class="org-ul">
-<li><a href="./ipynb/site/index.html">JupyterNotebooks</a></li>
-</ul></li>
-<li><a href="./CS/Python/python_rules.html">PythonRules</a></li>
-</ul></li>
-<li>C++
-<ul class="org-ul">
-<li><a href="./CS/C++/C++.html">C++ObjectOrientedProgramming</a></li>
-</ul></li>
-<li>VersionControl
-<ul class="org-ul">
-<li><a href="./CS/VersionControl.html">VersionControl</a></li>
-</ul></li>
-<li>Linux
-<ul class="org-ul">
-<li><a href="./CS/Linux/Linux.html">Linux</a></li>
-</ul></li>
-</ul></li>
-<li>Database
-<ul class="org-ul">
-<li><a href="./Database/DBMS.html">DatabaseManagement</a></li>
-<li><a href="./CS/Python/sqlalchemy.html">SQLAlchemy</a></li>
-</ul></li>
-<li>Emacs
-<ul class="org-ul">
-<li><a href="./emacs/emacs.html">Emacs</a></li>
-</ul></li>
-<li>Business
-<ul class="org-ul">
-<li><a href="./Business/O2O.html">O2O</a></li>
-<li><a href="./Business/巴菲特投资哲学.html">巴菲特的投资哲学</a></li>
-<li><a href="./Business/经济停滞.html">经济停滞</a></li>
-<li><a href="./Business/风格分析.htm">FundReturnBasedStyleApproach</a></li>
-</ul></li>
-<li>Books
-<ul class="org-ul">
-<li><a href="./books/有效network.html">network</a></li>
-</ul></li>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline2">1. Overview</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Sentiment Lexicon and Its Issues</a></li>
+</ul>
+</li>
 </ul>
 </div>
+</div>
+
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">1</span> Overview</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Document level:</li>
+</ul>
+<p>
+The task at this level is to classify whether a whole opinion document expresses a positive or negative sentiment.
+</p>
+<ul class="org-ul">
+<li>Sentence level:</li>
+</ul>
+<p>
+The task at this level goes to the sentences and determines whether each sentence expressed a positive, negative, or neutral opinion.
+</p>
+
+<p>
+This level of analysis is closely related to subjectivity classification (Wiebe, Bruce and O'Hara, 1999), which distinguishes sentences (called objective sentences) that express factual information from sentences (called subjective sentences) that express subjective views and opinions.
+</p>
+
+<p>
+-Entity and Aspect level:
+. It is based on the idea that an opinion consists of a sentiment (positive or negative) and a target (of opinion).
+</p>
+
+<ul class="org-ul">
+<li>regular opinions and comparative opinions</li>
+</ul>
+<p>
+A regular opinion expresses a sentiment only on an particular entity or an aspect of the entity, e.g., “Coke tastes very good,” which expresses a positive sentiment on the aspect taste of Coke. A comparative opinion compares multiple entities based on some of their shared aspects, e.g., “Coke tastes better than Pepsi,” which compares Coke and Pepsi based on their tastes (an aspect) and expresses a preference for Coke.
+</p>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Sentiment Lexicon and Its Issues</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>lexicon</li>
+</ul>
+<p>
+opinions, positive and negative.
+-issue
+spam review
+</p>
+</div>
+</div>
+</div>
+</div>
 <div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-25 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
 <p class="date">Created: 2017-07-25 Tue 16:37</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
