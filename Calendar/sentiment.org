@@ -1,0 +1,204 @@
+#+OPTIONS: <:active
+#+ICALENDAR_EXCLUDE_TAGS:
+
+* Jul 19, 2017
+- [X] 搭建基金策略
+- [ ] 对基金策略进行组合优化
+- [ ] 分析优化后结果，把组合优化加入流程
+* Jul 21, 2017
+- [X] 配置好GOOGLE GCLOUD PLATORM的代理
+- [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
+- [ ] deep learning of bank stress in the news
+- [ ] detect events based on text, obtain descriptions of events.
+
+** GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
+
+** configuration:
+- reports-174211
+- proxy:
+127.0.0.1:1080
+
+- [X] Make sure that Python 2.7.9 or later is installed on your system.
+- [X] ./google-cloud-sdk/install.sh
+- [X] ./google-cloud-sdk/bin/gcloud init
+- [X] pip install --upgrade google-cloud-language
+- [X] export GOOGLE_APPLICATION_CREDENTIALS=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json
+- [X] gcloud auth activate-service-account --key-file=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json
+- [X] example:
+#+BEGIN_SRC python
+# auth
+from google.oauth2 import service_account
+
+credentials = service_account.Credentials.from_service_account_file(
+    '/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json')
+
+scoped_credentials = credentials.with_scopes(
+    ['https://www.googleapis.com/auth/cloud-platform'])
+
+#+END_SRC
+#+BEGIN_SRC python
+# -*- coding: utf-8 -*-
+# Imports the Google Cloud client library
+from google.cloud import language
+
+# Instantiates a client
+language_client = language.Client()
+
+# The text to analyze
+text = 'Hello, world!'
+#text = u'正在按照第一个网页流程走'
+document = language_client.document_from_text(text)
+
+# Detects the sentiment of the text
+sentiment = document.analyze_sentiment().sentiment
+
+print('Text: {}'.format(text))
+print('Sentiment: {}, {}'.format(sentiment.score, sentiment.magnitude))
+
+#+END_SRC
+
+- https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/language/movie_nl
+
+- GCLOUD example:
+#+BEGIN_SRC shell
+gcloud ml language analyze-entities --content="Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'."
+#+END_SRC
+
+** SDK
+- https://cloud.google.com/sdk/docs/quickstart-linux
+- key:
+https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211
+- 初始化SDK
+  - 配置网络代理
+  - 输入代理IP地址:127.0.0.1，代理端口：1080
+- 授权SDK
+  - gcloud auth application-default login
+
+- auth
+https://developers.google.com/identity/protocols/application-default-credentials
+#+BEGIN_SRC json
+{
+  "type": "service_account",
+  "project_id": "reports-174211",
+  "private_key_id": "54818469c5e32cb8f5d55b755945e6bd7f65c747",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0Lz4mVUr36Y7C\n+hxLunVLm3RfBMDsJ9RZ/jICmpCprYIjYebLql0+T2DnhU7eKH2hhbHKZdUfWOvA\nDxE/DUk04eG22vsvoPlIGjN88c3EkKqEddX0llOkKeVNMAB0lN+ESEmrMC6Ewhd2\n/51dIqekDjTV5wrmZxnT1SSuJsrgA0Wbey5TjVmYBTO3hsR37sJxf6yj0+lrVqUw\np2rgkIuDrQy97jP9AYdAF6Lt1eIZvLTIC8GBpo0VjVb+s8CRhZiKGxunUu8HFymS\nK/9Li8BRJ9q/ozp4OGJszk2RQiTbFoKI64pVqggTJxRVw4pdozpzPL4cDqqjYu7y\nCakFxFStAgMBAAECggEAAL36EaKDy3IYOa2Eh3umMdsbIgINFlvn+BKVMPq4fPkU\njQyWl1ZQCdU+BwNpn/4cMwRah1ofLtYeVcfqGwT1EnqaA/ddFfo3KfNxAgMlRQ7l\nzjkFr3sdWegnRDJd/3JBL78JeKLwlMY6M64D/1HIzXhBLPQFkOMx/B6dBvpCFyVC\niE/FTJHFpN5BJni+cBtKfdKbPYGkxtNN4XdPrGtS3pg+NX8hJwtyTc9CV63YSPxG\nY7Zat5IRR+nTkHNJj/jqTLb1YolzjTSGR1vbb1KTUe+KH4ZxiYd0MVCDEEgrhvli\nmEunzCGbrIgi3K8+h77FHq2UHbVL4epd6leswEpH6QKBgQDiz/bDGXIAKszc9GsS\na4mhU/06Cw79C99rc6iMMq9O5N6qaXDlExT5IS/1xBMv8M4lQ4Qp6OqzlXP/gci3\nVOm6TzoB92hwTja5IxIlhHuCxy3+LCjN2T95dTL5QbjKtYn9IQ/SX+ZVSXxHYUvQ\nxgwZud/FIS+YE2qChYFEaev7BQKBgQDLXy++mrOHm/Kwpkf2elrra6m/jPHdJe3m\nuv7lQf9QJAjSBNDJppHiryqOKQeSJyLX7WrPi/ngUM/wFSAi/llgmLApQwAla5Xs\nPLRntxaWDK2JDUonGDkdWeR5kwyns/oomnECiS22m1+oh+2uYQHgW8DpiG4fPpAt\nJ3K6KOUziQKBgAJ3sr6So0vfK1VoD1Ym91ta95FPF32nSGn52yaTUpbwJIAEH6dO\nWtcPBl+NH4xQ+V0sa96s2wjTImzwM4fTE6vkOsRUtb0rDKtc91CTLWjR0+1E+7ip\nmWgv3zsY/PKvoO2xE2P9iRr6brC0HUgLL4yEGiwh3UuxQmJjI3HkGR4lAoGALc16\nS0s8M8aDmhVZD8HuyCavTFzJ/CyWr+hdj/SVM89pzSMYgtHo+UzKIMpM0jXOOyNV\ncvjrhgGtUzzux/LQ3liFFEXquoLIeTQSzWkGxTSFwOAlWzixZFLiih78MqjuJkbi\nPNf4W7ASkzpJ5YQjkAwaHn6DjrXgcsr3o8WiGUECgYBBLnbZLyMSkjZ0n0wYG0a7\nB4b0piRlGbSfEcKWpxoS+EJDuEgvZgn92EOHGaE0xtZvmwbWuqTKKRHXYDGG0VkR\nTf1pMyBF7uxRXDXPslZU2rUTudKMxP8HxoV8WGwxH+ltZYwsMV1iKv3xqbU6CRy2\nu5i+YnEcmQl6HFH/H8tzQg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloudnatruallanguageapi@reports-174211.iam.gserviceaccount.com",
+  "client_id": "108156446460648516099",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloudnatruallanguageapi%40reports-174211.iam.gserviceaccount.com"
+}
+
+#+END_SRC
+
+- gcloud config list
+#+BEGIN_SRC shell
+(C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>gcloud
+config list
+[compute]
+region = us-east1
+zone = us-east1-d
+[core]
+account = victor.wuv@gmail.com
+disable_usage_reporting = False
+project = reports-174211
+[proxy]
+address = 192.168.1.164
+port = 1080
+type = http
+
+Your active configuration is: [nlp1]
+
+(C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
+#+END_SRC
+
+* Jul 24, 2017
+- Hidden factor model
+ICA
+- portfolio optimization based on factor model
+- non linear constrain on factor model
+
+connect to Amazon AWS EW2:
+#+BEGIN_SRC shell
+# 1
+chmod 400 /path/my-key-pair.pem
+# 2
+ssh -i "amazon.pem" ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com
+# 3
+scp -i "/home/weiwu/Downloads/amazon.pem" ~/projects/sentiment/reports-b56f3f2275a1.json  ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com:~/projects/sentiment
+#+END_SRC
+- install Google SDK on AWS EM2
+methon 1:
+curl https://sdk.cloud.google.com | bash
+sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
+sudo `which pip` install --upgrade google-cloud-language
+
+* Jul 25, 2017
+- read the book 《自然语言处理综论》
+not easy to understand this book.
+- listen to the open course
+https://web.stanford.edu/class/cs224n/syllabus.html
+- 寻找中文分词开源项目
+LTP from Harbin Institute of Technology
+http://ltp.ai/
+http://ltp.readthedocs.io/zh_CN/latest/
+http://www.ltp-cloud.com/intro/
+- Strucuture:
+分词, 词性标注, Parser
+- Tools
+CRF++
+
+GIZA
+
+Word2Vec
+- Opinion Mining, Sentiment Analysis, and Opinion Spam Detection
+https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
+https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
+- 目标学习：信息抽取
+** 如何在NLP领域快速学会第一个技能？
+- 找到一个开源项目，比如机器翻译或者深度学习的项目。
+- 理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。
+- 然后再深入理解开源项目示范程序的算法。
+- 自己编程实现一下这个示范程序的算法。再按照项目提供的标准测试集测试自己实现的程序。如果输出的结果与项目中出现的结果不一致，就要仔细查验自己的程序，反复修改，直到结果与示范程序基本一致。如果还是不行，就大胆给项目的作者写信请教。
+- 在此基础上，再看看自己能否进一步完善算法或者实现，取得比示范程序更好的结果。
+** 词性标记集：LTP中采用863词性标注集，其各个词性含义如下表：
+
+| Tag	 | Description	         | Example	    |    |
+|-------+-----------------------+--------------+----|
+| a	   | adjective	           | 美丽	       |    |
+| b	   | other noun-modifier	 | 大型 ,西式	 |    |
+| c	   | conjunction	         | 和,虽然	    |    |
+| d	   | adverb	              | 很           | 	 |
+| e	   | exclamation	         | 哎	         |    |
+| g	   | morpheme	            | 茨, 甥	     |    |
+| h	   | prefix	              | 阿, 伪       | 	 |
+| i	   | idiom	               | 百花齐放	   |    |
+| j	   | abbreviation	        | 公检法	     |    |
+| k	   | suffix	              | 界, 率	     |    |
+| m	   | number	              | 一, 第一	   |    |
+| n	   | general noun	        | 苹果	       |    |
+| nd	  | direction noun	      | 右侧	       |    |
+| nh	  | person name	         | 杜甫, 汤姆   |    |
+| ni	  | organization name	   | 保险公司     |    |
+| nl	  | location noun	       | 城郊         |    |
+| ns	  | geographical name	   | 北京         |    |
+| nt	  | temporal noun	       | 近日, 明代   |    |
+| nz	  | other proper   noun	 | 诺贝尔奖     |    |
+| o	   | onomatopoeia	        | 哗啦         |    |
+| p	   | preposition	         | 在, 把       |    |
+| q	   | quantity	            | 个           |    |
+| u	   | auxiliary	           | 的, 地       |    |
+| v	   | verb	                | 跑, 学习     |    |
+| wp	  | punctuation	         | ，。！       |    |
+| ws	  | foreign words	       | CPU          |    |
+| x	   | non-lexeme	          | 萄, 翱       |    |
+** 命名实体识别
+命名实体识别 (Named Entity Recognition, NER) 是在句子的词序列中定位并识别人名、地名、机构名等实体的任务。 如之前的例子，命名实体识别的结果是：
+
+国务院 (机构名) 总理李克强 (人名) 调研上海外高桥 (地名) 时提出，支持上海 (地名) 积极探索新机制。
+命名实体识别对于挖掘文本中的实体进而对其进行分析有很重要的作用。
+** 依存句法分析
+依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
+** 语义角色标注
+语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。

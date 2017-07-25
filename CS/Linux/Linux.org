@@ -17,4 +17,7 @@
 - check python versions:
 #+BEGIN_SRC shell
 sudo find / -type f -executable -iname 'python*' -exec file -i '{}' \; | awk -F: '/x-executable; charset=binary/ {print $1}' | xargs readlink -f | sort -u | xargs -I % sh -c 'echo -n "%: "; % -V'
+
+# 2
+ls -ls /usr/bin/python*
 #+END_SRC

@@ -14,6 +14,8 @@
 * terms:
 - ad hoc
 specific.
+- per sec
+by or in itself or themselves; intrinsically.
 - excess return
 return relative to the risk-free return.
 $r = r_a - r_f$

@@ -212,3 +212,14 @@ Black–Litterman overcame this problem by not requiring the user to input estim
 In general, when there are portfolio constraints - for example, when short sales are not allowed
 - the easiest way to find the optimal portfolio is to use the Black–Litterman model to generate the expected returns for the assets,
 - and then use a mean-variance optimizer to solve the constrained optimization problem.
+
+* NLP
+- Hidden factor model
+- portfolio optimization based on factor model
+- non linear constrain on factor model
+
+accounting formula production function, using unit conversion, to do mathematical analysis.
+
+opinions/factors can be used as constraints on factors with hiden factor model.
+
+such factor constraints can be used in Black-Litterman model.
