@@ -1,0 +1,33 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLE: NaturalLanguageProcessing
+#+DATE: <2017-07-25 Tue>
+#+AUTHOR: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* Overview
+- Document level:
+The task at this level is to classify whether a whole opinion document expresses a positive or negative sentiment.
+- Sentence level:
+The task at this level goes to the sentences and determines whether each sentence expressed a positive, negative, or neutral opinion.
+
+This level of analysis is closely related to subjectivity classification (Wiebe, Bruce and O'Hara, 1999), which distinguishes sentences (called objective sentences) that express factual information from sentences (called subjective sentences) that express subjective views and opinions.
+
+-Entity and Aspect level:
+. It is based on the idea that an opinion consists of a sentiment (positive or negative) and a target (of opinion).
+
+- regular opinions and comparative opinions
+A regular opinion expresses a sentiment only on an particular entity or an aspect of the entity, e.g., “Coke tastes very good,” which expresses a positive sentiment on the aspect taste of Coke. A comparative opinion compares multiple entities based on some of their shared aspects, e.g., “Coke tastes better than Pepsi,” which compares Coke and Pepsi based on their tastes (an aspect) and expresses a preference for Coke.
+
+** Sentiment Lexicon and Its Issues
+- lexicon
+opinions, positive and negative.
+-issue
+spam review

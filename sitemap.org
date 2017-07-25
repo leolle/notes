@@ -13,6 +13,7 @@
 + CS
   + MachineLearning
     + [[file:./CS/MachineLearning/MachineLearning.org][ML]]
+    + [[file:./CS/MachineLearning/NaturalLanguageProcessing.org][SentimentAnalysis]]
   + [[file:./CS/Python/python2.org][Python]]
     + [[file:./CS/Python/PythonForFinance.org][PythonForFinance]]
     + [[file:./CS/Python/DesignPattern.org][DesignPattern]]
