@@ -135,16 +135,16 @@ sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
 sudo `which pip` install --upgrade google-cloud-language
 
 * Jul 25, 2017
-- read the book 《自然语言处理综论》
+- [X] read the book 《自然语言处理综论》
 not easy to understand this book.
-- listen to the open course
+- [ ] listen to the open course
 https://web.stanford.edu/class/cs224n/syllabus.html
-- 寻找中文分词开源项目
+- [X] 寻找中文分词开源项目
 LTP from Harbin Institute of Technology
 http://ltp.ai/
 http://ltp.readthedocs.io/zh_CN/latest/
 http://www.ltp-cloud.com/intro/
-- Strucuture:
+- Structure:
 分词, 词性标注, Parser
 - Tools
 CRF++
@@ -152,7 +152,7 @@ CRF++
 GIZA
 
 Word2Vec
-- Opinion Mining, Sentiment Analysis, and Opinion Spam Detection
+- [ ] Opinion Mining, Sentiment Analysis, and Opinion Spam Detection
 https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
 https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 - 目标学习：信息抽取

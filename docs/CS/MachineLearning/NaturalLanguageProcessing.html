@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-25 Tue 16:37 -->
+<!-- 2017-07-26 Wed 09:15 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -152,6 +152,12 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline1">1.1. Sentiment Lexicon and Its Issues</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline5">2. Definition of Sentiment Analysis</a>
+<ul>
+<li><a href="#orgheadline3">2.1. Structure</a></li>
+<li><a href="#orgheadline4">2.2. Opinion Defintion</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -177,9 +183,11 @@ The task at this level goes to the sentences and determines whether each sentenc
 This level of analysis is closely related to subjectivity classification (Wiebe, Bruce and O'Hara, 1999), which distinguishes sentences (called objective sentences) that express factual information from sentences (called subjective sentences) that express subjective views and opinions.
 </p>
 
+<ul class="org-ul">
+<li>Entity and Aspect level:</li>
+</ul>
 <p>
--Entity and Aspect level:
-. It is based on the idea that an opinion consists of a sentiment (positive or negative) and a target (of opinion).
+It is based on the idea that an opinion consists of a sentiment (positive or negative) and a target (of opinion).
 </p>
 
 <ul class="org-ul">
@@ -198,9 +206,40 @@ A regular opinion expresses a sentiment only on an particular entity or an aspec
 </ul>
 <p>
 opinions, positive and negative.
--issue
+</p>
+<ul class="org-ul">
+<li>issue</li>
+</ul>
+<p>
 spam review
 </p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">2</span> Definition of Sentiment Analysis</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.1</span> Structure</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.2</span> Opinion Defintion</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Observation: An opinion consists of two key components: a target g and a sentiment s on the target.</li>
+
+<li>Definition (Opinion): An opinion is a quadruple, (g, s, h, t), where g is the opinion (or sentiment) target, s is the sentiment about the target, h is the opinion holder and t is the time when the opinion was expressed.</li>
+
+<li>Definition (entity): An entity e is a product, service, topic, issue, person, organization, or event. It is described with a pair, e: (T, W), where T is a hierarchy of parts, sub-parts, and so on, and W is a set of attributes of e.</li>
+
+<li>Definition (opinion): An opinion is a quintuple, (ei, aij, sijkl, hk, tl), where ei is the name of an entity, aij is an aspect of ei, sijkl is the sentiment on aspect aij of entity ei, hk is the opinion holder, and tl is the time when the opinion is expressed by hk. The sentiment sijkl is positive, negative, or neutral, or expressed with different strength/intensity levels, e.g., 1 to 5 stars as used by most review sits on the Web.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -208,7 +247,7 @@ spam review
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-25 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-25 Tue 16:37</p>
+<p class="date">Created: 2017-07-26 Wed 09:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
