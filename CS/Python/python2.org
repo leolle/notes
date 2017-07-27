@@ -341,6 +341,22 @@ print `a`
 print repr(a)
 #+end_src
 
+** logging
+#+BEGIN_SRC python
+import logging
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
+logger
+
+# at the end of the program
+handler.close()
+logger.removeHandler(handler)
+#+END_SRC
+
 ** regular express
 
 *** useage:

@@ -1,19 +1,28 @@
 #+OPTIONS: <:active
 #+ICALENDAR_EXCLUDE_TAGS:
 
-* Jul 19, 2017
-- [X] 搭建基金策略
+* work plan
+SCHEDULED: <2017-07-19 Wed>
+** DONE 搭建基金策略
+CLOSED: [2017-07-26 Wed 10:10]
 - [ ] 对基金策略进行组合优化
 - [ ] 分析优化后结果，把组合优化加入流程
-* Jul 21, 2017
-- [X] 配置好GOOGLE GCLOUD PLATORM的代理
-- [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
-- [ ] deep learning of bank stress in the news
-- [ ] detect events based on text, obtain descriptions of events.
+* work plan
+SCHEDULED: <2017-07-21 Fri>
+** DONE 配置好GOOGLE GCLOUD PLATORM的代理
+CLOSED: [2017-07-26 Wed 10:10]
+** DONE 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
+CLOSED: [2017-07-26 Wed 10:10]
+** DONE deep learning of bank stress in the news
+CLOSED: [2017-07-26 Wed 10:10]
+** DONE detect events based on text, obtain descriptions of events.
+CLOSED: [2017-07-26 Wed 10:10]
 
-** GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
+** DONE GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
+CLOSED: [2017-07-26 Wed 10:10]
 
-** configuration:
+** DONE configuration:
+CLOSED: [2017-07-26 Wed 10:10]
 - reports-174211
 - proxy:
 127.0.0.1:1080
@@ -33,7 +42,7 @@ credentials = service_account.Credentials.from_service_account_file(
     '/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json')
 
 scoped_credentials = credentials.with_scopes(
-    ['https://www.googleapis.com/auth/cloud-platform'])
+    ['https://wwwc.googleapis.com/auth/cloud-platform'])
 
 #+END_SRC
 #+BEGIN_SRC python
@@ -64,7 +73,8 @@ print('Sentiment: {}, {}'.format(sentiment.score, sentiment.magnitude))
 gcloud ml language analyze-entities --content="Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'."
 #+END_SRC
 
-** SDK
+** DONE SDK
+CLOSED: [2017-07-26 Wed 10:11]
 - https://cloud.google.com/sdk/docs/quickstart-linux
 - key:
 https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211
@@ -113,13 +123,16 @@ Your active configuration is: [nlp1]
 (C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
 #+END_SRC
 
-* Jul 24, 2017
-- Hidden factor model
+* work plan
+SCHEDULED: <2017-07-24 Mon>
+** DONE Hidden factor model
+CLOSED: [2017-07-26 Wed 10:11]
 ICA
 - portfolio optimization based on factor model
 - non linear constrain on factor model
 
-connect to Amazon AWS EW2:
+** DONE connect to Amazon AWS EW2:
+CLOSED: [2017-07-26 Wed 10:11]
 #+BEGIN_SRC shell
 # 1
 chmod 400 /path/my-key-pair.pem
@@ -134,17 +147,21 @@ curl https://sdk.cloud.google.com | bash
 sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
 sudo `which pip` install --upgrade google-cloud-language
 
-* Jul 25, 2017
-- [X] read the book 《自然语言处理综论》
+* work plan
+SCHEDULED: <2017-07-25 Tue>
+** DONE read the book 《自然语言处理综论》
+CLOSED: [2017-07-26 Wed 10:11]
 not easy to understand this book.
-- [ ] listen to the open course
+** DONE listen to the open course
+CLOSED: [2017-07-26 Wed 10:11]
 https://web.stanford.edu/class/cs224n/syllabus.html
-- [X] 寻找中文分词开源项目
+** DONE 寻找中文分词开源项目
+CLOSED: [2017-07-26 Wed 10:11]
 LTP from Harbin Institute of Technology
 http://ltp.ai/
 http://ltp.readthedocs.io/zh_CN/latest/
 http://www.ltp-cloud.com/intro/
-- Structure:
+** TODO Structure:
 分词, 词性标注, Parser
 - Tools
 CRF++
@@ -152,10 +169,10 @@ CRF++
 GIZA
 
 Word2Vec
-- [ ] Opinion Mining, Sentiment Analysis, and Opinion Spam Detection
+** TODO Opinion Mining, Sentiment Analysis, and Opinion Spam Detection
 https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
 https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
-- 目标学习：信息抽取
+** TODO 目标学习：信息抽取
 ** 如何在NLP领域快速学会第一个技能？
 - 找到一个开源项目，比如机器翻译或者深度学习的项目。
 - 理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。
@@ -202,3 +219,5 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
 ** 语义角色标注
 语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
+* TODO Finish Sentiment book
+SCHEDULED: <2017-07-26 Wed>
