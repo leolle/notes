@@ -22,7 +22,12 @@
 - conditional value at risk (cVaR) and coherent risk measures for portfolios (Rockafellar and Uryasev, 2000)
 
 * Basics
+** Risk aversion parameter
+The weight vector that maximizes the expected portfolio growth rate E log(1 + Rtp) (subject to 1T w = 1, w ≥ 0) is called the Kelly optimal portfolio or log-optimal portfolio. Using the quadratic approximation of the logarithm log(1 + a) ≈ a − (1/2)a2 we obtain
+$$E[log(1 + Rtp)] ≈ E[Rtp − (1/2)(Rtp)2]
+= µT w − (1/2)wT (Σ + µµT )w$$,
 
+where µ = Ert and Σ = E(rt−µ)(rt−µ)T are the mean and covariance of the return rt.
 ** alpha
 Alpha is used to determine by how much the realized return of the portfolio varies from the required return, as determined by CAPM.
 $$\alpha = R_{portfolio} - [R_f + (R_m - R_f)\beta]$$
@@ -46,7 +51,7 @@ is given by the linear system
 
 $${\begin{bmatrix}Q&E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}$$
 where ${\displaystyle \lambda }$  is a set of Lagrange multipliers which come out of the solution alongside ${\displaystyle \mathbf {x} }$ .
-
+** Regime shifts
 
 
 OLS assumptions:

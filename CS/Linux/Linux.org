@@ -21,3 +21,12 @@ sudo find / -type f -executable -iname 'python*' -exec file -i '{}' \; | awk -F:
 # 2
 ls -ls /usr/bin/python*
 #+END_SRC
+
+- unpack a tar.gz file
+#+BEGIN_SRC
+# tar.gz
+tar -xvzf rebol.tar.gz
+
+#*.gz
+
+#+END_SRC

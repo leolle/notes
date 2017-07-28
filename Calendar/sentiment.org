@@ -221,3 +221,85 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
 * TODO Finish Sentiment book
 SCHEDULED: <2017-07-26 Wed>
+
+* DONE factor exposure with CVXPY model
+CLOSED: [2017-07-27 Thu 19:10] SCHEDULED: <2017-07-27 Thu>
+** Classical (Markowitz) portfolio optimization
+Classical (Markowitz) portfolio optimization solves the optimization problem
+
+maximize μTw−γwTΣw
+
+subject to 1Tw=1,w∈W,
+
+where w∈Rnw∈Rn is the optimization variable, WW is a set of allowed portfolios (e.g., W=Rn+W=R+n for a long only portfolio), and γ>0γ>0 is the risk aversion parameter.
+
+The objective μTw−γwTΣwμTw−γwTΣw is the risk-adjusted return. Varying γγ gives the optimal risk-return trade-off. We can get the same risk-return trade-off by fixing return and minimizing risk.
+#+BEGIN_SRC python
+# Long only portfolio optimization.
+from cvxpy import *
+w = Variable(n)
+gamma = Parameter(sign='positive')
+ret = mu.T*w
+risk = quad_form(w, Sigma)
+prob = Problem(Maximize(ret - gamma*risk),
+               [sum_entries(w) == 1,
+                w >= 0])
+# Compute trade-off curve.
+SAMPLES = 100
+risk_data = np.zeros(SAMPLES)
+ret_data = np.zeros(SAMPLES)
+gamma_vals = np.logspace(-2, 3, num=SAMPLES)
+for i in range(SAMPLES):
+    gamma.value = gamma_vals[i]
+    prob.solve()
+    risk_data[i] = sqrt(risk).value
+    ret_data[i] = ret.value
+#+END_SRC
+
+** Portfolio constraints
+There are many other possible portfolio constraints besides the long only constraint. With no constraint (W=RnW=Rn), the optimization problem has a simple analytical solution. We will look in detail at a leverage limit, or the constraint that ∥w∥1≤Lmax‖w‖1≤Lmax.
+
+Another interesting constraint is the market neutral constraint mTΣw=0, where mi is the capitalization of asset ii. M=mTr is the market return, and mTΣw=cov(M,R). The market neutral constraint ensures that the portfolio return is uncorrelated with the market return.
+#+BEGIN_SRC python
+# Portfolio optimization with leverage limit.
+Lmax = Parameter()
+prob = Problem(Maximize(ret - gamma*risk),
+               [sum_entries(w) == 1,
+                norm(w, 1) <= Lmax])
+
+# Compute trade-off curve for each leverage limit.
+L_vals = [1, 2, 4]
+SAMPLES = 100
+risk_data = np.zeros((len(L_vals), SAMPLES))
+ret_data = np.zeros((len(L_vals), SAMPLES))
+gamma_vals = np.logspace(-2, 3, num=SAMPLES)
+w_vals = []
+for k, L_val in enumerate(L_vals):
+    for i in range(SAMPLES):
+        Lmax.value = L_val
+        gamma.value = gamma_vals[i]
+        prob.solve()
+        risk_data[k, i] = sqrt(risk).value
+        ret_data[k, i] = ret.value
+#+END_SRC
+** Multi-Period Trading via Convex Optimization
+[[https://web.stanford.edu/~boyd/papers/cvx_portfolio.html][link_to_the_author_website]]
+[[https://github.com/cvxgrp/cvxportfolio][github_link]]
+
+book:
+To appear, Foundations and Trends in Optimization, 2017
+[[https://web.stanford.edu/~boyd/papers/cvx_portfolio.html][manual]]
+
+- a framework for single-period optimization, where the trades in each period are found by solving a convex optimization problem that trades off expected return, risk, transaction costs and holding costs such as the borrowing cost for shorting assets.
+- a multi-period version of the trading method, where optimization is used to plan a sequence of trades, with only the first one executed, using estimates of future quantities that are unknown when the trades are chosen.
+- The single-period method traces back to Markowitz;
+- the multi-period methods trace back to model predictive control.
+
+Our contribution is to describe the single-period and multi-period methods in one simple framework, giving a clear description of the development and the approximations made. In this paper we do not address a critical component in a trading algorithm, the predictions or forecasts of future quantities. The methods we describe in this paper can be thought of as good ways to exploit predictions, no matter how the forecasts are made. We have also developed a companion open-source software library that implements many of the ideas and methods described in the paper.
+* TODO 在GS上部署因子中性, CVXPORTOLIO的使用说明。
+** Multi-Period optimization
+- D. Bertsekas. Dynamic Programming and Optimal Control. Athena Scientific, 1995.
+- J. Campbell and L. Viceira. Strategic Asset Allocation: Portfolio Choice for Long-Term Investors. Oxford University Press, 2002.
+
+- Information and Sharpe ratio.
+The (realized) information ratio (IR) of the portfolio relative to a benchmark is the average of the active returns Ra over the standard deviation of the active returns σa, IR = Ra/σa. In the special case of a cash benchmark this is known as Sharpe ratio (SR) SR = Re/σe.
