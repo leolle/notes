@@ -437,6 +437,9 @@ data = data.dropna()
 - linux python FileNotFoundError: [Errno 2] No such file or directory:
 
 try to use absolute path instead of relative path to read a file.
+
+- HDF5
+pip install tables
 * Data Analysis:
 
 ** pandas:
