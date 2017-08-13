@@ -503,6 +503,13 @@ dt_diff = df_single_period_return.index.to_series().diff().mean()
 if dt_diff < pd.Timedelta('3 days'):
 #+END_SRC
 
+- resample by month and keep the last valid row
+#+BEGIN_SRC python
+benchmark_weight.index.name = 'Date'
+m = benchmark_weight.index.to_period('m')
+benchmark_weight = benchmark_weight.reset_index().groupby(m).last().set_index('Date')
+benchmark_weight.index.name = ''
+#+END_SRC
 *** Index
 **** Index manuplication
 - set column as datetime index
