@@ -69,6 +69,19 @@ contour is the bow projected on the 2D surface.
 A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line.
 
 ** Linear Regression with One Variable
+- <2017-08-14 Mon>
+linear regression with one variable is also called simple regression. The X variable is called the predictor, Y is called the dependent.
+- some statistics:
+  - t-statistics
+    off value according to the $/epsilon$.
+  - p value
+    the probability of the hypothesis that $/beta_1$ is 0.
+  - $R^2$
+    the confidence level that $/beta_1$ is approximately estimated.
+  - RSS
+    residual sum of squares
+  - RSE
+    residual standard error.
 
 ** Linear Algebra Review
 - Vector

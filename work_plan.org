@@ -8,24 +8,26 @@ C-c . <2017-08-11 Fri>
 C-u C-c . <2017-08-11 Fri 16:06>
 #+END_SRC
 
-| date             | GID                              | descriptions                        |
-| 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                |
-|                  | 69C3DC21A8E1440AA9C54442AB8A1BD3 | activeX                             |
-|                  | 528FC2E4CC73469496D330AC39E4AE50 | GROUP WEIGHT                        |
-|                  | 05E0CAE034244B75BB8CD5580CEF3F5C | 搭函数                              |
-|                  | 047D8ECFE75E44689D1D10EDF06620BF | FD, portfolio optimization          |
-|                  | B694A0402A20481091906F5A1C5CC942 | 主页                                |
-|                  | 171A21059C62E84D330A4D7B53D72DDC | set target risk and target return   |
-|                  | 3A29CB69BD7879553AAF2EDDD23810F0 | 基准风格因子暴露_python             |
-|                  | E647EFFF80C540A58A2BFC7719658756 | 组合优化FR                          |
-|                  | F7960FEA8B534BE8885639B36C3816A8 | 风格因子暴露 刘鑫                   |
-|                  | A5A7240AE18DC1D9C84A3D7629EC1B63 | STYLE风格因子暴露 刘鑫              |
-|                  | 363F23CF55484C6BB57291A6543385BC | function of generate factors        |
-|                  | 0D5E7E6A76524DC8A6DA5F5AF0BFB3C3 | function of getting factor exposure |
-|                  | B58B375C952C486C80CC94F041B0EF63 | 	j of getting factor exposure      |
-| <2017-08-11 Fri> | B04D8EC4FC14CBDCCD9FD61B9C831955 | FI optimization                     |
-| <2017-08-11 Fri> | DB7575569F231472384F462E9A0E69AF | j stock portfolio optimization      |
-|                  |                                  |                                     |
+| date             | GID                              | descriptions                                      |
+| 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                              |
+|                  | 69C3DC21A8E1440AA9C54442AB8A1BD3 | activeX                                           |
+|                  | 528FC2E4CC73469496D330AC39E4AE50 | GROUP WEIGHT                                      |
+|                  | 05E0CAE034244B75BB8CD5580CEF3F5C | 搭函数                                            |
+|                  | 047D8ECFE75E44689D1D10EDF06620BF | FD, portfolio optimization                        |
+|                  | B694A0402A20481091906F5A1C5CC942 | 主页                                              |
+|                  | 171A21059C62E84D330A4D7B53D72DDC | set target risk and target return                 |
+|                  | 3A29CB69BD7879553AAF2EDDD23810F0 | 基准风格因子暴露_python                           |
+|                  | E647EFFF80C540A58A2BFC7719658756 | 组合优化FR                                        |
+|                  | F7960FEA8B534BE8885639B36C3816A8 | 风格因子暴露 刘鑫                                 |
+|                  | A5A7240AE18DC1D9C84A3D7629EC1B63 | STYLE风格因子暴露 刘鑫                            |
+|                  | 363F23CF55484C6BB57291A6543385BC | function of generate factors                      |
+|                  | 0D5E7E6A76524DC8A6DA5F5AF0BFB3C3 | function of getting factor exposure               |
+|                  | B58B375C952C486C80CC94F041B0EF63 | 	j of getting factor exposure                    |
+| <2017-08-11 Fri> | B04D8EC4FC14CBDCCD9FD61B9C831955 | FI optimization                                   |
+| <2017-08-11 Fri> | DB7575569F231472384F462E9A0E69AF | j stock portfolio optimization                    |
+|                  | 6224F5BAEF1D4BC9BAC9FFE0244357D8 | multiple period optimization                      |
+| <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
+|                  |                                  |                                                   |
 
 
 
@@ -230,11 +232,59 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
 ** 语义角色标注
 语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
-* Aug 10, 2017
+
+* <2017-07-31 Mon>
+** 公司帮忙照看搬家。
+8 hours.
+* <2017-08-01 Tue>
+** 查看cvxportfolio的使用说明。
+8 hours.
+
+* <2017-08-02 Wed>
+** 在开发的帮助下安装cvxportfolio library，调试。
+** 查看Google Trende API.
+8 hours.
+
+* <2017-08-03 Thu>
+** 调试cvxportfolio library，把代码换用该库。
+8 hours.
+
+* <2017-08-04 Fri>
+** 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。
+8 hours.
+
+* <2017-08-07 Mon>
+** research on soft constraint using cvxpy.
+8 hours.
+
+* <2017-08-08 Tue>
+** research on soft constraint using cvxpy.
+8 hours.
+
+* <2017-08-09 Wed>
+** 搭建workflow。
+** 多期优化。
+8 hours.
+
+* <2017-08-10 Thu>
 ** DONE 搭建WORKFLOW.
 CLOSED: [2017-08-11 Fri 09:02]
 ** DONE multi-period optimization using cvxportfolio.
 CLOSED: [2017-08-11 Fri 09:02]
-* Aug 11, 2017
+8 hours.
+
+* <2017-08-11 Fri>
 ** 用多期因子做一下回测看看效果，没有看到在OBJECTIVE FUNCTION里面加TRADE COST LOSS FUNCTION的做法，RETURN, RISK和 COST 不在同一个数量级的.
 ** 继续在CVXPORTFOLIO上改用RISK MODEL.
+8 hours.
+
+* <2017-08-14 Mon>
+** 周末把每一期按单期优化处理后得到了新的权重，没有加入预测，上午跑一下看看效果。
+** 把RISK MODEL加到CVXPORTFOLIO。
+* <2017-08-16 Wed>
+** GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。
+** 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+** 将 group constaint 的条件泛化。
+** 组合优化当hard constraint无法达成时，relax constraint，结果同时输出fitness。
+** mode 参数变成一个枚举值。
+** gs输入signature需要指定 oset.
