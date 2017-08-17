@@ -282,9 +282,29 @@ CLOSED: [2017-08-11 Fri 09:02]
 - [ ] 周末把每一期按单期优化处理后得到了新的权重，没有加入预测，上午跑一下看看效果。
 - [ ] 把RISK MODEL加到CVXPORTFOLIO。
 * <2017-08-16 Wed>
-- [ ] GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。
+- [X] GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。
 - [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
 - [ ] 将 group constaint 的条件泛化。
 - [ ] 组合优化当hard constraint无法达成时，relax constraint，结果同时输出fitness。
-- [ ] mode 参数变成一个枚举值。
+- [X] mode 参数变成一个枚举值。
 - [ ] gs输入signature需要指定 oset.
+oset组织不完整，postpone.
+- [X] risk model api.
+* <2017-08-17 Thu>
+- [-] risk model api test.
+  - [X] change factor return dataframe name to b char array.
+  - [ ] risk model api function.
+    - factor exposure(panel)
+      size(3000*8*2885).
+      items: datetime index
+      major axis: factors
+      minor axis: symbols
+    - sigma(panel)
+      size(3000*35*2885)
+    - specific risk(panel)
+      panel size is too large for calculation(3000*2885*2885).
+    - covariance matrix(panel)
+    - factor return(dataframe)
+- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [ ] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
