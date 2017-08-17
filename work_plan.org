@@ -8,6 +8,16 @@ C-c . <2017-08-11 Fri>
 C-u C-c . <2017-08-11 Fri 16:06>
 #+END_SRC
 
+* Workflow
+1. search
+2. read pdf/code
+3. modify code
+4. plugging gs to run with data
+5. check result
+6. prepare presentation of all previous steps
+7. present and get feedback
+
+* GID table
 | date             | GID                              | descriptions                                      |
 | 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                              |
 |                  | 69C3DC21A8E1440AA9C54442AB8A1BD3 | activeX                                           |
@@ -295,16 +305,17 @@ oset组织不完整，postpone.
   - [X] change factor return dataframe name to b char array.
   - [ ] risk model api function.
     - factor exposure(panel)
-      size(3000*8*2885).
+      size(1536*8*2885).
       items: datetime index
       major axis: factors
       minor axis: symbols
     - sigma(panel)
-      size(3000*35*2885)
+      size(1536*35*2885)
     - specific risk(panel)
-      panel size is too large for calculation(3000*2885*2885).
+      panel size is too large for calculation(1536*2885*2885).
     - covariance matrix(panel)
     - factor return(dataframe)
 - [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
 - [ ] 将 group constaint 的条件泛化。
 - [ ] select assets by returns and volatility according to target mode.
+- [ ] test the api according to my own requirement.
