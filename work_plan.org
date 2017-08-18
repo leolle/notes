@@ -39,13 +39,11 @@ C-u C-c . <2017-08-11 Fri 16:06>
 | <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
 |                  |                                  |                                                   |
 
-
-
-* Jul 19, 2017
+* <2017-07-19 Wed>
 - [X] 搭建基金策略
 - [ ] 对基金策略进行组合优化
 - [ ] 分析优化后结果，把组合优化加入流程
-* Jul 21, 2017
+* <2017-07-21 Fri>
 - [X] 配置好GOOGLE GCLOUD PLATORM的代理
 - [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
 - [ ] deep learning of bank stress in the news
@@ -153,7 +151,7 @@ Your active configuration is: [nlp1]
 (C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
 #+END_SRC
 
-* Jul 24, 2017
+* <2017-07-24 Mon>
 - Hidden factor model
 ICA
 - portfolio optimization based on factor model
@@ -174,7 +172,7 @@ curl https://sdk.cloud.google.com | bash
 sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
 sudo `which pip` install --upgrade google-cloud-language
 
-* Jul 25, 2017
+* <2017-07-25 Tue>
 - read the book 《自然语言处理综论》
 not easy to understand this book.
 - listen to the open course
