@@ -30,3 +30,6 @@ tar -xvzf rebol.tar.gz
 #*.gz
 
 #+END_SRC
+#+BEGIN_UML
+a -> b
+#+END_UML
