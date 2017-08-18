@@ -3,5 +3,6 @@ pages:
     - Home: index.md
     - Python 风格指南: python_rules.md
     - Python风格规范: python_style_rules.md
+    - Optimization summary: optimization.md
     - About: about.md
 theme: readthedocs
