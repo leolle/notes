@@ -333,4 +333,8 @@ oset组织不完整，postpone.
 - [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
 - [ ] 将 group constaint 的条件泛化。
 - [ ] select assets by returns and volatility according to target mode.
-- [ ] 将新写的api代码应用到gs
+- [ ] 将新写的api代码应用到gs.
+* <2017-08-21 Mon>
+- [ ] which industry does the benchmark return come form?
+using the robust linear regression to estimate the coefficient and do the ranking.
+consider use the lasso regression maybe a better choice.
