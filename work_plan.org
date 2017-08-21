@@ -41,8 +41,8 @@ C-u C-c . <2017-08-11 Fri 16:06>
 
 * <2017-07-19 Wed>
 - [X] 搭建基金策略
-- [ ] 对基金策略进行组合优化
-- [ ] 分析优化后结果，把组合优化加入流程
+- [X] 对基金策略进行组合优化
+- [X] 分析优化后结果，把组合优化加入流程
 * <2017-07-21 Fri>
 - [X] 配置好GOOGLE GCLOUD PLATORM的代理
 - [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
@@ -337,7 +337,13 @@ oset组织不完整，postpone.
 using the robust linear regression to estimate the coefficient and do the ranking.
 consider use the lasso regression maybe a better choice.
 - [X] 将新写的api代码应用到gs.
-* <2017-08-21 Mon>
-
+* <2017-08-21 Mon> - <2017-08-25 Fri>
+- [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [X] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
 - [ ] Paper on industry classification.
-- [ ]
+* <2017-08-21 Mon>
+- [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [X] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
+- [X] test on gs.
