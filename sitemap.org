@@ -7,6 +7,7 @@
   + [[file:./finance/QuantitativeInvestment.org][QuantitativeInvestment]]
     + [[file:./finance/PortfolioOptimization.org][PortfolioOptimization]]
     + [[file:./finance/MultiFactorModel.org][MultiFactorModel]]
+    + [[file:./FactorBacktest.org][IndustrialFactor]]
 + Mathematics
   + [[file:./Math/knowledge_tree.html][MathMap]]
   + [[file:./Math/Statistics.org][Statistics]]

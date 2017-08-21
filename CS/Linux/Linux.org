@@ -23,7 +23,7 @@ ls -ls /usr/bin/python*
 #+END_SRC
 
 - unpack a tar.gz file
-#+BEGIN_SRC
+#+BEGIN_SRC shell
 # tar.gz
 tar -xvzf rebol.tar.gz
 
