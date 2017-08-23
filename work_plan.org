@@ -368,8 +368,11 @@ duplicate classification algorithm.
 ** portfolio optimization
 - [ ] write pseudo code.
 - [X] fix const variable issue for target mode naming.
-- [ ] write fd for asset constraint on gs.
+- [X] write fd for asset constraint on gs.
 
 ** soft constraint
 - [X] write pseudo code.
 - [ ] move soft constraint test on gs.
+
+** paper
+- [X] finish text-based network industry classification(TBNIC) and summarizing.

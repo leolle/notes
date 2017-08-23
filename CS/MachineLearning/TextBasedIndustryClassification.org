@@ -26,3 +26,11 @@ product differentiation, competitive intensity and product offering following in
 
 ** Objective and Methodology: From Words to Industry Classifications
 - objective
+
+
+
+$$ \begin{pmatrix}
+ a_{11} & \cdots & a_{1w}\\
+ \vdots & \ddots & \vdots\\
+ a_{i1} & \cdots & a_{iw}
+ \end{pmatrix} $$
