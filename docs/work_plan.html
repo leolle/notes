@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-08-21 Mon 10:03 -->
+<!-- 2017-08-23 Wed 14:37 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -178,6 +178,18 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline23">19. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-17 Thu&gt;</span></span></a></li>
 <li><a href="#orgheadline24">20. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-18 Fri&gt;</span></span></a></li>
 <li><a href="#orgheadline25">21. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-25 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline26">22. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline28">23. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></a>
+<ul>
+<li><a href="#orgheadline27">23.1. todo:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline31">24. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-23 Wed&gt;</span></span></a>
+<ul>
+<li><a href="#orgheadline29">24.1. portfolio optimization</a></li>
+<li><a href="#orgheadline30">24.2. soft constraint</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -348,8 +360,8 @@ C-u C-c . &lt;2017-08-11 Fri 16:06&gt;
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> 搭建基金策略</li>
-<li class="off"><code>[&#xa0;]</code> 对基金策略进行组合优化</li>
-<li class="off"><code>[&#xa0;]</code> 分析优化后结果，把组合优化加入流程</li>
+<li class="on"><code>[X]</code> 对基金策略进行组合优化</li>
+<li class="on"><code>[X]</code> 分析优化后结果，把组合优化加入流程</li>
 </ul>
 </div>
 </div>
@@ -1058,17 +1070,83 @@ consider use the lasso regression maybe a better choice.
 <h2 id="orgheadline25"><span class="section-number-2">21</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-25 Fri&gt;</span></span></h2>
 <div class="outline-text-2" id="text-21">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
-<li class="off"><code>[&#xa0;]</code> 将 group constaint 的条件泛化。</li>
+<li class="on"><code>[X]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="on"><code>[X]</code> 将 group constaint 的条件泛化。</li>
 <li class="off"><code>[&#xa0;]</code> select assets by returns and volatility according to target mode.</li>
 <li class="off"><code>[&#xa0;]</code> Paper on industry classification.</li>
 </ul>
 </div>
 </div>
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">22</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-22">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="on"><code>[X]</code> 将 group constaint 的条件泛化。</li>
+<li class="on"><code>[X]</code> test on gs.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline28" class="outline-2">
+<h2 id="orgheadline28"><span class="section-number-2">23</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-23">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> select assets by returns and volatility according to target mode.</li>
+<li class="on"><code>[X]</code> soft constraint based on penalty function.</li>
+<li class="off"><code>[&#xa0;]</code> Paper on industry classification.</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">23.1</span> todo:</h3>
+<div class="outline-text-3" id="text-23-1">
+<ol class="org-ol">
+<li>portfolio optimization</li>
+<li class="off"><code>[&#xa0;]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> fix const variable issue for target mode naming.</li>
+<li class="off"><code>[&#xa0;]</code> write fd for asset constraint on gs.</li>
+
+<li>soft constraint</li>
+<li class="off"><code>[&#xa0;]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> move soft constraint test on gs.</li>
+
+<li>industry classification paper</li>
+</ol>
+<p>
+finish this paper and write summary.
+find a dateset for industry, product, financial statement, etc, extract nouns from text matching these classes.
+duplicate classification algorithm.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline31" class="outline-2">
+<h2 id="orgheadline31"><span class="section-number-2">24</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-23 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-24">
+</div><div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">24.1</span> portfolio optimization</h3>
+<div class="outline-text-3" id="text-24-1">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> write pseudo code.</li>
+<li class="on"><code>[X]</code> fix const variable issue for target mode naming.</li>
+<li class="off"><code>[&#xa0;]</code> write fd for asset constraint on gs.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">24.2</span> soft constraint</h3>
+<div class="outline-text-3" id="text-24-2">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> move soft constraint test on gs.</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-08-21 Mon 10:03</p>
+<p class="date">Created: 2017-08-23 Wed 14:37</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -14,7 +14,8 @@
 + Cs
   + Machinelearning
     + [[File:./CS/MachineLearning/MachineLearning.org][ML]]
-    + [[file:./CS/MachineLearning/NaturalLanguageProcessing.org][SentimentAnalysis]]
+    + [[file:./CS/MachineLearning/TextBasedIndustryClassification.org][IndustryClassification]]
+    + [[file:./CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
   + [[file:./CS/Python/python2.org][Python]]
     + [[file:./CS/Python/PythonForFinance.org][PythonForFinance]]
     + [[file:./CS/Python/DesignPattern.org][DesignPattern]]
