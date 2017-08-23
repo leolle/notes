@@ -10,3 +10,16 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* Text based network industries and endogenous product differentiation
+
+** summary:
+- product similarity industries classification.
+This paper develops new time-varying industry classification using text-based analysis of firm product description filed with the SEC.
+
+- empirical benefits
+product differentiation, competitive intensity and product offering following industry shocks.
+
+** ideas:
+- product words describing features and bundles of products of each firm

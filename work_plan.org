@@ -345,5 +345,31 @@ consider use the lasso regression maybe a better choice.
 * <2017-08-21 Mon>
 - [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
 - [X] 将 group constaint 的条件泛化。
-- [ ] select assets by returns and volatility according to target mode.
 - [X] test on gs.
+* <2017-08-22 Tue>
+- [X] select assets by returns and volatility according to target mode.
+- [X] soft constraint based on penalty function.
+- [ ] Paper on industry classification.
+** todo:
+1. portfolio optimization
+- [ ] write pseudo code.
+- [ ] fix const variable issue for target mode naming.
+- [ ] write fd for asset constraint on gs.
+
+2. soft constraint
+- [ ] write pseudo code.
+- [ ] move soft constraint test on gs.
+
+3. industry classification paper
+finish this paper and write summary.
+find a dateset for industry, product, financial statement, etc, extract nouns from text matching these classes.
+duplicate classification algorithm.
+* <2017-08-23 Wed>
+** portfolio optimization
+- [ ] write pseudo code.
+- [X] fix const variable issue for target mode naming.
+- [ ] write fd for asset constraint on gs.
+
+** soft constraint
+- [X] write pseudo code.
+- [ ] move soft constraint test on gs.
