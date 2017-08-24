@@ -2,7 +2,7 @@
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
-#+TITLES: BayesianNetworkDescribingYourData
+#+TITLE#: BayesianNetworkDescribingYourData
 #+DATE: <2017-08-21 Mon>
 #+AUTHORS: weiwu
 #+EMAIL: victor.wuv@gmail.com
@@ -22,10 +22,32 @@ This paper develops new time-varying industry classification using text-based an
 product differentiation, competitive intensity and product offering following industry shocks.
 
 ** ideas:
-- product words describing features and bundles of products of each firm
+- product words describing features and bundles of products of each firm.
+
+- how similar each firm is to every other firm by calculating firm-by-firm pairwise word similarity scores using the product words.
 
 ** Objective and Methodology: From Words to Industry Classifications
-- objective
+*** Objective:
+To capture the relatedness of firms based on their product offerings to customers using a flexible network approach(cosine similarity method), using the clustering methods to classify a industry.
+1. Fixed industry classification.
+Firms are grouped together using *fixed product market definitions and industry membership is constraint to be transitive*.
+
+2. Text-based network industry classification(TNIC).
+Explain differences in key characteristics such as profitability, sales growth, and market risk across industries.
+
+It allows both within-industry and across-industry relations be to examined.
+
+*** Methods:
+computing pairwise word similarity scores for each pair of firms in a given year.
+
+- data:
+1. get product descriptions.
+2. limit attention to nouns(defined by Webster.com) and proper nouns that appear in no more than 25% of all product descriptions in order to avoid common words.
+3. omit common words that are used by more than 25% of all firms, omit geographical words including country and state names, as well as top fifty cities in the US and in the world.
+
+- algorithm
+$$V_i = \frac {P_i}{\sqrt {P_i, P_i}}
+$$\text {Product Cosine Similarity}_{i,j} = (V_i, V_j)$$
 
 
 

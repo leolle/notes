@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-08-23 Wed 14:43 -->
+<!-- 2017-08-24 Thu 10:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -140,6 +140,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -147,10 +169,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline3">1. Text based network industries and endogenous product differentiation</a>
+<li><a href="#orgheadline6">1. Text based network industries and endogenous product differentiation</a>
 <ul>
 <li><a href="#orgheadline1">1.1. summary:</a></li>
 <li><a href="#orgheadline2">1.2. ideas:</a></li>
+<li><a href="#orgheadline5">1.3. Objective and Methodology: From Words to Industry Classifications</a>
+<ul>
+<li><a href="#orgheadline3">1.3.1. Objective:</a></li>
+<li><a href="#orgheadline4">1.3.2. Methods:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -158,8 +186,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">1</span> Text based network industries and endogenous product differentiation</h2>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">1</span> Text based network industries and endogenous product differentiation</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> summary:</h3>
@@ -184,10 +212,72 @@ product differentiation, competitive intensity and product offering following in
 <h3 id="orgheadline2"><span class="section-number-3">1.2</span> ideas:</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>product words describing features and bundles of products of each firm</li>
+<li>product words describing features and bundles of products of each firm.</li>
 
-<li></li>
+<li>how similar each firm is to every other firm by calculating firm-by-firm pairwise word similarity scores using the product words.</li>
 </ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.3</span> Objective and Methodology: From Words to Industry Classifications</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">1.3.1</span> Objective:</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+To capture the relatedness of firms based on their product offerings to customers using a flexible network approach(cosine similarity method), using the clustering methods to classify a industry.
+</p>
+<ol class="org-ol">
+<li>Fixed industry classification.</li>
+</ol>
+<p>
+Firms are grouped together using <b>fixed product market definitions and industry membership is constraint to be transitive</b>.
+</p>
+
+<ol class="org-ol">
+<li>Text-based network industry classification(TNIC).</li>
+</ol>
+<p>
+Explain differences in key characteristics such as profitability, sales growth, and market risk across industries.
+</p>
+
+<p>
+It allows both within-industry and across-industry relations be to examined.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">1.3.2</span> Methods:</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+computing pairwise word similarity scores for each pair of firms in a given year.
+</p>
+
+<ul class="org-ul">
+<li>data:</li>
+<li>get product descriptions.</li>
+<li>limit attention to nouns(defined by Webster.com) and proper nouns that appear in no more than 25% of all product descriptions in order to avoid common words.</li>
+<li>omit common words that are used by more than 25% of all firms, omit geographical words including country and state names, as well as top fifty cities in the US and in the world.</li>
+
+<li>algorithm</li>
+</ul>
+<p>
+\[V_i = \frac {P_i}{\sqrt {P_i, P_i}}
+\]\text {Product Cosine Similarity}<sub>i,j</sub> = (V<sub>i</sub>, V<sub>j</sub>)$$
+</p>
+
+
+
+<p>
+\[ \begin{pmatrix}
+ a_{11} & \cdots & a_{1w}\\
+ \vdots & \ddots & \vdots\\
+ a_{i1} & \cdots & a_{iw}
+ \end{pmatrix} \]
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -195,7 +285,7 @@ product differentiation, competitive intensity and product offering following in
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-08-23 Wed 14:43</p>
+<p class="date">Created: 2017-08-24 Thu 10:46</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
