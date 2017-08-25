@@ -30,3 +30,8 @@ tar -xvzf rebol.tar.gz
 #*.gz
 
 #+END_SRC
+
+- restart network service
+#+BEGIN_SRC shell
+sudo service network-manager restart
+#+END_SRC

@@ -53,8 +53,10 @@ In data mining and statistics, hierarchical clustering (also called hierarchical
 Agglomerative: This is a "bottom up" approach: each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.
 
 Divisive: This is a "top down" approach: all observations start in one cluster, and splits are performed recursively as one moves down the hierarchy.
-$$ V_i = \frac {P_i}{\sqrt{P_i, P_i}}$$
-$$\text {Product Cosine Similarity}_{i,j} = (V_i, V_j)$$
+
+$$ V_i = \frac {P_i}{\sqrt {P_i* P_i}}$$
+$$\text {Product Cosine Similarity}_{i,j} = (V_i * V_j)$$
+$$\text {Product Cosine Distance}_{i,j} = 1-  (V_i * V_j)$$
 
 **** industry classification
 - fixed industry classification based on 10-Ks product descriptions
