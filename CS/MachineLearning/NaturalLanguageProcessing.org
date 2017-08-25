@@ -43,7 +43,7 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 - Definition (entity): An entity e is a product, service, topic, issue, person, organization, or event. It is described with a pair, e: (T, W), where T is a hierarchy of parts, sub-parts, and so on, and W is a set of attributes of e.
 
 - Definition (opinion): An opinion is a quintuple, (ei, aij, sijkl, hk, tl), where ei is the name of an entity, aij is an aspect of ei, sijkl is the sentiment on aspect aij of entity ei, hk is the opinion holder, and tl is the time when the opinion is expressed by hk. The sentiment sijkl is positive, negative, or neutral, or expressed with different strength/intensity levels, e.g., 1 to 5 stars as used by most review sits on the Web.
-* Language TProcessing
+* Language Technology Processing
 [http://ltp.ai/docs/index.html]
 ** features:
 - 针对单一自然语言处理任务，生成统计机器学习模型的工具
