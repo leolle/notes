@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-08-24 Thu 10:46 -->
+<!-- 2017-08-25 Fri 15:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -169,14 +169,14 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline6">1. Text based network industries and endogenous product differentiation</a>
+<li><a href="#orgheadline7">1. Text based network industries and endogenous product differentiation</a>
 <ul>
 <li><a href="#orgheadline1">1.1. summary:</a></li>
 <li><a href="#orgheadline2">1.2. ideas:</a></li>
-<li><a href="#orgheadline5">1.3. Objective and Methodology: From Words to Industry Classifications</a>
+<li><a href="#orgheadline6">1.3. Objective and Methodology: From Words to Industry Classifications</a>
 <ul>
 <li><a href="#orgheadline3">1.3.1. Objective:</a></li>
-<li><a href="#orgheadline4">1.3.2. Methods:</a></li>
+<li><a href="#orgheadline5">1.3.2. Methods:</a></li>
 </ul>
 </li>
 </ul>
@@ -186,8 +186,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">1</span> Text based network industries and endogenous product differentiation</h2>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">1</span> Text based network industries and endogenous product differentiation</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> summary:</h3>
@@ -219,8 +219,8 @@ product differentiation, competitive intensity and product offering following in
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.3</span> Objective and Methodology: From Words to Industry Classifications</h3>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.3</span> Objective and Methodology: From Words to Industry Classifications</h3>
 <div class="outline-text-3" id="text-1-3">
 </div><div id="outline-container-orgheadline3" class="outline-4">
 <h4 id="orgheadline3"><span class="section-number-4">1.3.1</span> Objective:</h4>
@@ -248,8 +248,8 @@ It allows both within-industry and across-industry relations be to examined.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-4">
-<h4 id="orgheadline4"><span class="section-number-4">1.3.2</span> Methods:</h4>
+<div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">1.3.2</span> Methods:</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 computing pairwise word similarity scores for each pair of firms in a given year.
@@ -264,11 +264,56 @@ computing pairwise word similarity scores for each pair of firms in a given year
 <li>algorithm</li>
 </ul>
 <p>
-\[V_i = \frac {P_i}{\sqrt {P_i, P_i}}
-\]\text {Product Cosine Similarity}<sub>i,j</sub> = (V<sub>i</sub>, V<sub>j</sub>)$$
+Clustering Based On Distance Matrix
+</p>
+<ol class="org-ol">
+<li>Hierarchical clustering</li>
+</ol>
+<p>
+In data mining and statistics, hierarchical clustering (also called hierarchical cluster analysis or HCA) is a method of cluster analysis which seeks to build a hierarchy of clusters. Strategies for hierarchical clustering generally fall into two types:
 </p>
 
+<p>
+Agglomerative: This is a "bottom up" approach: each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.
+</p>
 
+<p>
+Divisive: This is a "top down" approach: all observations start in one cluster, and splits are performed recursively as one moves down the hierarchy.
+\[ V_i = \frac {P_i}{\sqrt{P_i, P_i}}\]
+\[\text {Product Cosine Similarity}_{i,j} = (V_i, V_j)\]
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline4"></a>industry classification<br  /><div class="outline-text-5" id="text-1-3-2-1">
+<ul class="org-ul">
+<li>fixed industry classification based on 10-Ks product descriptions</li>
+</ul>
+<p>
+maintain consistency with other fixed classifications such as Standard Industry Classification.
+</p>
+
+<p>
+running a clustering algorithm.
+</p>
+
+<p>
+hold these industries fixed throughout samples(from 1997 to 2008).
+</p>
+
+<p>
+assign firms to these industries in later years based on their 10-K text similarity relative to the frequency-weighted list of words.
+<a href="./nlp/clustering_test.png">clustering test</a>
+</p>
+<ul class="org-ul">
+<li>10-K based TNIC</li>
+</ul>
+<p>
+define each firmi's industry to include all firms j with pairwise cosine similarities relative to i above a pre-specified minimum threshold.
+</p>
+
+<p>
+focusing on thresholds generating industries with the same fraction of membership pairs as SIC-3 industries in an unbiased fashion.
+</p>
 
 <p>
 \[ \begin{pmatrix}
@@ -277,7 +322,7 @@ computing pairwise word similarity scores for each pair of firms in a given year
  a_{i1} & \cdots & a_{iw}
  \end{pmatrix} \]
 </p>
-</div>
+</div></li></ol>
 </div>
 </div>
 </div>
@@ -285,7 +330,7 @@ computing pairwise word similarity scores for each pair of firms in a given year
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-08-24 Thu 10:46</p>
+<p class="date">Created: 2017-08-25 Fri 15:50</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

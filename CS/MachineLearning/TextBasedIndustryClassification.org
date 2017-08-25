@@ -46,10 +46,30 @@ computing pairwise word similarity scores for each pair of firms in a given year
 3. omit common words that are used by more than 25% of all firms, omit geographical words including country and state names, as well as top fifty cities in the US and in the world.
 
 - algorithm
-$$V_i = \frac {P_i}{\sqrt {P_i, P_i}}
+Clustering Based On Distance Matrix
+1. Hierarchical clustering
+In data mining and statistics, hierarchical clustering (also called hierarchical cluster analysis or HCA) is a method of cluster analysis which seeks to build a hierarchy of clusters. Strategies for hierarchical clustering generally fall into two types:
+
+Agglomerative: This is a "bottom up" approach: each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.
+
+Divisive: This is a "top down" approach: all observations start in one cluster, and splits are performed recursively as one moves down the hierarchy.
+$$ V_i = \frac {P_i}{\sqrt{P_i, P_i}}$$
 $$\text {Product Cosine Similarity}_{i,j} = (V_i, V_j)$$
 
+**** industry classification
+- fixed industry classification based on 10-Ks product descriptions
+maintain consistency with other fixed classifications such as Standard Industry Classification.
 
+running a clustering algorithm.
+
+hold these industries fixed throughout samples(from 1997 to 2008).
+
+assign firms to these industries in later years based on their 10-K text similarity relative to the frequency-weighted list of words.
+[[file:./nlp/clustering_test.png][clustering test]]
+- 10-K based TNIC
+define each firmi's industry to include all firms j with pairwise cosine similarities relative to i above a pre-specified minimum threshold.
+
+focusing on thresholds generating industries with the same fraction of membership pairs as SIC-3 industries in an unbiased fashion.
 
 $$ \begin{pmatrix}
  a_{11} & \cdots & a_{1w}\\

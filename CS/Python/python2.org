@@ -674,3 +674,22 @@ fig is the :class:matplotlib.figure.Figure object.
 [http://python.usyiyi.cn/python_278/library/index.html]
 
 [https://docs.python.org/2/reference/simple_stmts.html?highlight=assert]
+
+** scipy
+- combination k from n.
+$$
+{\displaystyle {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}},} {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}}$$
+
+which can be written using factorials as$$ {\displaystyle \textstyle {\frac {n!}{k!(n-k)!}}} \textstyle {\frac {n!}{k!(n-k)!}} $$
+#+BEGIN_SRC python
+>>> from scipy.special import comb
+>>> k = np.array([3, 4])
+>>> n = np.array([10, 10])
+>>> comb(n, k, exact=False)
+array([ 120.,  210.])
+>>> comb(10, 3, exact=True)
+120L
+>>> comb(10, 3, exact=True, repetition=True)
+220L
+#+END_SRC
+[https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html]

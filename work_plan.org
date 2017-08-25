@@ -376,3 +376,8 @@ duplicate classification algorithm.
 
 ** paper
 - [X] finish text-based network industry classification(TBNIC) and summarizing.
+
+* <2017-08-24 Thu>
+- [X] deploy the constraint function on gs.
+* <2017-08-25 Fri>
+- [ ] collect product noun words from description using NLP.

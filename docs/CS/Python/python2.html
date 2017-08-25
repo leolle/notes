@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-08-23 Wed 14:37 -->
+<!-- 2017-08-25 Fri 15:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -205,7 +205,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline31">1.16. trouble shooting</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline47">2. Data Analysis:</a>
+<li><a href="#orgheadline48">2. Data Analysis:</a>
 <ul>
 <li><a href="#orgheadline40">2.1. pandas:</a>
 <ul>
@@ -221,6 +221,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline45">2.3.4. plot a 3d figure:</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline47">2.4. scipy</a></li>
 </ul>
 </li>
 </ul>
@@ -963,8 +964,8 @@ pip install tables
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline47" class="outline-2">
-<h2 id="orgheadline47"><span class="section-number-2">2</span> Data Analysis:</h2>
+<div id="outline-container-orgheadline48" class="outline-2">
+<h2 id="orgheadline48"><span class="section-number-2">2</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline40" class="outline-3">
 <h3 id="orgheadline40"><span class="section-number-3">2.1</span> pandas:</h3>
@@ -1366,12 +1367,45 @@ fig is the :class:matplotlib.figure.Figure object.
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">2.4</span> scipy</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>combination k from n.</li>
+</ul>
+<p>
+\[
+{\displaystyle {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}},} {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}}\]
+</p>
+
+<p>
+which can be written using factorials as\[ {\displaystyle \textstyle {\frac {n!}{k!(n-k)!}}} \textstyle {\frac {n!}{k!(n-k)!}} \]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">from</span> scipy.special <span style="color: #F92672;">import</span> comb
+&gt;&gt;&gt; <span style="color: #FD971F;">k</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">n</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">10</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span>n, k, exact=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span> <span style="color: #AE81FF;">120</span>.,  <span style="color: #AE81FF;">210</span>.<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">3</span>, exact=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">120L</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">3</span>, exact=<span style="color: #AE81FF;">True</span>, repetition=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">220L</span>
+</pre>
+</div>
+<p>
+[<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html</a>]
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-08-23 Wed 14:37</p>
+<p class="date">Created: 2017-08-25 Fri 15:45</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
