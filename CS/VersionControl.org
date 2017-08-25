@@ -224,7 +224,12 @@ git remote -v
 origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
 origin  https://github.com/USERNAME/REPOSITORY.git (push)
 #+end_src
+*** add remote after init.
+#+BEGIN_SRC shell
+git remote add origin remote-repository-URL
+git push --set-upstream origin master
 
+#+END_SRC
 *** Change your remote's URL from HTTPS to SSH with the git remote set-url command.
 #+begin_src emacs-lisp :tangle yes
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
