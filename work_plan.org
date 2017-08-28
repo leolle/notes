@@ -383,3 +383,6 @@ duplicate classification algorithm.
 - [ ] collect product noun words from description using NLP.
 * <2017-08-27 Sun>
 - [ ] get factors list GID
+* <2017-08-28 Mon>
+- [ ] review optimization function map, functions signature, pseudo code.
+- [ ] collect product noun words from description using NLP.
