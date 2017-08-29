@@ -597,6 +597,13 @@ df2[~df2.index.duplicated()]
 pd.dataframe.to_matrix()
 #+end_src
 
+**** panel:
+- create from dictionary:
+#+BEGIN_SRC python
+panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
+                                           columns=assets.loc[date,'variable']) for date in datetime_index})
+#+END_SRC
+pandas panel item axis should be datetime64, this should not be an array.
 ** numpy
 - count nan:
 #+begin_src python
