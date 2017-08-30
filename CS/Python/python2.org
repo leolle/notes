@@ -550,7 +550,23 @@ df.index.strftime("%Y-%m-%d %H:%M:%S")
 #+begin_src python
 pd.concat([df1, df2], axis=1)
 #+end_src
+concate will take two dataframe to a new dataframe by index, preserving the columns.
+A:
+index variable value
+B:
+index variable value
 
+pd.concat([A, B])
+index variable value variable value
+**** merge
+merge will take two dataframe to a new dataframe by index, on the columns.
+A:
+index variable value
+B:
+index variable value
+
+pd.merge(A, B, how='left', on=['index', 'variable'])
+index variable value value
 
 **** access hierarchical index.
   - A MultiIndex can be created from a list of arrays (using MultiIndex.from_arrays), an array of tuples (using MultiIndex.from_tuples), or a crossed set of iterables (using MultiIndex.from_product).
