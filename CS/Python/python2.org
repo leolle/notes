@@ -567,6 +567,8 @@ index variable value
 
 pd.merge(A, B, how='left', on=['index', 'variable'])
 index variable value value
+**** update
+update dataframe1 with dataframe2
 
 **** access hierarchical index.
   - A MultiIndex can be created from a list of arrays (using MultiIndex.from_arrays), an array of tuples (using MultiIndex.from_tuples), or a crossed set of iterables (using MultiIndex.from_product).
