@@ -618,6 +618,7 @@ pd.dataframe.to_matrix()
 **** panel:
 - create from dictionary:
 #+BEGIN_SRC python
+datetime_index = pd.DatetimeIndex(assets_group['date'].unique())
 panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
                                            columns=assets.loc[date,'variable']) for date in datetime_index})
 #+END_SRC

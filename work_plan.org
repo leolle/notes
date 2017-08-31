@@ -386,3 +386,12 @@ duplicate classification algorithm.
 * <2017-08-28 Mon>
 - [ ] review optimization function map, functions signature, pseudo code.
 - [ ] collect product noun words from description using NLP.
+* <2017-08-29 Tue>
+- [X] programe the pair input data structure.
+- [X] make this structure available on GS.
+- [X] OTVV的数据结构是通过上传还是写python function还在试验看哪种方式更高效，不过我自己已经把这种函数写出来了。
+* <2017-08-30 Wed>
+- [ ] put the constraint GS, review code.
+* <2017-08-31 Thu>
+- [ ] setup the constraint, covariance matrix, sigma, delta on GS.
+- [ ] add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.
