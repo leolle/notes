@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-14 Fri 13:40 -->
+<!-- 2017-08-31 Thu 17:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -161,7 +161,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline10">1.10. svn commit</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline28">2. GIT</a>
+<li><a href="#orgheadline29">2. GIT</a>
 <ul>
 <li><a href="#orgheadline12">2.1. update git version:</a></li>
 <li><a href="#orgheadline13">2.2. 创建版本库</a></li>
@@ -180,9 +180,10 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline23">2.9. 分支管理策略</a></li>
 <li><a href="#orgheadline24">2.10. Bug分支</a></li>
 <li><a href="#orgheadline25">2.11. 多人协作</a></li>
-<li><a href="#orgheadline27">2.12. Switching remote URLs from HTTPS to SSH</a>
+<li><a href="#orgheadline28">2.12. Switching remote URLs from HTTPS to SSH</a>
 <ul>
-<li><a href="#orgheadline26">2.12.1. Change your remote's URL from HTTPS to SSH with the git remote set-url command.</a></li>
+<li><a href="#orgheadline26">2.12.1. add remote after init.</a></li>
+<li><a href="#orgheadline27">2.12.2. Change your remote's URL from HTTPS to SSH with the git remote set-url command.</a></li>
 </ul>
 </li>
 </ul>
@@ -300,8 +301,8 @@ svn move SRC DEST or svn mv SRC DEST or svn rename SRC DEST or svn ren SRC DEST.
 </div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-2">
-<h2 id="orgheadline28"><span class="section-number-2">2</span> GIT</h2>
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">2</span> GIT</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline12" class="outline-3">
 <h3 id="orgheadline12"><span class="section-number-3">2.1</span> update git version:</h3>
@@ -573,8 +574,8 @@ stash@{0}: WIP on dev: <span style="color: #AE81FF;">6224937</span> add merge
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">2.12</span> Switching remote URLs from HTTPS to SSH</h3>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">2.12</span> Switching remote URLs from HTTPS to SSH</h3>
 <div class="outline-text-3" id="text-2-12">
 <div class="org-src-container">
 
@@ -584,10 +585,20 @@ origin  https://github.com/USERNAME/REPOSITORY.git <span style="color: #AE81FF;"
 </pre>
 </div>
 </div>
-
 <div id="outline-container-orgheadline26" class="outline-4">
-<h4 id="orgheadline26"><span class="section-number-4">2.12.1</span> Change your remote's URL from HTTPS to SSH with the git remote set-url command.</h4>
+<h4 id="orgheadline26"><span class="section-number-4">2.12.1</span> add remote after init.</h4>
 <div class="outline-text-4" id="text-2-12-1">
+<div class="org-src-container">
+
+<pre class="src src-shell">git remote add origin remote-repository-URL
+git push --set-upstream origin master
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">2.12.2</span> Change your remote's URL from HTTPS to SSH with the git remote set-url command.</h4>
+<div class="outline-text-4" id="text-2-12-2">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
@@ -605,7 +616,7 @@ this is test.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-05 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-14 Fri 13:40</p>
+<p class="date">Created: 2017-08-31 Thu 17:57</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

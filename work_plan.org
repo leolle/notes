@@ -393,5 +393,7 @@ duplicate classification algorithm.
 * <2017-08-30 Wed>
 - [ ] put the constraint GS, review code.
 * <2017-08-31 Thu>
-- [ ] setup the constraint, covariance matrix, sigma, delta on GS.
+- [X] setup the constraint, covariance matrix, sigma, delta on GS.
 - [ ] add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.
+* <2017-09-01 Fri>
+- [ ] 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。
