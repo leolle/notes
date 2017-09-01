@@ -396,4 +396,9 @@ duplicate classification algorithm.
 - [X] setup the constraint, covariance matrix, sigma, delta on GS.
 - [ ] add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.
 * <2017-09-01 Fri>
-- [ ] 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。
+- [X] 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。
+fix by fillna with 0 in the factor exposure dataframe.
+- [X] deploy the whole function on Jupyter and gs.
+- [X] we have a position limit option, length is x.
+asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
+we can create two constraint with the formula (wT*M1)T>= V_1, (wT*M1)T <= V_2.

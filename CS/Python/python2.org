@@ -465,6 +465,10 @@ z=(a!=b)
 pd.concat([a.ix[z[reduce(lambda x, y: x | z[y], z, False)].index],b.ix[z[reduce(lambda x, y: x | z[y], z, False)].index]],axis=1)
 #+end_src
 
+- if array a is a subset of another array b:
+#+BEGIN_SRC python
+set(B).issubset(set(A))
+#+END_SRC
 - remove negative value from a column:
 #+begin_src python
 filtered_1=b[‘TRADE_size’].apply(lambda x: 0 if x < 0 else x)
@@ -479,7 +483,7 @@ DataFrame.drop(labels, axis=0, level=None, inplace=False, errors='raise')
 - check if any value is NaN in DataFrame
 #+BEGIN_SRC python
 df.isnull().values.any()
-
+df.isnull().any().any()
 #+END_SRC
 
 - rename column names:
@@ -521,6 +525,56 @@ m = benchmark_weight.index.to_period('m')
 benchmark_weight = benchmark_weight.reset_index().groupby(m).last().set_index('Date')
 benchmark_weight.index.name = ''
 #+END_SRC
+
+*** multiplying
+- the multiplying calculation is not about the sequence of the index or column.
+
+pandas will calculate on a sorted index and column value.
+#+BEGIN_SRC python
+In [87]: a=pd.DataFrame({'dog':[1,2],'fox':[3,4]},index=['a','b'])
+
+In [88]: a
+Out[88]:
+   dog  fox
+a    1    3
+b    2    4
+
+In [89]: b=pd.DataFrame({'fox':[1,2],'dog':[3,4]},index=['b','a'])
+
+In [94]: b
+Out[94]:
+   dog  fox
+b    3    1
+a    4    2
+
+In [95]: a*b
+Out[95]:
+   dog  fox
+a    4    6
+b    6    4
+#+END_SRC
+
+- dot multiplying
+dot multiplying will sort the value.
+#+BEGIN_SRC python
+In [99]: a.dot(b.T)
+Out[99]:
+    b   a
+a   6  10
+b  10  16
+
+In [100]: b.T
+Out[104]:
+     b  a
+dog  3  4
+fox  1  2
+
+In [105]: a
+Out[105]:
+   dog  fox
+a    1    3
+b    2    4
+#+END_SRC
 *** Index
 **** Index manuplication
 - set column as datetime index
@@ -535,6 +589,11 @@ pd.concat([df1, df2], axis=1)
 result = df1.join(df2, how='outer’)
 #+end_src
 
+- pandas are two dataframe identical
+#+BEGIN_SRC python
+pandas.DataFrame.equals()
+
+#+END_SRC
 - change index name:
 #+begin_src python
 df.index.names = ['Date']

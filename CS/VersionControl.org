@@ -87,8 +87,7 @@ Initialized empty Git repository in /Users/michael/learngit/.git/
 git remote add origin remote-repository-URL
 git push --set-upstream origin master
 
-#+END_SRC
-** 用命令git add告诉Git，把文件添加到仓库：
+#+END_SRC** 用命令git add告诉Git，把文件添加到仓库：
 #+begin_src emacs-lisp :tangle yes
 $ git add readme.txt
 #+end_src
