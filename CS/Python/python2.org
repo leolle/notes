@@ -476,6 +476,12 @@ b[‘TRADE_size’].loc[ b[‘TRADE_size’]<0, ‘TRADE_size’] = 0
 DataFrame.drop(labels, axis=0, level=None, inplace=False, errors='raise')
 #+END_SRC
 
+- check if any value is NaN in DataFrame
+#+BEGIN_SRC python
+df.isnull().values.any()
+
+#+END_SRC
+
 - rename column names:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
