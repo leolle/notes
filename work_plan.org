@@ -402,3 +402,7 @@ fix by fillna with 0 in the factor exposure dataframe.
 - [X] we have a position limit option, length is x.
 asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
 we can create two constraint with the formula (wT*M1)T>= V_1, (wT*M1)T <= V_2.
+* <2017-09-04 Mon>
+- [ ] calculate the benchmark factor exposure as the reference j to the exposure constraint input.
+- [ ] debug the optimization with exposure constraint.
+BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.

@@ -486,6 +486,12 @@ df.isnull().values.any()
 df.isnull().any().any()
 #+END_SRC
 
+- maximum & minimum value of a dataframe:
+#+BEGIN_SRC python
+df.values.max()
+df.values.min()
+#+END_SRC
+
 - rename column names:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
