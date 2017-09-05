@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-05 Tue 11:52 -->
+<!-- 2017-09-05 Tue 16:05 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -775,7 +775,8 @@ int64
 <span style="color: #FD971F;">handler</span> = logging.StreamHandler<span style="color: #AE81FF;">()</span>
 <span style="color: #FD971F;">formatter</span> = logging.Formatter<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%(asctime)s %(name)-12s %(levelname)-8s %(message)s'</span><span style="color: #AE81FF;">)</span>
 handler.setFormatter<span style="color: #AE81FF;">(</span>formatter<span style="color: #AE81FF;">)</span>
-logger.addHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> logger.handler:
+    logger.addHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
 logger.setLevel<span style="color: #AE81FF;">(</span>logging.DEBUG<span style="color: #AE81FF;">)</span>
 logger
 
@@ -867,8 +868,11 @@ re.search('colou?r', 'my favoriate color')
 
 <div class="org-src-container">
 
-<pre class="src src-python2"># find a telephone number
-re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">find a telephone number</span>
+re.search<span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'[\d]{3}-[\d]{4}'</span>, <span style="color: #E6DB74;">'867-5309 /Jenny'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">find 32big GID</span>
+<span style="color: #AE81FF;">[</span>x <span style="color: #F92672;">for</span> x <span style="color: #F92672;">in</span> risk_model_merge.keys<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">if</span> re.match<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"[A-Z0-9]{32}$"</span>, x<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
 </pre>
 </div>
 </div>
@@ -1443,6 +1447,19 @@ pandas panel item axis should be datetime64, this should not be an array.
 <pre class="src src-python">np.<span style="color: #F92672;">sum</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span>df &lt; <span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span>.values.ravel<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+
+<ul class="org-ul">
+<li>check the difference of two arrays:</li>
+</ul>
+<p>
+numpy.setdiff1d:
+Return the sorted, unique values in ar1 that are not in ar2
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">np.setdiff1d<span style="color: #AE81FF;">(</span>ar1, ar2<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline52" class="outline-3">
@@ -1596,7 +1613,7 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-05 Tue 11:52</p>
+<p class="date">Created: 2017-09-05 Tue 16:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

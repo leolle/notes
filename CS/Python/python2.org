@@ -348,7 +348,8 @@ logger = logging.getLogger()
 handler = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
 handler.setFormatter(formatter)
-logger.addHandler(handler)
+if not logger.handler:
+    logger.addHandler(handler)
 logger.setLevel(logging.DEBUG)
 logger
 
@@ -381,7 +382,7 @@ re.search('[^0-9]', 'x')
 re.search('\bcorn\b', 'corner')
 
 **** start and end with strings
-#+BEGIN_SRC python 2
+#+BEGIN_SRC python
 re.search('^Python', 'Python 3')
 re.search('Python$', 'this is Python')
 #+END_SRC
@@ -396,10 +397,12 @@ re.search('colou?r', 'my favoriate color')
 *** repeat
 {N}
 
-#+BEGIN_SRC python2
+#+BEGIN_SRC python
 # find a telephone number
 re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
 
+# find 32big GID
+[x for x in risk_model_merge.keys() if re.match("[A-Z0-9]{32}$", x)]
 #+END_SRC
 
 **** boundary of repeated times
@@ -723,6 +726,13 @@ np.count_nonzero(~np.isnan(df['series']))
 #+begin_src python
 np.sum((df < 0).values.ravel())
 #+end_src
+
+- check the difference of two arrays:
+numpy.setdiff1d:
+Return the sorted, unique values in ar1 that are not in ar2
+#+BEGIN_SRC python
+np.setdiff1d(ar1, ar2)
+#+END_SRC
 ** plot:
 *** subplot with the same axis:
 pandas plot.
