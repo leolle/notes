@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-01 Fri 16:35 -->
+<!-- 2017-09-05 Tue 10:49 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -199,6 +199,8 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline38">30. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-30 Wed&gt;</span></span></a></li>
 <li><a href="#orgheadline39">31. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-31 Thu&gt;</span></span></a></li>
 <li><a href="#orgheadline40">32. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-01 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline41">33. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-04 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline42">34. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-05 Tue&gt;</span></span></a></li>
 </ul>
 </div>
 </div>
@@ -1226,25 +1228,45 @@ duplicate classification algorithm.
 <h2 id="orgheadline40"><span class="section-number-2">32</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-01 Fri&gt;</span></span></h2>
 <div class="outline-text-2" id="text-32">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。</li>
+<li class="on"><code>[X]</code> 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。</li>
 </ul>
 <p>
 fix by fillna with 0 in the factor exposure dataframe.
 </p>
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> deploy the whole function on Jupyter and gs.</li>
-<li class="off"><code>[&#xa0;]</code> put the constraints into an array will cause a length problem.</li>
+<li class="on"><code>[X]</code> deploy the whole function on Jupyter and gs.</li>
+<li class="on"><code>[X]</code> we have a position limit option, length is x.</li>
 </ul>
 <p>
-we have a position limit option, length is x.
-asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, we can create two constraint with the formula (wT*M1)T&gt;= V<sub>1</sub>, (wT*M1)T &lt;= V<sub>2</sub>.
+asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
+we can create two constraint with the formula (wT*M1)T&gt;= V<sub>1</sub>, (wT*M1)T &lt;= V<sub>2</sub>.
 </p>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-2">
+<h2 id="orgheadline41"><span class="section-number-2">33</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-04 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-33">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> calculate the benchmark factor exposure as the reference j to the exposure constraint input.</li>
+<li class="off"><code>[&#xa0;]</code> debug the optimization with exposure constraint.</li>
+</ul>
+<p>
+BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="section-number-2">34</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-05 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-34">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> debug the optimization with exposure constraint.</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-01 Fri 16:35</p>
+<p class="date">Created: 2017-09-05 Tue 10:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

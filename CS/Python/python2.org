@@ -440,6 +440,21 @@ try to use absolute path instead of relative path to read a file.
 
 - HDF5
 pip install tables
+
+** Jupyter notebook
+
+*** Using a virtualenv in an IPython notebook
+1. Install the ipython kernel module into your virtualenv
+#+BEGIN_SRC python
+workon my-virtualenv-name  # activate your virtualenv, if you haven't already
+pip install ipykernel
+#+END_SRC
+
+2. Now run the kernel "self-install" script:
+#+BEGIN_SRC python
+python -m ipykernel install --user --name=my-virtualenv-name
+#+END_SRC
+
 * Data Analysis:
 
 ** pandas:
