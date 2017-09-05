@@ -407,4 +407,6 @@ we can create two constraint with the formula (wT*M1)T>= V_1, (wT*M1)T <= V_2.
 - [ ] debug the optimization with exposure constraint.
 BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.
 * <2017-09-05 Tue>
-- [ ] debug the optimization with exposure constraint.
+- [X] debug the optimization with exposure constraint.
+* <2017-09-06 Wed>
+- [ ] 程序已经全部调通，加入factor exposure constraint不能找到最优解，放松一下约束条件看看.

@@ -514,6 +514,11 @@ df.values.min()
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
 #+end_src
+  - rename according to column value type:
+    #+BEGIN_SRC python
+    name = {2:'idname', 23:'value', 4:'variable'}
+    df.rename(columns=lambda x: name[(gftIO.get_column_type(df,x))], inplace=True)
+    #+END_SRC
 
 - remove characters after space:
 #+begin_src python
