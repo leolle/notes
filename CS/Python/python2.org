@@ -458,7 +458,7 @@ python -m ipykernel install --user --name=my-virtualenv-name
 * Data Analysis:
 
 ** pandas:
-[[file:./pandas.org][pandas]]
+[[file:./pandas.org][advanced_pandas]]
 - generate a dataframe:
 #+begin_src python
 dates = pd.date_range('1/1/2000', periods=8)
