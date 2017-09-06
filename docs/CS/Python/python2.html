@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-05 Tue 17:13 -->
+<!-- 2017-09-06 Wed 17:00 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -169,7 +169,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline34">1. Python basic operations:</a>
+<li><a href="#orgheadline35">1. Python basic operations:</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Module</a></li>
 <li><a href="#orgheadline2">1.2. zip</a></li>
@@ -208,26 +208,27 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline32">1.17.1. Using a virtualenv in an IPython notebook</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline34">1.18. profile</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline54">2. Data Analysis:</a>
+<li><a href="#orgheadline55">2. Data Analysis:</a>
 <ul>
-<li><a href="#orgheadline46">2.1. pandas:</a>
+<li><a href="#orgheadline47">2.1. pandas:</a>
 <ul>
-<li><a href="#orgheadline35">2.1.1. multiplying</a></li>
-<li><a href="#orgheadline45">2.1.2. Index</a></li>
+<li><a href="#orgheadline36">2.1.1. multiplying</a></li>
+<li><a href="#orgheadline46">2.1.2. Index</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline47">2.2. numpy</a></li>
-<li><a href="#orgheadline52">2.3. plot:</a>
+<li><a href="#orgheadline48">2.2. numpy</a></li>
+<li><a href="#orgheadline53">2.3. plot:</a>
 <ul>
-<li><a href="#orgheadline48">2.3.1. subplot with the same axis:</a></li>
-<li><a href="#orgheadline49">2.3.2. subplot with different axis</a></li>
-<li><a href="#orgheadline50">2.3.3. plot a secondary y scale</a></li>
-<li><a href="#orgheadline51">2.3.4. plot a 3d figure:</a></li>
+<li><a href="#orgheadline49">2.3.1. subplot with the same axis:</a></li>
+<li><a href="#orgheadline50">2.3.2. subplot with different axis</a></li>
+<li><a href="#orgheadline51">2.3.3. plot a secondary y scale</a></li>
+<li><a href="#orgheadline52">2.3.4. plot a 3d figure:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline53">2.4. scipy</a></li>
+<li><a href="#orgheadline54">2.4. scipy</a></li>
 </ul>
 </li>
 </ul>
@@ -235,8 +236,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline34" class="outline-2">
-<h2 id="orgheadline34"><span class="section-number-2">1</span> Python basic operations:</h2>
+<div id="outline-container-orgheadline35" class="outline-2">
+<h2 id="orgheadline35"><span class="section-number-2">1</span> Python basic operations:</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> Module</h3>
@@ -1001,13 +1002,55 @@ pip install ipykernel
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">1.18</span> profile</h3>
+<div class="outline-text-3" id="text-1-18">
+<p>
+STEPS:
+1). install snakeviz using pip from cmd.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">pip install snakeviz
+</pre>
 </div>
 
-<div id="outline-container-orgheadline54" class="outline-2">
-<h2 id="orgheadline54"><span class="section-number-2">2</span> Data Analysis:</h2>
+<p>
+2). profile the test python file using below command.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">$ python -m cProfile -o profile.stats test.py
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">test.py</span>
+<span style="color: #F92672;">from</span> random <span style="color: #F92672;">import</span> randint
+<span style="color: #FD971F;">max_size</span> = <span style="color: #AE81FF;">10</span>**<span style="color: #AE81FF;">4</span>
+<span style="color: #FD971F;">data</span> = <span style="color: #AE81FF;">[</span>randint<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">0</span>, max_size<span style="color: #66D9EF;">)</span> <span style="color: #F92672;">for</span> _ <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span>max_size<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">test</span> = <span style="color: #F92672;">lambda</span>: insertion_sort<span style="color: #AE81FF;">(</span>data<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+3). check the efficiency result from profile.stats file.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">$ snakeviz profile.stats
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline55" class="outline-2">
+<h2 id="orgheadline55"><span class="section-number-2">2</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline46" class="outline-3">
-<h3 id="orgheadline46"><span class="section-number-3">2.1</span> pandas:</h3>
+</div><div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">2.1</span> pandas:</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <a href="./pandas.html">advanced pandas</a>
@@ -1093,6 +1136,16 @@ df.values.<span style="color: #F92672;">min</span><span style="color: #AE81FF;">
 </div>
 
 <ul class="org-ul">
+<li>select value by creteria:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"all weight are bigger than 0? %s"</span>, <span style="color: #66D9EF;">(</span>df_opts_weight&gt;<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"all weight are smaller than 1? %s"</span>, <span style="color: #66D9EF;">(</span>df_opts_weight&lt;=<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"weight sum smaller than 0: %s"</span>, df_opts_weight<span style="color: #66D9EF;">[</span>df_opts_weight&lt;<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span>.<span style="color: #F92672;">sum</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>rename column names:</li>
 </ul>
 <div class="org-src-container">
@@ -1171,8 +1224,8 @@ df.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F926
 </div>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-4">
-<h4 id="orgheadline35"><span class="section-number-4">2.1.1</span> multiplying</h4>
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36"><span class="section-number-4">2.1.1</span> multiplying</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>the multiplying calculation is not about the sequence of the index or column.</li>
@@ -1236,10 +1289,10 @@ b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline45" class="outline-4">
-<h4 id="orgheadline45"><span class="section-number-4">2.1.2</span> Index</h4>
+<div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46"><span class="section-number-4">2.1.2</span> Index</h4>
 <div class="outline-text-4" id="text-2-1-2">
-</div><ol class="org-ol"><li><a id="orgheadline36"></a>Index manuplication<br  /><div class="outline-text-5" id="text-2-1-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline37"></a>Index manuplication<br  /><div class="outline-text-5" id="text-2-1-2-1">
 <ul class="org-ul">
 <li>set column as datetime index</li>
 </ul>
@@ -1327,7 +1380,7 @@ pd.concat([A, B])
 index variable value variable value
 </p>
 </div></li>
-<li><a id="orgheadline37"></a>merge<br  /><div class="outline-text-5" id="text-2-1-2-2">
+<li><a id="orgheadline38"></a>merge<br  /><div class="outline-text-5" id="text-2-1-2-2">
 <p>
 merge will take two dataframe to a new dataframe by index, on the columns.
 A:
@@ -1341,13 +1394,13 @@ pd.merge(A, B, how='left', on=['index', 'variable'])
 index variable value value
 </p>
 </div></li>
-<li><a id="orgheadline38"></a>update<br  /><div class="outline-text-5" id="text-2-1-2-3">
+<li><a id="orgheadline39"></a>update<br  /><div class="outline-text-5" id="text-2-1-2-3">
 <p>
 update dataframe1 with dataframe2
 </p>
 </div></li>
 
-<li><a id="orgheadline39"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-2-1-2-4">
+<li><a id="orgheadline40"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-2-1-2-4">
 <ul class="org-ul">
 <li>A MultiIndex can be created from a list of arrays (using MultiIndex.from<sub>arrays</sub>), an array of tuples (using MultiIndex.from<sub>tuples</sub>), or a crossed set of iterables (using MultiIndex.from<sub>product</sub>).</li>
 </ul>
@@ -1396,7 +1449,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline42"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline40"></a>#1<br  /><div class="outline-text-6" id="text-2-1-2-5-1">
+<li><a id="orgheadline43"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline41"></a>#1<br  /><div class="outline-text-6" id="text-2-1-2-5-1">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FD971F;">grouped</span> = sym.groupby<span style="color: #AE81FF;">(</span>level=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
@@ -1405,7 +1458,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline41"></a>#2<br  /><div class="outline-text-6" id="text-2-1-2-5-2">
+<li><a id="orgheadline42"></a>#2<br  /><div class="outline-text-6" id="text-2-1-2-5-2">
 <div class="org-src-container">
 
 <pre class="src src-python">df2<span style="color: #AE81FF;">[</span>~df2.index.duplicated<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
@@ -1413,7 +1466,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li></ol></li>
 
-<li><a id="orgheadline43"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-2-1-2-6">
+<li><a id="orgheadline44"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-2-1-2-6">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">pd.dataframe.to_matrix<span style="color: #AE81FF;">()</span>
@@ -1421,7 +1474,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline44"></a>panel:<br  /><div class="outline-text-5" id="text-2-1-2-7">
+<li><a id="orgheadline45"></a>panel:<br  /><div class="outline-text-5" id="text-2-1-2-7">
 <ul class="org-ul">
 <li>create from dictionary:</li>
 </ul>
@@ -1438,8 +1491,8 @@ pandas panel item axis should be datetime64, this should not be an array.
 </div></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline47" class="outline-3">
-<h3 id="orgheadline47"><span class="section-number-3">2.2</span> numpy</h3>
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48"><span class="section-number-3">2.2</span> numpy</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>count nan:</li>
@@ -1472,11 +1525,11 @@ Return the sorted, unique values in ar1 that are not in ar2
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline52" class="outline-3">
-<h3 id="orgheadline52"><span class="section-number-3">2.3</span> plot:</h3>
+<div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53"><span class="section-number-3">2.3</span> plot:</h3>
 <div class="outline-text-3" id="text-2-3">
-</div><div id="outline-container-orgheadline48" class="outline-4">
-<h4 id="orgheadline48"><span class="section-number-4">2.3.1</span> subplot with the same axis:</h4>
+</div><div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">2.3.1</span> subplot with the same axis:</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 pandas plot.
@@ -1498,8 +1551,8 @@ fig, ax : <span style="color: #F92672;">tuple</span>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline49" class="outline-4">
-<h4 id="orgheadline49"><span class="section-number-4">2.3.2</span> subplot with different axis</h4>
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">2.3.2</span> subplot with different axis</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <div class="org-src-container">
 
@@ -1520,8 +1573,8 @@ pe000001.plot<span style="color: #AE81FF;">()</span>
 </div>
 </div>
 
-<div id="outline-container-orgheadline50" class="outline-4">
-<h4 id="orgheadline50"><span class="section-number-4">2.3.3</span> plot a secondary y scale</h4>
+<div id="outline-container-orgheadline51" class="outline-4">
+<h4 id="orgheadline51"><span class="section-number-4">2.3.3</span> plot a secondary y scale</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <div class="org-src-container">
 
@@ -1541,8 +1594,8 @@ plt.axvline<span style="color: #AE81FF;">(</span>a<span style="color: #66D9EF;">
 </div>
 </div>
 
-<div id="outline-container-orgheadline51" class="outline-4">
-<h4 id="orgheadline51"><span class="section-number-4">2.3.4</span> plot a 3d figure:</h4>
+<div id="outline-container-orgheadline52" class="outline-4">
+<h4 id="orgheadline52"><span class="section-number-4">2.3.4</span> plot a 3d figure:</h4>
 <div class="outline-text-4" id="text-2-3-4">
 <div class="org-src-container">
 
@@ -1586,8 +1639,8 @@ fig is the :class:matplotlib.figure.Figure object.
 </div>
 </div>
 
-<div id="outline-container-orgheadline53" class="outline-3">
-<h3 id="orgheadline53"><span class="section-number-3">2.4</span> scipy</h3>
+<div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">2.4</span> scipy</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>combination k from n.</li>
@@ -1623,7 +1676,7 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-05 Tue 17:13</p>
+<p class="date">Created: 2017-09-06 Wed 17:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

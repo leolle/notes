@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-05 Tue 10:49 -->
+<!-- 2017-09-06 Wed 17:00 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -201,6 +201,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline40">32. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-01 Fri&gt;</span></span></a></li>
 <li><a href="#orgheadline41">33. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-04 Mon&gt;</span></span></a></li>
 <li><a href="#orgheadline42">34. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-05 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline43">35. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-06 Wed&gt;</span></span></a></li>
 </ul>
 </div>
 </div>
@@ -1259,14 +1260,34 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 <h2 id="orgheadline42"><span class="section-number-2">34</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-05 Tue&gt;</span></span></h2>
 <div class="outline-text-2" id="text-34">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> debug the optimization with exposure constraint.</li>
+<li class="on"><code>[X]</code> debug the optimization with exposure constraint.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline43" class="outline-2">
+<h2 id="orgheadline43"><span class="section-number-2">35</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-06 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-35">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 程序已经全部调通，加入factor exposure constraint不能找到最优解
+<ol class="org-ol">
+<li>check the calculation of the factor exposure.</li>
+<li>放松约束条件.</li>
+<li class="on"><code>[X]</code> bug found: group constraint loading dataframe index order should be aligned with calculation.</li>
+</ol></li>
+<li class="trans"><code>[-]</code> test:
+<ul class="org-ul">
+<li class="on"><code>[X]</code> original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.</li>
+<li class="off"><code>[&#xa0;]</code> original portfolio is constructed by all hs300 components.</li>
+<li class="off"><code>[&#xa0;]</code> industry weight constraint match the benchmark weight.</li>
+</ul></li>
+<li class="off"><code>[&#xa0;]</code> profile the program.</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-05 Tue 10:49</p>
+<p class="date">Created: 2017-09-06 Wed 17:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

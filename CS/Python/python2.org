@@ -458,6 +458,31 @@ pip install ipykernel
 python -m ipykernel install --user --name=my-virtualenv-name
 #+END_SRC
 
+** profile
+STEPS:
+1). install snakeviz using pip from cmd.
+#+BEGIN_SRC shell
+pip install snakeviz
+#+END_SRC
+
+2). profile the test python file using below command.
+#+BEGIN_SRC shell
+$ python -m cProfile -o profile.stats test.py
+#+END_SRC
+#+BEGIN_SRC python
+# test.py
+from random import randint
+max_size = 10**4
+data = [randint(0, max_size) for _ in range(max_size)]
+test = lambda: insertion_sort(data)
+
+#+END_SRC
+
+3). check the efficiency result from profile.stats file.
+#+BEGIN_SRC shell
+$ snakeviz profile.stats
+#+END_SRC
+
 * Data Analysis:
 
 ** pandas:
@@ -510,6 +535,12 @@ df.values.max()
 df.values.min()
 #+END_SRC
 
+- select value by creteria:
+#+BEGIN_SRC python
+logger.debug("all weight are bigger than 0? %s", (df_opts_weight>0).all().all())
+logger.debug("all weight are smaller than 1? %s", (df_opts_weight<=1).all().all())
+logger.debug("weight sum smaller than 0: %s", df_opts_weight[df_opts_weight<0].sum(1))
+#+END_SRC
 - rename column names:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))

@@ -409,4 +409,12 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 * <2017-09-05 Tue>
 - [X] debug the optimization with exposure constraint.
 * <2017-09-06 Wed>
-- [ ] 程序已经全部调通，加入factor exposure constraint不能找到最优解，放松一下约束条件看看.
+- [X] 程序已经全部调通，加入factor exposure constraint不能找到最优解
+  1. check the calculation of the factor exposure.
+  2. 放松约束条件.
+  3. [X] bug found: group constraint loading dataframe index order should be aligned with calculation.
+- [-] test:
+  - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
+  - [ ] original portfolio is constructed by all hs300 components.
+  - [ ] industry weight constraint match the benchmark weight.
+- [ ] profile the program.
