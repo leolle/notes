@@ -419,6 +419,6 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
   - [ ] industry weight constraint match the benchmark weight.
 - [X] profile the program.
 90% of program running time is spent on loading data and decompresssing data.
-- [ ] present project.
+- [ ] present &review project.
 - [ ] portfolio construction with black-litterman model.
 - [ ] portfolio construction with risk-parity model.
