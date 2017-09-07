@@ -483,6 +483,82 @@ test = lambda: insertion_sort(data)
 $ snakeviz profile.stats
 #+END_SRC
 
+** os, sys:
+- check if file or directory exists, if not then make directory:
+#+BEGIN_SRC python
+import os
+os.path.exists(test_file.txt)
+os.path.isfile("test-data")
+export_dir = "export/"
+if not os.path.exists(export_dir):
+    os.mkdir(export_dir)
+#+END_SRC
+
+ - read a file:
+import os
+folder = '/file/path'
+file = os.path.join(folder, 'file_name')
+
+- list all the files under a directory:
+#+BEGIN_SRC python
+# os.listdir() 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。这个列表以字母顺序。 它不包括 '.' 和'..' 即使它在文件夹中.
+path = os.getcwd()
+dirs = os.listdir(path)
+#+END_SRC
+
+- check if the file readable:
+#+BEGIN_SRC python
+import os
+if os.access("/file/path/foo.txt", os.F_OK):
+    print "Given file path is exist."
+
+if os.access("/file/path/foo.txt", os.R_OK):
+    print "File is accessible to read"
+
+if os.access("/file/path/foo.txt", os.W_OK):
+    print "File is accessible to write"
+
+if os.access("/file/path/foo.txt", os.X_OK):
+    print "File is accessible to execute"
+
+#+END_SRC
+- use sys to get command arguments:
+#+BEGIN_SRC python
+#!/usr/bin/python3
+
+import sys
+
+print ('参数个数为:', len(sys.argv), '个参数。')
+print ('参数列表:', str(sys.argv))
+
+#+END_SRC
+#+BEGIN_SRC shell
+$ python3 test.py arg1 arg2 arg3
+参数个数为: 4 个参数。
+参数列表: ['test.py', 'arg1', 'arg2', 'arg3']
+#+END_SRC
+** exception
+- create an exception:
+#+BEGIN_SRC python
+class ConstraintError(Exception):
+    def __init__(self, arg):
+        self.args = arg
+
+
+if error:
+    raise ConstraintError("error")
+
+
+class Networkerror(RuntimeError):
+    def __init__(self, arg):
+        self.args = arg
+
+
+try:
+    raise Networkerror("Bad hostname")
+except Networkerror,e:
+    print e.args
+#+END_SRC
 * Data Analysis:
 
 ** pandas:
