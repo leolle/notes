@@ -43,5 +43,3 @@
   + [[file:./Business/风格分析.htm][FundReturnBasedStyleApproach]]
 + Books
   + [[file:./books/有效network.html][network]]
-+ Schedule
-  + [[file:./work_plan.org][schedule]]
