@@ -44,8 +44,8 @@ CapWords _CapWords Exceptions CapWords
 - Functions
 lower_with_under() _lower_with_under()
 
-- Global/Class
-Constants CAPS_WITH_UNDER _CAPS_WITH_UNDER
+- Global/Class Constants
+CAPS_WITH_UNDER _CAPS_WITH_UNDER
 
 - Global/Class Variables
 lower_with_under _lower_with_under
@@ -82,10 +82,9 @@ lower_with_under
 
 #+BEGIN_SRC python
 Yes: spam(ham[1], {eggs: 2}, [])
-#+BEGIN_SRC python
-
 #+END_SRC
 
+#+BEGIN_SRC python
 No:  spam( ham[ 1 ], { eggs: 2 }, [ ] )
 
 #+END_SRC
@@ -99,6 +98,7 @@ Yes: if x == 4:
      x, y = y, x
 
 #+END_SRC
+
 #+BEGIN_SRC python
 No:  if x == 4 :
          print x , y
@@ -111,14 +111,17 @@ No:  if x == 4 :
 Yes: spam(1)
 
 #+END_SRC
+
 #+BEGIN_SRC python
 no: spam (1)
 
 #+END_SRC
+
 #+BEGIN_SRC python
 Yes: dict['key'] = list[index]
 
 #+END_SRC
+
 #+BEGIN_SRC python
 No:  dict ['key'] = list [index]
 
@@ -353,11 +356,23 @@ def get_factor_exposure(risk_model):
 
 - 为方便函数复用，把数据或者模型参数暴露, 在主要模型功能函数里面尽量只做取数据，计算。.
 
-- gs python function避免使用匿名tuple的方式作为函数返回，如：
+- gs python function避免使用匿名tuple的方式作为函数返回.
+#+BEGIN_SRC python
+no:
 return df_l_signals, df_l_benchmark, df_l_industries, df_l_pool,total,quantile
+#+END_SRC
 
-- 避免定义无实际意义的函数形参，如：
+#+BEGIN_SRC python
+yes:
+return {'signal':df_l_signals, 'benchmark':df_l_benchmark, 'total':total}
+#+END_SRC
+
+- 避免定义无实际意义的函数形参.
+#+BEGIN_SRC python
 def _preprocess(x0,x1,x2,x3,x4,x5):
+    pass
+#+END_SRC
+
 
 - 数据类型的选用
 类型结构都一样的情况下，不使用 list 对象

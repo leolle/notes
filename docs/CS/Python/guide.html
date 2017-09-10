@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-10 Sun 20:27 -->
+<!-- 2017-09-10 Sun 20:35 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -230,10 +230,10 @@ lower_with_under() _lower_with_under()
 </p>
 
 <ul class="org-ul">
-<li>Global/Class</li>
+<li>Global/Class Constants</li>
 </ul>
 <p>
-Constants CAPS_WITH_UNDER _CAPS_WITH_UNDER
+CAPS_WITH_UNDER _CAPS_WITH_UNDER
 </p>
 
 <ul class="org-ul">
@@ -311,17 +311,14 @@ lower_with_under
 <div class="org-src-container">
 
 <pre class="src src-python">Yes: spam<span style="color: #AE81FF;">(</span>ham<span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">{</span>eggs: <span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">}</span>, <span style="color: #66D9EF;">[]</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">#</span><span style="color: #75715E;">+BEGIN_SRC python</span>
 </pre>
 </div>
 
-<p>
-No:  spam( ham[ 1 ], { eggs: 2 }, [ ] )
-</p>
+<div class="org-src-container">
 
-<p>
-#+END_SRC
-</p>
+<pre class="src src-python">No:  spam<span style="color: #AE81FF;">(</span> ham<span style="color: #66D9EF;">[</span> <span style="color: #AE81FF;">1</span> <span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">{</span> eggs: <span style="color: #AE81FF;">2</span> <span style="color: #66D9EF;">}</span>, <span style="color: #66D9EF;">[</span> <span style="color: #66D9EF;">]</span> <span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 
 
 <ul class="org-ul">
@@ -335,6 +332,7 @@ No:  spam( ham[ 1 ], { eggs: 2 }, [ ] )
      <span style="color: #FD971F;">x</span>, <span style="color: #FD971F;">y</span> = y, x
 </pre>
 </div>
+
 <div class="org-src-container">
 
 <pre class="src src-python">No:  <span style="color: #F92672;">if</span> x == <span style="color: #AE81FF;">4</span> :
@@ -351,16 +349,19 @@ No:  spam( ham[ 1 ], { eggs: 2 }, [ ] )
 <pre class="src src-python">Yes: spam<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+
 <div class="org-src-container">
 
 <pre class="src src-python">no: spam <span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+
 <div class="org-src-container">
 
 <pre class="src src-python">Yes: <span style="color: #F92672;">dict</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'key'</span><span style="color: #AE81FF;">]</span> = <span style="color: #F92672;">list</span><span style="color: #AE81FF;">[</span>index<span style="color: #AE81FF;">]</span>
 </pre>
 </div>
+
 <div class="org-src-container">
 
 <pre class="src src-python">No:  <span style="color: #F92672;">dict</span> <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'key'</span><span style="color: #AE81FF;">]</span> = <span style="color: #F92672;">list</span> <span style="color: #AE81FF;">[</span>index<span style="color: #AE81FF;">]</span>
@@ -683,18 +684,32 @@ no:
 
 <li>为方便函数复用，把数据或者模型参数暴露, 在主要模型功能函数里面尽量只做取数据，计算。.</li>
 
-<li>gs python function避免使用匿名tuple的方式作为函数返回，如：</li>
+<li>gs python function避免使用匿名tuple的方式作为函数返回.</li>
 </ul>
-<p>
-return df_l_signals, df_l_benchmark, df_l_industries, df_l_pool,total,quantile
-</p>
+<div class="org-src-container">
+
+<pre class="src src-python">no:
+<span style="color: #F92672;">return</span> df_l_signals, df_l_benchmark, df_l_industries, df_l_pool,total,quantile
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python">yes:
+<span style="color: #F92672;">return</span> <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'signal'</span>:df_l_signals, <span style="color: #E6DB74;">'benchmark'</span>:df_l_benchmark, <span style="color: #E6DB74;">'total'</span>:total<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
 
 <ul class="org-ul">
-<li>避免定义无实际意义的函数形参，如：</li>
+<li>避免定义无实际意义的函数形参.</li>
 </ul>
-<p>
-def _preprocess(x0,x1,x2,x3,x4,x5):
-</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">_preprocess</span><span style="color: #AE81FF;">(</span>x0,x1,x2,x3,x4,x5<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">pass</span>
+</pre>
+</div>
+
 
 <ul class="org-ul">
 <li>数据类型的选用</li>
@@ -744,7 +759,7 @@ input -&gt; module -&gt; output
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-10 Sun&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-10 Sun 20:27</p>
+<p class="date">Created: 2017-09-10 Sun 20:35</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
