@@ -196,6 +196,10 @@ Widen buffer to remove narrowing.
 C-c *     (org-toggle-heading)
 Turn a normal line or plain list item into a headline (so that it becomes a subheading at its location). Also turn a headline into a normal line by removing the stars. If there is an active region, turn all lines in the region into headlines. If the first line in the region was an item, turn only the item lines into headlines. Finally, if the first line is a headline, remove the stars from all headlines in the region.
 ** Latex
+*** disable underscore to subscript
+#+begin_src emacs-lisp :tangle yes
+^:nil
+#+end_src
 *** Greeks:
 $$\alpha, \beta, \gamma$$
 *** Superscript, subscript

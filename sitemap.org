@@ -25,6 +25,7 @@
     + Ipython notebooks
       + [[file:./ipynb/site/index.html][JupyterNotebooks]]
     + [[file:./CS/Python/python_rules.html][PythonRules]]
+      + [[file:./CS/Python/guide.org][guide]]
   + C++
     + [[file:./CS/C++/C++.org][C++ObjectOrientedProgramming]]
   + VersionControl
