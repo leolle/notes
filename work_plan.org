@@ -425,5 +425,11 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 * <2017-09-07 Thu>
 - [-] test:
   - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
-  - [ ] original portfolio is constructed by all hs300 components.
+  - [X] original portfolio is constructed by all hs300 components.
   - [ ] industry weight constraint match the benchmark weight.
+* <2017-09-08 Fri>
+- [X] industry weight constraint match the benchmark weight.
+- [ ] pack functions to modules.
+- [ ] follow up correction.
+- [ ] construnct FS, FR, workflow.
+- [ ] black-litterman portfolio.

@@ -725,6 +725,12 @@ pd.concat([df1, df2], axis=1)
 result = df1.join(df2, how='outer’)
 #+end_src
 
+- check if the index is datetimeindex:
+#+BEGIN_SRC python
+if isinstance(df_otv.index, pd.DatetimeIndex):
+    df_otv.reset_index(inplace=True)
+
+#+END_SRC
 - pandas are two dataframe identical
 #+BEGIN_SRC python
 pandas.DataFrame.equals()
