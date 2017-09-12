@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-12 Tue 11:57 -->
+<!-- 2017-09-12 Tue 14:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -319,12 +319,49 @@ python setup.py install
 to virtual environment:
 <i>home/weiwu</i>.virtualenvs/data<sub>analysis</sub>/bin/python2 setup.py install
 </p>
+
 <ul class="org-ul">
 <li>install from github:</li>
 </ul>
 <p>
 pip install git+<a href="https://github.com/quantopian/zipline.git">https://github.com/quantopian/zipline.git</a>
 </p>
+
+<ul class="org-ul">
+<li>change conda source:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">conda config --add channels <span style="color: #E6DB74;">'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'</span>
+conda config --set show_channel_urls yes
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>create conda virtualenv:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #75715E;"># </span><span style="color: #75715E;">&#21019;&#24314; conda &#34394;&#25311;&#29615;&#22659;&#65288; :code:`env_name` &#26159;&#24744;&#24076;&#26395;&#21019;&#24314;&#30340;&#34394;&#25311;&#29615;&#22659;&#21517;&#65289;</span>
+$ conda create --name env_name <span style="color: #FD971F;">python</span>=<span style="color: #AE81FF;">3.5</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#24744;&#24819;&#21019;&#24314;&#19968;&#20010;&#21517;&#20026;rqalpha&#30340;&#34394;&#25311;&#29615;&#22659;</span>
+$ conda create --name rqalpha <span style="color: #FD971F;">python</span>=<span style="color: #AE81FF;">3.5</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#20351;&#29992; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ source activate env_name
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#26524;&#26159; Windows &#29615;&#22659;&#19979; &#30452;&#25509;&#25191;&#34892; activcate</span>
+$ activate env_name
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#36864;&#20986; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ source deactivate env_name
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#26524;&#26159; Windows &#29615;&#22659;&#19979; &#30452;&#25509;&#25191;&#34892; deactivate</span>
+$ deactivate env_name
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#21024;&#38500; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ conda-env remove --name env_name
+</pre>
+</div>
 
 <ul class="org-ul">
 <li>percentage output format:</li>
@@ -1795,7 +1832,7 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-12 Tue 11:57</p>
+<p class="date">Created: 2017-09-12 Tue 14:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

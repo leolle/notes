@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-12 Tue 12:00 -->
+<!-- 2017-09-12 Tue 14:48 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,7 +147,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline15">1. future trade simulation</a>
+<li><a href="#orgheadline20">1. future trade simulation</a>
 <ul>
 <li><a href="#orgheadline1">1.1. functions</a></li>
 <li><a href="#orgheadline13">1.2. futures:</a>
@@ -155,11 +155,11 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline2">1.2.1. 期货合约命名规则：</a></li>
 <li><a href="#orgheadline5">1.2.2. 期货合约品种:</a></li>
 <li><a href="#orgheadline10">1.2.3. 国内future exchange:</a></li>
-<li><a href="#orgheadline11">1.2.4. dominant<sub>future</sub> - 期货主力合约</a></li>
+<li><a href="#orgheadline11">1.2.4. dominant_future - 期货主力合约</a></li>
 <li><a href="#orgheadline12">1.2.5. 保证金</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline14">1.3. 算法</a></li>
+<li><a href="#orgheadline19">1.3. 算法</a></li>
 </ul>
 </li>
 </ul>
@@ -167,8 +167,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">1</span> future trade simulation</h2>
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">1</span> future trade simulation</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> functions</h3>
@@ -216,42 +216,46 @@ for the JavaScript code in this tag.
 </div>
 
 <ol class="org-ol"><li><a id="orgheadline3"></a>商品期货<br  /><div class="outline-text-5" id="text-1-2-2-1">
-<p>
-农产品期货：如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。
-</p>
+<ul class="org-ul">
+<li>农产品期货：如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。</li>
 
-<p>
-金属期货：如铜、铝、锡、铅、锌、镍、黄金、白银、螺纹钢、线材。
-</p>
+<li>金属期货：如铜、铝、锡、铅、锌、镍、黄金、白银、螺纹钢、线材。</li>
 
-<p>
-能源期货：如原油（塑料、PTA、PVC）、汽油（甲醇）、燃料油。新兴品种包括气温、二氧化碳排放配额、天然橡胶。
-</p>
+<li>能源期货：如原油（塑料、PTA、PVC）、汽油（甲醇）、燃料油。新兴品种包括气温、二氧化碳排放配额、天然橡胶。</li>
+</ul>
 </div></li>
 
 <li><a id="orgheadline4"></a>金融期货<br  /><div class="outline-text-5" id="text-1-2-2-2">
+<ul class="org-ul">
+<li>股指期货：</li>
+</ul>
 <p>
-股指期货：如英国FTSE指数、德国DAX指数、东京日经平均指数、香港恒生指数、沪深300指数
+如沪深300指数, 'IF'
 </p>
 
+<ul class="org-ul">
+<li>利率期货（Interest rate futures）：</li>
+</ul>
 <p>
-利率期货（Interest rate futures）：利率期货是指以债券类证券为标的物的期货合约，它可以避免利率波动所引起的证券价格变动的风险。利率期货一般可分为短期利率期货和长期利率期货，前者大多以银行同业拆借中场3月期利率为标的物、后者大多以5年期以上长期债券为标的物。
+利率期货是指以债券类证券为标的物的期货合约，它可以避免利率波动所引起的证券价格变动的风险。利率期货一般可分为短期利率期货和长期利率期货，前者大多以银行同业拆借中场3月期利率为标的物、后者大多以5年期以上长期债券为标的物。
 </p>
 
+<ul class="org-ul">
+<li>外汇期货(foreign exchange futures):</li>
+</ul>
 <p>
-外汇期货(foreign exchange futures)又称为货币期货，是一种在最终交易日按照当时的汇率将一种货币兑换成另外一种货币的期货合约。是指以汇率为标的物的期货合约，用来回避汇率风险。它是金融期货中最早出现的品种。
+又称为货币期货，是一种在最终交易日按照当时的汇率将一种货币兑换成另外一种货币的期货合约。是指以汇率为标的物的期货合约，用来回避汇率风险。它是金融期货中最早出现的品种。
 </p>
 
-<p>
-贵金属期货
-</p>
-
+<ul class="org-ul">
+<li>贵金属期货</li>
+</ul>
 <p>
 主要以黄金、白银为标的物的期货合约。
 </p>
 
 <p>
-例如沪深300股指期货为’IF’, 贵金属按化学元素周期表命名，黄金为‘au’，白银为‘ag’。
+贵金属按化学元素周期表命名，黄金为‘au’，白银为‘ag’。
 </p>
 </div></li></ol>
 </div>
@@ -285,7 +289,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-orgheadline11" class="outline-4">
-<h4 id="orgheadline11"><span class="section-number-4">1.2.4</span> dominant<sub>future</sub> - 期货主力合约</h4>
+<h4 id="orgheadline11"><span class="section-number-4">1.2.4</span> dominant_future - 期货主力合约</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 合约首次上市时，以当日收盘同品种持仓量最大者作为从第二个交易日开始的主力合约。当同品种其他合约持仓量在收盘后超过当前主力合约1.1倍时，从第二个交易日开始进行主力合约的切换。日内不会进行主力合约的切换。
@@ -391,9 +395,49 @@ for example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">1.3</span> 算法</h3>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">1.3</span> 算法</h3>
 <div class="outline-text-3" id="text-1-3">
+</div><ol class="org-ol"><li><a id="orgheadline14"></a>trading calendar:<br  /></li>
+
+<li><a id="orgheadline15"></a>future attributes:<br  /><div class="outline-text-5" id="text-1-3-0-2">
+<ul class="org-ul">
+<li>root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.</li>
+<li>start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.</li>
+<li>end_date: The last date the contract can be traded or closed before delivery.</li>
+<li>notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.</li>
+<li>auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.</li>
+<li>tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.</li>
+<li>multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline16"></a>position management:<br  /></li>
+
+<li><a id="orgheadline17"></a>future contract value:<br  /><div class="outline-text-5" id="text-1-3-0-4">
+<p>
+To better understand the need for continuous futures, let's get pricing data for the chain of individual contracts and plot it.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/futures_value.png" alt="futures_value.png" />
+</p>
+<p><span class="figure-number">Figure 1:</span> future contract</p>
+</div>
+
+<p>
+The price difference between contracts at a given time is not considered to be an increase in value in the future. Instead, it is associated with the carrying cost and the opportunity cost of holding the underlying commodity or asset prior to delivery.
+</p>
+
+<div id="orgparagraph1" class="figure">
+<p><img src="./images/active_contract.png" alt="active_contract.png" />
+</p>
+<p><span class="figure-number">Figure 2:</span> active contract</p>
+</div>
+</div></li>
+
+<li><a id="orgheadline18"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-5">
 <p>
 仓位金：总资金*（X%-Y%）；
 </p>
@@ -417,14 +461,14 @@ for example:
 <p>
 期货品种波动一个价位的值：最小变动价*交易单位*开仓手数；
 </p>
-</div>
+</div></li></ol>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-12 Tue 12:00</p>
+<p class="date">Created: 2017-09-12 Tue 14:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

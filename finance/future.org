@@ -1,7 +1,7 @@
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
-#+OPTIONS: title:t toc:t todo:t |:t
+#+OPTIONS: title:t toc:t todo:t |:t ^:nil
 #+TITLES: future
 #+DATE: <2017-09-12 Tue>
 #+AUTHORS: weiwu
@@ -34,25 +34,27 @@
 
 **** 商品期货
 
-农产品期货：如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。
+- 农产品期货：如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。
 
-金属期货：如铜、铝、锡、铅、锌、镍、黄金、白银、螺纹钢、线材。
+- 金属期货：如铜、铝、锡、铅、锌、镍、黄金、白银、螺纹钢、线材。
 
-能源期货：如原油（塑料、PTA、PVC）、汽油（甲醇）、燃料油。新兴品种包括气温、二氧化碳排放配额、天然橡胶。
+- 能源期货：如原油（塑料、PTA、PVC）、汽油（甲醇）、燃料油。新兴品种包括气温、二氧化碳排放配额、天然橡胶。
 
 **** 金融期货
 
-股指期货：如英国FTSE指数、德国DAX指数、东京日经平均指数、香港恒生指数、沪深300指数
+- 股指期货：
+如沪深300指数, 'IF'
 
-利率期货（Interest rate futures）：利率期货是指以债券类证券为标的物的期货合约，它可以避免利率波动所引起的证券价格变动的风险。利率期货一般可分为短期利率期货和长期利率期货，前者大多以银行同业拆借中场3月期利率为标的物、后者大多以5年期以上长期债券为标的物。
+- 利率期货（Interest rate futures）：
+利率期货是指以债券类证券为标的物的期货合约，它可以避免利率波动所引起的证券价格变动的风险。利率期货一般可分为短期利率期货和长期利率期货，前者大多以银行同业拆借中场3月期利率为标的物、后者大多以5年期以上长期债券为标的物。
 
-外汇期货(foreign exchange futures)又称为货币期货，是一种在最终交易日按照当时的汇率将一种货币兑换成另外一种货币的期货合约。是指以汇率为标的物的期货合约，用来回避汇率风险。它是金融期货中最早出现的品种。
+- 外汇期货(foreign exchange futures):
+又称为货币期货，是一种在最终交易日按照当时的汇率将一种货币兑换成另外一种货币的期货合约。是指以汇率为标的物的期货合约，用来回避汇率风险。它是金融期货中最早出现的品种。
 
-贵金属期货
-
+- 贵金属期货
 主要以黄金、白银为标的物的期货合约。
 
-例如沪深300股指期货为’IF’, 贵金属按化学元素周期表命名，黄金为‘au’，白银为‘ag’。
+贵金属按化学元素周期表命名，黄金为‘au’，白银为‘ag’。
 
 *** 国内future exchange:
 **** 郑州商品交易所（ZCE）
@@ -90,11 +92,31 @@ for example:
 | 交易代码 | AU |
 | 上市交易所 | 上海期货交易所 |
 ** 算法
-- trading calendar:
+**** trading calendar:
 
-- position management:
+**** future attributes:
+- root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.
+- start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.
+- end_date: The last date the contract can be traded or closed before delivery.
+- notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.
+- auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.
+- tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.
+- multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.
 
-- commission:
+**** position management:
+
+**** future contract value:
+To better understand the need for continuous futures, let's get pricing data for the chain of individual contracts and plot it.
+
+#+CAPTION: future contract
+[[./images/futures_value.png]]
+
+The price difference between contracts at a given time is not considered to be an increase in value in the future. Instead, it is associated with the carrying cost and the opportunity cost of holding the underlying commodity or asset prior to delivery.
+#+CAPTION: active contract
+#+NAME:   fig:SED-HR4049
+[[./images/active_contract.png]]
+
+**** commission:
 仓位金：总资金*（X%-Y%）；
 
 单笔最大允许亏损额<=总资产*Z%；
