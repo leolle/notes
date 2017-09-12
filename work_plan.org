@@ -437,4 +437,12 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 - [ ] follow up correction.
 - [ ] construnct FS, FR, workflow.
 * <2017-09-12 Tue>
-- [ ] future simulation.
+- [ ] future simulation requested function:
+- calendar spread trading.
+buy current month expired contract.
+short next month expired contract.
+
+- rolling on constant maturity.
+
+- trend following on dominant contract.
+moving average crossing over on the continous contract.
