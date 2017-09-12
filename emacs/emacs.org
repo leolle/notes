@@ -2966,3 +2966,9 @@ $ sudo make uninstall
 |                   | s          | discard the latest commit  |
 | login             | 1          | short logs                 |
 |                   | h          | reflog                     |
+** insert images and links
+#+begin_src emacs-lisp :tangle yes
+#+CAPTION: future contract
+[[./image.png]]
+C-c C-x C-v (org-toggle-inline-mages)
+#+end_src

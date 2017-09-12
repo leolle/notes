@@ -116,7 +116,34 @@ The price difference between contracts at a given time is not considered to be a
 #+NAME:   fig:SED-HR4049
 [[./images/active_contract.png]]
 
+**** adjustment styles
+- multiplying
+The Proportionality Adjustment approach is similar to the adjustment methodology of handling stock splits in equities. Rather than taking an absolute shift in the successive contracts, the ratio of the older settle (close) price to the newer open price is used to proportionally adjust the prices of historical contracts. This allows a continous stream without an interruption of the calculation of percentage returns.
+
+The main issue with proportional adjustment is that any trading strategies reliant on an absolute price level will also have to be similarly adjusted in order to execute the correct signal. This is a problematic and error-prone process. *Thus this type of continuous stream is often only useful for summary statistical analysis, as opposed to direct backtesting research.*
+
+- add
+What we have to do is adjust all previous prices up by the gap. This effectively "closes" the gap.
+
+The key problem with the Panama method includes the introduction of a trend bias, which will introduce a large drift to the prices. This can lead to negative data for sufficiently historical contracts. In addition there is a loss of the relative price differences due to an absolute shift in values. This means that returns are complicated to calculate (or just plain incorrect).
+
+- None
+
+**** roll styles
+- calendar
+
+- volume
+
+**** Slippage
+When an order is placed for a contract, the market is affected. Buy orders drive prices up, and sell orders drive prices down; this is generally referred to as the price impact of a trade. Additionally, orders do not necessarily fill instantaneously. Fill rates are dependent on the order size and current trading volume of the ordered contract.
+
+On Quantopian, slippage on futures contracts is calculated using a special volatility volume share model. The volatility volume share model uses trailing 20-day trading volume and volatility to compute the price impact and fill rate of an order. Each underlying commodity/asset has its own model fit to historical data.
+#+CAPTION: market impact
+[[./images/market_impact.png]]
+
 **** commission:
+commissions charged per contract as well as exchange fees charged per trade.
+
 仓位金：总资金*（X%-Y%）；
 
 单笔最大允许亏损额<=总资产*Z%；
@@ -124,7 +151,5 @@ The price difference between contracts at a given time is not considered to be a
 单手开仓价：（现价*交易单位*保证金）+手续费；
 
 默认手数（最大开仓）：仓位金/单手开仓价；
-
-每笔最大止损点数：最大允许亏损额/开仓手数/交易单位/最小变动价位；
 
 期货品种波动一个价位的值：最小变动价*交易单位*开仓手数；

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-12 Tue 14:48 -->
+<!-- 2017-09-12 Tue 16:22 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,7 +147,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline20">1. future trade simulation</a>
+<li><a href="#orgheadline23">1. future trade simulation</a>
 <ul>
 <li><a href="#orgheadline1">1.1. functions</a></li>
 <li><a href="#orgheadline13">1.2. futures:</a>
@@ -159,7 +159,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline12">1.2.5. 保证金</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline19">1.3. 算法</a></li>
+<li><a href="#orgheadline22">1.3. 算法</a></li>
 </ul>
 </li>
 </ul>
@@ -167,8 +167,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline20" class="outline-2">
-<h2 id="orgheadline20"><span class="section-number-2">1</span> future trade simulation</h2>
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">1</span> future trade simulation</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> functions</h3>
@@ -395,8 +395,8 @@ for example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">1.3</span> 算法</h3>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">1.3</span> 算法</h3>
 <div class="outline-text-3" id="text-1-3">
 </div><ol class="org-ol"><li><a id="orgheadline14"></a>trading calendar:<br  /></li>
 
@@ -437,7 +437,63 @@ The price difference between contracts at a given time is not considered to be a
 </div>
 </div></li>
 
-<li><a id="orgheadline18"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-5">
+<li><a id="orgheadline18"></a>adjustment styles<br  /><div class="outline-text-5" id="text-1-3-0-5">
+<ul class="org-ul">
+<li>multiplying</li>
+</ul>
+<p>
+The Proportionality Adjustment approach is similar to the adjustment methodology of handling stock splits in equities. Rather than taking an absolute shift in the successive contracts, the ratio of the older settle (close) price to the newer open price is used to proportionally adjust the prices of historical contracts. This allows a continous stream without an interruption of the calculation of percentage returns.
+</p>
+
+<p>
+The main issue with proportional adjustment is that any trading strategies reliant on an absolute price level will also have to be similarly adjusted in order to execute the correct signal. This is a problematic and error-prone process. <b>Thus this type of continuous stream is often only useful for summary statistical analysis, as opposed to direct backtesting research.</b>
+</p>
+
+<ul class="org-ul">
+<li>add</li>
+</ul>
+<p>
+What we have to do is adjust all previous prices up by the gap. This effectively "closes" the gap.
+</p>
+
+<p>
+The key problem with the Panama method includes the introduction of a trend bias, which will introduce a large drift to the prices. This can lead to negative data for sufficiently historical contracts. In addition there is a loss of the relative price differences due to an absolute shift in values. This means that returns are complicated to calculate (or just plain incorrect).
+</p>
+
+<ul class="org-ul">
+<li>None</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline19"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-6">
+<ul class="org-ul">
+<li>calendar</li>
+
+<li>volume</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline20"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-7">
+<p>
+When an order is placed for a contract, the market is affected. Buy orders drive prices up, and sell orders drive prices down; this is generally referred to as the price impact of a trade. Additionally, orders do not necessarily fill instantaneously. Fill rates are dependent on the order size and current trading volume of the ordered contract.
+</p>
+
+<p>
+On Quantopian, slippage on futures contracts is calculated using a special volatility volume share model. The volatility volume share model uses trailing 20-day trading volume and volatility to compute the price impact and fill rate of an order. Each underlying commodity/asset has its own model fit to historical data.
+</p>
+
+<div class="figure">
+<p><img src="./images/market_impact.png" alt="market_impact.png" />
+</p>
+<p><span class="figure-number">Figure 3:</span> market impact</p>
+</div>
+</div></li>
+
+<li><a id="orgheadline21"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-8">
+<p>
+commissions charged per contract as well as exchange fees charged per trade.
+</p>
+
 <p>
 仓位金：总资金*（X%-Y%）；
 </p>
@@ -455,10 +511,6 @@ The price difference between contracts at a given time is not considered to be a
 </p>
 
 <p>
-每笔最大止损点数：最大允许亏损额/开仓手数/交易单位/最小变动价位；
-</p>
-
-<p>
 期货品种波动一个价位的值：最小变动价*交易单位*开仓手数；
 </p>
 </div></li></ol>
@@ -468,7 +520,7 @@ The price difference between contracts at a given time is not considered to be a
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-12 Tue 14:48</p>
+<p class="date">Created: 2017-09-12 Tue 16:22</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
