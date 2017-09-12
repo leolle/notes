@@ -98,11 +98,17 @@ for example:
 
 **** future attributes:
 - root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.
+
 - start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.
+
 - end_date: The last date the contract can be traded or closed before delivery.
+
 - notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.
+
 - auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.
+
 - tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.
+
 - multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.
 
 **** future contract value:
@@ -143,6 +149,7 @@ This is two days prior to either notice_date or end_date, whichever is earlier.
 
 [[https://www.quantopian.com/posts/quantopians-slippage-model-for-futures
 ]]
+
 When an order is placed for a contract, the market is affected. Buy orders drive prices up, and sell orders drive prices down; this is generally referred to as the price impact of a trade. Additionally, orders do not necessarily fill instantaneously. Fill rates are dependent on the order size and current trading volume of the ordered contract.
 
 On Quantopian, slippage on futures contracts is calculated using a special volatility volume share model. The volatility volume share model uses trailing 20-day trading volume and volatility to compute the price impact and fill rate of an order. Each underlying commodity/asset has its own model fit to historical data.

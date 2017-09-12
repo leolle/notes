@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-12 Tue 16:23 -->
+<!-- 2017-09-12 Tue 16:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,7 +147,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline23">1. future trade simulation</a>
+<li><a href="#orgheadline22">1. future trade simulation</a>
 <ul>
 <li><a href="#orgheadline1">1.1. functions</a></li>
 <li><a href="#orgheadline13">1.2. futures:</a>
@@ -159,7 +159,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline12">1.2.5. 保证金</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline22">1.3. 算法</a></li>
+<li><a href="#orgheadline21">1.3. 算法</a></li>
 </ul>
 </li>
 </ul>
@@ -167,21 +167,22 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline23" class="outline-2">
-<h2 id="orgheadline23"><span class="section-number-2">1</span> future trade simulation</h2>
+<div id="outline-container-orgheadline22" class="outline-2">
+<h2 id="orgheadline22"><span class="section-number-2">1</span> future trade simulation</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> functions</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>合成一个连续合约.</li>
-<li>future calendar spread.</li>
 <li>rolling on constant maturity.</li>
+
 <li>buy current and roll.</li>
+
 <li>buy constant maturity trend following.</li>
 </ul>
 </div>
 </div>
+
 <div id="outline-container-orgheadline13" class="outline-3">
 <h3 id="orgheadline13"><span class="section-number-3">1.2</span> futures:</h3>
 <div class="outline-text-3" id="text-1-2">
@@ -395,26 +396,34 @@ for example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">1.3</span> 算法</h3>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">1.3</span> 算法</h3>
 <div class="outline-text-3" id="text-1-3">
-</div><ol class="org-ol"><li><a id="orgheadline14"></a>trading calendar:<br  /></li>
+</div><ol class="org-ol"><li><a id="orgheadline14"></a>trading calendar:<br  /><div class="outline-text-5" id="text-1-3-0-1">
+<ul class="org-ul">
+<li>future calendar spread adjustment, 合成一个连续合约.</li>
+</ul>
+</div></li>
 
 <li><a id="orgheadline15"></a>future attributes:<br  /><div class="outline-text-5" id="text-1-3-0-2">
 <ul class="org-ul">
 <li>root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.</li>
+
 <li>start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.</li>
+
 <li>end_date: The last date the contract can be traded or closed before delivery.</li>
+
 <li>notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.</li>
+
 <li>auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.</li>
+
 <li>tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.</li>
+
 <li>multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.</li>
 </ul>
 </div></li>
 
-<li><a id="orgheadline16"></a>position management:<br  /></li>
-
-<li><a id="orgheadline17"></a>future contract value:<br  /><div class="outline-text-5" id="text-1-3-0-4">
+<li><a id="orgheadline16"></a>future contract value:<br  /><div class="outline-text-5" id="text-1-3-0-3">
 <p>
 To better understand the need for continuous futures, let's get pricing data for the chain of individual contracts and plot it.
 </p>
@@ -437,7 +446,7 @@ The price difference between contracts at a given time is not considered to be a
 </div>
 </div></li>
 
-<li><a id="orgheadline18"></a>adjustment styles<br  /><div class="outline-text-5" id="text-1-3-0-5">
+<li><a id="orgheadline17"></a>adjustment styles<br  /><div class="outline-text-5" id="text-1-3-0-4">
 <ul class="org-ul">
 <li>multiplying</li>
 </ul>
@@ -465,15 +474,38 @@ The key problem with the Panama method includes the introduction of a trend bias
 </ul>
 </div></li>
 
-<li><a id="orgheadline19"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-6">
+<li><a id="orgheadline18"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-5">
+<p>
+position management.
+</p>
+
+<p>
+Rolling the position reference to calendar or volume(dominant contract).
+</p>
 <ul class="org-ul">
 <li>calendar</li>
+</ul>
+<p>
+This is two days prior to either notice_date or end_date, whichever is earlier.
+</p>
 
+<ul class="org-ul">
 <li>volume</li>
 </ul>
+<p>
+期货主力合约
+</p>
 </div></li>
 
-<li><a id="orgheadline20"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-7">
+<li><a id="orgheadline19"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-6">
+<p>
+<a href="https://www.quantopian.com/tutorials/futures-getting-started#lesson11">https://www.quantopian.com/tutorials/futures-getting-started#lesson11</a>
+</p>
+
+<p>
+<a href="https://www.quantopian.com/posts/quantopians-slippage-model-for-futures%20">https://www.quantopian.com/posts/quantopians-slippage-model-for-futures%20</a>
+</p>
+
 <p>
 When an order is placed for a contract, the market is affected. Buy orders drive prices up, and sell orders drive prices down; this is generally referred to as the price impact of a trade. Additionally, orders do not necessarily fill instantaneously. Fill rates are dependent on the order size and current trading volume of the ordered contract.
 </p>
@@ -489,7 +521,7 @@ On Quantopian, slippage on futures contracts is calculated using a special volat
 </div>
 </div></li>
 
-<li><a id="orgheadline21"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-8">
+<li><a id="orgheadline20"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-7">
 <p>
 commissions charged per contract as well as exchange fees charged per trade.
 </p>
@@ -520,7 +552,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-12 Tue 16:23</p>
+<p class="date">Created: 2017-09-12 Tue 16:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
