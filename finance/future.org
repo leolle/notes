@@ -90,6 +90,11 @@ for example:
 | 交易代码 | AU |
 | 上市交易所 | 上海期货交易所 |
 ** 算法
+- trading calendar:
+
+- position management:
+
+- commission:
 仓位金：总资金*（X%-Y%）；
 
 单笔最大允许亏损额<=总资产*Z%；

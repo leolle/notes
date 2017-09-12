@@ -71,8 +71,38 @@ mkvirtual -p python3 ENVNAME
 python setup.py install
 to virtual environment:
 /home/weiwu/.virtualenvs/data_analysis/bin/python2 setup.py install
+
 - install from github:
 pip install git+https://github.com/quantopian/zipline.git
+
+- change conda source:
+#+BEGIN_SRC shell
+conda config --add channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'
+conda config --set show_channel_urls yes
+#+END_SRC
+
+- create conda virtualenv:
+#+BEGIN_SRC shell
+# 创建 conda 虚拟环境（ :code:`env_name` 是您希望创建的虚拟环境名）
+$ conda create --name env_name python=3.5
+
+# 如您想创建一个名为rqalpha的虚拟环境
+$ conda create --name rqalpha python=3.5
+
+# 使用 conda 虚拟环境
+$ source activate env_name
+# 如果是 Windows 环境下 直接执行 activcate
+$ activate env_name
+
+# 退出 conda 虚拟环境
+$ source deactivate env_name
+# 如果是 Windows 环境下 直接执行 deactivate
+$ deactivate env_name
+
+# 删除 conda 虚拟环境
+$ conda-env remove --name env_name
+
+#+END_SRC
 
 - percentage output format:
 #+begin_src python
