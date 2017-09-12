@@ -14,11 +14,12 @@
 
 * future trade simulation
 ** functions
-- 合成一个连续合约.
-- future calendar spread.
 - rolling on constant maturity.
+
 - buy current and roll.
+
 - buy constant maturity trend following.
+
 ** futures:
 由期货交易所统一制定的、规定在将来某一特定的时间和地点交割一定数量和质量标的物的标准化合约。
 
@@ -93,6 +94,7 @@ for example:
 | 上市交易所 | 上海期货交易所 |
 ** 算法
 **** trading calendar:
+- future calendar spread adjustment, 合成一个连续合约.
 
 **** future attributes:
 - root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.
@@ -102,8 +104,6 @@ for example:
 - auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.
 - tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.
 - multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.
-
-**** position management:
 
 **** future contract value:
 To better understand the need for continuous futures, let's get pricing data for the chain of individual contracts and plot it.
@@ -130,11 +130,19 @@ The key problem with the Panama method includes the introduction of a trend bias
 - None
 
 **** roll styles
+position management.
+
+Rolling the position reference to calendar or volume(dominant contract).
 - calendar
+This is two days prior to either notice_date or end_date, whichever is earlier.
 
 - volume
-
+期货主力合约
 **** Slippage
+[[https://www.quantopian.com/tutorials/futures-getting-started#lesson11]]
+
+[[https://www.quantopian.com/posts/quantopians-slippage-model-for-futures
+]]
 When an order is placed for a contract, the market is affected. Buy orders drive prices up, and sell orders drive prices down; this is generally referred to as the price impact of a trade. Additionally, orders do not necessarily fill instantaneously. Fill rates are dependent on the order size and current trading volume of the ordered contract.
 
 On Quantopian, slippage on futures contracts is calculated using a special volatility volume share model. The volatility volume share model uses trailing 20-day trading volume and volatility to compute the price impact and fill rate of an order. Each underlying commodity/asset has its own model fit to historical data.
