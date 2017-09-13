@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-12 Tue 16:42 -->
+<!-- 2017-09-13 Wed 13:49 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,19 +147,31 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline22">1. future trade simulation</a>
+<li><a href="#orgheadline42">1. future trade simulation</a>
 <ul>
-<li><a href="#orgheadline1">1.1. functions</a></li>
-<li><a href="#orgheadline13">1.2. futures:</a>
+<li><a href="#orgheadline2">1.1. functions</a>
 <ul>
-<li><a href="#orgheadline2">1.2.1. 期货合约命名规则：</a></li>
-<li><a href="#orgheadline5">1.2.2. 期货合约品种:</a></li>
-<li><a href="#orgheadline10">1.2.3. 国内future exchange:</a></li>
-<li><a href="#orgheadline11">1.2.4. dominant_future - 期货主力合约</a></li>
-<li><a href="#orgheadline12">1.2.5. 保证金</a></li>
+<li><a href="#orgheadline1">1.1.1. constant maturity</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">1.3. 算法</a></li>
+<li><a href="#orgheadline16">1.2. futures:</a>
+<ul>
+<li><a href="#orgheadline3">1.2.1. 期货合约命名规则：</a></li>
+<li><a href="#orgheadline6">1.2.2. 期货合约品种:</a></li>
+<li><a href="#orgheadline11">1.2.3. 国内future exchange:</a></li>
+<li><a href="#orgheadline12">1.2.4. dominant_future - 期货主力合约</a></li>
+<li><a href="#orgheadline13">1.2.5. trading calendar:</a></li>
+<li><a href="#orgheadline14">1.2.6. future attributes:</a></li>
+<li><a href="#orgheadline15">1.2.7. 保证金</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline22">1.3. 算法</a></li>
+<li><a href="#orgheadline41">1.4. backtesting</a>
+<ul>
+<li><a href="#orgheadline23">1.4.1. 回测初始化参数(setting initial parameters)：</a></li>
+<li><a href="#orgheadline40">1.4.2. backtesting：</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -167,32 +179,49 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">1</span> future trade simulation</h2>
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="section-number-2">1</span> future trade simulation</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> functions</h3>
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.1</span> functions</h3>
 <div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>calendar spread trading.</li>
+</ul>
+<p>
+buy current month expired contract.
+short next month expired contract.
+</p>
+
 <ul class="org-ul">
 <li>rolling on constant maturity.</li>
 
-<li>buy current and roll.</li>
-
-<li>buy constant maturity trend following.</li>
+<li>trend following on dominant contract.</li>
 </ul>
+<p>
+moving average crossing over on the continous contract.
+</p>
+</div>
+<div id="outline-container-orgheadline1" class="outline-4">
+<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> constant maturity</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Negative roll yield can occur as an investor sells an expiring futures contract and simultaneously purchases a new contract. If the price of the new replacement contract is higher than the expiring contract, the transaction will yield a negative cash result, also known as negative roll yield.
+</p>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">1.2</span> futures:</h3>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">1.2</span> futures:</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 由期货交易所统一制定的、规定在将来某一特定的时间和地点交割一定数量和质量标的物的标准化合约。
 </p>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-4">
-<h4 id="orgheadline2"><span class="section-number-4">1.2.1</span> 期货合约命名规则：</h4>
+<div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">1.2.1</span> 期货合约命名规则：</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 品种名+交割月份
@@ -200,8 +229,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-4">
-<h4 id="orgheadline5"><span class="section-number-4">1.2.2</span> 期货合约品种:</h4>
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">1.2.2</span> 期货合约品种:</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 商品期货和金融期货。
@@ -216,7 +245,7 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline3"></a>商品期货<br  /><div class="outline-text-5" id="text-1-2-2-1">
+<ol class="org-ol"><li><a id="orgheadline4"></a>商品期货<br  /><div class="outline-text-5" id="text-1-2-2-1">
 <ul class="org-ul">
 <li>农产品期货：如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。</li>
 
@@ -226,7 +255,7 @@ for the JavaScript code in this tag.
 </ul>
 </div></li>
 
-<li><a id="orgheadline4"></a>金融期货<br  /><div class="outline-text-5" id="text-1-2-2-2">
+<li><a id="orgheadline5"></a>金融期货<br  /><div class="outline-text-5" id="text-1-2-2-2">
 <ul class="org-ul">
 <li>股指期货：</li>
 </ul>
@@ -261,36 +290,36 @@ for the JavaScript code in this tag.
 </div></li></ol>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-4">
-<h4 id="orgheadline10"><span class="section-number-4">1.2.3</span> 国内future exchange:</h4>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">1.2.3</span> 国内future exchange:</h4>
 <div class="outline-text-4" id="text-1-2-3">
-</div><ol class="org-ol"><li><a id="orgheadline6"></a>郑州商品交易所（ZCE）<br  /><div class="outline-text-5" id="text-1-2-3-1">
+</div><ol class="org-ol"><li><a id="orgheadline7"></a>郑州商品交易所（ZCE）<br  /><div class="outline-text-5" id="text-1-2-3-1">
 <p>
 交易的品种有强筋小麦、普通小麦、PTA、一号棉花、白糖、菜籽油、早籼稻、玻璃、菜籽、菜粕、甲醇等16个期货品种.
 </p>
 </div></li>
 
-<li><a id="orgheadline7"></a>上海期货交易所（SHFE）<br  /><div class="outline-text-5" id="text-1-2-3-2">
+<li><a id="orgheadline8"></a>上海期货交易所（SHFE）<br  /><div class="outline-text-5" id="text-1-2-3-2">
 <p>
 目前上市交易的有黄金、白银、铜、铝、锌、铅、螺纹钢、线材、燃料油、天然橡胶沥青等11个期货品种。
 </p>
 </div></li>
 
-<li><a id="orgheadline8"></a>大连商品交易所（DCE）<br  /><div class="outline-text-5" id="text-1-2-3-3">
+<li><a id="orgheadline9"></a>大连商品交易所（DCE）<br  /><div class="outline-text-5" id="text-1-2-3-3">
 <p>
 是中国东北地区唯一一家期货交易所。上市交易的有玉米、黄大豆1号、黄大豆2号、豆粕、豆油、棕榈油、聚丙烯、聚氯乙烯、塑料、焦炭、焦煤、铁矿石、胶合板、纤维板、鸡蛋等15个期货品种。
 </p>
 </div></li>
 
-<li><a id="orgheadline9"></a>中国金融期货交易所（CFFEX）<br  /><div class="outline-text-5" id="text-1-2-3-4">
+<li><a id="orgheadline10"></a>中国金融期货交易所（CFFEX）<br  /><div class="outline-text-5" id="text-1-2-3-4">
 <p>
 交易品种有股指期货，国债期货。
 </p>
 </div></li></ol>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-4">
-<h4 id="orgheadline11"><span class="section-number-4">1.2.4</span> dominant_future - 期货主力合约</h4>
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.2.4</span> dominant_future - 期货主力合约</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 合约首次上市时，以当日收盘同品种持仓量最大者作为从第二个交易日开始的主力合约。当同品种其他合约持仓量在收盘后超过当前主力合约1.1倍时，从第二个交易日开始进行主力合约的切换。日内不会进行主力合约的切换。
@@ -298,9 +327,39 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-4">
-<h4 id="orgheadline12"><span class="section-number-4">1.2.5</span> 保证金</h4>
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">1.2.5</span> trading calendar:</h4>
 <div class="outline-text-4" id="text-1-2-5">
+<ul class="org-ul">
+<li>future calendar spread adjustment, 合成一个连续合约.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">1.2.6</span> future attributes:</h4>
+<div class="outline-text-4" id="text-1-2-6">
+<ul class="org-ul">
+<li>root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.</li>
+
+<li>start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.</li>
+
+<li>end_date: The last date the contract can be traded or closed before delivery.</li>
+
+<li>notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.</li>
+
+<li>auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.</li>
+
+<li>tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.</li>
+
+<li>multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15"><span class="section-number-4">1.2.7</span> 保证金</h4>
+<div class="outline-text-4" id="text-1-2-7">
 <p>
 参考各交易所各品种手册。
 </p>
@@ -396,34 +455,10 @@ for example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">1.3</span> 算法</h3>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">1.3</span> 算法</h3>
 <div class="outline-text-3" id="text-1-3">
-</div><ol class="org-ol"><li><a id="orgheadline14"></a>trading calendar:<br  /><div class="outline-text-5" id="text-1-3-0-1">
-<ul class="org-ul">
-<li>future calendar spread adjustment, 合成一个连续合约.</li>
-</ul>
-</div></li>
-
-<li><a id="orgheadline15"></a>future attributes:<br  /><div class="outline-text-5" id="text-1-3-0-2">
-<ul class="org-ul">
-<li>root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.</li>
-
-<li>start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.</li>
-
-<li>end_date: The last date the contract can be traded or closed before delivery.</li>
-
-<li>notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.</li>
-
-<li>auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.</li>
-
-<li>tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.</li>
-
-<li>multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.</li>
-</ul>
-</div></li>
-
-<li><a id="orgheadline16"></a>future contract value:<br  /><div class="outline-text-5" id="text-1-3-0-3">
+</div><ol class="org-ol"><li><a id="orgheadline17"></a>future contract value:<br  /><div class="outline-text-5" id="text-1-3-0-1">
 <p>
 To better understand the need for continuous futures, let's get pricing data for the chain of individual contracts and plot it.
 </p>
@@ -446,7 +481,7 @@ The price difference between contracts at a given time is not considered to be a
 </div>
 </div></li>
 
-<li><a id="orgheadline17"></a>adjustment styles<br  /><div class="outline-text-5" id="text-1-3-0-4">
+<li><a id="orgheadline18"></a>adjustment styles<br  /><div class="outline-text-5" id="text-1-3-0-2">
 <ul class="org-ul">
 <li>multiplying</li>
 </ul>
@@ -474,7 +509,7 @@ The key problem with the Panama method includes the introduction of a trend bias
 </ul>
 </div></li>
 
-<li><a id="orgheadline18"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-5">
+<li><a id="orgheadline19"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-3">
 <p>
 position management.
 </p>
@@ -497,7 +532,7 @@ This is two days prior to either notice_date or end_date, whichever is earlier.
 </p>
 </div></li>
 
-<li><a id="orgheadline19"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-6">
+<li><a id="orgheadline20"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-4">
 <p>
 <a href="https://www.quantopian.com/tutorials/futures-getting-started#lesson11">https://www.quantopian.com/tutorials/futures-getting-started#lesson11</a>
 </p>
@@ -521,7 +556,7 @@ On Quantopian, slippage on futures contracts is calculated using a special volat
 </div>
 </div></li>
 
-<li><a id="orgheadline20"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-7">
+<li><a id="orgheadline21"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-5">
 <p>
 commissions charged per contract as well as exchange fees charged per trade.
 </p>
@@ -547,12 +582,252 @@ commissions charged per contract as well as exchange fees charged per trade.
 </p>
 </div></li></ol>
 </div>
+
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">1.4</span> backtesting</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">1.4.1</span> 回测初始化参数(setting initial parameters)：</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li>start : 回测开始时间，支持格式：datetime.datetime | "%Y-%m-%d"。大众版的回测功能，支持回测过去一年的合约</li>
+
+<li>end : 回测结束时间，支持格式：datetime.datetime | "%Y-%m-%d"</li>
+
+<li>universe : 合约代码池，可以设置为具体合约或主力合约。例如：["IF1601", "IF1602"] 或 ["RB1601"]</li>
+
+<li>capital_base : 初始现金</li>
+
+<li>refresh_rate : 调仓周期</li>
+
+<li>freq : 调仓频率，m-&gt; 分钟；d-&gt; 日；</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">1.4.2</span> backtesting：</h4>
+<div class="outline-text-4" id="text-1-4-2">
+</div><ol class="org-ol"><li><a id="orgheadline35"></a>initialize(futures_account)：<br  /><div class="outline-text-5" id="text-1-4-2-1">
+<p>
+该函数在在系统初始化后被调用一次；
+</p>
+
+<p>
+可以通过给 futures_account 添加新的属性的方法，自定义各种指标变量等等；
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline34"></a>futures_account：<br  /><div class="outline-text-6" id="text-1-4-2-1-1">
+<p>
+策略回测、模拟交易中的账户，策略初始化之前，会建立一个交易账户futures_account，在这个账户会存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、期货头寸、每日交易订单委托明细等。futures_account会在策略整个回测期间存续。
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline33"></a>futures_account对象属性<br  /><ol class="org-ol"><li><a id="orgheadline24"></a>universe<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-1">
+<p>
+表示当前交易日的期货合约集合，与初始化参数的universe相对应。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">futures_account.universe
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline25"></a>previous_date<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-2">
+<p>
+上一个交易日，格式："YYYY-MM-DD"
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">futures_account.previous_date
+</pre>
+</div>
+</div></li>
+
+
+<li><a id="orgheadline26"></a>cash<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-3">
+<p>
+当前账户可用现金.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">futures_account.cash
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline27"></a>portfolio_value<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-4">
+<p>
+当前账户权益.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">futures_account.portfolio_value
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline28"></a>position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-5">
+<p>
+账户持仓记录. 品种持仓明细为 dict ， 可以使用 get 方法获取各属性.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">futures_account.position
+
+ <span style="color: #AE81FF;">{</span>
+   <span style="color: #E6DB74;">'IF1603'</span>: <span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'short_position'</span>: <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">'short_margin'</span>: <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">'long_margin'</span>: <span style="color: #AE81FF;">473880</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">'long_position'</span>: <span style="color: #AE81FF;">3</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">'today_profit'</span>: <span style="color: #AE81FF;">1</span>, <span style="color: #E6DB74;">'profit'</span>: <span style="color: #AE81FF;">100</span><span style="color: #66D9EF;">}</span>&#65292;
+   <span style="color: #E6DB74;">'RB1606'</span>: <span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'short_position'</span>: <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">'short_margin'</span>: <span style="color: #AE81FF;">4230</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">'long_margin'</span>: <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">'long_position'</span>: <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">'today_profit'</span>:-<span style="color: #AE81FF;">1</span>, <span style="color: #E6DB74;">'profit'</span>:<span style="color: #AE81FF;">10</span><span style="color: #66D9EF;">}</span>
+ <span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline29"></a>futures_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-6">
+<p>
+账户持仓记录. 品种持仓明细为 Position 对象， 可以使用.方法获取各属性.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">futures_account.futures_position
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline30"></a>trades<br  /></li>
+
+<li><a id="orgheadline31"></a>close_all_positions<br  /></li>
+
+<li><a id="orgheadline32"></a>switch_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-9">
+<p>
+移仓操作，下达由symbol_from至symbol_to相同数量的平仓及开仓指令（含多空持仓)。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">futures_account.switch_position<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'IF1603'</span>, <span style="color: #E6DB74;">'IF1604'</span><span style="color: #AE81FF;">)</span>
+futures_account.switch_position<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'M1605'</span>, <span style="color: #E6DB74;">'M1609'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div></li></ol></li></ol></li></ol></li>
+
+<li><a id="orgheadline36"></a>handle_data(futures_account) ：<br  /><div class="outline-text-5" id="text-1-4-2-2">
+<p>
+这个函数根据freq和refresh_rate字段指定的频率被调用，交易策略可以根据历史数据或者其他信息进行分析判断，并下达交易指令；
+系统回测引擎会根据当天的市场数据对这些指令进行能否交易的判断，并更新 futures_account 当中的现金数量、期货头寸和订单委托信息；
+该交易日结束，会重置未成交的订单委托。
+</p>
+
+<p>
+随后该交易日结束，在该函数中定义的局部变量会被清空，循环进入下一个交易日，即继续调用handle_data函数。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">### </span><span style="color: #75715E;">&#31574;&#30053;&#22238;&#27979;&#21442;&#25968;</span>
+<span style="color: #FD971F;">universe</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'RBM0'</span><span style="color: #AE81FF;">]</span>                  <span style="color: #75715E;"># </span><span style="color: #75715E;">&#31574;&#30053;&#20132;&#26131;&#30340;&#26399;&#36135;&#21512;&#32422;&#65292;&#27492;&#22788;&#36873;&#25321;&#34746;&#32441;&#38050;&#20027;&#21147;&#21512;&#32422;</span>
+<span style="color: #FD971F;">start</span> = <span style="color: #E6DB74;">"2016-06-30"</span>                 <span style="color: #75715E;"># </span><span style="color: #75715E;">&#22238;&#27979;&#24320;&#22987;&#26102;&#38388;</span>
+<span style="color: #FD971F;">end</span>   = <span style="color: #E6DB74;">"2016-08-16"</span>                 <span style="color: #75715E;"># </span><span style="color: #75715E;">&#22238;&#27979;&#32467;&#26463;&#26102;&#38388;</span>
+<span style="color: #FD971F;">capital_base</span> = <span style="color: #AE81FF;">1000000</span>               <span style="color: #75715E;"># </span><span style="color: #75715E;">&#21021;&#22987;&#21487;&#29992;&#36164;&#37329;</span>
+<span style="color: #FD971F;">refresh_rate</span> = <span style="color: #AE81FF;">1</span>                     <span style="color: #75715E;"># </span><span style="color: #75715E;">&#31639;&#27861;&#35843;&#29992;&#21608;&#26399;</span>
+<span style="color: #FD971F;">freq</span> = <span style="color: #E6DB74;">'d'</span>                           <span style="color: #75715E;"># </span><span style="color: #75715E;">&#31639;&#27861;&#35843;&#29992;&#39057;&#29575;&#65306;m-&gt; &#20998;&#38047;&#65307;d-&gt; &#26085;&#65307;</span>
+
+<span style="color: #75715E;">### </span><span style="color: #75715E;">&#31574;&#30053;&#21021;&#22987;&#21270;&#20989;&#25968;</span>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">initialize</span><span style="color: #AE81FF;">(</span>futures_account<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">pass</span>
+
+<span style="color: #75715E;">### </span><span style="color: #75715E;">&#22238;&#27979;&#31639;&#27861;&#36923;&#36753;&#65292;&#27599;&#27425;&#25968;&#25454;&#25512;&#36865;&#36816;&#34892;&#19968;&#27425;</span>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">handle_data</span><span style="color: #AE81FF;">(</span>futures_account<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">symbol</span> = get_symbol<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'RBM0'</span><span style="color: #AE81FF;">)</span>
+
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> futures_account.position:
+        <span style="color: #F92672;">print</span> futures_account.current_date, <span style="color: #E6DB74;">'&#20080;&#20837;&#24320;&#20179;'</span>
+        order<span style="color: #AE81FF;">(</span>symbol, <span style="color: #AE81FF;">1</span>, <span style="color: #E6DB74;">'open'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">else</span>:
+        <span style="color: #F92672;">print</span> futures_account.current_date, <span style="color: #E6DB74;">'&#21334;&#20986;&#24179;&#20179;'</span>
+        order<span style="color: #AE81FF;">(</span>symbol, -<span style="color: #AE81FF;">1</span>, <span style="color: #E6DB74;">'close'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline38"></a>订单委托方法<br  /><ol class="org-ol"><li><a id="orgheadline37"></a>order<br  /><div class="outline-text-6" id="text-1-4-2-3-1">
+<div class="org-src-container">
+
+<pre class="src src-python">order<span style="color: #AE81FF;">(</span>symbol, amount, offset_flag, order_type=<span style="color: #E6DB74;">'market'</span>, price=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div></li></ol></li>
+
+<li><a id="orgheadline39"></a>策略结果<br  /><div class="outline-text-5" id="text-1-4-2-4">
+<p>
+回测result，格式为pandas.DataFrame，以交易日期为索引，包含以下字段：
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">字段</th>
+<th scope="col" class="org-left">类型</th>
+<th scope="col" class="org-left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">trade_date</td>
+<td class="org-left">str</td>
+<td class="org-left">策略对应的交易日</td>
+</tr>
+
+<tr>
+<td class="org-left">futures_blotter</td>
+<td class="org-left">list</td>
+<td class="org-left">Order对象，当日结算时的订单委托明细</td>
+</tr>
+
+<tr>
+<td class="org-left">futures_cash</td>
+<td class="org-left">float</td>
+<td class="org-left">当日结算后的账户可用现金</td>
+</tr>
+
+<tr>
+<td class="org-left">futures_position</td>
+<td class="org-left">list</td>
+<td class="org-left">Dict对象，当日结算后的持仓明细</td>
+</tr>
+
+<tr>
+<td class="org-left">futures_trades</td>
+<td class="org-left">list</td>
+<td class="org-left">Trade对象，当日结算时的订单成交明细</td>
+</tr>
+
+<tr>
+<td class="org-left">portfolio_value</td>
+<td class="org-left">float</td>
+<td class="org-left">当日结算后的用户权益</td>
+</tr>
+</tbody>
+</table>
+</div></li></ol>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-12 Tue 16:42</p>
+<p class="date">Created: 2017-09-13 Wed 13:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -78,6 +78,26 @@ Negative roll yield can occur as an investor sells an expiring futures contract 
 *** dominant_future - 期货主力合约
 合约首次上市时，以当日收盘同品种持仓量最大者作为从第二个交易日开始的主力合约。当同品种其他合约持仓量在收盘后超过当前主力合约1.1倍时，从第二个交易日开始进行主力合约的切换。日内不会进行主力合约的切换。
 
+*** trading calendar:
+
+  - future calendar spread adjustment, 合成一个连续合约.
+
+*** future attributes:
+
+  - root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.
+
+  - start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.
+
+  - end_date: The last date the contract can be traded or closed before delivery.
+
+  - notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.
+
+  - auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.
+
+  - tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.
+
+  - multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.
+
 *** 保证金
 参考各交易所各品种手册。
 
@@ -98,23 +118,6 @@ for example:
 | 交易代码 | AU |
 | 上市交易所 | 上海期货交易所 |
 ** 算法
-**** trading calendar:
-- future calendar spread adjustment, 合成一个连续合约.
-
-**** future attributes:
-- root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.
-
-- start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.
-
-- end_date: The last date the contract can be traded or closed before delivery.
-
-- notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.
-
-- auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.
-
-- tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.
-
-- multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.
 
 **** future contract value:
 To better understand the need for continuous futures, let's get pricing data for the chain of individual contracts and plot it.
@@ -174,3 +177,136 @@ commissions charged per contract as well as exchange fees charged per trade.
 默认手数（最大开仓）：仓位金/单手开仓价；
 
 期货品种波动一个价位的值：最小变动价*交易单位*开仓手数；
+
+** backtesting
+*** 回测初始化参数(setting initial parameters)：
+- start : 回测开始时间，支持格式：datetime.datetime | "%Y-%m-%d"。大众版的回测功能，支持回测过去一年的合约
+
+- end : 回测结束时间，支持格式：datetime.datetime | "%Y-%m-%d"
+
+- universe : 合约代码池，可以设置为具体合约或主力合约。例如：["IF1601", "IF1602"] 或 ["RB1601"]
+
+- capital_base : 初始现金
+
+- refresh_rate : 调仓周期
+
+- freq : 调仓频率，m-> 分钟；d-> 日；
+
+*** backtesting：
+**** initialize(futures_account)：
+
+该函数在在系统初始化后被调用一次；
+
+可以通过给 futures_account 添加新的属性的方法，自定义各种指标变量等等；
+
+***** futures_account：
+策略回测、模拟交易中的账户，策略初始化之前，会建立一个交易账户futures_account，在这个账户会存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、期货头寸、每日交易订单委托明细等。futures_account会在策略整个回测期间存续。
+
+****** futures_account对象属性
+
+******* universe
+表示当前交易日的期货合约集合，与初始化参数的universe相对应。
+#+BEGIN_SRC python
+futures_account.universe
+#+END_SRC
+
+******* previous_date
+上一个交易日，格式："YYYY-MM-DD"
+#+BEGIN_SRC python
+futures_account.previous_date
+#+END_SRC
+
+
+******* cash
+当前账户可用现金.
+#+BEGIN_SRC python
+futures_account.cash
+#+END_SRC
+
+******* portfolio_value
+当前账户权益.
+#+BEGIN_SRC python
+futures_account.portfolio_value
+#+END_SRC
+
+******* position
+账户持仓记录. 品种持仓明细为 dict ， 可以使用 get 方法获取各属性.
+#+BEGIN_SRC python
+futures_account.position
+
+ {
+   'IF1603': {'short_position': 0.0, 'short_margin': 0.0, 'long_margin': 473880.0, 'long_position': 3.0, 'today_profit': 1, 'profit': 100}，
+   'RB1606': {'short_position': 1.0, 'short_margin': 4230.0, 'long_margin': 0.0, 'long_position': 0.0, 'today_profit':-1, 'profit':10}
+ }
+
+#+END_SRC
+
+******* futures_position
+账户持仓记录. 品种持仓明细为 Position 对象， 可以使用.方法获取各属性.
+#+BEGIN_SRC python
+futures_account.futures_position
+#+END_SRC
+
+******* trades
+
+******* close_all_positions
+
+******* switch_position
+移仓操作，下达由symbol_from至symbol_to相同数量的平仓及开仓指令（含多空持仓)。
+#+BEGIN_SRC python
+futures_account.switch_position('IF1603', 'IF1604')
+futures_account.switch_position('M1605', 'M1609')
+#+END_SRC
+
+**** handle_data(futures_account) ：
+
+这个函数根据freq和refresh_rate字段指定的频率被调用，交易策略可以根据历史数据或者其他信息进行分析判断，并下达交易指令；
+系统回测引擎会根据当天的市场数据对这些指令进行能否交易的判断，并更新 futures_account 当中的现金数量、期货头寸和订单委托信息；
+该交易日结束，会重置未成交的订单委托。
+
+随后该交易日结束，在该函数中定义的局部变量会被清空，循环进入下一个交易日，即继续调用handle_data函数。
+
+#+BEGIN_SRC python
+
+### 策略回测参数
+universe = ['RBM0']                  # 策略交易的期货合约，此处选择螺纹钢主力合约
+start = "2016-06-30"                 # 回测开始时间
+end   = "2016-08-16"                 # 回测结束时间
+capital_base = 1000000               # 初始可用资金
+refresh_rate = 1                     # 算法调用周期
+freq = 'd'                           # 算法调用频率：m-> 分钟；d-> 日；
+
+### 策略初始化函数
+def initialize(futures_account):
+    pass
+
+### 回测算法逻辑，每次数据推送运行一次
+def handle_data(futures_account):
+    symbol = get_symbol('RBM0')
+
+    if not futures_account.position:
+        print futures_account.current_date, '买入开仓'
+        order(symbol, 1, 'open')
+    else:
+        print futures_account.current_date, '卖出平仓'
+        order(symbol, -1, 'close')
+#+END_SRC
+
+**** 订单委托方法
+
+***** order
+#+BEGIN_SRC python
+order(symbol, amount, offset_flag, order_type='market', price=0.)
+#+END_SRC
+
+**** 策略结果
+回测result，格式为pandas.DataFrame，以交易日期为索引，包含以下字段：
+
+| 字段	             | 类型	  | 描述                                |
+|--------------------+---------+-------------------------------------|
+| trade_date	       | str	   | 策略对应的交易日                    |
+| futures_blotter	  | list	  | Order对象，当日结算时的订单委托明细 |
+| futures_cash	     | float	 | 当日结算后的账户可用现金            |
+| futures_position	 | list	  | Dict对象，当日结算后的持仓明细      |
+| futures_trades	   | list	  | Trade对象，当日结算时的订单成交明细 |
+| portfolio_value	  | float	 | 当日结算后的用户权益                |

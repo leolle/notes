@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-12 Tue 12:00 -->
+<!-- 2017-09-13 Wed 13:49 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -206,6 +206,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline45">37. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-08 Fri&gt;</span></span></a></li>
 <li><a href="#orgheadline46">38. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-11 Mon&gt;</span></span></a></li>
 <li><a href="#orgheadline47">39. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline48">40. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-13 Wed&gt;</span></span></a></li>
 </ul>
 </div>
 </div>
@@ -1334,14 +1335,52 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 <h2 id="orgheadline47"><span class="section-number-2">39</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></h2>
 <div class="outline-text-2" id="text-39">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> future simulation.</li>
+<li class="off"><code>[&#xa0;]</code> future simulation requested function:</li>
+<li>calendar spread trading.</li>
 </ul>
+<p>
+buy current month expired contract.
+short next month expired contract.
+</p>
+
+<ul class="org-ul">
+<li>rolling on constant maturity.</li>
+
+<li>trend following on dominant contract.</li>
+</ul>
+<p>
+moving average crossing over on the continous contract.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline48" class="outline-2">
+<h2 id="orgheadline48"><span class="section-number-2">40</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-13 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-40">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> future simulation pseudo code.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">OnData</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>,<span style="color: #F92672;">slice</span><span style="color: #AE81FF;">)</span>:
+       <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.Portfolio.Invested:
+           <span style="color: #F92672;">for</span> chain <span style="color: #F92672;">in</span> <span style="color: #F92672;">slice</span>.FutureChains:
+                <span style="color: #75715E;"># </span><span style="color: #75715E;">Get contracts expiring no earlier than in 90 days</span>
+               <span style="color: #FD971F;">contracts</span> = <span style="color: #F92672;">filter</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x: x.Expiry &gt; <span style="color: #F92672;">self</span>.Time + timedelta<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">90</span><span style="color: #66D9EF;">)</span>, chain.Value<span style="color: #AE81FF;">)</span>
+
+               <span style="color: #75715E;"># </span><span style="color: #75715E;">if there is any contract, trade the front contract</span>
+               <span style="color: #F92672;">if</span> <span style="color: #F92672;">len</span><span style="color: #AE81FF;">(</span>contracts<span style="color: #AE81FF;">)</span> == <span style="color: #AE81FF;">0</span>: <span style="color: #F92672;">continue</span>
+               <span style="color: #FD971F;">front</span> = <span style="color: #F92672;">sorted</span><span style="color: #AE81FF;">(</span>contracts, key = <span style="color: #F92672;">lambda</span> x: x.Expiry, reverse=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+               <span style="color: #F92672;">self</span>.MarketOrder<span style="color: #AE81FF;">(</span>front.Symbol , <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+       <span style="color: #F92672;">else</span>:
+           <span style="color: #F92672;">self</span>.Liquidate<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-12 Tue 12:00</p>
+<p class="date">Created: 2017-09-13 Wed 13:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
