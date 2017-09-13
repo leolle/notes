@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-13 Wed 13:49 -->
+<!-- 2017-09-13 Wed 14:51 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,14 +147,14 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline42">1. future trade simulation</a>
+<li><a href="#orgheadline41">1. future trade simulation</a>
 <ul>
 <li><a href="#orgheadline2">1.1. functions</a>
 <ul>
 <li><a href="#orgheadline1">1.1.1. constant maturity</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">1.2. futures:</a>
+<li><a href="#orgheadline15">1.2. futures:</a>
 <ul>
 <li><a href="#orgheadline3">1.2.1. 期货合约命名规则：</a></li>
 <li><a href="#orgheadline6">1.2.2. 期货合约品种:</a></li>
@@ -162,14 +162,13 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline12">1.2.4. dominant_future - 期货主力合约</a></li>
 <li><a href="#orgheadline13">1.2.5. trading calendar:</a></li>
 <li><a href="#orgheadline14">1.2.6. future attributes:</a></li>
-<li><a href="#orgheadline15">1.2.7. 保证金</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline22">1.3. 算法</a></li>
-<li><a href="#orgheadline41">1.4. backtesting</a>
+<li><a href="#orgheadline21">1.3. 算法</a></li>
+<li><a href="#orgheadline40">1.4. backtesting</a>
 <ul>
-<li><a href="#orgheadline23">1.4.1. 回测初始化参数(setting initial parameters)：</a></li>
-<li><a href="#orgheadline40">1.4.2. backtesting：</a></li>
+<li><a href="#orgheadline22">1.4.1. 回测初始化参数(setting initial parameters)：</a></li>
+<li><a href="#orgheadline39">1.4.2. backtesting：</a></li>
 </ul>
 </li>
 </ul>
@@ -179,8 +178,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline42" class="outline-2">
-<h2 id="orgheadline42"><span class="section-number-2">1</span> future trade simulation</h2>
+<div id="outline-container-orgheadline41" class="outline-2">
+<h2 id="orgheadline41"><span class="section-number-2">1</span> future trade simulation</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline2" class="outline-3">
 <h3 id="orgheadline2"><span class="section-number-3">1.1</span> functions</h3>
@@ -188,6 +187,7 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>calendar spread trading.</li>
 </ul>
+
 <p>
 buy current month expired contract.
 short next month expired contract.
@@ -195,13 +195,18 @@ short next month expired contract.
 
 <ul class="org-ul">
 <li>rolling on constant maturity.</li>
+</ul>
 
+
+<ul class="org-ul">
 <li>trend following on dominant contract.</li>
 </ul>
+
 <p>
 moving average crossing over on the continous contract.
 </p>
 </div>
+
 <div id="outline-container-orgheadline1" class="outline-4">
 <h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> constant maturity</h4>
 <div class="outline-text-4" id="text-1-1-1">
@@ -212,8 +217,8 @@ Negative roll yield can occur as an investor sells an expiring futures contract 
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">1.2</span> futures:</h3>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">1.2</span> futures:</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 由期货交易所统一制定的、规定在将来某一特定的时间和地点交割一定数量和质量标的物的标准化合约。
@@ -247,12 +252,25 @@ Negative roll yield can occur as an investor sells an expiring futures contract 
 
 <ol class="org-ol"><li><a id="orgheadline4"></a>商品期货<br  /><div class="outline-text-5" id="text-1-2-2-1">
 <ul class="org-ul">
-<li>农产品期货：如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。</li>
-
-<li>金属期货：如铜、铝、锡、铅、锌、镍、黄金、白银、螺纹钢、线材。</li>
-
-<li>能源期货：如原油（塑料、PTA、PVC）、汽油（甲醇）、燃料油。新兴品种包括气温、二氧化碳排放配额、天然橡胶。</li>
+<li>农产品期货：</li>
 </ul>
+<p>
+如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。
+</p>
+
+<ul class="org-ul">
+<li>金属期货：</li>
+</ul>
+<p>
+如铜、铝、锡、铅、锌、镍、黄金、白银、螺纹钢、线材。
+</p>
+
+<ul class="org-ul">
+<li>能源期货：</li>
+</ul>
+<p>
+如原油（塑料、PTA、PVC）、汽油（甲醇）、燃料油。新兴品种包括气温、二氧化碳排放配额、天然橡胶。
+</p>
 </div></li>
 
 <li><a id="orgheadline5"></a>金融期货<br  /><div class="outline-text-5" id="text-1-2-2-2">
@@ -340,26 +358,54 @@ Negative roll yield can occur as an investor sells an expiring futures contract 
 <h4 id="orgheadline14"><span class="section-number-4">1.2.6</span> future attributes:</h4>
 <div class="outline-text-4" id="text-1-2-6">
 <ul class="org-ul">
-<li>root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.</li>
-
-<li>start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.</li>
-
-<li>end_date: The last date the contract can be traded or closed before delivery.</li>
-
-<li>notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.</li>
-
-<li>auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.</li>
-
-<li>tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.</li>
-
-<li>multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.</li>
+<li>root_symbol:</li>
 </ul>
-</div>
-</div>
+<p>
+The root symbol of the underlying asset. For example, CL corresponds to crude oil.
+</p>
 
-<div id="outline-container-orgheadline15" class="outline-4">
-<h4 id="orgheadline15"><span class="section-number-4">1.2.7</span> 保证金</h4>
-<div class="outline-text-4" id="text-1-2-7">
+<ul class="org-ul">
+<li>start_date:</li>
+</ul>
+<p>
+The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.
+</p>
+
+<ul class="org-ul">
+<li>end_date:</li>
+</ul>
+<p>
+The last date the contract can be traded or closed before delivery.
+</p>
+
+<ul class="org-ul">
+<li>notice_date:</li>
+</ul>
+<p>
+The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.
+</p>
+
+<ul class="org-ul">
+<li>auto_close_date:</li>
+</ul>
+<p>
+This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.
+</p>
+
+<ul class="org-ul">
+<li>tick_size:</li>
+</ul>
+<p>
+The increment in which the price of the future can change. For example, CL changes in increments of $0.01.
+</p>
+
+<ul class="org-ul">
+<li>multiplier:</li>
+</ul>
+<p>
+The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.
+</p>
+
 <p>
 参考各交易所各品种手册。
 </p>
@@ -455,10 +501,10 @@ for example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">1.3</span> 算法</h3>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">1.3</span> 算法</h3>
 <div class="outline-text-3" id="text-1-3">
-</div><ol class="org-ol"><li><a id="orgheadline17"></a>future contract value:<br  /><div class="outline-text-5" id="text-1-3-0-1">
+</div><ol class="org-ol"><li><a id="orgheadline16"></a>future contract value:<br  /><div class="outline-text-5" id="text-1-3-0-1">
 <p>
 To better understand the need for continuous futures, let's get pricing data for the chain of individual contracts and plot it.
 </p>
@@ -481,7 +527,7 @@ The price difference between contracts at a given time is not considered to be a
 </div>
 </div></li>
 
-<li><a id="orgheadline18"></a>adjustment styles<br  /><div class="outline-text-5" id="text-1-3-0-2">
+<li><a id="orgheadline17"></a>adjustment styles<br  /><div class="outline-text-5" id="text-1-3-0-2">
 <ul class="org-ul">
 <li>multiplying</li>
 </ul>
@@ -509,7 +555,7 @@ The key problem with the Panama method includes the introduction of a trend bias
 </ul>
 </div></li>
 
-<li><a id="orgheadline19"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-3">
+<li><a id="orgheadline18"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-3">
 <p>
 position management.
 </p>
@@ -532,7 +578,7 @@ This is two days prior to either notice_date or end_date, whichever is earlier.
 </p>
 </div></li>
 
-<li><a id="orgheadline20"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-4">
+<li><a id="orgheadline19"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-4">
 <p>
 <a href="https://www.quantopian.com/tutorials/futures-getting-started#lesson11">https://www.quantopian.com/tutorials/futures-getting-started#lesson11</a>
 </p>
@@ -556,7 +602,7 @@ On Quantopian, slippage on futures contracts is calculated using a special volat
 </div>
 </div></li>
 
-<li><a id="orgheadline21"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-5">
+<li><a id="orgheadline20"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-5">
 <p>
 commissions charged per contract as well as exchange fees charged per trade.
 </p>
@@ -583,32 +629,60 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div></li></ol>
 </div>
 
-<div id="outline-container-orgheadline41" class="outline-3">
-<h3 id="orgheadline41"><span class="section-number-3">1.4</span> backtesting</h3>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">1.4</span> backtesting</h3>
 <div class="outline-text-3" id="text-1-4">
-</div><div id="outline-container-orgheadline23" class="outline-4">
-<h4 id="orgheadline23"><span class="section-number-4">1.4.1</span> 回测初始化参数(setting initial parameters)：</h4>
+</div><div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">1.4.1</span> 回测初始化参数(setting initial parameters)：</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
-<li>start : 回测开始时间，支持格式：datetime.datetime | "%Y-%m-%d"。大众版的回测功能，支持回测过去一年的合约</li>
-
-<li>end : 回测结束时间，支持格式：datetime.datetime | "%Y-%m-%d"</li>
-
-<li>universe : 合约代码池，可以设置为具体合约或主力合约。例如：["IF1601", "IF1602"] 或 ["RB1601"]</li>
-
-<li>capital_base : 初始现金</li>
-
-<li>refresh_rate : 调仓周期</li>
-
-<li>freq : 调仓频率，m-&gt; 分钟；d-&gt; 日；</li>
+<li>start :</li>
 </ul>
+<p>
+回测开始时间，支持格式：datetime.datetime | "%Y-%m-%d"。大众版的回测功能，支持回测过去一年的合约
+</p>
+
+<ul class="org-ul">
+<li>end :</li>
+</ul>
+<p>
+回测结束时间，支持格式：datetime.datetime | "%Y-%m-%d"
+</p>
+
+<ul class="org-ul">
+<li>universe :</li>
+</ul>
+<p>
+合约代码池，可以设置为具体合约或主力合约。例如：["IF1601", "IF1602"] 或 ["RB1601"]
+</p>
+
+<ul class="org-ul">
+<li>capital_base :</li>
+</ul>
+<p>
+初始现金
+</p>
+
+<ul class="org-ul">
+<li>refresh_rate :</li>
+</ul>
+<p>
+调仓周期
+</p>
+
+<ul class="org-ul">
+<li>freq :</li>
+</ul>
+<p>
+调仓频率，m-&gt; 分钟；d-&gt; 日；
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline40" class="outline-4">
-<h4 id="orgheadline40"><span class="section-number-4">1.4.2</span> backtesting：</h4>
+<div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39"><span class="section-number-4">1.4.2</span> backtesting：</h4>
 <div class="outline-text-4" id="text-1-4-2">
-</div><ol class="org-ol"><li><a id="orgheadline35"></a>initialize(futures_account)：<br  /><div class="outline-text-5" id="text-1-4-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline34"></a>initialize(futures_account)：<br  /><div class="outline-text-5" id="text-1-4-2-1">
 <p>
 该函数在在系统初始化后被调用一次；
 </p>
@@ -618,13 +692,13 @@ commissions charged per contract as well as exchange fees charged per trade.
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline34"></a>futures_account：<br  /><div class="outline-text-6" id="text-1-4-2-1-1">
+<ol class="org-ol"><li><a id="orgheadline33"></a>futures_account：<br  /><div class="outline-text-6" id="text-1-4-2-1-1">
 <p>
 策略回测、模拟交易中的账户，策略初始化之前，会建立一个交易账户futures_account，在这个账户会存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、期货头寸、每日交易订单委托明细等。futures_account会在策略整个回测期间存续。
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline33"></a>futures_account对象属性<br  /><ol class="org-ol"><li><a id="orgheadline24"></a>universe<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-1">
+<ol class="org-ol"><li><a id="orgheadline32"></a>futures_account对象属性<br  /><ol class="org-ol"><li><a id="orgheadline23"></a>universe<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-1">
 <p>
 表示当前交易日的期货合约集合，与初始化参数的universe相对应。
 </p>
@@ -635,7 +709,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline25"></a>previous_date<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-2">
+<li><a id="orgheadline24"></a>previous_date<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-2">
 <p>
 上一个交易日，格式："YYYY-MM-DD"
 </p>
@@ -647,7 +721,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div></li>
 
 
-<li><a id="orgheadline26"></a>cash<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-3">
+<li><a id="orgheadline25"></a>cash<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-3">
 <p>
 当前账户可用现金.
 </p>
@@ -658,7 +732,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline27"></a>portfolio_value<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-4">
+<li><a id="orgheadline26"></a>portfolio_value<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-4">
 <p>
 当前账户权益.
 </p>
@@ -669,7 +743,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline28"></a>position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-5">
+<li><a id="orgheadline27"></a>position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-5">
 <p>
 账户持仓记录. 品种持仓明细为 dict ， 可以使用 get 方法获取各属性.
 </p>
@@ -685,7 +759,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline29"></a>futures_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-6">
+<li><a id="orgheadline28"></a>futures_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-6">
 <p>
 账户持仓记录. 品种持仓明细为 Position 对象， 可以使用.方法获取各属性.
 </p>
@@ -696,11 +770,11 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline30"></a>trades<br  /></li>
+<li><a id="orgheadline29"></a>trades<br  /></li>
 
-<li><a id="orgheadline31"></a>close_all_positions<br  /></li>
+<li><a id="orgheadline30"></a>close_all_positions<br  /></li>
 
-<li><a id="orgheadline32"></a>switch_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-9">
+<li><a id="orgheadline31"></a>switch_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-9">
 <p>
 移仓操作，下达由symbol_from至symbol_to相同数量的平仓及开仓指令（含多空持仓)。
 </p>
@@ -712,7 +786,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 </div>
 </div></li></ol></li></ol></li></ol></li>
 
-<li><a id="orgheadline36"></a>handle_data(futures_account) ：<br  /><div class="outline-text-5" id="text-1-4-2-2">
+<li><a id="orgheadline37"></a>handle_data(futures_account) ：<br  /><div class="outline-text-5" id="text-1-4-2-2">
 <p>
 这个函数根据freq和refresh_rate字段指定的频率被调用，交易策略可以根据历史数据或者其他信息进行分析判断，并下达交易指令；
 系统回测引擎会根据当天的市场数据对这些指令进行能否交易的判断，并更新 futures_account 当中的现金数量、期货头寸和订单委托信息；
@@ -741,25 +815,28 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">handle_data</span><span style="color: #AE81FF;">(</span>futures_account<span style="color: #AE81FF;">)</span>:
     <span style="color: #FD971F;">symbol</span> = get_symbol<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'RBM0'</span><span style="color: #AE81FF;">)</span>
 
-    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> futures_account.position:
-        <span style="color: #F92672;">print</span> futures_account.current_date, <span style="color: #E6DB74;">'&#20080;&#20837;&#24320;&#20179;'</span>
-        order<span style="color: #AE81FF;">(</span>symbol, <span style="color: #AE81FF;">1</span>, <span style="color: #E6DB74;">'open'</span><span style="color: #AE81FF;">)</span>
-    <span style="color: #F92672;">else</span>:
+    <span style="color: #F92672;">if</span> open_signal:
+        <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> futures_account.position:
+            <span style="color: #F92672;">print</span> futures_account.current_date, <span style="color: #E6DB74;">'&#20080;&#20837;&#24320;&#20179;'</span>
+            order<span style="color: #AE81FF;">(</span>symbol, <span style="color: #AE81FF;">1</span>, <span style="color: #E6DB74;">'open'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">elif</span> close_signal:
         <span style="color: #F92672;">print</span> futures_account.current_date, <span style="color: #E6DB74;">'&#21334;&#20986;&#24179;&#20179;'</span>
         order<span style="color: #AE81FF;">(</span>symbol, -<span style="color: #AE81FF;">1</span>, <span style="color: #E6DB74;">'close'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">else</span>:
+        <span style="color: #F92672;">pass</span>
 </pre>
 </div>
-</div></li>
+</div>
 
-<li><a id="orgheadline38"></a>订单委托方法<br  /><ol class="org-ol"><li><a id="orgheadline37"></a>order<br  /><div class="outline-text-6" id="text-1-4-2-3-1">
+<ol class="org-ol"><li><a id="orgheadline36"></a>订单委托方法<br  /><ol class="org-ol"><li><a id="orgheadline35"></a>order<br  /><div class="outline-text-7" id="text-1-4-2-2-1-1">
 <div class="org-src-container">
 
 <pre class="src src-python">order<span style="color: #AE81FF;">(</span>symbol, amount, offset_flag, order_type=<span style="color: #E6DB74;">'market'</span>, price=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-</div></li></ol></li>
+</div></li></ol></li></ol></li>
 
-<li><a id="orgheadline39"></a>策略结果<br  /><div class="outline-text-5" id="text-1-4-2-4">
+<li><a id="orgheadline38"></a>策略结果<br  /><div class="outline-text-5" id="text-1-4-2-3">
 <p>
 回测result，格式为pandas.DataFrame，以交易日期为索引，包含以下字段：
 </p>
@@ -827,7 +904,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-13 Wed 13:49</p>
+<p class="date">Created: 2017-09-13 Wed 14:51</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

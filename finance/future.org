@@ -15,17 +15,22 @@
 * future trade simulation
 ** functions
 - calendar spread trading.
+
 buy current month expired contract.
 short next month expired contract.
 
 - rolling on constant maturity.
 
+
 - trend following on dominant contract.
+
 moving average crossing over on the continous contract.
+
 *** constant maturity
 Negative roll yield can occur as an investor sells an expiring futures contract and simultaneously purchases a new contract. If the price of the new replacement contract is higher than the expiring contract, the transaction will yield a negative cash result, also known as negative roll yield.
 
 ** futures:
+
 由期货交易所统一制定的、规定在将来某一特定的时间和地点交割一定数量和质量标的物的标准化合约。
 
 *** 期货合约命名规则：
@@ -40,11 +45,14 @@ Negative roll yield can occur as an investor sells an expiring futures contract 
 
 **** 商品期货
 
-- 农产品期货：如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。
+- 农产品期货：
+如大豆、豆油、豆粕、籼稻、小麦、玉米、棉花、白糖、咖啡、猪腩、菜籽油、棕榈油。
 
-- 金属期货：如铜、铝、锡、铅、锌、镍、黄金、白银、螺纹钢、线材。
+- 金属期货：
+如铜、铝、锡、铅、锌、镍、黄金、白银、螺纹钢、线材。
 
-- 能源期货：如原油（塑料、PTA、PVC）、汽油（甲醇）、燃料油。新兴品种包括气温、二氧化碳排放配额、天然橡胶。
+- 能源期货：
+如原油（塑料、PTA、PVC）、汽油（甲醇）、燃料油。新兴品种包括气温、二氧化碳排放配额、天然橡胶。
 
 **** 金融期货
 
@@ -84,21 +92,27 @@ Negative roll yield can occur as an investor sells an expiring futures contract 
 
 *** future attributes:
 
-  - root_symbol: The root symbol of the underlying asset. For example, CL corresponds to crude oil.
+- root_symbol:
+The root symbol of the underlying asset. For example, CL corresponds to crude oil.
 
-  - start_date: The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.
+- start_date:
+The date the contract becomes available on Quantopian. Note that the price of a contract might be NaN near the start_date, as it may not be actively traded until it gets closer to its delivery date.
 
-  - end_date: The last date the contract can be traded or closed before delivery.
+- end_date:
+The last date the contract can be traded or closed before delivery.
 
-  - notice_date: The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.
+- notice_date:
+The date in which the exchange can start assigning delivery to accounts holding long positions on the contract.
 
-  - auto_close_date: This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.
+- auto_close_date:
+This is two days prior to either notice_date or end_date, whichever is earlier. In backtesting, positions in contracts will be automatically closed out on their auto_close_date.
 
-  - tick_size: The increment in which the price of the future can change. For example, CL changes in increments of $0.01.
+- tick_size:
+The increment in which the price of the future can change. For example, CL changes in increments of $0.01.
 
-  - multiplier: The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.
+- multiplier:
+The number of units per contract. For example, a contract for CL corresponds to 1000 barrels of oil.
 
-*** 保证金
 参考各交易所各品种手册。
 
 for example:
@@ -180,17 +194,23 @@ commissions charged per contract as well as exchange fees charged per trade.
 
 ** backtesting
 *** 回测初始化参数(setting initial parameters)：
-- start : 回测开始时间，支持格式：datetime.datetime | "%Y-%m-%d"。大众版的回测功能，支持回测过去一年的合约
+- start :
+回测开始时间，支持格式：datetime.datetime | "%Y-%m-%d"。大众版的回测功能，支持回测过去一年的合约
 
-- end : 回测结束时间，支持格式：datetime.datetime | "%Y-%m-%d"
+- end :
+回测结束时间，支持格式：datetime.datetime | "%Y-%m-%d"
 
-- universe : 合约代码池，可以设置为具体合约或主力合约。例如：["IF1601", "IF1602"] 或 ["RB1601"]
+- universe :
+合约代码池，可以设置为具体合约或主力合约。例如：["IF1601", "IF1602"] 或 ["RB1601"]
 
-- capital_base : 初始现金
+- capital_base :
+初始现金
 
-- refresh_rate : 调仓周期
+- refresh_rate :
+调仓周期
 
-- freq : 调仓频率，m-> 分钟；d-> 日；
+- freq :
+调仓频率，m-> 分钟；d-> 日；
 
 *** backtesting：
 **** initialize(futures_account)：
@@ -284,17 +304,20 @@ def initialize(futures_account):
 def handle_data(futures_account):
     symbol = get_symbol('RBM0')
 
-    if not futures_account.position:
-        print futures_account.current_date, '买入开仓'
-        order(symbol, 1, 'open')
-    else:
+    if open_signal:
+        if not futures_account.position:
+            print futures_account.current_date, '买入开仓'
+            order(symbol, 1, 'open')
+    elif close_signal:
         print futures_account.current_date, '卖出平仓'
         order(symbol, -1, 'close')
+    else:
+        pass
 #+END_SRC
 
-**** 订单委托方法
+***** 订单委托方法
 
-***** order
+****** order
 #+BEGIN_SRC python
 order(symbol, amount, offset_flag, order_type='market', price=0.)
 #+END_SRC
