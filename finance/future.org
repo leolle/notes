@@ -20,7 +20,11 @@ buy current month expired contract.
 short next month expired contract.
 
 - rolling on constant maturity.
+  - Goldman roll strategy:
+roll (with uniform weights) between the fifth and ninth business days of the month proceeding the expiration month.
 
+The likely virtue of such a strategy in comparison to the
+single-day strategy is that the user has a lower risk of being exposed to poor execution quality.
 
 - trend following on dominant contract.
 
@@ -300,7 +304,7 @@ freq = 'd'                           # 算法调用频率：m-> 分钟；d-> 日
 def initialize(futures_account):
     pass
 
-### 回测算法逻辑，每次数据推送运行一次
+### 回测算法逻辑，每个bar运行一次
 def handle_data(futures_account):
     symbol = get_symbol('RBM0')
 
