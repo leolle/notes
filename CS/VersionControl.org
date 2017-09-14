@@ -233,3 +233,13 @@ origin  https://github.com/USERNAME/REPOSITORY.git (push)
 #+begin_src emacs-lisp :tangle yes
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 #+end_src
+
+** remove remote
+#+begin_src emacs-lisp :tangle yes
+git remote rm
+#+end_src
+
+opposite operation:
+#+begin_src emacs-lisp :tangle yes
+git remote add origin git@github.git
+#+end_src

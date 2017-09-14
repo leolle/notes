@@ -9,6 +9,7 @@
     + [[file:./finance/PortfolioOptimization.org][PortfolioOptimization]]
     + [[file:./finance/MultiFactorModel.org][MultiFactorModel]]
     + [[file:./FactorBacktest.org][IndustrialFactor]]
+    + [[file:./finance/black_litterman.html][Black Litterman]]
 + Mathematics
   + [[File:./Math/knowledge_tree.html][Mathmap]]
   + [[File:./Math/Statistics.org][Statistics]]

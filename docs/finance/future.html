@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-13 Wed 14:51 -->
+<!-- 2017-09-14 Thu 10:52 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,7 +147,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline41">1. future trade simulation</a>
+<li><a href="#orgheadline44">1. future trade simulation</a>
 <ul>
 <li><a href="#orgheadline2">1.1. functions</a>
 <ul>
@@ -165,10 +165,10 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline21">1.3. 算法</a></li>
-<li><a href="#orgheadline40">1.4. backtesting</a>
+<li><a href="#orgheadline43">1.4. backtesting</a>
 <ul>
 <li><a href="#orgheadline22">1.4.1. 回测初始化参数(setting initial parameters)：</a></li>
-<li><a href="#orgheadline39">1.4.2. backtesting：</a></li>
+<li><a href="#orgheadline42">1.4.2. backtesting：</a></li>
 </ul>
 </li>
 </ul>
@@ -178,8 +178,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="section-number-2">1</span> future trade simulation</h2>
+<div id="outline-container-orgheadline44" class="outline-2">
+<h2 id="orgheadline44"><span class="section-number-2">1</span> future trade simulation</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline2" class="outline-3">
 <h3 id="orgheadline2"><span class="section-number-3">1.1</span> functions</h3>
@@ -194,9 +194,19 @@ short next month expired contract.
 </p>
 
 <ul class="org-ul">
-<li>rolling on constant maturity.</li>
+<li>rolling on constant maturity.
+<ul class="org-ul">
+<li>Goldman roll strategy:</li>
+</ul></li>
 </ul>
+<p>
+roll (with uniform weights) between the fifth and ninth business days of the month proceeding the expiration month.
+</p>
 
+<p>
+The likely virtue of such a strategy in comparison to the
+single-day strategy is that the user has a lower risk of being exposed to poor execution quality.
+</p>
 
 <ul class="org-ul">
 <li>trend following on dominant contract.</li>
@@ -629,8 +639,8 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div></li></ol>
 </div>
 
-<div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40"><span class="section-number-3">1.4</span> backtesting</h3>
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">1.4</span> backtesting</h3>
 <div class="outline-text-3" id="text-1-4">
 </div><div id="outline-container-orgheadline22" class="outline-4">
 <h4 id="orgheadline22"><span class="section-number-4">1.4.1</span> 回测初始化参数(setting initial parameters)：</h4>
@@ -679,8 +689,8 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div>
 
-<div id="outline-container-orgheadline39" class="outline-4">
-<h4 id="orgheadline39"><span class="section-number-4">1.4.2</span> backtesting：</h4>
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">1.4.2</span> backtesting：</h4>
 <div class="outline-text-4" id="text-1-4-2">
 </div><ol class="org-ol"><li><a id="orgheadline34"></a>initialize(futures_account)：<br  /><div class="outline-text-5" id="text-1-4-2-1">
 <p>
@@ -786,7 +796,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 </div>
 </div></li></ol></li></ol></li></ol></li>
 
-<li><a id="orgheadline37"></a>handle_data(futures_account) ：<br  /><div class="outline-text-5" id="text-1-4-2-2">
+<li><a id="orgheadline40"></a>handle_data(futures_account) ：<br  /><div class="outline-text-5" id="text-1-4-2-2">
 <p>
 这个函数根据freq和refresh_rate字段指定的频率被调用，交易策略可以根据历史数据或者其他信息进行分析判断，并下达交易指令；
 系统回测引擎会根据当天的市场数据对这些指令进行能否交易的判断，并更新 futures_account 当中的现金数量、期货头寸和订单委托信息；
@@ -796,7 +806,9 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 <p>
 随后该交易日结束，在该函数中定义的局部变量会被清空，循环进入下一个交易日，即继续调用handle_data函数。
 </p>
+</div>
 
+<ol class="org-ol"><li><a id="orgheadline35"></a>simple mode(only calculate the position value on continious contract)<br  /><div class="outline-text-6" id="text-1-4-2-2-1">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #75715E;">### </span><span style="color: #75715E;">&#31574;&#30053;&#22238;&#27979;&#21442;&#25968;</span>
@@ -807,13 +819,21 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 <span style="color: #FD971F;">refresh_rate</span> = <span style="color: #AE81FF;">1</span>                     <span style="color: #75715E;"># </span><span style="color: #75715E;">&#31639;&#27861;&#35843;&#29992;&#21608;&#26399;</span>
 <span style="color: #FD971F;">freq</span> = <span style="color: #E6DB74;">'d'</span>                           <span style="color: #75715E;"># </span><span style="color: #75715E;">&#31639;&#27861;&#35843;&#29992;&#39057;&#29575;&#65306;m-&gt; &#20998;&#38047;&#65307;d-&gt; &#26085;&#65307;</span>
 
-<span style="color: #75715E;">### </span><span style="color: #75715E;">&#31574;&#30053;&#21021;&#22987;&#21270;&#20989;&#25968;</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#31574;&#30053;&#21021;&#22987;&#21270;&#20989;&#25968;</span>
 <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">initialize</span><span style="color: #AE81FF;">(</span>futures_account<span style="color: #AE81FF;">)</span>:
     <span style="color: #F92672;">pass</span>
 
-<span style="color: #75715E;">### </span><span style="color: #75715E;">&#22238;&#27979;&#31639;&#27861;&#36923;&#36753;&#65292;&#27599;&#27425;&#25968;&#25454;&#25512;&#36865;&#36816;&#34892;&#19968;&#27425;</span>
-<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">handle_data</span><span style="color: #AE81FF;">(</span>futures_account<span style="color: #AE81FF;">)</span>:
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">generate signal according to continious contract.</span>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">generate_signal</span><span style="color: #AE81FF;">(</span>future.universe<span style="color: #AE81FF;">)</span>:
     <span style="color: #FD971F;">symbol</span> = get_symbol<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'RBM0'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">signal</span> = algorithm<span style="color: #AE81FF;">()</span>
+    <span style="color: #F92672;">return</span> position_on_continious_contract
+
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22238;&#27979;&#31639;&#27861;&#36923;&#36753;&#65292;&#27599;&#20010;bar&#36816;&#34892;&#19968;&#27425;</span>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">handle_data</span><span style="color: #AE81FF;">(</span>futures_account<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">symbol</span> = get_symbol<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'RBM0'</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">get the specific contracts list behind rbm0.</span>
 
     <span style="color: #F92672;">if</span> open_signal:
         <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> futures_account.position:
@@ -824,11 +844,68 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
         order<span style="color: #AE81FF;">(</span>symbol, -<span style="color: #AE81FF;">1</span>, <span style="color: #E6DB74;">'close'</span><span style="color: #AE81FF;">)</span>
     <span style="color: #F92672;">else</span>:
         <span style="color: #F92672;">pass</span>
+
+    <span style="color: #F92672;">if</span> contract changes:
+        futures_account.switch_position<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'RBM1603'</span>, <span style="color: #E6DB74;">'RBM1604'</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-</div>
+</div></li>
 
-<ol class="org-ol"><li><a id="orgheadline36"></a>订单委托方法<br  /><ol class="org-ol"><li><a id="orgheadline35"></a>order<br  /><div class="outline-text-7" id="text-1-4-2-2-1-1">
+<li><a id="orgheadline36"></a>pseudo code:<br  /><div class="outline-text-6" id="text-1-4-2-2-2">
+<p>
+1). 策略初始化函数
+</p>
+
+<p>
+可以通过给 futures_account 添加新的属性的方法，自定义各种指标变量等等；
+</p>
+
+<p>
+策略回测、模拟交易中的账户，策略初始化之前，会建立一个交易账户futures_account，在这个账户会存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、期货头寸、每日交易订单委托明细等。futures_account会在策略整个回测期间存续。
+</p>
+
+<p>
+2). 循环futures_account.universe里面的合约的交易日历.
+</p>
+
+<p>
+如果有交易信号发生：
+</p>
+
+<p>
+如果没有相关合约头寸：
+</p>
+
+<p>
+建立头寸
+</p>
+
+<p>
+如果有相关合约头寸：
+</p>
+
+<p>
+关闭头寸
+</p>
+
+<p>
+如果连续合约背后的具体合约发生变化：
+</p>
+
+<p>
+如果有头寸：
+</p>
+
+<p>
+在每个最小交易bar检测到合约发生变化，如果持有合约，switch_position。
+移仓操作，下达由symbol_from至symbol_to相同数量的平仓及开仓指令（含多空持仓)。
+</p>
+</div></li>
+
+
+<li><a id="orgheadline37"></a>advanced mode(calculate the position value based on continious contract and actual contract)<br  /></li>
+
+<li><a id="orgheadline39"></a>订单委托方法<br  /><ol class="org-ol"><li><a id="orgheadline38"></a>order<br  /><div class="outline-text-7" id="text-1-4-2-2-4-1">
 <div class="org-src-container">
 
 <pre class="src src-python">order<span style="color: #AE81FF;">(</span>symbol, amount, offset_flag, order_type=<span style="color: #E6DB74;">'market'</span>, price=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">)</span>
@@ -836,7 +913,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 </div>
 </div></li></ol></li></ol></li>
 
-<li><a id="orgheadline38"></a>策略结果<br  /><div class="outline-text-5" id="text-1-4-2-3">
+<li><a id="orgheadline41"></a>策略结果<br  /><div class="outline-text-5" id="text-1-4-2-3">
 <p>
 回测result，格式为pandas.DataFrame，以交易日期为索引，包含以下字段：
 </p>
@@ -904,7 +981,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-13 Wed 14:51</p>
+<p class="date">Created: 2017-09-14 Thu 10:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

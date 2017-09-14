@@ -462,3 +462,23 @@ moving average crossing over on the continous contract.
         else:
             self.Liquidate()
 #+END_SRC
+<2017-09-14 Thu>
+* TODO future simulation pseudo code.
+** code:<2017-09-14 Thu>
+- [ ] simple mode test with real data.
+<2017-09-13 Wed>
+*  future simulation requested function:
+- [ ] calendar spread trading.
+
+calculate the position value based on continious contract and actual contract
+
+buy current month expired contract.
+short next month expired contract.
+
+- [ ] rolling on constant maturity.
+
+calculate the position value based on continious contract and actual contract
+
+- [ ] trend following on dominant contract.
+
+moving average crossing over on the continous contract.

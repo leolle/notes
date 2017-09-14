@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-10 Sun 19:48 -->
+<!-- 2017-09-14 Thu 10:52 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -190,6 +190,23 @@ tar -xvzf rebol.tar.gz
 <pre class="src src-shell">sudo service network-manager restart
 </pre>
 </div>
+
+<ul class="org-ul">
+<li>chmod:</li>
+</ul>
+<p>
+第一列共有10个位置，第一个字符指定了文件类型。在通常意义上，一个目录也是一个文件。如果第一个字符是横线，表示是一个非目录的文件。如果是d，表示是一个目录。从第二个字符开始到第十个共9个字符，3个字符一组，分别表示了3组用户对文件或者目录的权限。权限字符用横线代表空许可，r代表只读，w代表写，x代表可执行。
+例如：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">&#12288;&#12288;- rw- r-- r--
+</pre>
+</div>
+
+<p>
+　　表示log2012.log是一个普通文件；log2012.log的属主有读写权限；与log2012.log属主同组的用户只有读权限；其他用户也只有读权限。
+</p>
 </div>
 </div>
 
@@ -280,7 +297,7 @@ tar -xvzf rebol.tar.gz
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-08 Thu&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-10 Sun 19:48</p>
+<p class="date">Created: 2017-09-14 Thu 10:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

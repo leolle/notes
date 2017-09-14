@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-10 Sun 19:48 -->
+<!-- 2017-09-14 Thu 10:52 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -161,7 +161,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline10">1.10. svn commit</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline28">2. GIT</a>
+<li><a href="#orgheadline29">2. GIT</a>
 <ul>
 <li><a href="#orgheadline12">2.1. update git version:</a></li>
 <li><a href="#orgheadline14">2.2. 创建版本库</a>
@@ -188,6 +188,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline26">2.11.1. Change your remote's URL from HTTPS to SSH with the git remote set-url command.</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline28">2.12. remove remote</a></li>
 </ul>
 </li>
 </ul>
@@ -303,8 +304,8 @@ svn move SRC DEST or svn mv SRC DEST or svn rename SRC DEST or svn ren SRC DEST.
 </div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-2">
-<h2 id="orgheadline28"><span class="section-number-2">2</span> GIT</h2>
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">2</span> GIT</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline12" class="outline-3">
 <h3 id="orgheadline12"><span class="section-number-3">2.1</span> update git version:</h3>
@@ -599,12 +600,32 @@ origin  https://github.com/USERNAME/REPOSITORY.git <span style="color: #AE81FF;"
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">2.12</span> remove remote</h3>
+<div class="outline-text-3" id="text-2-12">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">git remote rm
+</pre>
+</div>
+
+<p>
+opposite operation:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">git remote add origin git@github.git
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-05 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-10 Sun 19:48</p>
+<p class="date">Created: 2017-09-14 Thu 10:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
