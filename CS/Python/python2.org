@@ -647,6 +647,21 @@ logger.debug("all weight are bigger than 0? %s", (df_opts_weight>0).all().all())
 logger.debug("all weight are smaller than 1? %s", (df_opts_weight<=1).all().all())
 logger.debug("weight sum smaller than 0: %s", df_opts_weight[df_opts_weight<0].sum(1))
 #+END_SRC
+
+- count all duplicates:
+#+BEGIN_SRC python
+import pandas as pd
+In [15]: a=pd.DataFrame({'a':['KBE.US','KBE.US','KBE.US','KBE.US','KBE.US','KBE.US','O.US','O.US','O.US','O.US','O.US'],'b':['KBE','KBE','KBE','KBE','KBE','KBE','O','O','O','O','O']})
+
+In [16]: count = a.groupby('a').count()
+
+In [20]: (count>5).all().all()
+Out[20]: False
+
+In [21]: (count>4).all().all()
+Out[21]: True
+
+#+END_SRC
 - rename column names:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
