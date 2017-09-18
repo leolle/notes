@@ -453,11 +453,16 @@ re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
 | defaultdict | dict subclass that calls a factory function to supply missing values |
 
 ** fetch data from yahoo
+install pandas-datareader first.
+#+BEGIN_SRC shell
+conda install pandas-datareader
+#+END_SRC
+
 #+begin_src python
 import pandas as pd
 import datetime as dt
 import numpy as np
-import pandas.io.data as web
+from pandas_datareader import data as web
 
 data = pd.DataFrame()
 symbols = ['GLD', 'GDX']
