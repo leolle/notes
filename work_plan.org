@@ -489,8 +489,9 @@ moving average crossing over on the continous contract.
 - [ ] soft constraint.
 - [ ] worse-case risk analysis.
 <2017-09-18 Mon>
-- [ ] add excess single returns and excess cumulative returns on PNLFitness.
+- [X] add excess single returns and excess cumulative returns on PNLFitness.
 - [ ] read future simulation code.
+
 * TODO future simulation
 
 ** <2017-09-15 Fri>

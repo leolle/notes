@@ -63,7 +63,9 @@ svn ci -m "Added new package baldrick" filename
 
 ** svn log file
 check file log.
-
+#+BEGIN_SRC shell
+svn log file
+#+END_SRC
 ** svn up -r version name + file name:
 reverse file back to a version.
 #+BEGIN_SRC shell
