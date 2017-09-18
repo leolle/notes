@@ -61,6 +61,15 @@ svn move SRC DEST or svn mv SRC DEST or svn rename SRC DEST or svn ren SRC DEST.
 svn ci -m "Added new package baldrick" filename
 #+END_SRC
 
+** svn log file
+check file log.
+
+** svn up -r version name + file name:
+reverse file back to a version.
+#+BEGIN_SRC shell
+svn up -r r12332 file.py
+#+END_SRC
+
 * GIT
 ** update git version:
 #+BEGIN_SRC shell

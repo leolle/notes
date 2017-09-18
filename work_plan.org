@@ -435,7 +435,6 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 * <2017-09-11 Mon>
 - [ ] pack functions to modules.
 - [ ] follow up correction.
-- [ ] construnct FS, FR, workflow.
 * <2017-09-12 Tue>
 - [ ] future simulation requested function:
 - calendar spread trading.
@@ -463,7 +462,7 @@ moving average crossing over on the continous contract.
             self.Liquidate()
 #+END_SRC
 * <2017-09-13 Wed>
-future simulation requested function:
+ requested function:
 - [ ] calendar spread trading.
 
 calculate the position value based on continious contract and actual contract
@@ -484,6 +483,16 @@ moving average crossing over on the continous contract.
 - [X] parse future continious contract data.
 ** code:<2017-09-14 Thu>
 - [ ] simple mode test with real data.
-* <2017-09-15 Fri>
-- [ ] parse future data to get the matrix data with contract name.
+
+* TODO optimization
+- [ ] construnct FS, FR, workflow.
+- [ ] soft constraint.
+- [ ] worse-case risk analysis.
+<2017-09-18 Mon>
+- [ ] add excess single returns and excess cumulative returns on PNLFitness.
+- [ ] read future simulation code.
+* TODO future simulation
+
+** <2017-09-15 Fri>
+- [X] pack constraint input parameters.
 - [ ] create signal via continous contract data.
