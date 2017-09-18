@@ -490,7 +490,8 @@ moving average crossing over on the continous contract.
 - [ ] worse-case risk analysis.
 <2017-09-18 Mon>
 - [X] add excess single returns and excess cumulative returns on PNLFitness.
-- [ ] read future simulation code.
+- [ ] move functions defines osets.
+- [X] read future simulation code.
 
 * TODO future simulation
 
