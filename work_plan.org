@@ -490,11 +490,14 @@ moving average crossing over on the continous contract.
 - [ ] worse-case risk analysis.
 <2017-09-18 Mon>
 - [X] add excess single returns and excess cumulative returns on PNLFitness.
-- [ ] move functions defines osets.
+- [X] move functions defines osets.
 - [X] read future simulation code.
+- [X] pack constraint input parameters.
 
 * TODO future simulation
 
 ** <2017-09-15 Fri>
-- [X] pack constraint input parameters.
 - [ ] create signal via continous contract data.
+
+** <2017-09-19 Tue>
+- [ ] buy and hold mode on future backtesting.

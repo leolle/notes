@@ -137,6 +137,18 @@ Or change the start-up configuration.
 
 - <s, press tab to get the src box.
 
+- define keyboard macro.
+=C-x (= or =<f3>= start defining a keyboard macro
+
+=C-x )= or =<f4>= stop defining the keyboard macro
+
+And here is how to execute a keyboard macro you’ve defined:
+
+=C-x e= or =f4= – execute the keyboard macro
+
+Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37):
+
+=C-u 37 C-x e=
 
 * ORG Mode
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4][Example]]
