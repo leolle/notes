@@ -1,0 +1,58 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: Backtest
+#+DATE: <2017-09-19 Tue>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+
+* Backtest systems
+
+** PyAlgoTrade
+
+** Zipline
+
+** Ultra-Finance
+
+** ProfitPy
+
+** pybacktest
+
+** prophet
+
+** quant
+
+** AlephNull
+
+** Trading with Python
+
+** visualize-wealth
+
+** tia: Toolkit for integration and analysis
+
+** QuantSoftware Toolkit
+
+** Pinkfish
+
+** bt
+
+bt slightly pre-dates backtrader and has a completely different approach but it is funny bt was also chosen as the abbreviation for backtrader during imports and that some of the methods have the same naming (obvious naming anyhow): run, plot …
+
+** PyThalesians
+
+** QSTrader
+
+** QSForex
+
+** pysystemtrade
+
+** QTPyLib
+
+** RQalpha
