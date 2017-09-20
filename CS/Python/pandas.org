@@ -239,6 +239,8 @@ Ada     Math      71  73   75  74
 Quinn   Math      74  76   78  77
 Violet  Math      77  79   81  80
 
+# get I
+df.loc[:, (slice(None), 'I')]
 In [78]: df.loc[(slice('Ada','Quinn'),'Math'),All]
 Out[78]:
                Exams     Labs
