@@ -593,6 +593,35 @@ try:
     raise Networkerror("Bad hostname")
 except Networkerror,e:
     print e.args
+    print e.message
+#+END_SRC
+** threading & queue
+*** install
+#+BEGIN_SRC shell
+pip install queuelib
+#+END_SRC
+*** example
+#+BEGIN_SRC python
+from Queue import Queue
+import threading
+
+#+END_SRC
+** loading configuration
+- use yaml and config file.
+#+BEGIN_SRC yaml
+# config.yaml
+engine:
+  user:
+    'jack'
+  password:
+    'password'
+#+END_SRC
+
+#+BEGIN_SRC python
+import yaml
+with open(r'config.yaml', 'rb') as f:
+    config = yaml.load(f)
+
 #+END_SRC
 * Data Analysis:
 

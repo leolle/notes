@@ -14,7 +14,7 @@
 
 
 * Backtest systems
-
+[[https://pypi.python.org/pypi/backtrader/]]
 ** PyAlgoTrade
 
 ** Zipline
@@ -56,3 +56,6 @@ bt slightly pre-dates backtrader and has a completely different approach but it 
 ** QTPyLib
 
 ** RQalpha
+
+* Statistics
+reference as module empyrical.

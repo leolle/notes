@@ -45,7 +45,19 @@
 ** pandas
 
 ** Financial Data
+- data preparation & parsing
+#+BEGIN_SRC python
+from scipy.stats import mstats
+df_factor = pd.Series(index=idx, data=mstats.winsorize(df_factor, limits=0.025))
+# df_factor.apply(mstats.winorize())
+start_date = df_factor.index[0]
+# remove outlier data by quantile
+#df_factor[df_factor>np.percentile(df_factor, 90)] = np.percentile(df_factor, 90)
 
+# remove by z score
+#df_factor = pd.Series(index=idx, df_factor[(np.abs(stats.zscore(df_factor)) < 3).all()])
+
+#+END_SRC
 ** Regression Analysis
 [[file:./py4fi/sentiment.html][sentiment]]
 
