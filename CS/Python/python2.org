@@ -725,7 +725,14 @@ df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
     name = {2:'idname', 23:'value', 4:'variable'}
     df.rename(columns=lambda x: name[(gftIO.get_column_type(df,x))], inplace=True)
     #+END_SRC
+  - rename column according to value:
+  #+BEGIN_SRC python
+name = {'INNERCODE': 'contract_code', 'OPTIONCODE': 'contract_name',
+        'SETTLEMENTDATE': 'settlement_date', 'ENDDATE': 'date',
+        'CLOSEPRICE': 'close_price'}
+data.rename(columns=lambda x: name[x], inplace=True)
 
+  #+END_SRC
 - remove characters after space:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x.)
@@ -734,6 +741,11 @@ df_bbg = df_bbg.rename(columns = lambda x: x.)
 - pandas long format to pivot:
 #+begin_src python
 pivoted = df.pivot('name1','name2','name3')
+specific_risk = self.risk_model['specificRisk'].pivot(
+    index='date', columns='symbol', values='specificrisk')
+df_pivot_industries_asset_weights = pd.pivot_table(
+        df_industries_asset_weight, values='value', index=['date'],
+        columns=['industry', 'symbol'])
 #+end_src
 
 - change the time or date or a datetime:
@@ -926,6 +938,11 @@ sym = grouped.last()
 df2[~df2.index.duplicated()]
 #+end_SRC
 
+***** remove duplicated rows
+#+BEGIN_SRC python
+pandas.DataFrame.drop_duplicates(subset=None, keep='first', inplace=False)
+# subset : column label or sequence of labels, optional
+#+END_SRC
 **** convert a dataframe to an array:
 #+begin_src emacs-lisp :tangle yes
 pd.dataframe.to_matrix()
