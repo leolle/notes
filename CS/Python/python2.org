@@ -903,6 +903,11 @@ df.loc(axis=0)[:,['SPY.US']]
 df.loc(axis=0)[:,['SPY.US']]['updatedTime']
 #+end_src
 
+- select rows with certain column value:
+#+BEGIN_SRC python
+df.loc[df['column_name'].isin(some_values)]
+#+END_SRC
+
 - select date range using pd series.
 #+begin_src python
 date_not_inserted = whole_index[~whole_index.isin(date_in_database['date'])]
