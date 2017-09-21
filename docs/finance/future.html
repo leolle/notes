@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-14 Thu 10:52 -->
+<!-- 2017-09-21 Thu 17:19 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -557,12 +557,30 @@ What we have to do is adjust all previous prices up by the gap. This effectively
 </p>
 
 <p>
-The key problem with the Panama method includes the introduction of a trend bias, which will introduce a large drift to the prices. This can lead to negative data for sufficiently historical contracts. In addition there is a loss of the relative price differences due to an absolute shift in values. This means that returns are complicated to calculate (or just plain incorrect).
+<b>The key problem with the Panama method includes the introduction of a trend bias, which will introduce a large drift to the prices. This can lead to negative data for sufficiently historical contracts. In addition there is a loss of the relative price differences due to an absolute shift in values. This means that returns are complicated to calculate (or just plain incorrect).</b>
+</p>
+
+<ul class="org-ul">
+<li>Rollover/Perpetual Series</li>
+</ul>
+<p>
+The essence of this approach is to create a continuous contract of successive contracts by taking a linearly weighted proportion of each contract over a number of days to ensure a smoother transition between each.
+</p>
+
+<p>
+For example consider five smoothing days. The price on day 1, P1, is equal to 80% of the far contract price (F1) and 20% of the near contract price (N1). Similarly, on day 2 the price is P2=0.6×F2+0.4×N2P2=0.6×F2+0.4×N2. By day 5 we have P5=0.0×F5+1.0×N5=N5 and the contract then just becomes a continuation of the near price. Thus after five days the contract is smoothly transitioned from the far to the near.
+</p>
+
+<p>
+The problem with the rollover method is that it requires trading on all five days, which can increase transaction costs.
 </p>
 
 <ul class="org-ul">
 <li>None</li>
 </ul>
+<p>
+Doing nothing.
+</p>
 </div></li>
 
 <li><a id="orgheadline18"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-3">
@@ -729,7 +747,6 @@ commissions charged per contract as well as exchange fees charged per trade.
 </pre>
 </div>
 </div></li>
-
 
 <li><a id="orgheadline25"></a>cash<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-3">
 <p>
@@ -981,7 +998,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-14 Thu 10:52</p>
+<p class="date">Created: 2017-09-21 Thu 17:19</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
