@@ -496,8 +496,14 @@ moving average crossing over on the continous contract.
 
 * TODO future simulation
 
-** <2017-09-20 Wed>
-- [ ] create signal via continous contract data.
-
 ** <2017-09-19 Tue>
 - [ ] buy and hold mode on future backtesting.
+
+** <2017-09-20 Wed>
+- [X] revise pnl fitness function, rename previous pnlfitness function name to PnLAndHoldingFitness, create another two seperate functions PnLFitness and HoldingFitness respectively.
+
+** <2017-09-21 Thu>
+- [ ] export data from database.
+- [X] download wti data from quandl as test data.
+- [ ] roll over between two contracts to get continious contract data.
+- [ ] create signal via continous contract data.

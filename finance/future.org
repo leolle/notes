@@ -157,11 +157,20 @@ The main issue with proportional adjustment is that any trading strategies relia
 - add
 What we have to do is adjust all previous prices up by the gap. This effectively "closes" the gap.
 
-The key problem with the Panama method includes the introduction of a trend bias, which will introduce a large drift to the prices. This can lead to negative data for sufficiently historical contracts. In addition there is a loss of the relative price differences due to an absolute shift in values. This means that returns are complicated to calculate (or just plain incorrect).
+*The key problem with the Panama method includes the introduction of a trend bias, which will introduce a large drift to the prices. This can lead to negative data for sufficiently historical contracts. In addition there is a loss of the relative price differences due to an absolute shift in values. This means that returns are complicated to calculate (or just plain incorrect).*
+
+- Rollover/Perpetual Series
+The essence of this approach is to create a continuous contract of successive contracts by taking a linearly weighted proportion of each contract over a number of days to ensure a smoother transition between each.
+
+For example consider five smoothing days. The price on day 1, P1, is equal to 80% of the far contract price (F1) and 20% of the near contract price (N1). Similarly, on day 2 the price is P2=0.6×F2+0.4×N2P2=0.6×F2+0.4×N2. By day 5 we have P5=0.0×F5+1.0×N5=N5 and the contract then just becomes a continuation of the near price. Thus after five days the contract is smoothly transitioned from the far to the near.
+
+The problem with the rollover method is that it requires trading on all five days, which can increase transaction costs.
 
 - None
+Doing nothing.
 
 **** roll styles
+
 position management.
 
 Rolling the position reference to calendar or volume(dominant contract).
@@ -239,7 +248,6 @@ futures_account.universe
 #+BEGIN_SRC python
 futures_account.previous_date
 #+END_SRC
-
 
 ******* cash
 当前账户可用现金.

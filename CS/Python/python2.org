@@ -642,6 +642,16 @@ sql = 'DROP TABLE IF EXISTS etf_daily_price;'
 result = engine.execute(sql)
 #+end_src
 
+- pandas has value:
+#+BEGIN_SRC python
+value in df['column_name']
+#+END_SRC
+
+- pandas has null value:
+#+BEGIN_SRC python
+df.isnull().values.any()
+
+#+END_SRC
 - find all the values of TRUE in a dataframe:
 #+begin_src python
 z=(a!=b)
@@ -680,6 +690,31 @@ df.values.min()
 logger.debug("all weight are bigger than 0? %s", (df_opts_weight>0).all().all())
 logger.debug("all weight are smaller than 1? %s", (df_opts_weight<=1).all().all())
 logger.debug("weight sum smaller than 0: %s", df_opts_weight[df_opts_weight<0].sum(1))
+#+END_SRC
+
+- datetime64[ns] missing data, null:
+For datetime64[ns] types, NaT represents missing values. This is a pseudo-native sentinel value that can be represented by numpy in a singular dtype (datetime64[ns]). pandas objects provide intercompatibility between NaT and NaN.
+
+#+BEGIN_SRC python
+In [16]: df2
+Out[16]:
+        one       two     three four   five  timestamp
+a -0.166778  0.501113 -0.355322  bar  False 2012-01-01
+c -0.337890  0.580967  0.983801  bar  False 2012-01-01
+e  0.057802  0.761948 -0.712964  bar   True 2012-01-01
+f -0.443160 -0.974602  1.047704  bar  False 2012-01-01
+h -0.717852 -1.053898 -0.019369  bar  False 2012-01-01
+
+In [17]: df2.loc[['a','c','h'],['one','timestamp']] = np.nan
+
+In [18]: df2
+Out[18]:
+        one       two     three four   five  timestamp
+a       NaN  0.501113 -0.355322  bar  False        NaT
+c       NaN  0.580967  0.983801  bar  False        NaT
+e  0.057802  0.761948 -0.712964  bar   True 2012-01-01
+f -0.443160 -0.974602  1.047704  bar  False 2012-01-01
+h       NaN -1.053898 -0.019369  bar  False        NaT
 #+END_SRC
 - rename column names:
 #+begin_src python
