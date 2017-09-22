@@ -647,6 +647,11 @@ result = engine.execute(sql)
 DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)
 #+END_SRC
 
+- select non zero rows from series:
+#+BEGIN_SRC python
+s[s.nonzero()]
+#+END_SRC
+
 - dataframe to series:
 #+BEGIN_SRC python
 s = df[df.columns[0]]
