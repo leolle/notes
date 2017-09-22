@@ -642,9 +642,24 @@ sql = 'DROP TABLE IF EXISTS etf_daily_price;'
 result = engine.execute(sql)
 #+end_src
 
+- fill nan:
+#+BEGIN_SRC python
+DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)
+#+END_SRC
+
+- dataframe to series:
+#+BEGIN_SRC python
+s = df[df.columns[0]]
+#+END_SRC
+
+- replace value:
+#+BEGIN_SRC python
+DataFrame.replace(to_replace=None, value=None, inplace=False, limit=None, regex=False, method='pad', axis=None)
+#+END_SRC
 - pandas has value:
 #+BEGIN_SRC python
 value in df['column_name']
+set(a).issubset(df['a'])
 #+END_SRC
 
 - pandas has null value:
