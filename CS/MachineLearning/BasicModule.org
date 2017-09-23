@@ -184,3 +184,16 @@ plt.grid()
 plt.show()
 
 #+END_SRC
+* 绘制三维图像
+#+BEGIN_SRC python
+x, y = np.ogrid[-3:3:100j, -3:3:100j]
+u = np.linspace(-3, 3, 101)
+x, y = np.meshgrid(u, u)
+z = x*y*np.exp(-(x**2 + y**2)/2) / math.sqrt(2*math.pi)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x, y, z, rstride=5, cstride=5, cmap=cm.coolwarm, linewidth=0.1)  #
+ax.plot_surface(x, y, z, rstride=5, cstride=5, cmap=cm.Accent, linewidth=0.5)
+plt.show()
+#+END_SRC
+[[/home/weiwu/website/leolle.github.io/CS/MachineLearning/code/gaussian_3_d_plot.png]]

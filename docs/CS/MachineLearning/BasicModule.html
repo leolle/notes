@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-23 Sat 16:11 -->
+<!-- 2017-09-23 Sat 16:17 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -181,6 +181,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline7">4. Taylor expansion:</a></li>
 <li><a href="#orgheadline8">5. 损失函数</a></li>
 <li><a href="#orgheadline9">6. 重心插值</a></li>
+<li><a href="#orgheadline10">7. 绘制三维图像</a></li>
 </ul>
 </div>
 </div>
@@ -424,11 +425,34 @@ plt.show<span style="color: #AE81FF;">()</span>
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">7</span> 绘制三维图像</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">x</span>, <span style="color: #FD971F;">y</span> = np.ogrid<span style="color: #AE81FF;">[</span>-<span style="color: #AE81FF;">3</span>:<span style="color: #AE81FF;">3</span>:<span style="color: #AE81FF;">100j</span>, -<span style="color: #AE81FF;">3</span>:<span style="color: #AE81FF;">3</span>:<span style="color: #AE81FF;">100j</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">u</span> = np.linspace<span style="color: #AE81FF;">(</span>-<span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">101</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">x</span>, <span style="color: #FD971F;">y</span> = np.meshgrid<span style="color: #AE81FF;">(</span>u, u<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">z</span> = x*y*np.exp<span style="color: #AE81FF;">(</span>-<span style="color: #66D9EF;">(</span>x**<span style="color: #AE81FF;">2</span> + y**<span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">)</span>/<span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span> / math.sqrt<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>*math.pi<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">fig</span> = plt.figure<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">ax</span> = fig.add_subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">111</span>, projection=<span style="color: #E6DB74;">'3d'</span><span style="color: #AE81FF;">)</span>
+ax.plot_surface<span style="color: #AE81FF;">(</span>x, y, z, rstride=<span style="color: #AE81FF;">5</span>, cstride=<span style="color: #AE81FF;">5</span>, cmap=cm.coolwarm, linewidth=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>  <span style="color: #75715E;">#</span>
+ax.plot_surface<span style="color: #AE81FF;">(</span>x, y, z, rstride=<span style="color: #AE81FF;">5</span>, cstride=<span style="color: #AE81FF;">5</span>, cmap=cm.Accent, linewidth=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>
+plt.show<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+
+<div class="figure">
+<p><img src="file:///home/weiwu/website/leolle.github.io/CS/MachineLearning/code/gaussian_3_d_plot.png" alt="gaussian_3_d_plot.png" />
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-23 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-23 Sat 16:11</p>
+<p class="date">Created: 2017-09-23 Sat 16:17</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
