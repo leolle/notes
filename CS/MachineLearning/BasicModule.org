@@ -196,4 +196,6 @@ ax.plot_surface(x, y, z, rstride=5, cstride=5, cmap=cm.coolwarm, linewidth=0.1) 
 ax.plot_surface(x, y, z, rstride=5, cstride=5, cmap=cm.Accent, linewidth=0.5)
 plt.show()
 #+END_SRC
+
+#+CAPTION: 3d plot
 [[/home/weiwu/website/leolle.github.io/CS/MachineLearning/code/gaussian_3_d_plot.png]]
