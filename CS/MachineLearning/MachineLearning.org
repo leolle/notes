@@ -78,7 +78,7 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 - t-SNE
 ** 结构预测
 
--概率图模型（贝叶斯网络，CRF, HMM）
+- 概率图模型（贝叶斯网络，CRF, HMM）
 ** 异常检测
 - k-NN
 - 局部离群因子

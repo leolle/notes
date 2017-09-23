@@ -203,6 +203,8 @@ b = t[1]
 - the minimum value between nan and infinity is infinity.
 min(np.nan, np.inf) = np.inf
 
+- eval
+eval the value of a variable name from string.
 ** pickle
 
 *** dump:
