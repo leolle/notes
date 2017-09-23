@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-12 Tue 14:28 -->
+<!-- 2017-09-22 Fri 17:39 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -169,7 +169,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline37">1. Python basic operations:</a>
+<li><a href="#orgheadline41">1. Python basic operations:</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Module</a></li>
 <li><a href="#orgheadline2">1.2. zip</a></li>
@@ -211,26 +211,33 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline34">1.18. profile</a></li>
 <li><a href="#orgheadline35">1.19. os, sys:</a></li>
 <li><a href="#orgheadline36">1.20. exception</a></li>
+<li><a href="#orgheadline39">1.21. threading &amp; queue</a>
+<ul>
+<li><a href="#orgheadline37">1.21.1. install</a></li>
+<li><a href="#orgheadline38">1.21.2. example</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline57">2. Data Analysis:</a>
-<ul>
-<li><a href="#orgheadline49">2.1. pandas:</a>
-<ul>
-<li><a href="#orgheadline38">2.1.1. multiplying</a></li>
-<li><a href="#orgheadline48">2.1.2. Index</a></li>
+<li><a href="#orgheadline40">1.22. loading configuration</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline50">2.2. numpy</a></li>
-<li><a href="#orgheadline55">2.3. plot:</a>
+<li><a href="#orgheadline62">2. Data Analysis:</a>
 <ul>
-<li><a href="#orgheadline51">2.3.1. subplot with the same axis:</a></li>
-<li><a href="#orgheadline52">2.3.2. subplot with different axis</a></li>
-<li><a href="#orgheadline53">2.3.3. plot a secondary y scale</a></li>
-<li><a href="#orgheadline54">2.3.4. plot a 3d figure:</a></li>
+<li><a href="#orgheadline54">2.1. pandas:</a>
+<ul>
+<li><a href="#orgheadline42">2.1.1. multiplying</a></li>
+<li><a href="#orgheadline53">2.1.2. Index</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline56">2.4. scipy</a></li>
+<li><a href="#orgheadline55">2.2. numpy</a></li>
+<li><a href="#orgheadline60">2.3. plot:</a>
+<ul>
+<li><a href="#orgheadline56">2.3.1. subplot with the same axis:</a></li>
+<li><a href="#orgheadline57">2.3.2. subplot with different axis</a></li>
+<li><a href="#orgheadline58">2.3.3. plot a secondary y scale</a></li>
+<li><a href="#orgheadline59">2.3.4. plot a 3d figure:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline61">2.4. scipy</a></li>
 </ul>
 </li>
 </ul>
@@ -238,8 +245,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline37" class="outline-2">
-<h2 id="orgheadline37"><span class="section-number-2">1</span> Python basic operations:</h2>
+<div id="outline-container-orgheadline41" class="outline-2">
+<h2 id="orgheadline41"><span class="section-number-2">1</span> Python basic operations:</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> Module</h3>
@@ -977,12 +984,21 @@ re.search<span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'[
 <div id="outline-container-orgheadline30" class="outline-3">
 <h3 id="orgheadline30"><span class="section-number-3">1.15</span> fetch data from yahoo</h3>
 <div class="outline-text-3" id="text-1-15">
+<p>
+install pandas-datareader first.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">conda install pandas-datareader
+</pre>
+</div>
+
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #F92672;">import</span> pandas <span style="color: #F92672;">as</span> pd
 <span style="color: #F92672;">import</span> datetime <span style="color: #F92672;">as</span> dt
 <span style="color: #F92672;">import</span> numpy <span style="color: #F92672;">as</span> np
-<span style="color: #F92672;">import</span> pandas.io.data <span style="color: #F92672;">as</span> web
+<span style="color: #F92672;">from</span> pandas_datareader <span style="color: #F92672;">import</span> data <span style="color: #F92672;">as</span> web
 
 <span style="color: #FD971F;">data</span> = pd.DataFrame<span style="color: #AE81FF;">()</span>
 <span style="color: #FD971F;">symbols</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'GLD'</span>, <span style="color: #E6DB74;">'GDX'</span><span style="color: #AE81FF;">]</span>
@@ -1188,16 +1204,68 @@ file = os.path.join(folder, 'file<sub>name</sub>')
     <span style="color: #F92672;">raise</span> Networkerror<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Bad hostname"</span><span style="color: #AE81FF;">)</span>
 <span style="color: #F92672;">except</span> Networkerror,e:
     <span style="color: #F92672;">print</span> e.args
+    <span style="color: #F92672;">print</span> e.message
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">1.21</span> threading &amp; queue</h3>
+<div class="outline-text-3" id="text-1-21">
+</div><div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37"><span class="section-number-4">1.21.1</span> install</h4>
+<div class="outline-text-4" id="text-1-21-1">
+<div class="org-src-container">
+
+<pre class="src src-shell">pip install queuelib
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline38" class="outline-4">
+<h4 id="orgheadline38"><span class="section-number-4">1.21.2</span> example</h4>
+<div class="outline-text-4" id="text-1-21-2">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> Queue <span style="color: #F92672;">import</span> Queue
+<span style="color: #F92672;">import</span> threading
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline57" class="outline-2">
-<h2 id="orgheadline57"><span class="section-number-2">2</span> Data Analysis:</h2>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">1.22</span> loading configuration</h3>
+<div class="outline-text-3" id="text-1-22">
+<ul class="org-ul">
+<li>use yaml and config file.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #75715E;"># </span><span style="color: #75715E;">config.yaml</span>
+<span style="color: #FD971F;">engine</span>:
+  <span style="color: #FD971F;">user</span>:
+    <span style="color: #E6DB74;">'jack'</span>
+  <span style="color: #FD971F;">password</span>:
+    <span style="color: #E6DB74;">'password'</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> yaml
+<span style="color: #F92672;">with</span> <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'config.yaml'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> f:
+    <span style="color: #FD971F;">config</span> = yaml.load<span style="color: #AE81FF;">(</span>f<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline62" class="outline-2">
+<h2 id="orgheadline62"><span class="section-number-2">2</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline49" class="outline-3">
-<h3 id="orgheadline49"><span class="section-number-3">2.1</span> pandas:</h3>
+</div><div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">2.1</span> pandas:</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <a href="./pandas.html">advanced pandas</a>
@@ -1225,6 +1293,50 @@ pandas.read_sql<span style="color: #AE81FF;">(</span>sql, con=engine<span style=
 </pre>
 </div>
 
+<ul class="org-ul">
+<li>fill nan:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.fillna<span style="color: #AE81FF;">(</span>value=<span style="color: #AE81FF;">None</span>, method=<span style="color: #AE81FF;">None</span>, axis=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, limit=<span style="color: #AE81FF;">None</span>, downcast=<span style="color: #AE81FF;">None</span>, **kwargs<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>dataframe to series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">s</span> = df<span style="color: #AE81FF;">[</span>df.columns<span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>replace value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.replace<span style="color: #AE81FF;">(</span>to_replace=<span style="color: #AE81FF;">None</span>, value=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, limit=<span style="color: #AE81FF;">None</span>, regex=<span style="color: #AE81FF;">False</span>, method=<span style="color: #E6DB74;">'pad'</span>, axis=<span style="color: #AE81FF;">None</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>pandas has value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">value <span style="color: #F92672;">in</span> df<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'column_name'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">set</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)</span>.issubset<span style="color: #AE81FF;">(</span>df<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>pandas has null value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.isnull<span style="color: #AE81FF;">()</span>.values.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>find all the values of TRUE in a dataframe:</li>
 </ul>
@@ -1292,6 +1404,37 @@ logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">
 logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"weight sum smaller than 0: %s"</span>, df_opts_weight<span style="color: #66D9EF;">[</span>df_opts_weight&lt;<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span>.<span style="color: #F92672;">sum</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+
+<ul class="org-ul">
+<li>datetime64[ns] missing data, null:</li>
+</ul>
+<p>
+For datetime64[ns] types, NaT represents missing values. This is a pseudo-native sentinel value that can be represented by numpy in a singular dtype (datetime64[ns]). pandas objects provide intercompatibility between NaT and NaN.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>: df2
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>:
+        one       two     three four   five  timestamp
+a -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">166778</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">501113</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">355322</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+c -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">337890</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">580967</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">983801</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+e  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">057802</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">761948</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">712964</span>  bar   <span style="color: #AE81FF;">True</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+f -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">443160</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">974602</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">047704</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+h -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">717852</span> -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">053898</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">019369</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">17</span><span style="color: #AE81FF;">]</span>: df2.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span>,<span style="color: #E6DB74;">'c'</span>,<span style="color: #E6DB74;">'h'</span><span style="color: #66D9EF;">]</span>,<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'one'</span>,<span style="color: #E6DB74;">'timestamp'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span> = np.nan
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">18</span><span style="color: #AE81FF;">]</span>: df2
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">18</span><span style="color: #AE81FF;">]</span>:
+        one       two     three four   five  timestamp
+a       NaN  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">501113</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">355322</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+c       NaN  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">580967</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">983801</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+e  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">057802</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">761948</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">712964</span>  bar   <span style="color: #AE81FF;">True</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+f -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">443160</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">974602</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">047704</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+h       NaN -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">053898</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">019369</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+</pre>
+</div>
 <ul class="org-ul">
 <li>rename column names:</li>
 </ul>
@@ -1310,7 +1453,16 @@ rename according to column value type:
 df.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F92672;">lambda</span> x: name<span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">(</span>gftIO.get_column_type<span style="color: #E6DB74;">(</span>df,x<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">]</span>, inplace=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div></li>
+<li>rename column according to value:</li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">name</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'INNERCODE'</span>: <span style="color: #E6DB74;">'contract_code'</span>, <span style="color: #E6DB74;">'OPTIONCODE'</span>: <span style="color: #E6DB74;">'contract_name'</span>,
+        <span style="color: #E6DB74;">'SETTLEMENTDATE'</span>: <span style="color: #E6DB74;">'settlement_date'</span>, <span style="color: #E6DB74;">'ENDDATE'</span>: <span style="color: #E6DB74;">'date'</span>,
+        <span style="color: #E6DB74;">'CLOSEPRICE'</span>: <span style="color: #E6DB74;">'close_price'</span><span style="color: #AE81FF;">}</span>
+data.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F92672;">lambda</span> x: name<span style="color: #66D9EF;">[</span>x<span style="color: #66D9EF;">]</span>, inplace=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>remove characters after space:</li>
 </ul>
@@ -1326,6 +1478,11 @@ df.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F926
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FD971F;">pivoted</span> = df.pivot<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'name1'</span>,<span style="color: #E6DB74;">'name2'</span>,<span style="color: #E6DB74;">'name3'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">specific_risk</span> = <span style="color: #F92672;">self</span>.risk_model<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'specificRisk'</span><span style="color: #AE81FF;">]</span>.pivot<span style="color: #AE81FF;">(</span>
+    index=<span style="color: #E6DB74;">'date'</span>, columns=<span style="color: #E6DB74;">'symbol'</span>, values=<span style="color: #E6DB74;">'specificrisk'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">df_pivot_industries_asset_weights</span> = pd.pivot_table<span style="color: #AE81FF;">(</span>
+        df_industries_asset_weight, values=<span style="color: #E6DB74;">'value'</span>, index=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'date'</span><span style="color: #66D9EF;">]</span>,
+        columns=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'industry'</span>, <span style="color: #E6DB74;">'symbol'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -1371,8 +1528,8 @@ df.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F926
 </div>
 </div>
 
-<div id="outline-container-orgheadline38" class="outline-4">
-<h4 id="orgheadline38"><span class="section-number-4">2.1.1</span> multiplying</h4>
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">2.1.1</span> multiplying</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <ul class="org-ul">
 <li>the multiplying calculation is not about the sequence of the index or column.</li>
@@ -1436,10 +1593,10 @@ b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline48" class="outline-4">
-<h4 id="orgheadline48"><span class="section-number-4">2.1.2</span> Index</h4>
+<div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53"><span class="section-number-4">2.1.2</span> Index</h4>
 <div class="outline-text-4" id="text-2-1-2">
-</div><ol class="org-ol"><li><a id="orgheadline39"></a>Index manuplication<br  /><div class="outline-text-5" id="text-2-1-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline43"></a>Index manuplication<br  /><div class="outline-text-5" id="text-2-1-2-1">
 <ul class="org-ul">
 <li>set column as datetime index</li>
 </ul>
@@ -1536,7 +1693,7 @@ pd.concat([A, B])
 index variable value variable value
 </p>
 </div></li>
-<li><a id="orgheadline40"></a>merge<br  /><div class="outline-text-5" id="text-2-1-2-2">
+<li><a id="orgheadline44"></a>merge<br  /><div class="outline-text-5" id="text-2-1-2-2">
 <p>
 merge will take two dataframe to a new dataframe by index, on the columns.
 A:
@@ -1550,13 +1707,13 @@ pd.merge(A, B, how='left', on=['index', 'variable'])
 index variable value value
 </p>
 </div></li>
-<li><a id="orgheadline41"></a>update<br  /><div class="outline-text-5" id="text-2-1-2-3">
+<li><a id="orgheadline45"></a>update<br  /><div class="outline-text-5" id="text-2-1-2-3">
 <p>
 update dataframe1 with dataframe2
 </p>
 </div></li>
 
-<li><a id="orgheadline42"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-2-1-2-4">
+<li><a id="orgheadline46"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-2-1-2-4">
 <ul class="org-ul">
 <li>A MultiIndex can be created from a list of arrays (using MultiIndex.from<sub>arrays</sub>), an array of tuples (using MultiIndex.from<sub>tuples</sub>), or a crossed set of iterables (using MultiIndex.from<sub>product</sub>).</li>
 </ul>
@@ -1595,6 +1752,15 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 
 <ul class="org-ul">
+<li>select rows with certain column value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.loc<span style="color: #AE81FF;">[</span>df<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'column_name'</span><span style="color: #66D9EF;">]</span>.isin<span style="color: #66D9EF;">(</span>some_values<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
 <li>select date range using pd series.</li>
 </ul>
 <div class="org-src-container">
@@ -1605,7 +1771,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline45"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline43"></a>#1<br  /><div class="outline-text-6" id="text-2-1-2-5-1">
+<li><a id="orgheadline50"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline47"></a>#1<br  /><div class="outline-text-6" id="text-2-1-2-5-1">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FD971F;">grouped</span> = sym.groupby<span style="color: #AE81FF;">(</span>level=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
@@ -1614,15 +1780,23 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline44"></a>#2<br  /><div class="outline-text-6" id="text-2-1-2-5-2">
+<li><a id="orgheadline48"></a>#2<br  /><div class="outline-text-6" id="text-2-1-2-5-2">
 <div class="org-src-container">
 
 <pre class="src src-python">df2<span style="color: #AE81FF;">[</span>~df2.index.duplicated<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
 </pre>
 </div>
-</div></li></ol></li>
+</div></li>
 
-<li><a id="orgheadline46"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-2-1-2-6">
+<li><a id="orgheadline49"></a>remove duplicated rows<br  /><div class="outline-text-6" id="text-2-1-2-5-3">
+<div class="org-src-container">
+
+<pre class="src src-python">pandas.DataFrame.drop_duplicates<span style="color: #AE81FF;">(</span>subset=<span style="color: #AE81FF;">None</span>, keep=<span style="color: #E6DB74;">'first'</span>, inplace=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">subset : column label or sequence of labels, optional</span>
+</pre>
+</div>
+</div></li></ol></li>
+<li><a id="orgheadline51"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-2-1-2-6">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">pd.dataframe.to_matrix<span style="color: #AE81FF;">()</span>
@@ -1630,7 +1804,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline47"></a>panel:<br  /><div class="outline-text-5" id="text-2-1-2-7">
+<li><a id="orgheadline52"></a>panel:<br  /><div class="outline-text-5" id="text-2-1-2-7">
 <ul class="org-ul">
 <li>create from dictionary:</li>
 </ul>
@@ -1647,8 +1821,8 @@ pandas panel item axis should be datetime64, this should not be an array.
 </div></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline50" class="outline-3">
-<h3 id="orgheadline50"><span class="section-number-3">2.2</span> numpy</h3>
+<div id="outline-container-orgheadline55" class="outline-3">
+<h3 id="orgheadline55"><span class="section-number-3">2.2</span> numpy</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>count nan:</li>
@@ -1681,11 +1855,11 @@ Return the sorted, unique values in ar1 that are not in ar2
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline55" class="outline-3">
-<h3 id="orgheadline55"><span class="section-number-3">2.3</span> plot:</h3>
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="section-number-3">2.3</span> plot:</h3>
 <div class="outline-text-3" id="text-2-3">
-</div><div id="outline-container-orgheadline51" class="outline-4">
-<h4 id="orgheadline51"><span class="section-number-4">2.3.1</span> subplot with the same axis:</h4>
+</div><div id="outline-container-orgheadline56" class="outline-4">
+<h4 id="orgheadline56"><span class="section-number-4">2.3.1</span> subplot with the same axis:</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 pandas plot.
@@ -1707,8 +1881,8 @@ fig, ax : <span style="color: #F92672;">tuple</span>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline52" class="outline-4">
-<h4 id="orgheadline52"><span class="section-number-4">2.3.2</span> subplot with different axis</h4>
+<div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57"><span class="section-number-4">2.3.2</span> subplot with different axis</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <div class="org-src-container">
 
@@ -1729,8 +1903,8 @@ pe000001.plot<span style="color: #AE81FF;">()</span>
 </div>
 </div>
 
-<div id="outline-container-orgheadline53" class="outline-4">
-<h4 id="orgheadline53"><span class="section-number-4">2.3.3</span> plot a secondary y scale</h4>
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58"><span class="section-number-4">2.3.3</span> plot a secondary y scale</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <div class="org-src-container">
 
@@ -1750,8 +1924,8 @@ plt.axvline<span style="color: #AE81FF;">(</span>a<span style="color: #66D9EF;">
 </div>
 </div>
 
-<div id="outline-container-orgheadline54" class="outline-4">
-<h4 id="orgheadline54"><span class="section-number-4">2.3.4</span> plot a 3d figure:</h4>
+<div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59"><span class="section-number-4">2.3.4</span> plot a 3d figure:</h4>
 <div class="outline-text-4" id="text-2-3-4">
 <div class="org-src-container">
 
@@ -1795,8 +1969,8 @@ fig is the :class:matplotlib.figure.Figure object.
 </div>
 </div>
 
-<div id="outline-container-orgheadline56" class="outline-3">
-<h3 id="orgheadline56"><span class="section-number-3">2.4</span> scipy</h3>
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">2.4</span> scipy</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>combination k from n.</li>
@@ -1832,7 +2006,7 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-12 Tue 14:28</p>
+<p class="date">Created: 2017-09-22 Fri 17:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

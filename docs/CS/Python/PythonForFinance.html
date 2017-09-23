@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-10 Sun 19:48 -->
+<!-- 2017-09-21 Thu 17:20 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -413,8 +413,25 @@ for the JavaScript code in this tag.
 
 <div id="outline-container-orgheadline11" class="outline-3">
 <h3 id="orgheadline11"><span class="section-number-3">4.2</span> Financial Data</h3>
-</div>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>data preparation &amp; parsing</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-python"><span style="color: #F92672;">from</span> scipy.stats <span style="color: #F92672;">import</span> mstats
+<span style="color: #FD971F;">df_factor</span> = pd.Series<span style="color: #AE81FF;">(</span>index=idx, data=mstats.winsorize<span style="color: #66D9EF;">(</span>df_factor, limits=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">025</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">df_factor.apply(mstats.winorize())</span>
+<span style="color: #FD971F;">start_date</span> = df_factor.index<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">remove outlier data by quantile</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">df_factor[df_factor&gt;np.percentile(df_factor, 90)] = np.percentile(df_factor, 90)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">remove by z score</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">df_factor = pd.Series(index=idx, df_factor[(np.abs(stats.zscore(df_factor)) &lt; 3).all()])</span>
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline12" class="outline-3">
 <h3 id="orgheadline12"><span class="section-number-3">4.3</span> Regression Analysis</h3>
 <div class="outline-text-3" id="text-4-3">
@@ -1144,7 +1161,7 @@ data done
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-11 Thu&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-10 Sun 19:48</p>
+<p class="date">Created: 2017-09-21 Thu 17:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

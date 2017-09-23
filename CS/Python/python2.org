@@ -453,11 +453,16 @@ re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
 | defaultdict | dict subclass that calls a factory function to supply missing values |
 
 ** fetch data from yahoo
+install pandas-datareader first.
+#+BEGIN_SRC shell
+conda install pandas-datareader
+#+END_SRC
+
 #+begin_src python
 import pandas as pd
 import datetime as dt
 import numpy as np
-import pandas.io.data as web
+from pandas_datareader import data as web
 
 data = pd.DataFrame()
 symbols = ['GLD', 'GDX']
@@ -588,6 +593,35 @@ try:
     raise Networkerror("Bad hostname")
 except Networkerror,e:
     print e.args
+    print e.message
+#+END_SRC
+** threading & queue
+*** install
+#+BEGIN_SRC shell
+pip install queuelib
+#+END_SRC
+*** example
+#+BEGIN_SRC python
+from Queue import Queue
+import threading
+
+#+END_SRC
+** loading configuration
+- use yaml and config file.
+#+BEGIN_SRC yaml
+# config.yaml
+engine:
+  user:
+    'jack'
+  password:
+    'password'
+#+END_SRC
+
+#+BEGIN_SRC python
+import yaml
+with open(r'config.yaml', 'rb') as f:
+    config = yaml.load(f)
+
 #+END_SRC
 * Data Analysis:
 
@@ -608,6 +642,36 @@ sql = 'DROP TABLE IF EXISTS etf_daily_price;'
 result = engine.execute(sql)
 #+end_src
 
+- fill nan:
+#+BEGIN_SRC python
+DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)
+#+END_SRC
+
+- select non zero rows from series:
+#+BEGIN_SRC python
+s[s.nonzero()]
+#+END_SRC
+
+- dataframe to series:
+#+BEGIN_SRC python
+s = df[df.columns[0]]
+#+END_SRC
+
+- replace value:
+#+BEGIN_SRC python
+DataFrame.replace(to_replace=None, value=None, inplace=False, limit=None, regex=False, method='pad', axis=None)
+#+END_SRC
+- pandas has value:
+#+BEGIN_SRC python
+value in df['column_name']
+set(a).issubset(df['a'])
+#+END_SRC
+
+- pandas has null value:
+#+BEGIN_SRC python
+df.isnull().values.any()
+
+#+END_SRC
 - find all the values of TRUE in a dataframe:
 #+begin_src python
 z=(a!=b)
@@ -648,6 +712,7 @@ logger.debug("all weight are smaller than 1? %s", (df_opts_weight<=1).all().all(
 logger.debug("weight sum smaller than 0: %s", df_opts_weight[df_opts_weight<0].sum(1))
 #+END_SRC
 
+<<<<<<< HEAD
 - count all duplicates:
 #+BEGIN_SRC python
 import pandas as pd
@@ -661,6 +726,31 @@ Out[20]: False
 In [21]: (count>4).all().all()
 Out[21]: True
 
+=======
+- datetime64[ns] missing data, null:
+For datetime64[ns] types, NaT represents missing values. This is a pseudo-native sentinel value that can be represented by numpy in a singular dtype (datetime64[ns]). pandas objects provide intercompatibility between NaT and NaN.
+
+#+BEGIN_SRC python
+In [16]: df2
+Out[16]:
+        one       two     three four   five  timestamp
+a -0.166778  0.501113 -0.355322  bar  False 2012-01-01
+c -0.337890  0.580967  0.983801  bar  False 2012-01-01
+e  0.057802  0.761948 -0.712964  bar   True 2012-01-01
+f -0.443160 -0.974602  1.047704  bar  False 2012-01-01
+h -0.717852 -1.053898 -0.019369  bar  False 2012-01-01
+
+In [17]: df2.loc[['a','c','h'],['one','timestamp']] = np.nan
+
+In [18]: df2
+Out[18]:
+        one       two     three four   five  timestamp
+a       NaN  0.501113 -0.355322  bar  False        NaT
+c       NaN  0.580967  0.983801  bar  False        NaT
+e  0.057802  0.761948 -0.712964  bar   True 2012-01-01
+f -0.443160 -0.974602  1.047704  bar  False 2012-01-01
+h       NaN -1.053898 -0.019369  bar  False        NaT
+>>>>>>> 711892d808e2989111ffe2d9ffd712ae843710f1
 #+END_SRC
 - rename column names:
 #+begin_src python
@@ -671,7 +761,14 @@ df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
     name = {2:'idname', 23:'value', 4:'variable'}
     df.rename(columns=lambda x: name[(gftIO.get_column_type(df,x))], inplace=True)
     #+END_SRC
+  - rename column according to value:
+  #+BEGIN_SRC python
+name = {'INNERCODE': 'contract_code', 'OPTIONCODE': 'contract_name',
+        'SETTLEMENTDATE': 'settlement_date', 'ENDDATE': 'date',
+        'CLOSEPRICE': 'close_price'}
+data.rename(columns=lambda x: name[x], inplace=True)
 
+  #+END_SRC
 - remove characters after space:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x.)
@@ -680,6 +777,11 @@ df_bbg = df_bbg.rename(columns = lambda x: x.)
 - pandas long format to pivot:
 #+begin_src python
 pivoted = df.pivot('name1','name2','name3')
+specific_risk = self.risk_model['specificRisk'].pivot(
+    index='date', columns='symbol', values='specificrisk')
+df_pivot_industries_asset_weights = pd.pivot_table(
+        df_industries_asset_weight, values='value', index=['date'],
+        columns=['industry', 'symbol'])
 #+end_src
 
 - change the time or date or a datetime:
@@ -849,6 +951,11 @@ df.loc(axis=0)[:,['SPY.US']]
 df.loc(axis=0)[:,['SPY.US']]['updatedTime']
 #+end_src
 
+- select rows with certain column value:
+#+BEGIN_SRC python
+df.loc[df['column_name'].isin(some_values)]
+#+END_SRC
+
 - select date range using pd series.
 #+begin_src python
 date_not_inserted = whole_index[~whole_index.isin(date_in_database['date'])]
@@ -867,6 +974,11 @@ sym = grouped.last()
 df2[~df2.index.duplicated()]
 #+end_SRC
 
+***** remove duplicated rows
+#+BEGIN_SRC python
+pandas.DataFrame.drop_duplicates(subset=None, keep='first', inplace=False)
+# subset : column label or sequence of labels, optional
+#+END_SRC
 **** convert a dataframe to an array:
 #+begin_src emacs-lisp :tangle yes
 pd.dataframe.to_matrix()
