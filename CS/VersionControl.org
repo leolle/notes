@@ -142,6 +142,11 @@ Unstaged changes after reset:
 M       readme.txt
 #+end_src
 
+- give up unstaged or modified files.
+#+begin_src emacs-lisp :tangle yes
+git clean -df
+git checkout -- .
+#+end_src
 ** 创建与合并分支
 
 *** master分支是一条线，Git用master指向最新的提交，再用HEAD指向master

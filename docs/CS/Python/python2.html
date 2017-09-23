@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-22 Fri 17:39 -->
+<!-- 2017-09-23 Sat 12:05 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1303,6 +1303,15 @@ pandas.read_sql<span style="color: #AE81FF;">(</span>sql, con=engine<span style=
 </div>
 
 <ul class="org-ul">
+<li>select non zero rows from series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">s<span style="color: #AE81FF;">[</span>s.nonzero<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
 <li>dataframe to series:</li>
 </ul>
 <div class="org-src-container">
@@ -1406,15 +1415,26 @@ logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">
 </div>
 
 <ul class="org-ul">
-<li>datetime64[ns] missing data, null:</li>
+<li>count all duplicates:</li>
 </ul>
-<p>
-For datetime64[ns] types, NaT represents missing values. This is a pseudo-native sentinel value that can be represented by numpy in a singular dtype (datetime64[ns]). pandas objects provide intercompatibility between NaT and NaN.
-</p>
-
 <div class="org-src-container">
 
-<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>: df2
+<pre class="src src-python"><span style="color: #F92672;">import</span> pandas <span style="color: #F92672;">as</span> pd
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">15</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">a</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'a'</span>:<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'b'</span>:<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">count</span> = a.groupby<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'a'</span><span style="color: #AE81FF;">)</span>.count<span style="color: #AE81FF;">()</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">20</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span>count&gt;<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">20</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">False</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">21</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span>count&gt;<span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">21</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">True</span>
+
+- datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span> missing data, null:
+For datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span> types, NaT represents missing values. This <span style="color: #F92672;">is</span> a pseudo-native sentinel value that can be represented by numpy <span style="color: #F92672;">in</span> a singular dtype <span style="color: #AE81FF;">(</span>datetime64<span style="color: #66D9EF;">[</span>ns<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>. pandas objects provide intercompatibility between NaT <span style="color: #F92672;">and</span> NaN.
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">+BEGIN_SRC python</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>: df2
 Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>:
         one       two     three four   five  timestamp
 a -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">166778</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">501113</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">355322</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
@@ -1433,6 +1453,7 @@ c       NaN  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;
 e  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">057802</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">761948</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">712964</span>  bar   <span style="color: #AE81FF;">True</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
 f -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">443160</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">974602</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">047704</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
 h       NaN -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">053898</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">019369</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; <span style="color: #AE81FF;">711892d808e2989111ffe2d9ffd712ae843710f1</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -2006,7 +2027,7 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-22 Fri 17:39</p>
+<p class="date">Created: 2017-09-23 Sat 12:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

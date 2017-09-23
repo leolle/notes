@@ -712,7 +712,6 @@ logger.debug("all weight are smaller than 1? %s", (df_opts_weight<=1).all().all(
 logger.debug("weight sum smaller than 0: %s", df_opts_weight[df_opts_weight<0].sum(1))
 #+END_SRC
 
-<<<<<<< HEAD
 - count all duplicates:
 #+BEGIN_SRC python
 import pandas as pd
@@ -726,7 +725,6 @@ Out[20]: False
 In [21]: (count>4).all().all()
 Out[21]: True
 
-=======
 - datetime64[ns] missing data, null:
 For datetime64[ns] types, NaT represents missing values. This is a pseudo-native sentinel value that can be represented by numpy in a singular dtype (datetime64[ns]). pandas objects provide intercompatibility between NaT and NaN.
 
