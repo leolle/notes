@@ -11,7 +11,43 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
+* Intro
+[[file:./code/intro.py][Intro]]
+** np.logspace
+logspace可以创建等比数列.
+#+BEGIN_SRC python
+In [19]: np.logspace(1, 2, 10)
+Out[19]:
+array([  10.        ,   12.91549665,   16.68100537,   21.5443469 ,
+         27.82559402,   35.93813664,   46.41588834,   59.94842503,
+         77.42636827,  100.        ])
 
+#+END_SRC
+** np.linspace
+linspace函数通过指定起始值、终止值和元素个数来创建数组，缺省包括终止值.
+#+BEGIN_SRC python
+In [18]: np.linspace(1, 10, 10, endpoint=False)
+Out[18]: array([ 1. ,  1.9,  2.8,  3.7,  4.6,  5.5,  6.4,  7.3,  8.2,  9.1])
+
+#+END_SRC
+** slice
+#+BEGIN_SRC python
+a = np.arange(10)
+print a
+# # 获取某个元素
+print a[3]
+# # # 切片[3,6)，左闭右开
+print a[3:6]
+# # # 省略开始下标，表示从0开始
+print a[:5]
+# # # 下标为负表示从后向前数
+print a[3:]
+# # # 步长为2
+print a[1:9:2]
+# # # 步长为-1，即翻转
+
+
+#+END_SRC
 * Linear Regression with Multiple Variables
 - Gradient Descent:
 Taking the derivative (the tangential line to a function) of our cost function.
@@ -29,6 +65,7 @@ $$\theta_0 = \theta_0 - \alpha\partial{J(\theta)}{\theta}$$
 * Polynomial regression
 
 * Taylor expansion:
+[[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/code/taylor_expansion.py][taylor_expansion]]
 #+BEGIN_SRC python
 # -*- coding: utf-8 -*-
 import numpy as np
@@ -101,4 +138,49 @@ for i, x in enumerate(t):
 : e^ 1.89473684211  =  6.65079796433 , appx = 	 6.650797964331267
 : e^ 2.0  =  7.38905609893 , appx = 	 7.38905609893065
 
-*
+* 损失函数
+$$\theta^*=arg min L(f(x,\theta), y)$$
+
+- Logitic loss
+
+- 0/1 loss
+
+- Hinge loss
+#+BEGIN_SRC python
+x = np.array(np.linspace(start=-2, stop=3, num=1001, dtype=np.float))
+y_logit = np.log(1 + np.exp(-x)) / math.log(2)
+y_boost = np.exp(-x)
+y_01 = x < 0
+y_hinge = 1.0 - x
+y_hinge[y_hinge < 0] = 0
+plt.plot(x, y_logit, 'r-', label='Logistic Loss', linewidth=2)
+plt.plot(x, y_01, 'g-', label='0/1 Loss', linewidth=2)
+plt.plot(x, y_hinge, 'b-', label='Hinge Loss', linewidth=2)
+plt.plot(x, y_boost, 'm--', label='Adaboost Loss', linewidth=2)
+plt.grid()
+plt.legend(loc='upper right')
+# plt.savefig('1.png')
+plt.show()
+
+#+END_SRC
+* 重心插值
+- Cubic Spine
+- Barycentric Interpolator
+#+BEGIN_SRC python
+from scipy.interpolate import BarycentricInterpolator
+from scipy.interpolate import CubicSpline
+rv = poisson(5)
+x1 = a[1]
+y1 = rv.pmf(x1)
+itp = BarycentricInterpolator(x1, y1)  # 重心插值
+x2 = np.linspace(x.min(), x.max(), 50)
+y2 = itp(x2)
+cs = scipy.interpolate.CubicSpline(x1, y1)       # 三次样条插值
+plt.plot(x2, cs(x2), 'm--', linewidth=5, label='CubicSpine')           # 三次样条插值
+plt.plot(x2, y2, 'g-', linewidth=3, label='BarycentricInterpolator')   # 重心插值
+plt.plot(x1, y1, 'r-', linewidth=1, label='Actural Value')             # 原始值
+plt.legend(loc='upper right')
+plt.grid()
+plt.show()
+
+#+END_SRC

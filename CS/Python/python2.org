@@ -1022,6 +1022,9 @@ Return the sorted, unique values in ar1 that are not in ar2
 #+BEGIN_SRC python
 np.setdiff1d(ar1, ar2)
 #+END_SRC
+
+- reshape:
+np.reshape((1, -1)), -1 means automatic number of columns.
 ** plot:
 *** subplot with the same axis:
 pandas plot.
