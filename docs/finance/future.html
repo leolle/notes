@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-24 Sun 21:26 -->
+<!-- 2017-09-24 Sun 21:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -634,11 +634,11 @@ If you are using continuous contracts for <b>economic forecasting or regression<
 </p>
 
 <p>
-If you are using continuous contracts for <b>chart-based technical analysis</b>, you should use *"open interest switch" as your roll date rule*. Technical analysis depends on finding patterns in trader group dynamics, and hence a popularity-based roll measure is appropriate. For your price adjustment rule, you can use either *"backwards panama" with a linear y-axis, or "backwards ratio" with a logarithmic y-axis*, depending on your preferred flavor of technical analysis. (Although some traders claim that "unadjusted" prices are more appropriate, since they correspond more closely with psychological perceptions of support, resistance etc.)
+If you are using continuous contracts for <b>chart-based technical analysis</b>, you should use *"open interest switch" as your roll date rule*. Technical analysis depends on finding patterns in trader group dynamics, and hence a popularity-based roll measure is appropriate. For your price adjustment rule, you can use either *"backwards panama" with a linear y-axis, or "backwards ratio" with a logarithmic y-axis*, depending on your =preferred flavor of technical analysis. (Although some traders claim that "unadjusted" prices are more appropriate, since they correspond more closely with psychological perceptions of support, resistance etc.)
 </p>
 
 <p>
-If you are using continuous contracts for <b>back-testing trading strategies</b>, you should use <b>a roll date rule that corresponds exactly to your trading strategy</b>. If you always roll on the expiry date, use "last trading day". If you always roll on the first of the month, use "first day of month". If you roll when everybody else rolls (for benchmarking or liquidity reasons), use "open interest switch". As for prices: <b>if you trade based on a constant number of contracts</b>, you should use *"backwards Panama"* as your price adjustment rule. If you trade based on <b>a constant value of the underlying commodity</b>, you should use *"backwards ratio"* for your price adjustment rule, and be sure to calculate PL using relative (percentage) changes not absolute (price) changes.
+If you are using continuous contracts for <b>back-testing trading strategies</b>, you should use <b>a roll date rule that corresponds exactly to your trading strategy</b>. If you always roll on the expiry date, use "last trading day". If you always roll on the first of the month, use "first day of month". If you roll when everybody else rolls (for benchmarking or liquidity reasons), use "open interest switch". As for prices: <b>if you trade based on a constant number of contracts</b>, you should use "<b>backwards Panama</b>" as your price adjustment rule. If you trade based on <b>a constant value of the underlying commodity</b>, you should use "<b>backwards ratio</b>" for your price adjustment rule, and be sure to calculate PL using relative (percentage) changes not absolute (price) changes.
 </p>
 
 <p>
@@ -1043,7 +1043,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-24 Sun 21:26</p>
+<p class="date">Created: 2017-09-24 Sun 21:30</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
