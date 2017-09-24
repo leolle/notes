@@ -84,7 +84,7 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 - 局部离群因子
 ** 神经网络
 
--自编码
+- 自编码
 - 深度学习
 - 多层感知机
 - RNN
@@ -93,12 +93,13 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 - CNN
 ** 理论
 
--偏差/方差困境
+- 偏差/方差困境
 - 计算学习理论
 - 经验风险最小化
 - PAC学习
 - 统计学习
 - VC理论
+
 * Week 1
 
 ** What is machine learning
