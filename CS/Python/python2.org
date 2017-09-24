@@ -1031,6 +1031,11 @@ np.reshape((1, -1)), -1 means automatic number of columns.
 *** subplot with the same axis:
 pandas plot.
 using matplotlib:
+- plot different series on the same chart.
+#+BEGIN_SRC python
+cl_active_contract_pricing.plot()
+cl_pricing.plot(style='k--')
+#+END_SRC
 - multiple subplots
 #+begin_src python
 import matplotlib.pyplot as plt
