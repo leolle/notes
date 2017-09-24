@@ -170,15 +170,47 @@ The problem with the rollover method is that it requires trading on all five day
 Doing nothing.
 
 **** roll styles
+There are 14 different roll rule and price rule combinations, corresponding to all the different use cases for futures data. It is strongly recommended that you use continuous contracts with the correct roll/price rule, if you want your analysis to be accurate and trustworthy. Incorrect concatenation rules or inappropriate use of individual illiquid contracts may seriously impair the quality of your analysis.
 
-position management.
+***** What are the different roll date choices available?
 
-Rolling the position reference to calendar or volume(dominant contract).
-- calendar
-This is two days prior to either notice_date or end_date, whichever is earlier.
+Roll date choices include:
 
-- volume
-期货主力合约
+- On the last trading day of the expiring contract. This method is called the last-trading-day or end-to-end roll method. This method allows you to use the front contract for as long as possible; however the danger is that activity may have switched to the back contract prior to your roll. A trading strategy based upon this rule runs the risk of unwanted delivery and/or close-out of your positions, if you do not roll in time (the margin for error is very limited). This is the roll date rule used in Quandl's free continuous futures data (source /CHRIS).
+
+- On the first day of the contract delivery month or on the contract end date, whichever is sooner. This is called the first-of-month roll method, and is used by most major data terminals as their default roll method. It has the advantage that it is uniform across all contracts, and completely predictable. However, this method has very little connection with the underlying mechanics of the contract; it is connected neither to the contract's trading activity, nor to its specific delivery rules. We recommend using this method only for purely deterministic trading strategies which do not rely on behavioral patterns for their returns.
+
+- On the first day that the back contract has a higher open interest than the front contract. This is called the open-interest-switch or liquidity-based roll method, and is used by most technical traders, especially in financial futures. It is also used by macro traders who are primarily concerned with larger longer-term trends, and are hence agnostic to minor differences in valuation within a given commodity complex. This roll rule, by definition, offers the highest liquidity to traders. However, note that it is completely inappropriate for interest rates futures, and should be used with care for energy and agriculture futures.
+***** What are the different price adjustment choices available?
+
+Price adjustment choices include:
+
+- No price adjustment: the simplest choice. The prices you see are always actual transaction prices; however, there are discontinuous jumps in the long-term futures price history.
+
+- Forwards panama canal method, aka first-true method. Shift successive contracts up or down by a constant amount so as to eliminate jumps, working forwards from the oldest contract in your history. The price of the oldest contract will therefore be "true"; all others will be adjusted.
+
+- Backwards panama canal method, aka last-true method. Shift successive contracts up or down by a constant amount so as to eliminate jumps, working backwards from the current contract. The price of the current continuous contract will be "true" and match market prices; however, you will need to recalculate your entire history on every roll date, which may be impractical.
+
+- Backwards ratio method. Instead of shifting contracts up or down, in this method we multiply contracts by a constant factor so as to eliminate jumps, working backwards from the current contract. As with the backwards panama canal method, this method necessitates full historical recalculation on every roll date.
+
+- Calendar-weighted method. Transition smoothly from one contract to the next, by using blended or weighted-average combined prices during a pre-determined transition window right around the roll date. This method is an elegant compromise between first-true and last-true methods: like first-true, it requires no historical recalculation, and like last-true, it delivers continuous prices that exactly match current market prices. However, this method cannot be used in conjunction with non-predictable roll dates such as open-interest-switch.
+
+With 3 roll rules and 5 price rules in play, there are 15 possible price/roll combinations -- minus 1, because calendar-weighted prices are incompatible with open-interest-switch rolling. So there are 14 price/roll combinations available as part of the SCF futures database.
+
+***** Which roll date and price adjustment should I use?
+
+It depends on your use case.
+
+If you are using continuous contracts for *economic forecasting or regression*, you should use *"first day of month" as your roll date rule, and "calendar-weighted rolling" as your price adjustment rule*. These two choices are perfectly deterministic, predictable, and smooth; furthermore they do not contaminate any economic aspects of the price history.
+
+If you are using continuous contracts for *chart-based technical analysis*, you should use *"open interest switch" as your roll date rule*. Technical analysis depends on finding patterns in trader group dynamics, and hence a popularity-based roll measure is appropriate. For your price adjustment rule, you can use either *"backwards panama" with a linear y-axis, or "backwards ratio" with a logarithmic y-axis*, depending on your preferred flavor of technical analysis. (Although some traders claim that "unadjusted" prices are more appropriate, since they correspond more closely with psychological perceptions of support, resistance etc.)
+
+If you are using continuous contracts for *back-testing trading strategies*, you should use *a roll date rule that corresponds exactly to your trading strategy*. If you always roll on the expiry date, use "last trading day". If you always roll on the first of the month, use "first day of month". If you roll when everybody else rolls (for benchmarking or liquidity reasons), use "open interest switch". As for prices: *if you trade based on a constant number of contracts*, you should use *"backwards Panama"* as your price adjustment rule. If you trade based on *a constant value of the underlying commodity*, you should use *"backwards ratio"* for your price adjustment rule, and be sure to calculate PL using relative (percentage) changes not absolute (price) changes.
+
+Many experienced futures analysts use different roll/price rules in different parts of their workflow. For example, sophisticated technical traders often use open-interest-switch-roll and unadjusted-prices (code: 'ON') in order to make buy/sell decisions; this splicing method combines maximum liquidity with accurate nominal prices, and thus matches well with mass psychology. But when it comes to back-testing their buy/sell decisions, they use first-of-month-roll and calendar-weighted-prices, since that gives the most accurate, unbiased estimate of historical PL. So the same spreadsheet or backtester can in fact incorporate different roll/price rules, depending on where they're being used. This kind of advanced analysis is simply not possible without the SCF database, unless you're willing to invest huge amounts of time to build your own custom histories.
+
+Here are some examples of what not to do. If you're trading Fed Funds or Eurodollar futures, an open-interest-switch rule is inappropriate, because most of the "action" is in the back contracts. If you're back-testing a trading strategy, you should not use unadjusted prices, because that will introduce artifical PL from roll date jumps. If you're trading a commodity with heavy contango or backwardation, you should not use Panama canal shifts, because they will lead to negative prices. If you're trading equities or currencies, you should never look at the #2 or #3 contracts, because they are utterly illiquid. And so on.
+
 
 **** Slippage
 [[https://www.quantopian.com/tutorials/futures-getting-started#lesson11]]

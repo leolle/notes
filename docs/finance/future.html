@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-23 Sat 12:05 -->
+<!-- 2017-09-24 Sun 21:26 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -147,7 +147,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline44">1. future trade simulation</a>
+<li><a href="#orgheadline47">1. future trade simulation</a>
 <ul>
 <li><a href="#orgheadline2">1.1. functions</a>
 <ul>
@@ -164,11 +164,11 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline14">1.2.6. future attributes:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">1.3. 算法</a></li>
-<li><a href="#orgheadline43">1.4. backtesting</a>
+<li><a href="#orgheadline24">1.3. 算法</a></li>
+<li><a href="#orgheadline46">1.4. backtesting</a>
 <ul>
-<li><a href="#orgheadline22">1.4.1. 回测初始化参数(setting initial parameters)：</a></li>
-<li><a href="#orgheadline42">1.4.2. backtesting：</a></li>
+<li><a href="#orgheadline25">1.4.1. 回测初始化参数(setting initial parameters)：</a></li>
+<li><a href="#orgheadline45">1.4.2. backtesting：</a></li>
 </ul>
 </li>
 </ul>
@@ -178,8 +178,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline44" class="outline-2">
-<h2 id="orgheadline44"><span class="section-number-2">1</span> future trade simulation</h2>
+<div id="outline-container-orgheadline47" class="outline-2">
+<h2 id="orgheadline47"><span class="section-number-2">1</span> future trade simulation</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline2" class="outline-3">
 <h3 id="orgheadline2"><span class="section-number-3">1.1</span> functions</h3>
@@ -511,8 +511,8 @@ for example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">1.3</span> 算法</h3>
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">1.3</span> 算法</h3>
 <div class="outline-text-3" id="text-1-3">
 </div><ol class="org-ol"><li><a id="orgheadline16"></a>future contract value:<br  /><div class="outline-text-5" id="text-1-3-0-1">
 <p>
@@ -583,30 +583,75 @@ Doing nothing.
 </p>
 </div></li>
 
-<li><a id="orgheadline18"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-3">
+<li><a id="orgheadline21"></a>roll styles<br  /><div class="outline-text-5" id="text-1-3-0-3">
 <p>
-position management.
+There are 14 different roll rule and price rule combinations, corresponding to all the different use cases for futures data. It is strongly recommended that you use continuous contracts with the correct roll/price rule, if you want your analysis to be accurate and trustworthy. Incorrect concatenation rules or inappropriate use of individual illiquid contracts may seriously impair the quality of your analysis.
 </p>
+</div>
 
+<ol class="org-ol"><li><a id="orgheadline18"></a>What are the different roll date choices available?<br  /><div class="outline-text-6" id="text-1-3-0-3-1">
 <p>
-Rolling the position reference to calendar or volume(dominant contract).
-</p>
-<ul class="org-ul">
-<li>calendar</li>
-</ul>
-<p>
-This is two days prior to either notice_date or end_date, whichever is earlier.
+Roll date choices include:
 </p>
 
 <ul class="org-ul">
-<li>volume</li>
+<li>On the last trading day of the expiring contract. This method is called the last-trading-day or end-to-end roll method. This method allows you to use the front contract for as long as possible; however the danger is that activity may have switched to the back contract prior to your roll. A trading strategy based upon this rule runs the risk of unwanted delivery and/or close-out of your positions, if you do not roll in time (the margin for error is very limited). This is the roll date rule used in Quandl's free continuous futures data (source /CHRIS).</li>
+
+<li>On the first day of the contract delivery month or on the contract end date, whichever is sooner. This is called the first-of-month roll method, and is used by most major data terminals as their default roll method. It has the advantage that it is uniform across all contracts, and completely predictable. However, this method has very little connection with the underlying mechanics of the contract; it is connected neither to the contract's trading activity, nor to its specific delivery rules. We recommend using this method only for purely deterministic trading strategies which do not rely on behavioral patterns for their returns.</li>
+
+<li>On the first day that the back contract has a higher open interest than the front contract. This is called the open-interest-switch or liquidity-based roll method, and is used by most technical traders, especially in financial futures. It is also used by macro traders who are primarily concerned with larger longer-term trends, and are hence agnostic to minor differences in valuation within a given commodity complex. This roll rule, by definition, offers the highest liquidity to traders. However, note that it is completely inappropriate for interest rates futures, and should be used with care for energy and agriculture futures.</li>
 </ul>
+</div></li>
+<li><a id="orgheadline19"></a>What are the different price adjustment choices available?<br  /><div class="outline-text-6" id="text-1-3-0-3-2">
 <p>
-期货主力合约
+Price adjustment choices include:
+</p>
+
+<ul class="org-ul">
+<li>No price adjustment: the simplest choice. The prices you see are always actual transaction prices; however, there are discontinuous jumps in the long-term futures price history.</li>
+
+<li>Forwards panama canal method, aka first-true method. Shift successive contracts up or down by a constant amount so as to eliminate jumps, working forwards from the oldest contract in your history. The price of the oldest contract will therefore be "true"; all others will be adjusted.</li>
+
+<li>Backwards panama canal method, aka last-true method. Shift successive contracts up or down by a constant amount so as to eliminate jumps, working backwards from the current contract. The price of the current continuous contract will be "true" and match market prices; however, you will need to recalculate your entire history on every roll date, which may be impractical.</li>
+
+<li>Backwards ratio method. Instead of shifting contracts up or down, in this method we multiply contracts by a constant factor so as to eliminate jumps, working backwards from the current contract. As with the backwards panama canal method, this method necessitates full historical recalculation on every roll date.</li>
+
+<li>Calendar-weighted method. Transition smoothly from one contract to the next, by using blended or weighted-average combined prices during a pre-determined transition window right around the roll date. This method is an elegant compromise between first-true and last-true methods: like first-true, it requires no historical recalculation, and like last-true, it delivers continuous prices that exactly match current market prices. However, this method cannot be used in conjunction with non-predictable roll dates such as open-interest-switch.</li>
+</ul>
+
+<p>
+With 3 roll rules and 5 price rules in play, there are 15 possible price/roll combinations &#x2013; minus 1, because calendar-weighted prices are incompatible with open-interest-switch rolling. So there are 14 price/roll combinations available as part of the SCF futures database.
 </p>
 </div></li>
 
-<li><a id="orgheadline19"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-4">
+<li><a id="orgheadline20"></a>Which roll date and price adjustment should I use?<br  /><div class="outline-text-6" id="text-1-3-0-3-3">
+<p>
+It depends on your use case.
+</p>
+
+<p>
+If you are using continuous contracts for <b>economic forecasting or regression</b>, you should use *"first day of month" as your roll date rule, and "calendar-weighted rolling" as your price adjustment rule*. These two choices are perfectly deterministic, predictable, and smooth; furthermore they do not contaminate any economic aspects of the price history.
+</p>
+
+<p>
+If you are using continuous contracts for <b>chart-based technical analysis</b>, you should use *"open interest switch" as your roll date rule*. Technical analysis depends on finding patterns in trader group dynamics, and hence a popularity-based roll measure is appropriate. For your price adjustment rule, you can use either *"backwards panama" with a linear y-axis, or "backwards ratio" with a logarithmic y-axis*, depending on your preferred flavor of technical analysis. (Although some traders claim that "unadjusted" prices are more appropriate, since they correspond more closely with psychological perceptions of support, resistance etc.)
+</p>
+
+<p>
+If you are using continuous contracts for <b>back-testing trading strategies</b>, you should use <b>a roll date rule that corresponds exactly to your trading strategy</b>. If you always roll on the expiry date, use "last trading day". If you always roll on the first of the month, use "first day of month". If you roll when everybody else rolls (for benchmarking or liquidity reasons), use "open interest switch". As for prices: <b>if you trade based on a constant number of contracts</b>, you should use *"backwards Panama"* as your price adjustment rule. If you trade based on <b>a constant value of the underlying commodity</b>, you should use *"backwards ratio"* for your price adjustment rule, and be sure to calculate PL using relative (percentage) changes not absolute (price) changes.
+</p>
+
+<p>
+Many experienced futures analysts use different roll/price rules in different parts of their workflow. For example, sophisticated technical traders often use open-interest-switch-roll and unadjusted-prices (code: 'ON') in order to make buy/sell decisions; this splicing method combines maximum liquidity with accurate nominal prices, and thus matches well with mass psychology. But when it comes to back-testing their buy/sell decisions, they use first-of-month-roll and calendar-weighted-prices, since that gives the most accurate, unbiased estimate of historical PL. So the same spreadsheet or backtester can in fact incorporate different roll/price rules, depending on where they're being used. This kind of advanced analysis is simply not possible without the SCF database, unless you're willing to invest huge amounts of time to build your own custom histories.
+</p>
+
+<p>
+Here are some examples of what not to do. If you're trading Fed Funds or Eurodollar futures, an open-interest-switch rule is inappropriate, because most of the "action" is in the back contracts. If you're back-testing a trading strategy, you should not use unadjusted prices, because that will introduce artifical PL from roll date jumps. If you're trading a commodity with heavy contango or backwardation, you should not use Panama canal shifts, because they will lead to negative prices. If you're trading equities or currencies, you should never look at the #2 or #3 contracts, because they are utterly illiquid. And so on.
+</p>
+</div></li></ol></li>
+
+
+<li><a id="orgheadline22"></a>Slippage<br  /><div class="outline-text-5" id="text-1-3-0-4">
 <p>
 <a href="https://www.quantopian.com/tutorials/futures-getting-started#lesson11">https://www.quantopian.com/tutorials/futures-getting-started#lesson11</a>
 </p>
@@ -630,7 +675,7 @@ On Quantopian, slippage on futures contracts is calculated using a special volat
 </div>
 </div></li>
 
-<li><a id="orgheadline20"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-5">
+<li><a id="orgheadline23"></a>commission:<br  /><div class="outline-text-5" id="text-1-3-0-5">
 <p>
 commissions charged per contract as well as exchange fees charged per trade.
 </p>
@@ -657,11 +702,11 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div></li></ol>
 </div>
 
-<div id="outline-container-orgheadline43" class="outline-3">
-<h3 id="orgheadline43"><span class="section-number-3">1.4</span> backtesting</h3>
+<div id="outline-container-orgheadline46" class="outline-3">
+<h3 id="orgheadline46"><span class="section-number-3">1.4</span> backtesting</h3>
 <div class="outline-text-3" id="text-1-4">
-</div><div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22"><span class="section-number-4">1.4.1</span> 回测初始化参数(setting initial parameters)：</h4>
+</div><div id="outline-container-orgheadline25" class="outline-4">
+<h4 id="orgheadline25"><span class="section-number-4">1.4.1</span> 回测初始化参数(setting initial parameters)：</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li>start :</li>
@@ -707,10 +752,10 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div>
 
-<div id="outline-container-orgheadline42" class="outline-4">
-<h4 id="orgheadline42"><span class="section-number-4">1.4.2</span> backtesting：</h4>
+<div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45"><span class="section-number-4">1.4.2</span> backtesting：</h4>
 <div class="outline-text-4" id="text-1-4-2">
-</div><ol class="org-ol"><li><a id="orgheadline34"></a>initialize(futures_account)：<br  /><div class="outline-text-5" id="text-1-4-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline37"></a>initialize(futures_account)：<br  /><div class="outline-text-5" id="text-1-4-2-1">
 <p>
 该函数在在系统初始化后被调用一次；
 </p>
@@ -720,13 +765,13 @@ commissions charged per contract as well as exchange fees charged per trade.
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline33"></a>futures_account：<br  /><div class="outline-text-6" id="text-1-4-2-1-1">
+<ol class="org-ol"><li><a id="orgheadline36"></a>futures_account：<br  /><div class="outline-text-6" id="text-1-4-2-1-1">
 <p>
 策略回测、模拟交易中的账户，策略初始化之前，会建立一个交易账户futures_account，在这个账户会存储上述全局变量参数信息，并在整个策略执行期间更新并维护可用现金、期货头寸、每日交易订单委托明细等。futures_account会在策略整个回测期间存续。
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline32"></a>futures_account对象属性<br  /><ol class="org-ol"><li><a id="orgheadline23"></a>universe<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-1">
+<ol class="org-ol"><li><a id="orgheadline35"></a>futures_account对象属性<br  /><ol class="org-ol"><li><a id="orgheadline26"></a>universe<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-1">
 <p>
 表示当前交易日的期货合约集合，与初始化参数的universe相对应。
 </p>
@@ -737,7 +782,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline24"></a>previous_date<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-2">
+<li><a id="orgheadline27"></a>previous_date<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-2">
 <p>
 上一个交易日，格式："YYYY-MM-DD"
 </p>
@@ -748,7 +793,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline25"></a>cash<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-3">
+<li><a id="orgheadline28"></a>cash<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-3">
 <p>
 当前账户可用现金.
 </p>
@@ -759,7 +804,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline26"></a>portfolio_value<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-4">
+<li><a id="orgheadline29"></a>portfolio_value<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-4">
 <p>
 当前账户权益.
 </p>
@@ -770,7 +815,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline27"></a>position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-5">
+<li><a id="orgheadline30"></a>position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-5">
 <p>
 账户持仓记录. 品种持仓明细为 dict ， 可以使用 get 方法获取各属性.
 </p>
@@ -786,7 +831,7 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline28"></a>futures_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-6">
+<li><a id="orgheadline31"></a>futures_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-6">
 <p>
 账户持仓记录. 品种持仓明细为 Position 对象， 可以使用.方法获取各属性.
 </p>
@@ -797,11 +842,11 @@ commissions charged per contract as well as exchange fees charged per trade.
 </div>
 </div></li>
 
-<li><a id="orgheadline29"></a>trades<br  /></li>
+<li><a id="orgheadline32"></a>trades<br  /></li>
 
-<li><a id="orgheadline30"></a>close_all_positions<br  /></li>
+<li><a id="orgheadline33"></a>close_all_positions<br  /></li>
 
-<li><a id="orgheadline31"></a>switch_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-9">
+<li><a id="orgheadline34"></a>switch_position<br  /><div class="outline-text-8" id="text-1-4-2-1-1-1-9">
 <p>
 移仓操作，下达由symbol_from至symbol_to相同数量的平仓及开仓指令（含多空持仓)。
 </p>
@@ -813,7 +858,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 </div>
 </div></li></ol></li></ol></li></ol></li>
 
-<li><a id="orgheadline40"></a>handle_data(futures_account) ：<br  /><div class="outline-text-5" id="text-1-4-2-2">
+<li><a id="orgheadline43"></a>handle_data(futures_account) ：<br  /><div class="outline-text-5" id="text-1-4-2-2">
 <p>
 这个函数根据freq和refresh_rate字段指定的频率被调用，交易策略可以根据历史数据或者其他信息进行分析判断，并下达交易指令；
 系统回测引擎会根据当天的市场数据对这些指令进行能否交易的判断，并更新 futures_account 当中的现金数量、期货头寸和订单委托信息；
@@ -825,7 +870,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline35"></a>simple mode(only calculate the position value on continious contract)<br  /><div class="outline-text-6" id="text-1-4-2-2-1">
+<ol class="org-ol"><li><a id="orgheadline38"></a>simple mode(only calculate the position value on continious contract)<br  /><div class="outline-text-6" id="text-1-4-2-2-1">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #75715E;">### </span><span style="color: #75715E;">&#31574;&#30053;&#22238;&#27979;&#21442;&#25968;</span>
@@ -868,7 +913,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 </div>
 </div></li>
 
-<li><a id="orgheadline36"></a>pseudo code:<br  /><div class="outline-text-6" id="text-1-4-2-2-2">
+<li><a id="orgheadline39"></a>pseudo code:<br  /><div class="outline-text-6" id="text-1-4-2-2-2">
 <p>
 1). 策略初始化函数
 </p>
@@ -920,9 +965,9 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 </div></li>
 
 
-<li><a id="orgheadline37"></a>advanced mode(calculate the position value based on continious contract and actual contract)<br  /></li>
+<li><a id="orgheadline40"></a>advanced mode(calculate the position value based on continious contract and actual contract)<br  /></li>
 
-<li><a id="orgheadline39"></a>订单委托方法<br  /><ol class="org-ol"><li><a id="orgheadline38"></a>order<br  /><div class="outline-text-7" id="text-1-4-2-2-4-1">
+<li><a id="orgheadline42"></a>订单委托方法<br  /><ol class="org-ol"><li><a id="orgheadline41"></a>order<br  /><div class="outline-text-7" id="text-1-4-2-2-4-1">
 <div class="org-src-container">
 
 <pre class="src src-python">order<span style="color: #AE81FF;">(</span>symbol, amount, offset_flag, order_type=<span style="color: #E6DB74;">'market'</span>, price=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">)</span>
@@ -930,7 +975,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 </div>
 </div></li></ol></li></ol></li>
 
-<li><a id="orgheadline41"></a>策略结果<br  /><div class="outline-text-5" id="text-1-4-2-3">
+<li><a id="orgheadline44"></a>策略结果<br  /><div class="outline-text-5" id="text-1-4-2-3">
 <p>
 回测result，格式为pandas.DataFrame，以交易日期为索引，包含以下字段：
 </p>
@@ -998,7 +1043,7 @@ futures_account.switch_position<span style="color: #AE81FF;">(</span><span style
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-23 Sat 12:05</p>
+<p class="date">Created: 2017-09-24 Sun 21:26</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
