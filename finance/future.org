@@ -170,6 +170,8 @@ The problem with the rollover method is that it requires trading on all five day
 Doing nothing.
 
 **** roll styles
+[https://www.quandl.com/data/SCF-Continuous-Futures/documentation/roll-methodology]
+
 There are 14 different roll rule and price rule combinations, corresponding to all the different use cases for futures data. It is strongly recommended that you use continuous contracts with the correct roll/price rule, if you want your analysis to be accurate and trustworthy. Incorrect concatenation rules or inappropriate use of individual illiquid contracts may seriously impair the quality of your analysis.
 
 ***** What are the different roll date choices available?
@@ -203,7 +205,7 @@ It depends on your use case.
 
 If you are using continuous contracts for *economic forecasting or regression*, you should use *"first day of month" as your roll date rule, and "calendar-weighted rolling" as your price adjustment rule*. These two choices are perfectly deterministic, predictable, and smooth; furthermore they do not contaminate any economic aspects of the price history.
 
-If you are using continuous contracts for *chart-based technical analysis*, you should use *"open interest switch" as your roll date rule*. Technical analysis depends on finding patterns in trader group dynamics, and hence a popularity-based roll measure is appropriate. For your price adjustment rule, you can use either *"backwards panama" with a linear y-axis, or "backwards ratio" with a logarithmic y-axis*, depending on your preferred flavor of technical analysis. (Although some traders claim that "unadjusted" prices are more appropriate, since they correspond more closely with psychological perceptions of support, resistance etc.)
+If you are using continuous contracts for *chart-based technical analysis*, you should use *"open interest switch" as your roll date rule*. Technical analysis depends on finding patterns in trader group dynamics, and hence a popularity-based roll measure is appropriate. For your price adjustment rule, you can use either *"backwards panama" with a linear y-axis, or "backwards ratio" with a logarithmic y-axis*, depending on your =preferred flavor of technical analysis. (Although some traders claim that "unadjusted" prices are more appropriate, since they correspond more closely with psychological perceptions of support, resistance etc.)
 
 If you are using continuous contracts for *back-testing trading strategies*, you should use *a roll date rule that corresponds exactly to your trading strategy*. If you always roll on the expiry date, use "last trading day". If you always roll on the first of the month, use "first day of month". If you roll when everybody else rolls (for benchmarking or liquidity reasons), use "open interest switch". As for prices: *if you trade based on a constant number of contracts*, you should use "*backwards Panama*" as your price adjustment rule. If you trade based on *a constant value of the underlying commodity*, you should use "*backwards ratio*" for your price adjustment rule, and be sure to calculate PL using relative (percentage) changes not absolute (price) changes.
 

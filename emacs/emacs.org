@@ -150,6 +150,18 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 
 =C-u 37 C-x e=
 
+- open a python buffer:
+=C-c C-p=
+
+- open clipboard list:
+=C-;=
+
+- project file view:
+=M-m p h=
+
+- kill project buffer:
+=M-m k=
+
 * ORG Mode
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4][Example]]
 ** Structure editing
