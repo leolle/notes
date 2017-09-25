@@ -510,3 +510,6 @@ moving average crossing over on the continous contract.
 - [X] create rolling strategy, return rolling position.
 - [ ] create long/short strategy, return neutral position.
 - [ ] create position signal via continous contract data.
+** <2017-09-25 Mon>
+- [X] create continuous contracts.
+- [ ] to get actual position from simulation position.
