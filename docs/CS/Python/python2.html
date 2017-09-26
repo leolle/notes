@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-25 Mon 14:43 -->
+<!-- 2017-09-26 Tue 11:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1323,7 +1323,14 @@ pandas.read_sql<span style="color: #AE81FF;">(</span>sql, con=engine<span style=
 <span style="color: #FD971F;">result</span> = engine.execute<span style="color: #AE81FF;">(</span>sql<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+<ul class="org-ul">
+<li>dropna:</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-python">DataFrame.dropna<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0</span>, how=<span style="color: #E6DB74;">'any'</span>, thresh=<span style="color: #AE81FF;">None</span>, subset=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>fill nan:</li>
 </ul>
@@ -1484,7 +1491,6 @@ c       NaN  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;
 e  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">057802</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">761948</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">712964</span>  bar   <span style="color: #AE81FF;">True</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
 f -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">443160</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">974602</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">047704</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
 h       NaN -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">053898</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">019369</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; <span style="color: #AE81FF;">711892d808e2989111ffe2d9ffd712ae843710f1</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -1934,6 +1940,16 @@ cl_pricing.plot<span style="color: #AE81FF;">(</span>style=<span style="color: #
 </pre>
 </div>
 <ul class="org-ul">
+<li>plot in ipython or jupyter notebook:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">ax</span> = contract_data.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+continuous_price.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span>, style=<span style="color: #E6DB74;">'k--'</span>, ax=ax<span style="color: #AE81FF;">)</span>
+plt.show<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>multiple subplots</li>
 </ul>
 <div class="org-src-container">
@@ -2074,7 +2090,7 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-25 Mon 14:43</p>
+<p class="date">Created: 2017-09-26 Tue 11:23</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

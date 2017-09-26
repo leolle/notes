@@ -46,6 +46,8 @@
   + [[file:./Business/巴菲特投资哲学.html][巴菲特的投资哲学]]
   + [[file:./Business/经济停滞.html][经济停滞]]
   + [[file:./Business/风格分析.htm][FundReturnBasedStyleApproach]]
++ GraphicStrategist
+  + [[file:./GS/从文档到创建需求.htm][from documents to wants]]
 + Books
   + [[file:./books/有效network.html][network]]
 + Thought
