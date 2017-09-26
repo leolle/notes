@@ -659,7 +659,11 @@ pandas.read_sql(sql, con=engine)
 sql = 'DROP TABLE IF EXISTS etf_daily_price;'
 result = engine.execute(sql)
 #+end_src
+- dropna:
+#+BEGIN_SRC python
+DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
 
+#+END_SRC
 - fill nan:
 #+BEGIN_SRC python
 DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)
@@ -766,7 +770,6 @@ c       NaN  0.580967  0.983801  bar  False        NaT
 e  0.057802  0.761948 -0.712964  bar   True 2012-01-01
 f -0.443160 -0.974602  1.047704  bar  False 2012-01-01
 h       NaN -1.053898 -0.019369  bar  False        NaT
->>>>>>> 711892d808e2989111ffe2d9ffd712ae843710f1
 #+END_SRC
 - rename column names:
 #+begin_src python
@@ -1035,6 +1038,12 @@ using matplotlib:
 #+BEGIN_SRC python
 cl_active_contract_pricing.plot()
 cl_pricing.plot(style='k--')
+#+END_SRC
+- plot in ipython or jupyter notebook:
+#+BEGIN_SRC python
+ax = contract_data.plot(legend=True)
+continuous_price.plot(legend=True, style='k--', ax=ax)
+plt.show()
 #+END_SRC
 - multiple subplots
 #+begin_src python
