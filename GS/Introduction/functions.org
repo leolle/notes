@@ -11,7 +11,16 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
-* [[file:./ideas_from_docs/converted_file_d64e468e.html][from documents to wants]]
+* Task management
+** [[file:./ideas_from_docs/converted_file_d64e468e.html][from documents to wants]]
+** [[file:./Monitor_stocks][Stock monitor]]
+
+* Function sampling
 * [[file:./create_strategies/converted_file_88cffbcb.html][create strategies]]
 * [[file:./factors/converted_file_2edd553f.html][factors]]
 * [[file:./function_sampling/function_sampling.html][function sampling]]
+
+* Function editting
+
+* Python
+** Python Editting

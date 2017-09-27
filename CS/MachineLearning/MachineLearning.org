@@ -101,6 +101,9 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 - VC理论
 
 * Week 1
+** [[file:./BasicModule.org][基础库使用1]]
+
+** [[file:./BasicModule2.org][基础库使用2]]
 
 ** What is machine learning
 Study of algorithms that

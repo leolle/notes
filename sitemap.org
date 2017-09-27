@@ -16,8 +16,6 @@
 + Computer Science
   + Machinelearning
     + [[File:./CS/MachineLearning/MachineLearning.org][ML]]
-      + [[file:./CS/MachineLearning/BasicModule.org][基础库使用1]]
-      + [[file:./CS/MachineLearning/BasicModule2.org][基础库使用2]]
     + [[file:./CS/MachineLearning/TextBasedIndustryClassification.org][IndustryClassification]]
     + [[file:./CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
   + [[file:./CS/Python/python2.org][Python]]
@@ -51,4 +49,4 @@
 + Books
   + [[file:./books/有效network.html][network]]
 + Thought
-  + [[file:./notes/thought.org][线性与非线性]]
+  + [[file:./notes/thought.org][思考]]
