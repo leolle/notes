@@ -48,9 +48,6 @@
   + [[file:./Business/风格分析.htm][FundReturnBasedStyleApproach]]
 + GraphicStrategist
   + [[file:./GS/Introduction/functions.org][function introduction]]
-  + [[file:./GS/converted_file_d64e468e.html][from documents to wants]]
-  + [[file:./GS/create_strategies/converted_file_88cffbcb.html][create strategies]]
-  + [[file:./GS/factors/converted_file_2edd553f.html][factors]]
 + Books
   + [[file:./books/有效network.html][network]]
 + Thought

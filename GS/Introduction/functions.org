@@ -13,5 +13,5 @@
 
 * [[file:./ideas_from_docs/converted_file_d64e468e.html][from documents to wants]]
 * [[file:./create_strategies/converted_file_88cffbcb.html][create strategies]]
-* [[file:.factors/converted_file_2edd553f.html][factors]]
-* [[file:./function_sampling/]]
+* [[file:./factors/converted_file_2edd553f.html][factors]]
+* [[file:./function_sampling/function_sampling.html][function sampling]]
