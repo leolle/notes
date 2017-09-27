@@ -13,7 +13,7 @@
 + Mathematics
   + [[File:./Math/knowledge_tree.html][Mathmap]]
   + [[File:./Math/Statistics.org][Statistics]]
-+ Cs
++ Computer Science
   + Machinelearning
     + [[File:./CS/MachineLearning/MachineLearning.org][ML]]
       + [[file:./CS/MachineLearning/BasicModule.org][基础库使用1]]

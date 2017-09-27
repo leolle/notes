@@ -664,6 +664,44 @@ result = engine.execute(sql)
 DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
 
 #+END_SRC
+- melt.
+pandas.melt(frame, id_vars=None, value_vars=None, var_name=None, value_name='value', col_level=None)[source]
+
+This function is useful to massage a DataFrame into a format where one or more columns are identifier variables (id_vars), while all other columns, considered measured variables (value_vars), are “unpivoted” to the row axis, leaving just two non-identifier columns, ‘variable’ and ‘value’.
+#+BEGIN_SRC python
+"""
+Parameters:
+frame : DataFrame
+id_vars : tuple, list, or ndarray, optional
+Column(s) to use as identifier variables.
+value_vars : tuple, list, or ndarray, optional
+Column(s) to unpivot. If not specified, uses all columns that are not set as id_vars.
+var_name : scalar
+Name to use for the ‘variable’ column. If None it uses frame.columns.name or ‘variable’.
+value_name : scalar, default ‘value’
+Name to use for the ‘value’ column.
+col_level : int or string, optional
+If columns are a MultiIndex then use this level to melt.
+"""
+DataFrame['idname'] = DataFrame.index
+pd.melt(DataFrame, id_vars=['idname'])
+#+END_SRC
+#+RESULT:
+: >>> import pandas as pd
+: >>> df = pd.DataFrame({'A': {0: 'a', 1: 'b', 2: 'c'},
+: ...                    'B': {0: 1, 1: 3, 2: 5},
+: ...                    'C': {0: 2, 1: 4, 2: 6}})
+: >>> df
+:    A  B  C
+: 0  a  1  2
+: 1  b  3  4
+: 2  c  5  6
+: >>> pd.melt(df, id_vars=['A'], value_vars=['B'])
+:    A variable  value
+: 0  a        B      1
+: 1  b        B      3
+: 2  c        B      5
+
 - fill nan:
 #+BEGIN_SRC python
 DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)
