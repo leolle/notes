@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-29 Fri 16:13 -->
+<!-- 2017-09-29 Fri 20:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -142,8 +142,8 @@ for the JavaScript code in this tag.
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
+        displayAlign: "left",
+        displayIndent: "5em",
 
         "HTML-CSS": { scale: 100,
                         linebreaks: { automatic: "false" },
@@ -155,13 +155,13 @@ for the JavaScript code in this tag.
         NativeMML: {scale: 100},
         TeX: { equationNumbers: {autoNumber: "AMS"},
                MultLineWidth: "85%",
-               TagSide: "right",
+               TagSide: "left",
                TagIndent: ".8em"
              }
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -934,24 +934,15 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 </div><div id="outline-container-orgheadline25" class="outline-4">
 <h4 id="orgheadline25"><span class="section-number-4">3.3.1</span> Connected elements with colors</h4>
 <div class="outline-text-4" id="text-3-3-1">
-<div class="org-src-container">
 
-<pre class="src src-ditaa">+------+   +-----+   +-----+   +-----+
-|{io}  |   |{d}  |   |{s}  |   |cBLU |
-| Foo  +---+ Bar +---+ Baz +---+ Moo |
-|      |   |     |   |     |   |     |
-+------+   +-----+   +--+--+   +-----+
-                        |
-           /-----\      |      +------+
-           |     |      |      | c1AB |
-           | Goo +------+---=--+ Shoo |
-           \-----/             |      |
-                               +------+
-</pre>
+<div class="figure">
+<p><img src="ditaa-seqboxes.png" alt="ditaa-seqboxes.png" />
+</p>
 </div>
 </div>
 </div>
 </div>
+
 <div id="outline-container-orgheadline29" class="outline-3">
 <h3 id="orgheadline29"><span class="section-number-3">3.4</span> UML diagrams with PlantUML</h3>
 <div class="outline-text-3" id="text-3-4">
@@ -2045,7 +2036,7 @@ Emacs 提供的默认 JavaScript Major Mode 并不是非常好用。所以我们
 <div class="outline-text-4" id="text-6-2-1">
 <p>
 在 Org-mode 中你可以直接开启新的缓冲区（Buffer）直接用相应的 Major Mode 来编辑代
-码块内的内容。在代码块中使用 <code>C-c '</code> 会直接打开对应模式的缓冲区（不仅限于 Lisp）。
+码块内的内容。在代码块中使用 =C-c '= 会直接打开对应模式的缓冲区（不仅限于 Lisp）。
 这样就使在 Org-mode 中编辑代码变的十分方便快捷。
 </p>
 
@@ -3442,7 +3433,7 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 
 <p>
 简单的使用方法就是在选中所选区域后，使用 <code>S(</code> 来将选中区域包括在括号之中。如果想
-将括号改变成 ="= 可以在选中后使用 <code>cs("</code>
+将括号改变成 ="= 可以在选中后使用 =cs("=
 </p>
 </div>
 </div>
@@ -5183,12 +5174,6 @@ C-c C-x C-v <span style="color: #AE81FF;">(</span>org-toggle-inline-mages<span s
 </div>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
-<p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-29 Fri 16:13</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

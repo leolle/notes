@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-10 Mon 07:36 -->
+<!-- 2017-09-29 Fri 20:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -3017,9 +3017,7 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 <div id="outline-container-orgheadline66" class="outline-4">
 <h4 id="orgheadline66">一些简单的用法</h4>
 <div class="outline-text-4" id="text-orgheadline66">
-</div><div id="outline-container-orgheadline62" class="outline-5">
-<h5 id="orgheadline62">更安全的 require</h5>
-<div class="outline-text-5" id="text-orgheadline62">
+</div><ul class="org-ul"><li><a id="orgheadline62"></a>更安全的 require<br  /><div class="outline-text-5" id="text-orgheadline62">
 <p>
 在 Emacs 中, 当我们要引入一个包时, 通常会使用以下代码:
 </p>
@@ -3060,12 +3058,9 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 可以看到, <b>Use-package</b> 使用 <b>ignore</b> 来避免抛出错误, 这样当某个包不存在时,
 <b>eamcs</b> 也能够正常启动.
 </p>
-</div>
-</div>
+</div></li>
 
-<div id="outline-container-orgheadline63" class="outline-5">
-<h5 id="orgheadline63">将配置集中</h5>
-<div class="outline-text-5" id="text-orgheadline63">
+<li><a id="orgheadline63"></a>将配置集中<br  /><div class="outline-text-5" id="text-orgheadline63">
 <p>
 当我们引入某个包时, 有可能需要定义一些与这个包相关的变量, 使用 <b>Use-package</b> 实
 现这个需求如下:
@@ -3096,12 +3091,9 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 <p>
 <b>init</b> 与 <b>config</b> 之后只能接单个表达式语句, 如果需要执行多个语句, 可以用 <b>progn</b> .
 </p>
-</div>
-</div>
+</div></li>
 
-<div id="outline-container-orgheadline64" class="outline-5">
-<h5 id="orgheadline64">autoload</h5>
-<div class="outline-text-5" id="text-orgheadline64">
+<li><a id="orgheadline64"></a>autoload<br  /><div class="outline-text-5" id="text-orgheadline64">
 <p>
 使用 require 时会引入这个包, 但是当你的包很多时会影响启动速度. 而使用 autoload
 则可以在真正需要这个包时再 require, 提高启动速度, 避免无谓的 require.
@@ -3126,12 +3118,9 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
 存在, 如果存在则在 <b>package-name</b> 的路径下加载. <b>defer</b> 也可以让 <b>package-name</b>
 进行延迟加载.
 </p>
-</div>
-</div>
+</div></li>
 
-<div id="outline-container-orgheadline65" class="outline-5">
-<h5 id="orgheadline65">键绑定</h5>
-<div class="outline-text-5" id="text-orgheadline65">
+<li><a id="orgheadline65"></a>键绑定<br  /><div class="outline-text-5" id="text-orgheadline65">
 <p>
 在之前的代码中, 如果我们需要绑定一个键, 需要使用 <b>global-key-bind</b> 或
 <b>define-key</b> 实现, 而使用*Use-package* 实现更简单:
@@ -3151,8 +3140,7 @@ Use-package 的更多信息参见以下地址: <a href="https://github.com/jwieg
   <span style="color: #66D9EF;">(</span><span style="color: #F92672;">use-package</span> <span style="color: #AE81FF;">moccur-edit</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-</div>
-</div>
+</div></li></ul>
 </div>
 
 
@@ -3936,11 +3924,6 @@ spacemacs 的文档保存在 doc 目录下, 包含有 CONVENTIONS.org, DOCUMENTA
 </div>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-10 Mon 07:36</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
