@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-29 Fri 16:13 -->
+<!-- 2017-09-29 Fri 17:08 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -186,6 +186,25 @@ for the JavaScript code in this tag.
                                +------+
 </pre>
 </div>
+<div class="org-src-container">
+
+<pre class="src src-plantuml">skinparam monochrome true
+FitsHdu &lt;|-- PrimaryHdu
+FitsHdu &lt;|-- ExtensionHdu
+
+FitsHdu : header
+FitsHdu : getHeaderKeyword()
+
+ExtensionHdu &lt;|-- ImageHdu
+ImageHdu : image
+ImageHdu : getPixel(row, column)
+
+ExtensionHdu &lt;|-- BinaryTableHdu
+BinaryTableHdu : table
+BinaryTableHdu : getRow(row)
+BinaryTableHdu : getColumn(column)
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline4" class="outline-2">
@@ -227,7 +246,7 @@ for the JavaScript code in this tag.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-27 Wed&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-29 Fri 16:13</p>
+<p class="date">Created: 2017-09-29 Fri 17:08</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

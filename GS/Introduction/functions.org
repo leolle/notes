@@ -25,6 +25,23 @@
            \-----/             |      |
                                +------+
 #+end_src
+#+begin_src plantuml :file class_diagram.png
+skinparam monochrome true
+FitsHdu <|-- PrimaryHdu
+FitsHdu <|-- ExtensionHdu
+
+FitsHdu : header
+FitsHdu : getHeaderKeyword()
+
+ExtensionHdu <|-- ImageHdu
+ImageHdu : image
+ImageHdu : getPixel(row, column)
+
+ExtensionHdu <|-- BinaryTableHdu
+BinaryTableHdu : table
+BinaryTableHdu : getRow(row)
+BinaryTableHdu : getColumn(column)
+#+end_src
 * Task management
 ** [[file:./ideas_from_docs/converted_file_d64e468e.html][from documents to wants]]
 ** [[file:./Monitor_stocks][Stock monitor]]
