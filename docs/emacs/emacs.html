@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-27 Wed 17:42 -->
+<!-- 2017-09-29 Fri 16:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -733,23 +733,16 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 <td class="org-left">C-M-h</td>
 <td class="org-left">选中整个函数</td>
 </tr>
-
-<tr>
-<td class="org-left">M-w</td>
-<td class="org-left">复制选中的内容</td>
-</tr>
-
-<tr>
-<td class="org-left">C-w</td>
-<td class="org-left">剪切选中的内容</td>
-</tr>
-
-<tr>
-<td class="org-left">C-y</td>
-<td class="org-left">粘贴选中的内容</td>
-</tr>
 </tbody>
 </table>
+
+<ul class="org-ul">
+<li>indent a block by number of space</li>
+</ul>
+<p>
+<code>C-u 4 C-x TAB</code>
+<code>C-M-\</code>
+</p>
 </div>
 </div>
 </div>
@@ -2052,7 +2045,7 @@ Emacs 提供的默认 JavaScript Major Mode 并不是非常好用。所以我们
 <div class="outline-text-4" id="text-6-2-1">
 <p>
 在 Org-mode 中你可以直接开启新的缓冲区（Buffer）直接用相应的 Major Mode 来编辑代
-码块内的内容。在代码块中使用 =C-c '= 会直接打开对应模式的缓冲区（不仅限于 Lisp）。
+码块内的内容。在代码块中使用 <code>C-c '</code> 会直接打开对应模式的缓冲区（不仅限于 Lisp）。
 这样就使在 Org-mode 中编辑代码变的十分方便快捷。
 </p>
 
@@ -3449,7 +3442,7 @@ Leader Key 可以通过 customize-group 来进行设置（Evil Leader/Leader）�
 
 <p>
 简单的使用方法就是在选中所选区域后，使用 <code>S(</code> 来将选中区域包括在括号之中。如果想
-将括号改变成 ="= 可以在选中后使用 =cs("=
+将括号改变成 ="= 可以在选中后使用 <code>cs("</code>
 </p>
 </div>
 </div>
@@ -4812,7 +4805,7 @@ spacemacs 的文档保存在 doc 目录下, 包含有 CONVENTIONS.org, DOCUMENTA
 <div class="outline-text-3" id="text-17-1">
 <div class="org-src-container">
 
-<pre class="src src-shell">sudo pip install jedi epc pylint flake8 <span style="color: #FD971F;">ipython</span>==<span style="color: #AE81FF;">5.3</span>
+<pre class="src src-shell">sudo pip install jedi epc pylint flake8 <span style="color: #FD971F;">ipython</span>==<span style="color: #AE81FF;">5.3</span> yaft
 </pre>
 </div>
 
@@ -5194,7 +5187,7 @@ C-c C-x C-v <span style="color: #AE81FF;">(</span>org-toggle-inline-mages<span s
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-27 Wed 17:42</p>
+<p class="date">Created: 2017-09-29 Fri 16:13</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

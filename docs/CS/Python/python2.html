@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-28 Thu 15:27 -->
+<!-- 2017-09-29 Fri 16:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1739,6 +1739,40 @@ a    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">3</
 b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</span>
 </pre>
 </div>
+
+<ul class="org-ul">
+<li>product of a dataframe and a series.</li>
+</ul>
+<p>
+As long as the columns of the dataframe is equal to the index of the series, the result will come as every row of the dataframe multiplies the series value.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">113</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">df</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'a'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'b'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span>,index=pd.date_range<span style="color: #66D9EF;">(</span>start=<span style="color: #E6DB74;">'2010-01-01'</span>,periods=<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">134</span><span style="color: #AE81FF;">]</span>: df
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">134</span><span style="color: #AE81FF;">]</span>:
+            a  b
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>  <span style="color: #AE81FF;">1</span>  <span style="color: #AE81FF;">1</span>
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">02</span>  <span style="color: #AE81FF;">2</span>  <span style="color: #AE81FF;">2</span>
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">03</span>  <span style="color: #AE81FF;">3</span>  <span style="color: #AE81FF;">3</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">135</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">mul</span>=pd.Series<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">]</span>,index=<span style="color: #F92672;">list</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'ab'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">158</span><span style="color: #AE81FF;">]</span>: mul
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">158</span><span style="color: #AE81FF;">]</span>:
+a    <span style="color: #AE81FF;">2</span>
+b    <span style="color: #AE81FF;">3</span>
+dtype: int64
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">159</span><span style="color: #AE81FF;">]</span>: df*mul
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">160</span><span style="color: #AE81FF;">]</span>:
+            a  b
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>  <span style="color: #AE81FF;">2</span>  <span style="color: #AE81FF;">3</span>
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">02</span>  <span style="color: #AE81FF;">4</span>  <span style="color: #AE81FF;">6</span>
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">03</span>  <span style="color: #AE81FF;">6</span>  <span style="color: #AE81FF;">9</span>
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline54" class="outline-4">
@@ -2180,7 +2214,7 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-28 Thu 15:27</p>
+<p class="date">Created: 2017-09-29 Fri 16:13</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
