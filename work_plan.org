@@ -485,6 +485,7 @@ moving average crossing over on the continous contract.
 - [ ] simple mode test with real data.
 
 * TODO optimization
+DEADLINE: <2017-09-27 Wed> SCHEDULED: <2017-09-27 Wed>
 - [ ] construnct FS, FR, workflow.
 - [ ] soft constraint.
 - [ ] worse-case risk analysis.
@@ -494,7 +495,7 @@ moving average crossing over on the continous contract.
 - [X] read future simulation code.
 - [X] pack constraint input parameters.
 
-* TODO future simulation
+* TODO future simulation                                :future:optimization:
 
 ** <2017-09-19 Tue>
 - [X] buy and hold mode on future backtesting.
@@ -518,8 +519,14 @@ moving average crossing over on the continous contract.
 - [X] remove unnecessary input of the parsing function.
 
 ** <2017-09-27 Wed>
-- [ ] learn creating function sampleing.
+- [X] learn creating function sampleing.
+
+** <2017-09-28 Thu>
+- [X] create long/short strategy, return neutral position.
 - [ ] deploy portfolio optimization on function sampling workflow.
-- [ ] create long/short strategy, return neutral position.
 - [ ] create position signal via continous contract data.
 - [ ] to get actual position from simulation position.
+
+** <2017-09-29 Fri>
+DEADLINE: <2017-09-29 Fri>
+- [ ] calculate PnL using future rollover position, long/short position, continuous position.

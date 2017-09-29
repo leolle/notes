@@ -341,6 +341,10 @@ print index, value
 for k in dict:
 #+end_src
 
+- iterate a row in pandas series:
+#+BEGIN_SRC python
+pd.Series.iteritems()
+#+END_SRC
 - iterate a row in pandas dataframe:
 #+begin_src python
 DataFrame.iterrows():
@@ -521,6 +525,19 @@ $ snakeviz profile.stats
 #+END_SRC
 
 ** os, sys:
+- get latest file:
+#+BEGIN_SRC python
+import os
+import zipfile
+import glob
+
+    list_of_files = glob.glob(app_dir + '\*.zip')
+    latest_file = max(list_of_files, key=os.path.getctime)
+
+    zip = zipfile.ZipFile(latest_file)
+    zip.extractall(export_dir)
+
+#+END_SRC
 - check if file or directory exists, if not then make directory:
 #+BEGIN_SRC python
 import os
@@ -651,6 +668,22 @@ dates = pd.date_range('1/1/2000', periods=8)
 df = pd.DataFrame(np.random.randn(8, 4), index=dates, columns=['A', 'B', 'C', 'D'])
 #+end_src
 
+- get index number of an item value:
+#+BEGIN_SRC python
+In [110]: target_expiry_dates.head()
+Out[112]:
+contract_code
+b'\xe9O\xa4#\xc9\xd7\xfa\x96P\xeb\xd6 \xc4_\xce\xa6'      2015-06-16
+b'\x99L\xcf\xd2\xd5\x07\xa6p\x19\xc7t%\x8b\xe1O\x87'      2015-07-16
+b'\xdfG"O\xe3\xde\x83R\xe5\xaa\x83\x92\x80\x87\xb2\xad'   2015-08-18
+b'\xa9A\xb61\xafV:\x06\xa2\xcfp\x1eLC1\x87'               2015-09-16
+b'\x8eI\xd2\xd6/\x12\x1c\xff\xf3\x10v\xcd\x0fA\xfc\xa2'   2015-10-16
+Name: settlement_date, dtype: datetime64[ns]
+
+In [108]: pd.Index(target_expiry_dates).get_loc('2015-06-16')
+Out[109]: 27
+
+#+END_SRC
 - connection with mysql:
 #+begin_src python
 pandas.read_sql_query(sql, con=engine):
@@ -914,6 +947,35 @@ Out[105]:
    dog  fox
 a    1    3
 b    2    4
+#+END_SRC
+
+- product of a dataframe and a series.
+As long as the columns of the dataframe is equal to the index of the series, the result will come as every row of the dataframe multiplies the series value.
+#+BEGIN_SRC python
+In [113]: df=pd.DataFrame({'a':[1,2,3],'b':[1,2,3]},index=pd.date_range(start='2010-01-01',periods=3))
+
+In [134]: df
+Out[134]:
+            a  b
+2010-01-01  1  1
+2010-01-02  2  2
+2010-01-03  3  3
+
+In [135]: mul=pd.Series([2,3],index=list('ab'))
+
+In [158]: mul
+Out[158]:
+a    2
+b    3
+dtype: int64
+
+In [159]: df*mul
+Out[160]:
+            a  b
+2010-01-01  2  3
+2010-01-02  4  6
+2010-01-03  6  9
+
 #+END_SRC
 *** Index
 **** Index manuplication

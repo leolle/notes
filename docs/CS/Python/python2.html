@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-26 Tue 16:35 -->
+<!-- 2017-09-28 Thu 15:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -769,6 +769,14 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 </div>
 
 <ul class="org-ul">
+<li>iterate a row in pandas series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pd.Series.iteritems<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>iterate a row in pandas dataframe:</li>
 </ul>
 <div class="org-src-container">
@@ -1111,6 +1119,22 @@ STEPS:
 <h3 id="orgheadline35"><span class="section-number-3">1.19</span> os, sys:</h3>
 <div class="outline-text-3" id="text-1-19">
 <ul class="org-ul">
+<li>get latest file:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">import</span> zipfile
+<span style="color: #F92672;">import</span> glob
+
+    <span style="color: #FD971F;">list_of_files</span> = glob.glob<span style="color: #AE81FF;">(</span>app_dir + <span style="color: #E6DB74;">'\*.zip'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">latest_file</span> = <span style="color: #F92672;">max</span><span style="color: #AE81FF;">(</span>list_of_files, key=os.path.getctime<span style="color: #AE81FF;">)</span>
+
+    <span style="color: #F92672;">zip</span> = zipfile.ZipFile<span style="color: #AE81FF;">(</span>latest_file<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">zip</span>.extractall<span style="color: #AE81FF;">(</span>export_dir<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>check if file or directory exists, if not then make directory:</li>
 </ul>
 <div class="org-src-container">
@@ -1311,6 +1335,25 @@ file = os.path.join(folder, 'file<sub>name</sub>')
 </pre>
 </div>
 
+<ul class="org-ul">
+<li>get index number of an item value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">110</span><span style="color: #AE81FF;">]</span>: target_expiry_dates.head<span style="color: #AE81FF;">()</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">112</span><span style="color: #AE81FF;">]</span>:
+contract_code
+b<span style="color: #E6DB74;">'\xe9O\xa4#\xc9\xd7\xfa\x96P\xeb\xd6 \xc4_\xce\xa6'</span>      <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">06</span>-<span style="color: #AE81FF;">16</span>
+b<span style="color: #E6DB74;">'\x99L\xcf\xd2\xd5\x07\xa6p\x19\xc7t%\x8b\xe1O\x87'</span>      <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">07</span>-<span style="color: #AE81FF;">16</span>
+b<span style="color: #E6DB74;">'\xdfG"O\xe3\xde\x83R\xe5\xaa\x83\x92\x80\x87\xb2\xad'</span>   <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">08</span>-<span style="color: #AE81FF;">18</span>
+b<span style="color: #E6DB74;">'\xa9A\xb61\xafV:\x06\xa2\xcfp\x1eLC1\x87'</span>               <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">09</span>-<span style="color: #AE81FF;">16</span>
+b<span style="color: #E6DB74;">'\x8eI\xd2\xd6/\x12\x1c\xff\xf3\x10v\xcd\x0fA\xfc\xa2'</span>   <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">10</span>-<span style="color: #AE81FF;">16</span>
+Name: settlement_date, dtype: datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">108</span><span style="color: #AE81FF;">]</span>: pd.Index<span style="color: #AE81FF;">(</span>target_expiry_dates<span style="color: #AE81FF;">)</span>.get_loc<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'2015-06-16'</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">109</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">27</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>connection with mysql:</li>
 </ul>
@@ -2137,7 +2180,7 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-26 Mon&gt;</span></span></p>
 <p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-09-26 Tue 16:35</p>
+<p class="date">Created: 2017-09-28 Thu 15:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

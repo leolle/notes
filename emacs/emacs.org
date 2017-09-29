@@ -162,6 +162,19 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 - kill project buffer:
 =M-m k=
 
+| 命令 |	说明|
+|M-a|	定位到一行的开头|
+|M-e|	定位到一行的结尾|
+|M-f|	向前移动一个单词|
+|M-b|	向后移动一个单词|
+|C-M-a |	定位到函数头部 |
+|C-M-a	|定位到函数结尾|
+|C-M-h|	选中整个函数|
+
+- indent a block by number of space
+=C-u 4 C-x TAB=
+=C-M-\=
+
 * ORG Mode
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4][Example]]
 ** Structure editing
