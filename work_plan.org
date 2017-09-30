@@ -530,3 +530,8 @@ DEADLINE: <2017-09-27 Wed> SCHEDULED: <2017-09-27 Wed>
 ** <2017-09-29 Fri>
 DEADLINE: <2017-09-29 Fri>
 - [ ] calculate PnL using future rollover position, long/short position, continuous position.
+
+** <2017-09-30 Sat>
+DEADLINE: <2017-09-30 Sat>
+- [ ] modify simulation code referred to stocks simulation.
+- [ ] adjust input signatures.
