@@ -12,7 +12,7 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
 * Structure
-#+begin_src ditaa :file ./ditaa-seqboxes.png
+#+begin_src ditaa :file ditaa-seqboxes.png
 +------+   +-----+   +-----+   +-----+
 |{io}  |   |{d}  |   |{s}  |   |cBLU |
 | Foo  +---+ Bar +---+ Baz +---+ Moo |
@@ -28,6 +28,7 @@
 
 #+RESULTS:
 [[file:./ditaa-seqboxes.png]]
+
 
 #+begin_src plantuml :file class_diagram.png
 skinparam monochrome true
