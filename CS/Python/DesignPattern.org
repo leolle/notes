@@ -1,3 +1,4 @@
+#+SETUPFILE: ../../configOrg/level1.org
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
@@ -10,14 +11,9 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
-#+SETUPFILE: ../../configOrg/level1.org
-
-#+begin_src python :tangle yes
-
-#+end_src
 
 A pattern as an especially clever and insightful way of solving a particular class.
-of problems
+of problems.
 
 
 * Classifying Patterns

@@ -20,7 +20,7 @@
     + [[file:CS/Python/PythonForFinance.org][PythonForFinance]]
     + [[file:CS/Python/guide.org][guide]]
     + [[file:CS/Python/pandas.org][pandas]]
-    + [[file:CS/Python/python2.org][python2]]
+    + [[file:CS/Python/python.org][python2]]
     + [[file:CS/Python/sqlalchemy.org][sqlalchemy]]
   + [[file:CS/DB.org][DB]]
   + [[file:CS/Regular_Expression.org][Regular_Expression]]
