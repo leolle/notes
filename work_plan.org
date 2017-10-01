@@ -1,3 +1,4 @@
+#+SETUPFILE: ../configOrg/level1.org
 #+OPTIONS: <:active
 #+ICALENDAR_EXCLUDE_TAGS:
 

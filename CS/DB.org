@@ -1,7 +1,7 @@
+#+SETUPFILE: ../configOrg/level1.org
 #+TITLES: Database concept
 #+KEYWORDS: database
 #+OPTIONS: H:2 toc:2 num:3 ^:nil
-#+SETUPFILE: ../configOrg/level1.org
 #+Latex: t
 * Rational Algebra
 ** Basic
@@ -371,28 +371,28 @@ Heavily overlapping -> design 3
 Disjoint, complete ->design 2
 #+END_VERSE
 Examples:
-#+BEGIN_SRC plantuml :file ../resources/data/SubclassExample.png :cmdline -charset UTF-8
-@startuml
-title Subclass Example
-Superclass <|-- Subclass1
-Superclass <|-- Subclass2
-class Superclass{
-k PK
-A
-}
+# #+BEGIN_SRC plantuml :file ../resources/data/SubclassExample.png :cmdline -charset UTF-8
+# @startuml
+# title Subclass Example
+# Superclass <|-- Subclass1
+# Superclass <|-- Subclass2
+# class Superclass{
+# k PK
+# A
+# }
 
-class Subclass1{
-B
-}
+# class Subclass1{
+# B
+# }
 
-class Subclass2{
-C
-}
-@enduml
-#+END_SRC
+# class Subclass2{
+# C
+# }
+# @enduml
+# #+END_SRC
 
-#+results:
-[[file:../resources/data/SubclassExample.png]]
+# #+results:
+# [[file:../resources/data/SubclassExample.png]]
 
 1) S(_K_, A), S1(_K_, B), S2(_K_, C)
 2) S(_K_, A), S1(_K_, A, B), S2(_K_, A, C)

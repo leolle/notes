@@ -3,6 +3,7 @@
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
 #+TITLES: Statistics
+#+SETUPFILE: ../configOrg/level1.org
 #+DATE: <2017-05-10 Wed>
 #+AUTHORS: weiwu
 #+EMAIL: victor.wuv@gmail.com
