@@ -84,7 +84,7 @@ lower_with_under
 Yes: spam(ham[1], {eggs: 2}, [])
 #+END_SRC
 
-#+BEGIN_SRC python
+#+BEGIN_SRC python3
 No:  spam( ham[ 1 ], { eggs: 2 }, [ ] )
 
 #+END_SRC

@@ -2,6 +2,7 @@
 #+TITLES: Database concept
 #+KEYWORDS: database
 #+OPTIONS: H:2 toc:2 num:3 ^:nil
+#+AUTHORS: weiwu
 #+Latex: t
 * Rational Algebra
 ** Basic
