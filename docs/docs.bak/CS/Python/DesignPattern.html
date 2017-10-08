@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<<<<<<< HEAD
+<!-- 2017-10-01 Sun 23:40 -->
+=======
+<!-- 2017-09-29 Fri 20:13 -->
+>>>>>>> 57fb1b2dc183629482cad9a05a1f93a51bad6d4f
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline4">1. Classifying Patterns</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Creational</a></li>
+<li><a href="#orgheadline2">1.2. Structural</a></li>
+<li><a href="#orgheadline3">1.3. Behavioral</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline5">2. Singleton</a></li>
+<li><a href="#orgheadline6">3. State Machine</a></li>
+<li><a href="#orgheadline7">4. Decorator</a></li>
+<li><a href="#orgheadline8">5. Iterator</a></li>
+<li><a href="#orgheadline9">6. Factory</a></li>
+<li><a href="#orgheadline10">7. Observer</a></li>
+<li><a href="#orgheadline11">8. Table-Driven</a></li>
+</ul>
+</div>
+</div>
+<p>
+A pattern as an especially clever and insightful way of solving a particular class.
+of problems.
+</p>
+
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> Classifying Patterns</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Creational</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Singleton</li>
+<li>Factory method</li>
+<li>Prototype</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Structural</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+objects connect with other objects, when changing in the system doesn't require changes to those connection.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Behavioral</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Observer</li>
+<li>Visitor</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">2</span> Singleton</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+单例模式是日常应用中最广泛的模式了，其目的就是令到单个进程中只存在一个类的实例，从而可以实现数据的共享，节省系统开销，防止io阻塞等等。A way to provide one and only one object
+of a particular type.
+但是在多进程的应用中，单例模式就实现不了了，例如一些web应用，django，这些，因为会启动多条进程来监听http请求，这样的会通过单例模式是实现不了数据共享的，也就是实现不了单例模式的目的了，这时需要用进程间通信方法来实现数据共享，当然也可以尝试使用redis这些nosql数据库实现数据共享，因为它们的读取数据较快。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Singleton</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">object</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__new__</span><span style="color: #AE81FF;">(</span>cls, *args, **kwargs<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">hasattr</span><span style="color: #AE81FF;">(</span>cls,<span style="color: #E6DB74;">'_the_instance'</span><span style="color: #AE81FF;">)</span>:
+            <span style="color: #FD971F;">cls._the_instance</span>=<span style="color: #F92672;">object</span>.__new__<span style="color: #AE81FF;">(</span>cls,*args, **kwargs<span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">return</span> cls._the_instance
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">A</span><span style="color: #AE81FF;">(</span>Singleton<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'init before'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'i am __init__'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">f</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'i am f'</span>
+
+<span style="color: #FD971F;">a</span>=A<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">b</span>=A<span style="color: #AE81FF;">()</span>
+a.f<span style="color: #AE81FF;">()</span>
+<span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'done'</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">3</span> State Machine</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+While State has a way to allow the client programmer to change the implementation, StateMachine imposes
+a structure to automatically change the implementation from one object to the next. The current implementation represents the state that a system is in, and the system behaves differently from one state to the next
+(because it uses State). Basically, this is a “state machine” using objects.
+Each State object decides what other states it can move to, based on the “input”.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/State.py</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">A State has an operation, and can be moved</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">into the next State given an Input:</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">State</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">assert</span> <span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">"run not implemented"</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">assert</span> <span style="color: #AE81FF;">0</span>, <span style="color: #E6DB74;">"next not implemented"</span>
+</pre>
+</div>
+
+<p>
+The StateMachine keeps track of the current state, which is initialized by the constructor. The runAll( )
+method takes a list of Input objects. This method not only moves to the next state, but it also calls run( )
+for each state object
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/StateMachine.py</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Takes a list of Inputs to move from State to</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">State using a template method.</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">StateMachine</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, initialState<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.currentState = initialState
+        <span style="color: #F92672;">self</span>.currentState.run<span style="color: #AE81FF;">()</span>
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Template method:</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">runAll</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, inputs<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> inputs:
+            <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+            <span style="color: #F92672;">self</span>.currentState = <span style="color: #F92672;">self</span>.currentState.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+            <span style="color: #F92672;">self</span>.currentState.run<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/mouse/MouseAction.py</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">MouseAction</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, action<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.action = action
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__str__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>: <span style="color: #F92672;">return</span> <span style="color: #F92672;">self</span>.action
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__cmp__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, other<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> <span style="color: #F92672;">cmp</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>.action, other.action<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Necessary when __cmp__ or __eq__ is defined</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">in order to make this class usable as a</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">dictionary key:</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__hash__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> <span style="color: #F92672;">hash</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>.action<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Static fields; an enumeration of instances:</span>
+<span style="color: #FD971F;">MouseAction.appears</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse appears"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.runsAway</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse runs away"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.enters</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse enters trap"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.escapes</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse escapes"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.trapped</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse trapped"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">MouseAction.removed</span> = MouseAction<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"mouse removed"</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/mouse/MouseMoves.txt</span>
+mouse appears
+mouse runs away
+mouse appears
+mouse enters trap
+mouse escapes
+mouse appears
+mouse enters trap
+mouse trapped
+mouse removed
+mouse appears
+mouse runs away
+mouse appears
+mouse enters trap
+mouse trapped
+mouse removed
+</pre>
+</div>
+
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/mousetrap1/MouseTrapTest.py</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">State Machine pattern using 'if' statements</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">to determine the next state.</span>
+<span style="color: #F92672;">import</span> string, sys
+<span style="color: #FD971F;">sys.path</span> += <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'../stateMachine'</span>, <span style="color: #E6DB74;">'../mouse'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">from</span> State <span style="color: #F92672;">import</span> State
+<span style="color: #F92672;">from</span> StateMachine <span style="color: #F92672;">import</span> StateMachine
+<span style="color: #F92672;">from</span> MouseAction <span style="color: #F92672;">import</span> MouseAction
+<span style="color: #75715E;"># </span><span style="color: #75715E;">A different subclass for each state:</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Waiting</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Waiting: Broadcasting cheese smell"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.appears:
+      <span style="color: #F92672;">return</span> MouseTrap.luring
+    <span style="color: #F92672;">return</span> MouseTrap.waiting
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Luring</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Luring: Presenting Cheese, door open"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.runsAway:
+      <span style="color: #F92672;">return</span> MouseTrap.waiting
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.enters:
+      <span style="color: #F92672;">return</span> MouseTrap.trapping
+    <span style="color: #F92672;">return</span> MouseTrap.luring
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Trapping</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Trapping: Closing door"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.escapes:
+      <span style="color: #F92672;">return</span> MouseTrap.waiting
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.trapped:
+      <span style="color: #F92672;">return</span> MouseTrap.holding
+    <span style="color: #F92672;">return</span> MouseTrap.trapping
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Holding</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Holding: Mouse caught"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">input</span> == MouseAction.removed:
+      <span style="color: #F92672;">return</span> MouseTrap.waiting
+    <span style="color: #F92672;">return</span> MouseTrap.holding
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">MouseTrap</span><span style="color: #AE81FF;">(</span>StateMachine<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Initial state</span>
+    StateMachine.__init__<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, MouseTrap.waiting<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Static variable initialization:</span>
+<span style="color: #FD971F;">MouseTrap.waiting</span> = Waiting<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.luring</span> = Luring<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.trapping</span> = Trapping<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.holding</span> = Holding<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">moves</span> = <span style="color: #F92672;">map</span><span style="color: #AE81FF;">(</span>string.strip,
+  <span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"../mouse/MouseMoves.txt"</span><span style="color: #66D9EF;">)</span>.readlines<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+MouseTrap<span style="color: #AE81FF;">()</span>.runAll<span style="color: #AE81FF;">(</span><span style="color: #F92672;">map</span><span style="color: #66D9EF;">(</span>MouseAction, moves<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+The StateT class is an implementation of State (so that the same StateMachine class can be used from the
+previous example) that adds a Map and a method to initialize the map from a two-dimensional array. The
+next( ) method has a base-class implementation which must be called from the overridden derived class
+next( ) methods after they test for a null Map (and initialize it if it’s null):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">StateMachine/mousetrap2/MouseTrap2Test.py</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">A better mousetrap using tables</span>
+<span style="color: #F92672;">import</span> string, sys
+<span style="color: #FD971F;">sys.path</span> += <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'../stateMachine'</span>, <span style="color: #E6DB74;">'../mouse'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">from</span> State <span style="color: #F92672;">import</span> State
+<span style="color: #F92672;">from</span> StateMachine <span style="color: #F92672;">import</span> StateMachine
+<span style="color: #F92672;">from</span> MouseAction <span style="color: #F92672;">import</span> MouseAction
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">StateT</span><span style="color: #AE81FF;">(</span>State<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">None</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">self</span>.transitions.has_key<span style="color: #AE81FF;">(</span><span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+      <span style="color: #F92672;">return</span> <span style="color: #F92672;">self</span>.transitions<span style="color: #AE81FF;">[</span><span style="color: #F92672;">input</span><span style="color: #AE81FF;">]</span>
+    <span style="color: #F92672;">else</span>:
+      <span style="color: #F92672;">raise</span> <span style="color: #E6DB74;">"Input not supported for current state"</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Waiting</span><span style="color: #AE81FF;">(</span>StateT<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Waiting: Broadcasting cheese smell"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Lazy initialization:</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.transitions:
+      <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">{</span>
+        MouseAction.appears : MouseTrap.luring
+      <span style="color: #AE81FF;">}</span>
+    <span style="color: #F92672;">return</span> StateT.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Luring</span><span style="color: #AE81FF;">(</span>StateT<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Luring: Presenting Cheese, door open"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Lazy initialization:</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.transitions:
+      <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">{</span>
+        MouseAction.enters : MouseTrap.trapping,
+        MouseAction.runsAway : MouseTrap.waiting
+      <span style="color: #AE81FF;">}</span>
+    <span style="color: #F92672;">return</span> StateT.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Trapping</span><span style="color: #AE81FF;">(</span>StateT<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Trapping: Closing door"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Lazy initialization:</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.transitions:
+      <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">{</span>
+        MouseAction.escapes : MouseTrap.waiting,
+        MouseAction.trapped : MouseTrap.holding
+      <span style="color: #AE81FF;">}</span>
+    <span style="color: #F92672;">return</span> StateT.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Holding</span><span style="color: #AE81FF;">(</span>StateT<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">run</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Holding: Mouse caught"</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>:
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">Lazy initialization:</span>
+    <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.transitions:
+      <span style="color: #F92672;">self</span>.transitions = <span style="color: #AE81FF;">{</span>
+      MouseAction.removed : MouseTrap.waiting
+    <span style="color: #AE81FF;">}</span>
+    <span style="color: #F92672;">return</span> StateT.<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">input</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">MouseTrap</span><span style="color: #AE81FF;">(</span>StateMachine<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">Initial state</span>
+    StateMachine.__init__<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, MouseTrap.waiting<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Static variable initialization:</span>
+<span style="color: #FD971F;">MouseTrap.waiting</span> = Waiting<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.luring</span> = Luring<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.trapping</span> = Trapping<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">MouseTrap.holding</span> = Holding<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">moves</span> = <span style="color: #F92672;">map</span><span style="color: #AE81FF;">(</span>string.strip,
+<span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"../mouse/MouseMoves.txt"</span><span style="color: #66D9EF;">)</span>.readlines<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">mouseMoves</span> = <span style="color: #F92672;">map</span><span style="color: #AE81FF;">(</span>MouseAction, moves<span style="color: #AE81FF;">)</span>
+MouseTrap<span style="color: #AE81FF;">()</span>.runAll<span style="color: #AE81FF;">(</span>mouseMoves<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">4</span> Decorator</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+假如我们需要开发一个程序来展示一个人穿衣服的过程。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Person</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>,name<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'%s&#24320;&#22987;&#31359;&#34915;'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wear_tshirt</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;TShirst'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wear_trouser</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#35044;&#23376;'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wear_shoe</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;T&#38795;&#23376;'</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">wear_tie</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#39046;&#24102;'</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span>==<span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">person</span>=Person<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kevin'</span><span style="color: #AE81FF;">)</span>
+    person.wear_shoe<span style="color: #AE81FF;">()</span>
+    person.wear_tie<span style="color: #AE81FF;">()</span>
+    person.wear_trouser<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<p>
+这样写无疑是最快的，代码最简洁的，但是扩展性比较差，例如客户要求我们增加一个穿袜子的动作，我们就需要修改Person类，但是根据封闭-开发原则中的封闭原则，一个类写完之后是尽量不要修改它的，所以我们就需要另外一种实现方式
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> abc <span style="color: #F92672;">import</span> ABCMeta, abstractmethod
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Person</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, name<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'%s&#24320;&#22987;&#31359;&#34915;'</span> % name
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Finery</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #FD971F;">__metaclass__</span> = ABCMeta
+    <span style="color: #66D9EF;">@abstractmethod</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">TShirt</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;TShirst'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Trouser</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#35044;&#23376;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Shoe</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#38795;&#23376;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Tie</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#39046;&#24102;'</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">person</span> = Person<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kevin'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">finerys</span>=<span style="color: #AE81FF;">[]</span>
+    finerys.append<span style="color: #AE81FF;">(</span>TShirt<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+    finerys.append<span style="color: #AE81FF;">(</span>Trouser<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+    finerys.append<span style="color: #AE81FF;">(</span>Shoe<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+    finerys.append<span style="color: #AE81FF;">(</span>Tie<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">map</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x:x.show<span style="color: #66D9EF;">()</span>,finerys<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+首先定义一个积累Finery,定义一个抽象方法show,然后每一个穿衣动作都写一个类，重写show方法。
+如果客户修改需求，我们就新增加一个类就可以了。
+装饰模式的做法：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> abc <span style="color: #F92672;">import</span> ABCMeta, abstractmethod
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Person</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, name<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.name = name
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">decorator</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, component<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.component = component
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'%s&#24320;&#22987;&#31359;&#34915;'</span> % <span style="color: #F92672;">self</span>.name
+        <span style="color: #F92672;">self</span>.component.show<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Finery</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.component = <span style="color: #AE81FF;">None</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">decorator</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, component<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.component = component
+
+    <span style="color: #FD971F;">__metaclass__</span> = ABCMeta
+
+    <span style="color: #66D9EF;">@abstractmethod</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">if</span> <span style="color: #F92672;">self</span>.component:
+            <span style="color: #F92672;">self</span>.component.show<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">TShirt</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        Finery.show<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;TShirst'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Trouser</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        Finery.show<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#35044;&#23376;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Shoe</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        Finery.show<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#38795;&#23376;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Tie</span><span style="color: #AE81FF;">(</span>Finery<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">show</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        Finery.show<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31359;&#39046;&#24102;'</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">person</span> = Person<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kevin'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">tshirt</span> = TShirt<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">trouser</span> = Trouser<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">shoe</span> = Shoe<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">tie</span> = Tie<span style="color: #AE81FF;">()</span>
+
+    trouser.decorator<span style="color: #AE81FF;">(</span>tshirt<span style="color: #AE81FF;">)</span>
+    shoe.decorator<span style="color: #AE81FF;">(</span>trouser<span style="color: #AE81FF;">)</span>
+    tie.decorator<span style="color: #AE81FF;">(</span>shoe<span style="color: #AE81FF;">)</span>
+    person.decorator<span style="color: #AE81FF;">(</span>tie<span style="color: #AE81FF;">)</span>
+    person.show<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<p>
+每个类都有show方法，衣服类都有decorator方法，利用这个方法，动态地把不同衣服的show方法装饰到person这个类上，这样做一方面可以令person类更为精简，因为在实际应用中Person类可能会有很多方法，而穿衣服这个需求只是其中一个，另一方面是，增加Person类的可扩展性，例如如果Person类已经写好了，现在新的需求需要在某一次调用Person类的show方法的时候增加穿衣服的功能，这种模式就能很好地实现了。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">5</span> Iterator</h2>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">6</span> Factory</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+需求：有一个学雷锋活动，有买米和扫地两个内容，参与的人有大学生和社区志愿者，他们各自的方法不一样。
+如果用简单工厂模式实现:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">LeiFeng</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Student</span><span style="color: #AE81FF;">(</span>LeiFeng<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;&#24110;&#20320;&#20080;&#31859;'</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;&#24110;&#20320;&#25195;&#22320;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Volunteer</span><span style="color: #AE81FF;">(</span>LeiFeng<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;&#24110;&#20320;&#20080;&#31859;'</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;&#24110;&#20320;&#25195;&#22320;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">LeiFengFactory</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">create_lei_feng</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">type</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #FD971F;">map_</span> = <span style="color: #AE81FF;">{</span>
+            <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;'</span>: Student<span style="color: #66D9EF;">()</span>,
+            <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;'</span>: Volunteer<span style="color: #66D9EF;">()</span>
+        <span style="color: #AE81FF;">}</span>
+        <span style="color: #F92672;">return</span> map_<span style="color: #AE81FF;">[</span><span style="color: #F92672;">type</span><span style="color: #AE81FF;">]</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">leifeng1</span> = LeiFengFactory<span style="color: #AE81FF;">()</span>.create_lei_feng<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#22823;&#23398;&#29983;'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">leifeng2</span> = LeiFengFactory<span style="color: #AE81FF;">()</span>.create_lei_feng<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#22823;&#23398;&#29983;'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">leifeng3</span> = LeiFengFactory<span style="color: #AE81FF;">()</span>.create_lei_feng<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#22823;&#23398;&#29983;'</span><span style="color: #AE81FF;">)</span>
+    leifeng1.buy_rice<span style="color: #AE81FF;">()</span>
+    leifeng1.sweep<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+
+<p>
+写一个雷锋类，定义买米和扫地两个方法，写一个学生类和社区志愿者类，继承雷锋类，写一个工厂类，根据输入的类型返回学生类或志愿者类。
+用工厂方法模式实现：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">LeiFeng</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Student</span><span style="color: #AE81FF;">(</span>LeiFeng<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;&#24110;&#20320;&#20080;&#31859;'</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#22823;&#23398;&#29983;&#24110;&#20320;&#25195;&#22320;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Volunteer</span><span style="color: #AE81FF;">(</span>LeiFeng<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">buy_rice</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;&#24110;&#20320;&#20080;&#31859;'</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">sweep</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'&#31038;&#21306;&#24535;&#24895;&#32773;&#24110;&#20320;&#25195;&#22320;'</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">LeiFengFactory</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">create_lei_feng</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">pass</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">StudentFactory</span><span style="color: #AE81FF;">(</span>LeiFengFactory<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">create_lei_feng</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> Student<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">VolunteerFactory</span><span style="color: #AE81FF;">(</span>LeiFengFactory<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">create_lei_feng</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">return</span> Volunteer<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">myFactory</span> = StudentFactory<span style="color: #AE81FF;">()</span>
+
+    <span style="color: #FD971F;">leifeng1</span> = myFactory.create_lei_feng<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">leifeng2</span> = myFactory.create_lei_feng<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">leifeng3</span> = myFactory.create_lei_feng<span style="color: #AE81FF;">()</span>
+
+    leifeng1.buy_rice<span style="color: #AE81FF;">()</span>
+    leifeng1.sweep<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<p>
+雷锋类，大学生类，志愿者类和简单工厂一样，新写一个工厂方法基类，定义一个工厂方法接口（工厂方法模式的工厂方法应该就是指这个方法），然后写一个学生工厂类，志愿者工厂类，重新工厂方法，返回各自的类。
+工厂方法相对于简单工厂的优点：
+</p>
+
+<ul class="org-ul">
+<li>在简单工厂中，如果需要新增类，例如加一个中学生类（MiddleStudent），就需要新写一个类，同时要修改工厂类的map_，加入'中 学生':MiddleStudent()。这样就违背了封闭开放原则中的一个类写好后，尽量不要修改里面的内容，这个原则。而在工厂方法中，需要增加一个 中学生类和一个中学生工厂类（MiddleStudentFactory），虽然比较繁琐，但是符合封闭开放原则。在工厂方法中，将判断输入的类型，返回 相应的类这个过程从工厂类中移到了客户端中实现，所以当需要新增类是，也是要修改代码的，不过是改客户端的代码而不是工厂类的代码。</li>
+
+<li>对代码的修改会更加方便。例如在客户端中，需要将Student的实现改为Volunteer，如果在简单工厂中，就需要把leifeng1 = LeiFengFactory().create<sub>lei</sub><sub>feng</sub>('大学生')中的大学生改成社区志愿者，这里就需要改三处地方，但是在工厂方法中，只需要myFactory = StudentFactory()改成myFactory = VolunteerFactory()就可以了。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">7</span> Observer</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Receptionist</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.observes=<span style="color: #AE81FF;">[]</span>
+        <span style="color: #F92672;">self</span>.status=<span style="color: #E6DB74;">''</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">attach</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>,observe<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.observes.append<span style="color: #AE81FF;">(</span>observe<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">notify</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">for</span> observe <span style="color: #F92672;">in</span> <span style="color: #F92672;">self</span>.observes:
+            observe.update<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">StockObserve</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>,name,receptionist<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.name=name
+        <span style="color: #F92672;">self</span>.receptionist=receptionist
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">update</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'%s,%s&#20572;&#27490;&#30475;&#32929;&#31080;'</span>%<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>.receptionist.status,<span style="color: #F92672;">self</span>.name<span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span>==<span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">receptionist</span>=Receptionist<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">observe1</span>=StockObserve<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#24352;&#19977;'</span>,receptionist<span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">observe2</span>=StockObserve<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#26446;&#22235;'</span>,receptionist<span style="color: #AE81FF;">)</span>
+    receptionist.attach<span style="color: #AE81FF;">(</span>observe1<span style="color: #AE81FF;">)</span>
+    receptionist.attach<span style="color: #AE81FF;">(</span>observe2<span style="color: #AE81FF;">)</span>
+
+    <span style="color: #FD971F;">receptionist.status</span>=<span style="color: #E6DB74;">'&#32769;&#26495;&#26469;&#20102;'</span>
+    receptionist.notify<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">8</span> Table-Driven</h2>
+</div>
+</div>
+<<<<<<< HEAD
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-10 Wed&gt;</span></span></p>
+<p class="author">Author: weiwu</p>
+<p class="date">Created: 2017-10-01 Sun 23:40</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+=======
+>>>>>>> 57fb1b2dc183629482cad9a05a1f93a51bad6d4f
+</body>
+</html>

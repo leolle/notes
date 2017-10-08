@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-09-29 Fri 20:13 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline2">1. database = set of named relations(or tables)</a>
+<ul>
+<li><a href="#orgheadline1">1.1. schema</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline4">2. Querying Relational Database</a>
+<ul>
+<li><a href="#orgheadline3">2.1. Query Language</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline12">3. Relational Algebra</a>
+<ul>
+<li><a href="#orgheadline8">3.1. select, project, join</a></li>
+<li><a href="#orgheadline11">3.2. Set operators, renaming, notation</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline24">4. SQL</a>
+<ul>
+<li><a href="#orgheadline13">4.1. Basic select statement</a></li>
+<li><a href="#orgheadline23">4.2. Table variables and set operators</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">1</span> database = set of named relations(or tables)</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>set of columns</li>
+<li>each tuple has a value for each column</li>
+<li>each attribute has a type(or domain)</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> schema</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>structural description of relations in dbname</li>
+<li>instance</li>
+<li>key: attribute whose value is unique in each tuple</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">2</span> Querying Relational Database</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.1</span> Query Language</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Relational Algebra</li>
+</ul>
+<p>
+formal
+</p>
+<ul class="org-ul">
+<li>SQL</li>
+</ul>
+<p>
+actual / implemented
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">3</span> Relational Algebra</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">3.1</span> select, project, join</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>query on set of reltations produces relations as a result</li>
+<li>use operators to filter, slice, combine results.</li>
+<li>Select operator:</li>
+</ul>
+<p>
+\[\sigma_condition(Expression)\]
+\[\s GPA > 3.7 ^ HS < 1000 Student\]
+</p>
+<ul class="org-ul">
+<li>Project operators: picks cerntain columns</li>
+</ul>
+<p>
+\[\pi_Apply1,Apply2,...,Applyn(Expression)\]
+\[ \pi_ID apply\]
+\[\pi_ID,StudentName(\sigma_GPA > 3.7 Student)\]
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline5"></a>cross-product:<br  /><div class="outline-text-4" id="text-3-1-1">
+<ul class="org-ul">
+<li>E1 * E2</li>
+</ul>
+</div></li>
+<li><a id="orgheadline6"></a>natural join<br  /></li>
+<li><a id="orgheadline7"></a>theta join<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">3.2</span> Set operators, renaming, notation</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><ol class="org-ol"><li><a id="orgheadline9"></a>Union operator<br  /><div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li>List of college and student names</li>
+</ul>
+</div></li>
+<li><a id="orgheadline10"></a>Intersection operator<br  /><div class="outline-text-4" id="text-3-2-2">
+<ul class="org-ul">
+<li>Join:
+\(E1 \join E2\)</li>
+</ul>
+<p>
+<b>*</b>
+</p>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">4</span> SQL</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">4.1</span> Basic select statement</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Three tables.</li>
+</ul>
+<p>
+College(cName, state, enrollment)
+Student(sID, sName, GPA, sizeHS)
+Apply(sID, cName, major, decision)
+unique index: cName, sID, and sID+cName+major.
+</p>
+
+<ul class="org-ul">
+<li>Select decision of students whose high school size is less than 1000, major is computer science and the application college is Standford.</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sname, GPA, decision
+<span style="color: #F92672;">from</span> Student, Apply
+<span style="color: #F92672;">where</span> Student.sID = Apply.sID
+<span style="color: #F92672;">and</span> sizeHS &lt; <span style="color: #AE81FF;">1000</span> <span style="color: #F92672;">and</span> major = <span style="color: #E6DB74;">'CS'</span> <span style="color: #F92672;">and</span> cname = <span style="color: #E6DB74;">'Standford'</span>
+<span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> GPA <span style="color: #F92672;">desc</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">4.2</span> Table variables and set operators</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><ol class="org-ol"><li><a id="orgheadline14"></a>Table variables<br  /><div class="outline-text-4" id="text-4-2-1">
+<p>
+using for alternative name readable, express relation with other prompts.
+</p>
+</div></li>
+<li><a id="orgheadline22"></a>Set operators<br  /><ul class="org-ul"><li><a id="orgheadline15"></a>Union, intersect, except<br  /><div class="outline-text-5" id="text-orgheadline15">
+<ul class="org-ul">
+<li>select student enrollment.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> S.sID, sName, GPA, A.cName, enrollment
+<span style="color: #F92672;">from</span> Student S, College C, Apply A
+<span style="color: #F92672;">where</span> A.sID = S.sID <span style="color: #F92672;">and</span> A.cName = C.cName;
+</pre>
+</div>
+<ul class="org-ul">
+<li>select students having the same GPA.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> S1.sID, S1.sName, S1.GPA, S2.sID, S2.sName, S2.GPA,
+<span style="color: #F92672;">from</span> Student S1, Student S2
+<span style="color: #F92672;">where</span> S1.GPA = S2.GPA <span style="color: #F92672;">and</span> S1.sID &gt; S2.sID;
+</pre>
+</div>
+</div>
+<ul class="org-ul"><li><a id="orgheadline16"></a>Union<br  /><div class="outline-text-6" id="text-orgheadline16">
+<ul class="org-ul">
+<li>select union of college names and students names.</li>
+</ul>
+<p>
+Remember: union will remove duplicates for us.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> cName <span style="color: #F92672;">as</span> <span style="color: #F92672;">name</span> <span style="color: #F92672;">from</span> College
+<span style="color: #F92672;">union</span>
+<span style="color: #F92672;">select</span> sName <span style="color: #F92672;">as</span> <span style="color: #F92672;">name</span> <span style="color: #F92672;">from</span> Student;
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline17"></a>Intersect<br  /><div class="outline-text-6" id="text-orgheadline17">
+<ul class="org-ul">
+<li>select students both select cs and ee.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'CS'</span>
+<span style="color: #F92672;">intersect</span>
+<span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'EE'</span>;
+</pre>
+</div>
+</div></li>
+<li><a id="orgheadline18"></a>Except<br  /><div class="outline-text-6" id="text-orgheadline18">
+<ul class="org-ul">
+<li>select students who apply cs but not ee.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'CS'</span>
+<span style="color: #F92672;">except</span>
+<span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'EE'</span>;
+</pre>
+</div>
+</div></li></ul></li>
+<li><a id="orgheadline19"></a>Subqueries in WHERE<br  /><div class="outline-text-5" id="text-orgheadline19">
+<ul class="org-ul">
+<li>select IDs and names of students who have aplied to major in CS at some college.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sID, sName
+<span style="color: #F92672;">from</span> Student
+<span style="color: #F92672;">where</span> sID <span style="color: #F92672;">in</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> sID <span style="color: #F92672;">from</span> Apply <span style="color: #F92672;">where</span> major = <span style="color: #E6DB74;">'CS'</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select max value from a column.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> cName
+<span style="color: #F92672;">from</span> College C1
+<span style="color: #F92672;">where</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">exists</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> * <span style="color: #F92672;">from</span> College C2
+<span style="color: #F92672;">where</span> C2.enrollment &gt; C1.enrollment<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+</div>
+
+<ul class="org-ul"><li><a id="orgheadline20"></a>all, any, exists, not exists.<br  /><div class="outline-text-6" id="text-orgheadline20">
+<ul class="org-ul">
+<li>Students not from the smallest high school.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> sID, sName, sizeHS
+<span style="color: #F92672;">from</span> Student
+<span style="color: #F92672;">where</span> sizeHS &gt; <span style="color: #F92672;">any</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> sizeHS <span style="color: #F92672;">from</span> Student<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+</div></li></ul></li>
+
+<li><a id="orgheadline21"></a>Subqueries from select and from<br  /><div class="outline-text-5" id="text-orgheadline21">
+<ul class="org-ul">
+<li>Students whoses scaled GPA changes GPA by more than 1.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">select</span> *
+<span style="color: #F92672;">from</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> sID, sName, GPA, GPA*<span style="color: #66D9EF;">(</span>sizeHS/<span style="color: #AE81FF;">1000</span>.<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span> <span style="color: #F92672;">as</span> scaledGPA
+<span style="color: #F92672;">from</span> Student<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> G
+<span style="color: #F92672;">where</span> <span style="color: #AE81FF;">(</span>G.scaledGPA - GPA<span style="color: #AE81FF;">)</span> &gt; <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">0</span>;
+</pre>
+</div>
+</div></li></ul></li></ol>
+</div>
+</div>
+</div>
+</body>
+</html>

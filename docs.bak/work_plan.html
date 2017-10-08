@@ -1,0 +1,1582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-10-01 Sun 23:55 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Workflow</a></li>
+<li><a href="#orgheadline2">2. GID table</a></li>
+<li><a href="#orgheadline3">3. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-19 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline7">4. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-21 Fri&gt;</span></span></a>
+<ul>
+<li><a href="#orgheadline4">4.1. GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。</a></li>
+<li><a href="#orgheadline5">4.2. configuration:</a></li>
+<li><a href="#orgheadline6">4.3. SDK</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline8">5. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-24 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline10">6. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-25 Tue&gt;</span></span></a>
+<ul>
+<li><a href="#orgheadline9">6.1. 如何在NLP领域快速学会第一个技能？</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline11">7. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-31 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline12">8. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-01 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline13">9. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-02 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline14">10. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-03 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline15">11. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-04 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline16">12. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-07 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline17">13. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-08 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline18">14. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-09 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline19">15. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-10 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline20">16. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-11 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline21">17. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-14 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline22">18. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-16 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline23">19. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-17 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline24">20. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-18 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline25">21. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-25 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline26">22. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline28">23. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></a>
+<ul>
+<li><a href="#orgheadline27">23.1. todo:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline32">24. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-23 Wed&gt;</span></span></a>
+<ul>
+<li><a href="#orgheadline29">24.1. portfolio optimization</a></li>
+<li><a href="#orgheadline30">24.2. soft constraint</a></li>
+<li><a href="#orgheadline31">24.3. paper</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline33">25. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-24 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline34">26. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-25 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline35">27. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-27 Sun&gt;</span></span></a></li>
+<li><a href="#orgheadline36">28. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-28 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline37">29. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-29 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline38">30. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-30 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline39">31. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-31 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline40">32. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-01 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline41">33. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-04 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline42">34. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-05 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline43">35. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-06 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline44">36. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-07 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline45">37. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-08 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline46">38. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-11 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline47">39. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline48">40. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-13 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline49">41. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-13 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline51">42. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-14 Thu&gt;</span></span></a>
+<ul>
+<li><a href="#orgheadline50">42.1. code:<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-14 Thu&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#orgheadline52">43. <span class="todo TODO">TODO</span> optimization</a></li>
+<li><a href="#orgheadline63">44. <span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></a>
+<ul>
+<li><a href="#orgheadline53">44.1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-19 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline54">44.2. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-20 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline55">44.3. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-21 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline56">44.4. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-22 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline57">44.5. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-25 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline58">44.6. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-26 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline59">44.7. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-27 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline60">44.8. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-28 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline61">44.9. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-29 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline62">44.10. <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-30 Sat&gt;</span></span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-emacs">;; insert current date
+C-c . &lt;2017-08-11 Fri&gt;
+;; insert current date and time
+C-u C-c . &lt;2017-08-11 Fri 16:06&gt;
+</pre>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Workflow</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>search</li>
+<li>read pdf/code</li>
+<li>modify code</li>
+<li>plugging gs to run with data</li>
+<li>check result</li>
+<li>prepare presentation of all previous steps</li>
+<li>present and get feedback</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> GID table</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">date</td>
+<td class="org-left">GID</td>
+<td class="org-left">descriptions</td>
+</tr>
+
+<tr>
+<td class="org-left">2017/6/6</td>
+<td class="org-left">64C9DC1C96FD4A0693305C87E905E039</td>
+<td class="org-left">组合</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">69C3DC21A8E1440AA9C54442AB8A1BD3</td>
+<td class="org-left">activeX</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">528FC2E4CC73469496D330AC39E4AE50</td>
+<td class="org-left">GROUP WEIGHT</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">05E0CAE034244B75BB8CD5580CEF3F5C</td>
+<td class="org-left">搭函数</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">047D8ECFE75E44689D1D10EDF06620BF</td>
+<td class="org-left">FD, portfolio optimization</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">B694A0402A20481091906F5A1C5CC942</td>
+<td class="org-left">主页</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">171A21059C62E84D330A4D7B53D72DDC</td>
+<td class="org-left">set target risk and target return</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">3A29CB69BD7879553AAF2EDDD23810F0</td>
+<td class="org-left">基准风格因子暴露<sub>python</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">E647EFFF80C540A58A2BFC7719658756</td>
+<td class="org-left">组合优化FR</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F7960FEA8B534BE8885639B36C3816A8</td>
+<td class="org-left">风格因子暴露 刘鑫</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">A5A7240AE18DC1D9C84A3D7629EC1B63</td>
+<td class="org-left">STYLE风格因子暴露 刘鑫</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">363F23CF55484C6BB57291A6543385BC</td>
+<td class="org-left">function of generate factors</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">0D5E7E6A76524DC8A6DA5F5AF0BFB3C3</td>
+<td class="org-left">function of getting factor exposure</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">B58B375C952C486C80CC94F041B0EF63</td>
+<td class="org-left">j of getting factor exposure</td>
+</tr>
+
+<tr>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-11 Fri&gt;</span></span></td>
+<td class="org-left">B04D8EC4FC14CBDCCD9FD61B9C831955</td>
+<td class="org-left">FI optimization</td>
+</tr>
+
+<tr>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-11 Fri&gt;</span></span></td>
+<td class="org-left">DB7575569F231472384F462E9A0E69AF</td>
+<td class="org-left">j stock portfolio optimization</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">6224F5BAEF1D4BC9BAC9FFE0244357D8</td>
+<td class="org-left">multiple period optimization</td>
+</tr>
+
+<tr>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-14 Mon&gt;</span></span></td>
+<td class="org-left">DB7575569F231472384F462E9A0E69AF</td>
+<td class="org-left">stocks opts with multi-period exposure constraint</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-19 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 搭建基金策略</li>
+<li class="on"><code>[X]</code> 对基金策略进行组合优化</li>
+<li class="on"><code>[X]</code> 分析优化后结果，把组合优化加入流程</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-21 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 配置好GOOGLE GCLOUD PLATORM的代理</li>
+<li class="off"><code>[&#xa0;]</code> 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。</li>
+<li class="off"><code>[&#xa0;]</code> deep learning of bank stress in the news</li>
+<li class="off"><code>[&#xa0;]</code> detect events based on text, obtain descriptions of events.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">4.1</span> GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。</h3>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">4.2</span> configuration:</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>reports-174211</li>
+<li>proxy:</li>
+</ul>
+<p>
+127.0.0.1:1080
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Make sure that Python 2.7.9 or later is installed on your system.</li>
+<li class="on"><code>[X]</code> ./google-cloud-sdk/install.sh</li>
+<li class="on"><code>[X]</code> ./google-cloud-sdk/bin/gcloud init</li>
+<li class="on"><code>[X]</code> pip install &#x2013;upgrade google-cloud-language</li>
+<li class="on"><code>[X]</code> export GOOGLE<sub>APPLICATION</sub><sub>CREDENTIALS</sub>=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json</li>
+<li class="on"><code>[X]</code> gcloud auth activate-service-account &#x2013;key-file=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json</li>
+<li class="on"><code>[X]</code> example:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">auth</span>
+<span style="color: #F92672;">from</span> google.oauth2 <span style="color: #F92672;">import</span> service_account
+
+<span style="color: #FD971F;">credentials</span> = service_account.Credentials.from_service_account_file<span style="color: #AE81FF;">(</span>
+    <span style="color: #E6DB74;">'/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">scoped_credentials</span> = credentials.with_scopes<span style="color: #AE81FF;">(</span>
+    <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'https://www.googleapis.com/auth/cloud-platform'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">-*- coding: utf-8 -*-</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Imports the Google Cloud client library</span>
+<span style="color: #F92672;">from</span> google.cloud <span style="color: #F92672;">import</span> language
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Instantiates a client</span>
+<span style="color: #FD971F;">language_client</span> = language.Client<span style="color: #AE81FF;">()</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">The text to analyze</span>
+<span style="color: #FD971F;">text</span> = <span style="color: #E6DB74;">'Hello, world!'</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">text = u'&#27491;&#22312;&#25353;&#29031;&#31532;&#19968;&#20010;&#32593;&#39029;&#27969;&#31243;&#36208;'</span>
+<span style="color: #FD971F;">document</span> = language_client.document_from_text<span style="color: #AE81FF;">(</span>text<span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Detects the sentiment of the text</span>
+<span style="color: #FD971F;">sentiment</span> = document.analyze_sentiment<span style="color: #AE81FF;">()</span>.sentiment
+
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Text: {}'</span>.<span style="color: #F92672;">format</span><span style="color: #66D9EF;">(</span>text<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Sentiment: {}, {}'</span>.<span style="color: #F92672;">format</span><span style="color: #66D9EF;">(</span>sentiment.score, sentiment.magnitude<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><a href="https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/language/movie_nl">https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/language/movie_nl</a></li>
+
+<li>GCLOUD example:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">gcloud ml language analyze-entities --content=<span style="color: #E6DB74;">"Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'."</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">4.3</span> SDK</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><a href="https://cloud.google.com/sdk/docs/quickstart-linux">https://cloud.google.com/sdk/docs/quickstart-linux</a></li>
+<li>key:</li>
+</ul>
+<p>
+<a href="https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211">https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211</a>
+</p>
+<ul class="org-ul">
+<li>初始化SDK
+<ul class="org-ul">
+<li>配置网络代理</li>
+<li>输入代理IP地址:127.0.0.1，代理端口：1080</li>
+</ul></li>
+<li>授权SDK
+<ul class="org-ul">
+<li>gcloud auth application-default login</li>
+</ul></li>
+
+<li>auth</li>
+</ul>
+<p>
+<a href="https://developers.google.com/identity/protocols/application-default-credentials">https://developers.google.com/identity/protocols/application-default-credentials</a>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json">{
+  "type": "service_account",
+  "project_id": "reports-174211",
+  "private_key_id": "54818469c5e32cb8f5d55b755945e6bd7f65c747",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0Lz4mVUr36Y7C\n+hxLunVLm3RfBMDsJ9RZ/jICmpCprYIjYebLql0+T2DnhU7eKH2hhbHKZdUfWOvA\nDxE/DUk04eG22vsvoPlIGjN88c3EkKqEddX0llOkKeVNMAB0lN+ESEmrMC6Ewhd2\n/51dIqekDjTV5wrmZxnT1SSuJsrgA0Wbey5TjVmYBTO3hsR37sJxf6yj0+lrVqUw\np2rgkIuDrQy97jP9AYdAF6Lt1eIZvLTIC8GBpo0VjVb+s8CRhZiKGxunUu8HFymS\nK/9Li8BRJ9q/ozp4OGJszk2RQiTbFoKI64pVqggTJxRVw4pdozpzPL4cDqqjYu7y\nCakFxFStAgMBAAECggEAAL36EaKDy3IYOa2Eh3umMdsbIgINFlvn+BKVMPq4fPkU\njQyWl1ZQCdU+BwNpn/4cMwRah1ofLtYeVcfqGwT1EnqaA/ddFfo3KfNxAgMlRQ7l\nzjkFr3sdWegnRDJd/3JBL78JeKLwlMY6M64D/1HIzXhBLPQFkOMx/B6dBvpCFyVC\niE/FTJHFpN5BJni+cBtKfdKbPYGkxtNN4XdPrGtS3pg+NX8hJwtyTc9CV63YSPxG\nY7Zat5IRR+nTkHNJj/jqTLb1YolzjTSGR1vbb1KTUe+KH4ZxiYd0MVCDEEgrhvli\nmEunzCGbrIgi3K8+h77FHq2UHbVL4epd6leswEpH6QKBgQDiz/bDGXIAKszc9GsS\na4mhU/06Cw79C99rc6iMMq9O5N6qaXDlExT5IS/1xBMv8M4lQ4Qp6OqzlXP/gci3\nVOm6TzoB92hwTja5IxIlhHuCxy3+LCjN2T95dTL5QbjKtYn9IQ/SX+ZVSXxHYUvQ\nxgwZud/FIS+YE2qChYFEaev7BQKBgQDLXy++mrOHm/Kwpkf2elrra6m/jPHdJe3m\nuv7lQf9QJAjSBNDJppHiryqOKQeSJyLX7WrPi/ngUM/wFSAi/llgmLApQwAla5Xs\nPLRntxaWDK2JDUonGDkdWeR5kwyns/oomnECiS22m1+oh+2uYQHgW8DpiG4fPpAt\nJ3K6KOUziQKBgAJ3sr6So0vfK1VoD1Ym91ta95FPF32nSGn52yaTUpbwJIAEH6dO\nWtcPBl+NH4xQ+V0sa96s2wjTImzwM4fTE6vkOsRUtb0rDKtc91CTLWjR0+1E+7ip\nmWgv3zsY/PKvoO2xE2P9iRr6brC0HUgLL4yEGiwh3UuxQmJjI3HkGR4lAoGALc16\nS0s8M8aDmhVZD8HuyCavTFzJ/CyWr+hdj/SVM89pzSMYgtHo+UzKIMpM0jXOOyNV\ncvjrhgGtUzzux/LQ3liFFEXquoLIeTQSzWkGxTSFwOAlWzixZFLiih78MqjuJkbi\nPNf4W7ASkzpJ5YQjkAwaHn6DjrXgcsr3o8WiGUECgYBBLnbZLyMSkjZ0n0wYG0a7\nB4b0piRlGbSfEcKWpxoS+EJDuEgvZgn92EOHGaE0xtZvmwbWuqTKKRHXYDGG0VkR\nTf1pMyBF7uxRXDXPslZU2rUTudKMxP8HxoV8WGwxH+ltZYwsMV1iKv3xqbU6CRy2\nu5i+YnEcmQl6HFH/H8tzQg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloudnatruallanguageapi@reports-174211.iam.gserviceaccount.com",
+  "client_id": "108156446460648516099",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloudnatruallanguageapi%40reports-174211.iam.gserviceaccount.com"
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>gcloud config list</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #AE81FF;">(</span>C:\Users\gft\Anaconda2<span style="color: #AE81FF;">)</span> C:\Users\gft\Documents\Python Scripts\sentiment&gt;gcloud
+config list
+<span style="color: #AE81FF;">[</span>compute<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">region</span> = us-east1
+<span style="color: #FD971F;">zone</span> = us-east1-d
+<span style="color: #AE81FF;">[</span>core<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">account</span> = victor.wuv@gmail.com
+<span style="color: #FD971F;">disable_usage_reporting</span> = False
+<span style="color: #FD971F;">project</span> = reports-174211
+<span style="color: #AE81FF;">[</span>proxy<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">address</span> = <span style="color: #AE81FF;">192.168.1.164</span>
+<span style="color: #FD971F;">port</span> = <span style="color: #AE81FF;">1080</span>
+<span style="color: #FD971F;">type</span> = http
+
+Your active configuration is: <span style="color: #AE81FF;">[</span>nlp1<span style="color: #AE81FF;">]</span>
+
+<span style="color: #AE81FF;">(</span>C:\Users\gft\Anaconda2<span style="color: #AE81FF;">)</span> C:\Users\gft\Documents\Python Scripts\sentiment&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-24 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Hidden factor model</li>
+</ul>
+<p>
+ICA
+</p>
+<ul class="org-ul">
+<li>portfolio optimization based on factor model</li>
+<li>non linear constrain on factor model</li>
+</ul>
+
+<p>
+connect to Amazon AWS EW2:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #75715E;"># </span><span style="color: #75715E;">1</span>
+chmod <span style="color: #AE81FF;">400</span> /path/my-key-pair.pem
+<span style="color: #75715E;"># </span><span style="color: #75715E;">2</span>
+ssh -i <span style="color: #E6DB74;">"amazon.pem"</span> ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com
+<span style="color: #75715E;"># </span><span style="color: #75715E;">3</span>
+scp -i <span style="color: #E6DB74;">"/home/weiwu/Downloads/amazon.pem"</span> ~/projects/sentiment/reports-b56f3f2275a1.json  ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com:~/projects/sentiment
+</pre>
+</div>
+<ul class="org-ul">
+<li>install Google SDK on AWS EM2</li>
+</ul>
+<p>
+methon 1:
+curl <a href="https://sdk.cloud.google.com/">https://sdk.cloud.google.com/</a> | bash
+sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
+sudo `which pip` install &#x2013;upgrade google-cloud-language
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">6</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-25 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>read the book 《自然语言处理综论》</li>
+</ul>
+<p>
+not easy to understand this book.
+</p>
+<ul class="org-ul">
+<li>listen to the open course</li>
+</ul>
+<p>
+<a href="https://web.stanford.edu/class/cs224n/syllabus.html">https://web.stanford.edu/class/cs224n/syllabus.html</a>
+</p>
+<ul class="org-ul">
+<li>寻找中文分词开源项目</li>
+</ul>
+<p>
+LTP from Harbin Institute of Technology
+<a href="http://ltp.ai/">http://ltp.ai/</a>
+<a href="http://ltp.readthedocs.io/zh_CN/latest/">http://ltp.readthedocs.io/zh_CN/latest/</a>
+<a href="http://www.ltp-cloud.com/intro/">http://www.ltp-cloud.com/intro/</a>
+</p>
+<ul class="org-ul">
+<li>Strucuture:</li>
+</ul>
+<p>
+分词, 词性标注, Parser
+</p>
+<ul class="org-ul">
+<li>Tools</li>
+</ul>
+<p>
+CRF++
+</p>
+
+<p>
+GIZA
+</p>
+
+<p>
+Word2Vec
+</p>
+<ul class="org-ul">
+<li>Opinion Mining, Sentiment Analysis, and Opinion Spam Detection</li>
+</ul>
+<p>
+<a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html</a>
+<a href="https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf">https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf</a>
+</p>
+<ul class="org-ul">
+<li>目标学习：信息抽取</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">6.1</span> 如何在NLP领域快速学会第一个技能？</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>找到一个开源项目，比如机器翻译或者深度学习的项目。</li>
+<li>理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。</li>
+<li>然后再深入理解开源项目示范程序的算法。</li>
+<li>自己编程实现一下这个示范程序的算法。再按照项目提供的标准测试集测试自己实现的程序。如果输出的结果与项目中出现的结果不一致，就要仔细查验自己的程序，反复修改，直到结果与示范程序基本一致。如果还是不行，就大胆给项目的作者写信请教。</li>
+<li>在此基础上，再看看自己能否进一步完善算法或者实现，取得比示范程序更好的结果。</li>
+<li class="off"><code>[&#xa0;]</code> 词性标记集：LTP中采用863词性标注集，其各个词性含义如下表：</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Tag</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Example</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">adjective</td>
+<td class="org-left">美丽</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">other noun-modifier</td>
+<td class="org-left">大型 ,西式</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">conjunction</td>
+<td class="org-left">和,虽然</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">adverb</td>
+<td class="org-left">很</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">exclamation</td>
+<td class="org-left">哎</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">morpheme</td>
+<td class="org-left">茨, 甥</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">h</td>
+<td class="org-left">prefix</td>
+<td class="org-left">阿, 伪</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">idiom</td>
+<td class="org-left">百花齐放</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">j</td>
+<td class="org-left">abbreviation</td>
+<td class="org-left">公检法</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">k</td>
+<td class="org-left">suffix</td>
+<td class="org-left">界, 率</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">number</td>
+<td class="org-left">一, 第一</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">general noun</td>
+<td class="org-left">苹果</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nd</td>
+<td class="org-left">direction noun</td>
+<td class="org-left">右侧</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nh</td>
+<td class="org-left">person name</td>
+<td class="org-left">杜甫, 汤姆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ni</td>
+<td class="org-left">organization name</td>
+<td class="org-left">保险公司</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nl</td>
+<td class="org-left">location noun</td>
+<td class="org-left">城郊</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ns</td>
+<td class="org-left">geographical name</td>
+<td class="org-left">北京</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nt</td>
+<td class="org-left">temporal noun</td>
+<td class="org-left">近日, 明代</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nz</td>
+<td class="org-left">other proper   noun</td>
+<td class="org-left">诺贝尔奖</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-left">onomatopoeia</td>
+<td class="org-left">哗啦</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">preposition</td>
+<td class="org-left">在, 把</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">q</td>
+<td class="org-left">quantity</td>
+<td class="org-left">个</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">auxiliary</td>
+<td class="org-left">的, 地</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">verb</td>
+<td class="org-left">跑, 学习</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">wp</td>
+<td class="org-left">punctuation</td>
+<td class="org-left">，。！</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ws</td>
+<td class="org-left">foreign words</td>
+<td class="org-left">CPU</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">x</td>
+<td class="org-left">non-lexeme</td>
+<td class="org-left">萄, 翱</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 命名实体识别</li>
+</ul>
+<p>
+命名实体识别 (Named Entity Recognition, NER) 是在句子的词序列中定位并识别人名、地名、机构名等实体的任务。 如之前的例子，命名实体识别的结果是：
+</p>
+
+<p>
+国务院 (机构名) 总理李克强 (人名) 调研上海外高桥 (地名) 时提出，支持上海 (地名) 积极探索新机制。
+命名实体识别对于挖掘文本中的实体进而对其进行分析有很重要的作用。
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 依存句法分析</li>
+</ul>
+<p>
+依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 语义角色标注</li>
+</ul>
+<p>
+语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">7</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-31 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 公司帮忙照看搬家。</li>
+</ul>
+<p>
+8 hours.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">8</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-01 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 查看cvxportfolio的使用说明。</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">9</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-02 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 在开发的帮助下安装cvxportfolio library，调试。</li>
+<li class="off"><code>[&#xa0;]</code> 查看Google Trende API.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">10</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-03 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 调试cvxportfolio library，把代码换用该库。</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">11</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-04 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">12</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-07 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> research on soft constraint using cvxpy.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">13</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-08 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> research on soft constraint using cvxpy.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">14</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-09 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 搭建workflow。</li>
+<li class="off"><code>[&#xa0;]</code> 多期优化。</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">15</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-10 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> DONE 搭建WORKFLOW.</li>
+</ul>
+<p>
+CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2017-08-11 Fri 09:02]</span></span>
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> DONE multi-period optimization using cvxportfolio.</li>
+</ul>
+<p>
+CLOSED: <span class="timestamp-wrapper"><span class="timestamp">[2017-08-11 Fri 09:02]</span></span>
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">16</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-11 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-16">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 用多期因子做一下回测看看效果，没有看到在OBJECTIVE FUNCTION里面加TRADE COST LOSS FUNCTION的做法，RETURN, RISK和 COST 不在同一个数量级的.</li>
+<li class="off"><code>[&#xa0;]</code> 继续在CVXPORTFOLIO上改用RISK MODEL.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline21" class="outline-2">
+<h2 id="orgheadline21"><span class="section-number-2">17</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-14 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 周末把每一期按单期优化处理后得到了新的权重，没有加入预测，上午跑一下看看效果。</li>
+<li class="off"><code>[&#xa0;]</code> 把RISK MODEL加到CVXPORTFOLIO。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-2">
+<h2 id="orgheadline22"><span class="section-number-2">18</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-16 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-18">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。</li>
+<li class="off"><code>[&#xa0;]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="off"><code>[&#xa0;]</code> 将 group constaint 的条件泛化。</li>
+<li class="off"><code>[&#xa0;]</code> 组合优化当hard constraint无法达成时，relax constraint，结果同时输出fitness。</li>
+<li class="on"><code>[X]</code> mode 参数变成一个枚举值。</li>
+<li class="off"><code>[&#xa0;]</code> gs输入signature需要指定 oset.</li>
+</ul>
+<p>
+oset组织不完整，postpone.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> risk model api.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">19</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-17 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-19">
+<ul class="org-ul">
+<li class="trans"><code>[-]</code> risk model api test.
+<ul class="org-ul">
+<li class="on"><code>[X]</code> change factor return dataframe name to b char array.</li>
+<li class="off"><code>[&#xa0;]</code> risk model api function.
+<ul class="org-ul">
+<li>factor exposure(panel)
+size(1536*8*2885).
+items: datetime index
+major axis: factors
+minor axis: symbols</li>
+<li>sigma(panel)
+size(1536*35*2885)</li>
+<li>specific risk(panel)
+panel size is too large for calculation(1536*2885*2885).</li>
+<li>covariance matrix(panel)</li>
+<li>factor return(dataframe)</li>
+</ul></li>
+</ul></li>
+<li class="off"><code>[&#xa0;]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="off"><code>[&#xa0;]</code> 将 group constaint 的条件泛化。</li>
+<li class="off"><code>[&#xa0;]</code> select assets by returns and volatility according to target mode.</li>
+<li class="off"><code>[&#xa0;]</code> test the api according to my own requirement.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">20</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-18 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-20">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> risk model class function.
+<ul class="org-ul">
+<li>factor exposure(panel)
+size(1536*8*2885).
+items: datetime index
+major axis: factors
+minor axis: symbols</li>
+<li>sigma(panel)
+size(1536*35*2885)</li>
+<li>specific risk(panel)
+panel size is too large for calculation(1536*2885*2885).</li>
+<li>covariance matrix(panel)</li>
+<li>factor return(dataframe)</li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="off"><code>[&#xa0;]</code> 将 group constaint 的条件泛化。</li>
+<li class="off"><code>[&#xa0;]</code> select assets by returns and volatility according to target mode.</li>
+<li class="off"><code>[&#xa0;]</code> which industry does the benchmark return come form?</li>
+</ul>
+<p>
+using the robust linear regression to estimate the coefficient and do the ranking.
+consider use the lasso regression maybe a better choice.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 将新写的api代码应用到gs.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline25" class="outline-2">
+<h2 id="orgheadline25"><span class="section-number-2">21</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-25 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-21">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="on"><code>[X]</code> 将 group constaint 的条件泛化。</li>
+<li class="off"><code>[&#xa0;]</code> select assets by returns and volatility according to target mode.</li>
+<li class="off"><code>[&#xa0;]</code> Paper on industry classification.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">22</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-21 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-22">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="on"><code>[X]</code> 将 group constaint 的条件泛化。</li>
+<li class="on"><code>[X]</code> test on gs.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline28" class="outline-2">
+<h2 id="orgheadline28"><span class="section-number-2">23</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-22 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-23">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> select assets by returns and volatility according to target mode.</li>
+<li class="on"><code>[X]</code> soft constraint based on penalty function.</li>
+<li class="off"><code>[&#xa0;]</code> Paper on industry classification.</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">23.1</span> todo:</h3>
+<div class="outline-text-3" id="text-23-1">
+<ol class="org-ol">
+<li>portfolio optimization</li>
+<li class="off"><code>[&#xa0;]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> fix const variable issue for target mode naming.</li>
+<li class="off"><code>[&#xa0;]</code> write fd for asset constraint on gs.</li>
+
+<li>soft constraint</li>
+<li class="off"><code>[&#xa0;]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> move soft constraint test on gs.</li>
+
+<li>industry classification paper</li>
+</ol>
+<p>
+finish this paper and write summary.
+find a dateset for industry, product, financial statement, etc, extract nouns from text matching these classes.
+duplicate classification algorithm.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-2">
+<h2 id="orgheadline32"><span class="section-number-2">24</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-23 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-24">
+</div><div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">24.1</span> portfolio optimization</h3>
+<div class="outline-text-3" id="text-24-1">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> write pseudo code.</li>
+<li class="on"><code>[X]</code> fix const variable issue for target mode naming.</li>
+<li class="on"><code>[X]</code> write fd for asset constraint on gs.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">24.2</span> soft constraint</h3>
+<div class="outline-text-3" id="text-24-2">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> move soft constraint test on gs.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">24.3</span> paper</h3>
+<div class="outline-text-3" id="text-24-3">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> finish text-based network industry classification(TBNIC) and summarizing.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline33" class="outline-2">
+<h2 id="orgheadline33"><span class="section-number-2">25</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-24 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-25">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> deploy the constraint function on gs.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline34" class="outline-2">
+<h2 id="orgheadline34"><span class="section-number-2">26</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-25 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-26">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> collect product noun words from description using NLP.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline35" class="outline-2">
+<h2 id="orgheadline35"><span class="section-number-2">27</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-27 Sun&gt;</span></span></h2>
+<div class="outline-text-2" id="text-27">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> get factors list GID</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline36" class="outline-2">
+<h2 id="orgheadline36"><span class="section-number-2">28</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-28 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-28">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> review optimization function map, functions signature, pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> collect product noun words from description using NLP.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline37" class="outline-2">
+<h2 id="orgheadline37"><span class="section-number-2">29</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-29 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-29">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> programe the pair input data structure.</li>
+<li class="on"><code>[X]</code> make this structure available on GS.</li>
+<li class="on"><code>[X]</code> OTVV的数据结构是通过上传还是写python function还在试验看哪种方式更高效，不过我自己已经把这种函数写出来了。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline38" class="outline-2">
+<h2 id="orgheadline38"><span class="section-number-2">30</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-30 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-30">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> put the constraint GS, review code.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-2">
+<h2 id="orgheadline39"><span class="section-number-2">31</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-31 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-31">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> setup the constraint, covariance matrix, sigma, delta on GS.</li>
+<li class="off"><code>[&#xa0;]</code> add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline40" class="outline-2">
+<h2 id="orgheadline40"><span class="section-number-2">32</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-01 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-32">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。</li>
+</ul>
+<p>
+fix by fillna with 0 in the factor exposure dataframe.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> deploy the whole function on Jupyter and gs.</li>
+<li class="on"><code>[X]</code> we have a position limit option, length is x.</li>
+</ul>
+<p>
+asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
+we can create two constraint with the formula (wT*M1)T&gt;= V<sub>1</sub>, (wT*M1)T &lt;= V<sub>2</sub>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-2">
+<h2 id="orgheadline41"><span class="section-number-2">33</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-04 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-33">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> calculate the benchmark factor exposure as the reference j to the exposure constraint input.</li>
+<li class="off"><code>[&#xa0;]</code> debug the optimization with exposure constraint.</li>
+</ul>
+<p>
+BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="section-number-2">34</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-05 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-34">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> debug the optimization with exposure constraint.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline43" class="outline-2">
+<h2 id="orgheadline43"><span class="section-number-2">35</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-06 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-35">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 程序已经调通，加入factor exposure constraint找到最优解
+<ol class="org-ol">
+<li>check the calculation of the factor exposure.</li>
+<li>放松约束条件.</li>
+<li class="on"><code>[X]</code> bug found: group constraint loading dataframe index order should be aligned within calculation.</li>
+</ol></li>
+<li class="trans"><code>[-]</code> test:
+<ul class="org-ul">
+<li class="on"><code>[X]</code> original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.</li>
+<li class="off"><code>[&#xa0;]</code> original portfolio is constructed by all hs300 components.</li>
+<li class="off"><code>[&#xa0;]</code> industry weight constraint match the benchmark weight.</li>
+</ul></li>
+<li class="on"><code>[X]</code> profile the program.</li>
+</ul>
+<p>
+90% of program running time is spent on loading data and decompresssing data.
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> present &amp;review project.</li>
+<li class="off"><code>[&#xa0;]</code> portfolio construction with black-litterman model.</li>
+<li class="off"><code>[&#xa0;]</code> portfolio construction with risk-parity model.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline44" class="outline-2">
+<h2 id="orgheadline44"><span class="section-number-2">36</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-07 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-36">
+<ul class="org-ul">
+<li class="trans"><code>[-]</code> test:
+<ul class="org-ul">
+<li class="on"><code>[X]</code> original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.</li>
+<li class="on"><code>[X]</code> original portfolio is constructed by all hs300 components.</li>
+<li class="off"><code>[&#xa0;]</code> industry weight constraint match the benchmark weight.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline45" class="outline-2">
+<h2 id="orgheadline45"><span class="section-number-2">37</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-08 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-37">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> industry weight constraint match the benchmark weight.</li>
+<li class="off"><code>[&#xa0;]</code> pack functions to modules.</li>
+<li class="off"><code>[&#xa0;]</code> follow up correction.</li>
+<li class="off"><code>[&#xa0;]</code> black-litterman portfolio.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline46" class="outline-2">
+<h2 id="orgheadline46"><span class="section-number-2">38</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-11 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-38">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> pack functions to modules.</li>
+<li class="off"><code>[&#xa0;]</code> follow up correction.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline47" class="outline-2">
+<h2 id="orgheadline47"><span class="section-number-2">39</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-12 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-39">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> future simulation requested function:</li>
+<li>calendar spread trading.</li>
+</ul>
+<p>
+buy current month expired contract.
+short next month expired contract.
+</p>
+
+<ul class="org-ul">
+<li>rolling on constant maturity.</li>
+
+<li>trend following on dominant contract.</li>
+</ul>
+<p>
+moving average crossing over on the continous contract.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline48" class="outline-2">
+<h2 id="orgheadline48"><span class="section-number-2">40</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-13 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-40">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> future simulation pseudo code.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">OnData</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>,<span style="color: #F92672;">slice</span><span style="color: #AE81FF;">)</span>:
+       <span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> <span style="color: #F92672;">self</span>.Portfolio.Invested:
+           <span style="color: #F92672;">for</span> chain <span style="color: #F92672;">in</span> <span style="color: #F92672;">slice</span>.FutureChains:
+                <span style="color: #75715E;"># </span><span style="color: #75715E;">Get contracts expiring no earlier than in 90 days</span>
+               <span style="color: #FD971F;">contracts</span> = <span style="color: #F92672;">filter</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x: x.Expiry &gt; <span style="color: #F92672;">self</span>.Time + timedelta<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">90</span><span style="color: #66D9EF;">)</span>, chain.Value<span style="color: #AE81FF;">)</span>
+
+               <span style="color: #75715E;"># </span><span style="color: #75715E;">if there is any contract, trade the front contract</span>
+               <span style="color: #F92672;">if</span> <span style="color: #F92672;">len</span><span style="color: #AE81FF;">(</span>contracts<span style="color: #AE81FF;">)</span> == <span style="color: #AE81FF;">0</span>: <span style="color: #F92672;">continue</span>
+               <span style="color: #FD971F;">front</span> = <span style="color: #F92672;">sorted</span><span style="color: #AE81FF;">(</span>contracts, key = <span style="color: #F92672;">lambda</span> x: x.Expiry, reverse=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+               <span style="color: #F92672;">self</span>.MarketOrder<span style="color: #AE81FF;">(</span>front.Symbol , <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+       <span style="color: #F92672;">else</span>:
+           <span style="color: #F92672;">self</span>.Liquidate<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline49" class="outline-2">
+<h2 id="orgheadline49"><span class="section-number-2">41</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-13 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-41">
+<p>
+requested function:
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> calendar spread trading.</li>
+</ul>
+
+<p>
+calculate the position value based on continious contract and actual contract
+</p>
+
+<p>
+buy current month expired contract.
+short next month expired contract.
+</p>
+
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> rolling on constant maturity.</li>
+</ul>
+
+<p>
+calculate the position value based on continious contract and actual contract
+</p>
+
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> trend following on dominant contract.</li>
+</ul>
+
+<p>
+moving average crossing over on the continous contract.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline51" class="outline-2">
+<h2 id="orgheadline51"><span class="section-number-2">42</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-14 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-42">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> range osets.</li>
+<li class="on"><code>[X]</code> future simulation pseudo code.</li>
+<li class="on"><code>[X]</code> parse future continious contract data.</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline50" class="outline-3">
+<h3 id="orgheadline50"><span class="section-number-3">42.1</span> code:<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-14 Thu&gt;</span></span></h3>
+<div class="outline-text-3" id="text-42-1">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> simple mode test with real data.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline52" class="outline-2">
+<h2 id="orgheadline52"><span class="section-number-2">43</span> <span class="todo TODO">TODO</span> optimization</h2>
+<div class="outline-text-2" id="text-43">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> construnct FS, FR, workflow.</li>
+<li class="off"><code>[&#xa0;]</code> soft constraint.</li>
+<li class="off"><code>[&#xa0;]</code> worse-case risk analysis.</li>
+</ul>
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-18 Mon&gt;</span></span>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> add excess single returns and excess cumulative returns on PNLFitness.</li>
+<li class="on"><code>[X]</code> move functions defines osets.</li>
+<li class="on"><code>[X]</code> read future simulation code.</li>
+<li class="on"><code>[X]</code> pack constraint input parameters.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline63" class="outline-2">
+<h2 id="orgheadline63"><span class="section-number-2">44</span> <span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></h2>
+<div class="outline-text-2" id="text-44">
+</div><div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53"><span class="section-number-3">44.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-19 Tue&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-1">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> buy and hold mode on future backtesting.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">44.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-20 Wed&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-2">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> revise pnl fitness function, rename previous pnlfitness function name to PnLAndHoldingFitness, create another two seperate functions PnLFitness and HoldingFitness respectively.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline55" class="outline-3">
+<h3 id="orgheadline55"><span class="section-number-3">44.3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-21 Thu&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-3">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> export data from database.</li>
+<li class="on"><code>[X]</code> roll over between two contracts to get continious contract data.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">44.4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-22 Fri&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-4">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> create rolling strategy, return rolling position.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">44.5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-25 Mon&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-5">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> create continuous contracts.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">44.6</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-26 Tue&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-6">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> learn function define, function sampling instance, wants, search strategy run on GS.</li>
+<li class="on"><code>[X]</code> add trading volume and other value to the continuous contract.</li>
+<li class="on"><code>[X]</code> remove unnecessary input of the parsing function.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">44.7</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-27 Wed&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-7">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> learn creating function sampleing.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="section-number-3">44.8</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-28 Thu&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-8">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> create long/short strategy, return neutral position.</li>
+<li class="off"><code>[&#xa0;]</code> deploy portfolio optimization on function sampling workflow.</li>
+<li class="off"><code>[&#xa0;]</code> create position signal via continous contract data.</li>
+<li class="off"><code>[&#xa0;]</code> to get actual position from simulation position.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">44.9</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-29 Fri&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-9">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> calculate PnL using future rollover position, long/short position, continuous position.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62"><span class="section-number-3">44.10</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-30 Sat&gt;</span></span></h3>
+<div class="outline-text-3" id="text-44-10">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> modify simulation code referred to stocks simulation.</li>
+<li class="off"><code>[&#xa0;]</code> adjust input signatures.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: weiwu</p>
+<p class="date">Created: 2017-10-01 Sun 23:55</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

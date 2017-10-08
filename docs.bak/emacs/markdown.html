@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-09-29 Fri 20:13 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<p>
+#+BEGINing<sub>SRC</sub> markdown
+</p>
+
+<p>
+@(Evernote)[马克飞象, 帮助, Markdown]
+</p>
+
+<p>
+**马克飞象**是一款专为印象笔记（Evernote）打造的Markdown编辑器，通过精心的设计与技术实现，配合印象笔记强大的存储和同步功能，带来前所未有的书写体验。特点概述：
+</p>
+
+<ul class="org-ul">
+<li><b><b>功能丰富</b></b> ：支持高亮代码块、*LaTeX* 公式、流程图，本地图片以及附件上传，甚至截图粘贴，工作学习好帮手；</li>
+<li><b><b>得心应手</b></b> ：简洁高效的编辑器，提供[桌面客户端]以及[离线Chrome App]，支持移动端 Web；</li>
+<li><b><b>深度整合</b></b> ：支持选择笔记本和添加标签，支持从印象笔记跳转编辑，轻松管理。</li>
+</ul>
+
+<hr  />
+
+<p>
+[TOC]
+</p>
+
+<p>
+## Markdown简介
+</p>
+
+<p>
+&gt; Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](<a href="https://zh.wikipedia.org/wiki/Markdown">https://zh.wikipedia.org/wiki/Markdown</a>)
+</p>
+
+<p>
+正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为**粗体**或者*斜体*，创建一个[链接](<a href="http://www.example.com/">http://www.example.com/</a>)或一个脚注[<sup>demo</sup>]。下面列举了几个高级功能，更多语法请按`Ctrl + /`查看帮助。
+</p>
+
+<p>
+### 代码块
+``` python
+@requires<sub>authorization</sub>
+def somefunc(param1='', param2=0):
+    '''A docstring'''
+    if param1 &gt; param2: # interesting
+        print 'Greater'
+    return (param2 - param1 + 1) or None
+class SomeClass:
+    pass
+&gt;&gt;&gt; message = '''interpreter
+&#x2026; prompt'''
+```
+### LaTeX 公式
+</p>
+
+<p>
+可以创建行内公式，例如 $&Gamma;(n) = (n-1)!\quad&forall; n&isin;\mathbb N$。或者块级公式：
+</p>
+
+<p>
+\[	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+</p>
+
+<p>
+### subscript and superscript
+&lt;sub&gt;&lt;/sub&gt;, &lt;sup&gt;&lt;/sup&gt;.
+</p>
+
+<p>
+### 表格
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Item</td>
+<td class="org-left">Value</td>
+<td class="org-right">Qty</td>
+</tr>
+
+<tr>
+<td class="org-left">:--------</td>
+<td class="org-left">&#x2013;&#x2014;&#x2014;:</td>
+<td class="org-right">:&#x2013;:</td>
+</tr>
+
+<tr>
+<td class="org-left">Computer</td>
+<td class="org-left">1600 USD</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">Phone</td>
+<td class="org-left">12 USD</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-left">Pipe</td>
+<td class="org-left">1 USD</td>
+<td class="org-right">234</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+### 流程图
+```flow
+st=&gt;start: Start
+e=&gt;end
+op=&gt;operation: My Operation
+cond=&gt;condition: Yes or No?
+</p>
+
+<p>
+st-&gt;op-&gt;cond
+cond(yes)-&gt;e
+cond(no)-&gt;op
+```
+</p>
+
+<p>
+以及时序图:
+</p>
+
+<p>
+```sequence
+Alice-&gt;Bob: Hello Bob, how are you?
+Note right of Bob: Bob thinks
+Bob&#x2013;&gt;Alice: I am good thanks!
+```
+</p>
+
+<p>
+&gt; <b><b>提示：**想了解更多，请查看**流程图</b></b>[语法]以及**时序图**[语法]。
+</p>
+
+<p>
+### 复选框
+</p>
+
+<p>
+使用 `- [ ]` 和 `- [x]` 语法可以创建复选框，实现 todo-list 等功能。例如：
+</p>
+
+<ul class="org-ul">
+<li>已完成事项</li>
+<li class="off"><code>[&#xa0;]</code> 待办事项1</li>
+<li class="off"><code>[&#xa0;]</code> 待办事项2</li>
+</ul>
+
+<p>
+&gt; **注意：**目前支持尚不完全，在印象笔记中勾选复选框是无效、不能同步的，所以必须在**马克飞象**中修改 Markdown 原文才可生效。下个版本将会全面支持。
+</p>
+
+
+<p>
+## 印象笔记相关
+</p>
+
+<p>
+### 笔记本和标签
+**马克飞象**增加了`@(笔记本)[标签A|标签B]`语法, 以选择笔记本和添加标签。 **绑定账号后**， 输入`(`自动会出现笔记本列表，请从中选择。
+</p>
+
+<p>
+### 笔记标题
+**马克飞象**会自动使用文档内出现的第一个标题作为笔记标题。例如本文，就是第一行的 `欢迎使用马克飞象`。
+</p>
+
+<p>
+### 快捷编辑
+保存在印象笔记中的笔记，右上角会有一个红色的编辑按钮，点击后会回到**马克飞象**中打开并编辑该笔记。
+&gt;**注意：**目前用户在印象笔记中单方面做的任何修改，马克飞象是无法自动感知和更新的。所以请务必回到马克飞象编辑。
+</p>
+
+<p>
+### 数据同步
+**马克飞象**通过**将Markdown原文以隐藏内容保存在笔记中**的精妙设计，实现了对Markdown的存储和再次编辑。既解决了其他产品只是单向导出HTML的单薄，又规避了服务端存储Markdown带来的隐私安全问题。这样，服务端仅作为对印象笔记 API调用和数据转换之用。
+</p>
+
+<p>
+&gt;**隐私声明：用户所有的笔记数据，均保存在印象笔记中。马克飞象不存储用户的任何笔记数据。**
+</p>
+
+<p>
+### 离线存储
+**马克飞象**使用浏览器离线存储将内容实时保存在本地，不必担心网络断掉或浏览器崩溃。为了节省空间和避免冲突，已同步至印象笔记并且不再修改的笔记将删除部分本地缓存，不过依然可以随时通过`文档管理`打开。
+</p>
+
+<p>
+&gt; **注意：**虽然浏览器存储大部分时候都比较可靠，但印象笔记作为专业云存储，更值得信赖。以防万一，**请务必经常及时同步到印象笔记**。
+</p>
+
+<p>
+## 编辑器相关
+### 设置
+右侧系统菜单（快捷键`Ctrl + M`）的`设置`中，提供了界面字体、字号、自定义CSS、vim/emacs 键盘模式等高级选项。
+</p>
+
+<p>
+### 快捷键
+</p>
+
+<p>
+帮助    `Ctrl + /`
+同步文档    `Ctrl + S`
+创建文档    `Ctrl + Alt + N`
+最大化编辑器    `Ctrl + Enter`
+预览文档 `Ctrl + Alt + Enter`
+文档管理    `Ctrl + O`
+系统菜单    `Ctrl + M`
+</p>
+
+<p>
+加粗    `Ctrl + B`
+插入图片    `Ctrl + G`
+插入链接    `Ctrl + L`
+提升标题    `Ctrl + H`
+</p>
+
+<p>
+## 关于收费
+</p>
+
+<p>
+**马克飞象**为新用户提供 10 天的试用期，试用期过后需要[续费](maxiang.info/vip.html)才能继续使用。未购买或者未及时续费，将不能同步新的笔记。之前保存过的笔记依然可以编辑。
+</p>
+
+
+<p>
+## 反馈与建议
+</p>
+<ul class="org-ul">
+<li>微博：[@马克飞象](<a href="http://weibo.com/u/2788354117">http://weibo.com/u/2788354117</a>)，[@GGock](<a href="http://weibo.com/ggock">http://weibo.com/ggock</a> "开发者个人账号")</li>
+<li>邮箱：&lt;hustgock@gmail.com&gt;</li>
+</ul>
+
+<hr  />
+<p>
+感谢阅读这份帮助文档。请点击右上角，绑定印象笔记账号，开启全新的记录与分享体验吧。
+</p>
+
+
+
+
+<p>
+[<sup>demo</sup>]: 这是一个示例脚注。请查阅 [MultiMarkdown 文档](<a href="https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide#footnotes">https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide#footnotes</a>) 关于脚注的说明。 <b><b>限制：</b></b> 印象笔记的笔记内容使用 [ENML] 格式，基于 HTML，但是不支持某些标签和属性，例如id，这就导致`脚注`和`TOC`无法正常点击。
+</p>
+
+
+<pre class="example">
+http://maxiang.info/client_zh
+https://chrome.google.com/webstore/detail/kidnkfckhbdkfgbicccmdggmpgogehop
+http://adrai.github.io/flowchart.js/
+http://bramp.github.io/js-sequence-diagrams/
+https://dev.yinxiang.com/doc/articles/enml.php
+</pre>
+
+<p>
+#+end<sub>src</sub>
+</p>
+</div>
+</body>
+</html>

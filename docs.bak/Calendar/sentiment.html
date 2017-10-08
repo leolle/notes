@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<<<<<<< HEAD
+<!-- 2017-10-01 Sun 22:37 -->
+=======
+<!-- 2017-09-29 Fri 20:13 -->
+>>>>>>> 57fb1b2dc183629482cad9a05a1f93a51bad6d4f
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">work plan</a>
+<ul>
+<li><a href="#orgheadline2"><span class="done DONE">DONE</span> 搭建基金策略</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline3">work plan</a>
+<ul>
+<li><a href="#orgheadline4"><span class="done DONE">DONE</span> 配置好GOOGLE GCLOUD PLATORM的代理</a></li>
+<li><a href="#orgheadline5"><span class="done DONE">DONE</span> 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。</a></li>
+<li><a href="#orgheadline6"><span class="done DONE">DONE</span> deep learning of bank stress in the news</a></li>
+<li><a href="#orgheadline7"><span class="done DONE">DONE</span> detect events based on text, obtain descriptions of events.</a></li>
+<li><a href="#orgheadline8"><span class="done DONE">DONE</span> GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。</a></li>
+<li><a href="#orgheadline9"><span class="done DONE">DONE</span> configuration:</a></li>
+<li><a href="#orgheadline10"><span class="done DONE">DONE</span> SDK</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline11">work plan</a>
+<ul>
+<li><a href="#orgheadline12"><span class="done DONE">DONE</span> Hidden factor model</a></li>
+<li><a href="#orgheadline13"><span class="done DONE">DONE</span> connect to Amazon AWS EW2:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline14">work plan</a>
+<ul>
+<li><a href="#orgheadline15"><span class="done DONE">DONE</span> read the book 《自然语言处理综论》</a></li>
+<li><a href="#orgheadline16"><span class="done DONE">DONE</span> listen to the open course</a></li>
+<li><a href="#orgheadline17"><span class="done DONE">DONE</span> 寻找中文分词开源项目</a></li>
+<li><a href="#orgheadline18"><span class="todo TODO">TODO</span> Structure:</a></li>
+<li><a href="#orgheadline19"><span class="todo TODO">TODO</span> Opinion Mining, Sentiment Analysis, and Opinion Spam Detection</a></li>
+<li><a href="#orgheadline20"><span class="todo TODO">TODO</span> 目标学习：信息抽取</a></li>
+<li><a href="#orgheadline21">如何在NLP领域快速学会第一个技能？</a></li>
+<li><a href="#orgheadline22">词性标记集：LTP中采用863词性标注集，其各个词性含义如下表：</a></li>
+<li><a href="#orgheadline23">命名实体识别</a></li>
+<li><a href="#orgheadline24">依存句法分析</a></li>
+<li><a href="#orgheadline25">语义角色标注</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline26"><span class="todo TODO">TODO</span> Finish Sentiment book</a></li>
+<li><a href="#orgheadline27"><span class="done DONE">DONE</span> factor exposure with CVXPY model</a>
+<ul>
+<li><a href="#orgheadline28">Classical (Markowitz) portfolio optimization</a></li>
+<li><a href="#orgheadline29">Portfolio constraints</a></li>
+<li><a href="#orgheadline30">Multi-Period Trading via Convex Optimization</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline32"><span class="todo TODO">TODO</span> 在GS上部署因子中性, CVXPORTOLIO的使用说明。</a>
+<ul>
+<li><a href="#orgheadline31">Multi-Period optimization</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">work plan</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="done DONE">DONE</span> 搭建基金策略</h3>
+<div class="outline-text-3" id="text-orgheadline2">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 对基金策略进行组合优化</li>
+<li class="off"><code>[&#xa0;]</code> 分析优化后结果，把组合优化加入流程</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3">work plan</h2>
+<div class="outline-text-2" id="text-orgheadline3">
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="done DONE">DONE</span> 配置好GOOGLE GCLOUD PLATORM的代理</h3>
+<div class="outline-text-3" id="text-orgheadline4">
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="done DONE">DONE</span> 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。</h3>
+<div class="outline-text-3" id="text-orgheadline5">
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="done DONE">DONE</span> deep learning of bank stress in the news</h3>
+<div class="outline-text-3" id="text-orgheadline6">
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="done DONE">DONE</span> detect events based on text, obtain descriptions of events.</h3>
+<div class="outline-text-3" id="text-orgheadline7">
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="done DONE">DONE</span> GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。</h3>
+<div class="outline-text-3" id="text-orgheadline8">
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="done DONE">DONE</span> configuration:</h3>
+<div class="outline-text-3" id="text-orgheadline9">
+<ul class="org-ul">
+<li>reports-174211</li>
+<li>proxy:</li>
+</ul>
+<p>
+127.0.0.1:1080
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Make sure that Python 2.7.9 or later is installed on your system.</li>
+<li class="on"><code>[X]</code> ./google-cloud-sdk/install.sh</li>
+<li class="on"><code>[X]</code> ./google-cloud-sdk/bin/gcloud init</li>
+<li class="on"><code>[X]</code> pip install &#x2013;upgrade google-cloud-language</li>
+<li class="on"><code>[X]</code> export GOOGLE<sub>APPLICATION</sub><sub>CREDENTIALS</sub>=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json</li>
+<li class="on"><code>[X]</code> gcloud auth activate-service-account &#x2013;key-file=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json</li>
+<li class="on"><code>[X]</code> example:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">auth</span>
+<span style="color: #F92672;">from</span> google.oauth2 <span style="color: #F92672;">import</span> service_account
+
+<span style="color: #FD971F;">credentials</span> = service_account.Credentials.from_service_account_file<span style="color: #AE81FF;">(</span>
+    <span style="color: #E6DB74;">'/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">scoped_credentials</span> = credentials.with_scopes<span style="color: #AE81FF;">(</span>
+    <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'https://wwwc.googleapis.com/auth/cloud-platform'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">-*- coding: utf-8 -*-</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Imports the Google Cloud client library</span>
+<span style="color: #F92672;">from</span> google.cloud <span style="color: #F92672;">import</span> language
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Instantiates a client</span>
+<span style="color: #FD971F;">language_client</span> = language.Client<span style="color: #AE81FF;">()</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">The text to analyze</span>
+<span style="color: #FD971F;">text</span> = <span style="color: #E6DB74;">'Hello, world!'</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">text = u'&#27491;&#22312;&#25353;&#29031;&#31532;&#19968;&#20010;&#32593;&#39029;&#27969;&#31243;&#36208;'</span>
+<span style="color: #FD971F;">document</span> = language_client.document_from_text<span style="color: #AE81FF;">(</span>text<span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Detects the sentiment of the text</span>
+<span style="color: #FD971F;">sentiment</span> = document.analyze_sentiment<span style="color: #AE81FF;">()</span>.sentiment
+
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Text: {}'</span>.<span style="color: #F92672;">format</span><span style="color: #66D9EF;">(</span>text<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Sentiment: {}, {}'</span>.<span style="color: #F92672;">format</span><span style="color: #66D9EF;">(</span>sentiment.score, sentiment.magnitude<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><a href="https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/language/movie_nl">https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/language/movie_nl</a></li>
+
+<li>GCLOUD example:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">gcloud ml language analyze-entities --content=<span style="color: #E6DB74;">"Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'."</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="done DONE">DONE</span> SDK</h3>
+<div class="outline-text-3" id="text-orgheadline10">
+<ul class="org-ul">
+<li><a href="https://cloud.google.com/sdk/docs/quickstart-linux">https://cloud.google.com/sdk/docs/quickstart-linux</a></li>
+<li>key:</li>
+</ul>
+<p>
+<a href="https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211">https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211</a>
+</p>
+<ul class="org-ul">
+<li>初始化SDK
+<ul class="org-ul">
+<li>配置网络代理</li>
+<li>输入代理IP地址:127.0.0.1，代理端口：1080</li>
+</ul></li>
+<li>授权SDK
+<ul class="org-ul">
+<li>gcloud auth application-default login</li>
+</ul></li>
+
+<li>auth</li>
+</ul>
+<p>
+<a href="https://developers.google.com/identity/protocols/application-default-credentials">https://developers.google.com/identity/protocols/application-default-credentials</a>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-json">{
+  "type": "service_account",
+  "project_id": "reports-174211",
+  "private_key_id": "54818469c5e32cb8f5d55b755945e6bd7f65c747",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0Lz4mVUr36Y7C\n+hxLunVLm3RfBMDsJ9RZ/jICmpCprYIjYebLql0+T2DnhU7eKH2hhbHKZdUfWOvA\nDxE/DUk04eG22vsvoPlIGjN88c3EkKqEddX0llOkKeVNMAB0lN+ESEmrMC6Ewhd2\n/51dIqekDjTV5wrmZxnT1SSuJsrgA0Wbey5TjVmYBTO3hsR37sJxf6yj0+lrVqUw\np2rgkIuDrQy97jP9AYdAF6Lt1eIZvLTIC8GBpo0VjVb+s8CRhZiKGxunUu8HFymS\nK/9Li8BRJ9q/ozp4OGJszk2RQiTbFoKI64pVqggTJxRVw4pdozpzPL4cDqqjYu7y\nCakFxFStAgMBAAECggEAAL36EaKDy3IYOa2Eh3umMdsbIgINFlvn+BKVMPq4fPkU\njQyWl1ZQCdU+BwNpn/4cMwRah1ofLtYeVcfqGwT1EnqaA/ddFfo3KfNxAgMlRQ7l\nzjkFr3sdWegnRDJd/3JBL78JeKLwlMY6M64D/1HIzXhBLPQFkOMx/B6dBvpCFyVC\niE/FTJHFpN5BJni+cBtKfdKbPYGkxtNN4XdPrGtS3pg+NX8hJwtyTc9CV63YSPxG\nY7Zat5IRR+nTkHNJj/jqTLb1YolzjTSGR1vbb1KTUe+KH4ZxiYd0MVCDEEgrhvli\nmEunzCGbrIgi3K8+h77FHq2UHbVL4epd6leswEpH6QKBgQDiz/bDGXIAKszc9GsS\na4mhU/06Cw79C99rc6iMMq9O5N6qaXDlExT5IS/1xBMv8M4lQ4Qp6OqzlXP/gci3\nVOm6TzoB92hwTja5IxIlhHuCxy3+LCjN2T95dTL5QbjKtYn9IQ/SX+ZVSXxHYUvQ\nxgwZud/FIS+YE2qChYFEaev7BQKBgQDLXy++mrOHm/Kwpkf2elrra6m/jPHdJe3m\nuv7lQf9QJAjSBNDJppHiryqOKQeSJyLX7WrPi/ngUM/wFSAi/llgmLApQwAla5Xs\nPLRntxaWDK2JDUonGDkdWeR5kwyns/oomnECiS22m1+oh+2uYQHgW8DpiG4fPpAt\nJ3K6KOUziQKBgAJ3sr6So0vfK1VoD1Ym91ta95FPF32nSGn52yaTUpbwJIAEH6dO\nWtcPBl+NH4xQ+V0sa96s2wjTImzwM4fTE6vkOsRUtb0rDKtc91CTLWjR0+1E+7ip\nmWgv3zsY/PKvoO2xE2P9iRr6brC0HUgLL4yEGiwh3UuxQmJjI3HkGR4lAoGALc16\nS0s8M8aDmhVZD8HuyCavTFzJ/CyWr+hdj/SVM89pzSMYgtHo+UzKIMpM0jXOOyNV\ncvjrhgGtUzzux/LQ3liFFEXquoLIeTQSzWkGxTSFwOAlWzixZFLiih78MqjuJkbi\nPNf4W7ASkzpJ5YQjkAwaHn6DjrXgcsr3o8WiGUECgYBBLnbZLyMSkjZ0n0wYG0a7\nB4b0piRlGbSfEcKWpxoS+EJDuEgvZgn92EOHGaE0xtZvmwbWuqTKKRHXYDGG0VkR\nTf1pMyBF7uxRXDXPslZU2rUTudKMxP8HxoV8WGwxH+ltZYwsMV1iKv3xqbU6CRy2\nu5i+YnEcmQl6HFH/H8tzQg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloudnatruallanguageapi@reports-174211.iam.gserviceaccount.com",
+  "client_id": "108156446460648516099",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloudnatruallanguageapi%40reports-174211.iam.gserviceaccount.com"
+}
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>gcloud config list</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #AE81FF;">(</span>C:\Users\gft\Anaconda2<span style="color: #AE81FF;">)</span> C:\Users\gft\Documents\Python Scripts\sentiment&gt;gcloud
+config list
+<span style="color: #AE81FF;">[</span>compute<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">region</span> = us-east1
+<span style="color: #FD971F;">zone</span> = us-east1-d
+<span style="color: #AE81FF;">[</span>core<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">account</span> = victor.wuv@gmail.com
+<span style="color: #FD971F;">disable_usage_reporting</span> = False
+<span style="color: #FD971F;">project</span> = reports-174211
+<span style="color: #AE81FF;">[</span>proxy<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">address</span> = <span style="color: #AE81FF;">192.168.1.164</span>
+<span style="color: #FD971F;">port</span> = <span style="color: #AE81FF;">1080</span>
+<span style="color: #FD971F;">type</span> = http
+
+Your active configuration is: <span style="color: #AE81FF;">[</span>nlp1<span style="color: #AE81FF;">]</span>
+
+<span style="color: #AE81FF;">(</span>C:\Users\gft\Anaconda2<span style="color: #AE81FF;">)</span> C:\Users\gft\Documents\Python Scripts\sentiment&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11">work plan</h2>
+<div class="outline-text-2" id="text-orgheadline11">
+</div>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="done DONE">DONE</span> Hidden factor model</h3>
+<div class="outline-text-3" id="text-orgheadline12">
+<p>
+ICA
+</p>
+<ul class="org-ul">
+<li>portfolio optimization based on factor model</li>
+<li>non linear constrain on factor model</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="done DONE">DONE</span> connect to Amazon AWS EW2:</h3>
+<div class="outline-text-3" id="text-orgheadline13">
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #75715E;"># </span><span style="color: #75715E;">1</span>
+chmod <span style="color: #AE81FF;">400</span> /path/my-key-pair.pem
+<span style="color: #75715E;"># </span><span style="color: #75715E;">2</span>
+ssh -i <span style="color: #E6DB74;">"amazon.pem"</span> ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com
+<span style="color: #75715E;"># </span><span style="color: #75715E;">3</span>
+scp -i <span style="color: #E6DB74;">"/home/weiwu/Downloads/amazon.pem"</span> ~/projects/sentiment/reports-b56f3f2275a1.json  ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com:~/projects/sentiment
+</pre>
+</div>
+<ul class="org-ul">
+<li>install Google SDK on AWS EM2</li>
+</ul>
+<p>
+methon 1:
+curl <a href="https://sdk.cloud.google.com/">https://sdk.cloud.google.com/</a> | bash
+sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
+sudo `which pip` install &#x2013;upgrade google-cloud-language
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14">work plan</h2>
+<div class="outline-text-2" id="text-orgheadline14">
+</div>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="done DONE">DONE</span> read the book 《自然语言处理综论》</h3>
+<div class="outline-text-3" id="text-orgheadline15">
+<p>
+not easy to understand this book.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="done DONE">DONE</span> listen to the open course</h3>
+<div class="outline-text-3" id="text-orgheadline16">
+<p>
+<a href="https://web.stanford.edu/class/cs224n/syllabus.html">https://web.stanford.edu/class/cs224n/syllabus.html</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="done DONE">DONE</span> 寻找中文分词开源项目</h3>
+<div class="outline-text-3" id="text-orgheadline17">
+<p>
+LTP from Harbin Institute of Technology
+<a href="http://ltp.ai/">http://ltp.ai/</a>
+<a href="http://ltp.readthedocs.io/zh_CN/latest/">http://ltp.readthedocs.io/zh_CN/latest/</a>
+<a href="http://www.ltp-cloud.com/intro/">http://www.ltp-cloud.com/intro/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="todo TODO">TODO</span> Structure:</h3>
+<div class="outline-text-3" id="text-orgheadline18">
+<p>
+分词, 词性标注, Parser
+</p>
+<ul class="org-ul">
+<li>Tools</li>
+</ul>
+<p>
+CRF++
+</p>
+
+<p>
+GIZA
+</p>
+
+<p>
+Word2Vec
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="todo TODO">TODO</span> Opinion Mining, Sentiment Analysis, and Opinion Spam Detection</h3>
+<div class="outline-text-3" id="text-orgheadline19">
+<p>
+<a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html</a>
+<a href="https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf">https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="todo TODO">TODO</span> 目标学习：信息抽取</h3>
+</div>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21">如何在NLP领域快速学会第一个技能？</h3>
+<div class="outline-text-3" id="text-orgheadline21">
+<ul class="org-ul">
+<li>找到一个开源项目，比如机器翻译或者深度学习的项目。</li>
+<li>理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。</li>
+<li>然后再深入理解开源项目示范程序的算法。</li>
+<li>自己编程实现一下这个示范程序的算法。再按照项目提供的标准测试集测试自己实现的程序。如果输出的结果与项目中出现的结果不一致，就要仔细查验自己的程序，反复修改，直到结果与示范程序基本一致。如果还是不行，就大胆给项目的作者写信请教。</li>
+<li>在此基础上，再看看自己能否进一步完善算法或者实现，取得比示范程序更好的结果。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22">词性标记集：LTP中采用863词性标注集，其各个词性含义如下表：</h3>
+<div class="outline-text-3" id="text-orgheadline22">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Tag</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Example</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">adjective</td>
+<td class="org-left">美丽</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">other noun-modifier</td>
+<td class="org-left">大型 ,西式</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">conjunction</td>
+<td class="org-left">和,虽然</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">adverb</td>
+<td class="org-left">很</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">exclamation</td>
+<td class="org-left">哎</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">morpheme</td>
+<td class="org-left">茨, 甥</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">h</td>
+<td class="org-left">prefix</td>
+<td class="org-left">阿, 伪</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">idiom</td>
+<td class="org-left">百花齐放</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">j</td>
+<td class="org-left">abbreviation</td>
+<td class="org-left">公检法</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">k</td>
+<td class="org-left">suffix</td>
+<td class="org-left">界, 率</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">number</td>
+<td class="org-left">一, 第一</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">general noun</td>
+<td class="org-left">苹果</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nd</td>
+<td class="org-left">direction noun</td>
+<td class="org-left">右侧</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nh</td>
+<td class="org-left">person name</td>
+<td class="org-left">杜甫, 汤姆</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ni</td>
+<td class="org-left">organization name</td>
+<td class="org-left">保险公司</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nl</td>
+<td class="org-left">location noun</td>
+<td class="org-left">城郊</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ns</td>
+<td class="org-left">geographical name</td>
+<td class="org-left">北京</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nt</td>
+<td class="org-left">temporal noun</td>
+<td class="org-left">近日, 明代</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nz</td>
+<td class="org-left">other proper   noun</td>
+<td class="org-left">诺贝尔奖</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-left">onomatopoeia</td>
+<td class="org-left">哗啦</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">preposition</td>
+<td class="org-left">在, 把</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">q</td>
+<td class="org-left">quantity</td>
+<td class="org-left">个</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">auxiliary</td>
+<td class="org-left">的, 地</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">verb</td>
+<td class="org-left">跑, 学习</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">wp</td>
+<td class="org-left">punctuation</td>
+<td class="org-left">，。！</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ws</td>
+<td class="org-left">foreign words</td>
+<td class="org-left">CPU</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">x</td>
+<td class="org-left">non-lexeme</td>
+<td class="org-left">萄, 翱</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23">命名实体识别</h3>
+<div class="outline-text-3" id="text-orgheadline23">
+<p>
+命名实体识别 (Named Entity Recognition, NER) 是在句子的词序列中定位并识别人名、地名、机构名等实体的任务。 如之前的例子，命名实体识别的结果是：
+</p>
+
+<p>
+国务院 (机构名) 总理李克强 (人名) 调研上海外高桥 (地名) 时提出，支持上海 (地名) 积极探索新机制。
+命名实体识别对于挖掘文本中的实体进而对其进行分析有很重要的作用。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24">依存句法分析</h3>
+<div class="outline-text-3" id="text-orgheadline24">
+<p>
+依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25">语义角色标注</h3>
+<div class="outline-text-3" id="text-orgheadline25">
+<p>
+语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="todo TODO">TODO</span> Finish Sentiment book</h2>
+<div class="outline-text-2" id="text-orgheadline26">
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-2">
+<h2 id="orgheadline27"><span class="done DONE">DONE</span> factor exposure with CVXPY model</h2>
+<div class="outline-text-2" id="text-orgheadline27">
+</div>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28">Classical (Markowitz) portfolio optimization</h3>
+<div class="outline-text-3" id="text-orgheadline28">
+<p>
+Classical (Markowitz) portfolio optimization solves the optimization problem
+</p>
+
+<p>
+maximize μTw−γwTΣw
+</p>
+
+<p>
+subject to 1Tw=1,w∈W,
+</p>
+
+<p>
+where w∈Rnw∈Rn is the optimization variable, WW is a set of allowed portfolios (e.g., W=Rn+W=R+n for a long only portfolio), and γ&gt;0γ&gt;0 is the risk aversion parameter.
+</p>
+
+<p>
+The objective μTw−γwTΣwμTw−γwTΣw is the risk-adjusted return. Varying γγ gives the optimal risk-return trade-off. We can get the same risk-return trade-off by fixing return and minimizing risk.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">Long only portfolio optimization.</span>
+<span style="color: #F92672;">from</span> cvxpy <span style="color: #F92672;">import</span> *
+<span style="color: #FD971F;">w</span> = Variable<span style="color: #AE81FF;">(</span>n<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">gamma</span> = Parameter<span style="color: #AE81FF;">(</span>sign=<span style="color: #E6DB74;">'positive'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ret</span> = mu.T*w
+<span style="color: #FD971F;">risk</span> = quad_form<span style="color: #AE81FF;">(</span>w, Sigma<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">prob</span> = Problem<span style="color: #AE81FF;">(</span>Maximize<span style="color: #66D9EF;">(</span>ret - gamma*risk<span style="color: #66D9EF;">)</span>,
+               <span style="color: #66D9EF;">[</span>sum_entries<span style="color: #A6E22E;">(</span>w<span style="color: #A6E22E;">)</span> == <span style="color: #AE81FF;">1</span>,
+                w &gt;= <span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Compute trade-off curve.</span>
+<span style="color: #FD971F;">SAMPLES</span> = <span style="color: #AE81FF;">100</span>
+<span style="color: #FD971F;">risk_data</span> = np.zeros<span style="color: #AE81FF;">(</span>SAMPLES<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ret_data</span> = np.zeros<span style="color: #AE81FF;">(</span>SAMPLES<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">gamma_vals</span> = np.logspace<span style="color: #AE81FF;">(</span>-<span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span>, num=SAMPLES<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>SAMPLES<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">gamma.value</span> = gamma_vals<span style="color: #AE81FF;">[</span>i<span style="color: #AE81FF;">]</span>
+    prob.solve<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">risk_data</span><span style="color: #AE81FF;">[</span>i<span style="color: #AE81FF;">]</span> = sqrt<span style="color: #AE81FF;">(</span>risk<span style="color: #AE81FF;">)</span>.value
+    <span style="color: #FD971F;">ret_data</span><span style="color: #AE81FF;">[</span>i<span style="color: #AE81FF;">]</span> = ret.value
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29">Portfolio constraints</h3>
+<div class="outline-text-3" id="text-orgheadline29">
+<p>
+There are many other possible portfolio constraints besides the long only constraint. With no constraint (W=RnW=Rn), the optimization problem has a simple analytical solution. We will look in detail at a leverage limit, or the constraint that ∥w∥1≤Lmax‖w‖1≤Lmax.
+</p>
+
+<p>
+Another interesting constraint is the market neutral constraint mTΣw=0, where mi is the capitalization of asset ii. M=mTr is the market return, and mTΣw=cov(M,R). The market neutral constraint ensures that the portfolio return is uncorrelated with the market return.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">Portfolio optimization with leverage limit.</span>
+<span style="color: #FD971F;">Lmax</span> = Parameter<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">prob</span> = Problem<span style="color: #AE81FF;">(</span>Maximize<span style="color: #66D9EF;">(</span>ret - gamma*risk<span style="color: #66D9EF;">)</span>,
+               <span style="color: #66D9EF;">[</span>sum_entries<span style="color: #A6E22E;">(</span>w<span style="color: #A6E22E;">)</span> == <span style="color: #AE81FF;">1</span>,
+                norm<span style="color: #A6E22E;">(</span>w, <span style="color: #AE81FF;">1</span><span style="color: #A6E22E;">)</span> &lt;= Lmax<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Compute trade-off curve for each leverage limit.</span>
+<span style="color: #FD971F;">L_vals</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">SAMPLES</span> = <span style="color: #AE81FF;">100</span>
+<span style="color: #FD971F;">risk_data</span> = np.zeros<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>L_vals<span style="color: #A6E22E;">)</span>, SAMPLES<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ret_data</span> = np.zeros<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>L_vals<span style="color: #A6E22E;">)</span>, SAMPLES<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">gamma_vals</span> = np.logspace<span style="color: #AE81FF;">(</span>-<span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span>, num=SAMPLES<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">w_vals</span> = <span style="color: #AE81FF;">[]</span>
+<span style="color: #F92672;">for</span> k, L_val <span style="color: #F92672;">in</span> <span style="color: #F92672;">enumerate</span><span style="color: #AE81FF;">(</span>L_vals<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>SAMPLES<span style="color: #AE81FF;">)</span>:
+        <span style="color: #FD971F;">Lmax.value</span> = L_val
+        <span style="color: #FD971F;">gamma.value</span> = gamma_vals<span style="color: #AE81FF;">[</span>i<span style="color: #AE81FF;">]</span>
+        prob.solve<span style="color: #AE81FF;">()</span>
+        <span style="color: #FD971F;">risk_data</span><span style="color: #AE81FF;">[</span>k, i<span style="color: #AE81FF;">]</span> = sqrt<span style="color: #AE81FF;">(</span>risk<span style="color: #AE81FF;">)</span>.value
+        <span style="color: #FD971F;">ret_data</span><span style="color: #AE81FF;">[</span>k, i<span style="color: #AE81FF;">]</span> = ret.value
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30">Multi-Period Trading via Convex Optimization</h3>
+<div class="outline-text-3" id="text-orgheadline30">
+<p>
+<a href="https://web.stanford.edu/~boyd/papers/cvx_portfolio.html">link<sub>to</sub><sub>the</sub><sub>author</sub><sub>website</sub></a>
+<a href="https://github.com/cvxgrp/cvxportfolio">github<sub>link</sub></a>
+</p>
+
+<p>
+book:
+To appear, Foundations and Trends in Optimization, 2017
+<a href="https://web.stanford.edu/~boyd/papers/cvx_portfolio.html">manual</a>
+</p>
+
+<ul class="org-ul">
+<li>a framework for single-period optimization, where the trades in each period are found by solving a convex optimization problem that trades off expected return, risk, transaction costs and holding costs such as the borrowing cost for shorting assets.</li>
+<li>a multi-period version of the trading method, where optimization is used to plan a sequence of trades, with only the first one executed, using estimates of future quantities that are unknown when the trades are chosen.</li>
+<li>The single-period method traces back to Markowitz;</li>
+<li>the multi-period methods trace back to model predictive control.</li>
+</ul>
+
+<p>
+Our contribution is to describe the single-period and multi-period methods in one simple framework, giving a clear description of the development and the approximations made. In this paper we do not address a critical component in a trading algorithm, the predictions or forecasts of future quantities. The methods we describe in this paper can be thought of as good ways to exploit predictions, no matter how the forecasts are made. We have also developed a companion open-source software library that implements many of the ideas and methods described in the paper.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-2">
+<h2 id="orgheadline32"><span class="todo TODO">TODO</span> 在GS上部署因子中性, CVXPORTOLIO的使用说明。</h2>
+<div class="outline-text-2" id="text-orgheadline32">
+</div><div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31">Multi-Period optimization</h3>
+<div class="outline-text-3" id="text-orgheadline31">
+<ul class="org-ul">
+<li>D. Bertsekas. Dynamic Programming and Optimal Control. Athena Scientific, 1995.</li>
+<li>J. Campbell and L. Viceira. Strategic Asset Allocation: Portfolio Choice for Long-Term Investors. Oxford University Press, 2002.</li>
+
+<li>Information and Sharpe ratio.</li>
+</ul>
+<p>
+The (realized) information ratio (IR) of the portfolio relative to a benchmark is the average of the active returns Ra over the standard deviation of the active returns σa, IR = Ra/σa. In the special case of a cash benchmark this is known as Sharpe ratio (SR) SR = Re/σe.
+</p>
+</div>
+</div>
+</div>
+</div>
+<<<<<<< HEAD
+<div id="postamble" class="status">
+<p class="author">Author: weiwu</p>
+<p class="date">Created: 2017-10-01 Sun 22:37</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+=======
+>>>>>>> 57fb1b2dc183629482cad9a05a1f93a51bad6d4f
+</body>
+</html>
