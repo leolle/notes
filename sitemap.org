@@ -22,13 +22,13 @@
     + [[file:CS/Python/pandas.org][pandas]]
     + [[file:CS/Python/python.org][python2]]
     + [[file:CS/Python/sqlalchemy.org][sqlalchemy]]
-  + [[file:CS/DB.org][DB]]
-  + [[file:CS/Regular_Expression.org][Regular_Expression]]
+  + Database
+    + [[file:Database/DBMS.org][DBMS]]
+    + [[file:CS/DB.org][DB]]
+  + [[file:CS/Regular_Expression.org][RegularExpression]]
   + [[file:CS/VersionControl.org][VersionControl]]
 + Calendar
   + [[file:Calendar/sentiment.org][sentiment]]
-+ Database
-  + [[file:Database/DBMS.org][DBMS]]
 + GS
   + Introduction
     + [[file:GS/Introduction/functions.org][functions]]

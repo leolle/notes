@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-09 Mon 09:58 -->
+<!-- 2017-10-09 Mon 10:13 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -181,18 +181,52 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgheadline16">2. SQL Language</a>
 <ul>
-<li><a href="#orgheadline8">2.1. Command</a></li>
+<li><a href="#orgheadline8">2.1. Command</a>
+<ul>
+<li><a href="#orgheadline5">2.1.1. CREATE &amp; DROP &amp; ALTER</a></li>
+<li><a href="#orgheadline6">2.1.2. INSERT &amp; UPDATE &amp; DELETE</a></li>
+<li><a href="#orgheadline7">2.1.3. Other Keywords</a></li>
+</ul>
+</li>
 <li><a href="#orgheadline9">2.2. Datatype</a></li>
-<li><a href="#orgheadline12">2.3. Join</a></li>
-<li><a href="#orgheadline15">2.4. Subquery</a></li>
+<li><a href="#orgheadline12">2.3. Join</a>
+<ul>
+<li><a href="#orgheadline10">2.3.1. Overview</a></li>
+<li><a href="#orgheadline11">2.3.2. Inner Join</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline15">2.4. Subquery</a>
+<ul>
+<li><a href="#orgheadline13">2.4.1. Noncorrelated Subquery</a></li>
+<li><a href="#orgheadline14">2.4.2. Correlated Subquery</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#orgheadline33">3. Design</a>
 <ul>
 <li><a href="#orgheadline17">3.1. Steps</a></li>
-<li><a href="#orgheadline22">3.2. Schema Pattern</a></li>
-<li><a href="#orgheadline29">3.3. Functional Dependency</a></li>
-<li><a href="#orgheadline32">3.4. Multivalued Dependency</a></li>
+<li><a href="#orgheadline22">3.2. Schema Pattern</a>
+<ul>
+<li><a href="#orgheadline19">3.2.1. One to One</a></li>
+<li><a href="#orgheadline20">3.2.2. One to Many</a></li>
+<li><a href="#orgheadline21">3.2.3. Many to Many</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline29">3.3. Functional Dependency</a>
+<ul>
+<li><a href="#orgheadline23">3.3.1. Definition</a></li>
+<li><a href="#orgheadline26">3.3.2. Functional Dependency</a></li>
+<li><a href="#orgheadline27">3.3.3. Rules For FD</a></li>
+<li><a href="#orgheadline28">3.3.4. Closure of Attributes</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline32">3.4. Multivalued Dependency</a>
+<ul>
+<li><a href="#orgheadline30">3.4.1. Definition</a></li>
+<li><a href="#orgheadline31">3.4.2. Rules For MVD</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#orgheadline40">4. Normalization</a>
@@ -200,7 +234,11 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline34">4.1. 1NF</a></li>
 <li><a href="#orgheadline35">4.2. 2NF</a></li>
 <li><a href="#orgheadline36">4.3. 3NF</a></li>
-<li><a href="#orgheadline38">4.4. Boyce-Codd Normal Form(BCNF, 3.5NF)</a></li>
+<li><a href="#orgheadline38">4.4. Boyce-Codd Normal Form(BCNF, 3.5NF)</a>
+<ul>
+<li><a href="#orgheadline37">4.4.1. Validation Example</a></li>
+</ul>
+</li>
 <li><a href="#orgheadline39">4.5. 4NF</a></li>
 </ul>
 </li>
@@ -215,7 +253,12 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline45">6.1. Motivation</a></li>
 <li><a href="#orgheadline46">6.2. Syntax</a></li>
-<li><a href="#orgheadline49">6.3. Foreign Key</a></li>
+<li><a href="#orgheadline49">6.3. Foreign Key</a>
+<ul>
+<li><a href="#orgheadline47">6.3.1. Facts</a></li>
+<li><a href="#orgheadline48">6.3.2. Creation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#orgheadline53">7. Triggers</a>
@@ -244,6 +287,7 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
+
 <div id="outline-container-orgheadline4" class="outline-2">
 <h2 id="orgheadline4"><span class="section-number-2">1</span> Rational Algebra</h2>
 <div class="outline-text-2" id="text-1">
@@ -396,7 +440,9 @@ devision
 </div><div id="outline-container-orgheadline8" class="outline-3">
 <h3 id="orgheadline8"><span class="section-number-3">2.1</span> Command</h3>
 <div class="outline-text-3" id="text-2-1">
-</div><ol class="org-ol"><li><a id="orgheadline5"></a>CREATE &amp; DROP &amp; ALTER<br  /><div class="outline-text-4" id="text-2-1-1">
+</div><div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">2.1.1</span> CREATE &amp; DROP &amp; ALTER</h4>
+<div class="outline-text-4" id="text-2-1-1">
 <div class="org-src-container">
 
 <pre class="src src-sql"><span style="color: #F92672;">CREATE</span> DATABASE dbname;
@@ -414,8 +460,11 @@ CHANGE <span style="color: #F92672;">COLUMN</span> columnOldName columnNewName <
 <span style="color: #F92672;">DROP</span> <span style="color: #F92672;">COLUMN</span> columnName
 </pre>
 </div>
-</div></li>
-<li><a id="orgheadline6"></a>INSERT &amp; UPDATE &amp; DELETE<br  /><div class="outline-text-4" id="text-2-1-2">
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">2.1.2</span> INSERT &amp; UPDATE &amp; DELETE</h4>
+<div class="outline-text-4" id="text-2-1-2">
 <div class="org-src-container">
 
 <pre class="src src-sql"><span style="color: #F92672;">INSERT</span> <span style="color: #F92672;">INTO</span> tableName <span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>columnName1, columnName2, ...<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span> <span style="color: #F92672;">VALUES</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'value1'</span>, <span style="color: #E6DB74;">'value2'</span>, ...<span style="color: #AE81FF;">)</span>;
@@ -423,9 +472,12 @@ CHANGE <span style="color: #F92672;">COLUMN</span> columnOldName columnNewName <
 <span style="color: #F92672;">DELETE</span> <span style="color: #F92672;">FROM</span> tableName <span style="color: #F92672;">WHERE</span> expr;
 </pre>
 </div>
-</div></li>
+</div>
+</div>
 
-<li><a id="orgheadline7"></a>Other Keywords<br  /><div class="outline-text-4" id="text-2-1-3">
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">2.1.3</span> Other Keywords</h4>
+<div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>REGEXP pattern</li>
 <li>IN ('value1', 'value2', &#x2026;)</li>
@@ -486,7 +538,7 @@ ORDER BY columnName [ASC/DESC]
 SUM, AVG, MAX, MIN, COUNT
 </p>
 <ul class="org-ul">
-<li>match with GROUP_BY</li>
+<li>match with GROUP<sub>BY</sub></li>
 </ul>
 <p>
 E.g:SUM(columnName) &#x2026; GROUP BY columnName
@@ -567,7 +619,8 @@ RECURSIVE
 <li>REVOKE statement ON table FROM who</li>
 </ul></li>
 </ul>
-</div></li></ol>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgheadline9" class="outline-3">
@@ -581,38 +634,50 @@ CHAR, VARCHAR, BLOB, INT, DEC, DATE, DATETIME
 <div id="outline-container-orgheadline12" class="outline-3">
 <h3 id="orgheadline12"><span class="section-number-3">2.3</span> Join</h3>
 <div class="outline-text-3" id="text-2-3">
-</div><ol class="org-ol"><li><a id="orgheadline10"></a>Overview<br  /><div class="outline-text-4" id="text-2-3-1">
+</div><div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">2.3.1</span> Overview</h4>
+<div class="outline-text-4" id="text-2-3-1">
 
 <div class="figure">
 <p><img src="../resources/data/sqljoins.png" alt="sqljoins.png" />
 </p>
 </div>
-</div></li>
-<li><a id="orgheadline11"></a>Inner Join<br  /><div class="outline-text-4" id="text-2-3-2">
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">2.3.2</span> Inner Join</h4>
+<div class="outline-text-4" id="text-2-3-2">
 <p class="verse">
 An inner join is just a cartesian join with<br  />
 some result rows removed by a condition in the query.<br  />
 </p>
-</div></li></ol>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgheadline15" class="outline-3">
 <h3 id="orgheadline15"><span class="section-number-3">2.4</span> Subquery</h3>
 <div class="outline-text-3" id="text-2-4">
-</div><ol class="org-ol"><li><a id="orgheadline13"></a>Noncorrelated Subquery<br  /><div class="outline-text-4" id="text-2-4-1">
+</div><div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">2.4.1</span> Noncorrelated Subquery</h4>
+<div class="outline-text-4" id="text-2-4-1">
 <p class="verse">
 A subquery that stands alone and doesn't reference<br  />
 anything from the outer query.<br  />
 <br  />
 RDBMS will excute inner first, then excute outer.<br  />
 </p>
-</div></li>
-<li><a id="orgheadline14"></a>Correlated Subquery<br  /><div class="outline-text-4" id="text-2-4-2">
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">2.4.2</span> Correlated Subquery</h4>
+<div class="outline-text-4" id="text-2-4-2">
 <p class="verse">
 A subquery that relies on values returned from<br  />
 the outer query.(Slow)<br  />
 </p>
-</div></li></ol>
+</div>
+</div>
 </div>
 </div>
 
@@ -633,31 +698,45 @@ the outer query.(Slow)<br  />
 <div id="outline-container-orgheadline22" class="outline-3">
 <h3 id="orgheadline22"><span class="section-number-3">3.2</span> Schema Pattern</h3>
 <div class="outline-text-3" id="text-3-2">
-</div><ol class="org-ol"><li><a id="orgheadline19"></a>One to One<br  /><ul class="org-ul"><li><a id="orgheadline18"></a>When to use<br  /><div class="outline-text-5" id="text-orgheadline18">
+</div><div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">3.2.1</span> One to One</h4>
+<div class="outline-text-4" id="text-3-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline18"></a>When to use<br  /><div class="outline-text-5" id="text-3-2-1-1">
 <ol class="org-ol">
 <li>Allow you to write fast queries.</li>
 <li>If you have a column containing values you don't yet know.Iso NULL value.</li>
 <li>Make data less accessible.</li>
 <li>To store a large piece of data, like BLOB.</li>
 </ol>
-</div></li></ul></li>
-<li><a id="orgheadline20"></a>One to Many<br  /></li>
-<li><a id="orgheadline21"></a>Many to Many<br  /><div class="outline-text-4" id="text-3-2-3">
+</div></li></ol>
+</div>
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">3.2.2</span> One to Many</h4>
+</div>
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">3.2.3</span> Many to Many</h4>
+<div class="outline-text-4" id="text-3-2-3">
 <p>
 use junction table.
 </p>
-</div></li></ol>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgheadline29" class="outline-3">
 <h3 id="orgheadline29"><span class="section-number-3">3.3</span> Functional Dependency</h3>
 <div class="outline-text-3" id="text-3-3">
-</div><ol class="org-ol"><li><a id="orgheadline23"></a>Definition<br  /><div class="outline-text-4" id="text-3-3-1">
+</div><div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">3.3.1</span> Definition</h4>
+<div class="outline-text-4" id="text-3-3-1">
 <p>
 \[\forall t,u \in R\  (t[\bar A]= u[\bar A]) \to (t[\bar B] = u[\bar B])\]
 </p>
-</div></li>
-<li><a id="orgheadline26"></a>Functional Dependency<br  /><div class="outline-text-4" id="text-3-3-2">
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">3.3.2</span> Functional Dependency</h4>
+<div class="outline-text-4" id="text-3-3-2">
 <p class="verse">
 If we have a functional dependency \(\bar A \to \bar B\),<br  />
 </p>
@@ -688,19 +767,22 @@ Completely nontrivial
 </ul>
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline24"></a>Partial Functional Dependency<br  /><div class="outline-text-5" id="text-orgheadline24">
+<ol class="org-ol"><li><a id="orgheadline24"></a>Partial Functional Dependency<br  /><div class="outline-text-5" id="text-3-3-2-1">
 <p>
 When a non-key column is dependent on some, but not all, of the composite PK.
 </p>
 </div></li>
 
-<li><a id="orgheadline25"></a>Transitive Functional Dependency<br  /><div class="outline-text-5" id="text-orgheadline25">
+<li><a id="orgheadline25"></a>Transitive Functional Dependency<br  /><div class="outline-text-5" id="text-3-3-2-2">
 <p>
 When any non-key column is dependent on any of the other non-key columns.
 </p>
-</div></li></ul></li>
+</div></li></ol>
+</div>
 
-<li><a id="orgheadline27"></a>Rules For FD<br  /><div class="outline-text-4" id="text-3-3-3">
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">3.3.3</span> Rules For FD</h4>
+<div class="outline-text-4" id="text-3-3-3">
 <ul class="org-ul">
 <li><p>
 Splitting rule
@@ -726,20 +808,26 @@ Transitive rule
 If \(\bar A \to \bar B\) and \(\bar B \to \bar C\), then \(\bar A \to \bar C\)
 </p></li>
 </ul>
-</div></li>
+</div>
+</div>
 
-<li><a id="orgheadline28"></a>Closure of Attributes<br  /><div class="outline-text-4" id="text-3-3-4">
+<div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">3.3.4</span> Closure of Attributes</h4>
+<div class="outline-text-4" id="text-3-3-4">
 <p class="verse">
 Given relation, FDs, set of attributes \(\bar A\)<br  />
 Find all B such that \(\bar A \to B\) .<br  />
 </p>
-</div></li></ol>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgheadline32" class="outline-3">
 <h3 id="orgheadline32"><span class="section-number-3">3.4</span> Multivalued Dependency</h3>
 <div class="outline-text-3" id="text-3-4">
-</div><ol class="org-ol"><li><a id="orgheadline30"></a>Definition<br  /><div class="outline-text-4" id="text-3-4-1">
+</div><div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">3.4.1</span> Definition</h4>
+<div class="outline-text-4" id="text-3-4-1">
 <p class="verse">
 \(\forall t, u\in R:\ t[\bar A] = u[\bar A]\) then<br  />
 \(\exists v \in R:\)<br  />
@@ -842,9 +930,12 @@ otherwise.
 <p>
 MVD is a <b>tuple-generating</b> dependency.
 </p>
-</div></li>
+</div>
+</div>
 
-<li><a id="orgheadline31"></a>Rules For MVD<br  /><div class="outline-text-4" id="text-3-4-2">
+<div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31"><span class="section-number-4">3.4.2</span> Rules For MVD</h4>
+<div class="outline-text-4" id="text-3-4-2">
 <ul class="org-ul">
 <li>FD is a MVD</li>
 <li><p>
@@ -865,7 +956,8 @@ If \((\bar A\twoheadrightarrow \bar B) \land (\bar B\twoheadrightarrow \bar C)\)
 then \(\bar A\twoheadrightarrow \bar C - \bar B\) .
 </p></li>
 </ul>
-</div></li></ol>
+</div>
+</div>
 </div>
 </div>
 
@@ -899,7 +991,7 @@ One example obeys the rule 1:<br  />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">food_name</th>
+<th scope="col" class="org-left">food<sub>name</sub></th>
 <th scope="col" class="org-left">ingredients</th>
 </tr>
 </thead>
@@ -988,13 +1080,16 @@ For each  nontrivial \(\bar A\to B\), \(\bar A\) is a key.<br  />
 </p></li>
 </ul>
 </div>
-<ol class="org-ol"><li><a id="orgheadline37"></a>Validation Example<br  /><div class="outline-text-4" id="text-4-4-1">
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37"><span class="section-number-4">4.4.1</span> Validation Example</h4>
+<div class="outline-text-4" id="text-4-4-1">
 <p class="verse">
 R(A, B, C, D)<br  />
 FDs: \(AC\to D,\ D\to A,\ D\to C,\ D\to B\)<br  />
 For every \(\bar{left}\) can determine all the attributes.<br  />
 </p>
-</div></li></ol>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgheadline39" class="outline-3">
@@ -1056,9 +1151,9 @@ Examples:
 </p>
 
 <ol class="org-ol">
-<li>S(_K_, A), S1(_K_, B), S2(_K_, C)</li>
-<li>S(_K_, A), S1(_K_, A, B), S2(_K_, A, C)</li>
-<li>S(_K_, A, B, C)</li>
+<li>S(<sub>K</sub>_, A), S1(<sub>K</sub>_, B), S2(<sub>K</sub>_, C)</li>
+<li>S(<sub>K</sub>_, A), S1(<sub>K</sub>_, A, B), S2(<sub>K</sub>_, A, C)</li>
+<li>S(<sub>K</sub>_, A, B, C)</li>
 </ol>
 </div>
 </div>
@@ -1104,15 +1199,20 @@ Major keywords: PK, FK, UNIQUE, CHECK
 <div id="outline-container-orgheadline49" class="outline-3">
 <h3 id="orgheadline49"><span class="section-number-3">6.3</span> Foreign Key</h3>
 <div class="outline-text-3" id="text-6-3">
-</div><ol class="org-ol"><li><a id="orgheadline47"></a>Facts<br  /><div class="outline-text-4" id="text-6-3-1">
+</div><div id="outline-container-orgheadline47" class="outline-4">
+<h4 id="orgheadline47"><span class="section-number-4">6.3.1</span> Facts</h4>
+<div class="outline-text-4" id="text-6-3-1">
 <ol class="org-ol">
 <li>A FK can have different name than the parent key.</li>
 <li>FK values can be NULL.</li>
 <li>We can make sure a FK contains a meaningful value by using a <b>constraint</b> .</li>
 <li>The FK doesn't have to be the primary key of the parent table, but it must be unique.</li>
 </ol>
-</div></li>
-<li><a id="orgheadline48"></a>Creation<br  /><div class="outline-text-4" id="text-6-3-2">
+</div>
+</div>
+<div id="outline-container-orgheadline48" class="outline-4">
+<h4 id="orgheadline48"><span class="section-number-4">6.3.2</span> Creation</h4>
+<div class="outline-text-4" id="text-6-3-2">
 <div class="org-src-container">
 
 <pre class="src src-sql"><span style="color: #F92672;">CREATE</span> <span style="color: #F92672;">TABLE</span> <span style="color: #A6E22E;">tableName</span>
@@ -1126,9 +1226,10 @@ Major keywords: PK, FK, UNIQUE, CHECK
 </pre>
 </div>
 <p>
-You can name constraint_name and foreign_key_name whatever you like.
+You can name constraint<sub>name</sub> and foreign<sub>key</sub><sub>name</sub> whatever you like.
 </p>
-</div></li></ol>
+</div>
+</div>
 </div>
 </div>
 
