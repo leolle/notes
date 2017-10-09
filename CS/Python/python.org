@@ -575,6 +575,36 @@ $ python3 test.py arg1 arg2 arg3
 参数个数为: 4 个参数。
 参数列表: ['test.py', 'arg1', 'arg2', 'arg3']
 #+END_SRC
+
+** pip
+- add below setup to ~/.pip/pip.conf
+#+begin_src txt
+[global]
+#index-url=https://pypi.mirrors.ustc.edu.cn/simple/
+#index-url=https://pypi.python.org/simple/
+index-url=http://mirrors.aliyun.com/pypi/simple/
+#index-url=https://pypi.gocept.com/pypi/simple/
+#index-url=https://mirror.picosecond.org/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com
+#trusted-host=mirrors.ustc.edu.cn
+#trusted-host=http://mirrors.aliyun.com/pypi/simple/
+#+end_src
+
+- pip install directly:
+requirements.txt
+#+begin_src txt
+--index-url http://mirrors.aliyun.com/pypi/simple/
+pandas
+pylint
+pep8
+sphinx
+ipython
+numpy
+ipdb
+mock
+nose
+#+end_src
 ** exception
 - create an exception:
 #+BEGIN_SRC python
