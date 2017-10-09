@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-09 Mon 18:55 -->
+<!-- 2017-10-09 Mon 19:21 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -142,28 +142,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -212,81 +190,112 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline73">4. factor</a></li>
-<li><a href="#orgheadline133">5. f def</a>
+<li><a href="#orgheadline154">5. f def</a>
 <ul>
-<li><a href="#orgheadline74">5.1. 内置类型</a></li>
-<li><a href="#orgheadline75">5.2. 文字处理</a></li>
-<li><a href="#orgheadline76">5.3. 数据库</a></li>
-<li><a href="#orgheadline77">5.4. 通信</a></li>
-<li><a href="#orgheadline82">5.5. 数据类型</a>
+<li><a href="#orgheadline78">5.1. 内置类型</a>
 <ul>
-<li><a href="#orgheadline78">5.5.1. 日期时间</a></li>
-<li><a href="#orgheadline79">5.5.2. 数组</a></li>
-<li><a href="#orgheadline80">5.5.3. 类型</a></li>
-<li><a href="#orgheadline81">5.5.4. 打印</a></li>
+<li><a href="#orgheadline74">5.1.1. 数组处理</a></li>
+<li><a href="#orgheadline75">5.1.2. 添加数据</a></li>
+<li><a href="#orgheadline76">5.1.3. 提取数据</a></li>
+<li><a href="#orgheadline77">5.1.4. 重命名</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline102">5.6. 算术和数学模型</a>
+<li><a href="#orgheadline79">5.2. 交易相关</a></li>
+<li><a href="#orgheadline84">5.3. 数据类型</a>
 <ul>
-<li><a href="#orgheadline83">5.6.1. 数字</a></li>
-<li><a href="#orgheadline84">5.6.2. 数学</a></li>
-<li><a href="#orgheadline85">5.6.3. 统计</a></li>
-<li><a href="#orgheadline88">5.6.4. 金融</a></li>
-<li><a href="#orgheadline92">5.6.5. 信号处理</a></li>
-<li><a href="#orgheadline93">5.6.6. 机器学习</a></li>
-<li><a href="#orgheadline101">5.6.7. 问题</a></li>
+<li><a href="#orgheadline80">5.3.1. 日期时间</a></li>
+<li><a href="#orgheadline81">5.3.2. 数组</a></li>
+<li><a href="#orgheadline82">5.3.3. 类型</a></li>
+<li><a href="#orgheadline83">5.3.4. 打印</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline103">5.7. 文件与目录管理</a></li>
-<li><a href="#orgheadline109">5.8. 数据分析</a>
+<li><a href="#orgheadline111">5.4. 算术和数学模型</a>
 <ul>
-<li><a href="#orgheadline104">5.8.1. 组合因子业绩贡献</a></li>
-<li><a href="#orgheadline105">5.8.2. 业绩归因</a></li>
-<li><a href="#orgheadline106">5.8.3. 绩效归因</a></li>
-<li><a href="#orgheadline107">5.8.4. 持仓分析</a></li>
-<li><a href="#orgheadline108">5.8.5. 策略分析</a></li>
+<li><a href="#orgheadline85">5.4.1. 数字</a></li>
+<li><a href="#orgheadline88">5.4.2. 数学</a></li>
+<li><a href="#orgheadline91">5.4.3. 统计</a></li>
+<li><a href="#orgheadline95">5.4.4. 金融</a></li>
+<li><a href="#orgheadline101">5.4.5. 信号处理</a></li>
+<li><a href="#orgheadline110">5.4.6. 机器学习</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline110">5.9. 数据压缩与存档</a></li>
-<li><a href="#orgheadline111">5.10. 文件格式</a></li>
-<li><a href="#orgheadline114">5.11. 数据处理</a>
+<li><a href="#orgheadline117">5.5. 策略管理</a>
 <ul>
-<li><a href="#orgheadline112">5.11.1. 行业中性</a></li>
-<li><a href="#orgheadline113">5.11.2. 因子加权</a></li>
+<li><a href="#orgheadline112">5.5.1. 组合优化</a></li>
+<li><a href="#orgheadline113">5.5.2. 基金策略</a></li>
+<li><a href="#orgheadline114">5.5.3. 基金经理评估</a></li>
+<li><a href="#orgheadline115">5.5.4. 资产配置模型</a></li>
+<li><a href="#orgheadline116">5.5.5. 策略函数</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline119">5.12. 通用操作系统服务</a>
+<li><a href="#orgheadline123">5.6. 数据分析</a>
 <ul>
-<li><a href="#orgheadline115">5.12.1. 系统</a></li>
-<li><a href="#orgheadline117">5.12.2. 时间</a></li>
-<li><a href="#orgheadline118">5.12.3. 日志</a></li>
+<li><a href="#orgheadline118">5.6.1. 组合因子业绩贡献</a></li>
+<li><a href="#orgheadline119">5.6.2. 业绩归因</a></li>
+<li><a href="#orgheadline120">5.6.3. 绩效归因</a></li>
+<li><a href="#orgheadline121">5.6.4. 持仓分析</a></li>
+<li><a href="#orgheadline122">5.6.5. 策略分析</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline122">5.13. 基础框架</a>
+<li><a href="#orgheadline126">5.7. 数据格式</a>
 <ul>
-<li><a href="#orgheadline121">5.13.1. 模拟交易及绩效</a></li>
+<li><a href="#orgheadline124">5.7.1. 转换数据类型</a></li>
+<li><a href="#orgheadline125">5.7.2. OOTV</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline123">5.14. 互联网数据处理</a></li>
-<li><a href="#orgheadline125">5.15. 金融数据处理</a>
+<li><a href="#orgheadline131">5.8. 数据处理</a>
 <ul>
-<li><a href="#orgheadline124">5.15.1. 财务相关</a></li>
+<li><a href="#orgheadline127">5.8.1. 行业中性</a></li>
+<li><a href="#orgheadline128">5.8.2. 因子加权</a></li>
+<li><a href="#orgheadline129">5.8.3. 升维</a></li>
+<li><a href="#orgheadline130">5.8.4. 面板数据处理</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline126">5.16. 结构化标记处理工具</a></li>
-<li><a href="#orgheadline127">5.17. 开发工具</a></li>
-<li><a href="#orgheadline131">5.18. 衍生模块</a>
+<li><a href="#orgheadline137">5.9. 通用操作系统服务</a>
 <ul>
-<li><a href="#orgheadline128">5.18.1. 指数相关</a></li>
-<li><a href="#orgheadline129">5.18.2. 回归相关</a></li>
-<li><a href="#orgheadline130">5.18.3. 事件相关</a></li>
+<li><a href="#orgheadline132">5.9.1. 系统</a></li>
+<li><a href="#orgheadline134">5.9.2. 时间</a></li>
+<li><a href="#orgheadline135">5.9.3. 日志</a></li>
+<li><a href="#orgheadline136">5.9.4. 编程接口</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline132">5.19. 杂项服务</a></li>
+<li><a href="#orgheadline140">5.10. 基础框架</a>
+<ul>
+<li><a href="#orgheadline139">5.10.1. 模拟交易及绩效</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline134">6. fs def</a></li>
-<li><a href="#orgheadline135">7. fs inst</a></li>
+<li><a href="#orgheadline142">5.11. 金融数据处理</a>
+<ul>
+<li><a href="#orgheadline141">5.11.1. 财务相关</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline144">5.12. 结构化标记处理工具</a>
+<ul>
+<li><a href="#orgheadline143">5.12.1. 时间序列</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline146">5.13. 开发工具</a>
+<ul>
+<li><a href="#orgheadline145">5.13.1. 编程接口</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline149">5.14. 衍生模块</a>
+<ul>
+<li><a href="#orgheadline147">5.14.1. 指数相关</a></li>
+<li><a href="#orgheadline148">5.14.2. 事件相关</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline153">5.15. 杂项服务</a>
+<ul>
+<li><a href="#orgheadline150">5.15.1. 其它</a></li>
+<li><a href="#orgheadline151">5.15.2. 期货相关</a></li>
+<li><a href="#orgheadline152">5.15.3. FR相关</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline155">6. fs def</a></li>
+<li><a href="#orgheadline156">7. fs inst</a></li>
 </ul>
 </div>
 </div>
@@ -439,11 +448,14 @@ for the JavaScript code in this tag.
 <h2 id="orgheadline73"><span class="section-number-2">4</span> factor</h2>
 </div>
 
-<div id="outline-container-orgheadline133" class="outline-2">
-<h2 id="orgheadline133"><span class="section-number-2">5</span> f def</h2>
+<div id="outline-container-orgheadline154" class="outline-2">
+<h2 id="orgheadline154"><span class="section-number-2">5</span> f def</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-libraries classification reference to :
+libraries classification source:
+</p>
+
+<p>
 <a href="http://usyiyi.cn/translate/python_352/library/index.html">Python Simple Chinese</a>
 </p>
 
@@ -459,104 +471,90 @@ libraries classification reference to :
 <a href="http://en.cppreference.com/w/c/links/libs">C++</a>
 </p>
 </div>
-<div id="outline-container-orgheadline74" class="outline-3">
-<h3 id="orgheadline74"><span class="section-number-3">5.1</span> 内置类型</h3>
+<div id="outline-container-orgheadline78" class="outline-3">
+<h3 id="orgheadline78"><span class="section-number-3">5.1</span> 内置类型</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-orgheadline74" class="outline-4">
+<h4 id="orgheadline74"><span class="section-number-4">5.1.1</span> 数组处理</h4>
 </div>
-<div id="outline-container-orgheadline75" class="outline-3">
-<h3 id="orgheadline75"><span class="section-number-3">5.2</span> 文字处理</h3>
+<div id="outline-container-orgheadline75" class="outline-4">
+<h4 id="orgheadline75"><span class="section-number-4">5.1.2</span> 添加数据</h4>
 </div>
-<div id="outline-container-orgheadline76" class="outline-3">
-<h3 id="orgheadline76"><span class="section-number-3">5.3</span> 数据库</h3>
+<div id="outline-container-orgheadline76" class="outline-4">
+<h4 id="orgheadline76"><span class="section-number-4">5.1.3</span> 提取数据</h4>
 </div>
-<div id="outline-container-orgheadline77" class="outline-3">
-<h3 id="orgheadline77"><span class="section-number-3">5.4</span> 通信</h3>
+<div id="outline-container-orgheadline77" class="outline-4">
+<h4 id="orgheadline77"><span class="section-number-4">5.1.4</span> 重命名</h4>
 </div>
-<div id="outline-container-orgheadline82" class="outline-3">
-<h3 id="orgheadline82"><span class="section-number-3">5.5</span> 数据类型</h3>
-<div class="outline-text-3" id="text-5-5">
-</div><div id="outline-container-orgheadline78" class="outline-4">
-<h4 id="orgheadline78"><span class="section-number-4">5.5.1</span> 日期时间</h4>
 </div>
-
-<div id="outline-container-orgheadline79" class="outline-4">
-<h4 id="orgheadline79"><span class="section-number-4">5.5.2</span> 数组</h4>
+<div id="outline-container-orgheadline79" class="outline-3">
+<h3 id="orgheadline79"><span class="section-number-3">5.2</span> 交易相关</h3>
 </div>
-
-<div id="outline-container-orgheadline80" class="outline-4">
-<h4 id="orgheadline80"><span class="section-number-4">5.5.3</span> 类型</h4>
+<div id="outline-container-orgheadline84" class="outline-3">
+<h3 id="orgheadline84"><span class="section-number-3">5.3</span> 数据类型</h3>
+<div class="outline-text-3" id="text-5-3">
+</div><div id="outline-container-orgheadline80" class="outline-4">
+<h4 id="orgheadline80"><span class="section-number-4">5.3.1</span> 日期时间</h4>
 </div>
 
 <div id="outline-container-orgheadline81" class="outline-4">
-<h4 id="orgheadline81"><span class="section-number-4">5.5.4</span> 打印</h4>
+<h4 id="orgheadline81"><span class="section-number-4">5.3.2</span> 数组</h4>
+</div>
+
+<div id="outline-container-orgheadline82" class="outline-4">
+<h4 id="orgheadline82"><span class="section-number-4">5.3.3</span> 类型</h4>
+</div>
+
+<div id="outline-container-orgheadline83" class="outline-4">
+<h4 id="orgheadline83"><span class="section-number-4">5.3.4</span> 打印</h4>
 </div>
 </div>
 
-<div id="outline-container-orgheadline102" class="outline-3">
-<h3 id="orgheadline102"><span class="section-number-3">5.6</span> 算术和数学模型</h3>
-<div class="outline-text-3" id="text-5-6">
-</div><div id="outline-container-orgheadline83" class="outline-4">
-<h4 id="orgheadline83"><span class="section-number-4">5.6.1</span> 数字</h4>
-</div>
-
-<div id="outline-container-orgheadline84" class="outline-4">
-<h4 id="orgheadline84"><span class="section-number-4">5.6.2</span> 数学</h4>
-<div class="outline-text-4" id="text-5-6-2">
-<ul class="org-ul">
-<li>简单运算</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline85" class="outline-4">
-<h4 id="orgheadline85"><span class="section-number-4">5.6.3</span> 统计</h4>
-<div class="outline-text-4" id="text-5-6-3">
-<ul class="org-ul">
-<li>rolling mean, std, etc.</li>
-</ul>
-</div>
+<div id="outline-container-orgheadline111" class="outline-3">
+<h3 id="orgheadline111"><span class="section-number-3">5.4</span> 算术和数学模型</h3>
+<div class="outline-text-3" id="text-5-4">
+</div><div id="outline-container-orgheadline85" class="outline-4">
+<h4 id="orgheadline85"><span class="section-number-4">5.4.1</span> 数字</h4>
 </div>
 
 <div id="outline-container-orgheadline88" class="outline-4">
-<h4 id="orgheadline88"><span class="section-number-4">5.6.4</span> 金融</h4>
-<div class="outline-text-4" id="text-5-6-4">
-</div><ol class="org-ol"><li><a id="orgheadline86"></a>ta-lib<br  /></li>
-<li><a id="orgheadline87"></a>RiskModel<br  /></li></ol>
+<h4 id="orgheadline88"><span class="section-number-4">5.4.2</span> 数学</h4>
+<div class="outline-text-4" id="text-5-4-2">
+</div><ol class="org-ol"><li><a id="orgheadline86"></a>简单运算<br  /></li>
+<li><a id="orgheadline87"></a>多列计算<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline92" class="outline-4">
-<h4 id="orgheadline92"><span class="section-number-4">5.6.5</span> 信号处理</h4>
-<div class="outline-text-4" id="text-5-6-5">
-</div><ol class="org-ol"><li><a id="orgheadline89"></a>频度调整<br  /></li>
-<li><a id="orgheadline90"></a>频率调整<br  /></li>
-<li><a id="orgheadline91"></a>频率调整-敏感<br  /></li></ol>
+<div id="outline-container-orgheadline91" class="outline-4">
+<h4 id="orgheadline91"><span class="section-number-4">5.4.3</span> 统计</h4>
+<div class="outline-text-4" id="text-5-4-3">
+</div><ol class="org-ol"><li><a id="orgheadline89"></a>横截面聚合<br  /></li>
+<li><a id="orgheadline90"></a>统计分析<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline93" class="outline-4">
-<h4 id="orgheadline93"><span class="section-number-4">5.6.6</span> 机器学习</h4>
+<div id="outline-container-orgheadline95" class="outline-4">
+<h4 id="orgheadline95"><span class="section-number-4">5.4.4</span> 金融</h4>
+<div class="outline-text-4" id="text-5-4-4">
+</div><ol class="org-ol"><li><a id="orgheadline93"></a>ta-lib<br  /><ol class="org-ol"><li><a id="orgheadline92"></a>技术指标<br  /></li></ol></li>
+<li><a id="orgheadline94"></a>RiskModel<br  /></li></ol>
 </div>
 <div id="outline-container-orgheadline101" class="outline-4">
-<h4 id="orgheadline101"><span class="section-number-4">5.6.7</span> 问题</h4>
-<div class="outline-text-4" id="text-5-6-7">
+<h4 id="orgheadline101"><span class="section-number-4">5.4.5</span> 信号处理</h4>
+<div class="outline-text-4" id="text-5-4-5">
+</div><ol class="org-ol"><li><a id="orgheadline96"></a>频度调整<br  /></li>
+<li><a id="orgheadline97"></a>频率调整<br  /></li>
+<li><a id="orgheadline98"></a>频率调整-敏感<br  /></li>
+<li><a id="orgheadline99"></a>过滤数据<br  /></li>
+<li><a id="orgheadline100"></a>横截面处理<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline110" class="outline-4">
+<h4 id="orgheadline110"><span class="section-number-4">5.4.6</span> 机器学习</h4>
+<div class="outline-text-4" id="text-5-4-6">
+</div><ol class="org-ol"><li><a id="orgheadline102"></a>问题<br  /><div class="outline-text-5" id="text-5-4-6-1">
 <ul class="org-ul">
 <li>分类</li>
-</ul>
-<p>
-分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised classification)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised classification)，也叫做聚类分析。
-</p>
-<ul class="org-ul">
 <li>聚类</li>
-</ul>
-<p>
-聚类分析（英语：Cluster analysis，亦称为群集分析）是对于统计数据分析的一门技术，在许多领域受到广泛应用，包括机器学习，数据挖掘，模式识别，图像分析以及生物信息。聚类是把相似的对象通过静态分类的方法分成不同的组别或者更多的子集（subset），这样让在同一个子集中的成员对象都有相似的一些属性，常见的包括在坐标系中更加短的空间距离等。
-</p>
-<ul class="org-ul">
-<li>回归</li>
-</ul>
-<p>
-回归分析（英语：Regression Analysis）是一种统计学上分析数据的方法，目的在于了解两个或多个变数间是否相关、相关方向与强度，并建立数学模型以便观察特定变数来预测研究者感兴趣的变数。更具体的来说，回归分析可以帮助人们了解在只有一个自变量变化时因变量的变化量。一般来说，通过回归分析我们可以由给出的自变量估计因变量的条件期望。
-回归分析是建立因变数\( {\displaystyle Y} Y\)（或称依变数，反应变数）与自变数 \({\displaystyle X} X\)（或称独变数，解释变数）之间关系的模型。简单线性回归使用一个自变量$ {\displaystyle X} X\(，复回归使用超过一个自变量\)（ {\displaystyle X<sub>1</sub>,X<sub>2</sub>&#x2026;X<sub>i</sub>} X<sub>1</sub>,X<sub>2</sub>&#x2026;X<sub>i</sub>）$。
-</p>
-
+<li>回归
 <ul class="org-ul">
 <li>模型</li>
+</ul></li>
 </ul>
 <p>
 线性回归 简单回归 普通最小二乘法 多项式回归 一般线性模型
@@ -596,20 +594,12 @@ libraries classification reference to :
 <li>异常检测</li>
 </ul>
 <p>
-在数据挖掘中，异常检测（英语：anomaly detection）对不匹配预期模式或数据集中其他项目的项目、事件或观测值的识别。 通常异常项目会转变成银行欺诈、结构缺陷、医疗问题、文本错误等类型的问题。异常也被称为离群值、新奇、噪声、偏差和例外。
-特别是在检测滥用与网络入侵时，有趣性对象往往不是罕见对象，但却是超出预料的突发活动。这种模式不遵循通常统计定义中把异常点看作是罕见对象，于是许多异常检测方法（特别是无监督的方法）将对此类数据失效，除非进行了合适的聚集。相反，聚类分析算法可能可以检测出这些模式形成的微聚类。
-有三大类异常检测算法。 在假设数据集中大多数实例都是正常的前提下，无监督异常检测方法能通过寻找与其他数据最不匹配的实例来检测出未标记测试数据的异常。监督式异常检测方法需要一个已经被标记“正常”与“异常”的数据集，并涉及到训练分类器（与许多其他的统计分类问题的关键区别是异常检测的内在不均衡性）。半监督式异常检测方法根据一个给定的正常训练数据集创建一个表示正常行为的模型，然后检测由学习模型生成的测试实例的可能性。
 关联规则 强化学习 结构预测 特征学习 在线学习 半监督学习 语法归纳
 </p>
-</div>
-<ol class="org-ol"><li><a id="orgheadline94"></a>监督学习(分类 · 回归)<br  /><div class="outline-text-5" id="text-5-6-7-1">
+</div></li>
+<li><a id="orgheadline103"></a>监督学习(分类 · 回归)<br  /><div class="outline-text-5" id="text-5-4-6-2">
 <ul class="org-ul">
 <li>决策树</li>
-</ul>
-<p>
-决策论中 （如风险管理），决策树（Decision tree）由一个决策图和可能的结果（包括资源成本和风险）组成， 用来创建到达目标的规划。决策树建立并用来辅助决策，是一种特殊的树结构。决策树是一个利用像树一样的图形或决策模型的决策支持工具，包括随机事件结果，资源代价和实用性。它是一个算法显示的方法。决策树经常在运筹学中使用，特别是在决策分析中，它帮助确定一个能最可能达到目标的策略。如果在实际中，决策不得不在没有完备知识的情况下被在线采用，一个决策树应该平行概率模型作为最佳的选择模型或在线选择模型算法。决策树的另一个使用是作为计算条件概率的描述性手段。
-</p>
-<ul class="org-ul">
 <li>表征（装袋, 提升，随机森林）</li>
 <li>k-NN</li>
 <li>线性回归</li>
@@ -626,7 +616,7 @@ libraries classification reference to :
 <li>相关向量机（RVM）</li>
 </ul>
 </div></li>
-<li><a id="orgheadline95"></a>聚类<br  /><div class="outline-text-5" id="text-5-6-7-2">
+<li><a id="orgheadline104"></a>聚类<br  /><div class="outline-text-5" id="text-5-4-6-3">
 <ul class="org-ul">
 <li>BIRCH</li>
 <li>层次</li>
@@ -637,7 +627,7 @@ libraries classification reference to :
 <li>均值飘移</li>
 </ul>
 </div></li>
-<li><a id="orgheadline96"></a>降维<br  /><div class="outline-text-5" id="text-5-6-7-3">
+<li><a id="orgheadline105"></a>降维<br  /><div class="outline-text-5" id="text-5-4-6-4">
 <ul class="org-ul">
 <li>因子分析</li>
 <li>CCA</li>
@@ -649,18 +639,18 @@ libraries classification reference to :
 <li>t-SNE</li>
 </ul>
 </div></li>
-<li><a id="orgheadline97"></a>结构预测<br  /><div class="outline-text-5" id="text-5-6-7-4">
+<li><a id="orgheadline106"></a>结构预测<br  /><div class="outline-text-5" id="text-5-4-6-5">
 <ul class="org-ul">
 <li>概率图模型（贝叶斯网络，CRF, HMM）</li>
 </ul>
 </div></li>
-<li><a id="orgheadline98"></a>异常检测<br  /><div class="outline-text-5" id="text-5-6-7-5">
+<li><a id="orgheadline107"></a>异常检测<br  /><div class="outline-text-5" id="text-5-4-6-6">
 <ul class="org-ul">
 <li>k-NN</li>
 <li>局部离群因子</li>
 </ul>
 </div></li>
-<li><a id="orgheadline99"></a>神经网络<br  /><div class="outline-text-5" id="text-5-6-7-6">
+<li><a id="orgheadline108"></a>神经网络<br  /><div class="outline-text-5" id="text-5-4-6-7">
 <ul class="org-ul">
 <li>自编码</li>
 <li>深度学习</li>
@@ -671,7 +661,7 @@ libraries classification reference to :
 <li>CNN</li>
 </ul>
 </div></li>
-<li><a id="orgheadline100"></a>理论<br  /><div class="outline-text-5" id="text-5-6-7-7">
+<li><a id="orgheadline109"></a>理论<br  /><div class="outline-text-5" id="text-5-4-6-8">
 <ul class="org-ul">
 <li>偏差/方差困境</li>
 <li>计算学习理论</li>
@@ -684,150 +674,169 @@ libraries classification reference to :
 </div>
 </div>
 
-<div id="outline-container-orgheadline103" class="outline-3">
-<h3 id="orgheadline103"><span class="section-number-3">5.7</span> 文件与目录管理</h3>
-</div>
-
-<div id="outline-container-orgheadline109" class="outline-3">
-<h3 id="orgheadline109"><span class="section-number-3">5.8</span> 数据分析</h3>
-<div class="outline-text-3" id="text-5-8">
-</div><div id="outline-container-orgheadline104" class="outline-4">
-<h4 id="orgheadline104"><span class="section-number-4">5.8.1</span> 组合因子业绩贡献</h4>
-</div>
-
-<div id="outline-container-orgheadline105" class="outline-4">
-<h4 id="orgheadline105"><span class="section-number-4">5.8.2</span> 业绩归因</h4>
-</div>
-
-<div id="outline-container-orgheadline106" class="outline-4">
-<h4 id="orgheadline106"><span class="section-number-4">5.8.3</span> 绩效归因</h4>
-</div>
-
-<div id="outline-container-orgheadline107" class="outline-4">
-<h4 id="orgheadline107"><span class="section-number-4">5.8.4</span> 持仓分析</h4>
-</div>
-
-<div id="outline-container-orgheadline108" class="outline-4">
-<h4 id="orgheadline108"><span class="section-number-4">5.8.5</span> 策略分析</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline110" class="outline-3">
-<h3 id="orgheadline110"><span class="section-number-3">5.9</span> 数据压缩与存档</h3>
-</div>
-
-<div id="outline-container-orgheadline111" class="outline-3">
-<h3 id="orgheadline111"><span class="section-number-3">5.10</span> 文件格式</h3>
-</div>
-
-<div id="outline-container-orgheadline114" class="outline-3">
-<h3 id="orgheadline114"><span class="section-number-3">5.11</span> 数据处理</h3>
-<div class="outline-text-3" id="text-5-11">
+<div id="outline-container-orgheadline117" class="outline-3">
+<h3 id="orgheadline117"><span class="section-number-3">5.5</span> 策略管理</h3>
+<div class="outline-text-3" id="text-5-5">
 </div><div id="outline-container-orgheadline112" class="outline-4">
-<h4 id="orgheadline112"><span class="section-number-4">5.11.1</span> 行业中性</h4>
+<h4 id="orgheadline112"><span class="section-number-4">5.5.1</span> 组合优化</h4>
 </div>
 
 <div id="outline-container-orgheadline113" class="outline-4">
-<h4 id="orgheadline113"><span class="section-number-4">5.11.2</span> 因子加权</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline119" class="outline-3">
-<h3 id="orgheadline119"><span class="section-number-3">5.12</span> 通用操作系统服务</h3>
-<div class="outline-text-3" id="text-5-12">
-</div><div id="outline-container-orgheadline115" class="outline-4">
-<h4 id="orgheadline115"><span class="section-number-4">5.12.1</span> 系统</h4>
+<h4 id="orgheadline113"><span class="section-number-4">5.5.2</span> 基金策略</h4>
 </div>
 
-<div id="outline-container-orgheadline117" class="outline-4">
-<h4 id="orgheadline117"><span class="section-number-4">5.12.2</span> 时间</h4>
-<div class="outline-text-4" id="text-5-12-2">
-</div><ol class="org-ol"><li><a id="orgheadline116"></a>日期转换<br  /></li></ol>
-</div>
-<div id="outline-container-orgheadline118" class="outline-4">
-<h4 id="orgheadline118"><span class="section-number-4">5.12.3</span> 日志</h4>
-</div>
+<div id="outline-container-orgheadline114" class="outline-4">
+<h4 id="orgheadline114"><span class="section-number-4">5.5.3</span> 基金经理评估</h4>
 </div>
 
-<div id="outline-container-orgheadline122" class="outline-3">
-<h3 id="orgheadline122"><span class="section-number-3">5.13</span> 基础框架</h3>
-<div class="outline-text-3" id="text-5-13">
-</div><div id="outline-container-orgheadline121" class="outline-4">
-<h4 id="orgheadline121"><span class="section-number-4">5.13.1</span> 模拟交易及绩效</h4>
-<div class="outline-text-4" id="text-5-13-1">
-</div><ol class="org-ol"><li><a id="orgheadline120"></a>期货<br  /></li></ol>
+<div id="outline-container-orgheadline115" class="outline-4">
+<h4 id="orgheadline115"><span class="section-number-4">5.5.4</span> 资产配置模型</h4>
+</div>
+
+<div id="outline-container-orgheadline116" class="outline-4">
+<h4 id="orgheadline116"><span class="section-number-4">5.5.5</span> 策略函数</h4>
 </div>
 </div>
 <div id="outline-container-orgheadline123" class="outline-3">
-<h3 id="orgheadline123"><span class="section-number-3">5.14</span> 互联网数据处理</h3>
-<div class="outline-text-3" id="text-5-14">
-<ul class="org-ul">
-<li>json</li>
-<li>email</li>
-</ul>
+<h3 id="orgheadline123"><span class="section-number-3">5.6</span> 数据分析</h3>
+<div class="outline-text-3" id="text-5-6">
+</div><div id="outline-container-orgheadline118" class="outline-4">
+<h4 id="orgheadline118"><span class="section-number-4">5.6.1</span> 组合因子业绩贡献</h4>
+</div>
+
+<div id="outline-container-orgheadline119" class="outline-4">
+<h4 id="orgheadline119"><span class="section-number-4">5.6.2</span> 业绩归因</h4>
+</div>
+
+<div id="outline-container-orgheadline120" class="outline-4">
+<h4 id="orgheadline120"><span class="section-number-4">5.6.3</span> 绩效归因</h4>
+</div>
+
+<div id="outline-container-orgheadline121" class="outline-4">
+<h4 id="orgheadline121"><span class="section-number-4">5.6.4</span> 持仓分析</h4>
+</div>
+
+<div id="outline-container-orgheadline122" class="outline-4">
+<h4 id="orgheadline122"><span class="section-number-4">5.6.5</span> 策略分析</h4>
 </div>
 </div>
 
-<div id="outline-container-orgheadline125" class="outline-3">
-<h3 id="orgheadline125"><span class="section-number-3">5.15</span> 金融数据处理</h3>
-<div class="outline-text-3" id="text-5-15">
-</div><div id="outline-container-orgheadline124" class="outline-4">
-<h4 id="orgheadline124"><span class="section-number-4">5.15.1</span> 财务相关</h4>
-</div>
-</div>
 <div id="outline-container-orgheadline126" class="outline-3">
-<h3 id="orgheadline126"><span class="section-number-3">5.16</span> 结构化标记处理工具</h3>
-<div class="outline-text-3" id="text-5-16">
-<ul class="org-ul">
-<li>html</li>
-<li>xml</li>
-</ul>
-</div>
+<h3 id="orgheadline126"><span class="section-number-3">5.7</span> 数据格式</h3>
+<div class="outline-text-3" id="text-5-7">
+</div><div id="outline-container-orgheadline124" class="outline-4">
+<h4 id="orgheadline124"><span class="section-number-4">5.7.1</span> 转换数据类型</h4>
 </div>
 
-<div id="outline-container-orgheadline127" class="outline-3">
-<h3 id="orgheadline127"><span class="section-number-3">5.17</span> 开发工具</h3>
-<div class="outline-text-3" id="text-5-17">
-<ul class="org-ul">
-<li>unittest</li>
-<li>pydoc</li>
-</ul>
+<div id="outline-container-orgheadline125" class="outline-4">
+<h4 id="orgheadline125"><span class="section-number-4">5.7.2</span> OOTV</h4>
 </div>
 </div>
-
 <div id="outline-container-orgheadline131" class="outline-3">
-<h3 id="orgheadline131"><span class="section-number-3">5.18</span> 衍生模块</h3>
-<div class="outline-text-3" id="text-5-18">
-</div><div id="outline-container-orgheadline128" class="outline-4">
-<h4 id="orgheadline128"><span class="section-number-4">5.18.1</span> 指数相关</h4>
+<h3 id="orgheadline131"><span class="section-number-3">5.8</span> 数据处理</h3>
+<div class="outline-text-3" id="text-5-8">
+</div><div id="outline-container-orgheadline127" class="outline-4">
+<h4 id="orgheadline127"><span class="section-number-4">5.8.1</span> 行业中性</h4>
+</div>
+
+<div id="outline-container-orgheadline128" class="outline-4">
+<h4 id="orgheadline128"><span class="section-number-4">5.8.2</span> 因子加权</h4>
 </div>
 
 <div id="outline-container-orgheadline129" class="outline-4">
-<h4 id="orgheadline129"><span class="section-number-4">5.18.2</span> 回归相关</h4>
+<h4 id="orgheadline129"><span class="section-number-4">5.8.3</span> 升维</h4>
 </div>
 
 <div id="outline-container-orgheadline130" class="outline-4">
-<h4 id="orgheadline130"><span class="section-number-4">5.18.3</span> 事件相关</h4>
-<div class="outline-text-4" id="text-5-18-3">
-<p>
-<b>*</b>
-</p>
+<h4 id="orgheadline130"><span class="section-number-4">5.8.4</span> 面板数据处理</h4>
 </div>
 </div>
+<div id="outline-container-orgheadline137" class="outline-3">
+<h3 id="orgheadline137"><span class="section-number-3">5.9</span> 通用操作系统服务</h3>
+<div class="outline-text-3" id="text-5-9">
+</div><div id="outline-container-orgheadline132" class="outline-4">
+<h4 id="orgheadline132"><span class="section-number-4">5.9.1</span> 系统</h4>
 </div>
-<div id="outline-container-orgheadline132" class="outline-3">
-<h3 id="orgheadline132"><span class="section-number-3">5.19</span> 杂项服务</h3>
-<div class="outline-text-3" id="text-5-19">
+
+<div id="outline-container-orgheadline134" class="outline-4">
+<h4 id="orgheadline134"><span class="section-number-4">5.9.2</span> 时间</h4>
+<div class="outline-text-4" id="text-5-9-2">
+</div><ol class="org-ol"><li><a id="orgheadline133"></a>日期转换<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline135" class="outline-4">
+<h4 id="orgheadline135"><span class="section-number-4">5.9.3</span> 日志</h4>
+</div>
+<div id="outline-container-orgheadline136" class="outline-4">
+<h4 id="orgheadline136"><span class="section-number-4">5.9.4</span> 编程接口</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline140" class="outline-3">
+<h3 id="orgheadline140"><span class="section-number-3">5.10</span> 基础框架</h3>
+<div class="outline-text-3" id="text-5-10">
+</div><div id="outline-container-orgheadline139" class="outline-4">
+<h4 id="orgheadline139"><span class="section-number-4">5.10.1</span> 模拟交易及绩效</h4>
+<div class="outline-text-4" id="text-5-10-1">
+</div><ol class="org-ol"><li><a id="orgheadline138"></a>期货<br  /></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline142" class="outline-3">
+<h3 id="orgheadline142"><span class="section-number-3">5.11</span> 金融数据处理</h3>
+<div class="outline-text-3" id="text-5-11">
+</div><div id="outline-container-orgheadline141" class="outline-4">
+<h4 id="orgheadline141"><span class="section-number-4">5.11.1</span> 财务相关</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline144" class="outline-3">
+<h3 id="orgheadline144"><span class="section-number-3">5.12</span> 结构化标记处理工具</h3>
+<div class="outline-text-3" id="text-5-12">
+</div><div id="outline-container-orgheadline143" class="outline-4">
+<h4 id="orgheadline143"><span class="section-number-4">5.12.1</span> 时间序列</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline146" class="outline-3">
+<h3 id="orgheadline146"><span class="section-number-3">5.13</span> 开发工具</h3>
+<div class="outline-text-3" id="text-5-13">
+</div><div id="outline-container-orgheadline145" class="outline-4">
+<h4 id="orgheadline145"><span class="section-number-4">5.13.1</span> 编程接口</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline149" class="outline-3">
+<h3 id="orgheadline149"><span class="section-number-3">5.14</span> 衍生模块</h3>
+<div class="outline-text-3" id="text-5-14">
+</div><div id="outline-container-orgheadline147" class="outline-4">
+<h4 id="orgheadline147"><span class="section-number-4">5.14.1</span> 指数相关</h4>
+</div>
+
+<div id="outline-container-orgheadline148" class="outline-4">
+<h4 id="orgheadline148"><span class="section-number-4">5.14.2</span> 事件相关</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline153" class="outline-3">
+<h3 id="orgheadline153"><span class="section-number-3">5.15</span> 杂项服务</h3>
+<div class="outline-text-3" id="text-5-15">
 <ul class="org-ul">
 <li>formatter - 通用输出格式</li>
 </ul>
 </div>
+<div id="outline-container-orgheadline150" class="outline-4">
+<h4 id="orgheadline150"><span class="section-number-4">5.15.1</span> 其它</h4>
+</div>
+<div id="outline-container-orgheadline151" class="outline-4">
+<h4 id="orgheadline151"><span class="section-number-4">5.15.2</span> 期货相关</h4>
+</div>
+<div id="outline-container-orgheadline152" class="outline-4">
+<h4 id="orgheadline152"><span class="section-number-4">5.15.3</span> FR相关</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline134" class="outline-2">
-<h2 id="orgheadline134"><span class="section-number-2">6</span> fs def</h2>
+</div>
+<div id="outline-container-orgheadline155" class="outline-2">
+<h2 id="orgheadline155"><span class="section-number-2">6</span> fs def</h2>
 </div>
 
-<div id="outline-container-orgheadline135" class="outline-2">
-<h2 id="orgheadline135"><span class="section-number-2">7</span> fs inst</h2>
+<div id="outline-container-orgheadline156" class="outline-2">
+<h2 id="orgheadline156"><span class="section-number-2">7</span> fs inst</h2>
 </div>
 </div>
 </body>
