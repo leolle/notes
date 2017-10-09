@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-09 Mon 10:49 -->
+<!-- 2017-10-09 Mon 17:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -151,6 +151,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline1">1. Shell commands:</a></li>
 <li><a href="#orgheadline2">2. nano</a></li>
+<li><a href="#orgheadline3">3. zsh</a></li>
 </ul>
 </div>
 </div>
@@ -301,6 +302,158 @@ tar -xvzf rebol.tar.gz
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> zsh</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #75715E;"># </span><span style="color: #75715E;">If you come from bash you might have to change your $PATH.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export PATH=$HOME/bin:/usr/local/bin:$PATH</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Path to your oh-my-zsh installation.</span>
+  <span style="color: #F92672;">export</span> <span style="color: #FD971F;">ZSH</span>=/home/weiwu/.oh-my-zsh
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Set name of the theme to load. Optionally, if you set this to "random"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">it'll load a random theme each time that oh-my-zsh is loaded.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes</span>
+<span style="color: #FD971F;">ZSH_THEME</span>=<span style="color: #E6DB74;">"robbyrussell"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">ZSH_THEME="agnoster"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">ZSH_THEME="pygmalion"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line to use case-sensitive completion.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">CASE_SENSITIVE="true"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line to use hyphen-insensitive completion. Case</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">sensitive completion must be off. _ and - will be interchangeable.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">HYPHEN_INSENSITIVE="true"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line to disable bi-weekly auto-update checks.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">DISABLE_AUTO_UPDATE="true"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line to change how often to auto-update (in days).</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export UPDATE_ZSH_DAYS=13</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line to disable colors in ls.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">DISABLE_LS_COLORS="true"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line to disable auto-setting terminal title.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">DISABLE_AUTO_TITLE="true"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line to enable command auto-correction.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">ENABLE_CORRECTION="true"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line to display red dots whilst waiting for completion.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">COMPLETION_WAITING_DOTS="true"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line if you want to disable marking untracked files</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">under VCS as dirty. This makes repository status check for large repositories</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">much, much faster.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">DISABLE_UNTRACKED_FILES_DIRTY="true"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Uncomment the following line if you want to change the command execution time</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">stamp shown in the history command output.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">HIST_STAMPS="mm/dd/yyyy"</span>
+<span style="color: #FD971F;">SAVEHIST</span>=<span style="color: #AE81FF;">1000000</span>
+<span style="color: #FD971F;">HISTFILE</span>=~/.zsh_history
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Would you like to use another custom folder than $ZSH/custom?</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">ZSH_CUSTOM=/path/to/new-custom-folder</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Example format: plugins=(rails git textmate ruby lighthouse)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Add wisely, as too many plugins slow down shell startup.</span>
+<span style="color: #FD971F;">plugins</span>=<span style="color: #AE81FF;">(</span>git jump z<span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">source</span> $<span style="color: #FD971F;">ZSH</span>/oh-my-zsh.sh
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">User configuration</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export MANPATH="/usr/local/man:$MANPATH"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">You may need to manually set your language environment</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export LANG=en_US.UTF-8</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Preferred editor for local and remote sessions</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">if [[ -n $SSH_CONNECTION ]]; then</span>
+<span style="color: #75715E;">#   </span><span style="color: #75715E;">export EDITOR='vim'</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">else</span>
+<span style="color: #75715E;">#   </span><span style="color: #75715E;">export EDITOR='mvim'</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">fi</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Compilation flags</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export ARCHFLAGS="-arch x86_64"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">ssh</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export SSH_KEY_PATH="~/.ssh/rsa_id"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Set personal aliases, overriding those provided by oh-my-zsh libs,</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">plugins, and themes. Aliases can be placed here, though oh-my-zsh</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">users are encouraged to define aliases within the ZSH_CUSTOM folder.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">For a full list of active aliases, run `alias`.</span>
+<span style="color: #75715E;">#</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Example aliases</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">alias zshconfig="mate ~/.zshrc"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">alias ohmyzsh="mate ~/.oh-my-zsh"</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">XMODIFIERS</span>=<span style="color: #E6DB74;">"@im=fcitx"</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">GTK_IM_MODULE</span>=xim
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">QT_IM_MODULE</span>=xim
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">LC_CTYPE</span>=zh_CN.UTF-8
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">path</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PATH</span>=$<span style="color: #FD971F;">HOME</span>/Tools/google_appengine:$<span style="color: #FD971F;">PATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">LD_LIBRARY_PATH</span>=/usr/local/lib:$<span style="color: #FD971F;">LD_LIBRARY_PATH</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">emacs</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">ec</span>=<span style="color: #E6DB74;">'emacsclient -nc -a ""'</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">EDITOR</span>=<span style="color: #E6DB74;">"emacsclient"</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">cpp</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">CPLUS_INCLUDE_PATH</span>=$<span style="color: #FD971F;">HOME</span>/github/rlib-cpp:$<span style="color: #FD971F;">HOME</span>/github/ib-tws-trade:$<span style="color: #FD971F;">HOME</span>/github/ib-tws-trade/PosixClient/Shared:$<span style="color: #FD971F;">CPLUS_INCLUDE_PATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">GTAGSLIBPATH</span>=$<span style="color: #FD971F;">HOME</span>/.gtags/
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">AG_STRATEGY</span>=$<span style="color: #FD971F;">HOME</span>/projects/ag-strategy:$<span style="color: #FD971F;">AG_STRATEGY</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">node</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">npm</span>=<span style="color: #E6DB74;">'npm --registry=https://registry.npm.taobao.org'</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">python</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">export PYENV_ROOT="$HOME/.pyenv"</span>
+
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=/usr/local/lib/python2.7/:$<span style="color: #FD971F;">PYTHONPATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/projects/tradehub/src/py/:$<span style="color: #FD971F;">PYTHONPATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/projects/simulate/:$<span style="color: #FD971F;">PYTHONPATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/tools/WaveFront/PythonScripts/:$<span style="color: #FD971F;">PYTHONPATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/projects/ylib-py/:$<span style="color: #FD971F;">PYTHONPATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV</span>=<span style="color: #E6DB74;">"true"</span>
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">export PATH="$PYENV_ROOT/bin:$PATH"</span>
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">pyenv virtualenvwrapper</span>
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python</span>
+
+<span style="color: #F92672;">source</span> /usr/local/bin/virtualenvwrapper.sh
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYENV_ROOT</span>=$<span style="color: #FD971F;">HOME</span>/.pyenv
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PATH</span>=$<span style="color: #FD971F;">PYENV_ROOT</span>/bin:$<span style="color: #FD971F;">PATH</span>
+<span style="color: #F92672;">eval</span> <span style="color: #E6DB74;">"$(pyenv init -)"</span>
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">export PATH="$PYENV_ROOT/bin:$PATH</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">eval "$(pyenv init -)"</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">pyenv virtualenvwrapper</span>
+
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">VIRTUALENVWRAPPER_PYTHON</span>=/usr/bin/python
+
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">The next line updates PATH for the Google Cloud SDK.</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">[</span> -f <span style="color: #E6DB74;">'/home/weiwu/projects/sentiment/google-cloud-sdk/path.zsh.inc'</span> <span style="color: #AE81FF;">]</span>; <span style="color: #F92672;">then </span><span style="color: #F92672;">source</span> <span style="color: #E6DB74;">'/home/weiwu/projects/sentiment/google-cloud-sdk/path.zsh.inc'</span>; <span style="color: #F92672;">fi</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">The next line enables shell command completion for gcloud.</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">[</span> -f <span style="color: #E6DB74;">'/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc'</span> <span style="color: #AE81FF;">]</span>; <span style="color: #F92672;">then </span><span style="color: #F92672;">source</span> <span style="color: #E6DB74;">'/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc'</span>; <span style="color: #F92672;">fi</span>
+</pre>
+</div>
 </div>
 </div>
 </div>

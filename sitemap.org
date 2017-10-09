@@ -32,6 +32,7 @@
 + GS
   + Introduction
     + [[file:GS/Introduction/functions.org][functions]]
+  + [[file:GS/OSet/oset.org][ObjectSets]]
 + Math
   + [[file:Math/Statistics.org][Statistics]]
 + emacs
