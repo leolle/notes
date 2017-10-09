@@ -1,5 +1,5 @@
 #+TITLES: sqlalchemy Object Relational Tutorial
-#+KEYWORDS: python sqlalchemy
+#+KEYWORDS: python sqlalchemy database mysql
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
@@ -11,7 +11,7 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
-#+SETUPFILE: /home/weiwu/website/leolle.github.io/configOrg/level1.org
+#+SETUPFILE: ../../configOrg/level1.org
 
 * Object Relational Mapping
 ** Connecting
@@ -72,7 +72,7 @@ To persist our User object, we add() it to our Session:
 
 ** Types of Mappings
 
-Modern SQLAlchemy features two distinct styles of mapper configuration. The “Classical” style is SQLAlchemy’s original mapping API, whereas “Declarative” is the richer and more succinct system that builds on top of “Classical”. Both styles may be used interchangeably, as the end result of each is exactly the same - a user-defined class mapped by the mapper() function onto a selectable unit, typically a Table.
+Modern SQLAlchemy features two distinct styles of mapper configuration. The “Classical” style is SQLAlchemy’s original mapping API, whereas “Declarative” is the richer and more succinct system that builds on top of “Classical”. Both styles may be used interchangeably, as the end result of each is exactly the same - a user-defined class mapped by the mapper() function onto a selectable unit, typically, a Table.
 
 ** Declarative Mapping
 #+BEGIN_SRC python
