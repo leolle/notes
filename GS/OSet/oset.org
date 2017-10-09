@@ -139,6 +139,8 @@ libraries classification source:
 **** 过滤数据
 **** 横截面处理
 *** 机器学习
+[[https://en.wikipedia.org/wiki/Outline_of_machine_learning][outline of machine learning]]
+
 **** 问题
 - 分类
 - 聚类
@@ -260,7 +262,6 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 *** 时间
 **** 日期转换
 *** 日志
-*** 编程接口
 ** 基础框架
 
 *** 模拟交易及绩效
