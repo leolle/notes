@@ -43,7 +43,7 @@
 是指那些价格很不稳定或公司前景很不确定的普通股。这主要是那些雄心很大，开发性或冒险性的公司的股票，热门的新发行股以及一些面值较低的石油与矿业公司发行的普通股票。
 * strategy
 
-* doc
+* document
 ** 研究标的为期货
 ** 研究标的为基金
 ** 研究标的为股票
@@ -63,14 +63,28 @@
 ...
 
 * factor
-** 标的
-** 仓位
+** 股权
+** 分析师预测和盈利预测
+** 盈余惯性
+是一种在财务公布后的数周甚至数月内，仍然向超额回报方向连续获取超额收益的趋势。
 ** 公司财务数据
 *** 基础科目与衍生
 **** 主要会计数据
 **** 现金流量表
 **** 资产负债表
 **** 利润表
+** 净股异常
+stock prices of firms following corporate events tend to drift in predictable manners, for a period of up to five years.
+*** 首次公开募股(Initial Public Offerings)
+IPO firms underperform the industry- and size-matched firms by 27.4%. Ritter (1991) concludes that the IPO issuing firms
+underperform their peer firms in both the buy-and-hold and the monthly rebalancing strategies. Ritter
+conjectures that this mispricing may be due to firms going public when investors are too optimistic about
+their prospects.
+*** 股权再融资
+research has shown that firms that issued equity through an SEO, experience negative stock returns in the years following the equity issues.
+
+** 标的
+** 仓位
 ** 最新持仓
 大股东持仓，机构持仓。
 *** 增减持仓
@@ -119,7 +133,7 @@
 *** portfolio weight
 used for multi-factor analysis
 *** portfolio share
-* f def
+* function definition
 libraries classification source:
 
 [[http://usyiyi.cn/translate/python_352/library/index.html][Python Simple Chinese]]
@@ -323,6 +337,6 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 *** 其它
 *** TODO 期货相关
 *** FR相关
-* fs def
+* function sampling definition
 
-* fs inst
+* function sampling instance
