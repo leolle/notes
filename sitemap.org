@@ -5,12 +5,6 @@
     + [[file:CS/C++/C++.org][C++]]
   + Linux
     + [[file:CS/Linux/Linux.org][Linux]]
-  + MachineLearning
-    + [[file:CS/MachineLearning/BasicModule.org][BasicModule]]
-    + [[file:CS/MachineLearning/BasicModule2.org][BasicModule2]]
-    + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
-    + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
-    + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]
   + ProgramicStyle
     + [[file:CS/ProgramicStyle/PragmaticProgrammer.org][PragmaticProgrammer]]
   + Python
@@ -27,6 +21,10 @@
     + [[file:CS/DB.org][DB]]
   + [[file:CS/Regular_Expression.org][RegularExpression]]
   + [[file:CS/VersionControl.org][VersionControl]]
+  + emacs
+    + [[file:emacs/emacs.org][emacs]]
+    + [[file:emacs/markdown.org][markdown]]
+    + [[file:emacs/tutorial.org][tutorial]]
 + Calendar
   + [[file:Calendar/sentiment.org][sentiment]]
 + GS
@@ -35,10 +33,12 @@
   + [[file:GS/OSet/oset.org][ObjectSets]]
 + Math
   + [[file:Math/Statistics.org][Statistics]]
-+ emacs
-  + [[file:emacs/emacs.org][emacs]]
-  + [[file:emacs/markdown.org][markdown]]
-  + [[file:emacs/tutorial.org][tutorial]]
+  + MachineLearning
+    + [[file:CS/MachineLearning/BasicModule.org][BasicModule]]
+    + [[file:CS/MachineLearning/BasicModule2.org][BasicModule2]]
+    + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
+    + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
+    + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]
 + finance
   + [[file:finance/Backtest.org][Backtest]]
   + [[file:finance/ComputationalInvestment.org][ComputationalInvestment]]

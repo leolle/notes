@@ -1,4 +1,4 @@
-#+SETUPFILE: ../../configOrg/level1.org
+#+SETUPFILE: ../../configOrg/level2.org
 #+OPTIONS: H:2 toc:2 num:3 ^:nil
 #+TITLES: C++
 #+AUTHORs: weiwu

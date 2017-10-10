@@ -1,2 +1,2 @@
-#+SETUPFILE: ./configOrg/level-0.org
+#+SETUPFILE: ./configOrg/level0.org
 #+INCLUDE: "./sitemap.org" :minlevel 1
