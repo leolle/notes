@@ -484,6 +484,11 @@ moving average crossing over on the continous contract.
 - [X] parse future continious contract data.
 ** code:<2017-09-14 Thu>
 - [ ] simple mode test with real data.
+* Personal stuff
+** knowledge database website
+- [ ] modify python content aligned with python library index.
+[[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
+
 * GS
 ** OSet structure
 DEADLINE: <2017-10-09 Mon>
