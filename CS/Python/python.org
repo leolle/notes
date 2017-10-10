@@ -15,15 +15,170 @@
 [[http://www.pythondoc.com/pythontutorial3/][source]]
 * Introduction
 * Built-in Functions
+** Function
+- function parameter
+  - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
+
+- if the input argument is un-mutable,函数中改变形参值不会改变原值。
+if the input is mutable, operate on the input like append operation will change the input argument.
+
+- a, b = b, a + b # 相当于：
+#+begin_src python
+t = (b, a + b) # t是一个tuple
+a = t[0]
+b = t[1]
+#+end_src
+
+** magic method:
+- getitem in a class allows its instances to use the [ ] (indexer) operators
+- setitem Called to implement assignment to self[key]
+- call magic method in a class causes its instances to become callables – in other words, those instances now behave like functions.
+- getattr overrides Python’s default mechanism for member access.
+- getattr magic method only gets invoked for attributes that are not in the dict magic attribute. Implementing getattr causes the hasattr built-in function to always return True, unless an exception is raised from within getattr.
+- setattr allows you to override Python’s default mechanism for member assignment.
+- The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards).
+#+begin_src python :tangle yes
+print `a`
+print repr(a)
+#+end_src
+
+** trouble shooting
+- linux python FileNotFoundError: [Errno 2] No such file or directory:
+
+try to use absolute path instead of relative path to read a file.
+
+- HDF5
+pip install tables
+
 * Built-in Constants
 ** Constants added by the site module
 * Built-in Types
 ** Truth Value Testing
 ** Boolean Operations — and, or, not
+- The ^ symbol
+  - The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.
+- the minimum value between nan and infinity is infinity.
+min(np.nan, np.inf) = np.inf
+
+- eval
+eval the value of a variable name from string.
 ** Comparisons
 ** Numeric Types — int, float, complex
 ** Iterator Types
 ** Sequence Types — list, tuple, range
+- find difference of two lists:
+#+begin_src python
+a = [1,2,3,2,1,5,6,5,5,5]
+import collections
+print [item for item, count in collections.Counter(a).items() if count > 1]
+#+end_src
+
+- 列表生成式
+#+begin_src python
+[a.lower() for a in x=['Hello', 'World', 18, 'Apple', None] if isinstance(a,str)]
+#+end_src
+
+- read file to a list:
+#+begin_src python
+with open(r'y:\codes\data\smart_beta_etf_list.txt', 'rb') as f:
+etf_list = f.readlines()
+etf_list = [x.strip() for x in etf_list]
+# you may also want to remove whitespace characters like `\n` at the end of each line
+#+end_src
+
+- save a list to a file:
+#+begin_src python
+thefile = open('test.txt', 'w')
+#+end_src
+
+- for item in thelist:
+#+begin_src python
+thefile.write("%s\n" % item)
+#+end_src
+
+- replace comma as next line (enter):
+choose extend mode: replace ',' as \r\n
+
+- split strings by space delimiter from reverse:
+#+begin_src python
+text.rsplit(' ', 1)[0]
+#+end_src
+
+- split strings by space delimiter from beginning:
+#+begin_src python
+text.split(' ', 1)[0]
+>>>a.split('.',1)
+['alvy','test.txt']
+后面多了一个参数1，以第一个'.'分界，分成两个字符串，组成一个list
+>>>a.rsplit('.',1)
+['alvy.test','txt']
+现在是rsplit函数，从右边第一个'.'分界，分成两个字符串，组成一个list
+#+end_src
+
+** 生成器
+通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
+而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
+要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator：
+如果要一个一个打印出来，可以通过next()函数获得generator的下一个返回值：
+next(g)
+这里，最难理解的就是generator和函数的执行流程不一样。函数是顺序执行，遇到return语句或者最后一行函数语句就返回。
+而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
+
+#+begin_src python
+def odd():
+    print('step 1')
+
+    yield 1
+    print('step 2')
+    yield(3)
+    print('step 3')
+    yield(5)
+>>> o = odd()
+>>> next(o)
+step 1
+1
+>>> next(o)
+step 2
+3
+>>> next(o)
+step 3
+5
+>>> next(o)
+Traceback (most recent call last):
+
+  File "<stdin>", line 1, in <module>
+StopIteration
+#+end_src
+
+*** loop
+- iterate key and value in a dictionary:
+#+begin_src python
+for index, value in dict.iteritems():
+print index, value
+#+end_src
+- iterate keys in a dictionary:
+#+begin_src python
+for k in dict:
+#+end_src
+
+- iterate a row in pandas dataframe:
+#+begin_src python
+DataFrame.iterrows():
+return generator.
+>>> df = pd.DataFrame([[1, 1.5]], columns=['int', 'float'])
+>>> row = next(df.iterrows())[1]
+>>> row
+int      1.0
+float    1.5
+Name: 0, dtype: float64
+>>> print(row['int'].dtype)
+float64
+>>> print(df['int'].dtype)
+int64
+#+end_src
+
+- To preserve dtypes while iterating over the rows, it is better to use itertuples()
+  - which returns tuples of the values and which is generally faster as iterrows.
 ** Text Sequence Type — str
 ** Binary Sequence Types — bytes, bytearray, memoryview
 ** Set Types — set, frozenset
@@ -36,9 +191,86 @@
 ** Concrete exceptions
 ** Warnings
 ** Exception hierarchy
+** exception
+- create an exception:
+#+BEGIN_SRC python
+class ConstraintError(Exception):
+    def __init__(self, arg):
+        self.args = arg
+
+
+if error:
+    raise ConstraintError("error")
+
+
+class Networkerror(RuntimeError):
+    def __init__(self, arg):
+        self.args = arg
+
+
+try:
+    raise Networkerror("Bad hostname")
+except Networkerror,e:
+    print e.args
+    print e.message
+#+END_SRC
 * Text Processing Services
 ** string — Common string operations
 ** re — Regular expression operations
+*** useage:
+- find strings
+- convert strings
+
+*** string array
+[Pp]ython: find Python or python
+
+**** parts
+re.search('[a-zA-Z0-9]', 'x')
+
+**** not
+re.search('[^0-9]', 'x')
+
+**** shortcut
+
+- word: \w
+- number: \d
+- space, tab, next line: \s
+- 0 length sub string: \b
+re.search('\bcorn\b', 'corner')
+
+**** start and end with strings
+#+BEGIN_SRC python
+re.search('^Python', 'Python 3')
+re.search('Python$', 'this is Python')
+#+END_SRC
+
+**** any character
+"."
+
+*** optional words
+'color' vs 'colour'
+re.search('colou?r', 'my favoriate color')
+
+*** repeat
+{N}
+
+#+BEGIN_SRC python
+# find a telephone number
+re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
+
+# find 32big GID
+[x for x in risk_model_merge.keys() if re.match("[A-Z0-9]{32}$", x)]
+#+END_SRC
+
+**** boundary of repeated times
+[\d]{3,4}
+
+**** open selection
+[\d]{3,}
+
+**** speed selection
+- +: {1,}
+- *: {0,}
 ** difflib — Helpers for computing deltas
 ** textwrap — Text wrapping and filling
 ** unicodedata — Unicode Database
@@ -50,8 +282,48 @@
 ** codecs — Codec registry and base classes
 * Data Types
 ** datetime — Basic date and time types
+** Time
+- get specific timezone datetime
+#+begin_src python
+tz = pytz.timezone('America/Los_Angeles')
+#date = date.today()
+now = datetime.now()
+los_angeles_time = datetime.now(tz)
+#+end_src
+
+- use tqdm as a status bar:
+#+begin_src python
+from tqdm import tqdm
+from time import sleep
+for i in tqdm(range(10)):
+    sleep(0.1)
+#+end_src
+
+- string to datetime:
+#+begin_src python
+time.strptime(string[, format])
+#+end_src
+
+- datetime, Timestamp, datetime64
+pandas, Timestamp
+-- DatetimeIndex is composed by Timestamps.
+#+BEGIN_SRC python
+#Timestamp to string:i
+str_timestamp = pd.to_datetime(Timestamp, format = '%Y%m%d')
+str_timestamp = str_timestamp.strftime('%Y-%m-%d')
+#+END_SRC
+datetime, utc
+datetime64
 ** calendar — General calendar-related functions
 ** collections — Container datatypes
+** collections — High-performance container datatypes
+
+| module      | function                                                             |
+|-------------+----------------------------------------------------------------------|
+| deque       | list-like container with fast appends and pops on either end         |
+| Counter     | dict subclass for counting hashable objects                          |
+| defaultdict | dict subclass that calls a factory function to supply missing values |
+
 ** collections.abc — Abstract Base Classes for Containers
 ** heapq — Heap queue algorithm
 ** bisect — Array bisection algorithm
@@ -60,6 +332,21 @@
 ** types — Dynamic type creation and names for built-in types
 ** copy — Shallow and deep copy operations
 ** pprint — Data pretty printer
+适合打印列表。
+#+BEGIN_SRC python
+>>> import pprint
+>>> tup = ('spam', ('eggs', ('lumberjack', ('knights', ('ni', ('dead',
+... ('parrot', ('fresh fruit',))))))))
+>>> stuff = ['a' * 10, tup, ['a' * 30, 'b' * 30], ['c' * 20, 'd' * 20]]
+>>> pprint.pprint(stuff)
+['aaaaaaaaaa',
+ ('spam',
+  ('eggs',
+   ('lumberjack',
+    ('knights', ('ni', ('dead', ('parrot', ('fresh fruit',)))))))),
+ ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'],
+ ['cccccccccccccccccccc', 'dddddddddddddddddddd']]
+#+END_SRC
 ** reprlib — Alternate repr() implementation
 ** enum — Support for enumerations
 * Numeric and Mathematical Modules
@@ -67,6 +354,19 @@
 ** math — Mathematical functions
 ** cmath — Mathematical functions for complex numbers
 ** decimal — Decimal fixed point and floating point arithmetic
+Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
+On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
+#+begin_src emacs-lisp :tangle yes
+0.00011001100110011001100110011001100110011001100110011010
+#+end_src
+#+begin_src emacs-lisp :tangle yes
+>>> round(2.675, 2)
+2.67
+#+end_src
+it’s again replaced with a binary approximation, whose exact value is
+
+2.67499999999999982236431605997495353221893310546875
+
 ** fractions — Rational numbers
 ** random — Generate pseudo-random numbers
 ** statistics — Mathematical statistics functions
@@ -88,6 +388,43 @@
 ** macpath — Mac OS 9 path manipulation functions
 * Data Persistence
 ** pickle — Python object serialization
+*** dump:
+#+BEGIN_SRC python
+import pickle
+
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+pickle.dump( x0, open( "x0.pkl", "wb" ) )
+#+END_SRC
+
+*** load:
+#+BEGIN_SRC python
+import pprint, pickle
+
+pkl_file = open('data.pkl', 'rb')
+
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+#+END_SRC
 ** copyreg — Register pickle support functions
 ** shelve — Python object persistence
 ** marshal — Internal Python object serialization
@@ -121,6 +458,22 @@ True
 * File Formats
 ** csv — CSV File Reading and Writing
 ** configparser — Configuration file parser
+- use yaml and config file.
+#+BEGIN_SRC yaml
+# config.yaml
+engine:
+  user:
+    'jack'
+  password:
+    'password'
+#+END_SRC
+
+#+BEGIN_SRC python
+import yaml
+with open(r'config.yaml', 'rb') as f:
+    config = yaml.load(f)
+
+#+END_SRC
 ** netrc — netrc file processing
 ** xdrlib — Encode and decode XDR data
 ** plistlib — Generate and parse Mac OS X .plist files
@@ -135,6 +488,22 @@ True
 ** argparse — Parser for command-line options, arguments and sub-commands
 ** getopt — C-style parser for command line options
 ** logging — Logging facility for Python
+#+BEGIN_SRC python
+import logging
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+if not logger.handler:
+    logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
+logger
+
+# at the end of the program
+handler.close()
+logger.removeHandler(handler)
+#+END_SRC
+
 ** logging.config — Logging configuration
 ** logging.handlers — Logging handlers
 ** getpass — Portable password input
@@ -147,6 +516,17 @@ True
 ** ctypes — A foreign function library for Python
 * Concurrent Execution
 ** threading — Thread-based parallelism
+** threading & queue
+*** install
+#+BEGIN_SRC shell
+pip install queuelib
+#+END_SRC
+*** example
+#+BEGIN_SRC python
+from Queue import Queue
+import threading
+
+#+END_SRC
 ** multiprocessing — Process-based parallelism
 ** The concurrent package
 ** concurrent.futures — Launching parallel tasks
@@ -167,6 +547,38 @@ True
 ** signal — Set handlers for asynchronous events
 ** mmap — Memory-mapped file support
 * Internet Data Handling
+** Jupyter notebook
+*** Using a virtualenv in an IPython notebook
+1. Install the ipython kernel module into your virtualenv
+#+BEGIN_SRC python
+workon my-virtualenv-name  # activate your virtualenv, if you haven't already
+pip install ipykernel
+#+END_SRC
+
+2. Now run the kernel "self-install" script:
+#+BEGIN_SRC python
+python -m ipykernel install --user --name=my-virtualenv-name
+#+END_SRC
+
+** fetch data from yahoo
+install pandas-datareader first.
+#+BEGIN_SRC shell
+conda install pandas-datareader
+#+END_SRC
+
+#+begin_src python
+import pandas as pd
+import datetime as dt
+import numpy as np
+from pandas_datareader import data as web
+
+data = pd.DataFrame()
+symbols = ['GLD', 'GDX']
+for sym in symbols:
+    data[sym] = web.DataReader(sym, data_source='yahoo', start='20100510')['Adj Close']
+data = data.dropna()
+#+end_src
+
 ** email — An email and MIME handling package
 ** json — JSON encoder and decoder
 ** mailcap — Mailcap file handling
@@ -249,6 +661,15 @@ True
 ** pydoc — Documentation generator and online help system
 ** doctest — Test interactive Python examples
 ** unittest — Unit testing framework
+- check data operation:
+  - create, select, update, delete.
+
+- purpose of unit test
+  - checking parameter types, classes, or values.
+  - checking data structure invariants.
+  - checking “can’t happen” situations (duplicates in a list, contradictory state variables.)
+  - after calling a function, to make sure that its return is reasonable.
+
 ** unittest.mock — mock object library
 ** unittest.mock — getting started
 ** 2to3 - Automated Python 2 to 3 code translation
@@ -259,17 +680,124 @@ True
 ** faulthandler — Dump the Python traceback
 ** pdb — The Python Debugger
 ** The Python Profilers
+STEPS:
+1). install snakeviz using pip from cmd.
+#+BEGIN_SRC shell
+pip install snakeviz
+#+END_SRC
+
+2). profile the test python file using below command.
+#+BEGIN_SRC shell
+$ python -m cProfile -o profile.stats test.py
+#+END_SRC
+#+BEGIN_SRC python
+# test.py
+from random import randint
+max_size = 10**4
+data = [randint(0, max_size) for _ in range(max_size)]
+test = lambda: insertion_sort(data)
+
+#+END_SRC
+
+3). check the efficiency result from profile.stats file.
+#+BEGIN_SRC shell
+$ snakeviz profile.stats
+#+END_SRC
+
 ** timeit — Measure execution time of small code snippets
 ** trace — Trace or track Python statement execution
 ** tracemalloc — Trace memory allocations
 * Software Packaging and Distribution
+** pip
+- add below setup to ~/.pip/pip.conf
+#+begin_src txt
+[global]
+#index-url=https://pypi.mirrors.ustc.edu.cn/simple/
+#index-url=https://pypi.python.org/simple/
+index-url=http://mirrors.aliyun.com/pypi/simple/
+#index-url=https://pypi.gocept.com/pypi/simple/
+#index-url=https://mirror.picosecond.org/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com
+#trusted-host=mirrors.ustc.edu.cn
+#trusted-host=http://mirrors.aliyun.com/pypi/simple/
+#+end_src
+
+- pip install directly:
+requirements.txt
+#+begin_src txt
+--index-url http://mirrors.aliyun.com/pypi/simple/
+pandas
+pylint
+pep8
+sphinx
+ipython
+numpy
+ipdb
+mock
+nose
+#+end_src
 ** distutils — Building and installing Python modules
 ** ensurepip — Bootstrapping the pip installer
 ** venv — Creation of virtual environments
 ** zipapp — Manage executable python zip archives
 * Python Runtime Services
-** sys — System-specific parameters and functions
 ** sysconfig — Provide access to Python’s configuration information
+** os, sys — System-specific parameters and functions
+- check if file or directory exists, if not then make directory:
+#+BEGIN_SRC python
+import os
+os.path.exists(test_file.txt)
+os.path.isfile("test-data")
+export_dir = "export/"
+if not os.path.exists(export_dir):
+    os.mkdir(export_dir)
+#+END_SRC
+
+ - read a file:
+import os
+folder = '/file/path'
+file = os.path.join(folder, 'file_name')
+
+- list all the files under a directory:
+#+BEGIN_SRC python
+# os.listdir() 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。这个列表以字母顺序。 它不包括 '.' 和'..' 即使它在文件夹中.
+path = os.getcwd()
+dirs = os.listdir(path)
+#+END_SRC
+
+- check if the file readable:
+#+BEGIN_SRC python
+import os
+if os.access("/file/path/foo.txt", os.F_OK):
+    print "Given file path is exist."
+
+if os.access("/file/path/foo.txt", os.R_OK):
+    print "File is accessible to read"
+
+if os.access("/file/path/foo.txt", os.W_OK):
+    print "File is accessible to write"
+
+if os.access("/file/path/foo.txt", os.X_OK):
+    print "File is accessible to execute"
+
+#+END_SRC
+- use sys to get command arguments:
+#+BEGIN_SRC python
+#!/usr/bin/python3
+
+import sys
+
+print ('参数个数为:', len(sys.argv), '个参数。')
+print ('参数列表:', str(sys.argv))
+
+#+END_SRC
+#+BEGIN_SRC shell
+$ python3 test.py arg1 arg2 arg3
+参数个数为: 4 个参数。
+参数列表: ['test.py', 'arg1', 'arg2', 'arg3']
+#+END_SRC
+
 ** builtins — Built-in objects
 ** __main__ — Top-level script environment
 ** warnings — Warning control
@@ -427,554 +955,7 @@ print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 ** imp — Access the import internals
 * Undocumented Modules
 ** Platform specific modules
-* Python basic operations:
-
-** Float point issue
-Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
-On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
-#+begin_src emacs-lisp :tangle yes
-0.00011001100110011001100110011001100110011001100110011010
-#+end_src
-#+begin_src emacs-lisp :tangle yes
->>> round(2.675, 2)
-2.67
-#+end_src
-it’s again replaced with a binary approximation, whose exact value is
-
-2.67499999999999982236431605997495353221893310546875
-
-** unittest:
-- check data operation:
-  - create, select, update, delete.
-
-- purpose of unit test
-  - checking parameter types, classes, or values.
-  - checking data structure invariants.
-  - checking “can’t happen” situations (duplicates in a list, contradictory state variables.)
-  - after calling a function, to make sure that its return is reasonable.
-
-** Time
-- get specific timezone datetime
-#+begin_src python
-tz = pytz.timezone('America/Los_Angeles')
-#date = date.today()
-now = datetime.now()
-los_angeles_time = datetime.now(tz)
-#+end_src
-
-- use tqdm as a status bar:
-#+begin_src python
-from tqdm import tqdm
-from time import sleep
-for i in tqdm(range(10)):
-    sleep(0.1)
-#+end_src
-
-- string to datetime:
-#+begin_src python
-time.strptime(string[, format])
-#+end_src
-
-- datetime, Timestamp, datetime64
-pandas, Timestamp
--- DatetimeIndex is composed by Timestamps.
-#+BEGIN_SRC python
-#Timestamp to string:i
-str_timestamp = pd.to_datetime(Timestamp, format = '%Y%m%d')
-str_timestamp = str_timestamp.strftime('%Y-%m-%d')
-#+END_SRC
-datetime, utc
-datetime64
-** Function
-- function parameter
-  - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
-
-- if the input argument is un-mutable,函数中改变形参值不会改变原值。
-if the input is mutable, operate on the input like append operation will change the input argument.
-
-- a, b = b, a + b # 相当于：
-#+begin_src python
-t = (b, a + b) # t是一个tuple
-a = t[0]
-b = t[1]
-#+end_src
-
-** Operator
-- The ^ symbol
-  - The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.
-- the minimum value between nan and infinity is infinity.
-min(np.nan, np.inf) = np.inf
-
-- eval
-eval the value of a variable name from string.
-** pickle
-
-*** dump:
-#+BEGIN_SRC python
-import pickle
-
-data1 = {'a': [1, 2.0, 3, 4+6j],
-         'b': ('string', u'Unicode string'),
-         'c': None}
-
-selfref_list = [1, 2, 3]
-selfref_list.append(selfref_list)
-
-output = open('data.pkl', 'wb')
-
-# Pickle dictionary using protocol 0.
-pickle.dump(data1, output)
-
-# Pickle the list using the highest protocol available.
-pickle.dump(selfref_list, output, -1)
-
-output.close()
-pickle.dump( x0, open( "x0.pkl", "wb" ) )
-#+END_SRC
-
-*** load:
-#+BEGIN_SRC python
-import pprint, pickle
-
-pkl_file = open('data.pkl', 'rb')
-
-data1 = pickle.load(pkl_file)
-pprint.pprint(data1)
-
-data2 = pickle.load(pkl_file)
-pprint.pprint(data2)
-
-pkl_file.close()
-#+END_SRC
-** list operations:
-
-- find difference of two lists:
-#+begin_src python
-a = [1,2,3,2,1,5,6,5,5,5]
-import collections
-print [item for item, count in collections.Counter(a).items() if count > 1]
-#+end_src
-
-- 列表生成式
-#+begin_src python
-[a.lower() for a in x=['Hello', 'World', 18, 'Apple', None] if isinstance(a,str)]
-#+end_src
-
-- read file to a list:
-#+begin_src python
-with open(r'y:\codes\data\smart_beta_etf_list.txt', 'rb') as f:
-etf_list = f.readlines()
-etf_list = [x.strip() for x in etf_list]
-# you may also want to remove whitespace characters like `\n` at the end of each line
-#+end_src
-
-- save a list to a file:
-#+begin_src python
-thefile = open('test.txt', 'w')
-#+end_src
-
-- for item in thelist:
-#+begin_src python
-thefile.write("%s\n" % item)
-#+end_src
-
-- replace comma as next line (enter):
-choose extend mode: replace ',' as \r\n
-
-- split strings by space delimiter from reverse:
-#+begin_src python
-text.rsplit(' ', 1)[0]
-#+end_src
-
-- split strings by space delimiter from beginning:
-#+begin_src python
-text.split(' ', 1)[0]
->>>a.split('.',1)
-['alvy','test.txt']
-后面多了一个参数1，以第一个'.'分界，分成两个字符串，组成一个list
->>>a.rsplit('.',1)
-['alvy.test','txt']
-现在是rsplit函数，从右边第一个'.'分界，分成两个字符串，组成一个list
-#+end_src
-
-** 生成器
-通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
-而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
-要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator：
-如果要一个一个打印出来，可以通过next()函数获得generator的下一个返回值：
-next(g)
-这里，最难理解的就是generator和函数的执行流程不一样。函数是顺序执行，遇到return语句或者最后一行函数语句就返回。
-而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
-
-#+begin_src python
-def odd():
-    print('step 1')
-
-    yield 1
-    print('step 2')
-    yield(3)
-    print('step 3')
-    yield(5)
->>> o = odd()
->>> next(o)
-step 1
-1
->>> next(o)
-step 2
-3
->>> next(o)
-step 3
-5
->>> next(o)
-Traceback (most recent call last):
-
-  File "<stdin>", line 1, in <module>
-StopIteration
-#+end_src
-
-*** loop
-- iterate key and value in a dictionary:
-#+begin_src python
-for index, value in dict.iteritems():
-print index, value
-#+end_src
-- iterate keys in a dictionary:
-#+begin_src python
-for k in dict:
-#+end_src
-
-- iterate a row in pandas dataframe:
-#+begin_src python
-DataFrame.iterrows():
-return generator.
->>> df = pd.DataFrame([[1, 1.5]], columns=['int', 'float'])
->>> row = next(df.iterrows())[1]
->>> row
-int      1.0
-float    1.5
-Name: 0, dtype: float64
->>> print(row['int'].dtype)
-float64
->>> print(df['int'].dtype)
-int64
-#+end_src
-
-- To preserve dtypes while iterating over the rows, it is better to use itertuples()
-  - which returns tuples of the values and which is generally faster as iterrows.
-
-** magic method:
-- getitem in a class allows its instances to use the [ ] (indexer) operators
-- setitem Called to implement assignment to self[key]
-- call magic method in a class causes its instances to become callables – in other words, those instances now behave like functions.
-- getattr overrides Python’s default mechanism for member access.
-- getattr magic method only gets invoked for attributes that are not in the dict magic attribute. Implementing getattr causes the hasattr built-in function to always return True, unless an exception is raised from within getattr.
-- setattr allows you to override Python’s default mechanism for member assignment.
-- The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards).
-#+begin_src python :tangle yes
-print `a`
-print repr(a)
-#+end_src
-
-** logging
-#+BEGIN_SRC python
-import logging
-logger = logging.getLogger()
-handler = logging.StreamHandler()
-formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
-handler.setFormatter(formatter)
-if not logger.handler:
-    logger.addHandler(handler)
-logger.setLevel(logging.DEBUG)
-logger
-
-# at the end of the program
-handler.close()
-logger.removeHandler(handler)
-#+END_SRC
-
-** regular express
-
-*** useage:
-- find strings
-- convert strings
-
-*** string array
-[Pp]ython: find Python or python
-
-**** parts
-re.search('[a-zA-Z0-9]', 'x')
-
-**** not
-re.search('[^0-9]', 'x')
-
-**** shortcut
-
-- word: \w
-- number: \d
-- space, tab, next line: \s
-- 0 length sub string: \b
-re.search('\bcorn\b', 'corner')
-
-**** start and end with strings
-#+BEGIN_SRC python
-re.search('^Python', 'Python 3')
-re.search('Python$', 'this is Python')
-#+END_SRC
-
-**** any character
-"."
-
-*** optional words
-'color' vs 'colour'
-re.search('colou?r', 'my favoriate color')
-
-*** repeat
-{N}
-
-#+BEGIN_SRC python
-# find a telephone number
-re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
-
-# find 32big GID
-[x for x in risk_model_merge.keys() if re.match("[A-Z0-9]{32}$", x)]
-#+END_SRC
-
-**** boundary of repeated times
-[\d]{3,4}
-
-**** open selection
-[\d]{3,}
-
-**** speed selection
-- +: {1,}
-- *: {0,}
-** collections — High-performance container datatypes
-
-| module      | function                                                             |
-|-------------+----------------------------------------------------------------------|
-| deque       | list-like container with fast appends and pops on either end         |
-| Counter     | dict subclass for counting hashable objects                          |
-| defaultdict | dict subclass that calls a factory function to supply missing values |
-
-** fetch data from yahoo
-install pandas-datareader first.
-#+BEGIN_SRC shell
-conda install pandas-datareader
-#+END_SRC
-
-#+begin_src python
-import pandas as pd
-import datetime as dt
-import numpy as np
-from pandas_datareader import data as web
-
-data = pd.DataFrame()
-symbols = ['GLD', 'GDX']
-for sym in symbols:
-    data[sym] = web.DataReader(sym, data_source='yahoo', start='20100510')['Adj Close']
-data = data.dropna()
-#+end_src
-
-** trouble shooting
-- linux python FileNotFoundError: [Errno 2] No such file or directory:
-
-try to use absolute path instead of relative path to read a file.
-
-- HDF5
-pip install tables
-
-** Jupyter notebook
-
-*** Using a virtualenv in an IPython notebook
-1. Install the ipython kernel module into your virtualenv
-#+BEGIN_SRC python
-workon my-virtualenv-name  # activate your virtualenv, if you haven't already
-pip install ipykernel
-#+END_SRC
-
-2. Now run the kernel "self-install" script:
-#+BEGIN_SRC python
-python -m ipykernel install --user --name=my-virtualenv-name
-#+END_SRC
-
-** profile
-STEPS:
-1). install snakeviz using pip from cmd.
-#+BEGIN_SRC shell
-pip install snakeviz
-#+END_SRC
-
-2). profile the test python file using below command.
-#+BEGIN_SRC shell
-$ python -m cProfile -o profile.stats test.py
-#+END_SRC
-#+BEGIN_SRC python
-# test.py
-from random import randint
-max_size = 10**4
-data = [randint(0, max_size) for _ in range(max_size)]
-test = lambda: insertion_sort(data)
-
-#+END_SRC
-
-3). check the efficiency result from profile.stats file.
-#+BEGIN_SRC shell
-$ snakeviz profile.stats
-#+END_SRC
-
-** os, sys:
-- check if file or directory exists, if not then make directory:
-#+BEGIN_SRC python
-import os
-os.path.exists(test_file.txt)
-os.path.isfile("test-data")
-export_dir = "export/"
-if not os.path.exists(export_dir):
-    os.mkdir(export_dir)
-#+END_SRC
-
- - read a file:
-import os
-folder = '/file/path'
-file = os.path.join(folder, 'file_name')
-
-- list all the files under a directory:
-#+BEGIN_SRC python
-# os.listdir() 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。这个列表以字母顺序。 它不包括 '.' 和'..' 即使它在文件夹中.
-path = os.getcwd()
-dirs = os.listdir(path)
-#+END_SRC
-
-- check if the file readable:
-#+BEGIN_SRC python
-import os
-if os.access("/file/path/foo.txt", os.F_OK):
-    print "Given file path is exist."
-
-if os.access("/file/path/foo.txt", os.R_OK):
-    print "File is accessible to read"
-
-if os.access("/file/path/foo.txt", os.W_OK):
-    print "File is accessible to write"
-
-if os.access("/file/path/foo.txt", os.X_OK):
-    print "File is accessible to execute"
-
-#+END_SRC
-- use sys to get command arguments:
-#+BEGIN_SRC python
-#!/usr/bin/python3
-
-import sys
-
-print ('参数个数为:', len(sys.argv), '个参数。')
-print ('参数列表:', str(sys.argv))
-
-#+END_SRC
-#+BEGIN_SRC shell
-$ python3 test.py arg1 arg2 arg3
-参数个数为: 4 个参数。
-参数列表: ['test.py', 'arg1', 'arg2', 'arg3']
-#+END_SRC
-
-** pip
-- add below setup to ~/.pip/pip.conf
-#+begin_src txt
-[global]
-#index-url=https://pypi.mirrors.ustc.edu.cn/simple/
-#index-url=https://pypi.python.org/simple/
-index-url=http://mirrors.aliyun.com/pypi/simple/
-#index-url=https://pypi.gocept.com/pypi/simple/
-#index-url=https://mirror.picosecond.org/pypi/simple/
-[install]
-trusted-host=mirrors.aliyun.com
-#trusted-host=mirrors.ustc.edu.cn
-#trusted-host=http://mirrors.aliyun.com/pypi/simple/
-#+end_src
-
-- pip install directly:
-requirements.txt
-#+begin_src txt
---index-url http://mirrors.aliyun.com/pypi/simple/
-pandas
-pylint
-pep8
-sphinx
-ipython
-numpy
-ipdb
-mock
-nose
-#+end_src
-** exception
-- create an exception:
-#+BEGIN_SRC python
-class ConstraintError(Exception):
-    def __init__(self, arg):
-        self.args = arg
-
-
-if error:
-    raise ConstraintError("error")
-
-
-class Networkerror(RuntimeError):
-    def __init__(self, arg):
-        self.args = arg
-
-
-try:
-    raise Networkerror("Bad hostname")
-except Networkerror,e:
-    print e.args
-    print e.message
-#+END_SRC
-** threading & queue
-*** install
-#+BEGIN_SRC shell
-pip install queuelib
-#+END_SRC
-*** example
-#+BEGIN_SRC python
-from Queue import Queue
-import threading
-
-#+END_SRC
-** loading configuration
-- use yaml and config file.
-#+BEGIN_SRC yaml
-# config.yaml
-engine:
-  user:
-    'jack'
-  password:
-    'password'
-#+END_SRC
-
-#+BEGIN_SRC python
-import yaml
-with open(r'config.yaml', 'rb') as f:
-    config = yaml.load(f)
-
-#+END_SRC
-** pprint
-适合打印列表。
-#+BEGIN_SRC python
->>> import pprint
->>> tup = ('spam', ('eggs', ('lumberjack', ('knights', ('ni', ('dead',
-... ('parrot', ('fresh fruit',))))))))
->>> stuff = ['a' * 10, tup, ['a' * 30, 'b' * 30], ['c' * 20, 'd' * 20]]
->>> pprint.pprint(stuff)
-['aaaaaaaaaa',
- ('spam',
-  ('eggs',
-   ('lumberjack',
-    ('knights', ('ni', ('dead', ('parrot', ('fresh fruit',)))))))),
- ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'],
- ['cccccccccccccccccccc', 'dddddddddddddddddddd']]
-#+END_SRC
 * Data Analysis:
-
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
 - generate a dataframe:
