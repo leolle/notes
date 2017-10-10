@@ -11,7 +11,7 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+STARTUP: latexpreview
-#+SETUPFILE: ../../configOrg/level1.org
+#+SETUPFILE: ../../configOrg/level2.org
 
 * 机器学习与数据挖掘
 
