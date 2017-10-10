@@ -80,8 +80,52 @@ IPO firms underperform the industry- and size-matched firms by 27.4%. Ritter (19
 underperform their peer firms in both the buy-and-hold and the monthly rebalancing strategies. Ritter
 conjectures that this mispricing may be due to firms going public when investors are too optimistic about
 their prospects.
-*** 股权再融资
+*** 股权再融资(Seasoned Equity Offerings)
 research has shown that firms that issued equity through an SEO, experience negative stock returns in the years following the equity issues.
+
+market-timing:
+managers exploit their information advantage relative to outsiders to time their SEOs at
+opportune times when their stock is most likely to be overvalued.
+*** 债务发行(Debt Issuances)
+straight debt issuances are associated with an average abnormal negative stock return of 14.3% for a period of 5 years, the evidence suggests that abnormal stock returns for the straight debt call sample is between 0.18% and 0.34% per month, depending on the benchmark used for a period of 5 years following the debt call event. As for convertible debt, the authors find mixed evidence following the calls of convertible debt.
+*** 股权回购和要约收购(Share Repurchases and Tender Offers)
+*** 股票股利初次发放与停发(Dividend Initiation and Omissions)
+*** 非公开发行股票, 定向增发(Private Equity Placement)
+*** 净外部融资(Overall Net External Financing)
+*** 企业兼并与收购(Mergers and Acquisitions)
+** 内幕交易(The Insider Trading Anomaly)
+The large shareholders who hold more than 10% of a stock's outstanding shares, all members of the board of directors, the CEO, CFO, and other highest-level officers are considered insiders. Attorneys, underwriters, and consultants to these highest-level officers and directors are also considered insiders.
+*** Documentation of the Anomaly
+** 动量，技术分析(Momentum: The Technical Analysis)
+*** Moving Averages
+*** 52-Week High/Low
+*** Momentum at Industry Levels
+*** Momentum and Mutual Funds
+** 季节性(Seasonality)
+*** January Effect
+*** January Small Cap Effect in the Futures Markets
+*** 一月晴雨表(The January Barometer)
+*** Sell-in-May-and-Go-Away
+*** Same Month Next Year
+*** Holiday Effects
+*** The Sell on Rosh Hashanah
+*** Ramadan
+*** Day-of-the-Week Effects
+*** Seasonality Calendars
+*** Political Effects
+*** Election Cycles
+*** Turn-of-the-Month Effects
+*** Open/Close Daily Trade on the Open
+*** Weather: Sun, Rain, Snow, Moon, and the Stars
+** 规模和价值
+*** Fama-French Three-Factor Model
+*** Alternative Value Indicators
+**** price-to-earnings ratio (P/E)
+**** E/P ratio
+*** Time Variation in the Value Premium
+*** Cross-Sectional Variation in the Value Premium
+*** Anatomy of the Size Anomaly
+
 
 ** 标的
 ** 仓位
@@ -148,43 +192,43 @@ libraries classification source:
 
 [[https://en.wikipedia.org/wiki/Outline_of_machine_learning][Outline of machine learning]]
 
-** TODO 内置类型
+**  内置类型
 *** 数组处理
 *** 添加数据
 *** 提取数据
 *** 重命名
-** TODO 交易相关
-*** TODO 模拟交易及绩效
+**  交易相关
+***  模拟交易及绩效
 
 **** 期货
 
-** TODO 数据类型
+**  数据类型
 
-*** TODO 日期时间
+***  日期时间
 
-*** TODO 数组
+***  数组
 
-*** TODO 类型
+***  类型
 
 *** 打印
 
 ** 算术和数学模型
 
-*** TODO 数字
+***  数字
 
-*** TODO 数学
-**** TODO 简单运算
-**** TODO 多列计算
-*** TODO 统计
+***  数学
+****  简单运算
+****  多列计算
+***  统计
 
-**** TODO 横截面聚合
-**** TODO 统计分析
-*** TODO 金融
-**** TODO ta-lib
-***** TODO 技术指标
-**** TODO RiskModel
+****  横截面聚合
+****  统计分析
+***  金融
+****  ta-lib
+*****  技术指标
+****  RiskModel
 
-*** TODO 机器学习
+***  机器学习
 
 **** 问题
 - 分类
@@ -209,7 +253,7 @@ libraries classification source:
 回归模型检验 平均响应和预测响应 误差和残差 拟合优度 学生化残差 高斯－马尔可夫定理
 - 异常检测
 关联规则 强化学习 结构预测 特征学习 在线学习 半监督学习 语法归纳
-**** TODO 监督学习(分类 · 回归)
+****  监督学习(分类 · 回归)
 - 决策树
 - 表征（装袋, 提升，随机森林）
 - k-NN
@@ -221,7 +265,7 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 - 感知器
 - 支持向量机（SVM）
 - 相关向量机（RVM）
-**** TODO 聚类
+****  聚类
 
 - BIRCH
 - 层次
@@ -230,7 +274,7 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 - DBSCAN
 - OPTICS
 - 均值飘移
-**** TODO 降维
+****  降维
 - 因子分析
 - CCA
 - ICA
@@ -239,13 +283,13 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 - PCA
 - LASSO
 - t-SNE
-**** TODO 结构预测
+****  结构预测
 
 - 概率图模型（贝叶斯网络，CRF, HMM）
-**** TODO 异常检测
+****  异常检测
 - k-NN
 - 局部离群因子
-**** TODO 神经网络
+****  神经网络
 
 - 自编码
 - 深度学习
@@ -265,48 +309,48 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 
 ** 策略管理
 
-*** TODO 组合优化
+***  组合优化
 
-*** TODO 基金策略
+***  基金策略
 
-*** TODO 基金经理评估
+***  基金经理评估
 
-*** TODO 资产配置模型
+***  资产配置模型
 
-*** TODO 策略函数
-*** TODO 策略分析
+***  策略函数
+***  策略分析
 
 ** 数据分析
 
-*** TODO 组合因子业绩贡献
+***  组合因子业绩贡献
 
-*** TODO 业绩归因
+*** 业绩归因
 
-*** TODO 绩效归因
+***  绩效归因
 
-*** TODO 持仓分析
+***  持仓分析
 
-*** TODO 因子收益率查看函数
+***  因子收益率查看函数
 
 ** 数据格式
 
-*** TODO 转换数据类型
+***  转换数据类型
 
-*** TODO OOTV
+***  OOTV
 ** 数据处理
-*** TODO 信号处理
-**** TODO 频度调整
-**** TODO 频率调整
-**** TODO 频率调整-敏感
-**** TODO 过滤数据
-**** TODO 横截面处理
-*** TODO 行业中性
+***  信号处理
+****  频度调整
+****  频率调整
+****  频率调整-敏感
+****  过滤数据
+****  横截面处理
+***  行业中性
 
-*** TODO 因子加权
+***  因子加权
 
-*** TODO 升维
+***  升维
 
-*** TODO 面板数据处理
+***  面板数据处理
 ** 通用操作系统服务
 
 *** 系统
@@ -318,10 +362,10 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 ** 金融数据处理
 
 *** 财务相关
-** TODO 结构化标记处理工具
-*** TODO 时间序列
+**  结构化标记处理工具
+***  时间序列
 ** 开发工具
-*** TODO 编程接口
+***  编程接口
 ** 衍生模块
 
 *** 指数相关
@@ -335,7 +379,7 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 ** 杂项服务
 - formatter - 通用输出格式
 *** 其它
-*** TODO 期货相关
+*** 期货相关
 *** FR相关
 * function sampling definition
 

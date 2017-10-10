@@ -12,6 +12,7 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
+[[http://www.pythondoc.com/pythontutorial3/][source]]
 * Introduction
 * Built-in Functions
 * Built-in Constants

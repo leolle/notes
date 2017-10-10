@@ -2,12 +2,16 @@
 #+OPTIONS: <:active
 #+ICALENDAR_EXCLUDE_TAGS:
 
-#+BEGIN_SRC emacs
-;; insert current date
-C-c . <2017-08-11 Fri>
-;; insert current date and time
-C-u C-c . <2017-08-11 Fri 16:06>
-#+END_SRC
+* Instruction on how to use emacs org mode to orginize calendar.
+
+- insert current date
+=C-c .= <2017-08-11 Fri>
+
+- insert current date and time
+=C-u C-c .= <2017-08-11 Fri 16:06>
+
+- set deadline for an item
+=C-c C-d=
 
 * Workflow
 1. search
@@ -40,18 +44,36 @@ C-u C-c . <2017-08-11 Fri 16:06>
 | <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
 |                  |                                  |                                                   |
 
-* <2017-07-19 Wed>
+* others
 - [X] 搭建基金策略
 - [X] 对基金策略进行组合优化
 - [X] 分析优化后结果，把组合优化加入流程
-* <2017-07-21 Fri>
+- Hidden factor model
+ICA
+- portfolio optimization based on factor model
+- non linear constrain on factor model
+
+- [ ] 公司帮忙照看搬家。
+8 hours.
+
+
+
+
+* <2017-09-12 Tue>
+
+* Personal stuff
+** knowledge database website
+- [ ] modify python content aligned with python library index.
+[[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
+
+- [ ] publish org files to gitbook.
+* Errand
+* NaturalLanguageProcessing
+** Setup
 - [X] 配置好GOOGLE GCLOUD PLATORM的代理
 - [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
 - [ ] deep learning of bank stress in the news
 - [ ] detect events based on text, obtain descriptions of events.
-
-** GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
-
 ** configuration:
 - reports-174211
 - proxy:
@@ -75,6 +97,7 @@ scoped_credentials = credentials.with_scopes(
     ['https://www.googleapis.com/auth/cloud-platform'])
 
 #+END_SRC
+
 #+BEGIN_SRC python
 # -*- coding: utf-8 -*-
 # Imports the Google Cloud client library
@@ -102,8 +125,22 @@ print('Sentiment: {}, {}'.format(sentiment.score, sentiment.magnitude))
 #+BEGIN_SRC shell
 gcloud ml language analyze-entities --content="Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'."
 #+END_SRC
-
+- connect to Amazon AWS EW2:
+#+BEGIN_SRC shell
+# 1
+chmod 400 /path/my-key-pair.pem
+# 2
+ssh -i "amazon.pem" ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com
+# 3
+scp -i "/home/weiwu/Downloads/amazon.pem" ~/projects/sentiment/reports-b56f3f2275a1.json  ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com:~/projects/sentiment
+#+END_SRC
+- install Google SDK on AWS EM2
+methon 1:
+curl https://sdk.cloud.google.com | bash
+sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
+sudo `which pip` install --upgrade google-cloud-language
 ** SDK
+- GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
 - https://cloud.google.com/sdk/docs/quickstart-linux
 - key:
 https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211
@@ -151,30 +188,7 @@ Your active configuration is: [nlp1]
 
 (C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
 #+END_SRC
-
-* <2017-07-24 Mon>
-- Hidden factor model
-ICA
-- portfolio optimization based on factor model
-- non linear constrain on factor model
-
-connect to Amazon AWS EW2:
-#+BEGIN_SRC shell
-# 1
-chmod 400 /path/my-key-pair.pem
-# 2
-ssh -i "amazon.pem" ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com
-# 3
-scp -i "/home/weiwu/Downloads/amazon.pem" ~/projects/sentiment/reports-b56f3f2275a1.json  ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com:~/projects/sentiment
-#+END_SRC
-- install Google SDK on AWS EM2
-methon 1:
-curl https://sdk.cloud.google.com | bash
-sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
-sudo `which pip` install --upgrade google-cloud-language
-
-* <2017-07-25 Tue>
-- read the book 《自然语言处理综论》
+** - read the book 《自然语言处理综论》
 not easy to understand this book.
 - listen to the open course
 https://web.stanford.edu/class/cs224n/syllabus.html
@@ -241,56 +255,31 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
 - [ ] 语义角色标注
 语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
-
-* <2017-07-31 Mon>
-- [ ] 公司帮忙照看搬家。
-8 hours.
-* <2017-08-01 Tue>
-- [ ] 查看cvxportfolio的使用说明。
-
-
-* <2017-08-02 Wed>
-- [ ] 在开发的帮助下安装cvxportfolio library，调试。
 - [ ] 查看Google Trende API.
 
+* GS
+** OSet structure
+DEADLINE: <2017-10-09 Mon>
+- [X] f def
+- [ ] stocks
+- [X] abnormal factors
+- [ ] strategies
 
-* <2017-08-03 Thu>
-- [ ] 调试cvxportfolio library，把代码换用该库。
-
-
-* <2017-08-04 Fri>
-- [ ] 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。
-
-
-* <2017-08-07 Mon>
-- [ ] research on soft constraint using cvxpy.
-
-
-* <2017-08-08 Tue>
-- [ ] research on soft constraint using cvxpy.
-
-
-* <2017-08-09 Wed>
-- [ ] 搭建workflow。
-- [ ] 多期优化。
-
-
-* <2017-08-10 Thu>
-- [ ] DONE 搭建WORKFLOW.
-CLOSED: [2017-08-11 Fri 09:02]
+* TODO optimization
+DEADLINE: <2017-09-27 Wed> SCHEDULED: <2017-09-27 Wed>
+- [ ] construnct FS, FR, workflow.
+- [ ] soft constraint.
+- [ ] worse-case risk analysis.
+<2017-09-18 Mon>
+- [X] add excess single returns and excess cumulative returns on PNLFitness.
+- [X] move functions defines osets.
+- [X] read future simulation code.
+- [X] pack constraint input parameters.
 - [ ] DONE multi-period optimization using cvxportfolio.
-CLOSED: [2017-08-11 Fri 09:02]
-
-
-* <2017-08-11 Fri>
 - [ ] 用多期因子做一下回测看看效果，没有看到在OBJECTIVE FUNCTION里面加TRADE COST LOSS FUNCTION的做法，RETURN, RISK和 COST 不在同一个数量级的.
 - [ ] 继续在CVXPORTFOLIO上改用RISK MODEL.
-
-
-* <2017-08-14 Mon>
 - [ ] 周末把每一期按单期优化处理后得到了新的权重，没有加入预测，上午跑一下看看效果。
 - [ ] 把RISK MODEL加到CVXPORTFOLIO。
-* <2017-08-16 Wed>
 - [X] GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。
 - [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
 - [ ] 将 group constaint 的条件泛化。
@@ -299,7 +288,6 @@ CLOSED: [2017-08-11 Fri 09:02]
 - [ ] gs输入signature需要指定 oset.
 oset组织不完整，postpone.
 - [X] risk model api.
-* <2017-08-17 Thu>
 - [-] risk model api test.
   - [X] change factor return dataframe name to b char array.
   - [ ] risk model api function.
@@ -318,7 +306,6 @@ oset组织不完整，postpone.
 - [ ] 将 group constaint 的条件泛化。
 - [ ] select assets by returns and volatility according to target mode.
 - [ ] test the api according to my own requirement.
-* <2017-08-18 Fri>
   - [ ] risk model class function.
     - factor exposure(panel)
       size(1536*8*2885).
@@ -338,20 +325,16 @@ oset组织不完整，postpone.
 using the robust linear regression to estimate the coefficient and do the ranking.
 consider use the lasso regression maybe a better choice.
 - [X] 将新写的api代码应用到gs.
-* <2017-08-21 Mon> - <2017-08-25 Fri>
 - [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
 - [X] 将 group constaint 的条件泛化。
 - [ ] select assets by returns and volatility according to target mode.
 - [ ] Paper on industry classification.
-* <2017-08-21 Mon>
 - [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
 - [X] 将 group constaint 的条件泛化。
 - [X] test on gs.
-* <2017-08-22 Tue>
 - [X] select assets by returns and volatility according to target mode.
 - [X] soft constraint based on penalty function.
 - [ ] Paper on industry classification.
-** todo:
 1. portfolio optimization
 - [ ] write pseudo code.
 - [ ] fix const variable issue for target mode naming.
@@ -365,51 +348,33 @@ consider use the lasso regression maybe a better choice.
 finish this paper and write summary.
 find a dateset for industry, product, financial statement, etc, extract nouns from text matching these classes.
 duplicate classification algorithm.
-* <2017-08-23 Wed>
-** portfolio optimization
-- [ ] write pseudo code.
+
 - [X] fix const variable issue for target mode naming.
 - [X] write fd for asset constraint on gs.
-
-** soft constraint
 - [X] write pseudo code.
 - [ ] move soft constraint test on gs.
-
-** paper
 - [X] finish text-based network industry classification(TBNIC) and summarizing.
-
-* <2017-08-24 Thu>
 - [X] deploy the constraint function on gs.
-* <2017-08-25 Fri>
 - [ ] collect product noun words from description using NLP.
-* <2017-08-27 Sun>
 - [ ] get factors list GID
-* <2017-08-28 Mon>
 - [ ] review optimization function map, functions signature, pseudo code.
 - [ ] collect product noun words from description using NLP.
-* <2017-08-29 Tue>
 - [X] programe the pair input data structure.
 - [X] make this structure available on GS.
 - [X] OTVV的数据结构是通过上传还是写python function还在试验看哪种方式更高效，不过我自己已经把这种函数写出来了。
-* <2017-08-30 Wed>
 - [ ] put the constraint GS, review code.
-* <2017-08-31 Thu>
 - [X] setup the constraint, covariance matrix, sigma, delta on GS.
 - [ ] add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.
-* <2017-09-01 Fri>
 - [X] 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。
 fix by fillna with 0 in the factor exposure dataframe.
 - [X] deploy the whole function on Jupyter and gs.
 - [X] we have a position limit option, length is x.
 asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
 we can create two constraint with the formula (wT*M1)T>= V_1, (wT*M1)T <= V_2.
-* <2017-09-04 Mon>
 - [X] calculate the benchmark factor exposure as the reference j to the exposure constraint input.
 - [ ] debug the optimization with exposure constraint.
 BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.
-* <2017-09-05 Tue>
 - [X] debug the optimization with exposure constraint.
-* <2017-09-06 Wed>
 - [X] 程序已经调通，加入factor exposure constraint找到最优解
   1. check the calculation of the factor exposure.
   2. 放松约束条件.
@@ -423,89 +388,25 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 - [ ] present &review project.
 - [ ] portfolio construction with black-litterman model.
 - [ ] portfolio construction with risk-parity model.
-* <2017-09-07 Thu>
 - [-] test:
   - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
   - [X] original portfolio is constructed by all hs300 components.
   - [ ] industry weight constraint match the benchmark weight.
-* <2017-09-08 Fri>
 - [X] industry weight constraint match the benchmark weight.
 - [ ] pack functions to modules.
 - [ ] follow up correction.
 - [ ] black-litterman portfolio.
-* <2017-09-11 Mon>
 - [ ] pack functions to modules.
 - [ ] follow up correction.
-* <2017-09-12 Tue>
-- [ ] future simulation requested function:
-- calendar spread trading.
-buy current month expired contract.
-short next month expired contract.
-
-- rolling on constant maturity.
-
-- trend following on dominant contract.
-moving average crossing over on the continous contract.
-* <2017-09-13 Wed>
-- [ ] future simulation pseudo code.
-#+BEGIN_SRC python
- def OnData(self,slice):
-        if not self.Portfolio.Invested:
-            for chain in slice.FutureChains:
-                 # Get contracts expiring no earlier than in 90 days
-                contracts = filter(lambda x: x.Expiry > self.Time + timedelta(90), chain.Value)
-
-                # if there is any contract, trade the front contract
-                if len(contracts) == 0: continue
-                front = sorted(contracts, key = lambda x: x.Expiry, reverse=True)[0]
-                self.MarketOrder(front.Symbol , 1)
-        else:
-            self.Liquidate()
-#+END_SRC
-* <2017-09-13 Wed>
- requested function:
-- [ ] calendar spread trading.
-
-calculate the position value based on continious contract and actual contract
-
-buy current month expired contract.
-short next month expired contract.
-
-- [ ] rolling on constant maturity.
-
-calculate the position value based on continious contract and actual contract
-
-- [ ] trend following on dominant contract.
-
-moving average crossing over on the continous contract.
-* <2017-09-14 Thu>
-- [X] range osets.
-- [X] future simulation pseudo code.
-- [X] parse future continious contract data.
-** code:<2017-09-14 Thu>
-- [ ] simple mode test with real data.
-* Personal stuff
-** knowledge database website
-- [ ] modify python content aligned with python library index.
-[[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
-
-* GS
-** OSet structure
-DEADLINE: <2017-10-09 Mon>
-- [X] f def
-- [ ] stocks
-- [ ] factors
-
-* TODO optimization
-DEADLINE: <2017-09-27 Wed> SCHEDULED: <2017-09-27 Wed>
-- [ ] construnct FS, FR, workflow.
-- [ ] soft constraint.
-- [ ] worse-case risk analysis.
-<2017-09-18 Mon>
-- [X] add excess single returns and excess cumulative returns on PNLFitness.
-- [X] move functions defines osets.
-- [X] read future simulation code.
-- [X] pack constraint input parameters.
+** cvxportfolio
+- [ ] 查看cvxportfolio的使用说明。
+- [ ] 在开发的帮助下安装cvxportfolio library，调试。
+- [ ] 调试cvxportfolio library，把代码换用该库。
+- [ ] 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。
+** cvxpy
+- [ ] research on soft constraint using cvxpy.
+- [ ] 搭建workflow。
+- [ ] 多期优化。
 
 * TODO future simulation                                :future:optimization:
 
@@ -547,3 +448,50 @@ DEADLINE: <2017-09-29 Fri>
 DEADLINE: <2017-09-30 Sat>
 - [ ] modify simulation code referred to stocks simulation.
 - [ ] adjust input signatures.
+- [ ] future simulation requested function:
+- calendar spread trading.
+buy current month expired contract.
+short next month expired contract.
+
+- rolling on constant maturity.
+
+- trend following on dominant contract.
+moving average crossing over on the continous contract.
+** <2017-09-13 Wed>
+- [ ] future simulation pseudo code.
+#+BEGIN_SRC python
+ def OnData(self,slice):
+        if not self.Portfolio.Invested:
+            for chain in slice.FutureChains:
+                 # Get contracts expiring no earlier than in 90 days
+                contracts = filter(lambda x: x.Expiry > self.Time + timedelta(90), chain.Value)
+
+                # if there is any contract, trade the front contract
+                if len(contracts) == 0: continue
+                front = sorted(contracts, key = lambda x: x.Expiry, reverse=True)[0]
+                self.MarketOrder(front.Symbol , 1)
+        else:
+            self.Liquidate()
+#+END_SRC
+** <2017-09-13 Wed>
+ requested function:
+- [ ] calendar spread trading.
+
+calculate the position value based on continious contract and actual contract
+
+buy current month expired contract.
+short next month expired contract.
+
+- [ ] rolling on constant maturity.
+
+calculate the position value based on continious contract and actual contract
+
+- [ ] trend following on dominant contract.
+
+moving average crossing over on the continous contract.
+** <2017-09-14 Thu>
+- [X] range osets.
+- [X] future simulation pseudo code.
+- [X] parse future continious contract data.
+** code:<2017-09-14 Thu>
+- [ ] simple mode test with real data.
