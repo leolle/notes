@@ -21,7 +21,7 @@
     + [[file:CS/DB.org][DB]]
   + [[file:CS/Regular_Expression.org][RegularExpression]]
   + [[file:CS/VersionControl.org][VersionControl]]
-  + emacs
+  + Emacs
     + [[file:emacs/emacs.org][emacs]]
     + [[file:emacs/markdown.org][markdown]]
     + [[file:emacs/tutorial.org][tutorial]]
@@ -39,7 +39,7 @@
     + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
     + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
     + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]
-+ finance
++ Finance
   + [[file:finance/Backtest.org][Backtest]]
   + [[file:finance/ComputationalInvestment.org][ComputationalInvestment]]
   + [[file:finance/EventStudy.org][EventStudy]]
@@ -51,6 +51,6 @@
   + [[file:finance/QuantitativeInvestment.org][QuantitativeInvestment]]
   + [[file:finance/future.org][future]]
   + [[file:finance/option.org][option]]
-+ notes
++ Notes
   + [[file:notes/thought.org][thought]]
 + [[file:work_plan.org][work_plan]]
