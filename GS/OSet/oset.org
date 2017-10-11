@@ -404,6 +404,20 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 *** 其它
 *** 期货相关
 *** FR相关
+* Statistical inference
+** 贝叶斯推断
+** 最大似然估计
+** 参数模型与指数分布族
+** 经验贝叶斯法
+** 岭回归
+** 线性模型与回归树
+** 幸存分析与期望最大化
+** 估计统计量的重采样
+** 交叉验证与预测误差
+** 稀疏建模与索套回归
+** 随机森林与提升
+** 神经网络和深度学习
+** 支持向量机和核方法
 * function sampling definition
 
 * function sampling instance
