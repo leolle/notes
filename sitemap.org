@@ -14,7 +14,7 @@
     + [[file:CS/Python/PythonForFinance.org][PythonForFinance]]
     + [[file:CS/Python/guide.org][guide]]
     + [[file:CS/Python/pandas.org][pandas]]
-    + [[file:CS/Python/python.org][python2]]
+    + [[file:CS/Python/python.org][python]]
     + [[file:CS/Python/sqlalchemy.org][sqlalchemy]]
   + Database
     + [[file:Database/DBMS.org][DBMS]]
@@ -25,6 +25,7 @@
     + [[file:emacs/emacs.org][emacs]]
     + [[file:emacs/markdown.org][markdown]]
     + [[file:emacs/tutorial.org][tutorial]]
+    + [[file:emacs/tutorial_backup.org][backup]]
 + Calendar
   + [[file:Calendar/sentiment.org][sentiment]]
 + GS

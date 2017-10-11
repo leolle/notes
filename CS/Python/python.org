@@ -29,18 +29,6 @@ a = t[0]
 b = t[1]
 #+end_src
 
-** magic method:
-- getitem in a class allows its instances to use the [ ] (indexer) operators
-- setitem Called to implement assignment to self[key]
-- call magic method in a class causes its instances to become callables – in other words, those instances now behave like functions.
-- getattr overrides Python’s default mechanism for member access.
-- getattr magic method only gets invoked for attributes that are not in the dict magic attribute. Implementing getattr causes the hasattr built-in function to always return True, unless an exception is raised from within getattr.
-- setattr allows you to override Python’s default mechanism for member assignment.
-- The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards).
-#+begin_src python :tangle yes
-print `a`
-print repr(a)
-#+end_src
 
 ** trouble shooting
 - linux python FileNotFoundError: [Errno 2] No such file or directory:
@@ -50,8 +38,7 @@ try to use absolute path instead of relative path to read a file.
 - HDF5
 pip install tables
 
-* Built-in Constants
-** Constants added by the site module
+
 * Built-in Types
 ** Truth Value Testing
 ** Boolean Operations — and, or, not
@@ -185,7 +172,19 @@ int64
 ** Mapping Types — dict
 ** Context Manager Types
 ** Other Built-in Types
-** Special Attributes
+** Special Attributes -- magic method:
+- getitem in a class allows its instances to use the [ ] (indexer) operators
+- setitem Called to implement assignment to self[key]
+- call magic method in a class causes its instances to become callables – in other words, those instances now behave like functions.
+- getattr overrides Python’s default mechanism for member access.
+- getattr magic method only gets invoked for attributes that are not in the dict magic attribute. Implementing getattr causes the hasattr built-in function to always return True, unless an exception is raised from within getattr.
+- setattr allows you to override Python’s default mechanism for member assignment.
+- The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards).
+#+begin_src python :tangle yes
+print `a`
+print repr(a)
+#+end_src
+
 * Built-in Exceptions
 ** Base classes
 ** Concrete exceptions
@@ -276,10 +275,7 @@ re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
 ** unicodedata — Unicode Database
 ** stringprep — Internet String Preparation
 ** readline — GNU readline interface
-** rlcompleter — Completion function for GNU readline
-* Binary Data Services
-** struct — Interpret bytes as packed binary data
-** codecs — Codec registry and base classes
+
 * Data Types
 ** datetime — Basic date and time types
 ** Time
@@ -536,16 +532,7 @@ import threading
 ** dummy_threading — Drop-in replacement for the threading module
 ** _thread — Low-level threading API
 ** _dummy_thread — Drop-in replacement for the _thread module
-* Interprocess Communication and Networking
-** socket — Low-level networking interface
-** ssl — TLS/SSL wrapper for socket objects
-** select — Waiting for I/O completion
-** selectors — High-level I/O multiplexing
-** asyncio — Asynchronous I/O, event loop, coroutines and tasks
-** asyncore — Asynchronous socket handler
-** asynchat — Asynchronous socket command/response handler
-** signal — Set handlers for asynchronous events
-** mmap — Memory-mapped file support
+
 * Internet Data Handling
 ** Jupyter notebook
 *** Using a virtualenv in an IPython notebook
@@ -581,28 +568,7 @@ data = data.dropna()
 
 ** email — An email and MIME handling package
 ** json — JSON encoder and decoder
-** mailcap — Mailcap file handling
-** mailbox — Manipulate mailboxes in various formats
-** mimetypes — Map filenames to MIME types
-** base64 — Base16, Base32, Base64, Base85 Data Encodings
-** binhex — Encode and decode binhex4 files
-** binascii — Convert between binary and ASCII
-** quopri — Encode and decode MIME quoted-printable data
-** uu — Encode and decode uuencode files
-* Structured Markup Processing Tools
-** html — HyperText Markup Language support
-** html.parser — Simple HTML and XHTML parser
-** html.entities — Definitions of HTML general entities
-** XML Processing Modules
-** xml.etree.ElementTree — The ElementTree XML API
-** xml.dom — The Document Object Model API
-** xml.dom.minidom — Minimal DOM implementation
-** xml.dom.pulldom — Support for building partial DOM trees
-** xml.sax — Support for SAX2 parsers
-** xml.sax.handler — Base classes for SAX handlers
-** xml.sax.saxutils — SAX Utilities
-** xml.sax.xmlreader — Interface for XML parsers
-** xml.parsers.expat — Fast XML parsing using Expat
+
 * Internet Protocols and Support
 ** webbrowser — Convenient Web-browser controller
 ** cgi — Common Gateway Interface support
@@ -632,30 +598,7 @@ data = data.dropna()
 ** xmlrpc.client — XML-RPC client access
 ** xmlrpc.server — Basic XML-RPC servers
 ** ipaddress — IPv4/IPv6 manipulation library
-* Multimedia Services
-** audioop — Manipulate raw audio data
-** aifc — Read and write AIFF and AIFC files
-** sunau — Read and write Sun AU files
-** wave — Read and write WAV files
-** chunk — Read IFF chunked data
-** colorsys — Conversions between color systems
-** imghdr — Determine the type of an image
-** sndhdr — Determine type of sound file
-** ossaudiodev — Access to OSS-compatible audio devices
-* Internationalization
-** gettext — Multilingual internationalization services
-** locale — Internationalization services
-* Program Frameworks
-** turtle — Turtle graphics
-** cmd — Support for line-oriented command interpreters
-** shlex — Simple lexical analysis
-* Graphical User Interfaces with Tk
-** tkinter — Python interface to Tcl/Tk
-** tkinter.ttk — Tk themed widgets
-** tkinter.tix — Extension widgets for Tk
-** tkinter.scrolledtext — Scrolled Text Widget
-** IDLE
-** Other Graphical User Interface Packages
+
 * Development Tools
 ** typing — Support for type hints
 ** pydoc — Documentation generator and online help system
@@ -672,7 +615,7 @@ data = data.dropna()
 
 ** unittest.mock — mock object library
 ** unittest.mock — getting started
-** 2to3 - Automated Python 2 to 3 code translation
+
 ** test — Regression tests package for Python
 ** test.support — Utilities for the Python test suite
 * Debugging and Profiling

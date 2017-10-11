@@ -56,11 +56,6 @@ ICA
 - [ ] 公司帮忙照看搬家。
 8 hours.
 
-
-
-
-* <2017-09-12 Tue>
-
 * Personal stuff
 ** knowledge database website
 - [ ] modify python content aligned with python library index.
@@ -258,12 +253,14 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 - [ ] 查看Google Trende API.
 
 * GS
-** OSet structure
-DEADLINE: <2017-10-09 Mon>
-- [X] f def
-- [ ] stocks
-- [X] abnormal factors
+** organize OSet structure
+DEADLINE: <2017-10-11 Wed>
+- [ ] add abnormal factors on GS
+- [ ] add computer age statistical inference function content on GS
 - [ ] strategies
+- [ ] stocks
+- [X] f def
+- [X] abnormal factors
 
 * TODO optimization
 DEADLINE: <2017-09-27 Wed> SCHEDULED: <2017-09-27 Wed>
