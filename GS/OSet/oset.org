@@ -12,6 +12,25 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../../configOrg/level2.org
 
+* document
+** 研究标的为期货
+** 研究标的为基金
+** 研究标的为股票
+** 研究方式为技术面
+** 研究方式为基本面
+** 研究方式为机器学习和人工智能
+** 文档语言为英文
+** 文档语言为中文
+** 发布类型为研究报告
+*** Journal of business strategies
+*** the account review
+*** The Journal of Finance
+*** Quantitative Finance
+*** Business finance & accounting
+*** Journal of accounting & economy
+*** financial management
+...
+
 * stock
 ** 普通股
 是指在公司的经营管理和盈利及财产的分配上享有普通权利的股份，代表满足所有债权偿付要求及优先股东的收益权与求偿权要求后对企业盈利和剩余财产的索取权。
@@ -41,244 +60,6 @@
 是指能迎合某一时代潮流但未必能适应另一时代潮流的公司所发行的，股价呈巨幅起伏的股票。
 ** 投机性股
 是指那些价格很不稳定或公司前景很不确定的普通股。这主要是那些雄心很大，开发性或冒险性的公司的股票，热门的新发行股以及一些面值较低的石油与矿业公司发行的普通股票。
-* function definition
-libraries classification source:
-
-[[http://usyiyi.cn/translate/python_352/library/index.html][Python Simple Chinese]]
-
-[[https://docs.python.org/3/library/index.html][Python English]]
-
-[[https://en.wikipedia.org/wiki/C_standard_library][C_standard_library]]
-
-[[http://en.cppreference.com/w/c/links/libs][C++]]
-
-[[https://zh.wikipedia.org/wiki/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0][Machine Learning]]
-
-[[https://en.wikipedia.org/wiki/Outline_of_machine_learning][Outline of machine learning]]
-
-**  内置类型
-*** 数组处理
-*** 添加数据
-*** 提取数据
-*** 重命名
-**  交易相关
-***  模拟交易及绩效
-
-**** 期货
-
-**  数据类型
-
-***  日期时间
-
-***  数组
-
-***  类型
-
-*** 打印
-
-** 算术和数学模型
-
-***  数字
-
-***  数学
-****  简单运算
-****  多列计算
-***  统计
-
-****  横截面聚合
-****  统计分析
-***  金融
-****  ta-lib
-*****  技术指标
-****  RiskModel
-
-***  机器学习
-
-**** 问题
-- 分类
-- 聚类
-- 回归
-  - 模型
-线性回归 简单回归 普通最小二乘法 多项式回归 一般线性模型
-
-广义线性模式 离散选择 逻辑回归 多项罗吉特 混合罗吉特 波比 多项式波比 排序性模型 有序波比 泊松回归
-
-等级线性模型 固定效应 随机效应 混合模型
-
-非线性回归 非参数 半参数 稳健 分位数回归 保序回归 主成分 最小角 局部 分段
-含误差变量
-
-  - 估计
-
-最小二乘法 普通最小二乘法 线性 偏最小二乘回归 总体 广义 加权 非线性 非负 重复再加权 岭回归 LASSO
-
-最小绝对值导数法 贝叶斯 贝叶斯多元
-  - 背景
-回归模型检验 平均响应和预测响应 误差和残差 拟合优度 学生化残差 高斯－马尔可夫定理
-- 异常检测
-关联规则 强化学习 结构预测 特征学习 在线学习 半监督学习 语法归纳
-****  监督学习(分类 · 回归)
-- 决策树
-- 表征（装袋, 提升，随机森林）
-- k-NN
-- 线性回归
-- 朴素贝叶斯
-- 神经网络
-http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
-- 逻辑回归
-- 感知器
-- 支持向量机（SVM）
-- 相关向量机（RVM）
-****  聚类
-
-- BIRCH
-- 层次
-- k平均
-- 期望最大化（EM）
-- DBSCAN
-- OPTICS
-- 均值飘移
-****  降维
-- 因子分析
-- CCA
-- ICA
-- LDA
-- NMF
-- PCA
-- LASSO
-- t-SNE
-****  结构预测
-
-- 概率图模型（贝叶斯网络，CRF, HMM）
-****  异常检测
-- k-NN
-- 局部离群因子
-****  神经网络
-
-- 自编码
-- 深度学习
-- 多层感知机
-- RNN
-- 受限玻尔兹曼机
-- SOM
-- CNN
-**** 理论
-
-- 偏差/方差困境
-- 计算学习理论
-- 经验风险最小化
-- PAC学习
-- 统计学习
-- VC理论
-
-** 策略管理
-
-***  组合优化
-
-***  基金策略
-
-***  基金经理评估
-
-***  资产配置模型
-
-***  策略函数
-***  策略分析
-
-** 数据分析
-
-***  组合因子业绩贡献
-
-*** 业绩归因
-
-***  绩效归因
-
-***  持仓分析
-
-***  因子收益率查看函数
-
-** 数据格式
-
-***  转换数据类型
-
-***  OOTV
-** 数据处理
-***  信号处理
-****  频度调整
-****  频率调整
-****  频率调整-敏感
-****  过滤数据
-****  横截面处理
-***  行业中性
-
-***  因子加权
-
-***  升维
-
-***  面板数据处理
-** 通用操作系统服务
-
-*** 系统
-
-*** 时间
-**** 日期转换
-*** 日志
-
-** 金融数据处理
-
-*** 财务相关
-**  结构化标记处理工具
-***  时间序列
-** 开发工具
-***  编程接口
-** 衍生模块
-
-*** 指数相关
-
-*** 事件相关
-
-*** 财务相关
-
-*** 持仓相关
-
-** 杂项服务
-- formatter - 通用输出格式
-*** 其它
-*** 期货相关
-*** FR相关
-* Statistical inference
-** 贝叶斯推断
-** 最大似然估计
-** 参数模型与指数分布族
-** 经验贝叶斯法
-** 岭回归
-** 线性模型与回归树
-** 幸存分析与期望最大化
-** 估计统计量的重采样
-** 交叉验证与预测误差
-** 稀疏建模与索套回归
-** 随机森林与提升
-** 神经网络和深度学习
-** 支持向量机和核方法
-* strategy
-
-* document
-** 研究标的为期货
-** 研究标的为基金
-** 研究标的为股票
-** 研究方式为技术面
-** 研究方式为基本面
-** 研究方式为机器学习和人工智能
-** 文档语言为英文
-** 文档语言为中文
-** 发布类型为研究报告
-*** Journal of business strategies
-*** the account review
-*** The Journal of Finance
-*** Quantitative Finance
-*** Business finance & accounting
-*** Journal of accounting & economy
-*** financial management
-...
 
 * factor
 ** 异常(Abnormalies)
@@ -597,6 +378,225 @@ used for multi-factor analysis
 **** 等成交量走势图
 **** 烛光图
 **** 比较市场平均指数
+* function definition
+libraries classification source:
+
+[[http://usyiyi.cn/translate/python_352/library/index.html][Python Simple Chinese]]
+
+[[https://docs.python.org/3/library/index.html][Python English]]
+
+[[https://en.wikipedia.org/wiki/C_standard_library][C_standard_library]]
+
+[[http://en.cppreference.com/w/c/links/libs][C++]]
+
+[[https://zh.wikipedia.org/wiki/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0][Machine Learning]]
+
+[[https://en.wikipedia.org/wiki/Outline_of_machine_learning][Outline of machine learning]]
+
+**  内置类型
+*** 数组处理
+*** 添加数据
+*** 提取数据
+*** 重命名
+**  交易相关
+***  模拟交易及绩效
+
+**** 期货
+
+**  数据类型
+
+***  日期时间
+
+***  数组
+
+***  类型
+
+*** 打印
+
+** 算术和数学模型
+
+***  数字
+
+***  数学
+****  简单运算
+****  多列计算
+***  统计
+
+****  横截面聚合
+****  统计分析
+***  金融
+****  ta-lib
+*****  技术指标
+****  RiskModel
+
+***  机器学习
+
+**** 问题
+- 分类
+- 聚类
+- 回归
+  - 模型
+线性回归 简单回归 普通最小二乘法 多项式回归 一般线性模型
+
+广义线性模式 离散选择 逻辑回归 多项罗吉特 混合罗吉特 波比 多项式波比 排序性模型 有序波比 泊松回归
+
+等级线性模型 固定效应 随机效应 混合模型
+
+非线性回归 非参数 半参数 稳健 分位数回归 保序回归 主成分 最小角 局部 分段
+含误差变量
+
+  - 估计
+
+最小二乘法 普通最小二乘法 线性 偏最小二乘回归 总体 广义 加权 非线性 非负 重复再加权 岭回归 LASSO
+
+最小绝对值导数法 贝叶斯 贝叶斯多元
+  - 背景
+回归模型检验 平均响应和预测响应 误差和残差 拟合优度 学生化残差 高斯－马尔可夫定理
+- 异常检测
+关联规则 强化学习 结构预测 特征学习 在线学习 半监督学习 语法归纳
+****  监督学习(分类 · 回归)
+- 决策树
+- 表征（装袋, 提升，随机森林）
+- k-NN
+- 线性回归
+- 朴素贝叶斯
+- 神经网络
+http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
+- 逻辑回归
+- 感知器
+- 支持向量机（SVM）
+- 相关向量机（RVM）
+****  聚类
+
+- BIRCH
+- 层次
+- k平均
+- 期望最大化（EM）
+- DBSCAN
+- OPTICS
+- 均值飘移
+****  降维
+- 因子分析
+- CCA
+- ICA
+- LDA
+- NMF
+- PCA
+- LASSO
+- t-SNE
+****  结构预测
+
+- 概率图模型（贝叶斯网络，CRF, HMM）
+****  异常检测
+- k-NN
+- 局部离群因子
+****  神经网络
+
+- 自编码
+- 深度学习
+- 多层感知机
+- RNN
+- 受限玻尔兹曼机
+- SOM
+- CNN
+**** 理论
+
+- 偏差/方差困境
+- 计算学习理论
+- 经验风险最小化
+- PAC学习
+- 统计学习
+- VC理论
+
+** 策略管理
+
+***  组合优化
+
+***  基金策略
+
+***  基金经理评估
+
+***  资产配置模型
+
+***  策略函数
+***  策略分析
+
+** 数据分析
+
+***  组合因子业绩贡献
+
+*** 业绩归因
+
+***  绩效归因
+
+***  持仓分析
+
+***  因子收益率查看函数
+
+** 数据格式
+
+***  转换数据类型
+
+***  OOTV
+** 数据处理
+***  信号处理
+****  频度调整
+****  频率调整
+****  频率调整-敏感
+****  过滤数据
+****  横截面处理
+***  行业中性
+
+***  因子加权
+
+***  升维
+
+***  面板数据处理
+** 通用操作系统服务
+
+*** 系统
+
+*** 时间
+**** 日期转换
+*** 日志
+
+** 金融数据处理
+
+*** 财务相关
+**  结构化标记处理工具
+***  时间序列
+** 开发工具
+***  编程接口
+** 衍生模块
+
+*** 指数相关
+
+*** 事件相关
+
+*** 财务相关
+
+*** 持仓相关
+
+** 杂项服务
+- formatter - 通用输出格式
+*** 其它
+*** 期货相关
+*** FR相关
+* Statistical inference
+** 贝叶斯推断
+** 最大似然估计
+** 参数模型与指数分布族
+** 经验贝叶斯法
+** 岭回归
+** 线性模型与回归树
+** 幸存分析与期望最大化
+** 估计统计量的重采样
+** 交叉验证与预测误差
+** 稀疏建模与索套回归
+** 随机森林与提升
+** 神经网络和深度学习
+** 支持向量机和核方法
+* strategy
 
 * function sampling definition
 

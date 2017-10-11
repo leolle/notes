@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-11 Wed 09:57 -->
+<!-- 2017-10-11 Wed 16:25 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -219,6 +219,17 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline30">3.5. export org to html using styles</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline39">4. emacs python workflow.</a>
+<ul>
+<li><a href="#orgheadline32">4.1. install elpy, jedi</a></li>
+<li><a href="#orgheadline33">4.2. Keybinding</a></li>
+<li><a href="#orgheadline34">4.3. upgrade git</a></li>
+<li><a href="#orgheadline35">4.4. reinstall EMACS</a></li>
+<li><a href="#orgheadline36">4.5. Spacemacs Dired</a></li>
+<li><a href="#orgheadline37">4.6. magit</a></li>
+<li><a href="#orgheadline38">4.7. insert images and links</a></li>
 </ul>
 </li>
 </ul>
@@ -797,6 +808,392 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 <p>
 <a href="http://demo.thi.ng/org-spec/">styles</a>
 </p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-2">
+<h2 id="orgheadline39"><span class="section-number-2">4</span> emacs python workflow.</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">4.1</span> install elpy, jedi</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+
+<pre class="src src-shell">sudo pip install jedi epc pylint flake8 <span style="color: #FD971F;">ipython</span>==<span style="color: #AE81FF;">5.3</span> yaft
+</pre>
+</div>
+
+<p>
+install package jedi elpy magit
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">4.2</span> Keybinding</h3>
+<div class="outline-text-3" id="text-4-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Keybinding</td>
+<td class="org-left">Description</td>
+</tr>
+
+<tr>
+<td class="org-left">C-M-i</td>
+<td class="org-left">anaconda-mode-complete</td>
+</tr>
+
+<tr>
+<td class="org-left">M-.</td>
+<td class="org-left">anaconda-mode-find-definitions</td>
+</tr>
+
+<tr>
+<td class="org-left">M-,</td>
+<td class="org-left">anaconda-mode-find-assignments</td>
+</tr>
+
+<tr>
+<td class="org-left">M-r</td>
+<td class="org-left">anaconda-mode-find-references</td>
+</tr>
+
+<tr>
+<td class="org-left">M-*</td>
+<td class="org-left">anaconda-mode-go-back</td>
+</tr>
+
+<tr>
+<td class="org-left">M-?</td>
+<td class="org-left">anaconda-mode-show-doc</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">4.3</span> upgrade git</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+
+<pre class="src src-shell">sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update
+sudo apt-get install git -y
+git --version
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">4.4</span> reinstall EMACS</h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="org-src-container">
+
+<pre class="src src-shell">Check emacs version.
+$ emacs --version
+Download the same emacs version you have installed<span style="color: #F92672;"> in</span> the past.
+$ wget https://ftp.gnu.org/gnu/emacs/emacs-$<span style="color: #FD971F;">VERSION</span>.tar.xz
+Extract tarball.
+$ tar xJvf emacs-$<span style="color: #FD971F;">VERSION</span>.tar.xz
+Run ./configure to generate the make file. If you remember the option you have given when you install it, add those command line flags, too. <span style="color: #AE81FF;">(</span>e.g. --with-x=no<span style="color: #AE81FF;">)</span>
+$ cd emacs-$<span style="color: #FD971F;">VERSION</span>
+$ ./configure
+Do make uninstall to uninstall.
+$ sudo make uninstall
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">4.5</span> Spacemacs Dired</h3>
+<div class="outline-text-3" id="text-4-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Keybinding</td>
+<td class="org-left">Description</td>
+</tr>
+
+<tr>
+<td class="org-left">SPC f j</td>
+<td class="org-left">打开 dired 目录</td>
+</tr>
+
+<tr>
+<td class="org-left">+</td>
+<td class="org-left">创建目录</td>
+</tr>
+
+<tr>
+<td class="org-left">R</td>
+<td class="org-left">Rename</td>
+</tr>
+
+<tr>
+<td class="org-left">C</td>
+<td class="org-left">copy</td>
+</tr>
+
+<tr>
+<td class="org-left">D</td>
+<td class="org-left">delete</td>
+</tr>
+
+<tr>
+<td class="org-left">qq</td>
+<td class="org-left">exit</td>
+</tr>
+
+<tr>
+<td class="org-left">---</td>
+<td class="org-left">---</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-x 4 d</code></td>
+<td class="org-left">To display the Dired buffer in another window</td>
+</tr>
+
+<tr>
+<td class="org-left">q</td>
+<td class="org-left">bury the Dired buffer</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">undo</td>
+</tr>
+
+<tr>
+<td class="org-left">x</td>
+<td class="org-left">execute flagged commands</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">4.6</span> magit</h3>
+<div class="outline-text-3" id="text-4-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">workflow</th>
+<th scope="col" class="org-left">Keybinding</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">init, commit</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SPC g i</td>
+<td class="org-left">magit-init</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">SPC g s</td>
+<td class="org-left">magit-status</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">s-1</td>
+<td class="org-left">goto unstaged section</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>TAB</code></td>
+<td class="org-left">view diffs(code review)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">s</td>
+<td class="org-left">stage all changes</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>C-c C-c</code></td>
+<td class="org-left">commit</td>
+</tr>
+
+<tr>
+<td class="org-left">Commits in Action</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">c a</td>
+<td class="org-left">Ammend</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">r</td>
+<td class="org-left">squash unpushed commits</td>
+</tr>
+
+<tr>
+<td class="org-left">Branching basics</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">b B</td>
+<td class="org-left">create branch</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">m m</td>
+<td class="org-left">merge</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">b b</td>
+<td class="org-left">switch branch</td>
+</tr>
+
+<tr>
+<td class="org-left">pull, push</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">P P</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">f f/ f o</td>
+<td class="org-left">fetch branch</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F</td>
+<td class="org-left">pull</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">s-g</td>
+<td class="org-left">send pull request</td>
+</tr>
+
+<tr>
+<td class="org-left">Misc</td>
+<td class="org-left"><code>M-m g s</code></td>
+<td class="org-left">view github files</td>
+</tr>
+
+<tr>
+<td class="org-left">stage</td>
+<td class="org-left">s</td>
+<td class="org-left">stage</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">u</td>
+<td class="org-left">unstage</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">c</td>
+<td class="org-left">actions</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">e</td>
+<td class="org-left">extend current commit HEAD</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">a</td>
+<td class="org-left">amend commit msg</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">r</td>
+<td class="org-left">reword, discard commit msg</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">s</td>
+<td class="org-left">discard the latest commit</td>
+</tr>
+
+<tr>
+<td class="org-left">login</td>
+<td class="org-left">1</td>
+<td class="org-left">short logs</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">h</td>
+<td class="org-left">reflog</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">4.7</span> insert images and links</h3>
+<div class="outline-text-3" id="text-4-7">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">#+CAPTION: future contract
+<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span>./image.png<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+C-c C-x C-v <span style="color: #AE81FF;">(</span>org-toggle-inline-mages<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
