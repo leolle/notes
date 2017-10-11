@@ -97,26 +97,47 @@ straight debt issuances are associated with an average abnormal negative stock r
 The large shareholders who hold more than 10% of a stock's outstanding shares, all members of the board of directors, the CEO, CFO, and other highest-level officers are considered insiders. Attorneys, underwriters, and consultants to these highest-level officers and directors are also considered insiders.
 *** Documentation of the Anomaly
 ** 动量，技术分析(Momentum: The Technical Analysis)
-*** Moving Averages
-*** 52-Week High/Low
-*** Momentum at Industry Levels
-*** Momentum and Mutual Funds
+*** 移动平均 Moving Averages
+*** 52周新高新低 52-Week High/Low
+*** 行业动量 Momentum at Industry Levels
+*** 公募基金动量 Momentum and Mutual Funds
 ** 季节性(Seasonality)
-*** January Effect
-*** January Small Cap Effect in the Futures Markets
-*** 一月晴雨表(The January Barometer)
-*** Sell-in-May-and-Go-Away
-*** Same Month Next Year
-*** Holiday Effects
-*** The Sell on Rosh Hashanah
-*** Ramadan
-*** Day-of-the-Week Effects
-*** Seasonality Calendars
-*** Political Effects
-*** Election Cycles
-*** Turn-of-the-Month Effects
-*** Open/Close Daily Trade on the Open
-*** Weather: Sun, Rain, Snow, Moon, and the Stars
+*** A股
+[[http://www.laohucaijing.com/news/index/121894/][初探A股季节性效应 民生证券首席策略分析师]]
+
+**** 五穷六绝七翻身
+**** 春季行情 January Effect
+胜率八成，历史平均涨幅逾7%。
+
+“春季行情”的概念在本研究中得到证实，而“秋季行情”表现不稳定。过去10年上证指数在2、3、4、7、10月表现较好，而1、6、8月表现不佳。过去20年若从春节持有上证指数组合到4月上旬，则年均涨7.35%，中位数7.97%，胜率为80%（20年中有16年上涨）。春季行情的形成，或与春节后资金回流、长假后市场活跃度恢复、两会及其他重要会议召开等季节性出现的因素有关联。
+**** 资金面效应
+把握季末与春节的V形走势。
+
+春节假期、6月末、9月末、12月末等关键时点前资金面较为紧张，股票市场会出现换手率下降、股指走弱等情况；资金面冲击过后，市场交投重新活跃，股指强势修复，完成V形走势。由于资金期限的原因，V形底相对关键时点有几天提前量，使得季末时点成为较好的建仓时间。
+**** 假期效应 Holiday Effects
+长假V形走势，短假影响有限。
+
+在十一长假、春节长假、2008年以前的五一长假，股市大概率出现底部提前的V形走势。十一、春节还有资金面效应的驱动，因而股指波动也较大。值得注意的是，端午、清明、2008年后五一等短假期没有相同规律。
+**** 会议效应
+呈现倒V走势，两会后趋于上行。
+
+无论每年定期出现的重要会议（包括两会、中央经济工作会议、党的全国代表大会/中央委员会全体会议等）对股市的影响亦有规律可循，表现为会议开幕前市场大概率上涨，而会议开幕后不久即回落，形成倒V形。其中两会影响的特别之处在于：股指虽然在会议期间略有下跌，在闭幕后却还有一波上涨行情。
+*** 美股
+**** January Effect
+**** Holiday Effects
+**** January Small Cap Effect in the Futures Markets
+**** 一月晴雨表(The January Barometer)
+**** Sell-in-May-and-Go-Away
+**** Same Month Next Year
+**** The Sell on Rosh Hashanah
+**** Ramadan
+**** Day-of-the-Week Effects
+**** Seasonality Calendars
+**** Political Effects
+**** Election Cycles
+**** Turn-of-the-Month Effects
+**** Open/Close Daily Trade on the Open
+**** Weather: Sun, Rain, Snow, Moon, and the Stars
 ** 规模和价值
 *** Fama-French Three-Factor Model
 *** Alternative Value Indicators
