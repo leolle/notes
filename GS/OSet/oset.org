@@ -65,9 +65,11 @@
 * factor
 ** 股权
 ** 分析师预测和盈利预测
+*** 盈利预测修正 Earnings Forecast Revisions
 ** 盈余惯性
 是一种在财务公布后的数周甚至数月内，仍然向超额回报方向连续获取超额收益的趋势。
 ** 公司财务数据
+*** Capital Investment and Growth Anomalies
 *** 基础科目与衍生
 **** 主要会计数据
 **** 现金流量表
