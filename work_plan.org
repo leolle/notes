@@ -44,7 +44,7 @@
 | <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
 |                  |                                  |                                                   |
 
-* others
+* other projects
 - [X] 搭建基金策略
 - [X] 对基金策略进行组合优化
 - [X] 分析优化后结果，把组合优化加入流程
@@ -58,7 +58,7 @@ ICA
 
 * Personal stuff
 ** knowledge database website
-- [ ] modify python content aligned with python library index.
+- [X] modify python content aligned with python library index.
 [[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
 
 - [ ] publish org files to gitbook.
@@ -255,19 +255,19 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 * GS
 ** organize OSet structure
 DEADLINE: <2017-10-11 Wed>
-- [ ] add abnormal factors on GS
-- [ ] add computer age statistical inference function content on GS
+- [ ] 原有指标加入新建OSet
+- [X] add abnormal factors on GS
+- [X] add computer age statistical inference function content on GS
 - [ ] strategies
-- [ ] stocks
+- [X] stocks
 - [X] f def
 - [X] abnormal factors
 
 * TODO optimization
-DEADLINE: <2017-09-27 Wed> SCHEDULED: <2017-09-27 Wed>
+<2017-07-21 Fri> - <2017-09-18 Mon>
 - [ ] construnct FS, FR, workflow.
 - [ ] soft constraint.
 - [ ] worse-case risk analysis.
-<2017-09-18 Mon>
 - [X] add excess single returns and excess cumulative returns on PNLFitness.
 - [X] move functions defines osets.
 - [X] read future simulation code.
@@ -407,42 +407,31 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 
 * TODO future simulation                                :future:optimization:
 
-** <2017-09-19 Tue>
+ <2017-09-19 Tue> - <2017-10-01 Sun>
 - [X] buy and hold mode on future backtesting.
 
-** <2017-09-20 Wed>
 - [X] revise pnl fitness function, rename previous pnlfitness function name to PnLAndHoldingFitness, create another two seperate functions PnLFitness and HoldingFitness respectively.
 
-** <2017-09-21 Thu>
 - [X] export data from database.
 - [X] roll over between two contracts to get continious contract data.
 
-** <2017-09-22 Fri>
 - [X] create rolling strategy, return rolling position.
 
-** <2017-09-25 Mon>
 - [X] create continuous contracts.
 
-** <2017-09-26 Tue>
 - [X] learn function define, function sampling instance, wants, search strategy run on GS.
 - [X] add trading volume and other value to the continuous contract.
 - [X] remove unnecessary input of the parsing function.
 
-** <2017-09-27 Wed>
 - [X] learn creating function sampleing.
 
-** <2017-09-28 Thu>
 - [X] create long/short strategy, return neutral position.
 - [ ] deploy portfolio optimization on function sampling workflow.
 - [ ] create position signal via continous contract data.
 - [ ] to get actual position from simulation position.
 
-** <2017-09-29 Fri>
-DEADLINE: <2017-09-29 Fri>
 - [ ] calculate PnL using future rollover position, long/short position, continuous position.
 
-** <2017-09-30 Sat>
-DEADLINE: <2017-09-30 Sat>
 - [ ] modify simulation code referred to stocks simulation.
 - [ ] adjust input signatures.
 - [ ] future simulation requested function:
@@ -454,8 +443,7 @@ short next month expired contract.
 
 - trend following on dominant contract.
 moving average crossing over on the continous contract.
-** <2017-09-13 Wed>
-- [ ] future simulation pseudo code.
+- [X] future simulation pseudo code.
 #+BEGIN_SRC python
  def OnData(self,slice):
         if not self.Portfolio.Invested:
@@ -470,7 +458,6 @@ moving average crossing over on the continous contract.
         else:
             self.Liquidate()
 #+END_SRC
-** <2017-09-13 Wed>
  requested function:
 - [ ] calendar spread trading.
 
@@ -486,9 +473,6 @@ calculate the position value based on continious contract and actual contract
 - [ ] trend following on dominant contract.
 
 moving average crossing over on the continous contract.
-** <2017-09-14 Thu>
 - [X] range osets.
-- [X] future simulation pseudo code.
 - [X] parse future continious contract data.
-** code:<2017-09-14 Thu>
 - [ ] simple mode test with real data.

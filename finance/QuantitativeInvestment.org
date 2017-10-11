@@ -59,7 +59,12 @@ The Event Study module is designed to evaluate the impact of discrete events on 
 [[file:./MultiFactorModel.org][MultiFactorModel]]
 
 [[file:./IndustryNeutral.org][行业中性]]
+* Fama-French Three factor model
+[[http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html][data factor library]]
 
+- Book-to-Market
+- size
+- value
 
 * Performance analytics:
 

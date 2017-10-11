@@ -302,7 +302,19 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 #+end_src
 ** UML diagrams with PlantUML
 *** Class diagrams
+#+BEGIN_SRC plantuml :noweb yes :file assets/clientmodel.png :exports results
+@startuml
 
+<<uml-style>>
+
+<<client-user>>
+
+<<client-user-role>>
+
+User -right-> "1" UserRole : > has
+
+@enduml
+#+END_SRC
 *** Sequences diagrams
 
 ** export org to html using styles
