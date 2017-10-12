@@ -1,162 +1,27 @@
+#+SETUPFILE: ../../configOrg/level2.org
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
-#+TITLES: Python
-#+DATE: <2017-04-22 Sat>
+#+TITLES: python2
+#+DATE: <2017-05-24 Wed>
+#+AUTHORS: weiwu
 #+EMAIL: victor.wuv@gmail.com
 #+LANGUAGE: en
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
-#+SETUPFILE: ~/website/leolle.github.io/configOrg/level2.org
 
-
-* Python basic operations:
-** Module
-- 当你运行一个Python模块 python fibo.py <arguments>
-  Remember, everything in python is an object.
-
-- python解释器CPython.
-
-- 如果字符串里面有’\’,而实际上要把斜杠加到字符串里面，要在前面加r，代表raw. 例如r’Y:\codes’.
-
-- 如果主目录下有子目录packages，记得要在子目录下加init.py，最好在主目录下建main.py函数。
-
-- 解释器如果执行哪个一个文件为主程序，如 python program1.py，it will set the special variable name to program1.py equals to ‘main’
-- One of the reasons for doing this is that sometimes you write a module (a .py file) where it can be executed directly. Alternatively, it can also be imported and used in another module. By doing the main check, you can have that code only execute when you want to run the module as a program and not have it execute when someone just wants to import your module and call your functions themselves.
-
-- 模块中的代码将会被执行，就像导入它一样，不过此时name 被设置为 “main“。这意味着，通过在你的模块末尾添加此代码.
-
-- can’t import module from upper directory.
-
-    - need to add the working directory to .bashrc PYTHONPATH
-    - using ipython.
-- Add custom folder path to the Windows environment.
-  add PYTHONEXE%; to System Variable PATH;
-  add System variable name: PYTHONEXE , value: C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
-  add PYTHONPATH:  C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
-  or add module path in Spyder directly;
-- import module temperarily from parental directory without add path to the system.
-#+begin_src python :tangle yes
-# folder1
-#    \__init__.py
-#    \State.py
-#    \StateMachine.py
-#    \mouse_folder
-#        \MouseAction.py
-import os,sys,inspect
-currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-parentdir = os.path.dirname(currentdir)
-sys.path.insert(0,parentdir+'\\mouse')
-sys.path.insert(0,parentdir)
-
-from State import State
-from StateMachine import StateMachine
-from MouseAction import MouseAction
-#+end_src
-
-- check module path:
-#+begin_src python
-import os
-print os.path.abspath(ylib.__file__)
-#+end_src
-
-- make a python 3 virtual environment:
-#+begin_src sh
-mkvirtual -p python3 ENVNAME
-#+end_src
-
-- install setup.py:
-python setup.py install
-to virtual environment:
-/home/weiwu/.virtualenvs/data_analysis/bin/python2 setup.py install
-- install from github:
-pip install git+https://github.com/quantopian/zipline.git
-
-- percentage output format:
-#+begin_src python
-from future import division
-print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
-#+end_src
-** zip
-zip([iterable, ...])
-This function returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The returned list is truncated in length to the length of the shortest argument sequence. When there are multiple arguments which are all of the same length, zip() is similar to map() with an initial argument of None. With a single sequence argument, it returns a list of 1-tuples. With no arguments, it returns an empty list.
-
-The left-to-right evaluation order of the iterables is guaranteed. This makes possible an idiom for clustering a data series into n-length groups using zip(*[iter(s)]*n).
-
-zip() in conjunction with the * operator can be used to unzip a list:
-
->>>
->>> x = [1, 2, 3]
->>> y = [4, 5, 6]
->>> zipped = zip(x, y)
->>> zipped
-[(1, 4), (2, 5), (3, 6)]
->>> x2, y2 = zip(*zipped)
->>> x == list(x2) and y == list(y2)
-True
-** Float point issue
-Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
-On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
-#+begin_src emacs-lisp :tangle yes
-0.00011001100110011001100110011001100110011001100110011010
-#+end_src
-#+begin_src emacs-lisp :tangle yes
->>> round(2.675, 2)
-2.67
-#+end_src
-it’s again replaced with a binary approximation, whose exact value is
-
-2.67499999999999982236431605997495353221893310546875
-
-** unittest:
-- check data operation:
-  - create, select, update, delete.
-
-- purpose of unit test
-  - checking parameter types, classes, or values.
-  - checking data structure invariants.
-  - checking “can’t happen” situations (duplicates in a list, contradictory state variables.)
-  - after calling a function, to make sure that its return is reasonable.
-
-** Time
-- get specific timezone datetime
-#+begin_src python
-tz = pytz.timezone('America/Los_Angeles')
-#date = date.today()
-now = datetime.now()
-los_angeles_time = datetime.now(tz)
-#+end_src
-
-- use tqdm as a status bar:
-#+begin_src python
-from tqdm import tqdm
-from time import sleep
-for i in tqdm(range(10)):
-    sleep(0.1)
-#+end_src
-
-- string to datetime:
-#+begin_src python
-time.strptime(string[, format])
-#+end_src
-
-- datetime, Timestamp, datetime64
-pandas, Timestamp
--- DatetimeIndex is composed by Timestamps.
-#+BEGIN_SRC python
-#Timestamp to string:i
-str_timestamp = pd.to_datetime(Timestamp, format = '%Y%m%d')
-str_timestamp = str_timestamp.strftime('%Y-%m-%d')
-#+END_SRC
-datetime, utc
-datetime64
+[[http://www.pythondoc.com/pythontutorial3/][source]]
+* Introduction
+* Built-in Functions
 ** Function
 - function parameter
   - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
 
-- 函数中改变形参值不会改变原值。
+- if the input argument is un-mutable,函数中改变形参值不会改变原值。
+if the input is mutable, operate on the input like append operation will change the input argument.
+
 - a, b = b, a + b # 相当于：
 #+begin_src python
 t = (b, a + b) # t是一个tuple
@@ -164,53 +29,30 @@ a = t[0]
 b = t[1]
 #+end_src
 
-** Operator
+
+** trouble shooting
+- linux python FileNotFoundError: [Errno 2] No such file or directory:
+
+try to use absolute path instead of relative path to read a file.
+
+- HDF5
+pip install tables
+
+
+* Built-in Types
+** Truth Value Testing
+** Boolean Operations — and, or, not
 - The ^ symbol
   - The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.
 - the minimum value between nan and infinity is infinity.
 min(np.nan, np.inf) = np.inf
 
-** pickle
-
-*** dump:
-#+BEGIN_SRC python
-import pickle
-
-data1 = {'a': [1, 2.0, 3, 4+6j],
-         'b': ('string', u'Unicode string'),
-         'c': None}
-
-selfref_list = [1, 2, 3]
-selfref_list.append(selfref_list)
-
-output = open('data.pkl', 'wb')
-
-# Pickle dictionary using protocol 0.
-pickle.dump(data1, output)
-
-# Pickle the list using the highest protocol available.
-pickle.dump(selfref_list, output, -1)
-
-output.close()
-pickle.dump( x0, open( "x0.pkl", "wb" ) )
-#+END_SRC
-
-*** load:
-#+BEGIN_SRC python
-import pprint, pickle
-
-pkl_file = open('data.pkl', 'rb')
-
-data1 = pickle.load(pkl_file)
-pprint.pprint(data1)
-
-data2 = pickle.load(pkl_file)
-pprint.pprint(data2)
-
-pkl_file.close()
-#+END_SRC
-** list operations:
-
+- eval
+eval the value of a variable name from string.
+** Comparisons
+** Numeric Types — int, float, complex
+** Iterator Types
+** Sequence Types — list, tuple, range
 - find difference of two lists:
 #+begin_src python
 a = [1,2,3,2,1,5,6,5,5,5]
@@ -324,8 +166,13 @@ int64
 
 - To preserve dtypes while iterating over the rows, it is better to use itertuples()
   - which returns tuples of the values and which is generally faster as iterrows.
-
-** magic method:
+** Text Sequence Type — str
+** Binary Sequence Types — bytes, bytearray, memoryview
+** Set Types — set, frozenset
+** Mapping Types — dict
+** Context Manager Types
+** Other Built-in Types
+** Special Attributes -- magic method:
 - getitem in a class allows its instances to use the [ ] (indexer) operators
 - setitem Called to implement assignment to self[key]
 - call magic method in a class causes its instances to become callables – in other words, those instances now behave like functions.
@@ -338,6 +185,133 @@ print `a`
 print repr(a)
 #+end_src
 
+* Built-in Exceptions
+** Base classes
+** Concrete exceptions
+** Warnings
+** Exception hierarchy
+** exception
+- create an exception:
+#+BEGIN_SRC python
+class ConstraintError(Exception):
+    def __init__(self, arg):
+        self.args = arg
+
+
+if error:
+    raise ConstraintError("error")
+
+
+class Networkerror(RuntimeError):
+    def __init__(self, arg):
+        self.args = arg
+
+
+try:
+    raise Networkerror("Bad hostname")
+except Networkerror,e:
+    print e.args
+    print e.message
+#+END_SRC
+* Text Processing Services
+** string — Common string operations
+** re — Regular expression operations
+*** useage:
+- find strings
+- convert strings
+
+*** string array
+[Pp]ython: find Python or python
+
+**** parts
+re.search('[a-zA-Z0-9]', 'x')
+
+**** not
+re.search('[^0-9]', 'x')
+
+**** shortcut
+
+- word: \w
+- number: \d
+- space, tab, next line: \s
+- 0 length sub string: \b
+re.search('\bcorn\b', 'corner')
+
+**** start and end with strings
+#+BEGIN_SRC python
+re.search('^Python', 'Python 3')
+re.search('Python$', 'this is Python')
+#+END_SRC
+
+**** any character
+"."
+
+*** optional words
+'color' vs 'colour'
+re.search('colou?r', 'my favoriate color')
+
+*** repeat
+{N}
+
+#+BEGIN_SRC python
+# find a telephone number
+re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
+
+# find 32big GID
+[x for x in risk_model_merge.keys() if re.match("[A-Z0-9]{32}$", x)]
+#+END_SRC
+
+**** boundary of repeated times
+[\d]{3,4}
+
+**** open selection
+[\d]{3,}
+
+**** speed selection
+- +: {1,}
+- *: {0,}
+** difflib — Helpers for computing deltas
+** textwrap — Text wrapping and filling
+** unicodedata — Unicode Database
+** stringprep — Internet String Preparation
+** readline — GNU readline interface
+
+* Data Types
+** datetime — Basic date and time types
+** Time
+- get specific timezone datetime
+#+begin_src python
+tz = pytz.timezone('America/Los_Angeles')
+#date = date.today()
+now = datetime.now()
+los_angeles_time = datetime.now(tz)
+#+end_src
+
+- use tqdm as a status bar:
+#+begin_src python
+from tqdm import tqdm
+from time import sleep
+for i in tqdm(range(10)):
+    sleep(0.1)
+#+end_src
+
+- string to datetime:
+#+begin_src python
+time.strptime(string[, format])
+#+end_src
+
+- datetime, Timestamp, datetime64
+pandas, Timestamp
+-- DatetimeIndex is composed by Timestamps.
+#+BEGIN_SRC python
+#Timestamp to string:i
+str_timestamp = pd.to_datetime(Timestamp, format = '%Y%m%d')
+str_timestamp = str_timestamp.strftime('%Y-%m-%d')
+#+END_SRC
+datetime, utc
+datetime64
+** calendar — General calendar-related functions
+** collections — Container datatypes
 ** collections — High-performance container datatypes
 
 | module      | function                                                             |
@@ -346,12 +320,244 @@ print repr(a)
 | Counter     | dict subclass for counting hashable objects                          |
 | defaultdict | dict subclass that calls a factory function to supply missing values |
 
+** collections.abc — Abstract Base Classes for Containers
+** heapq — Heap queue algorithm
+** bisect — Array bisection algorithm
+** array — Efficient arrays of numeric values
+** weakref — Weak references
+** types — Dynamic type creation and names for built-in types
+** copy — Shallow and deep copy operations
+** pprint — Data pretty printer
+适合打印列表。
+#+BEGIN_SRC python
+>>> import pprint
+>>> tup = ('spam', ('eggs', ('lumberjack', ('knights', ('ni', ('dead',
+... ('parrot', ('fresh fruit',))))))))
+>>> stuff = ['a' * 10, tup, ['a' * 30, 'b' * 30], ['c' * 20, 'd' * 20]]
+>>> pprint.pprint(stuff)
+['aaaaaaaaaa',
+ ('spam',
+  ('eggs',
+   ('lumberjack',
+    ('knights', ('ni', ('dead', ('parrot', ('fresh fruit',)))))))),
+ ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'],
+ ['cccccccccccccccccccc', 'dddddddddddddddddddd']]
+#+END_SRC
+** reprlib — Alternate repr() implementation
+** enum — Support for enumerations
+* Numeric and Mathematical Modules
+** numbers — Numeric abstract base classes
+** math — Mathematical functions
+** cmath — Mathematical functions for complex numbers
+** decimal — Decimal fixed point and floating point arithmetic
+Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
+On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
+#+begin_src emacs-lisp :tangle yes
+0.00011001100110011001100110011001100110011001100110011010
+#+end_src
+#+begin_src emacs-lisp :tangle yes
+>>> round(2.675, 2)
+2.67
+#+end_src
+it’s again replaced with a binary approximation, whose exact value is
+
+2.67499999999999982236431605997495353221893310546875
+
+** fractions — Rational numbers
+** random — Generate pseudo-random numbers
+** statistics — Mathematical statistics functions
+* Functional Programming Modules
+** itertools — Functions creating iterators for efficient looping
+** functools — Higher-order functions and operations on callable objects
+** operator — Standard operators as functions
+* File and Directory Access
+** pathlib — Object-oriented filesystem paths
+** os.path — Common pathname manipulations
+** fileinput — Iterate over lines from multiple input streams
+** stat — Interpreting stat() results
+** filecmp — File and Directory Comparisons
+** tempfile — Generate temporary files and directories
+** glob — Unix style pathname pattern expansion
+** fnmatch — Unix filename pattern matching
+** linecache — Random access to text lines
+** shutil — High-level file operations
+** macpath — Mac OS 9 path manipulation functions
+* Data Persistence
+** pickle — Python object serialization
+*** dump:
+#+BEGIN_SRC python
+import pickle
+
+data1 = {'a': [1, 2.0, 3, 4+6j],
+         'b': ('string', u'Unicode string'),
+         'c': None}
+
+selfref_list = [1, 2, 3]
+selfref_list.append(selfref_list)
+
+output = open('data.pkl', 'wb')
+
+# Pickle dictionary using protocol 0.
+pickle.dump(data1, output)
+
+# Pickle the list using the highest protocol available.
+pickle.dump(selfref_list, output, -1)
+
+output.close()
+pickle.dump( x0, open( "x0.pkl", "wb" ) )
+#+END_SRC
+
+*** load:
+#+BEGIN_SRC python
+import pprint, pickle
+
+pkl_file = open('data.pkl', 'rb')
+
+data1 = pickle.load(pkl_file)
+pprint.pprint(data1)
+
+data2 = pickle.load(pkl_file)
+pprint.pprint(data2)
+
+pkl_file.close()
+#+END_SRC
+** copyreg — Register pickle support functions
+** shelve — Python object persistence
+** marshal — Internal Python object serialization
+** dbm — Interfaces to Unix “databases”
+** sqlite3 — DB-API *0 interface for SQLite databases
+* Data Compression and Archiving
+** zip
+zip([iterable, ...])
+This function returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The returned list is truncated in length to the length of the shortest argument sequence. When there are multiple arguments which are all of the same length, zip() is similar to map() with an initial argument of None. With a single sequence argument, it returns a list of 1-tuples. With no arguments, it returns an empty list.
+
+The left-to-right evaluation order of the iterables is guaranteed. This makes possible an idiom for clustering a data series into n-length groups using zip(*[iter(s)]*n).
+
+zip() in conjunction with the * operator can be used to unzip a list:
+#+BEGIN_SRC shell
+>>>
+>>> x = [1, 2, 3]
+>>> y = [4, 5, 6]
+>>> zipped = zip(x, y)
+>>> zipped
+[(1, 4), (2, 5), (3, 6)]
+>>> x2, y2 = zip(*zipped)
+>>> x == list(x2) and y == list(y2)
+True
+#+END_SRC
+** zlib — Compression compatible with gzip
+** gzip — Support for gzip files
+** bz2 — Support for bzip2 compression
+** lzma — Compression using the LZMA algorithm
+** zipfile — Work with ZIP archives
+** tarfile — Read and write tar archive files
+* File Formats
+** csv — CSV File Reading and Writing
+** configparser — Configuration file parser
+- use yaml and config file.
+#+BEGIN_SRC yaml
+# config.yaml
+engine:
+  user:
+    'jack'
+  password:
+    'password'
+#+END_SRC
+
+#+BEGIN_SRC python
+import yaml
+with open(r'config.yaml', 'rb') as f:
+    config = yaml.load(f)
+
+#+END_SRC
+** netrc — netrc file processing
+** xdrlib — Encode and decode XDR data
+** plistlib — Generate and parse Mac OS X .plist files
+* Cryptographic Services
+** hashlib — Secure hashes and message digests
+** hmac — Keyed-Hashing for Message Authentication
+** secrets — Generate secure random numbers for managing secrets
+* Generic Operating System Services
+** os — Miscellaneous operating system interfaces
+** io — Core tools for working with streams
+** time — Time access and conversions
+** argparse — Parser for command-line options, arguments and sub-commands
+** getopt — C-style parser for command line options
+** logging — Logging facility for Python
+#+BEGIN_SRC python
+import logging
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+if not logger.handler:
+    logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
+logger
+
+# at the end of the program
+handler.close()
+logger.removeHandler(handler)
+#+END_SRC
+
+** logging.config — Logging configuration
+** logging.handlers — Logging handlers
+** getpass — Portable password input
+** curses — Terminal handling for character-cell displays
+** curses.textpad — Text input widget for curses programs
+** curses.ascii — Utilities for ASCII characters
+** curses.panel — A panel stack extension for curses
+** platform — Access to underlying platform’s identifying data
+** errno — Standard errno system symbols
+** ctypes — A foreign function library for Python
+* Concurrent Execution
+** threading — Thread-based parallelism
+** threading & queue
+*** install
+#+BEGIN_SRC shell
+pip install queuelib
+#+END_SRC
+*** example
+#+BEGIN_SRC python
+from Queue import Queue
+import threading
+
+#+END_SRC
+** multiprocessing — Process-based parallelism
+** The concurrent package
+** concurrent.futures — Launching parallel tasks
+** subprocess — Subprocess management
+** sched — Event scheduler
+** queue — A synchronized queue class
+** dummy_threading — Drop-in replacement for the threading module
+** _thread — Low-level threading API
+** _dummy_thread — Drop-in replacement for the _thread module
+
+* Internet Data Handling
+** Jupyter notebook
+*** Using a virtualenv in an IPython notebook
+1. Install the ipython kernel module into your virtualenv
+#+BEGIN_SRC python
+workon my-virtualenv-name  # activate your virtualenv, if you haven't already
+pip install ipykernel
+#+END_SRC
+
+2. Now run the kernel "self-install" script:
+#+BEGIN_SRC python
+python -m ipykernel install --user --name=my-virtualenv-name
+#+END_SRC
+
 ** fetch data from yahoo
+install pandas-datareader first.
+#+BEGIN_SRC shell
+conda install pandas-datareader
+#+END_SRC
+
 #+begin_src python
 import pandas as pd
 import datetime as dt
 import numpy as np
-import pandas.io.data as web
+from pandas_datareader import data as web
 
 data = pd.DataFrame()
 symbols = ['GLD', 'GDX']
@@ -360,10 +566,341 @@ for sym in symbols:
 data = data.dropna()
 #+end_src
 
-* Data Analysis:
+** email — An email and MIME handling package
+** json — JSON encoder and decoder
 
+* Internet Protocols and Support
+** webbrowser — Convenient Web-browser controller
+** cgi — Common Gateway Interface support
+** cgitb — Traceback manager for CGI scripts
+** wsgiref — WSGI Utilities and Reference Implementation
+** urllib — URL handling modules
+** urllib.request — Extensible library for opening URLs
+** urllib.response — Response classes used by urllib
+** urllib.parse — Parse URLs into components
+** urllib.error — Exception classes raised by urllib.request
+** urllib.robotparser — Parser for robots.txt
+** http — HTTP modules
+** http.client — HTTP protocol client
+** ftplib — FTP protocol client
+** poplib — POP3 protocol client
+** imaplib — IMAP4 protocol client
+** nntplib — NNTP protocol client
+** smtplib — SMTP protocol client
+** smtpd — SMTP Server
+** telnetlib — Telnet client
+** uuid — UUID objects according to RFC 4122
+** socketserver — A framework for network servers
+** http.server — HTTP servers
+** http.cookies — HTTP state management
+** http.cookiejar — Cookie handling for HTTP clients
+** xmlrpc — XMLRPC server and client modules
+** xmlrpc.client — XML-RPC client access
+** xmlrpc.server — Basic XML-RPC servers
+** ipaddress — IPv4/IPv6 manipulation library
+
+* Development Tools
+** typing — Support for type hints
+** pydoc — Documentation generator and online help system
+** doctest — Test interactive Python examples
+** unittest — Unit testing framework
+- check data operation:
+  - create, select, update, delete.
+
+- purpose of unit test
+  - checking parameter types, classes, or values.
+  - checking data structure invariants.
+  - checking “can’t happen” situations (duplicates in a list, contradictory state variables.)
+  - after calling a function, to make sure that its return is reasonable.
+
+** unittest.mock — mock object library
+** unittest.mock — getting started
+
+** test — Regression tests package for Python
+** test.support — Utilities for the Python test suite
+* Debugging and Profiling
+** bdb — Debugger framework
+** faulthandler — Dump the Python traceback
+** pdb — The Python Debugger
+** The Python Profilers
+STEPS:
+1). install snakeviz using pip from cmd.
+#+BEGIN_SRC shell
+pip install snakeviz
+#+END_SRC
+
+2). profile the test python file using below command.
+#+BEGIN_SRC shell
+$ python -m cProfile -o profile.stats test.py
+#+END_SRC
+#+BEGIN_SRC python
+# test.py
+from random import randint
+max_size = 10**4
+data = [randint(0, max_size) for _ in range(max_size)]
+test = lambda: insertion_sort(data)
+
+#+END_SRC
+
+3). check the efficiency result from profile.stats file.
+#+BEGIN_SRC shell
+$ snakeviz profile.stats
+#+END_SRC
+
+** timeit — Measure execution time of small code snippets
+** trace — Trace or track Python statement execution
+** tracemalloc — Trace memory allocations
+* Software Packaging and Distribution
+** pip
+- add below setup to ~/.pip/pip.conf
+#+begin_src txt
+[global]
+#index-url=https://pypi.mirrors.ustc.edu.cn/simple/
+#index-url=https://pypi.python.org/simple/
+index-url=http://mirrors.aliyun.com/pypi/simple/
+#index-url=https://pypi.gocept.com/pypi/simple/
+#index-url=https://mirror.picosecond.org/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com
+#trusted-host=mirrors.ustc.edu.cn
+#trusted-host=http://mirrors.aliyun.com/pypi/simple/
+#+end_src
+
+- pip install directly:
+requirements.txt
+#+begin_src txt
+--index-url http://mirrors.aliyun.com/pypi/simple/
+pandas
+pylint
+pep8
+sphinx
+ipython
+numpy
+ipdb
+mock
+nose
+#+end_src
+** distutils — Building and installing Python modules
+** ensurepip — Bootstrapping the pip installer
+** venv — Creation of virtual environments
+** zipapp — Manage executable python zip archives
+* Python Runtime Services
+** sysconfig — Provide access to Python’s configuration information
+** os, sys — System-specific parameters and functions
+- check if file or directory exists, if not then make directory:
+#+BEGIN_SRC python
+import os
+os.path.exists(test_file.txt)
+os.path.isfile("test-data")
+export_dir = "export/"
+if not os.path.exists(export_dir):
+    os.mkdir(export_dir)
+#+END_SRC
+
+ - read a file:
+import os
+folder = '/file/path'
+file = os.path.join(folder, 'file_name')
+
+- list all the files under a directory:
+#+BEGIN_SRC python
+# os.listdir() 方法用于返回指定的文件夹包含的文件或文件夹的名字的列表。这个列表以字母顺序。 它不包括 '.' 和'..' 即使它在文件夹中.
+path = os.getcwd()
+dirs = os.listdir(path)
+#+END_SRC
+
+- check if the file readable:
+#+BEGIN_SRC python
+import os
+if os.access("/file/path/foo.txt", os.F_OK):
+    print "Given file path is exist."
+
+if os.access("/file/path/foo.txt", os.R_OK):
+    print "File is accessible to read"
+
+if os.access("/file/path/foo.txt", os.W_OK):
+    print "File is accessible to write"
+
+if os.access("/file/path/foo.txt", os.X_OK):
+    print "File is accessible to execute"
+
+#+END_SRC
+- use sys to get command arguments:
+#+BEGIN_SRC python
+#!/usr/bin/python3
+
+import sys
+
+print ('参数个数为:', len(sys.argv), '个参数。')
+print ('参数列表:', str(sys.argv))
+
+#+END_SRC
+#+BEGIN_SRC shell
+$ python3 test.py arg1 arg2 arg3
+参数个数为: 4 个参数。
+参数列表: ['test.py', 'arg1', 'arg2', 'arg3']
+#+END_SRC
+
+** builtins — Built-in objects
+** __main__ — Top-level script environment
+** warnings — Warning control
+** contextlib — Utilities for with-statement contexts
+** abc — Abstract Base Classes
+** atexit — Exit handlers
+** traceback — Print or retrieve a stack traceback
+** __future__ — Future statement definitions
+** gc — Garbage Collector interface
+** inspect — Inspect live objects
+** site — Site-specific configuration hook
+** fpectl — Floating point exception control
+* Custom Python Interpreters
+** code — Interpreter base classes
+** codeop — Compile Python code
+* Importing Modules
+** Module
+- 当你运行一个Python模块 python fibo.py <arguments>
+  Remember, everything in python is an object.
+
+- python解释器CPython.
+
+- 如果字符串里面有’\’,而实际上要把斜杠加到字符串里面，要在前面加r，代表raw. 例如r’Y:\codes’.
+
+- 如果主目录下有子目录packages，记得要在子目录下加init.py，最好在主目录下建main.py函数。
+
+- 解释器如果执行哪个一个文件为主程序，如 python program1.py，it will set the special variable name to program1.py equals to ‘main’
+- One of the reasons for doing this is that sometimes you write a module (a .py file) where it can be executed directly. Alternatively, it can also be imported and used in another module. By doing the main check, you can have that code only execute when you want to run the module as a program and not have it execute when someone just wants to import your module and call your functions themselves.
+
+- 模块中的代码将会被执行，就像导入它一样，不过此时name 被设置为 “main“。这意味着，通过在你的模块末尾添加此代码.
+
+- can’t import module from upper directory.
+
+    - need to add the working directory to .bashrc PYTHONPATH
+    - using ipython.
+- Add custom folder path to the Windows environment.
+  add PYTHONEXE%; to System Variable PATH;
+  add System variable name: PYTHONEXE , value: C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
+  add PYTHONPATH:  C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
+  or add module path in Spyder directly;
+- import module temperarily from parental directory without add path to the system.
+#+begin_src python :tangle yes
+# folder1
+#    \__init__.py
+#    \State.py
+#    \StateMachine.py
+#    \mouse_folder
+#        \MouseAction.py
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0,parentdir+'\\mouse')
+sys.path.insert(0,parentdir)
+
+from State import State
+from StateMachine import StateMachine
+from MouseAction import MouseAction
+#+end_src
+
+- check module path:
+#+begin_src python
+import os
+print os.path.abspath(ylib.__file__)
+#+end_src
+
+- make a python 3 virtual environment:
+#+begin_src sh
+mkvirtual -p python3 ENVNAME
+#+end_src
+
+- install setup.py:
+python setup.py install
+to virtual environment:
+/home/weiwu/.virtualenvs/data_analysis/bin/python2 setup.py install
+
+- install from github:
+pip install git+https://github.com/quantopian/zipline.git
+
+- change conda source:
+#+BEGIN_SRC shell
+conda config --add channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'
+conda config --set show_channel_urls yes
+#+END_SRC
+
+- create conda virtualenv:
+#+BEGIN_SRC shell
+# 创建 conda 虚拟环境（ :code:`env_name` 是您希望创建的虚拟环境名）
+$ conda create --name env_name python=3.5
+
+# 如您想创建一个名为rqalpha的虚拟环境
+$ conda create --name rqalpha python=3.5
+
+# 使用 conda 虚拟环境
+$ source activate env_name
+# 如果是 Windows 环境下 直接执行 activcate
+$ activate env_name
+
+# 退出 conda 虚拟环境
+$ source deactivate env_name
+# 如果是 Windows 环境下 直接执行 deactivate
+$ deactivate env_name
+
+# 删除 conda 虚拟环境
+$ conda-env remove --name env_name
+
+#+END_SRC
+
+- percentage output format:
+#+begin_src python
+from future import division
+print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
+#+end_src
+** zipimport — Import modules from Zip archives
+** pkgutil — Package extension utility
+** modulefinder — Find modules used by a script
+** runpy — Locating and executing Python modules
+** importlib — The implementation of import
+* Python Language Services
+** parser — Access Python parse trees
+** ast — Abstract Syntax Trees
+** symtable — Access to the compiler’s symbol tables
+** symbol — Constants used with Python parse trees
+** token — Constants used with Python parse trees
+** keyword — Testing for Python keywords
+** tokenize — Tokenizer for Python source
+** tabnanny — Detection of ambiguous indentation
+** pyclbr — Python class browser support
+** py_compile — Compile Python source files
+** compileall — Byte-compile Python libraries
+** dis — Disassembler for Python bytecode
+** pickletools — Tools for pickle developers
+* Miscellaneous Services
+** formatter — Generic output formatting
+* MS Windows Specific Services
+** msilib — Read and write Microsoft Installer files
+** msvcrt — Useful routines from the MS VC++ runtime
+** winreg — Windows registry access
+** winsound — Sound-playing interface for Windows
+* Unix Specific Services
+** posix — The most common POSIX system calls
+** pwd — The password database
+** spwd — The shadow password database
+** grp — The group database
+** crypt — Function to check Unix passwords
+** termios — POSIX style tty control
+** tty — Terminal control functions
+** pty — Pseudo-terminal utilities
+** fcntl — The fcntl and ioctl system calls
+** pipes — Interface to shell pipelines
+** resource — Resource usage information
+** nis — Interface to Sun’s NIS (Yellow Pages)
+** syslog — Unix syslog library routines
+* Superseded Modules
+** optparse — Parser for command line options
+** imp — Access the import internals
+* Undocumented Modules
+** Platform specific modules
+* Data Analysis:
 ** pandas:
-[[file:./pandas.org][pandas]]
+[[file:./pandas.org][advanced pandas]]
 - generate a dataframe:
 #+begin_src python
 dates = pd.date_range('1/1/2000', periods=8)
@@ -378,24 +915,173 @@ pandas.read_sql(sql, con=engine)
 sql = 'DROP TABLE IF EXISTS etf_daily_price;'
 result = engine.execute(sql)
 #+end_src
+- dropna:
+#+BEGIN_SRC python
+DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
 
+#+END_SRC
+- melt.
+pandas.melt(frame, id_vars=None, value_vars=None, var_name=None, value_name='value', col_level=None)[source]
+
+This function is useful to massage a DataFrame into a format where one or more columns are identifier variables (id_vars), while all other columns, considered measured variables (value_vars), are “unpivoted” to the row axis, leaving just two non-identifier columns, ‘variable’ and ‘value’.
+#+BEGIN_SRC python
+"""
+Parameters:
+frame : DataFrame
+id_vars : tuple, list, or ndarray, optional
+Column(s) to use as identifier variables.
+value_vars : tuple, list, or ndarray, optional
+Column(s) to unpivot. If not specified, uses all columns that are not set as id_vars.
+var_name : scalar
+Name to use for the ‘variable’ column. If None it uses frame.columns.name or ‘variable’.
+value_name : scalar, default ‘value’
+Name to use for the ‘value’ column.
+col_level : int or string, optional
+If columns are a MultiIndex then use this level to melt.
+"""
+DataFrame['idname'] = DataFrame.index
+pd.melt(DataFrame, id_vars=['idname'])
+#+END_SRC
+#+RESULT:
+: >>> import pandas as pd
+: >>> df = pd.DataFrame({'A': {0: 'a', 1: 'b', 2: 'c'},
+: ...                    'B': {0: 1, 1: 3, 2: 5},
+: ...                    'C': {0: 2, 1: 4, 2: 6}})
+: >>> df
+:    A  B  C
+: 0  a  1  2
+: 1  b  3  4
+: 2  c  5  6
+: >>> pd.melt(df, id_vars=['A'], value_vars=['B'])
+:    A variable  value
+: 0  a        B      1
+: 1  b        B      3
+: 2  c        B      5
+
+- fill nan:
+#+BEGIN_SRC python
+DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)
+#+END_SRC
+
+- select non zero rows from series:
+#+BEGIN_SRC python
+s[s.nonzero()]
+#+END_SRC
+
+- dataframe to series:
+#+BEGIN_SRC python
+s = df[df.columns[0]]
+#+END_SRC
+
+- replace value:
+#+BEGIN_SRC python
+DataFrame.replace(to_replace=None, value=None, inplace=False, limit=None, regex=False, method='pad', axis=None)
+#+END_SRC
+- pandas has value:
+#+BEGIN_SRC python
+value in df['column_name']
+set(a).issubset(df['a'])
+#+END_SRC
+
+- pandas has null value:
+#+BEGIN_SRC python
+df.isnull().values.any()
+
+#+END_SRC
 - find all the values of TRUE in a dataframe:
 #+begin_src python
 z=(a!=b)
 pd.concat([a.ix[z[reduce(lambda x, y: x | z[y], z, False)].index],b.ix[z[reduce(lambda x, y: x | z[y], z, False)].index]],axis=1)
 #+end_src
 
+- if array a is a subset of another array b:
+#+BEGIN_SRC python
+set(B).issubset(set(A))
+#+END_SRC
 - remove negative value from a column:
 #+begin_src python
 filtered_1=b[‘TRADE_size’].apply(lambda x: 0 if x < 0 else x)
 b[‘TRADE_size’].loc[ b[‘TRADE_size’]<0, ‘TRADE_size’] = 0
 #+end_src
 
+- drop a lable:
+#+BEGIN_SRC python
+DataFrame.drop(labels, axis=0, level=None, inplace=False, errors='raise')
+#+END_SRC
+
+- check if any value is NaN in DataFrame
+#+BEGIN_SRC python
+df.isnull().values.any()
+df.isnull().any().any()
+#+END_SRC
+
+- maximum & minimum value of a dataframe:
+#+BEGIN_SRC python
+df.values.max()
+df.values.min()
+#+END_SRC
+
+- select value by creteria:
+#+BEGIN_SRC python
+logger.debug("all weight are bigger than 0? %s", (df_opts_weight>0).all().all())
+logger.debug("all weight are smaller than 1? %s", (df_opts_weight<=1).all().all())
+logger.debug("weight sum smaller than 0: %s", df_opts_weight[df_opts_weight<0].sum(1))
+#+END_SRC
+
+- count all duplicates:
+#+BEGIN_SRC python
+import pandas as pd
+In [15]: a=pd.DataFrame({'a':['KBE.US','KBE.US','KBE.US','KBE.US','KBE.US','KBE.US','O.US','O.US','O.US','O.US','O.US'],'b':['KBE','KBE','KBE','KBE','KBE','KBE','O','O','O','O','O']})
+
+In [16]: count = a.groupby('a').count()
+
+In [20]: (count>5).all().all()
+Out[20]: False
+
+In [21]: (count>4).all().all()
+Out[21]: True
+
+- datetime64[ns] missing data, null:
+For datetime64[ns] types, NaT represents missing values. This is a pseudo-native sentinel value that can be represented by numpy in a singular dtype (datetime64[ns]). pandas objects provide intercompatibility between NaT and NaN.
+
+#+BEGIN_SRC python
+In [16]: df2
+Out[16]:
+        one       two     three four   five  timestamp
+a -0.166778  0.501113 -0.355322  bar  False 2012-01-01
+c -0.337890  0.580967  0.983801  bar  False 2012-01-01
+e  0.057802  0.761948 -0.712964  bar   True 2012-01-01
+f -0.443160 -0.974602  1.047704  bar  False 2012-01-01
+h -0.717852 -1.053898 -0.019369  bar  False 2012-01-01
+
+In [17]: df2.loc[['a','c','h'],['one','timestamp']] = np.nan
+
+In [18]: df2
+Out[18]:
+        one       two     three four   five  timestamp
+a       NaN  0.501113 -0.355322  bar  False        NaT
+c       NaN  0.580967  0.983801  bar  False        NaT
+e  0.057802  0.761948 -0.712964  bar   True 2012-01-01
+f -0.443160 -0.974602  1.047704  bar  False 2012-01-01
+h       NaN -1.053898 -0.019369  bar  False        NaT
+#+END_SRC
 - rename column names:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
 #+end_src
+  - rename according to column value type:
+    #+BEGIN_SRC python
+    name = {2:'idname', 23:'value', 4:'variable'}
+    df.rename(columns=lambda x: name[(gftIO.get_column_type(df,x))], inplace=True)
+    #+END_SRC
+  - rename column according to value:
+  #+BEGIN_SRC python
+name = {'INNERCODE': 'contract_code', 'OPTIONCODE': 'contract_name',
+        'SETTLEMENTDATE': 'settlement_date', 'ENDDATE': 'date',
+        'CLOSEPRICE': 'close_price'}
+data.rename(columns=lambda x: name[x], inplace=True)
 
+  #+END_SRC
 - remove characters after space:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x.)
@@ -404,6 +1090,11 @@ df_bbg = df_bbg.rename(columns = lambda x: x.)
 - pandas long format to pivot:
 #+begin_src python
 pivoted = df.pivot('name1','name2','name3')
+specific_risk = self.risk_model['specificRisk'].pivot(
+    index='date', columns='symbol', values='specificrisk')
+df_pivot_industries_asset_weights = pd.pivot_table(
+        df_industries_asset_weight, values='value', index=['date'],
+        columns=['industry', 'symbol'])
 #+end_src
 
 - change the time or date or a datetime:
@@ -423,6 +1114,63 @@ dt_diff = df_single_period_return.index.to_series().diff().mean()
 if dt_diff < pd.Timedelta('3 days'):
 #+END_SRC
 
+- resample by month and keep the last valid row
+#+BEGIN_SRC python
+benchmark_weight.index.name = 'Date'
+m = benchmark_weight.index.to_period('m')
+benchmark_weight = benchmark_weight.reset_index().groupby(m).last().set_index('Date')
+benchmark_weight.index.name = ''
+#+END_SRC
+
+*** multiplying
+- the multiplying calculation is not about the sequence of the index or column.
+
+pandas will calculate on a sorted index and column value.
+#+BEGIN_SRC python
+In [87]: a=pd.DataFrame({'dog':[1,2],'fox':[3,4]},index=['a','b'])
+
+In [88]: a
+Out[88]:
+   dog  fox
+a    1    3
+b    2    4
+
+In [89]: b=pd.DataFrame({'fox':[1,2],'dog':[3,4]},index=['b','a'])
+
+In [94]: b
+Out[94]:
+   dog  fox
+b    3    1
+a    4    2
+
+In [95]: a*b
+Out[95]:
+   dog  fox
+a    4    6
+b    6    4
+#+END_SRC
+
+- dot multiplying
+dot multiplying will sort the value.
+#+BEGIN_SRC python
+In [99]: a.dot(b.T)
+Out[99]:
+    b   a
+a   6  10
+b  10  16
+
+In [100]: b.T
+Out[104]:
+     b  a
+dog  3  4
+fox  1  2
+
+In [105]: a
+Out[105]:
+   dog  fox
+a    1    3
+b    2    4
+#+END_SRC
 *** Index
 **** Index manuplication
 - set column as datetime index
@@ -437,6 +1185,17 @@ pd.concat([df1, df2], axis=1)
 result = df1.join(df2, how='outer’)
 #+end_src
 
+- check if the index is datetimeindex:
+#+BEGIN_SRC python
+if isinstance(df_otv.index, pd.DatetimeIndex):
+    df_otv.reset_index(inplace=True)
+
+#+END_SRC
+- pandas are two dataframe identical
+#+BEGIN_SRC python
+pandas.DataFrame.equals()
+
+#+END_SRC
 - change index name:
 #+begin_src python
 df.index.names = ['Date']
@@ -463,7 +1222,25 @@ df.index.strftime("%Y-%m-%d %H:%M:%S")
 #+begin_src python
 pd.concat([df1, df2], axis=1)
 #+end_src
+concate will take two dataframe to a new dataframe by index, preserving the columns.
+A:
+index variable value
+B:
+index variable value
 
+pd.concat([A, B])
+index variable value variable value
+**** merge
+merge will take two dataframe to a new dataframe by index, on the columns.
+A:
+index variable value
+B:
+index variable value
+
+pd.merge(A, B, how='left', on=['index', 'variable'])
+index variable value value
+**** update
+update dataframe1 with dataframe2
 
 **** access hierarchical index.
   - A MultiIndex can be created from a list of arrays (using MultiIndex.from_arrays), an array of tuples (using MultiIndex.from_tuples), or a crossed set of iterables (using MultiIndex.from_product).
@@ -487,6 +1264,11 @@ df.loc(axis=0)[:,['SPY.US']]
 df.loc(axis=0)[:,['SPY.US']]['updatedTime']
 #+end_src
 
+- select rows with certain column value:
+#+BEGIN_SRC python
+df.loc[df['column_name'].isin(some_values)]
+#+END_SRC
+
 - select date range using pd series.
 #+begin_src python
 date_not_inserted = whole_index[~whole_index.isin(date_in_database['date'])]
@@ -505,11 +1287,24 @@ sym = grouped.last()
 df2[~df2.index.duplicated()]
 #+end_SRC
 
+***** remove duplicated rows
+#+BEGIN_SRC python
+pandas.DataFrame.drop_duplicates(subset=None, keep='first', inplace=False)
+# subset : column label or sequence of labels, optional
+#+END_SRC
 **** convert a dataframe to an array:
 #+begin_src emacs-lisp :tangle yes
 pd.dataframe.to_matrix()
 #+end_src
 
+**** panel:
+- create from dictionary:
+#+BEGIN_SRC python
+datetime_index = pd.DatetimeIndex(assets_group['date'].unique())
+panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
+                                           columns=assets.loc[date,'variable']) for date in datetime_index})
+#+END_SRC
+pandas panel item axis should be datetime64, this should not be an array.
 ** numpy
 - count nan:
 #+begin_src python
@@ -519,9 +1314,31 @@ np.count_nonzero(~np.isnan(df['series']))
 #+begin_src python
 np.sum((df < 0).values.ravel())
 #+end_src
+
+- check the difference of two arrays:
+numpy.setdiff1d:
+Return the sorted, unique values in ar1 that are not in ar2
+#+BEGIN_SRC python
+np.setdiff1d(ar1, ar2)
+#+END_SRC
+
+- reshape:
+np.reshape((1, -1)), -1 means automatic number of columns.
 ** plot:
+*** subplot with the same axis:
 pandas plot.
 using matplotlib:
+- plot different series on the same chart.
+#+BEGIN_SRC python
+cl_active_contract_pricing.plot()
+cl_pricing.plot(style='k--')
+#+END_SRC
+- plot in ipython or jupyter notebook:
+#+BEGIN_SRC python
+ax = contract_data.plot(legend=True)
+continuous_price.plot(legend=True, style='k--', ax=ax)
+plt.show()
+#+END_SRC
 - multiple subplots
 #+begin_src python
 import matplotlib.pyplot as plt
@@ -532,8 +1349,23 @@ ax3 = fig.add_subplot(2, 2, 3)
 fig, axes = plt.subplots(2,3)
 fig, ax : tuple
 #+end_src
+*** subplot with different axis
+#+BEGIN_SRC python
+plt.subplot(2, 1, 1)
+plt.boxplot(x1)
+plt.plot(1, x1.ix[-1], 'r*', markersize=15.0)
 
-- plot a secondary y scale
+plt.subplot(2, 1, 2)
+x1.plot()
+# or
+fig, axes = plt.subplots(2, 1, figsize=(10, 14))
+axes[0].boxplot(pe000001)
+axes[0].plot(1, pe000001.ix[-1], 'r*', markersize=15.0)
+
+pe000001.plot()
+#+END_SRC
+
+*** plot a secondary y scale
 #+begin_src python
 df.price.plot(legend=True)
 (100-df.pct_long).plot(secondary_y=True, style='g', legend=True)
@@ -544,7 +1376,7 @@ a['DGAZ.US'].hist(bins=50)
 plt.axvline(a['DGAZ.US'][-1], color='b', linestyle='dashed', linewidth=2)
 #+end_src
 
-- plot a 3d figure:
+*** plot a 3d figure:
 #+begin_src python :tangle yes
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
@@ -571,3 +1403,22 @@ fig is the :class:matplotlib.figure.Figure object.
 [http://python.usyiyi.cn/python_278/library/index.html]
 
 [https://docs.python.org/2/reference/simple_stmts.html?highlight=assert]
+
+** scipy
+-  combination k from n.
+$$
+{\displaystyle {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}},} {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}}$$
+
+which can be written using factorials as$$ {\displaystyle \textstyle {\frac {n!}{k!(n-k)!}}} \textstyle {\frac {n!}{k!(n-k)!}} $$
+#+BEGIN_SRC python
+>>> from scipy.special import comb
+>>> k = np.array([3, 4])
+>>> n = np.array([10, 10])
+>>> comb(n, k, exact=False)
+array([ 120.,  210.])
+>>> comb(10, 3, exact=True)
+120L
+>>> comb(10, 3, exact=True, repetition=True)
+220L
+#+END_SRC
+[https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html]

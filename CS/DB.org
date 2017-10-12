@@ -1,8 +1,18 @@
 #+TITLES: Database concept
 #+KEYWORDS: database
-#+OPTIONS: H:2 toc:2 num:3 ^:nil
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+DATE: <2017-06-05 Mon>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../configOrg/level1.org
-#+Latex: t
+
 * Rational Algebra
 ** Basic
 - select $\sigma_{P}(r)$
@@ -371,28 +381,28 @@ Heavily overlapping -> design 3
 Disjoint, complete ->design 2
 #+END_VERSE
 Examples:
-#+BEGIN_SRC plantuml :file ../resources/data/SubclassExample.png :cmdline -charset UTF-8
-@startuml
-title Subclass Example
-Superclass <|-- Subclass1
-Superclass <|-- Subclass2
-class Superclass{
-k PK
-A
-}
+# #+BEGIN_SRC plantuml :file ../resources/data/SubclassExample.png :cmdline -charset UTF-8
+# @startuml
+# title Subclass Example
+# Superclass <|-- Subclass1
+# Superclass <|-- Subclass2
+# class Superclass{
+# k PK
+# A
+# }
 
-class Subclass1{
-B
-}
+# class Subclass1{
+# B
+# }
 
-class Subclass2{
-C
-}
-@enduml
-#+END_SRC
+# class Subclass2{
+# C
+# }
+# @enduml
+# #+END_SRC
 
-#+results:
-[[file:../resources/data/SubclassExample.png]]
+# #+results:
+# [[file:../resources/data/SubclassExample.png]]
 
 1) S(_K_, A), S1(_K_, B), S2(_K_, C)
 2) S(_K_, A), S1(_K_, A, B), S2(_K_, A, C)

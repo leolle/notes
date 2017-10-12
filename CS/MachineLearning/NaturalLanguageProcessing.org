@@ -1,0 +1,54 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: NaturalLanguageProcessing
+#+DATE: <2017-07-25 Tue>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
+
+
+* Overview
+- Document level:
+The task at this level is to classify whether a whole opinion document expresses a positive or negative sentiment.
+- Sentence level:
+The task at this level goes to the sentences and determines whether each sentence expressed a positive, negative, or neutral opinion.
+
+This level of analysis is closely related to subjectivity classification (Wiebe, Bruce and O'Hara, 1999), which distinguishes sentences (called objective sentences) that express factual information from sentences (called subjective sentences) that express subjective views and opinions.
+
+- Entity and Aspect level:
+It is based on the idea that an opinion consists of a sentiment (positive or negative) and a target (of opinion).
+
+- regular opinions and comparative opinions
+A regular opinion expresses a sentiment only on an particular entity or an aspect of the entity, e.g., “Coke tastes very good,” which expresses a positive sentiment on the aspect taste of Coke. A comparative opinion compares multiple entities based on some of their shared aspects, e.g., “Coke tastes better than Pepsi,” which compares Coke and Pepsi based on their tastes (an aspect) and expresses a preference for Coke.
+
+** Sentiment Lexicon and Its Issues
+- lexicon
+opinions, positive and negative.
+- issue
+spam review
+
+* Definition of Sentiment Analysis
+** Structure
+Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
+** Opinion Defintion
+- Observation: An opinion consists of two key components: a target g and a sentiment s on the target.
+
+- Definition (Opinion): An opinion is a quadruple, (g, s, h, t), where g is the opinion (or sentiment) target, s is the sentiment about the target, h is the opinion holder and t is the time when the opinion was expressed.
+
+- Definition (entity): An entity e is a product, service, topic, issue, person, organization, or event. It is described with a pair, e: (T, W), where T is a hierarchy of parts, sub-parts, and so on, and W is a set of attributes of e.
+
+- Definition (opinion): An opinion is a quintuple, (ei, aij, sijkl, hk, tl), where ei is the name of an entity, aij is an aspect of ei, sijkl is the sentiment on aspect aij of entity ei, hk is the opinion holder, and tl is the time when the opinion is expressed by hk. The sentiment sijkl is positive, negative, or neutral, or expressed with different strength/intensity levels, e.g., 1 to 5 stars as used by most review sits on the Web.
+* Language Technology Processing
+[http://ltp.ai/docs/index.html]
+** features:
+- 针对单一自然语言处理任务，生成统计机器学习模型的工具
+- 针对单一自然语言处理任务，调用模型进行分析的编程接口
+- 使用流水线方式将各个分析工具结合起来，形成一套统一的中文自然语言处理系统
+- 系统可调用的，用于中文语言处理的模型文件
+- 针对单一自然语言处理任务，基于云端的编程接口

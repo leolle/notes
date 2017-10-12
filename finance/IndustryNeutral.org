@@ -1,0 +1,24 @@
+#+SETUPFILE: ../configOrg/level1.org
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: IndustryNeutral
+#+DATE: <2017-07-07 Fri>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* select stocks based on single factor.
+在Pool里面的信号值[0, 1)代表该stock是否在benchmark里。
+由pool和benchmark我们能得到每只股票的行业分类，以及由他们之间交集得到的待选股票池。
+
+* 从每个行业里面挑选股票的步骤：
+** 把每个行业里面的股票按signal的信号强度(P(i,j),i:行业，j股票名)可以排序。
+** 从每个行业里面按quantile从步骤1排序后的股票池里面选股票，得到两个结果，具体每个行业的股票（S(i,j)，i:行业，j股票名）和每个行业股票的数量N(i)。
+** 确定权重：
+- 利用benchmark的weight数据得到每个行业所占的权重W(i)。
+- W(i)/N(i)等权重赋值到挑选出来的股票S(i,j)。结果即为行业中性下每只股票的权重。

@@ -10,6 +10,7 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
 
 
 
@@ -17,4 +18,205 @@
 - check python versions:
 #+BEGIN_SRC shell
 sudo find / -type f -executable -iname 'python*' -exec file -i '{}' \; | awk -F: '/x-executable; charset=binary/ {print $1}' | xargs readlink -f | sort -u | xargs -I % sh -c 'echo -n "%: "; % -V'
+
+# 2
+ls -ls /usr/bin/python*
+#+END_SRC
+
+- unpack a tar.gz file
+#+BEGIN_SRC shell
+# tar.gz
+tar -xvzf rebol.tar.gz
+
+#*.gz
+
+#+END_SRC
+
+- restart network service
+#+BEGIN_SRC shell
+sudo service network-manager restart
+#+END_SRC
+
+- chmod:
+第一列共有10个位置，第一个字符指定了文件类型。在通常意义上，一个目录也是一个文件。如果第一个字符是横线，表示是一个非目录的文件。如果是d，表示是一个目录。从第二个字符开始到第十个共9个字符，3个字符一组，分别表示了3组用户对文件或者目录的权限。权限字符用横线代表空许可，r代表只读，w代表写，x代表可执行。
+例如：
+#+begin_src emacs-lisp :tangle yes
+　　- rw- r-- r--
+#+end_src
+
+　　表示log2012.log是一个普通文件；log2012.log的属主有读写权限；与log2012.log属主同组的用户只有读权限；其他用户也只有读权限。
+
+- create symbolic link for a directory
+#+BEGIN_SRC shell
+ln -s /absolute/path/of/source/folder /absolute/path/of/target/folder
+#+END_SRC
+* nano
+- 光标控制 移动光标：使用用方向键移动。
+- 选择文字：按住鼠标左键拖到。
+- 复制、剪贴和粘贴
+- 复制一整行：Alt+6
+- 剪贴一整行：Ctrl+K
+- 粘贴：Ctrl+U 如果需要复制／剪贴多行或者一行中的一部分，先将光标移动到需要复制／剪贴的文本的开头，按Ctrl+6（或者Alt+A）做标记，然后移动光标到 待复制／剪贴的文本末尾。这时选定的文本会反白，用Alt+6来复制，Ctrl+K来剪贴。若在选择文本过程中要取消，只需要再按一次Ctrl+6。
+- 搜索 按Ctrl+W，然后输入你要搜索的关键字，回车确定。这将会定位到第一个匹配的文本，接着可以用Alt+W来定位到下一个匹配的文本。
+- 翻页 Ctrl+Y到上一页 Ctrl+V到下一页
+- 保存 使用Ctrl+O来保存所做的修改.
+- 退出 按Ctrl+X 如果你修改了文件，下面会询问你是否需要保存修改。输入Y确认保存，输入N不保存，按Ctrl+C取消返回。如果输入了Y，下一步会让你输入想要保存的文件名。如果不需要修改文件名直接回车就行；若想要保存成别的名字（也就是另存为）则输入新名称然后确 定。这个时候也可用Ctrl+C来取消返回。
+
+| name     | shortcut         |
+| 标记     | 	Ctrl+6 / Alt+A |
+| 复制整行 | Alt+6            |
+| 剪贴整行 | Ctrl+K           |
+| 粘贴     | Ctrl+U           |
+| 查找     | Ctrl+W (WhereIs) |
+| 继续查找 | Alt+W            |
+| 上一页   | Ctrl+Y           |
+| 下一页   | Ctrl+V           |
+| 保存     | 	Ctrl+O         |
+|  退出	        |      Ctrl+X            |
+* zsh
+#+BEGIN_SRC shell
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/weiwu/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="pygmalion"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+SAVEHIST=1000000
+HISTFILE=~/.zsh_history
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git jump z)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+export XMODIFIERS="@im=fcitx"
+export GTK_IM_MODULE=xim
+export QT_IM_MODULE=xim
+export LC_CTYPE=zh_CN.UTF-8
+
+# path
+export PATH=$HOME/Tools/google_appengine:$PATH
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+# emacs
+alias ec='emacsclient -nc -a ""'
+export EDITOR="emacsclient"
+
+# cpp
+export CPLUS_INCLUDE_PATH=$HOME/github/rlib-cpp:$HOME/github/ib-tws-trade:$HOME/github/ib-tws-trade/PosixClient/Shared:$CPLUS_INCLUDE_PATH
+export GTAGSLIBPATH=$HOME/.gtags/
+export AG_STRATEGY=$HOME/projects/ag-strategy:$AG_STRATEGY
+
+# node
+alias npm='npm --registry=https://registry.npm.taobao.org'
+
+# python
+#export PYENV_ROOT="$HOME/.pyenv"
+
+export PYTHONPATH=/usr/local/lib/python2.7/:$PYTHONPATH
+export PYTHONPATH=$HOME/projects/tradehub/src/py/:$PYTHONPATH
+export PYTHONPATH=$HOME/projects/simulate/:$PYTHONPATH
+export PYTHONPATH=$HOME/tools/WaveFront/PythonScripts/:$PYTHONPATH
+export PYTHONPATH=$HOME/projects/ylib-py/:$PYTHONPATH
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+#export PATH="$PYENV_ROOT/bin:$PATH"
+
+#pyenv virtualenvwrapper
+
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+
+source /usr/local/bin/virtualenvwrapper.sh
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+
+#export PATH="$PYENV_ROOT/bin:$PATH
+#eval "$(pyenv init -)"
+#pyenv virtualenvwrapper
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/weiwu/projects/sentiment/google-cloud-sdk/path.zsh.inc' ]; then source '/home/weiwu/projects/sentiment/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc'; fi
+
 #+END_SRC

@@ -1,0 +1,30 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLEs: BasicModule2
+#+DATE: <2017-09-23 Sat>
+#+AUTHORs: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
+
+* Singular Value Decomposition
+$$A_{m*n} = U_{m*m} \Sigma_{m*n} V_{n*n}^T$$
+
+In linear algebra, the singular value decomposition (SVD) is a factorization of a real or complex matrix. It is the generalization of the eigendecomposition of a positive semidefinite normal matrix (for example, a symmetric matrix with positive eigenvalues) to any ${\displaystyle m\times n} m\times n$ matrix via an extension of the polar decomposition. It has many useful applications in signal processing and statistics.
+
+Formally, the singular value decomposition of an ${\displaystyle m\times n} m\times n$ real or complex matrix ${\displaystyle \mathbf {M} } \mathbf {M}$  is a factorization of the form ${\displaystyle \mathbf {U\Sigma V^{*}} } {\displaystyle \mathbf {U\Sigma V^{*}} }$, where ${\displaystyle \mathbf {U} } \mathbf {U}$  is an ${\displaystyle m\times m} m\times m$ real or complex unitary matrix, ${\displaystyle \mathbf {\Sigma } } \mathbf{\Sigma}$ is a ${\displaystyle m\times n} m\times n$ rectangular diagonal matrix with non-negative real numbers on the diagonal, and ${\displaystyle \mathbf {V} } \mathbf {V}$  is an ${\displaystyle n\times n} n\times n$ real or complex unitary matrix. The diagonal entries ${\displaystyle \sigma _{i}} \sigma _{i}$ of ${\displaystyle \mathbf {\Sigma } } \mathbf{\Sigma}$ are known as the singular values of ${\displaystyle \mathbf {M} } \mathbf {M}$ . The columns of ${\displaystyle \mathbf {U} } \mathbf {U}$  and the columns of ${\displaystyle \mathbf {V} } \mathbf {V}$  are called the left-singular vectors and right-singular vectors of ${\displaystyle \mathbf {M} } \mathbf {M}$ , respectively.
+
+The singular value decomposition can be computed using the following observations:
+
+The left-singular vectors of M are a set of orthonormal eigenvectors of MM∗.
+The right-singular vectors of M are a set of orthonormal eigenvectors of M∗M.
+The non-zero singular values of M (found on the diagonal entries of Σ) are the square roots of the non-zero eigenvalues of both M∗M and MM∗.
+Applications that employ the SVD include computing the pseudoinverse, least squares fitting of data, multivariable control, Matrix Approximation, and determining the rank, range and null space of a matrix.
+
+* Convolve Networks(CNN)
+.

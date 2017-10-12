@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-04 Tue 14:28 -->
+<!-- 2017-10-10 Tue 09:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -94,6 +94,8 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -176,6 +178,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
+<li><a href="#orgheadline16">6. Panels</a></li>
 </ul>
 </div>
 </div>
@@ -266,24 +269,6 @@ Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">36</span>
 <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">4</span>   <span style="color: #AE81FF;">10</span>  <span style="color: #AE81FF;">100</span>
 <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">5</span>   <span style="color: #AE81FF;">20</span>   <span style="color: #AE81FF;">50</span>
 <span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">6</span>   <span style="color: #AE81FF;">30</span>  <span style="color: #AE81FF;">-30</span>
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>Panels</li>
-</ul>
-<p>
-Extend a panel frame by transposing, adding a new dimension, and transposing back to the original dimensions.
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">43</span><span style="color: #AE81FF;">]</span>: pf = pd.Panel<span style="color: #AE81FF;">(</span>{'df1'<span style="color: #F92672;">:df1</span>,'df2'<span style="color: #F92672;">:df2</span>,'df3'<span style="color: #F92672;">:df3}</span><span style="color: #AE81FF;">)</span><span style="color: #75715E;">;</span><span style="color: #75715E;">pf</span>
-Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">43</span><span style="color: #AE81FF;">]</span>:
-&lt;class 'pandas.core.panel.Panel'&gt;
-Dimensions: <span style="color: #AE81FF;">3</span> <span style="color: #AE81FF;">(</span>items<span style="color: #AE81FF;">)</span> x <span style="color: #AE81FF;">100</span> <span style="color: #AE81FF;">(</span>major_axis<span style="color: #AE81FF;">)</span> x <span style="color: #AE81FF;">4</span> <span style="color: #AE81FF;">(</span>minor_axis<span style="color: #AE81FF;">)</span>
-Items axis: df1 to df3
-Major_axis axis: 2013-01-01 00:00:00 to 2013-04-10 00:00:00
-Minor_axis axis: A to D
 </pre>
 </div>
 
@@ -471,6 +456,8 @@ Ada     Math      <span style="color: #AE81FF;">71</span>  <span style="color: #
 Quinn   Math      <span style="color: #AE81FF;">74</span>  <span style="color: #AE81FF;">76</span>   <span style="color: #AE81FF;">78</span>  <span style="color: #AE81FF;">77</span>
 Violet  Math      <span style="color: #AE81FF;">77</span>  <span style="color: #AE81FF;">79</span>   <span style="color: #AE81FF;">81</span>  <span style="color: #AE81FF;">80</span>
 
+# get I
+df.loc<span style="color: #AE81FF;">[</span>:, <span style="color: #66D9EF;">(</span>slice<span style="color: #A6E22E;">(</span>None<span style="color: #A6E22E;">)</span>, 'I'<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
 In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">78</span><span style="color: #AE81FF;">]</span>: df.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span>slice<span style="color: #A6E22E;">(</span>'Ada','Quinn'<span style="color: #A6E22E;">)</span>,'Math'<span style="color: #66D9EF;">)</span>,All<span style="color: #AE81FF;">]</span>
 Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">78</span><span style="color: #AE81FF;">]</span>:
                Exams     Labs
@@ -507,9 +494,28 @@ Sort by specific column or an ordered list of columns, with a multi-index.
 
 <pre class="src src-emacs-lisp"></pre>
 </div>
-</div>
-</div>
 
+<ul class="org-ul">
+<li>pivoting a table to multi-index dataframe:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"># get a pivot table, setting industry and symbol for two levels on the column
+df_pivot_industries_asset_weights = pd.pivot_table<span style="color: #AE81FF;">(</span>
+    df_industries_asset_weight, values='value', index=<span style="color: #66D9EF;">[</span>'date'<span style="color: #66D9EF;">]</span>,
+    columns=<span style="color: #66D9EF;">[</span>'industry', 'symbol'<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+# pivot the original dataframe to multi-index dataframe
+# level <span style="color: #AE81FF;">0</span> value: industry
+# level <span style="color: #AE81FF;">1</span> value: assets, the order of assets are changed.
+df_pivot_industries_asset_weights = df_pivot_industries_asset_weights.fillna<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+idx_level_0_value = df_pivot_industries_asset_weights.columns.get_level_values<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+idx_level_0_value = idx_level_0_value.drop_duplicates<span style="color: #AE81FF;">()</span>
+idx_level_1_value = df_pivot_industries_asset_weights.columns.get_level_values<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline6" class="outline-2">
 <h2 id="orgheadline6"><span class="section-number-2">4</span> Grouping</h2>
 <div class="outline-text-2" id="text-4">
@@ -695,12 +701,74 @@ A3 B0 C1 D1  <span style="color: #AE81FF;">205</span>  <span style="color: #AE81
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">6</span> Panels</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Extend a panel frame by transposing, adding a new dimension, and transposing back to the original dimensions.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">43</span><span style="color: #AE81FF;">]</span>: pf = pd.Panel<span style="color: #AE81FF;">(</span>{'df1'<span style="color: #F92672;">:df1</span>,'df2'<span style="color: #F92672;">:df2</span>,'df3'<span style="color: #F92672;">:df3}</span><span style="color: #AE81FF;">)</span><span style="color: #75715E;">;</span><span style="color: #75715E;">pf</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">43</span><span style="color: #AE81FF;">]</span>:
+&lt;class 'pandas.core.panel.Panel'&gt;
+Dimensions: <span style="color: #AE81FF;">3</span> <span style="color: #AE81FF;">(</span>items<span style="color: #AE81FF;">)</span> x <span style="color: #AE81FF;">100</span> <span style="color: #AE81FF;">(</span>major_axis<span style="color: #AE81FF;">)</span> x <span style="color: #AE81FF;">4</span> <span style="color: #AE81FF;">(</span>minor_axis<span style="color: #AE81FF;">)</span>
+Items axis: df1 to df3
+Major_axis axis: 2013-01-01 00:00:00 to 2013-04-10 00:00:00
+Minor_axis axis: A to D
+</pre>
 </div>
-<div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-05-24 Wed&gt;</span></span></p>
-<p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-04 Tue 14:28</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+
+<ul class="org-ul">
+<li>Create panels from dictionary:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">panel_model</span> = pd.Panel<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span>target_date: get_factor_exposure<span style="color: #A6E22E;">(</span>model, factors, target_date,
+                        asset_weight.columns<span style="color: #A6E22E;">)</span>.T <span style="color: #F92672;">for</span> target_date <span style="color: #F92672;">in</span> asset_weight.index<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>panel multipying:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">datetimeindex</span> = multiplicand.index.intersection<span style="color: #AE81FF;">(</span>multiplier_panel.items<span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">product</span> = pd.DataFrame<span style="color: #AE81FF;">(</span>data=np.nan, index=datetimeindex, columns=multiplier_panel.major_axis<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">for</span> target_date <span style="color: #F92672;">in</span> datetimeindex:
+<span style="color: #FD971F;">product.ix</span><span style="color: #AE81FF;">[</span>target_date<span style="color: #AE81FF;">]</span> = multiplier_panel<span style="color: #AE81FF;">[</span>target_date<span style="color: #AE81FF;">]</span>.loc<span style="color: #AE81FF;">[</span>:,multiplicand.columns<span style="color: #AE81FF;">]</span>.fillna<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>.dot<span style="color: #AE81FF;">(</span>multiplicand.ix<span style="color: #66D9EF;">[</span>target_date<span style="color: #66D9EF;">]</span>.fillna<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>selcting&amp;slicing:</li>
+</ul>
+<p>
+usually:
+items: datetimeindex
+</p>
+
+<p>
+Major<sub>axis</sub>: factors
+</p>
+
+<p>
+Minor<sub>axis</sub>: symbols
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">panel.loc<span style="color: #AE81FF;">[</span>datetime<span style="color: #AE81FF;">]</span>
+panel.major_xs<span style="color: #AE81FF;">(</span>panel.major_axis<span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">2</span>:<span style="color: #AE81FF;">5</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+panel.minor_axis
+
+panel.minor_xs<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'A'</span>, <span style="color: #E6DB74;">'B'</span>, <span style="color: #E6DB74;">'C'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

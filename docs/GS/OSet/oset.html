@@ -1,0 +1,1309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-10-12 Thu 15:09 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline17">1. document</a>
+<ul>
+<li><a href="#orgheadline1">1.1. 研究标的为期货</a></li>
+<li><a href="#orgheadline2">1.2. 研究标的为基金</a></li>
+<li><a href="#orgheadline3">1.3. 研究标的为股票</a></li>
+<li><a href="#orgheadline4">1.4. 研究方式为技术面</a></li>
+<li><a href="#orgheadline5">1.5. 研究方式为基本面</a></li>
+<li><a href="#orgheadline6">1.6. 研究方式为机器学习和人工智能</a></li>
+<li><a href="#orgheadline7">1.7. 文档语言为英文</a></li>
+<li><a href="#orgheadline8">1.8. 文档语言为中文</a></li>
+<li><a href="#orgheadline16">1.9. 发布类型为研究报告</a>
+<ul>
+<li><a href="#orgheadline9">1.9.1. Journal of business strategies</a></li>
+<li><a href="#orgheadline10">1.9.2. the account review</a></li>
+<li><a href="#orgheadline11">1.9.3. The Journal of Finance</a></li>
+<li><a href="#orgheadline12">1.9.4. Quantitative Finance</a></li>
+<li><a href="#orgheadline13">1.9.5. Business finance &amp; accounting</a></li>
+<li><a href="#orgheadline14">1.9.6. Journal of accounting &amp; economy</a></li>
+<li><a href="#orgheadline15">1.9.7. financial management</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline39">2. stock</a>
+<ul>
+<li><a href="#orgheadline31">2.1. categories</a>
+<ul>
+<li><a href="#orgheadline18">2.1.1. 普通股</a></li>
+<li><a href="#orgheadline19">2.1.2. 优先股</a></li>
+<li><a href="#orgheadline20">2.1.3. 后配股</a></li>
+<li><a href="#orgheadline21">2.1.4. 垃圾股</a></li>
+<li><a href="#orgheadline22">2.1.5. 绩优股</a></li>
+<li><a href="#orgheadline23">2.1.6. 蓝筹股</a></li>
+<li><a href="#orgheadline24">2.1.7. 成长股</a></li>
+<li><a href="#orgheadline25">2.1.8. 热门股</a></li>
+<li><a href="#orgheadline26">2.1.9. 周期股</a></li>
+<li><a href="#orgheadline27">2.1.10. 再生股</a></li>
+<li><a href="#orgheadline28">2.1.11. 防守性股</a></li>
+<li><a href="#orgheadline29">2.1.12. 表现股(亦称概念股)</a></li>
+<li><a href="#orgheadline30">2.1.13. 投机性股</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline37">2.2. chracteristics</a>
+<ul>
+<li><a href="#orgheadline32">2.2.1. Risk/Return</a></li>
+<li><a href="#orgheadline33">2.2.2. Volatility</a></li>
+<li><a href="#orgheadline34">2.2.3. Liquidity</a></li>
+<li><a href="#orgheadline35">2.2.4. Global</a></li>
+<li><a href="#orgheadline36">2.2.5. Regulated</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline38">2.3. morningstar</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline263">3. factor</a>
+<ul>
+<li><a href="#orgheadline86">3.1. GS挖掘因子</a>
+<ul>
+<li><a href="#orgheadline40">3.1.1. 标的</a></li>
+<li><a href="#orgheadline41">3.1.2. 仓位</a></li>
+<li><a href="#orgheadline43">3.1.3. 最新持仓</a></li>
+<li><a href="#orgheadline59">3.1.4. 原始指标</a></li>
+<li><a href="#orgheadline61">3.1.5. 行为</a></li>
+<li><a href="#orgheadline81">3.1.6. 衍生指标</a></li>
+<li><a href="#orgheadline85">3.1.7. 持仓权重</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline262">3.2. 技术分析</a>
+<ul>
+<li><a href="#orgheadline89">3.2.1. 道氏理论</a></li>
+<li><a href="#orgheadline96">3.2.2. 走势图的构造</a></li>
+<li><a href="#orgheadline109">3.2.3. 趋势的基本概念</a></li>
+<li><a href="#orgheadline128">3.2.4. 主要反转形态</a></li>
+<li><a href="#orgheadline145">3.2.5. 持续形态</a></li>
+<li><a href="#orgheadline157">3.2.6. 成交量和持仓量</a></li>
+<li><a href="#orgheadline161">3.2.7. 长期走势图</a></li>
+<li><a href="#orgheadline179">3.2.8. 移动平均线</a></li>
+<li><a href="#orgheadline199">3.2.9. 振荡量与相反观点</a></li>
+<li><a href="#orgheadline211">3.2.10. OX图</a></li>
+<li><a href="#orgheadline217">3.2.11. 日本蜡烛图</a></li>
+<li><a href="#orgheadline227">3.2.12. 艾略特波浪理论</a></li>
+<li><a href="#orgheadline241">3.2.13. 时间循环</a></li>
+<li><a href="#orgheadline250">3.2.14. 股票市场指标</a></li>
+<li><a href="#orgheadline261">3.2.15. 麦克莱伦总和指数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline345">4. function definition</a>
+<ul>
+<li><a href="#orgheadline268">4.1. 内置类型</a>
+<ul>
+<li><a href="#orgheadline264">4.1.1. 数组处理</a></li>
+<li><a href="#orgheadline265">4.1.2. 添加数据</a></li>
+<li><a href="#orgheadline266">4.1.3. 提取数据</a></li>
+<li><a href="#orgheadline267">4.1.4. 重命名</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline271">4.2. 交易相关</a>
+<ul>
+<li><a href="#orgheadline270">4.2.1. 模拟交易及绩效</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline276">4.3. 数据类型</a>
+<ul>
+<li><a href="#orgheadline272">4.3.1. 日期时间</a></li>
+<li><a href="#orgheadline273">4.3.2. 数组</a></li>
+<li><a href="#orgheadline274">4.3.3. 类型</a></li>
+<li><a href="#orgheadline275">4.3.4. 打印</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline297">4.4. 算术和数学模型</a>
+<ul>
+<li><a href="#orgheadline277">4.4.1. 数字</a></li>
+<li><a href="#orgheadline280">4.4.2. 数学</a></li>
+<li><a href="#orgheadline283">4.4.3. 统计</a></li>
+<li><a href="#orgheadline287">4.4.4. 金融</a></li>
+<li><a href="#orgheadline296">4.4.5. 机器学习</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline304">4.5. 策略管理</a>
+<ul>
+<li><a href="#orgheadline298">4.5.1. 组合优化</a></li>
+<li><a href="#orgheadline299">4.5.2. 基金策略</a></li>
+<li><a href="#orgheadline300">4.5.3. 基金经理评估</a></li>
+<li><a href="#orgheadline301">4.5.4. 资产配置模型</a></li>
+<li><a href="#orgheadline302">4.5.5. 策略函数</a></li>
+<li><a href="#orgheadline303">4.5.6. 策略分析</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline310">4.6. 数据分析</a>
+<ul>
+<li><a href="#orgheadline305">4.6.1. 组合因子业绩贡献</a></li>
+<li><a href="#orgheadline306">4.6.2. 业绩归因</a></li>
+<li><a href="#orgheadline307">4.6.3. 绩效归因</a></li>
+<li><a href="#orgheadline308">4.6.4. 持仓分析</a></li>
+<li><a href="#orgheadline309">4.6.5. 因子收益率查看函数</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline313">4.7. 数据格式</a>
+<ul>
+<li><a href="#orgheadline311">4.7.1. 转换数据类型</a></li>
+<li><a href="#orgheadline312">4.7.2. OOTV</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline324">4.8. 数据处理</a>
+<ul>
+<li><a href="#orgheadline319">4.8.1. 信号处理</a></li>
+<li><a href="#orgheadline320">4.8.2. 行业中性</a></li>
+<li><a href="#orgheadline321">4.8.3. 因子加权</a></li>
+<li><a href="#orgheadline322">4.8.4. 升维</a></li>
+<li><a href="#orgheadline323">4.8.5. 面板数据处理</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline329">4.9. 通用操作系统服务</a>
+<ul>
+<li><a href="#orgheadline325">4.9.1. 系统</a></li>
+<li><a href="#orgheadline327">4.9.2. 时间</a></li>
+<li><a href="#orgheadline328">4.9.3. 日志</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline331">4.10. 金融数据处理</a>
+<ul>
+<li><a href="#orgheadline330">4.10.1. 财务相关</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline333">4.11. 结构化标记处理工具</a>
+<ul>
+<li><a href="#orgheadline332">4.11.1. 时间序列</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline335">4.12. 开发工具</a>
+<ul>
+<li><a href="#orgheadline334">4.12.1. 编程接口</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline340">4.13. 衍生模块</a>
+<ul>
+<li><a href="#orgheadline336">4.13.1. 指数相关</a></li>
+<li><a href="#orgheadline337">4.13.2. 事件相关</a></li>
+<li><a href="#orgheadline338">4.13.3. 财务相关</a></li>
+<li><a href="#orgheadline339">4.13.4. 持仓相关</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline344">4.14. 杂项服务</a>
+<ul>
+<li><a href="#orgheadline341">4.14.1. 其它</a></li>
+<li><a href="#orgheadline342">4.14.2. 期货相关</a></li>
+<li><a href="#orgheadline343">4.14.3. FR相关</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline359">5. Statistical inference</a>
+<ul>
+<li><a href="#orgheadline346">5.1. 贝叶斯推断</a></li>
+<li><a href="#orgheadline347">5.2. 最大似然估计</a></li>
+<li><a href="#orgheadline348">5.3. 参数模型与指数分布族</a></li>
+<li><a href="#orgheadline349">5.4. 经验贝叶斯法</a></li>
+<li><a href="#orgheadline350">5.5. 岭回归</a></li>
+<li><a href="#orgheadline351">5.6. 线性模型与回归树</a></li>
+<li><a href="#orgheadline352">5.7. 幸存分析与期望最大化</a></li>
+<li><a href="#orgheadline353">5.8. 估计统计量的重采样</a></li>
+<li><a href="#orgheadline354">5.9. 交叉验证与预测误差</a></li>
+<li><a href="#orgheadline355">5.10. 稀疏建模与索套回归</a></li>
+<li><a href="#orgheadline356">5.11. 随机森林与提升</a></li>
+<li><a href="#orgheadline357">5.12. 神经网络和深度学习</a></li>
+<li><a href="#orgheadline358">5.13. 支持向量机和核方法</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline360">6. strategy</a></li>
+<li><a href="#orgheadline361">7. function sampling definition</a></li>
+<li><a href="#orgheadline362">8. function sampling instance</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">1</span> document</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 研究标的为期货</h3>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 研究标的为基金</h3>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 研究标的为股票</h3>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> 研究方式为技术面</h3>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> 研究方式为基本面</h3>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.6</span> 研究方式为机器学习和人工智能</h3>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">1.7</span> 文档语言为英文</h3>
+</div>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">1.8</span> 文档语言为中文</h3>
+</div>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">1.9</span> 发布类型为研究报告</h3>
+<div class="outline-text-3" id="text-1-9">
+</div><div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.9.1</span> Journal of business strategies</h4>
+</div>
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">1.9.2</span> the account review</h4>
+</div>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">1.9.3</span> The Journal of Finance</h4>
+</div>
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.9.4</span> Quantitative Finance</h4>
+</div>
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">1.9.5</span> Business finance &amp; accounting</h4>
+</div>
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">1.9.6</span> Journal of accounting &amp; economy</h4>
+</div>
+<div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15"><span class="section-number-4">1.9.7</span> financial management</h4>
+<div class="outline-text-4" id="text-1-9-7">
+<p>
+&#x2026;
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline39" class="outline-2">
+<h2 id="orgheadline39"><span class="section-number-2">2</span> stock</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">2.1</span> categories</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">2.1.1</span> 普通股</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+是指在公司的经营管理和盈利及财产的分配上享有普通权利的股份，代表满足所有债权偿付要求及优先股东的收益权与求偿权要求后对企业盈利和剩余财产的索取权。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">2.1.2</span> 优先股</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+优先股在利润分红及剩余财产分配的权利方面优先于普通股。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">2.1.3</span> 后配股</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+是在利益或利息分红及剩余财产分配时比普通股处于劣势的股票，一般是在普通股分配之后，对剩余利益进行再分配。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">2.1.4</span> 垃圾股</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<p>
+经营亏损或违规的公司的股票。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">2.1.5</span> 绩优股</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<p>
+公司经营很好，业绩很好，每股收益0.8元以上.市盈率10-15倍以内.指那些业绩优良，但增长速度较慢的公司的股票。这类公司有实力抵抗经济衰退，但这类公司并不能给你带来振奋人心的利润。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">2.1.6</span> 蓝筹股</h4>
+<div class="outline-text-4" id="text-2-1-6">
+<p>
+那些在其所属行业内占有重要支配性地位、业绩优良，成交活跃、红利优厚的大公司股票称为蓝筹股。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">2.1.7</span> 成长股</h4>
+<div class="outline-text-4" id="text-2-1-7">
+<p>
+是指发行股票时规模并不大，但公司的业务蒸蒸日上，管理良好，利润丰厚，产品在市场上有竞争力的公司的股票。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline25" class="outline-4">
+<h4 id="orgheadline25"><span class="section-number-4">2.1.8</span> 热门股</h4>
+<div class="outline-text-4" id="text-2-1-8">
+<p>
+是指交易量大、交易周转率高、股价涨跌幅度也较大的股票。热门股的形成往往有其特定的经济、政治、社会等原因。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">2.1.9</span> 周期股</h4>
+<div class="outline-text-4" id="text-2-1-9">
+<p>
+是指经营业绩随着经济周期的涨缩而变动的公司的股票。航空工业、汽车工业、钢铁及化学工业都属于此类。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">2.1.10</span> 再生股</h4>
+<div class="outline-text-4" id="text-2-1-10">
+<p>
+是指经营发生困难甚至破产，经过整顿后重新获得投资者认可的企业股票。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">2.1.11</span> 防守性股</h4>
+<div class="outline-text-4" id="text-2-1-11">
+<p>
+这些普通股股票同股价循环股正好相反，它们在面临不确定性和商业衰退时收益和红利却要比社会平均的高，具有相对的稳定性。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">2.1.12</span> 表现股(亦称概念股)</h4>
+<div class="outline-text-4" id="text-2-1-12">
+<p>
+是指能迎合某一时代潮流但未必能适应另一时代潮流的公司所发行的，股价呈巨幅起伏的股票。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">2.1.13</span> 投机性股</h4>
+<div class="outline-text-4" id="text-2-1-13">
+<p>
+是指那些价格很不稳定或公司前景很不确定的普通股。这主要是那些雄心很大，开发性或冒险性的公司的股票，热门的新发行股以及一些面值较低的石油与矿业公司发行的普通股票。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">2.2</span> chracteristics</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<a href="http://finance.zacks.com/6-characteristics-stock-markets-2511.html">zacks</a>
+</p>
+</div>
+<div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32"><span class="section-number-4">2.2.1</span> Risk/Return</h4>
+</div>
+<div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33"><span class="section-number-4">2.2.2</span> Volatility</h4>
+</div>
+<div id="outline-container-orgheadline34" class="outline-4">
+<h4 id="orgheadline34"><span class="section-number-4">2.2.3</span> Liquidity</h4>
+</div>
+<div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35"><span class="section-number-4">2.2.4</span> Global</h4>
+</div>
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36"><span class="section-number-4">2.2.5</span> Regulated</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">2.3</span> morningstar</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+<a href="http://im.mstar.com/im/newhomepage/Morningstar_Category_Definitions_US_June_2016.pdf">morningstar</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline263" class="outline-2">
+<h2 id="orgheadline263"><span class="section-number-2">3</span> factor</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline86" class="outline-3">
+<h3 id="orgheadline86"><span class="section-number-3">3.1</span> GS挖掘因子</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">3.1.1</span> 标的</h4>
+</div>
+<div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41"><span class="section-number-4">3.1.2</span> 仓位</h4>
+</div>
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43"><span class="section-number-4">3.1.3</span> 最新持仓</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+大股东持仓，机构持仓。
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline42"></a>增减持仓<br  /></li></ol>
+</div>
+
+<div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59"><span class="section-number-4">3.1.4</span> 原始指标</h4>
+<div class="outline-text-4" id="text-3-1-4">
+</div><ol class="org-ol"><li><a id="orgheadline44"></a>指数成分<br  /></li>
+<li><a id="orgheadline45"></a>股票所在交易所板块<br  /></li>
+<li><a id="orgheadline46"></a>上市及限售<br  /></li>
+<li><a id="orgheadline51"></a>公司股东与股本<br  /><ol class="org-ol"><li><a id="orgheadline47"></a>股东股权变动<br  /></li>
+<li><a id="orgheadline48"></a>股权分置<br  /></li>
+<li><a id="orgheadline49"></a>股东户数<br  /></li>
+<li><a id="orgheadline50"></a>人员持有股份变动情况<br  /></li></ol></li>
+<li><a id="orgheadline52"></a>股票行情<br  /></li>
+<li><a id="orgheadline55"></a>盈利预测<br  /><ol class="org-ol"><li><a id="orgheadline53"></a>分析师预测<br  /></li>
+<li><a id="orgheadline54"></a>股票评级<br  /></li></ol></li>
+<li><a id="orgheadline58"></a>行业划分<br  /><ol class="org-ol"><li><a id="orgheadline56"></a>中信一级行业<br  /></li>
+<li><a id="orgheadline57"></a>中信三级行业<br  /></li></ol></li></ol>
+</div>
+<div id="outline-container-orgheadline61" class="outline-4">
+<h4 id="orgheadline61"><span class="section-number-4">3.1.5</span> 行为</h4>
+<div class="outline-text-4" id="text-3-1-5">
+</div><ol class="org-ol"><li><a id="orgheadline60"></a>预测<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline81" class="outline-4">
+<h4 id="orgheadline81"><span class="section-number-4">3.1.6</span> 衍生指标</h4>
+<div class="outline-text-4" id="text-3-1-6">
+</div><ol class="org-ol"><li><a id="orgheadline72"></a>技术面<br  /><ol class="org-ol"><li><a id="orgheadline62"></a>行情<br  /></li>
+<li><a id="orgheadline63"></a>压力支撑<br  /></li>
+<li><a id="orgheadline64"></a>趋向<br  /></li>
+<li><a id="orgheadline65"></a>波动<br  /></li>
+<li><a id="orgheadline66"></a>反趋向<br  /></li>
+<li><a id="orgheadline67"></a>能量<br  /></li>
+<li><a id="orgheadline68"></a>成交量<br  /></li>
+<li><a id="orgheadline69"></a>动量<br  /></li>
+<li><a id="orgheadline70"></a>规模<br  /></li>
+<li><a id="orgheadline71"></a>金融工程<br  /></li></ol></li>
+<li><a id="orgheadline80"></a>基本面<br  /><ol class="org-ol"><li><a id="orgheadline73"></a>偿债能力资本结构<br  /></li>
+<li><a id="orgheadline74"></a>营运能力<br  /></li>
+<li><a id="orgheadline75"></a>成长<br  /></li>
+<li><a id="orgheadline76"></a>现金流<br  /></li>
+<li><a id="orgheadline77"></a>盈利能力收益质量<br  /></li>
+<li><a id="orgheadline78"></a>每股指标<br  /></li>
+<li><a id="orgheadline79"></a>价值<br  /></li></ol></li></ol>
+</div>
+<div id="outline-container-orgheadline85" class="outline-4">
+<h4 id="orgheadline85"><span class="section-number-4">3.1.7</span> 持仓权重</h4>
+<div class="outline-text-4" id="text-3-1-7">
+</div><ol class="org-ol"><li><a id="orgheadline82"></a>portfolio value<br  /></li>
+
+<li><a id="orgheadline83"></a>portfolio weight<br  /><div class="outline-text-5" id="text-3-1-7-2">
+<p>
+used for multi-factor analysis
+</p>
+</div></li>
+<li><a id="orgheadline84"></a>portfolio share<br  /></li></ol>
+</div>
+</div>
+<div id="outline-container-orgheadline262" class="outline-3">
+<h3 id="orgheadline262"><span class="section-number-3">3.2</span> 技术分析</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><div id="outline-container-orgheadline89" class="outline-4">
+<h4 id="orgheadline89"><span class="section-number-4">3.2.1</span> 道氏理论</h4>
+<div class="outline-text-4" id="text-3-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline87"></a>各种平均指数必须相互印证<br  /></li>
+<li><a id="orgheadline88"></a>成交量必须印证趋势<br  /></li></ol>
+</div>
+
+<div id="outline-container-orgheadline96" class="outline-4">
+<h4 id="orgheadline96"><span class="section-number-4">3.2.2</span> 走势图的构造</h4>
+<div class="outline-text-4" id="text-3-2-2">
+</div><ol class="org-ol"><li><a id="orgheadline90"></a>走势图的类型<br  /></li>
+<li><a id="orgheadline91"></a>蜡烛图<br  /></li>
+<li><a id="orgheadline92"></a>算术刻度和对数刻度<br  /></li>
+<li><a id="orgheadline93"></a>日柱线图的构建<br  /></li>
+<li><a id="orgheadline94"></a>成交量<br  /></li>
+<li><a id="orgheadline95"></a>周柱线图与月柱线图<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline109" class="outline-4">
+<h4 id="orgheadline109"><span class="section-number-4">3.2.3</span> 趋势的基本概念</h4>
+<div class="outline-text-4" id="text-3-2-3">
+</div><ol class="org-ol"><li><a id="orgheadline97"></a>支撑和阻力<br  /></li>
+<li><a id="orgheadline98"></a>趋势线<br  /></li>
+<li><a id="orgheadline99"></a>扇形原理<br  /></li>
+<li><a id="orgheadline100"></a>数字"3"的重要性<br  /></li>
+<li><a id="orgheadline101"></a>趋势线的相对陡度<br  /></li>
+<li><a id="orgheadline102"></a>通道线<br  /></li>
+<li><a id="orgheadline103"></a>百分比回撤<br  /></li>
+<li><a id="orgheadline104"></a>速度阻力线<br  /></li>
+<li><a id="orgheadline105"></a>江恩扇形线与斐波纳奇扇形线<br  /></li>
+<li><a id="orgheadline106"></a>内部趋势线<br  /></li>
+<li><a id="orgheadline107"></a>反转日<br  /></li>
+<li><a id="orgheadline108"></a>价格缺口<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline128" class="outline-4">
+<h4 id="orgheadline128"><span class="section-number-4">3.2.4</span> 主要反转形态</h4>
+<div class="outline-text-4" id="text-3-2-4">
+</div><ol class="org-ol"><li><a id="orgheadline110"></a>反转形态和持续形态<br  /></li>
+<li><a id="orgheadline111"></a>头肩形反转形态<br  /></li>
+<li><a id="orgheadline112"></a>成交量的重要性<br  /></li>
+<li><a id="orgheadline114"></a>发现价格目标<br  /><ol class="org-ol"><li><a id="orgheadline113"></a>调整价格目标<br  /></li></ol></li>
+<li><a id="orgheadline116"></a>倒头肩形<br  /><ol class="org-ol"><li><a id="orgheadline115"></a>颈线的倾斜<br  /></li></ol></li>
+<li><a id="orgheadline119"></a>复合头肩形<br  /><ol class="org-ol"><li><a id="orgheadline117"></a>失败的头肩形<br  /></li>
+<li><a id="orgheadline118"></a>头肩形作为巩固形态<br  /></li></ol></li>
+<li><a id="orgheadline120"></a>三重顶和三重底<br  /></li>
+<li><a id="orgheadline122"></a>双顶和双底<br  /><ol class="org-ol"><li><a id="orgheadline121"></a>双顶的测算技法<br  /></li></ol></li>
+<li><a id="orgheadline126"></a>理想形态的变体<br  /><ol class="org-ol"><li><a id="orgheadline123"></a>过滤器<br  /></li>
+<li><a id="orgheadline124"></a>被过于滥用的"双顶"<br  /></li>
+<li><a id="orgheadline125"></a>波峰或波谷间的时间很重要<br  /></li></ol></li>
+<li><a id="orgheadline127"></a>蝶形和长钉形<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline145" class="outline-4">
+<h4 id="orgheadline145"><span class="section-number-4">3.2.5</span> 持续形态</h4>
+<div class="outline-text-4" id="text-3-2-5">
+</div><ol class="org-ol"><li><a id="orgheadline129"></a>三角形<br  /></li>
+<li><a id="orgheadline131"></a>对称三角形<br  /><ol class="org-ol"><li><a id="orgheadline130"></a>三角形完结的时间极限<br  /></li></ol></li>
+<li><a id="orgheadline133"></a>上升三角形<br  /><ol class="org-ol"><li><a id="orgheadline132"></a>作为底部的上升三角形<br  /></li></ol></li>
+<li><a id="orgheadline136"></a>下降三角形<br  /><ol class="org-ol"><li><a id="orgheadline134"></a>作为顶部的下降三角形<br  /></li>
+<li><a id="orgheadline135"></a>成交量形态<br  /></li></ol></li>
+<li><a id="orgheadline137"></a>扩张结构<br  /></li>
+<li><a id="orgheadline138"></a>旗形和尖旗形<br  /></li>
+<li><a id="orgheadline140"></a>楔形结构<br  /><ol class="org-ol"><li><a id="orgheadline139"></a>作为顶部反转形态或底部反转形态的楔形<br  /></li></ol></li>
+<li><a id="orgheadline141"></a>矩形结构<br  /></li>
+<li><a id="orgheadline142"></a>节奏运动<br  /></li>
+<li><a id="orgheadline143"></a>头肩形持续形态<br  /></li>
+<li><a id="orgheadline144"></a>印证与背离<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline157" class="outline-4">
+<h4 id="orgheadline157"><span class="section-number-4">3.2.6</span> 成交量和持仓量</h4>
+<div class="outline-text-4" id="text-3-2-6">
+</div><ol class="org-ol"><li><a id="orgheadline147"></a>作为次要指标的成交量和持仓量<br  /><ol class="org-ol"><li><a id="orgheadline146"></a>成交量<br  /></li></ol></li>
+<li><a id="orgheadline152"></a>对所有市场的成交量研判<br  /><ol class="org-ol"><li><a id="orgheadline148"></a>成交量印证价格形态<br  /></li>
+<li><a id="orgheadline149"></a>量在价先<br  /></li>
+<li><a id="orgheadline150"></a>能量潮<br  /></li>
+<li><a id="orgheadline151"></a>OBV的替代品<br  /></li></ol></li>
+<li><a id="orgheadline153"></a>喷发和抛售高峰<br  /></li>
+<li><a id="orgheadline154"></a>交易者参与报告<br  /></li>
+<li><a id="orgheadline155"></a>关注商业避险商<br  /></li>
+<li><a id="orgheadline156"></a>交易者净持仓<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline161" class="outline-4">
+<h4 id="orgheadline161"><span class="section-number-4">3.2.7</span> 长期走势图</h4>
+<div class="outline-text-4" id="text-3-2-7">
+</div><ol class="org-ol"><li><a id="orgheadline158"></a>长期趋势防止了随机性<br  /></li>
+<li><a id="orgheadline159"></a>走势图上的形态: 周反转与月反转<br  /></li>
+<li><a id="orgheadline160"></a>长期走势图到短期走势图<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline179" class="outline-4">
+<h4 id="orgheadline179"><span class="section-number-4">3.2.8</span> 移动平均线</h4>
+<div class="outline-text-4" id="text-3-2-8">
+</div><ol class="org-ol"><li><a id="orgheadline167"></a>移动平均线: 时间滞后的平滑装置<br  /><ol class="org-ol"><li><a id="orgheadline162"></a>简单移动平均线<br  /></li>
+<li><a id="orgheadline163"></a>线性加权移动平均线<br  /></li>
+<li><a id="orgheadline164"></a>指数平滑移动平均线<br  /></li>
+<li><a id="orgheadline165"></a>使用一条移动平均线<br  /></li>
+<li><a id="orgheadline166"></a>使用三条移动平均线,或三线交叉法<br  /></li></ol></li>
+<li><a id="orgheadline168"></a>移动平均线包络线<br  /></li>
+<li><a id="orgheadline169"></a>布林带<br  /></li>
+<li><a id="orgheadline170"></a>将布林带作为目标<br  /></li>
+<li><a id="orgheadline172"></a>带宽衡量了波动性<br  /><ol class="org-ol"><li><a id="orgheadline171"></a>置中移动平均线<br  /></li></ol></li>
+<li><a id="orgheadline173"></a>紧扣循环的移动平均线<br  /></li>
+<li><a id="orgheadline174"></a>移动平均线使用的斐波纳奇数字<br  /></li>
+<li><a id="orgheadline175"></a>应用于长期走势图的移动平均线<br  /></li>
+<li><a id="orgheadline177"></a>周规则<br  /><ol class="org-ol"><li><a id="orgheadline176"></a>4周规则<br  /></li></ol></li>
+<li><a id="orgheadline178"></a>自适应移动平均线<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline199" class="outline-4">
+<h4 id="orgheadline199"><span class="section-number-4">3.2.9</span> 振荡量与相反观点</h4>
+<div class="outline-text-4" id="text-3-2-9">
+</div><ol class="org-ol"><li><a id="orgheadline180"></a>振荡量与趋势结合使用<br  /></li>
+<li><a id="orgheadline186"></a>测量动量<br  /><ol class="org-ol"><li><a id="orgheadline181"></a>动量指标测量了上升率或下降率<br  /></li>
+<li><a id="orgheadline182"></a>动量线先于价格行为<br  /></li>
+<li><a id="orgheadline183"></a>穿越零线作为交易信号<br  /></li>
+<li><a id="orgheadline184"></a>上下边界存在的必要性<br  /></li>
+<li><a id="orgheadline185"></a>测量变动率(ROC)<br  /></li></ol></li>
+<li><a id="orgheadline187"></a>用两条移动平均线来构造振荡量<br  /></li>
+<li><a id="orgheadline188"></a>商品通道指数<br  /></li>
+<li><a id="orgheadline189"></a>相对强度指数(RSI)<br  /></li>
+<li><a id="orgheadline190"></a>用70线和30线产生信号<br  /></li>
+<li><a id="orgheadline191"></a>随机振荡量(K%D)<br  /></li>
+<li><a id="orgheadline192"></a>拉里·威廉斯%R<br  /></li>
+<li><a id="orgheadline193"></a>趋势的重要性<br  /></li>
+<li><a id="orgheadline194"></a>移动平均线异同指标(MACD)<br  /></li>
+<li><a id="orgheadline195"></a>MACD直方图<br  /></li>
+<li><a id="orgheadline196"></a>结合周信号和日信号<br  /></li>
+<li><a id="orgheadline197"></a>投资者情绪读数<br  /></li>
+<li><a id="orgheadline198"></a>投资者智力数字<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline211" class="outline-4">
+<h4 id="orgheadline211"><span class="section-number-4">3.2.10</span> OX图</h4>
+<div class="outline-text-4" id="text-3-2-10">
+</div><ol class="org-ol"><li><a id="orgheadline200"></a>OX图与柱线图<br  /></li>
+<li><a id="orgheadline201"></a>分时OX图的构建<br  /></li>
+<li><a id="orgheadline203"></a>水平计数<br  /><ol class="org-ol"><li><a id="orgheadline202"></a>OX图允许水平测量<br  /></li></ol></li>
+<li><a id="orgheadline204"></a>价格形态<br  /></li>
+<li><a id="orgheadline205"></a>趋势分析与趋势线<br  /></li>
+<li><a id="orgheadline206"></a>3格转向OX图的画法<br  /></li>
+<li><a id="orgheadline208"></a>3点转向图的构建<br  /><ol class="org-ol"><li><a id="orgheadline207"></a>走势图形态<br  /></li></ol></li>
+<li><a id="orgheadline210"></a>绘制趋势线<br  /><ol class="org-ol"><li><a id="orgheadline209"></a>基本的看涨支撑线和看跌阻力线<br  /></li></ol></li></ol>
+</div>
+<div id="outline-container-orgheadline217" class="outline-4">
+<h4 id="orgheadline217"><span class="section-number-4">3.2.11</span> 日本蜡烛图</h4>
+<div class="outline-text-4" id="text-3-2-11">
+</div><ol class="org-ol"><li><a id="orgheadline212"></a>反转形态<br  /></li>
+<li><a id="orgheadline213"></a>持续形态<br  /></li>
+<li><a id="orgheadline214"></a>用电脑识别蜡烛线形态<br  /></li>
+<li><a id="orgheadline215"></a>过滤后的蜡烛线形态<br  /></li>
+<li><a id="orgheadline216"></a>蜡烛线形态<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline227" class="outline-4">
+<h4 id="orgheadline227"><span class="section-number-4">3.2.12</span> 艾略特波浪理论</h4>
+<div class="outline-text-4" id="text-3-2-12">
+</div><ol class="org-ol"><li><a id="orgheadline221"></a>调整浪<br  /><ol class="org-ol"><li><a id="orgheadline218"></a>锯齿形调整浪<br  /></li>
+<li><a id="orgheadline219"></a>平台形调整浪<br  /></li>
+<li><a id="orgheadline220"></a>三角形调整浪<br  /></li></ol></li>
+<li><a id="orgheadline222"></a>价格通道<br  /></li>
+<li><a id="orgheadline223"></a>浪4作为支撑区域<br  /></li>
+<li><a id="orgheadline225"></a>斐波纳奇比率和回撤<br  /><ol class="org-ol"><li><a id="orgheadline224"></a>斐波纳奇百分比回撤<br  /></li></ol></li>
+<li><a id="orgheadline226"></a>斐波纳奇时间目标<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline241" class="outline-4">
+<h4 id="orgheadline241"><span class="section-number-4">3.2.13</span> 时间循环</h4>
+<div class="outline-text-4" id="text-3-2-13">
+</div><ol class="org-ol"><li><a id="orgheadline231"></a>循环<br  /><ol class="org-ol"><li><a id="orgheadline228"></a>基本的循环概念<br  /></li>
+<li><a id="orgheadline229"></a>循环理论<br  /></li>
+<li><a id="orgheadline230"></a>变异原理和名义原理<br  /></li></ol></li>
+<li><a id="orgheadline234"></a>支配性循环<br  /><ol class="org-ol"><li><a id="orgheadline232"></a>循环的分类<br  /></li>
+<li><a id="orgheadline233"></a>康德拉蒂耶夫波<br  /></li></ol></li>
+<li><a id="orgheadline235"></a>左右平移<br  /></li>
+<li><a id="orgheadline239"></a>季节性循环<br  /><ol class="org-ol"><li><a id="orgheadline236"></a>股市循环<br  /></li>
+<li><a id="orgheadline237"></a>一月晴雨表<br  /></li>
+<li><a id="orgheadline238"></a>总统循环<br  /></li></ol></li>
+<li><a id="orgheadline240"></a>最大熵光谱分析<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline250" class="outline-4">
+<h4 id="orgheadline250"><span class="section-number-4">3.2.14</span> 股票市场指标</h4>
+<div class="outline-text-4" id="text-3-2-14">
+</div><ol class="org-ol"><li><a id="orgheadline242"></a>测量市场的广泛性<br  /></li>
+<li><a id="orgheadline243"></a>数据样品<br  /></li>
+<li><a id="orgheadline244"></a>比较市场平均指数<br  /></li>
+<li><a id="orgheadline245"></a>上涨&#x2013;下跌线<br  /></li>
+<li><a id="orgheadline246"></a>AD背离<br  /></li>
+<li><a id="orgheadline247"></a>日AD线与周AD线<br  /></li>
+<li><a id="orgheadline248"></a>AD线的变体<br  /></li>
+<li><a id="orgheadline249"></a>麦克莱伦振荡量<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline261" class="outline-4">
+<h4 id="orgheadline261"><span class="section-number-4">3.2.15</span> 麦克莱伦总和指数</h4>
+<div class="outline-text-4" id="text-3-2-15">
+</div><ol class="org-ol"><li><a id="orgheadline251"></a>新高与新低<br  /></li>
+<li><a id="orgheadline252"></a>新高&#x2013;新低指数<br  /></li>
+<li><a id="orgheadline253"></a>上涨成交量与下跌成交量<br  /></li>
+<li><a id="orgheadline254"></a>阿姆斯指数<br  /></li>
+<li><a id="orgheadline255"></a>TRIN与TICK<br  /></li>
+<li><a id="orgheadline256"></a>平滑阿姆斯指数<br  /></li>
+<li><a id="orgheadline257"></a>开口式阿姆斯指数<br  /></li>
+<li><a id="orgheadline258"></a>等成交量走势图<br  /></li>
+<li><a id="orgheadline259"></a>烛光图<br  /></li>
+<li><a id="orgheadline260"></a>比较市场平均指数<br  /></li></ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline345" class="outline-2">
+<h2 id="orgheadline345"><span class="section-number-2">4</span> function definition</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+libraries classification source:
+</p>
+
+<p>
+<a href="http://usyiyi.cn/translate/python_352/library/index.html">Python Simple Chinese</a>
+</p>
+
+<p>
+<a href="https://docs.python.org/3/library/index.html">Python English</a>
+</p>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/C_standard_library">C<sub>standard</sub><sub>library</sub></a>
+</p>
+
+<p>
+<a href="http://en.cppreference.com/w/c/links/libs">C++</a>
+</p>
+
+<p>
+<a href="https://zh.wikipedia.org/wiki/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">Machine Learning</a>
+</p>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Outline_of_machine_learning">Outline of machine learning</a>
+</p>
+</div>
+
+<div id="outline-container-orgheadline268" class="outline-3">
+<h3 id="orgheadline268"><span class="section-number-3">4.1</span> 内置类型</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-orgheadline264" class="outline-4">
+<h4 id="orgheadline264"><span class="section-number-4">4.1.1</span> 数组处理</h4>
+</div>
+<div id="outline-container-orgheadline265" class="outline-4">
+<h4 id="orgheadline265"><span class="section-number-4">4.1.2</span> 添加数据</h4>
+</div>
+<div id="outline-container-orgheadline266" class="outline-4">
+<h4 id="orgheadline266"><span class="section-number-4">4.1.3</span> 提取数据</h4>
+</div>
+<div id="outline-container-orgheadline267" class="outline-4">
+<h4 id="orgheadline267"><span class="section-number-4">4.1.4</span> 重命名</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline271" class="outline-3">
+<h3 id="orgheadline271"><span class="section-number-3">4.2</span> 交易相关</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-orgheadline270" class="outline-4">
+<h4 id="orgheadline270"><span class="section-number-4">4.2.1</span> 模拟交易及绩效</h4>
+<div class="outline-text-4" id="text-4-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline269"></a>期货<br  /></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline276" class="outline-3">
+<h3 id="orgheadline276"><span class="section-number-3">4.3</span> 数据类型</h3>
+<div class="outline-text-3" id="text-4-3">
+</div><div id="outline-container-orgheadline272" class="outline-4">
+<h4 id="orgheadline272"><span class="section-number-4">4.3.1</span> 日期时间</h4>
+</div>
+
+<div id="outline-container-orgheadline273" class="outline-4">
+<h4 id="orgheadline273"><span class="section-number-4">4.3.2</span> 数组</h4>
+</div>
+
+<div id="outline-container-orgheadline274" class="outline-4">
+<h4 id="orgheadline274"><span class="section-number-4">4.3.3</span> 类型</h4>
+</div>
+
+<div id="outline-container-orgheadline275" class="outline-4">
+<h4 id="orgheadline275"><span class="section-number-4">4.3.4</span> 打印</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline297" class="outline-3">
+<h3 id="orgheadline297"><span class="section-number-3">4.4</span> 算术和数学模型</h3>
+<div class="outline-text-3" id="text-4-4">
+</div><div id="outline-container-orgheadline277" class="outline-4">
+<h4 id="orgheadline277"><span class="section-number-4">4.4.1</span> 数字</h4>
+</div>
+
+<div id="outline-container-orgheadline280" class="outline-4">
+<h4 id="orgheadline280"><span class="section-number-4">4.4.2</span> 数学</h4>
+<div class="outline-text-4" id="text-4-4-2">
+</div><ol class="org-ol"><li><a id="orgheadline278"></a>简单运算<br  /></li>
+<li><a id="orgheadline279"></a>多列计算<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline283" class="outline-4">
+<h4 id="orgheadline283"><span class="section-number-4">4.4.3</span> 统计</h4>
+<div class="outline-text-4" id="text-4-4-3">
+</div><ol class="org-ol"><li><a id="orgheadline281"></a>横截面聚合<br  /></li>
+<li><a id="orgheadline282"></a>统计分析<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline287" class="outline-4">
+<h4 id="orgheadline287"><span class="section-number-4">4.4.4</span> 金融</h4>
+<div class="outline-text-4" id="text-4-4-4">
+</div><ol class="org-ol"><li><a id="orgheadline285"></a>ta-lib<br  /><ol class="org-ol"><li><a id="orgheadline284"></a>技术指标<br  /></li></ol></li>
+<li><a id="orgheadline286"></a>RiskModel<br  /></li></ol>
+</div>
+
+<div id="outline-container-orgheadline296" class="outline-4">
+<h4 id="orgheadline296"><span class="section-number-4">4.4.5</span> 机器学习</h4>
+<div class="outline-text-4" id="text-4-4-5">
+</div><ol class="org-ol"><li><a id="orgheadline288"></a>问题<br  /><div class="outline-text-5" id="text-4-4-5-1">
+<ul class="org-ul">
+<li>分类</li>
+<li>聚类</li>
+<li>回归
+<ul class="org-ul">
+<li>模型</li>
+</ul></li>
+</ul>
+<p>
+线性回归 简单回归 普通最小二乘法 多项式回归 一般线性模型
+</p>
+
+<p>
+广义线性模式 离散选择 逻辑回归 多项罗吉特 混合罗吉特 波比 多项式波比 排序性模型 有序波比 泊松回归
+</p>
+
+<p>
+等级线性模型 固定效应 随机效应 混合模型
+</p>
+
+<p>
+非线性回归 非参数 半参数 稳健 分位数回归 保序回归 主成分 最小角 局部 分段
+含误差变量
+</p>
+
+<ul class="org-ul">
+<li>估计</li>
+</ul>
+
+<p>
+最小二乘法 普通最小二乘法 线性 偏最小二乘回归 总体 广义 加权 非线性 非负 重复再加权 岭回归 LASSO
+</p>
+
+<p>
+最小绝对值导数法 贝叶斯 贝叶斯多元
+</p>
+<ul class="org-ul">
+<li>背景</li>
+</ul>
+<p>
+回归模型检验 平均响应和预测响应 误差和残差 拟合优度 学生化残差 高斯－马尔可夫定理
+</p>
+<ul class="org-ul">
+<li>异常检测</li>
+</ul>
+<p>
+关联规则 强化学习 结构预测 特征学习 在线学习 半监督学习 语法归纳
+</p>
+</div></li>
+<li><a id="orgheadline289"></a>监督学习(分类 · 回归)<br  /><div class="outline-text-5" id="text-4-4-5-2">
+<ul class="org-ul">
+<li>决策树</li>
+<li>表征（装袋, 提升，随机森林）</li>
+<li>k-NN</li>
+<li>线性回归</li>
+<li>朴素贝叶斯</li>
+<li>神经网络</li>
+</ul>
+<p>
+<a href="http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html">http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html</a>
+</p>
+<ul class="org-ul">
+<li>逻辑回归</li>
+<li>感知器</li>
+<li>支持向量机（SVM）</li>
+<li>相关向量机（RVM）</li>
+</ul>
+</div></li>
+<li><a id="orgheadline290"></a>聚类<br  /><div class="outline-text-5" id="text-4-4-5-3">
+<ul class="org-ul">
+<li>BIRCH</li>
+<li>层次</li>
+<li>k平均</li>
+<li>期望最大化（EM）</li>
+<li>DBSCAN</li>
+<li>OPTICS</li>
+<li>均值飘移</li>
+</ul>
+</div></li>
+<li><a id="orgheadline291"></a>降维<br  /><div class="outline-text-5" id="text-4-4-5-4">
+<ul class="org-ul">
+<li>因子分析</li>
+<li>CCA</li>
+<li>ICA</li>
+<li>LDA</li>
+<li>NMF</li>
+<li>PCA</li>
+<li>LASSO</li>
+<li>t-SNE</li>
+</ul>
+</div></li>
+<li><a id="orgheadline292"></a>结构预测<br  /><div class="outline-text-5" id="text-4-4-5-5">
+<ul class="org-ul">
+<li>概率图模型（贝叶斯网络，CRF, HMM）</li>
+</ul>
+</div></li>
+<li><a id="orgheadline293"></a>异常检测<br  /><div class="outline-text-5" id="text-4-4-5-6">
+<ul class="org-ul">
+<li>k-NN</li>
+<li>局部离群因子</li>
+</ul>
+</div></li>
+<li><a id="orgheadline294"></a>神经网络<br  /><div class="outline-text-5" id="text-4-4-5-7">
+<ul class="org-ul">
+<li>自编码</li>
+<li>深度学习</li>
+<li>多层感知机</li>
+<li>RNN</li>
+<li>受限玻尔兹曼机</li>
+<li>SOM</li>
+<li>CNN</li>
+</ul>
+</div></li>
+<li><a id="orgheadline295"></a>理论<br  /><div class="outline-text-5" id="text-4-4-5-8">
+<ul class="org-ul">
+<li>偏差/方差困境</li>
+<li>计算学习理论</li>
+<li>经验风险最小化</li>
+<li>PAC学习</li>
+<li>统计学习</li>
+<li>VC理论</li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline304" class="outline-3">
+<h3 id="orgheadline304"><span class="section-number-3">4.5</span> 策略管理</h3>
+<div class="outline-text-3" id="text-4-5">
+</div><div id="outline-container-orgheadline298" class="outline-4">
+<h4 id="orgheadline298"><span class="section-number-4">4.5.1</span> 组合优化</h4>
+</div>
+
+<div id="outline-container-orgheadline299" class="outline-4">
+<h4 id="orgheadline299"><span class="section-number-4">4.5.2</span> 基金策略</h4>
+</div>
+
+<div id="outline-container-orgheadline300" class="outline-4">
+<h4 id="orgheadline300"><span class="section-number-4">4.5.3</span> 基金经理评估</h4>
+</div>
+
+<div id="outline-container-orgheadline301" class="outline-4">
+<h4 id="orgheadline301"><span class="section-number-4">4.5.4</span> 资产配置模型</h4>
+</div>
+
+<div id="outline-container-orgheadline302" class="outline-4">
+<h4 id="orgheadline302"><span class="section-number-4">4.5.5</span> 策略函数</h4>
+</div>
+<div id="outline-container-orgheadline303" class="outline-4">
+<h4 id="orgheadline303"><span class="section-number-4">4.5.6</span> 策略分析</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline310" class="outline-3">
+<h3 id="orgheadline310"><span class="section-number-3">4.6</span> 数据分析</h3>
+<div class="outline-text-3" id="text-4-6">
+</div><div id="outline-container-orgheadline305" class="outline-4">
+<h4 id="orgheadline305"><span class="section-number-4">4.6.1</span> 组合因子业绩贡献</h4>
+</div>
+
+<div id="outline-container-orgheadline306" class="outline-4">
+<h4 id="orgheadline306"><span class="section-number-4">4.6.2</span> 业绩归因</h4>
+</div>
+
+<div id="outline-container-orgheadline307" class="outline-4">
+<h4 id="orgheadline307"><span class="section-number-4">4.6.3</span> 绩效归因</h4>
+</div>
+
+<div id="outline-container-orgheadline308" class="outline-4">
+<h4 id="orgheadline308"><span class="section-number-4">4.6.4</span> 持仓分析</h4>
+</div>
+
+<div id="outline-container-orgheadline309" class="outline-4">
+<h4 id="orgheadline309"><span class="section-number-4">4.6.5</span> 因子收益率查看函数</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline313" class="outline-3">
+<h3 id="orgheadline313"><span class="section-number-3">4.7</span> 数据格式</h3>
+<div class="outline-text-3" id="text-4-7">
+</div><div id="outline-container-orgheadline311" class="outline-4">
+<h4 id="orgheadline311"><span class="section-number-4">4.7.1</span> 转换数据类型</h4>
+</div>
+
+<div id="outline-container-orgheadline312" class="outline-4">
+<h4 id="orgheadline312"><span class="section-number-4">4.7.2</span> OOTV</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline324" class="outline-3">
+<h3 id="orgheadline324"><span class="section-number-3">4.8</span> 数据处理</h3>
+<div class="outline-text-3" id="text-4-8">
+</div><div id="outline-container-orgheadline319" class="outline-4">
+<h4 id="orgheadline319"><span class="section-number-4">4.8.1</span> 信号处理</h4>
+<div class="outline-text-4" id="text-4-8-1">
+</div><ol class="org-ol"><li><a id="orgheadline314"></a>频度调整<br  /></li>
+<li><a id="orgheadline315"></a>频率调整<br  /></li>
+<li><a id="orgheadline316"></a>频率调整-敏感<br  /></li>
+<li><a id="orgheadline317"></a>过滤数据<br  /></li>
+<li><a id="orgheadline318"></a>横截面处理<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline320" class="outline-4">
+<h4 id="orgheadline320"><span class="section-number-4">4.8.2</span> 行业中性</h4>
+</div>
+
+<div id="outline-container-orgheadline321" class="outline-4">
+<h4 id="orgheadline321"><span class="section-number-4">4.8.3</span> 因子加权</h4>
+</div>
+
+<div id="outline-container-orgheadline322" class="outline-4">
+<h4 id="orgheadline322"><span class="section-number-4">4.8.4</span> 升维</h4>
+</div>
+
+<div id="outline-container-orgheadline323" class="outline-4">
+<h4 id="orgheadline323"><span class="section-number-4">4.8.5</span> 面板数据处理</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline329" class="outline-3">
+<h3 id="orgheadline329"><span class="section-number-3">4.9</span> 通用操作系统服务</h3>
+<div class="outline-text-3" id="text-4-9">
+</div><div id="outline-container-orgheadline325" class="outline-4">
+<h4 id="orgheadline325"><span class="section-number-4">4.9.1</span> 系统</h4>
+</div>
+
+<div id="outline-container-orgheadline327" class="outline-4">
+<h4 id="orgheadline327"><span class="section-number-4">4.9.2</span> 时间</h4>
+<div class="outline-text-4" id="text-4-9-2">
+</div><ol class="org-ol"><li><a id="orgheadline326"></a>日期转换<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline328" class="outline-4">
+<h4 id="orgheadline328"><span class="section-number-4">4.9.3</span> 日志</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline331" class="outline-3">
+<h3 id="orgheadline331"><span class="section-number-3">4.10</span> 金融数据处理</h3>
+<div class="outline-text-3" id="text-4-10">
+</div><div id="outline-container-orgheadline330" class="outline-4">
+<h4 id="orgheadline330"><span class="section-number-4">4.10.1</span> 财务相关</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline333" class="outline-3">
+<h3 id="orgheadline333"><span class="section-number-3">4.11</span> 结构化标记处理工具</h3>
+<div class="outline-text-3" id="text-4-11">
+</div><div id="outline-container-orgheadline332" class="outline-4">
+<h4 id="orgheadline332"><span class="section-number-4">4.11.1</span> 时间序列</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline335" class="outline-3">
+<h3 id="orgheadline335"><span class="section-number-3">4.12</span> 开发工具</h3>
+<div class="outline-text-3" id="text-4-12">
+</div><div id="outline-container-orgheadline334" class="outline-4">
+<h4 id="orgheadline334"><span class="section-number-4">4.12.1</span> 编程接口</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline340" class="outline-3">
+<h3 id="orgheadline340"><span class="section-number-3">4.13</span> 衍生模块</h3>
+<div class="outline-text-3" id="text-4-13">
+</div><div id="outline-container-orgheadline336" class="outline-4">
+<h4 id="orgheadline336"><span class="section-number-4">4.13.1</span> 指数相关</h4>
+</div>
+
+<div id="outline-container-orgheadline337" class="outline-4">
+<h4 id="orgheadline337"><span class="section-number-4">4.13.2</span> 事件相关</h4>
+</div>
+
+<div id="outline-container-orgheadline338" class="outline-4">
+<h4 id="orgheadline338"><span class="section-number-4">4.13.3</span> 财务相关</h4>
+</div>
+
+<div id="outline-container-orgheadline339" class="outline-4">
+<h4 id="orgheadline339"><span class="section-number-4">4.13.4</span> 持仓相关</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline344" class="outline-3">
+<h3 id="orgheadline344"><span class="section-number-3">4.14</span> 杂项服务</h3>
+<div class="outline-text-3" id="text-4-14">
+<ul class="org-ul">
+<li>formatter - 通用输出格式</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline341" class="outline-4">
+<h4 id="orgheadline341"><span class="section-number-4">4.14.1</span> 其它</h4>
+</div>
+<div id="outline-container-orgheadline342" class="outline-4">
+<h4 id="orgheadline342"><span class="section-number-4">4.14.2</span> 期货相关</h4>
+</div>
+<div id="outline-container-orgheadline343" class="outline-4">
+<h4 id="orgheadline343"><span class="section-number-4">4.14.3</span> FR相关</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline359" class="outline-2">
+<h2 id="orgheadline359"><span class="section-number-2">5</span> Statistical inference</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline346" class="outline-3">
+<h3 id="orgheadline346"><span class="section-number-3">5.1</span> 贝叶斯推断</h3>
+</div>
+<div id="outline-container-orgheadline347" class="outline-3">
+<h3 id="orgheadline347"><span class="section-number-3">5.2</span> 最大似然估计</h3>
+</div>
+<div id="outline-container-orgheadline348" class="outline-3">
+<h3 id="orgheadline348"><span class="section-number-3">5.3</span> 参数模型与指数分布族</h3>
+</div>
+<div id="outline-container-orgheadline349" class="outline-3">
+<h3 id="orgheadline349"><span class="section-number-3">5.4</span> 经验贝叶斯法</h3>
+</div>
+<div id="outline-container-orgheadline350" class="outline-3">
+<h3 id="orgheadline350"><span class="section-number-3">5.5</span> 岭回归</h3>
+</div>
+<div id="outline-container-orgheadline351" class="outline-3">
+<h3 id="orgheadline351"><span class="section-number-3">5.6</span> 线性模型与回归树</h3>
+</div>
+<div id="outline-container-orgheadline352" class="outline-3">
+<h3 id="orgheadline352"><span class="section-number-3">5.7</span> 幸存分析与期望最大化</h3>
+</div>
+<div id="outline-container-orgheadline353" class="outline-3">
+<h3 id="orgheadline353"><span class="section-number-3">5.8</span> 估计统计量的重采样</h3>
+</div>
+<div id="outline-container-orgheadline354" class="outline-3">
+<h3 id="orgheadline354"><span class="section-number-3">5.9</span> 交叉验证与预测误差</h3>
+</div>
+<div id="outline-container-orgheadline355" class="outline-3">
+<h3 id="orgheadline355"><span class="section-number-3">5.10</span> 稀疏建模与索套回归</h3>
+</div>
+<div id="outline-container-orgheadline356" class="outline-3">
+<h3 id="orgheadline356"><span class="section-number-3">5.11</span> 随机森林与提升</h3>
+</div>
+<div id="outline-container-orgheadline357" class="outline-3">
+<h3 id="orgheadline357"><span class="section-number-3">5.12</span> 神经网络和深度学习</h3>
+</div>
+<div id="outline-container-orgheadline358" class="outline-3">
+<h3 id="orgheadline358"><span class="section-number-3">5.13</span> 支持向量机和核方法</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline360" class="outline-2">
+<h2 id="orgheadline360"><span class="section-number-2">6</span> strategy</h2>
+</div>
+
+<div id="outline-container-orgheadline361" class="outline-2">
+<h2 id="orgheadline361"><span class="section-number-2">7</span> function sampling definition</h2>
+</div>
+
+<div id="outline-container-orgheadline362" class="outline-2">
+<h2 id="orgheadline362"><span class="section-number-2">8</span> function sampling instance</h2>
+</div>
+</div>
+</body>
+</html>

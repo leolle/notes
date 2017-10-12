@@ -1,0 +1,46 @@
+#+SETUPFILE: ../../configOrg/level2.org
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: functions
+#+DATE: <2017-09-27 Wed>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Structure
+#+begin_src ditaa :file ditaa-seqboxes.png
++------+   +-----+   +-----+   +-----+
+|{io}  |   |{d}  |   |{s}  |   |cBLU |
+| Foo  +---+ Bar +---+ Baz +---+ Moo |
+|      |   |     |   |     |   |     |
++------+   +-----+   +--+--+   +-----+
+                        |
+           /-----\      |      +------+
+           |     |      |      | c1AB |
+           | Goo +------+---=--+ Shoo |
+           \-----/             |      |
+                               +------+
+#+end_src
+
+#+RESULTS:
+[[file:./ditaa-seqboxes.png]]
+
+
+* Task management
+** [[file:./ideas_from_docs/converted_file_d64e468e.html][from documents to wants]]
+** [[file:./Monitor_stocks][Stock monitor]]
+* Function sampling
+* [[file:./create_strategies/converted_file_88cffbcb.html][create strategies]]
+* [[file:./factors/converted_file_2edd553f.html][factors]]
+* [[file:./function_sampling/function_sampling.html][function sampling]]
+
+* Function editting
+* Chart operation
+** [[file:./Display_chart_of_data_table/Display_chart_of_data_table.html][display table & chart]]
+* Python
+** Python Editting

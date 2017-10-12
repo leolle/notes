@@ -4,12 +4,13 @@
 #+OPTIONS: title:t toc:t todo:t |:t
 #+TITLES: PragmaticProgrammer
 #+DATE: <2017-06-04 Sun>
-#+AUTHORS: weiwu
+#+AUTHORS: wei wu
 #+EMAIL: victor.wuv@gmail.com
 #+LANGUAGE: en
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
 
 * Programic Programming phylosophy
 

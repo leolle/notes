@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-04 Tue 14:28 -->
+<!-- 2017-10-11 Wed 15:38 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -94,6 +94,8 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -142,8 +144,8 @@ for the JavaScript code in this tag.
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
+        displayAlign: "left",
+        displayIndent: "5em",
 
         "HTML-CSS": { scale: 100,
                         linebreaks: { automatic: "false" },
@@ -155,13 +157,13 @@ for the JavaScript code in this tag.
         NativeMML: {scale: 100},
         TeX: { equationNumbers: {autoNumber: "AMS"},
                MultLineWidth: "85%",
-               TagSide: "right",
+               TagSide: "left",
                TagIndent: ".8em"
              }
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -169,14 +171,15 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline2">1. Matching characters</a>
+<li><a href="#orgheadline3">1. Matching characters</a>
 <ul>
 <li><a href="#orgheadline1">1.1. metacharacters</a></li>
+<li><a href="#orgheadline2">1.2. cases:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline4">2. Repeating Things</a>
+<li><a href="#orgheadline5">2. Repeating Things</a>
 <ul>
-<li><a href="#orgheadline3">2.1. *.</a></li>
+<li><a href="#orgheadline4">2.1. *.</a></li>
 </ul>
 </li>
 </ul>
@@ -184,8 +187,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">1</span> Matching characters</h2>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">1</span> Matching characters</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> metacharacters</h3>
@@ -237,13 +240,25 @@ Matches any non-alphanumeric character; this is equivalent to the class [<sup>a<
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> cases:</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>machine space and numbers:</li>
+</ul>
+<p>
+\s\b\d+\b
+</p>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">2</span> Repeating Things</h2>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">2</span> Repeating Things</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.1</span> *.</h3>
+</div><div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.1</span> *.</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>doesn’t match the literal character *; instead, it specifies that the previous character can be matched zero or more times, instead of exactly once.</li>
@@ -254,12 +269,6 @@ For example, ca*t will match ct (0 a characters), cat (1 a), caaat (3 a characte
 </div>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-23 Fri&gt;</span></span></p>
-<p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-04 Tue 14:28</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

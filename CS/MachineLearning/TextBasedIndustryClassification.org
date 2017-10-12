@@ -1,0 +1,81 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLE#: BayesianNetworkDescribingYourData
+#+DATE: <2017-08-21 Mon>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
+
+
+* Text based network industries and endogenous product differentiation
+
+** summary:
+- product similarity industries classification.
+This paper develops new time-varying industry classification using text-based analysis of firm product description filed with the SEC.
+
+- empirical benefits
+product differentiation, competitive intensity and product offering following industry shocks.
+
+** ideas:
+- product words describing features and bundles of products of each firm.
+
+- how similar each firm is to every other firm by calculating firm-by-firm pairwise word similarity scores using the product words.
+
+** Objective and Methodology: From Words to Industry Classifications
+*** Objective:
+To capture the relatedness of firms based on their product offerings to customers using a flexible network approach(cosine similarity method), using the clustering methods to classify a industry.
+1. Fixed industry classification.
+Firms are grouped together using *fixed product market definitions and industry membership is constraint to be transitive*.
+
+2. Text-based network industry classification(TNIC).
+Explain differences in key characteristics such as profitability, sales growth, and market risk across industries.
+
+It allows both within-industry and across-industry relations be to examined.
+
+*** Methods:
+computing pairwise word similarity scores for each pair of firms in a given year.
+
+- data:
+1. get product descriptions.
+2. limit attention to nouns(defined by Webster.com) and proper nouns that appear in no more than 25% of all product descriptions in order to avoid common words.
+3. omit common words that are used by more than 25% of all firms, omit geographical words including country and state names, as well as top fifty cities in the US and in the world.
+
+- algorithm
+Clustering Based On Distance Matrix
+1. Hierarchical clustering
+In data mining and statistics, hierarchical clustering (also called hierarchical cluster analysis or HCA) is a method of cluster analysis which seeks to build a hierarchy of clusters. Strategies for hierarchical clustering generally fall into two types:
+
+Agglomerative: This is a "bottom up" approach: each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.
+
+Divisive: This is a "top down" approach: all observations start in one cluster, and splits are performed recursively as one moves down the hierarchy.
+
+$$ V_i = \frac {P_i}{\sqrt {P_i* P_i}}$$
+$$\text {Product Cosine Similarity}_{i,j} = (V_i * V_j)$$
+$$\text {Product Cosine Distance}_{i,j} = 1-  (V_i * V_j)$$
+
+**** industry classification
+- fixed industry classification based on 10-Ks product descriptions
+maintain consistency with other fixed classifications such as Standard Industry Classification.
+
+running a clustering algorithm.
+
+hold these industries fixed throughout samples(from 1997 to 2008).
+
+assign firms to these industries in later years based on their 10-K text similarity relative to the frequency-weighted list of words.
+[[file:./nlp/clustering_test.png][clustering test]]
+- 10-K based TNIC
+define each firmi's industry to include all firms j with pairwise cosine similarities relative to i above a pre-specified minimum threshold.
+
+focusing on thresholds generating industries with the same fraction of membership pairs as SIC-3 industries in an unbiased fashion.
+
+$$ \begin{pmatrix}
+ a_{11} & \cdots & a_{1w}\\
+ \vdots & \ddots & \vdots\\
+ a_{i1} & \cdots & a_{iw}
+ \end{pmatrix} $$

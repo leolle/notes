@@ -1,3 +1,4 @@
+#+SETUPFILE: ../../configOrg/level2.org
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
@@ -79,18 +80,6 @@ Out[36]:
 1    4   10  100
 2    5   20   50
 3    6   30  -30
-#+end_src
-
-- Panels
-Extend a panel frame by transposing, adding a new dimension, and transposing back to the original dimensions.
-#+begin_src emacs-lisp :tangle yes
-In [43]: pf = pd.Panel({'df1':df1,'df2':df2,'df3':df3});pf
-Out[43]:
-<class 'pandas.core.panel.Panel'>
-Dimensions: 3 (items) x 100 (major_axis) x 4 (minor_axis)
-Items axis: df1 to df3
-Major_axis axis: 2013-01-01 00:00:00 to 2013-04-10 00:00:00
-Minor_axis axis: A to D
 #+end_src
 
 -New Columns
@@ -251,6 +240,8 @@ Ada     Math      71  73   75  74
 Quinn   Math      74  76   78  77
 Violet  Math      77  79   81  80
 
+# get I
+df.loc[:, (slice(None), 'I')]
 In [78]: df.loc[(slice('Ada','Quinn'),'Math'),All]
 Out[78]:
                Exams     Labs
@@ -282,6 +273,21 @@ Sort by specific column or an ordered list of columns, with a multi-index.
 
 #+end_src
 
+- pivoting a table to multi-index dataframe:
+#+begin_src emacs-lisp :tangle yes
+# get a pivot table, setting industry and symbol for two levels on the column
+df_pivot_industries_asset_weights = pd.pivot_table(
+    df_industries_asset_weight, values='value', index=['date'],
+    columns=['industry', 'symbol'])
+
+# pivot the original dataframe to multi-index dataframe
+# level 0 value: industry
+# level 1 value: assets, the order of assets are changed.
+df_pivot_industries_asset_weights = df_pivot_industries_asset_weights.fillna(0)
+idx_level_0_value = df_pivot_industries_asset_weights.columns.get_level_values(0)
+idx_level_0_value = idx_level_0_value.drop_duplicates()
+idx_level_1_value = df_pivot_industries_asset_weights.columns.get_level_values(1)
+#+end_src
 * Grouping
 split-apply-combine
 - Splitting the data into groups based on some criteria
@@ -388,3 +394,47 @@ A3 B0 C1 D1  205  204  207  206
 ***  pivoting
 
 ***  reshaping data
+* Panels
+- Extend a panel frame by transposing, adding a new dimension, and transposing back to the original dimensions.
+#+begin_src emacs-lisp :tangle yes
+In [43]: pf = pd.Panel({'df1':df1,'df2':df2,'df3':df3});pf
+Out[43]:
+<class 'pandas.core.panel.Panel'>
+Dimensions: 3 (items) x 100 (major_axis) x 4 (minor_axis)
+Items axis: df1 to df3
+Major_axis axis: 2013-01-01 00:00:00 to 2013-04-10 00:00:00
+Minor_axis axis: A to D
+#+end_src
+
+- Create panels from dictionary:
+#+BEGIN_SRC python
+    panel_model = pd.Panel({target_date: get_factor_exposure(model, factors, target_date,
+                            asset_weight.columns).T for target_date in asset_weight.index})
+
+#+END_SRC
+
+- panel multipying:
+#+BEGIN_SRC python
+datetimeindex = multiplicand.index.intersection(multiplier_panel.items)
+
+product = pd.DataFrame(data=np.nan, index=datetimeindex, columns=multiplier_panel.major_axis)
+for target_date in datetimeindex:
+product.ix[target_date] = multiplier_panel[target_date].loc[:,multiplicand.columns].fillna(0).dot(multiplicand.ix[target_date].fillna(0))
+
+#+END_SRC
+
+- selcting&slicing:
+usually:
+items: datetimeindex
+
+Major_axis: factors
+
+Minor_axis: symbols
+#+BEGIN_SRC python
+panel.loc[datetime]
+panel.major_xs(panel.major_axis[2:5])
+
+panel.minor_axis
+
+panel.minor_xs(['A', 'B', 'C'])
+#+END_SRC

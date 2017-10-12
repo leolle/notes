@@ -1,3 +1,4 @@
+#+SETUPFILE: ../configOrg/level1.org
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
@@ -12,10 +13,72 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
 
-* 量化选股
+
+* Event study
+[[file:./EventStudy.org][EventStudy]]
+The Event Study module is designed to evaluate the impact of discrete events on future returns. Classic examples of these events are stock splits, earnings surprises, index additions and deletions. The event study attempts to determine if there is a significant abnormal return which can be attributed to the occurrence of the event.
+
+** Event study workflow
+** Event study report
+
+* Factors
+** fundamental factor
+*** P/E ratio
+静态市盈率是市场广泛谈及的市盈率，即以目前市场价格除以已知的最近公开的每股收益后的比值。
+
+所谓的市盈率是一个反映股票收益与风险的重要指标，也叫市价盈利率。体现的是企业按现在的盈利水平要花多少年才能收回成本。
+$$ 市盈率 = frac{股价}{每股收益} $$
+
+$动态市盈率=静态市盈率x[1/(1 + I)^n]&，I为年复合增长率.
+** debt
+** profit
+* Factor backtest
+* Forecast model
+* Simple forecast model
+* Transaction cost model
+* Risk model
+* Strategy simulation
+* Simulation workflow
+* Trade simulator interface
+* Report template editor
+* Script editor and debugger
+* ModelScript reference
+* Included Scripts
+* Included Cpp Scripts
+* Using Microsoft Visual Studio
+* Portfolio optimization
+* ClariFI portfolio optimization
+* Barra portfolio optimization
+* Northfield portfolio optimization
+* Axioma portfolio optimization
+* Portfolio attribution
+* Portfolio attribution process
+* Portfolio attribution export
+* Portfolio attribution report
+* Top down snapshot
+* Top down history
+* Cumulative Brinson attribution
+* Brinson attribution history
+* Contribution snapshot
+* Contribution history
+* Risk factor snapshot
+* Risk factor history
+* Risk attribution snapshot
+* Risk factor attribution
+* Process launcher
+* Cache data
+* multi-factor model
 [[file:./MultiFactorModel.org][MultiFactorModel]]
 
-* Portfolio Optimization
+[[file:./IndustryNeutral.org][行业中性]]
+* Fama-French Three factor model
+[[http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html][data factor library]]
+在资本资产定价模型（CAPM）等传统理论下，投资组合的全部风险溢价由Beta系数表示。但是这一模型在解释股票市场回报的现实情况上，如一月效应，遇到了诸多挑战。法马和佛伦奇（1992）观察发现市值较小、市值账面比较低的两类公司更有可能取得优于市场水平的平均回报率。由此三因子模型通过引入二个新的解释变量：市净率、公司规模，与CAPM中的市场指数一同估计股票的回报水平，即：
+{\displaystyle r=R_{f}+\beta _{3}(R_{m}-R_{f})+b_{s}\cdot {\mathit {SMB}}+b_{v}\cdot {\mathit {HML}}+\alpha } {\displaystyle r=R_{f}+\beta _{3}(R_{m}-R_{f})+b_{s}\cdot {\mathit {SMB}}+b_{v}\cdot {\mathit {HML}}+\alpha }
+其中 {\displaystyle r} r是投资组合的期望收益率， {\displaystyle R_{f}} R_{f}是市场无风险收益率， {\displaystyle R_{m}} R_m是市场组合的收益率，三个变量的待估系数 {\displaystyle \beta } \beta 是市场组合风险溢价、规模溢价、市净率溢价三个因素变化对期望收益率的影响，其中市场组合风险溢价的系数beta概念接近于CAPM模型中的beta系数，公司规模变量 {\displaystyle SMB} SMB是指由市值小的公司组成的投资组合回报与市值大的公司组成的投资组合回报之差，市净率溢价 {\displaystyle HML} HML是账面价值比较高的公司组成的投资组合回报与比值较低的公司投资组合回报之差。 {\displaystyle \alpha } \alpha 是超额收益率，在理想的情况下，投资组合的超额回报将全部被三因素解释，从而 {\displaystyle \alpha } \alpha 应在统计学意义上等于0.
+- Book-to-Market
+- size
+- value
 
 * Performance analytics:
 

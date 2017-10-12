@@ -1,3 +1,4 @@
+#+SETUPFILE: ../../configOrg/level2.org
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
@@ -81,8 +82,7 @@ snakeviz profile.stats
 #+END_SRC
 * list and tuple
 ** characteristics
-These differences outline the philosophical difference between the two: tuples are for
-describing multiple properties of one unchanging thing, and lists can be used to store
+These differences outline the philosophical difference between the two: tuples are for describing multiple properties of one unchanging thing, and lists can be used to store
 collections of data about completely disparate objects
  even if we create a list without append (and thus we don’t have the extra
 headroom introduced by an append operation), it will still be larger in memory than a

@@ -1,0 +1,479 @@
+#+SETUPFILE: ../configOrg/level1.org
+#+OPTIONS: <:active
+#+ICALENDAR_EXCLUDE_TAGS:
+
+* Instruction on how to use emacs org mode to orginize calendar.
+
+- insert current date
+=C-c .= <2017-08-11 Fri>
+
+- insert current date and time
+=C-u C-c .= <2017-08-11 Fri 16:06>
+
+- set deadline for an item
+=C-c C-d=
+
+* Workflow
+1. search
+2. read pdf/code
+3. modify code
+4. plugging gs to run with data
+5. check result
+6. prepare presentation of all previous steps
+7. present and get feedback
+
+* GID table
+| date             | GID                              | descriptions                                      |
+| 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                              |
+|                  | 69C3DC21A8E1440AA9C54442AB8A1BD3 | activeX                                           |
+|                  | 528FC2E4CC73469496D330AC39E4AE50 | GROUP WEIGHT                                      |
+|                  | 05E0CAE034244B75BB8CD5580CEF3F5C | 搭函数                                            |
+|                  | 047D8ECFE75E44689D1D10EDF06620BF | FD, portfolio optimization                        |
+|                  | B694A0402A20481091906F5A1C5CC942 | 主页                                              |
+|                  | 171A21059C62E84D330A4D7B53D72DDC | set target risk and target return                 |
+|                  | 3A29CB69BD7879553AAF2EDDD23810F0 | 基准风格因子暴露_python                           |
+|                  | E647EFFF80C540A58A2BFC7719658756 | 组合优化FR                                        |
+|                  | F7960FEA8B534BE8885639B36C3816A8 | 风格因子暴露 刘鑫                                 |
+|                  | A5A7240AE18DC1D9C84A3D7629EC1B63 | STYLE风格因子暴露 刘鑫                            |
+|                  | 363F23CF55484C6BB57291A6543385BC | function of generate factors                      |
+|                  | 0D5E7E6A76524DC8A6DA5F5AF0BFB3C3 | function of getting factor exposure               |
+|                  | B58B375C952C486C80CC94F041B0EF63 | 	j of getting factor exposure                    |
+| <2017-08-11 Fri> | B04D8EC4FC14CBDCCD9FD61B9C831955 | FI optimization                                   |
+| <2017-08-11 Fri> | DB7575569F231472384F462E9A0E69AF | j stock portfolio optimization                    |
+|                  | 6224F5BAEF1D4BC9BAC9FFE0244357D8 | multiple period optimization                      |
+| <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
+|                  |                                  |                                                   |
+
+* other projects
+- [X] 搭建基金策略
+- [X] 对基金策略进行组合优化
+- [X] 分析优化后结果，把组合优化加入流程
+- Hidden factor model
+ICA
+- portfolio optimization based on factor model
+- non linear constrain on factor model
+
+- [ ] 公司帮忙照看搬家。
+8 hours.
+
+* Personal stuff
+** knowledge database website
+- [X] modify python content aligned with python library index.
+[[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
+
+- [ ] publish org files to gitbook.
+* Errand
+* NaturalLanguageProcessing
+** Setup
+- [X] 配置好GOOGLE GCLOUD PLATORM的代理
+- [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
+- [ ] deep learning of bank stress in the news
+- [ ] detect events based on text, obtain descriptions of events.
+** configuration:
+- reports-174211
+- proxy:
+127.0.0.1:1080
+
+- [X] Make sure that Python 2.7.9 or later is installed on your system.
+- [X] ./google-cloud-sdk/install.sh
+- [X] ./google-cloud-sdk/bin/gcloud init
+- [X] pip install --upgrade google-cloud-language
+- [X] export GOOGLE_APPLICATION_CREDENTIALS=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json
+- [X] gcloud auth activate-service-account --key-file=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json
+- [X] example:
+#+BEGIN_SRC python
+# auth
+from google.oauth2 import service_account
+
+credentials = service_account.Credentials.from_service_account_file(
+    '/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json')
+
+scoped_credentials = credentials.with_scopes(
+    ['https://www.googleapis.com/auth/cloud-platform'])
+
+#+END_SRC
+
+#+BEGIN_SRC python
+# -*- coding: utf-8 -*-
+# Imports the Google Cloud client library
+from google.cloud import language
+
+# Instantiates a client
+language_client = language.Client()
+
+# The text to analyze
+text = 'Hello, world!'
+#text = u'正在按照第一个网页流程走'
+document = language_client.document_from_text(text)
+
+# Detects the sentiment of the text
+sentiment = document.analyze_sentiment().sentiment
+
+print('Text: {}'.format(text))
+print('Sentiment: {}, {}'.format(sentiment.score, sentiment.magnitude))
+
+#+END_SRC
+
+- https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/language/movie_nl
+
+- GCLOUD example:
+#+BEGIN_SRC shell
+gcloud ml language analyze-entities --content="Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'."
+#+END_SRC
+- connect to Amazon AWS EW2:
+#+BEGIN_SRC shell
+# 1
+chmod 400 /path/my-key-pair.pem
+# 2
+ssh -i "amazon.pem" ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com
+# 3
+scp -i "/home/weiwu/Downloads/amazon.pem" ~/projects/sentiment/reports-b56f3f2275a1.json  ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com:~/projects/sentiment
+#+END_SRC
+- install Google SDK on AWS EM2
+methon 1:
+curl https://sdk.cloud.google.com | bash
+sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
+sudo `which pip` install --upgrade google-cloud-language
+** SDK
+- GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
+- https://cloud.google.com/sdk/docs/quickstart-linux
+- key:
+https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211
+- 初始化SDK
+  - 配置网络代理
+  - 输入代理IP地址:127.0.0.1，代理端口：1080
+- 授权SDK
+  - gcloud auth application-default login
+
+- auth
+https://developers.google.com/identity/protocols/application-default-credentials
+#+BEGIN_SRC json
+{
+  "type": "service_account",
+  "project_id": "reports-174211",
+  "private_key_id": "54818469c5e32cb8f5d55b755945e6bd7f65c747",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0Lz4mVUr36Y7C\n+hxLunVLm3RfBMDsJ9RZ/jICmpCprYIjYebLql0+T2DnhU7eKH2hhbHKZdUfWOvA\nDxE/DUk04eG22vsvoPlIGjN88c3EkKqEddX0llOkKeVNMAB0lN+ESEmrMC6Ewhd2\n/51dIqekDjTV5wrmZxnT1SSuJsrgA0Wbey5TjVmYBTO3hsR37sJxf6yj0+lrVqUw\np2rgkIuDrQy97jP9AYdAF6Lt1eIZvLTIC8GBpo0VjVb+s8CRhZiKGxunUu8HFymS\nK/9Li8BRJ9q/ozp4OGJszk2RQiTbFoKI64pVqggTJxRVw4pdozpzPL4cDqqjYu7y\nCakFxFStAgMBAAECggEAAL36EaKDy3IYOa2Eh3umMdsbIgINFlvn+BKVMPq4fPkU\njQyWl1ZQCdU+BwNpn/4cMwRah1ofLtYeVcfqGwT1EnqaA/ddFfo3KfNxAgMlRQ7l\nzjkFr3sdWegnRDJd/3JBL78JeKLwlMY6M64D/1HIzXhBLPQFkOMx/B6dBvpCFyVC\niE/FTJHFpN5BJni+cBtKfdKbPYGkxtNN4XdPrGtS3pg+NX8hJwtyTc9CV63YSPxG\nY7Zat5IRR+nTkHNJj/jqTLb1YolzjTSGR1vbb1KTUe+KH4ZxiYd0MVCDEEgrhvli\nmEunzCGbrIgi3K8+h77FHq2UHbVL4epd6leswEpH6QKBgQDiz/bDGXIAKszc9GsS\na4mhU/06Cw79C99rc6iMMq9O5N6qaXDlExT5IS/1xBMv8M4lQ4Qp6OqzlXP/gci3\nVOm6TzoB92hwTja5IxIlhHuCxy3+LCjN2T95dTL5QbjKtYn9IQ/SX+ZVSXxHYUvQ\nxgwZud/FIS+YE2qChYFEaev7BQKBgQDLXy++mrOHm/Kwpkf2elrra6m/jPHdJe3m\nuv7lQf9QJAjSBNDJppHiryqOKQeSJyLX7WrPi/ngUM/wFSAi/llgmLApQwAla5Xs\nPLRntxaWDK2JDUonGDkdWeR5kwyns/oomnECiS22m1+oh+2uYQHgW8DpiG4fPpAt\nJ3K6KOUziQKBgAJ3sr6So0vfK1VoD1Ym91ta95FPF32nSGn52yaTUpbwJIAEH6dO\nWtcPBl+NH4xQ+V0sa96s2wjTImzwM4fTE6vkOsRUtb0rDKtc91CTLWjR0+1E+7ip\nmWgv3zsY/PKvoO2xE2P9iRr6brC0HUgLL4yEGiwh3UuxQmJjI3HkGR4lAoGALc16\nS0s8M8aDmhVZD8HuyCavTFzJ/CyWr+hdj/SVM89pzSMYgtHo+UzKIMpM0jXOOyNV\ncvjrhgGtUzzux/LQ3liFFEXquoLIeTQSzWkGxTSFwOAlWzixZFLiih78MqjuJkbi\nPNf4W7ASkzpJ5YQjkAwaHn6DjrXgcsr3o8WiGUECgYBBLnbZLyMSkjZ0n0wYG0a7\nB4b0piRlGbSfEcKWpxoS+EJDuEgvZgn92EOHGaE0xtZvmwbWuqTKKRHXYDGG0VkR\nTf1pMyBF7uxRXDXPslZU2rUTudKMxP8HxoV8WGwxH+ltZYwsMV1iKv3xqbU6CRy2\nu5i+YnEcmQl6HFH/H8tzQg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloudnatruallanguageapi@reports-174211.iam.gserviceaccount.com",
+  "client_id": "108156446460648516099",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloudnatruallanguageapi%40reports-174211.iam.gserviceaccount.com"
+}
+
+#+END_SRC
+
+- gcloud config list
+#+BEGIN_SRC shell
+(C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>gcloud
+config list
+[compute]
+region = us-east1
+zone = us-east1-d
+[core]
+account = victor.wuv@gmail.com
+disable_usage_reporting = False
+project = reports-174211
+[proxy]
+address = 192.168.1.164
+port = 1080
+type = http
+
+Your active configuration is: [nlp1]
+
+(C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
+#+END_SRC
+** - read the book 《自然语言处理综论》
+not easy to understand this book.
+- listen to the open course
+https://web.stanford.edu/class/cs224n/syllabus.html
+- 寻找中文分词开源项目
+LTP from Harbin Institute of Technology
+http://ltp.ai/
+http://ltp.readthedocs.io/zh_CN/latest/
+http://www.ltp-cloud.com/intro/
+- Strucuture:
+分词, 词性标注, Parser
+- Tools
+CRF++
+
+GIZA
+
+Word2Vec
+- Opinion Mining, Sentiment Analysis, and Opinion Spam Detection
+https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
+https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
+- 目标学习：信息抽取
+** 如何在NLP领域快速学会第一个技能？
+- 找到一个开源项目，比如机器翻译或者深度学习的项目。
+- 理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。
+- 然后再深入理解开源项目示范程序的算法。
+- 自己编程实现一下这个示范程序的算法。再按照项目提供的标准测试集测试自己实现的程序。如果输出的结果与项目中出现的结果不一致，就要仔细查验自己的程序，反复修改，直到结果与示范程序基本一致。如果还是不行，就大胆给项目的作者写信请教。
+- 在此基础上，再看看自己能否进一步完善算法或者实现，取得比示范程序更好的结果。
+- [ ] 词性标记集：LTP中采用863词性标注集，其各个词性含义如下表：
+
+| Tag	 | Description	         | Example	    |    |
+|-------+-----------------------+--------------+----|
+| a	   | adjective	           | 美丽	       |    |
+| b	   | other noun-modifier	 | 大型 ,西式	 |    |
+| c	   | conjunction	         | 和,虽然	    |    |
+| d	   | adverb	              | 很           | 	 |
+| e	   | exclamation	         | 哎	         |    |
+| g	   | morpheme	            | 茨, 甥	     |    |
+| h	   | prefix	              | 阿, 伪       | 	 |
+| i	   | idiom	               | 百花齐放	   |    |
+| j	   | abbreviation	        | 公检法	     |    |
+| k	   | suffix	              | 界, 率	     |    |
+| m	   | number	              | 一, 第一	   |    |
+| n	   | general noun	        | 苹果	       |    |
+| nd	  | direction noun	      | 右侧	       |    |
+| nh	  | person name	         | 杜甫, 汤姆   |    |
+| ni	  | organization name	   | 保险公司     |    |
+| nl	  | location noun	       | 城郊         |    |
+| ns	  | geographical name	   | 北京         |    |
+| nt	  | temporal noun	       | 近日, 明代   |    |
+| nz	  | other proper   noun	 | 诺贝尔奖     |    |
+| o	   | onomatopoeia	        | 哗啦         |    |
+| p	   | preposition	         | 在, 把       |    |
+| q	   | quantity	            | 个           |    |
+| u	   | auxiliary	           | 的, 地       |    |
+| v	   | verb	                | 跑, 学习     |    |
+| wp	  | punctuation	         | ，。！       |    |
+| ws	  | foreign words	       | CPU          |    |
+| x	   | non-lexeme	          | 萄, 翱       |    |
+- [ ] 命名实体识别
+命名实体识别 (Named Entity Recognition, NER) 是在句子的词序列中定位并识别人名、地名、机构名等实体的任务。 如之前的例子，命名实体识别的结果是：
+
+国务院 (机构名) 总理李克强 (人名) 调研上海外高桥 (地名) 时提出，支持上海 (地名) 积极探索新机制。
+命名实体识别对于挖掘文本中的实体进而对其进行分析有很重要的作用。
+- [ ] 依存句法分析
+依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
+- [ ] 语义角色标注
+语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
+- [ ] 查看Google Trende API.
+
+* GS
+** organize OSet structure
+DEADLINE: <2017-10-11 Wed>
+- [ ] 原有因子指标加入新建OSet
+- [ ] add machine learning functions to statistical inference
+- [X] add abnormal factors on GS
+- [X] add computer age statistical inference function content on GS
+- [ ] strategies
+- [X] stocks
+- [X] f def
+- [X] abnormal factors
+
+* TODO optimization
+<2017-07-21 Fri> - <2017-09-18 Mon>
+- [ ] construnct FS, FR, workflow.
+- [ ] soft constraint.
+- [ ] worse-case risk analysis.
+- [X] add excess single returns and excess cumulative returns on PNLFitness.
+- [X] move functions defines osets.
+- [X] read future simulation code.
+- [X] pack constraint input parameters.
+- [ ] DONE multi-period optimization using cvxportfolio.
+- [ ] 用多期因子做一下回测看看效果，没有看到在OBJECTIVE FUNCTION里面加TRADE COST LOSS FUNCTION的做法，RETURN, RISK和 COST 不在同一个数量级的.
+- [ ] 继续在CVXPORTFOLIO上改用RISK MODEL.
+- [ ] 周末把每一期按单期优化处理后得到了新的权重，没有加入预测，上午跑一下看看效果。
+- [ ] 把RISK MODEL加到CVXPORTFOLIO。
+- [X] GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。
+- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [ ] 将 group constaint 的条件泛化。
+- [ ] 组合优化当hard constraint无法达成时，relax constraint，结果同时输出fitness。
+- [X] mode 参数变成一个枚举值。
+- [ ] gs输入signature需要指定 oset.
+oset组织不完整，postpone.
+- [X] risk model api.
+- [-] risk model api test.
+  - [X] change factor return dataframe name to b char array.
+  - [ ] risk model api function.
+    - factor exposure(panel)
+      size(1536*8*2885).
+      items: datetime index
+      major axis: factors
+      minor axis: symbols
+    - sigma(panel)
+      size(1536*35*2885)
+    - specific risk(panel)
+      panel size is too large for calculation(1536*2885*2885).
+    - covariance matrix(panel)
+    - factor return(dataframe)
+- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [ ] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
+- [ ] test the api according to my own requirement.
+  - [ ] risk model class function.
+    - factor exposure(panel)
+      size(1536*8*2885).
+      items: datetime index
+      major axis: factors
+      minor axis: symbols
+    - sigma(panel)
+      size(1536*35*2885)
+    - specific risk(panel)
+      panel size is too large for calculation(1536*2885*2885).
+    - covariance matrix(panel)
+    - factor return(dataframe)
+- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [ ] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
+- [ ] which industry does the benchmark return come form?
+using the robust linear regression to estimate the coefficient and do the ranking.
+consider use the lasso regression maybe a better choice.
+- [X] 将新写的api代码应用到gs.
+- [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [X] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
+- [ ] Paper on industry classification.
+- [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [X] 将 group constaint 的条件泛化。
+- [X] test on gs.
+- [X] select assets by returns and volatility according to target mode.
+- [X] soft constraint based on penalty function.
+- [ ] Paper on industry classification.
+1. portfolio optimization
+- [ ] write pseudo code.
+- [ ] fix const variable issue for target mode naming.
+- [ ] write fd for asset constraint on gs.
+
+2. soft constraint
+- [ ] write pseudo code.
+- [ ] move soft constraint test on gs.
+
+3. industry classification paper
+finish this paper and write summary.
+find a dateset for industry, product, financial statement, etc, extract nouns from text matching these classes.
+duplicate classification algorithm.
+
+- [X] fix const variable issue for target mode naming.
+- [X] write fd for asset constraint on gs.
+- [X] write pseudo code.
+- [ ] move soft constraint test on gs.
+- [X] finish text-based network industry classification(TBNIC) and summarizing.
+- [X] deploy the constraint function on gs.
+- [ ] collect product noun words from description using NLP.
+- [ ] get factors list GID
+- [ ] review optimization function map, functions signature, pseudo code.
+- [ ] collect product noun words from description using NLP.
+- [X] programe the pair input data structure.
+- [X] make this structure available on GS.
+- [X] OTVV的数据结构是通过上传还是写python function还在试验看哪种方式更高效，不过我自己已经把这种函数写出来了。
+- [ ] put the constraint GS, review code.
+- [X] setup the constraint, covariance matrix, sigma, delta on GS.
+- [ ] add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.
+- [X] 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。
+fix by fillna with 0 in the factor exposure dataframe.
+- [X] deploy the whole function on Jupyter and gs.
+- [X] we have a position limit option, length is x.
+asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
+we can create two constraint with the formula (wT*M1)T>= V_1, (wT*M1)T <= V_2.
+- [X] calculate the benchmark factor exposure as the reference j to the exposure constraint input.
+- [ ] debug the optimization with exposure constraint.
+BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.
+- [X] debug the optimization with exposure constraint.
+- [X] 程序已经调通，加入factor exposure constraint找到最优解
+  1. check the calculation of the factor exposure.
+  2. 放松约束条件.
+  3. [X] bug found: group constraint loading dataframe index order should be aligned within calculation.
+- [-] test:
+  - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
+  - [ ] original portfolio is constructed by all hs300 components.
+  - [ ] industry weight constraint match the benchmark weight.
+- [X] profile the program.
+90% of program running time is spent on loading data and decompresssing data.
+- [ ] present &review project.
+- [ ] portfolio construction with black-litterman model.
+- [ ] portfolio construction with risk-parity model.
+- [-] test:
+  - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
+  - [X] original portfolio is constructed by all hs300 components.
+  - [ ] industry weight constraint match the benchmark weight.
+- [X] industry weight constraint match the benchmark weight.
+- [ ] pack functions to modules.
+- [ ] follow up correction.
+- [ ] black-litterman portfolio.
+- [ ] pack functions to modules.
+- [ ] follow up correction.
+** cvxportfolio
+- [ ] 查看cvxportfolio的使用说明。
+- [ ] 在开发的帮助下安装cvxportfolio library，调试。
+- [ ] 调试cvxportfolio library，把代码换用该库。
+- [ ] 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。
+** cvxpy
+- [ ] research on soft constraint using cvxpy.
+- [ ] 搭建workflow。
+- [ ] 多期优化。
+
+* TODO future simulation                                :future:optimization:
+
+ <2017-09-19 Tue> - <2017-10-01 Sun>
+- [X] buy and hold mode on future backtesting.
+
+- [X] revise pnl fitness function, rename previous pnlfitness function name to PnLAndHoldingFitness, create another two seperate functions PnLFitness and HoldingFitness respectively.
+
+- [X] export data from database.
+- [X] roll over between two contracts to get continious contract data.
+
+- [X] create rolling strategy, return rolling position.
+
+- [X] create continuous contracts.
+
+- [X] learn function define, function sampling instance, wants, search strategy run on GS.
+- [X] add trading volume and other value to the continuous contract.
+- [X] remove unnecessary input of the parsing function.
+
+- [X] learn creating function sampleing.
+
+- [X] create long/short strategy, return neutral position.
+- [ ] deploy portfolio optimization on function sampling workflow.
+- [ ] create position signal via continous contract data.
+- [ ] to get actual position from simulation position.
+
+- [ ] calculate PnL using future rollover position, long/short position, continuous position.
+
+- [ ] modify simulation code referred to stocks simulation.
+- [ ] adjust input signatures.
+- [ ] future simulation requested function:
+- calendar spread trading.
+buy current month expired contract.
+short next month expired contract.
+
+- rolling on constant maturity.
+
+- trend following on dominant contract.
+moving average crossing over on the continous contract.
+- [X] future simulation pseudo code.
+#+BEGIN_SRC python
+ def OnData(self,slice):
+        if not self.Portfolio.Invested:
+            for chain in slice.FutureChains:
+                 # Get contracts expiring no earlier than in 90 days
+                contracts = filter(lambda x: x.Expiry > self.Time + timedelta(90), chain.Value)
+
+                # if there is any contract, trade the front contract
+                if len(contracts) == 0: continue
+                front = sorted(contracts, key = lambda x: x.Expiry, reverse=True)[0]
+                self.MarketOrder(front.Symbol , 1)
+        else:
+            self.Liquidate()
+#+END_SRC
+ requested function:
+- [ ] calendar spread trading.
+
+calculate the position value based on continious contract and actual contract
+
+buy current month expired contract.
+short next month expired contract.
+
+- [ ] rolling on constant maturity.
+
+calculate the position value based on continious contract and actual contract
+
+- [ ] trend following on dominant contract.
+
+moving average crossing over on the continous contract.
+- [X] range osets.
+- [X] parse future continious contract data.
+- [ ] simple mode test with real data.

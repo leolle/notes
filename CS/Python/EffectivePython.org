@@ -1,3 +1,4 @@
+#+SETUPFILE: ../../configOrg/level2.org
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
@@ -24,8 +25,7 @@ format.
 - Module-level constants should be in ALL_CAPS format.
 - Instance methods in classes should use self as the name of the first parameter
 (which refers to the object).
-- Class methods should use cls as the name of the first parameter (which refers to
-the class).
+- Class methods should use cls as the name of the first parameter (which refers to the class).
 *** Expressions and Statements:
 - Always use absolute names for modules when importing them, not names relative to the current module’s own path. For example, to import the foo module from the bar package, you should do from bar import foo, not just import foo.
 - If you must do relative imports, use the explicit syntax from . import foo.

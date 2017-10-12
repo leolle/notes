@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-07-04 Tue 14:28 -->
+<!-- 2017-10-11 Wed 09:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -94,6 +94,8 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -142,8 +144,8 @@ for the JavaScript code in this tag.
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
+        displayAlign: "left",
+        displayIndent: "5em",
 
         "HTML-CSS": { scale: 100,
                         linebreaks: { automatic: "false" },
@@ -155,13 +157,13 @@ for the JavaScript code in this tag.
         NativeMML: {scale: 100},
         TeX: { equationNumbers: {autoNumber: "AMS"},
                MultLineWidth: "85%",
-               TagSide: "right",
+               TagSide: "left",
                TagIndent: ".8em"
              }
 });
 </script>
 <script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -169,290 +171,412 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline17">1. Python basic operations:</a>
+<li><a href="#orgheadline1">1. Introduction</a></li>
+<li><a href="#orgheadline4">2. Built-in Functions</a>
 <ul>
-<li><a href="#orgheadline1">1.1. Module</a></li>
-<li><a href="#orgheadline2">1.2. zip</a></li>
-<li><a href="#orgheadline3">1.3. Float point issue</a></li>
-<li><a href="#orgheadline4">1.4. unittest:</a></li>
-<li><a href="#orgheadline5">1.5. Time</a></li>
-<li><a href="#orgheadline6">1.6. Function</a></li>
-<li><a href="#orgheadline7">1.7. Operator</a></li>
-<li><a href="#orgheadline10">1.8. pickle</a>
-<ul>
-<li><a href="#orgheadline8">1.8.1. dump:</a></li>
-<li><a href="#orgheadline9">1.8.2. load:</a></li>
+<li><a href="#orgheadline2">2.1. Function</a></li>
+<li><a href="#orgheadline3">2.2. trouble shooting</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline11">1.9. list operations:</a></li>
-<li><a href="#orgheadline13">1.10. 生成器</a>
+<li><a href="#orgheadline20">3. Built-in Types</a>
 <ul>
-<li><a href="#orgheadline12">1.10.1. loop</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline14">1.11. magic method:</a></li>
-<li><a href="#orgheadline15">1.12. collections — High-performance container datatypes</a></li>
-<li><a href="#orgheadline16">1.13. fetch data from yahoo</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline28">2. Data Analysis:</a>
+<li><a href="#orgheadline5">3.1. Truth Value Testing</a></li>
+<li><a href="#orgheadline6">3.2. Boolean Operations — and, or, not</a></li>
+<li><a href="#orgheadline7">3.3. Comparisons</a></li>
+<li><a href="#orgheadline8">3.4. Numeric Types — int, float, complex</a></li>
+<li><a href="#orgheadline9">3.5. Iterator Types</a></li>
+<li><a href="#orgheadline10">3.6. Sequence Types — list, tuple, range</a></li>
+<li><a href="#orgheadline12">3.7. 生成器</a>
 <ul>
-<li><a href="#orgheadline25">2.1. pandas:</a>
+<li><a href="#orgheadline11">3.7.1. loop</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline13">3.8. Text Sequence Type — str</a></li>
+<li><a href="#orgheadline14">3.9. Binary Sequence Types — bytes, bytearray, memoryview</a></li>
+<li><a href="#orgheadline15">3.10. Set Types — set, frozenset</a></li>
+<li><a href="#orgheadline16">3.11. Mapping Types — dict</a></li>
+<li><a href="#orgheadline17">3.12. Context Manager Types</a></li>
+<li><a href="#orgheadline18">3.13. Other Built-in Types</a></li>
+<li><a href="#orgheadline19">3.14. Special Attributes &#x2013; magic method:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline26">4. Built-in Exceptions</a>
 <ul>
-<li><a href="#orgheadline24">2.1.1. Index</a></li>
+<li><a href="#orgheadline21">4.1. Base classes</a></li>
+<li><a href="#orgheadline22">4.2. Concrete exceptions</a></li>
+<li><a href="#orgheadline23">4.3. Warnings</a></li>
+<li><a href="#orgheadline24">4.4. Exception hierarchy</a></li>
+<li><a href="#orgheadline25">4.5. exception</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">2.2. numpy</a></li>
-<li><a href="#orgheadline27">2.3. plot:</a></li>
+<li><a href="#orgheadline46">5. Text Processing Services</a>
+<ul>
+<li><a href="#orgheadline27">5.1. string — Common string operations</a></li>
+<li><a href="#orgheadline40">5.2. re — Regular expression operations</a>
+<ul>
+<li><a href="#orgheadline28">5.2.1. useage:</a></li>
+<li><a href="#orgheadline34">5.2.2. string array</a></li>
+<li><a href="#orgheadline35">5.2.3. optional words</a></li>
+<li><a href="#orgheadline39">5.2.4. repeat</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline41">5.3. difflib — Helpers for computing deltas</a></li>
+<li><a href="#orgheadline42">5.4. textwrap — Text wrapping and filling</a></li>
+<li><a href="#orgheadline43">5.5. unicodedata — Unicode Database</a></li>
+<li><a href="#orgheadline44">5.6. stringprep — Internet String Preparation</a></li>
+<li><a href="#orgheadline45">5.7. readline — GNU readline interface</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline62">6. Data Types</a>
+<ul>
+<li><a href="#orgheadline47">6.1. datetime — Basic date and time types</a></li>
+<li><a href="#orgheadline48">6.2. Time</a></li>
+<li><a href="#orgheadline49">6.3. calendar — General calendar-related functions</a></li>
+<li><a href="#orgheadline50">6.4. collections — Container datatypes</a></li>
+<li><a href="#orgheadline51">6.5. collections — High-performance container datatypes</a></li>
+<li><a href="#orgheadline52">6.6. collections.abc — Abstract Base Classes for Containers</a></li>
+<li><a href="#orgheadline53">6.7. heapq — Heap queue algorithm</a></li>
+<li><a href="#orgheadline54">6.8. bisect — Array bisection algorithm</a></li>
+<li><a href="#orgheadline55">6.9. array — Efficient arrays of numeric values</a></li>
+<li><a href="#orgheadline56">6.10. weakref — Weak references</a></li>
+<li><a href="#orgheadline57">6.11. types — Dynamic type creation and names for built-in types</a></li>
+<li><a href="#orgheadline58">6.12. copy — Shallow and deep copy operations</a></li>
+<li><a href="#orgheadline59">6.13. pprint — Data pretty printer</a></li>
+<li><a href="#orgheadline60">6.14. reprlib — Alternate repr() implementation</a></li>
+<li><a href="#orgheadline61">6.15. enum — Support for enumerations</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline70">7. Numeric and Mathematical Modules</a>
+<ul>
+<li><a href="#orgheadline63">7.1. numbers — Numeric abstract base classes</a></li>
+<li><a href="#orgheadline64">7.2. math — Mathematical functions</a></li>
+<li><a href="#orgheadline65">7.3. cmath — Mathematical functions for complex numbers</a></li>
+<li><a href="#orgheadline66">7.4. decimal — Decimal fixed point and floating point arithmetic</a></li>
+<li><a href="#orgheadline67">7.5. fractions — Rational numbers</a></li>
+<li><a href="#orgheadline68">7.6. random — Generate pseudo-random numbers</a></li>
+<li><a href="#orgheadline69">7.7. statistics — Mathematical statistics functions</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline74">8. Functional Programming Modules</a>
+<ul>
+<li><a href="#orgheadline71">8.1. itertools — Functions creating iterators for efficient looping</a></li>
+<li><a href="#orgheadline72">8.2. functools — Higher-order functions and operations on callable objects</a></li>
+<li><a href="#orgheadline73">8.3. operator — Standard operators as functions</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline86">9. File and Directory Access</a>
+<ul>
+<li><a href="#orgheadline75">9.1. pathlib — Object-oriented filesystem paths</a></li>
+<li><a href="#orgheadline76">9.2. os.path — Common pathname manipulations</a></li>
+<li><a href="#orgheadline77">9.3. fileinput — Iterate over lines from multiple input streams</a></li>
+<li><a href="#orgheadline78">9.4. stat — Interpreting stat() results</a></li>
+<li><a href="#orgheadline79">9.5. filecmp — File and Directory Comparisons</a></li>
+<li><a href="#orgheadline80">9.6. tempfile — Generate temporary files and directories</a></li>
+<li><a href="#orgheadline81">9.7. glob — Unix style pathname pattern expansion</a></li>
+<li><a href="#orgheadline82">9.8. fnmatch — Unix filename pattern matching</a></li>
+<li><a href="#orgheadline83">9.9. linecache — Random access to text lines</a></li>
+<li><a href="#orgheadline84">9.10. shutil — High-level file operations</a></li>
+<li><a href="#orgheadline85">9.11. macpath — Mac OS 9 path manipulation functions</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline95">10. Data Persistence</a>
+<ul>
+<li><a href="#orgheadline89">10.1. pickle — Python object serialization</a>
+<ul>
+<li><a href="#orgheadline87">10.1.1. dump:</a></li>
+<li><a href="#orgheadline88">10.1.2. load:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline90">10.2. copyreg — Register pickle support functions</a></li>
+<li><a href="#orgheadline91">10.3. shelve — Python object persistence</a></li>
+<li><a href="#orgheadline92">10.4. marshal — Internal Python object serialization</a></li>
+<li><a href="#orgheadline93">10.5. dbm — Interfaces to Unix “databases”</a></li>
+<li><a href="#orgheadline94">10.6. sqlite3 — DB-API *0 interface for SQLite databases</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline103">11. Data Compression and Archiving</a>
+<ul>
+<li><a href="#orgheadline96">11.1. zip</a></li>
+<li><a href="#orgheadline97">11.2. zlib — Compression compatible with gzip</a></li>
+<li><a href="#orgheadline98">11.3. gzip — Support for gzip files</a></li>
+<li><a href="#orgheadline99">11.4. bz2 — Support for bzip2 compression</a></li>
+<li><a href="#orgheadline100">11.5. lzma — Compression using the LZMA algorithm</a></li>
+<li><a href="#orgheadline101">11.6. zipfile — Work with ZIP archives</a></li>
+<li><a href="#orgheadline102">11.7. tarfile — Read and write tar archive files</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline109">12. File Formats</a>
+<ul>
+<li><a href="#orgheadline104">12.1. csv — CSV File Reading and Writing</a></li>
+<li><a href="#orgheadline105">12.2. configparser — Configuration file parser</a></li>
+<li><a href="#orgheadline106">12.3. netrc — netrc file processing</a></li>
+<li><a href="#orgheadline107">12.4. xdrlib — Encode and decode XDR data</a></li>
+<li><a href="#orgheadline108">12.5. plistlib — Generate and parse Mac OS X .plist files</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline113">13. Cryptographic Services</a>
+<ul>
+<li><a href="#orgheadline110">13.1. hashlib — Secure hashes and message digests</a></li>
+<li><a href="#orgheadline111">13.2. hmac — Keyed-Hashing for Message Authentication</a></li>
+<li><a href="#orgheadline112">13.3. secrets — Generate secure random numbers for managing secrets</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline130">14. Generic Operating System Services</a>
+<ul>
+<li><a href="#orgheadline114">14.1. os — Miscellaneous operating system interfaces</a></li>
+<li><a href="#orgheadline115">14.2. io — Core tools for working with streams</a></li>
+<li><a href="#orgheadline116">14.3. time — Time access and conversions</a></li>
+<li><a href="#orgheadline117">14.4. argparse — Parser for command-line options, arguments and sub-commands</a></li>
+<li><a href="#orgheadline118">14.5. getopt — C-style parser for command line options</a></li>
+<li><a href="#orgheadline119">14.6. logging — Logging facility for Python</a></li>
+<li><a href="#orgheadline120">14.7. logging.config — Logging configuration</a></li>
+<li><a href="#orgheadline121">14.8. logging.handlers — Logging handlers</a></li>
+<li><a href="#orgheadline122">14.9. getpass — Portable password input</a></li>
+<li><a href="#orgheadline123">14.10. curses — Terminal handling for character-cell displays</a></li>
+<li><a href="#orgheadline124">14.11. curses.textpad — Text input widget for curses programs</a></li>
+<li><a href="#orgheadline125">14.12. curses.ascii — Utilities for ASCII characters</a></li>
+<li><a href="#orgheadline126">14.13. curses.panel — A panel stack extension for curses</a></li>
+<li><a href="#orgheadline127">14.14. platform — Access to underlying platform’s identifying data</a></li>
+<li><a href="#orgheadline128">14.15. errno — Standard errno system symbols</a></li>
+<li><a href="#orgheadline129">14.16. ctypes — A foreign function library for Python</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline144">15. Concurrent Execution</a>
+<ul>
+<li><a href="#orgheadline131">15.1. threading — Thread-based parallelism</a></li>
+<li><a href="#orgheadline134">15.2. threading &amp; queue</a>
+<ul>
+<li><a href="#orgheadline132">15.2.1. install</a></li>
+<li><a href="#orgheadline133">15.2.2. example</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline135">15.3. multiprocessing — Process-based parallelism</a></li>
+<li><a href="#orgheadline136">15.4. The concurrent package</a></li>
+<li><a href="#orgheadline137">15.5. concurrent.futures — Launching parallel tasks</a></li>
+<li><a href="#orgheadline138">15.6. subprocess — Subprocess management</a></li>
+<li><a href="#orgheadline139">15.7. sched — Event scheduler</a></li>
+<li><a href="#orgheadline140">15.8. queue — A synchronized queue class</a></li>
+<li><a href="#orgheadline141">15.9. dummy<sub>threading</sub> — Drop-in replacement for the threading module</a></li>
+<li><a href="#orgheadline142">15.10. _thread — Low-level threading API</a></li>
+<li><a href="#orgheadline143">15.11. _dummy<sub>thread</sub> — Drop-in replacement for the _thread module</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline150">16. Internet Data Handling</a>
+<ul>
+<li><a href="#orgheadline146">16.1. Jupyter notebook</a>
+<ul>
+<li><a href="#orgheadline145">16.1.1. Using a virtualenv in an IPython notebook</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline147">16.2. fetch data from yahoo</a></li>
+<li><a href="#orgheadline148">16.3. email — An email and MIME handling package</a></li>
+<li><a href="#orgheadline149">16.4. json — JSON encoder and decoder</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline179">17. Internet Protocols and Support</a>
+<ul>
+<li><a href="#orgheadline151">17.1. webbrowser — Convenient Web-browser controller</a></li>
+<li><a href="#orgheadline152">17.2. cgi — Common Gateway Interface support</a></li>
+<li><a href="#orgheadline153">17.3. cgitb — Traceback manager for CGI scripts</a></li>
+<li><a href="#orgheadline154">17.4. wsgiref — WSGI Utilities and Reference Implementation</a></li>
+<li><a href="#orgheadline155">17.5. urllib — URL handling modules</a></li>
+<li><a href="#orgheadline156">17.6. urllib.request — Extensible library for opening URLs</a></li>
+<li><a href="#orgheadline157">17.7. urllib.response — Response classes used by urllib</a></li>
+<li><a href="#orgheadline158">17.8. urllib.parse — Parse URLs into components</a></li>
+<li><a href="#orgheadline159">17.9. urllib.error — Exception classes raised by urllib.request</a></li>
+<li><a href="#orgheadline160">17.10. urllib.robotparser — Parser for robots.txt</a></li>
+<li><a href="#orgheadline161">17.11. http — HTTP modules</a></li>
+<li><a href="#orgheadline162">17.12. http.client — HTTP protocol client</a></li>
+<li><a href="#orgheadline163">17.13. ftplib — FTP protocol client</a></li>
+<li><a href="#orgheadline164">17.14. poplib — POP3 protocol client</a></li>
+<li><a href="#orgheadline165">17.15. imaplib — IMAP4 protocol client</a></li>
+<li><a href="#orgheadline166">17.16. nntplib — NNTP protocol client</a></li>
+<li><a href="#orgheadline167">17.17. smtplib — SMTP protocol client</a></li>
+<li><a href="#orgheadline168">17.18. smtpd — SMTP Server</a></li>
+<li><a href="#orgheadline169">17.19. telnetlib — Telnet client</a></li>
+<li><a href="#orgheadline170">17.20. uuid — UUID objects according to RFC 4122</a></li>
+<li><a href="#orgheadline171">17.21. socketserver — A framework for network servers</a></li>
+<li><a href="#orgheadline172">17.22. http.server — HTTP servers</a></li>
+<li><a href="#orgheadline173">17.23. http.cookies — HTTP state management</a></li>
+<li><a href="#orgheadline174">17.24. http.cookiejar — Cookie handling for HTTP clients</a></li>
+<li><a href="#orgheadline175">17.25. xmlrpc — XMLRPC server and client modules</a></li>
+<li><a href="#orgheadline176">17.26. xmlrpc.client — XML-RPC client access</a></li>
+<li><a href="#orgheadline177">17.27. xmlrpc.server — Basic XML-RPC servers</a></li>
+<li><a href="#orgheadline178">17.28. ipaddress — IPv4/IPv6 manipulation library</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline188">18. Development Tools</a>
+<ul>
+<li><a href="#orgheadline180">18.1. typing — Support for type hints</a></li>
+<li><a href="#orgheadline181">18.2. pydoc — Documentation generator and online help system</a></li>
+<li><a href="#orgheadline182">18.3. doctest — Test interactive Python examples</a></li>
+<li><a href="#orgheadline183">18.4. unittest — Unit testing framework</a></li>
+<li><a href="#orgheadline184">18.5. unittest.mock — mock object library</a></li>
+<li><a href="#orgheadline185">18.6. unittest.mock — getting started</a></li>
+<li><a href="#orgheadline186">18.7. test — Regression tests package for Python</a></li>
+<li><a href="#orgheadline187">18.8. test.support — Utilities for the Python test suite</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline196">19. Debugging and Profiling</a>
+<ul>
+<li><a href="#orgheadline189">19.1. bdb — Debugger framework</a></li>
+<li><a href="#orgheadline190">19.2. faulthandler — Dump the Python traceback</a></li>
+<li><a href="#orgheadline191">19.3. pdb — The Python Debugger</a></li>
+<li><a href="#orgheadline192">19.4. The Python Profilers</a></li>
+<li><a href="#orgheadline193">19.5. timeit — Measure execution time of small code snippets</a></li>
+<li><a href="#orgheadline194">19.6. trace — Trace or track Python statement execution</a></li>
+<li><a href="#orgheadline195">19.7. tracemalloc — Trace memory allocations</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline202">20. Software Packaging and Distribution</a>
+<ul>
+<li><a href="#orgheadline197">20.1. pip</a></li>
+<li><a href="#orgheadline198">20.2. distutils — Building and installing Python modules</a></li>
+<li><a href="#orgheadline199">20.3. ensurepip — Bootstrapping the pip installer</a></li>
+<li><a href="#orgheadline200">20.4. venv — Creation of virtual environments</a></li>
+<li><a href="#orgheadline201">20.5. zipapp — Manage executable python zip archives</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline217">21. Python Runtime Services</a>
+<ul>
+<li><a href="#orgheadline203">21.1. sysconfig — Provide access to Python’s configuration information</a></li>
+<li><a href="#orgheadline204">21.2. os, sys — System-specific parameters and functions</a></li>
+<li><a href="#orgheadline205">21.3. builtins — Built-in objects</a></li>
+<li><a href="#orgheadline206">21.4. _<sub>main</sub>__ — Top-level script environment</a></li>
+<li><a href="#orgheadline207">21.5. warnings — Warning control</a></li>
+<li><a href="#orgheadline208">21.6. contextlib — Utilities for with-statement contexts</a></li>
+<li><a href="#orgheadline209">21.7. abc — Abstract Base Classes</a></li>
+<li><a href="#orgheadline210">21.8. atexit — Exit handlers</a></li>
+<li><a href="#orgheadline211">21.9. traceback — Print or retrieve a stack traceback</a></li>
+<li><a href="#orgheadline212">21.10. _<sub>future</sub>__ — Future statement definitions</a></li>
+<li><a href="#orgheadline213">21.11. gc — Garbage Collector interface</a></li>
+<li><a href="#orgheadline214">21.12. inspect — Inspect live objects</a></li>
+<li><a href="#orgheadline215">21.13. site — Site-specific configuration hook</a></li>
+<li><a href="#orgheadline216">21.14. fpectl — Floating point exception control</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline220">22. Custom Python Interpreters</a>
+<ul>
+<li><a href="#orgheadline218">22.1. code — Interpreter base classes</a></li>
+<li><a href="#orgheadline219">22.2. codeop — Compile Python code</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline227">23. Importing Modules</a>
+<ul>
+<li><a href="#orgheadline221">23.1. Module</a></li>
+<li><a href="#orgheadline222">23.2. zipimport — Import modules from Zip archives</a></li>
+<li><a href="#orgheadline223">23.3. pkgutil — Package extension utility</a></li>
+<li><a href="#orgheadline224">23.4. modulefinder — Find modules used by a script</a></li>
+<li><a href="#orgheadline225">23.5. runpy — Locating and executing Python modules</a></li>
+<li><a href="#orgheadline226">23.6. importlib — The implementation of import</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline241">24. Python Language Services</a>
+<ul>
+<li><a href="#orgheadline228">24.1. parser — Access Python parse trees</a></li>
+<li><a href="#orgheadline229">24.2. ast — Abstract Syntax Trees</a></li>
+<li><a href="#orgheadline230">24.3. symtable — Access to the compiler’s symbol tables</a></li>
+<li><a href="#orgheadline231">24.4. symbol — Constants used with Python parse trees</a></li>
+<li><a href="#orgheadline232">24.5. token — Constants used with Python parse trees</a></li>
+<li><a href="#orgheadline233">24.6. keyword — Testing for Python keywords</a></li>
+<li><a href="#orgheadline234">24.7. tokenize — Tokenizer for Python source</a></li>
+<li><a href="#orgheadline235">24.8. tabnanny — Detection of ambiguous indentation</a></li>
+<li><a href="#orgheadline236">24.9. pyclbr — Python class browser support</a></li>
+<li><a href="#orgheadline237">24.10. py<sub>compile</sub> — Compile Python source files</a></li>
+<li><a href="#orgheadline238">24.11. compileall — Byte-compile Python libraries</a></li>
+<li><a href="#orgheadline239">24.12. dis — Disassembler for Python bytecode</a></li>
+<li><a href="#orgheadline240">24.13. pickletools — Tools for pickle developers</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline243">25. Miscellaneous Services</a>
+<ul>
+<li><a href="#orgheadline242">25.1. formatter — Generic output formatting</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline248">26. MS Windows Specific Services</a>
+<ul>
+<li><a href="#orgheadline244">26.1. msilib — Read and write Microsoft Installer files</a></li>
+<li><a href="#orgheadline245">26.2. msvcrt — Useful routines from the MS VC++ runtime</a></li>
+<li><a href="#orgheadline246">26.3. winreg — Windows registry access</a></li>
+<li><a href="#orgheadline247">26.4. winsound — Sound-playing interface for Windows</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline262">27. Unix Specific Services</a>
+<ul>
+<li><a href="#orgheadline249">27.1. posix — The most common POSIX system calls</a></li>
+<li><a href="#orgheadline250">27.2. pwd — The password database</a></li>
+<li><a href="#orgheadline251">27.3. spwd — The shadow password database</a></li>
+<li><a href="#orgheadline252">27.4. grp — The group database</a></li>
+<li><a href="#orgheadline253">27.5. crypt — Function to check Unix passwords</a></li>
+<li><a href="#orgheadline254">27.6. termios — POSIX style tty control</a></li>
+<li><a href="#orgheadline255">27.7. tty — Terminal control functions</a></li>
+<li><a href="#orgheadline256">27.8. pty — Pseudo-terminal utilities</a></li>
+<li><a href="#orgheadline257">27.9. fcntl — The fcntl and ioctl system calls</a></li>
+<li><a href="#orgheadline258">27.10. pipes — Interface to shell pipelines</a></li>
+<li><a href="#orgheadline259">27.11. resource — Resource usage information</a></li>
+<li><a href="#orgheadline260">27.12. nis — Interface to Sun’s NIS (Yellow Pages)</a></li>
+<li><a href="#orgheadline261">27.13. syslog — Unix syslog library routines</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline265">28. Superseded Modules</a>
+<ul>
+<li><a href="#orgheadline263">28.1. optparse — Parser for command line options</a></li>
+<li><a href="#orgheadline264">28.2. imp — Access the import internals</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline267">29. Undocumented Modules</a>
+<ul>
+<li><a href="#orgheadline266">29.1. Platform specific modules</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline288">30. Data Analysis:</a>
+<ul>
+<li><a href="#orgheadline280">30.1. pandas:</a>
+<ul>
+<li><a href="#orgheadline268">30.1.1. multiplying</a></li>
+<li><a href="#orgheadline279">30.1.2. Index</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline281">30.2. numpy</a></li>
+<li><a href="#orgheadline286">30.3. plot:</a>
+<ul>
+<li><a href="#orgheadline282">30.3.1. subplot with the same axis:</a></li>
+<li><a href="#orgheadline283">30.3.2. subplot with different axis</a></li>
+<li><a href="#orgheadline284">30.3.3. plot a secondary y scale</a></li>
+<li><a href="#orgheadline285">30.3.4. plot a 3d figure:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline287">30.4. scipy</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-
-
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">1</span> Python basic operations:</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Module</h3>
-<div class="outline-text-3" id="text-1-1">
-<ul class="org-ul">
-<li>当你运行一个Python模块 python fibo.py &lt;arguments&gt;
-Remember, everything in python is an object.</li>
-
-<li>python解释器CPython.</li>
-
-<li>如果字符串里面有’\’,而实际上要把斜杠加到字符串里面，要在前面加r，代表raw. 例如r’Y:\codes’.</li>
-
-<li>如果主目录下有子目录packages，记得要在子目录下加init.py，最好在主目录下建main.py函数。</li>
-
-<li>解释器如果执行哪个一个文件为主程序，如 python program1.py，it will set the special variable name to program1.py equals to ‘main’</li>
-<li>One of the reasons for doing this is that sometimes you write a module (a .py file) where it can be executed directly. Alternatively, it can also be imported and used in another module. By doing the main check, you can have that code only execute when you want to run the module as a program and not have it execute when someone just wants to import your module and call your functions themselves.</li>
-
-<li>模块中的代码将会被执行，就像导入它一样，不过此时name 被设置为 “main“。这意味着，通过在你的模块末尾添加此代码.</li>
-
-<li>can’t import module from upper directory.
-
-<ul class="org-ul">
-<li>need to add the working directory to .bashrc PYTHONPATH</li>
-<li>using ipython.</li>
-</ul></li>
-<li>Add custom folder path to the Windows environment.
-add PYTHONEXE%; to System Variable PATH;
-add System variable name: PYTHONEXE , value: C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
-add PYTHONPATH:  C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
-or add module path in Spyder directly;</li>
-<li>import module temperarily from parental directory without add path to the system.</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">folder1</span>
-<span style="color: #75715E;">#    </span><span style="color: #75715E;">\__init__.py</span>
-<span style="color: #75715E;">#    </span><span style="color: #75715E;">\State.py</span>
-<span style="color: #75715E;">#    </span><span style="color: #75715E;">\StateMachine.py</span>
-<span style="color: #75715E;">#    </span><span style="color: #75715E;">\mouse_folder</span>
-<span style="color: #75715E;">#        </span><span style="color: #75715E;">\MouseAction.py</span>
-<span style="color: #F92672;">import</span> os,sys,inspect
-<span style="color: #FD971F;">currentdir</span> = os.path.dirname<span style="color: #AE81FF;">(</span>os.path.abspath<span style="color: #66D9EF;">(</span>inspect.getfile<span style="color: #A6E22E;">(</span>inspect.currentframe<span style="color: #E6DB74;">()</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #FD971F;">parentdir</span> = os.path.dirname<span style="color: #AE81FF;">(</span>currentdir<span style="color: #AE81FF;">)</span>
-sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>,parentdir+<span style="color: #E6DB74;">'\\mouse'</span><span style="color: #AE81FF;">)</span>
-sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>,parentdir<span style="color: #AE81FF;">)</span>
-
-<span style="color: #F92672;">from</span> State <span style="color: #F92672;">import</span> State
-<span style="color: #F92672;">from</span> StateMachine <span style="color: #F92672;">import</span> StateMachine
-<span style="color: #F92672;">from</span> MouseAction <span style="color: #F92672;">import</span> MouseAction
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>check module path:</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #F92672;">import</span> os
-<span style="color: #F92672;">print</span> os.path.abspath<span style="color: #AE81FF;">(</span>ylib.__file__<span style="color: #AE81FF;">)</span>
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>make a python 3 virtual environment:</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-sh">mkvirtual -p python3 ENVNAME
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>install setup.py:</li>
-</ul>
 <p>
-python setup.py install
-to virtual environment:
-<i>home/weiwu</i>.virtualenvs/data<sub>analysis</sub>/bin/python2 setup.py install
+<a href="http://www.pythondoc.com/pythontutorial3/">source</a>
 </p>
-<ul class="org-ul">
-<li>install from github:</li>
-</ul>
-<p>
-pip install git+<a href="https://github.com/quantopian/zipline.git">https://github.com/quantopian/zipline.git</a>
-</p>
-
-<ul class="org-ul">
-<li>percentage output format:</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #F92672;">from</span> future <span style="color: #F92672;">import</span> division
-<span style="color: #F92672;">print</span> &#8220;%s %.<span style="color: #AE81FF;">4f</span>%%&#8221; % <span style="color: #AE81FF;">(</span>sid, <span style="color: #66D9EF;">(</span><span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>not_close<span style="color: #A6E22E;">)</span>/<span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>ctp<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-</pre>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
 </div>
-</div>
-</div>
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> zip</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-zip([iterable, &#x2026;])
-This function returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The returned list is truncated in length to the length of the shortest argument sequence. When there are multiple arguments which are all of the same length, zip() is similar to map() with an initial argument of None. With a single sequence argument, it returns a list of 1-tuples. With no arguments, it returns an empty list.
-</p>
-
-<p>
-The left-to-right evaluation order of the iterables is guaranteed. This makes possible an idiom for clustering a data series into n-length groups using zip(*[iter(s)]*n).
-</p>
-
-<p>
-zip() in conjunction with the * operator can be used to unzip a list:
-</p>
-
-<p>
-&gt;&gt;&gt;
-&gt;&gt;&gt; x = [1, 2, 3]
-&gt;&gt;&gt; y = [4, 5, 6]
-&gt;&gt;&gt; zipped = zip(x, y)
-&gt;&gt;&gt; zipped
-[(1, 4), (2, 5), (3, 6)]
-&gt;&gt;&gt; x2, y2 = zip(*zipped)
-&gt;&gt;&gt; x <code>= list(x2) and y =</code> list(y2)
-True
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Float point issue</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
-On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
-</p>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">0.00011001100110011001100110011001100110011001100110011010</span>
-</pre>
-</div>
-<div class="org-src-container">
-
-<pre class="src src-emacs-lisp">&gt;&gt;&gt; round<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2.675</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">2.67</span>
-</pre>
-</div>
-<p>
-it’s again replaced with a binary approximation, whose exact value is
-</p>
-
-<p>
-2.67499999999999982236431605997495353221893310546875
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> unittest:</h3>
-<div class="outline-text-3" id="text-1-4">
-<ul class="org-ul">
-<li>check data operation:
-<ul class="org-ul">
-<li>create, select, update, delete.</li>
-</ul></li>
-
-<li>purpose of unit test
-<ul class="org-ul">
-<li>checking parameter types, classes, or values.</li>
-<li>checking data structure invariants.</li>
-<li>checking “can’t happen” situations (duplicates in a list, contradictory state variables.)</li>
-<li>after calling a function, to make sure that its return is reasonable.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Time</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>get specific timezone datetime</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #FD971F;">tz</span> = pytz.timezone<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'America/Los_Angeles'</span><span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">#</span><span style="color: #75715E;">date = date.today()</span>
-<span style="color: #FD971F;">now</span> = datetime.now<span style="color: #AE81FF;">()</span>
-<span style="color: #FD971F;">los_angeles_time</span> = datetime.now<span style="color: #AE81FF;">(</span>tz<span style="color: #AE81FF;">)</span>
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>use tqdm as a status bar:</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #F92672;">from</span> tqdm <span style="color: #F92672;">import</span> tqdm
-<span style="color: #F92672;">from</span> time <span style="color: #F92672;">import</span> sleep
-<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> tqdm<span style="color: #AE81FF;">(</span><span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">10</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>:
-    sleep<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>string to datetime:</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-python">time.strptime<span style="color: #AE81FF;">(</span>string<span style="color: #66D9EF;">[</span>, <span style="color: #F92672;">format</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>datetime, Timestamp, datetime64</li>
-</ul>
-<p>
-pandas, Timestamp
-&#x2013; DatetimeIndex is composed by Timestamps.
-</p>
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">Timestamp to string:i</span>
-<span style="color: #FD971F;">str_timestamp</span> = pd.to_datetime<span style="color: #AE81FF;">(</span>Timestamp, <span style="color: #F92672;">format</span> = <span style="color: #E6DB74;">'%Y%m%d'</span><span style="color: #AE81FF;">)</span>
-<span style="color: #FD971F;">str_timestamp</span> = str_timestamp.strftime<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%Y-%m-%d'</span><span style="color: #AE81FF;">)</span>
-</pre>
-</div>
-<p>
-datetime, utc
-datetime64
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">1.6</span> Function</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">2</span> Built-in Functions</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Function</h3>
+<div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>function parameter
 <ul class="org-ul">
 <li>pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.</li>
 </ul></li>
 
-<li>函数中改变形参值不会改变原值。</li>
+<li>if the input argument is un-mutable,函数中改变形参值不会改变原值。</li>
+</ul>
+<p>
+if the input is mutable, operate on the input like append operation will change the input argument.
+</p>
+
+<ul class="org-ul">
 <li>a, b = b, a + b # 相当于：</li>
 </ul>
 <div class="org-src-container">
@@ -465,9 +589,38 @@ datetime64
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">1.7</span> Operator</h3>
-<div class="outline-text-3" id="text-1-7">
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.2</span> trouble shooting</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>linux python FileNotFoundError: [Errno 2] No such file or directory:</li>
+</ul>
+
+<p>
+try to use absolute path instead of relative path to read a file.
+</p>
+
+<ul class="org-ul">
+<li>HDF5</li>
+</ul>
+<p>
+pip install tables
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">3</span> Built-in Types</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">3.1</span> Truth Value Testing</h3>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">3.2</span> Boolean Operations — and, or, not</h3>
+<div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>The ^ symbol
 <ul class="org-ul">
@@ -478,65 +631,27 @@ datetime64
 <p>
 min(np.nan, np.inf) = np.inf
 </p>
-</div>
-</div>
 
+<ul class="org-ul">
+<li>eval</li>
+</ul>
+<p>
+eval the value of a variable name from string.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">3.3</span> Comparisons</h3>
+</div>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">3.4</span> Numeric Types — int, float, complex</h3>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">3.5</span> Iterator Types</h3>
+</div>
 <div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">1.8</span> pickle</h3>
-<div class="outline-text-3" id="text-1-8">
-</div><div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">1.8.1</span> dump:</h4>
-<div class="outline-text-4" id="text-1-8-1">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #F92672;">import</span> pickle
-
-<span style="color: #FD971F;">data1</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'a'</span>: <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span>+<span style="color: #AE81FF;">6j</span><span style="color: #66D9EF;">]</span>,
-         <span style="color: #E6DB74;">'b'</span>: <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'string'</span>, u<span style="color: #E6DB74;">'Unicode string'</span><span style="color: #66D9EF;">)</span>,
-         <span style="color: #E6DB74;">'c'</span>: <span style="color: #AE81FF;">None</span><span style="color: #AE81FF;">}</span>
-
-<span style="color: #FD971F;">selfref_list</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
-selfref_list.append<span style="color: #AE81FF;">(</span>selfref_list<span style="color: #AE81FF;">)</span>
-
-<span style="color: #FD971F;">output</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'data.pkl'</span>, <span style="color: #E6DB74;">'wb'</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;"># </span><span style="color: #75715E;">Pickle dictionary using protocol 0.</span>
-pickle.dump<span style="color: #AE81FF;">(</span>data1, output<span style="color: #AE81FF;">)</span>
-
-<span style="color: #75715E;"># </span><span style="color: #75715E;">Pickle the list using the highest protocol available.</span>
-pickle.dump<span style="color: #AE81FF;">(</span>selfref_list, output, -<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
-
-output.close<span style="color: #AE81FF;">()</span>
-pickle.dump<span style="color: #AE81FF;">(</span> x0, <span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span> <span style="color: #E6DB74;">"x0.pkl"</span>, <span style="color: #E6DB74;">"wb"</span> <span style="color: #66D9EF;">)</span> <span style="color: #AE81FF;">)</span>
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">1.8.2</span> load:</h4>
-<div class="outline-text-4" id="text-1-8-2">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #F92672;">import</span> pprint, pickle
-
-<span style="color: #FD971F;">pkl_file</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'data.pkl'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span>
-
-<span style="color: #FD971F;">data1</span> = pickle.load<span style="color: #AE81FF;">(</span>pkl_file<span style="color: #AE81FF;">)</span>
-pprint.pprint<span style="color: #AE81FF;">(</span>data1<span style="color: #AE81FF;">)</span>
-
-<span style="color: #FD971F;">data2</span> = pickle.load<span style="color: #AE81FF;">(</span>pkl_file<span style="color: #AE81FF;">)</span>
-pprint.pprint<span style="color: #AE81FF;">(</span>data2<span style="color: #AE81FF;">)</span>
-
-pkl_file.close<span style="color: #AE81FF;">()</span>
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">1.9</span> list operations:</h3>
-<div class="outline-text-3" id="text-1-9">
+<h3 id="orgheadline10"><span class="section-number-3">3.6</span> Sequence Types — list, tuple, range</h3>
+<div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
 <li>find difference of two lists:</li>
 </ul>
@@ -620,9 +735,9 @@ choose extend mode: replace ',' as \r\n
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">1.10</span> 生成器</h3>
-<div class="outline-text-3" id="text-1-10">
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">3.7</span> 生成器</h3>
+<div class="outline-text-3" id="text-3-7">
 <p>
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
@@ -662,9 +777,9 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-4">
-<h4 id="orgheadline12"><span class="section-number-4">1.10.1</span> loop</h4>
-<div class="outline-text-4" id="text-1-10-1">
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">3.7.1</span> loop</h4>
+<div class="outline-text-4" id="text-3-7-1">
 <ul class="org-ul">
 <li>iterate key and value in a dictionary:</li>
 </ul>
@@ -712,10 +827,27 @@ int64
 </div>
 </div>
 </div>
-
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">3.8</span> Text Sequence Type — str</h3>
+</div>
 <div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">1.11</span> magic method:</h3>
-<div class="outline-text-3" id="text-1-11">
+<h3 id="orgheadline14"><span class="section-number-3">3.9</span> Binary Sequence Types — bytes, bytearray, memoryview</h3>
+</div>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.10</span> Set Types — set, frozenset</h3>
+</div>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.11</span> Mapping Types — dict</h3>
+</div>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.12</span> Context Manager Types</h3>
+</div>
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">3.13</span> Other Built-in Types</h3>
+</div>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">3.14</span> Special Attributes &#x2013; magic method:</h3>
+<div class="outline-text-3" id="text-3-14">
 <ul class="org-ul">
 <li>getitem in a class allows its instances to use the [ ] (indexer) operators</li>
 <li>setitem Called to implement assignment to self[key]</li>
@@ -733,10 +865,258 @@ int64
 </div>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">1.12</span> collections — High-performance container datatypes</h3>
-<div class="outline-text-3" id="text-1-12">
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">4</span> Built-in Exceptions</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">4.1</span> Base classes</h3>
+</div>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">4.2</span> Concrete exceptions</h3>
+</div>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">4.3</span> Warnings</h3>
+</div>
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">4.4</span> Exception hierarchy</h3>
+</div>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">4.5</span> exception</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li>create an exception:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">ConstraintError</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">Exception</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, arg<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.args = arg
+
+
+<span style="color: #F92672;">if</span> error:
+    <span style="color: #F92672;">raise</span> ConstraintError<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"error"</span><span style="color: #AE81FF;">)</span>
+
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Networkerror</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">RuntimeError</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, arg<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.args = arg
+
+
+<span style="color: #F92672;">try</span>:
+    <span style="color: #F92672;">raise</span> Networkerror<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Bad hostname"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">except</span> Networkerror,e:
+    <span style="color: #F92672;">print</span> e.args
+    <span style="color: #F92672;">print</span> e.message
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline46" class="outline-2">
+<h2 id="orgheadline46"><span class="section-number-2">5</span> Text Processing Services</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">5.1</span> string — Common string operations</h3>
+</div>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">5.2</span> re — Regular expression operations</h3>
+<div class="outline-text-3" id="text-5-2">
+</div><div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">5.2.1</span> useage:</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<ul class="org-ul">
+<li>find strings</li>
+<li>convert strings</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline34" class="outline-4">
+<h4 id="orgheadline34"><span class="section-number-4">5.2.2</span> string array</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+[Pp]ython: find Python or python
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline29"></a>parts<br  /><div class="outline-text-5" id="text-5-2-2-1">
+<p>
+re.search('[a-zA-Z0-9]', 'x')
+</p>
+</div></li>
+
+<li><a id="orgheadline30"></a>not<br  /><div class="outline-text-5" id="text-5-2-2-2">
+<p>
+re.search('[<sup>0</sup>-9]', 'x')
+</p>
+</div></li>
+
+<li><a id="orgheadline31"></a>shortcut<br  /><div class="outline-text-5" id="text-5-2-2-3">
+<ul class="org-ul">
+<li>word: \w</li>
+<li>number: \d</li>
+<li>space, tab, next line: \s</li>
+<li>0 length sub string: \b</li>
+</ul>
+<p>
+re.search('\bcorn\b', 'corner')
+</p>
+</div></li>
+
+<li><a id="orgheadline32"></a>start and end with strings<br  /><div class="outline-text-5" id="text-5-2-2-4">
+<div class="org-src-container">
+
+<pre class="src src-python">re.search<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'^Python'</span>, <span style="color: #E6DB74;">'Python 3'</span><span style="color: #AE81FF;">)</span>
+re.search<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Python$'</span>, <span style="color: #E6DB74;">'this is Python'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline33"></a>any character<br  /><div class="outline-text-5" id="text-5-2-2-5">
+<p>
+"."
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35"><span class="section-number-4">5.2.3</span> optional words</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<p>
+'color' vs 'colour'
+re.search('colou?r', 'my favoriate color')
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39"><span class="section-number-4">5.2.4</span> repeat</h4>
+<div class="outline-text-4" id="text-5-2-4">
+<p>
+{N}
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">find a telephone number</span>
+re.search<span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'[\d]{3}-[\d]{4}'</span>, <span style="color: #E6DB74;">'867-5309 /Jenny'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">find 32big GID</span>
+<span style="color: #AE81FF;">[</span>x <span style="color: #F92672;">for</span> x <span style="color: #F92672;">in</span> risk_model_merge.keys<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">if</span> re.match<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"[A-Z0-9]{32}$"</span>, x<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline36"></a>boundary of repeated times<br  /><div class="outline-text-5" id="text-5-2-4-1">
+<p>
+[\d]{3,4}
+</p>
+</div></li>
+
+<li><a id="orgheadline37"></a>open selection<br  /><div class="outline-text-5" id="text-5-2-4-2">
+<p>
+[\d]{3,}
+</p>
+</div></li>
+
+<li><a id="orgheadline38"></a>speed selection<br  /><div class="outline-text-5" id="text-5-2-4-3">
+<ul class="org-ul">
+<li>+: {1,}</li>
+<li>*: {0,}</li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">5.3</span> difflib — Helpers for computing deltas</h3>
+</div>
+<div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42"><span class="section-number-3">5.4</span> textwrap — Text wrapping and filling</h3>
+</div>
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">5.5</span> unicodedata — Unicode Database</h3>
+</div>
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">5.6</span> stringprep — Internet String Preparation</h3>
+</div>
+<div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45"><span class="section-number-3">5.7</span> readline — GNU readline interface</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline62" class="outline-2">
+<h2 id="orgheadline62"><span class="section-number-2">6</span> Data Types</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">6.1</span> datetime — Basic date and time types</h3>
+</div>
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48"><span class="section-number-3">6.2</span> Time</h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>get specific timezone datetime</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">tz</span> = pytz.timezone<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'America/Los_Angeles'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">date = date.today()</span>
+<span style="color: #FD971F;">now</span> = datetime.now<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">los_angeles_time</span> = datetime.now<span style="color: #AE81FF;">(</span>tz<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>use tqdm as a status bar:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> tqdm <span style="color: #F92672;">import</span> tqdm
+<span style="color: #F92672;">from</span> time <span style="color: #F92672;">import</span> sleep
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> tqdm<span style="color: #AE81FF;">(</span><span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">10</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>:
+    sleep<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>string to datetime:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">time.strptime<span style="color: #AE81FF;">(</span>string<span style="color: #66D9EF;">[</span>, <span style="color: #F92672;">format</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>datetime, Timestamp, datetime64</li>
+</ul>
+<p>
+pandas, Timestamp
+&#x2013; DatetimeIndex is composed by Timestamps.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">Timestamp to string:i</span>
+<span style="color: #FD971F;">str_timestamp</span> = pd.to_datetime<span style="color: #AE81FF;">(</span>Timestamp, <span style="color: #F92672;">format</span> = <span style="color: #E6DB74;">'%Y%m%d'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">str_timestamp</span> = str_timestamp.strftime<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%Y-%m-%d'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+datetime, utc
+datetime64
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline49" class="outline-3">
+<h3 id="orgheadline49"><span class="section-number-3">6.3</span> calendar — General calendar-related functions</h3>
+</div>
+<div id="outline-container-orgheadline50" class="outline-3">
+<h3 id="orgheadline50"><span class="section-number-3">6.4</span> collections — Container datatypes</h3>
+</div>
+<div id="outline-container-orgheadline51" class="outline-3">
+<h3 id="orgheadline51"><span class="section-number-3">6.5</span> collections — High-performance container datatypes</h3>
+<div class="outline-text-3" id="text-6-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -771,15 +1151,518 @@ int64
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">1.13</span> fetch data from yahoo</h3>
-<div class="outline-text-3" id="text-1-13">
+<div id="outline-container-orgheadline52" class="outline-3">
+<h3 id="orgheadline52"><span class="section-number-3">6.6</span> collections.abc — Abstract Base Classes for Containers</h3>
+</div>
+<div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53"><span class="section-number-3">6.7</span> heapq — Heap queue algorithm</h3>
+</div>
+<div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">6.8</span> bisect — Array bisection algorithm</h3>
+</div>
+<div id="outline-container-orgheadline55" class="outline-3">
+<h3 id="orgheadline55"><span class="section-number-3">6.9</span> array — Efficient arrays of numeric values</h3>
+</div>
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">6.10</span> weakref — Weak references</h3>
+</div>
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">6.11</span> types — Dynamic type creation and names for built-in types</h3>
+</div>
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">6.12</span> copy — Shallow and deep copy operations</h3>
+</div>
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">6.13</span> pprint — Data pretty printer</h3>
+<div class="outline-text-3" id="text-6-13">
+<p>
+适合打印列表。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">import</span> pprint
+&gt;&gt;&gt; <span style="color: #FD971F;">tup</span> = <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'spam'</span>, <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'eggs'</span>, <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'lumberjack'</span>, <span style="color: #E6DB74;">(</span><span style="color: #E6DB74;">'knights'</span>, <span style="color: #FD971F;">(</span><span style="color: #E6DB74;">'ni'</span>, <span style="color: #F92672;">(</span><span style="color: #E6DB74;">'dead'</span>,
+... <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'parrot'</span>, <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'fresh fruit'</span>,<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span><span style="color: #F92672;">)</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">stuff</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'a'</span> * <span style="color: #AE81FF;">10</span>, tup, <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span> * <span style="color: #AE81FF;">30</span>, <span style="color: #E6DB74;">'b'</span> * <span style="color: #AE81FF;">30</span><span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'c'</span> * <span style="color: #AE81FF;">20</span>, <span style="color: #E6DB74;">'d'</span> * <span style="color: #AE81FF;">20</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; pprint.pprint<span style="color: #AE81FF;">(</span>stuff<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'aaaaaaaaaa'</span>,
+ <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'spam'</span>,
+  <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'eggs'</span>,
+   <span style="color: #E6DB74;">(</span><span style="color: #E6DB74;">'lumberjack'</span>,
+    <span style="color: #FD971F;">(</span><span style="color: #E6DB74;">'knights'</span>, <span style="color: #F92672;">(</span><span style="color: #E6DB74;">'ni'</span>, <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'dead'</span>, <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'parrot'</span>, <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'fresh fruit'</span>,<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span><span style="color: #F92672;">)</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>,
+ <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'</span>, <span style="color: #E6DB74;">'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'</span><span style="color: #66D9EF;">]</span>,
+ <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'cccccccccccccccccccc'</span>, <span style="color: #E6DB74;">'dddddddddddddddddddd'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="section-number-3">6.14</span> reprlib — Alternate repr() implementation</h3>
+</div>
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">6.15</span> enum — Support for enumerations</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline70" class="outline-2">
+<h2 id="orgheadline70"><span class="section-number-2">7</span> Numeric and Mathematical Modules</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">7.1</span> numbers — Numeric abstract base classes</h3>
+</div>
+<div id="outline-container-orgheadline64" class="outline-3">
+<h3 id="orgheadline64"><span class="section-number-3">7.2</span> math — Mathematical functions</h3>
+</div>
+<div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65"><span class="section-number-3">7.3</span> cmath — Mathematical functions for complex numbers</h3>
+</div>
+<div id="outline-container-orgheadline66" class="outline-3">
+<h3 id="orgheadline66"><span class="section-number-3">7.4</span> decimal — Decimal fixed point and floating point arithmetic</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
+On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">0.00011001100110011001100110011001100110011001100110011010</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">&gt;&gt;&gt; round<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2.675</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">2.67</span>
+</pre>
+</div>
+<p>
+it’s again replaced with a binary approximation, whose exact value is
+</p>
+
+<p>
+2.67499999999999982236431605997495353221893310546875
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline67" class="outline-3">
+<h3 id="orgheadline67"><span class="section-number-3">7.5</span> fractions — Rational numbers</h3>
+</div>
+<div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68"><span class="section-number-3">7.6</span> random — Generate pseudo-random numbers</h3>
+</div>
+<div id="outline-container-orgheadline69" class="outline-3">
+<h3 id="orgheadline69"><span class="section-number-3">7.7</span> statistics — Mathematical statistics functions</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline74" class="outline-2">
+<h2 id="orgheadline74"><span class="section-number-2">8</span> Functional Programming Modules</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-orgheadline71" class="outline-3">
+<h3 id="orgheadline71"><span class="section-number-3">8.1</span> itertools — Functions creating iterators for efficient looping</h3>
+</div>
+<div id="outline-container-orgheadline72" class="outline-3">
+<h3 id="orgheadline72"><span class="section-number-3">8.2</span> functools — Higher-order functions and operations on callable objects</h3>
+</div>
+<div id="outline-container-orgheadline73" class="outline-3">
+<h3 id="orgheadline73"><span class="section-number-3">8.3</span> operator — Standard operators as functions</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline86" class="outline-2">
+<h2 id="orgheadline86"><span class="section-number-2">9</span> File and Directory Access</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline75" class="outline-3">
+<h3 id="orgheadline75"><span class="section-number-3">9.1</span> pathlib — Object-oriented filesystem paths</h3>
+</div>
+<div id="outline-container-orgheadline76" class="outline-3">
+<h3 id="orgheadline76"><span class="section-number-3">9.2</span> os.path — Common pathname manipulations</h3>
+</div>
+<div id="outline-container-orgheadline77" class="outline-3">
+<h3 id="orgheadline77"><span class="section-number-3">9.3</span> fileinput — Iterate over lines from multiple input streams</h3>
+</div>
+<div id="outline-container-orgheadline78" class="outline-3">
+<h3 id="orgheadline78"><span class="section-number-3">9.4</span> stat — Interpreting stat() results</h3>
+</div>
+<div id="outline-container-orgheadline79" class="outline-3">
+<h3 id="orgheadline79"><span class="section-number-3">9.5</span> filecmp — File and Directory Comparisons</h3>
+</div>
+<div id="outline-container-orgheadline80" class="outline-3">
+<h3 id="orgheadline80"><span class="section-number-3">9.6</span> tempfile — Generate temporary files and directories</h3>
+</div>
+<div id="outline-container-orgheadline81" class="outline-3">
+<h3 id="orgheadline81"><span class="section-number-3">9.7</span> glob — Unix style pathname pattern expansion</h3>
+</div>
+<div id="outline-container-orgheadline82" class="outline-3">
+<h3 id="orgheadline82"><span class="section-number-3">9.8</span> fnmatch — Unix filename pattern matching</h3>
+</div>
+<div id="outline-container-orgheadline83" class="outline-3">
+<h3 id="orgheadline83"><span class="section-number-3">9.9</span> linecache — Random access to text lines</h3>
+</div>
+<div id="outline-container-orgheadline84" class="outline-3">
+<h3 id="orgheadline84"><span class="section-number-3">9.10</span> shutil — High-level file operations</h3>
+</div>
+<div id="outline-container-orgheadline85" class="outline-3">
+<h3 id="orgheadline85"><span class="section-number-3">9.11</span> macpath — Mac OS 9 path manipulation functions</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline95" class="outline-2">
+<h2 id="orgheadline95"><span class="section-number-2">10</span> Data Persistence</h2>
+<div class="outline-text-2" id="text-10">
+</div><div id="outline-container-orgheadline89" class="outline-3">
+<h3 id="orgheadline89"><span class="section-number-3">10.1</span> pickle — Python object serialization</h3>
+<div class="outline-text-3" id="text-10-1">
+</div><div id="outline-container-orgheadline87" class="outline-4">
+<h4 id="orgheadline87"><span class="section-number-4">10.1.1</span> dump:</h4>
+<div class="outline-text-4" id="text-10-1-1">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> pickle
+
+<span style="color: #FD971F;">data1</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'a'</span>: <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span>+<span style="color: #AE81FF;">6j</span><span style="color: #66D9EF;">]</span>,
+         <span style="color: #E6DB74;">'b'</span>: <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'string'</span>, u<span style="color: #E6DB74;">'Unicode string'</span><span style="color: #66D9EF;">)</span>,
+         <span style="color: #E6DB74;">'c'</span>: <span style="color: #AE81FF;">None</span><span style="color: #AE81FF;">}</span>
+
+<span style="color: #FD971F;">selfref_list</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
+selfref_list.append<span style="color: #AE81FF;">(</span>selfref_list<span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">output</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'data.pkl'</span>, <span style="color: #E6DB74;">'wb'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Pickle dictionary using protocol 0.</span>
+pickle.dump<span style="color: #AE81FF;">(</span>data1, output<span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Pickle the list using the highest protocol available.</span>
+pickle.dump<span style="color: #AE81FF;">(</span>selfref_list, output, -<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+
+output.close<span style="color: #AE81FF;">()</span>
+pickle.dump<span style="color: #AE81FF;">(</span> x0, <span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span> <span style="color: #E6DB74;">"x0.pkl"</span>, <span style="color: #E6DB74;">"wb"</span> <span style="color: #66D9EF;">)</span> <span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline88" class="outline-4">
+<h4 id="orgheadline88"><span class="section-number-4">10.1.2</span> load:</h4>
+<div class="outline-text-4" id="text-10-1-2">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> pprint, pickle
+
+<span style="color: #FD971F;">pkl_file</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'data.pkl'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">data1</span> = pickle.load<span style="color: #AE81FF;">(</span>pkl_file<span style="color: #AE81FF;">)</span>
+pprint.pprint<span style="color: #AE81FF;">(</span>data1<span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">data2</span> = pickle.load<span style="color: #AE81FF;">(</span>pkl_file<span style="color: #AE81FF;">)</span>
+pprint.pprint<span style="color: #AE81FF;">(</span>data2<span style="color: #AE81FF;">)</span>
+
+pkl_file.close<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline90" class="outline-3">
+<h3 id="orgheadline90"><span class="section-number-3">10.2</span> copyreg — Register pickle support functions</h3>
+</div>
+<div id="outline-container-orgheadline91" class="outline-3">
+<h3 id="orgheadline91"><span class="section-number-3">10.3</span> shelve — Python object persistence</h3>
+</div>
+<div id="outline-container-orgheadline92" class="outline-3">
+<h3 id="orgheadline92"><span class="section-number-3">10.4</span> marshal — Internal Python object serialization</h3>
+</div>
+<div id="outline-container-orgheadline93" class="outline-3">
+<h3 id="orgheadline93"><span class="section-number-3">10.5</span> dbm — Interfaces to Unix “databases”</h3>
+</div>
+<div id="outline-container-orgheadline94" class="outline-3">
+<h3 id="orgheadline94"><span class="section-number-3">10.6</span> sqlite3 — DB-API *0 interface for SQLite databases</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline103" class="outline-2">
+<h2 id="orgheadline103"><span class="section-number-2">11</span> Data Compression and Archiving</h2>
+<div class="outline-text-2" id="text-11">
+</div><div id="outline-container-orgheadline96" class="outline-3">
+<h3 id="orgheadline96"><span class="section-number-3">11.1</span> zip</h3>
+<div class="outline-text-3" id="text-11-1">
+<p>
+zip([iterable, &#x2026;])
+This function returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The returned list is truncated in length to the length of the shortest argument sequence. When there are multiple arguments which are all of the same length, zip() is similar to map() with an initial argument of None. With a single sequence argument, it returns a list of 1-tuples. With no arguments, it returns an empty list.
+</p>
+
+<p>
+The left-to-right evaluation order of the iterables is guaranteed. This makes possible an idiom for clustering a data series into n-length groups using zip(*[iter(s)]*n).
+</p>
+
+<p>
+zip() in conjunction with the * operator can be used to unzip a list:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">&gt;&gt;&gt;
+&gt;&gt;&gt; <span style="color: #FD971F;">x</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1,</span> <span style="color: #AE81FF;">2,</span> <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">y</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">4,</span> <span style="color: #AE81FF;">5,</span> <span style="color: #AE81FF;">6</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">zipped</span> = zip<span style="color: #AE81FF;">(</span>x, y<span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; zipped
+<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1,</span> <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">)</span>, <span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">2,</span> <span style="color: #AE81FF;">5</span><span style="color: #66D9EF;">)</span>, <span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">3,</span> <span style="color: #AE81FF;">6</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; x2, <span style="color: #FD971F;">y2</span> = zip<span style="color: #AE81FF;">(</span>*zipped<span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">x</span> == list<span style="color: #AE81FF;">(</span>x2<span style="color: #AE81FF;">)</span> and <span style="color: #FD971F;">y</span> == list<span style="color: #AE81FF;">(</span>y2<span style="color: #AE81FF;">)</span>
+True
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline97" class="outline-3">
+<h3 id="orgheadline97"><span class="section-number-3">11.2</span> zlib — Compression compatible with gzip</h3>
+</div>
+<div id="outline-container-orgheadline98" class="outline-3">
+<h3 id="orgheadline98"><span class="section-number-3">11.3</span> gzip — Support for gzip files</h3>
+</div>
+<div id="outline-container-orgheadline99" class="outline-3">
+<h3 id="orgheadline99"><span class="section-number-3">11.4</span> bz2 — Support for bzip2 compression</h3>
+</div>
+<div id="outline-container-orgheadline100" class="outline-3">
+<h3 id="orgheadline100"><span class="section-number-3">11.5</span> lzma — Compression using the LZMA algorithm</h3>
+</div>
+<div id="outline-container-orgheadline101" class="outline-3">
+<h3 id="orgheadline101"><span class="section-number-3">11.6</span> zipfile — Work with ZIP archives</h3>
+</div>
+<div id="outline-container-orgheadline102" class="outline-3">
+<h3 id="orgheadline102"><span class="section-number-3">11.7</span> tarfile — Read and write tar archive files</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline109" class="outline-2">
+<h2 id="orgheadline109"><span class="section-number-2">12</span> File Formats</h2>
+<div class="outline-text-2" id="text-12">
+</div><div id="outline-container-orgheadline104" class="outline-3">
+<h3 id="orgheadline104"><span class="section-number-3">12.1</span> csv — CSV File Reading and Writing</h3>
+</div>
+<div id="outline-container-orgheadline105" class="outline-3">
+<h3 id="orgheadline105"><span class="section-number-3">12.2</span> configparser — Configuration file parser</h3>
+<div class="outline-text-3" id="text-12-2">
+<ul class="org-ul">
+<li>use yaml and config file.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #75715E;"># </span><span style="color: #75715E;">config.yaml</span>
+<span style="color: #FD971F;">engine</span>:
+  <span style="color: #FD971F;">user</span>:
+    <span style="color: #E6DB74;">'jack'</span>
+  <span style="color: #FD971F;">password</span>:
+    <span style="color: #E6DB74;">'password'</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> yaml
+<span style="color: #F92672;">with</span> <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'config.yaml'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> f:
+    <span style="color: #FD971F;">config</span> = yaml.load<span style="color: #AE81FF;">(</span>f<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline106" class="outline-3">
+<h3 id="orgheadline106"><span class="section-number-3">12.3</span> netrc — netrc file processing</h3>
+</div>
+<div id="outline-container-orgheadline107" class="outline-3">
+<h3 id="orgheadline107"><span class="section-number-3">12.4</span> xdrlib — Encode and decode XDR data</h3>
+</div>
+<div id="outline-container-orgheadline108" class="outline-3">
+<h3 id="orgheadline108"><span class="section-number-3">12.5</span> plistlib — Generate and parse Mac OS X .plist files</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline113" class="outline-2">
+<h2 id="orgheadline113"><span class="section-number-2">13</span> Cryptographic Services</h2>
+<div class="outline-text-2" id="text-13">
+</div><div id="outline-container-orgheadline110" class="outline-3">
+<h3 id="orgheadline110"><span class="section-number-3">13.1</span> hashlib — Secure hashes and message digests</h3>
+</div>
+<div id="outline-container-orgheadline111" class="outline-3">
+<h3 id="orgheadline111"><span class="section-number-3">13.2</span> hmac — Keyed-Hashing for Message Authentication</h3>
+</div>
+<div id="outline-container-orgheadline112" class="outline-3">
+<h3 id="orgheadline112"><span class="section-number-3">13.3</span> secrets — Generate secure random numbers for managing secrets</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline130" class="outline-2">
+<h2 id="orgheadline130"><span class="section-number-2">14</span> Generic Operating System Services</h2>
+<div class="outline-text-2" id="text-14">
+</div><div id="outline-container-orgheadline114" class="outline-3">
+<h3 id="orgheadline114"><span class="section-number-3">14.1</span> os — Miscellaneous operating system interfaces</h3>
+</div>
+<div id="outline-container-orgheadline115" class="outline-3">
+<h3 id="orgheadline115"><span class="section-number-3">14.2</span> io — Core tools for working with streams</h3>
+</div>
+<div id="outline-container-orgheadline116" class="outline-3">
+<h3 id="orgheadline116"><span class="section-number-3">14.3</span> time — Time access and conversions</h3>
+</div>
+<div id="outline-container-orgheadline117" class="outline-3">
+<h3 id="orgheadline117"><span class="section-number-3">14.4</span> argparse — Parser for command-line options, arguments and sub-commands</h3>
+</div>
+<div id="outline-container-orgheadline118" class="outline-3">
+<h3 id="orgheadline118"><span class="section-number-3">14.5</span> getopt — C-style parser for command line options</h3>
+</div>
+<div id="outline-container-orgheadline119" class="outline-3">
+<h3 id="orgheadline119"><span class="section-number-3">14.6</span> logging — Logging facility for Python</h3>
+<div class="outline-text-3" id="text-14-6">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> logging
+<span style="color: #FD971F;">logger</span> = logging.getLogger<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">handler</span> = logging.StreamHandler<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">formatter</span> = logging.Formatter<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%(asctime)s %(name)-12s %(levelname)-8s %(message)s'</span><span style="color: #AE81FF;">)</span>
+handler.setFormatter<span style="color: #AE81FF;">(</span>formatter<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> logger.handler:
+    logger.addHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
+logger.setLevel<span style="color: #AE81FF;">(</span>logging.DEBUG<span style="color: #AE81FF;">)</span>
+logger
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">at the end of the program</span>
+handler.close<span style="color: #AE81FF;">()</span>
+logger.removeHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline120" class="outline-3">
+<h3 id="orgheadline120"><span class="section-number-3">14.7</span> logging.config — Logging configuration</h3>
+</div>
+<div id="outline-container-orgheadline121" class="outline-3">
+<h3 id="orgheadline121"><span class="section-number-3">14.8</span> logging.handlers — Logging handlers</h3>
+</div>
+<div id="outline-container-orgheadline122" class="outline-3">
+<h3 id="orgheadline122"><span class="section-number-3">14.9</span> getpass — Portable password input</h3>
+</div>
+<div id="outline-container-orgheadline123" class="outline-3">
+<h3 id="orgheadline123"><span class="section-number-3">14.10</span> curses — Terminal handling for character-cell displays</h3>
+</div>
+<div id="outline-container-orgheadline124" class="outline-3">
+<h3 id="orgheadline124"><span class="section-number-3">14.11</span> curses.textpad — Text input widget for curses programs</h3>
+</div>
+<div id="outline-container-orgheadline125" class="outline-3">
+<h3 id="orgheadline125"><span class="section-number-3">14.12</span> curses.ascii — Utilities for ASCII characters</h3>
+</div>
+<div id="outline-container-orgheadline126" class="outline-3">
+<h3 id="orgheadline126"><span class="section-number-3">14.13</span> curses.panel — A panel stack extension for curses</h3>
+</div>
+<div id="outline-container-orgheadline127" class="outline-3">
+<h3 id="orgheadline127"><span class="section-number-3">14.14</span> platform — Access to underlying platform’s identifying data</h3>
+</div>
+<div id="outline-container-orgheadline128" class="outline-3">
+<h3 id="orgheadline128"><span class="section-number-3">14.15</span> errno — Standard errno system symbols</h3>
+</div>
+<div id="outline-container-orgheadline129" class="outline-3">
+<h3 id="orgheadline129"><span class="section-number-3">14.16</span> ctypes — A foreign function library for Python</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline144" class="outline-2">
+<h2 id="orgheadline144"><span class="section-number-2">15</span> Concurrent Execution</h2>
+<div class="outline-text-2" id="text-15">
+</div><div id="outline-container-orgheadline131" class="outline-3">
+<h3 id="orgheadline131"><span class="section-number-3">15.1</span> threading — Thread-based parallelism</h3>
+</div>
+<div id="outline-container-orgheadline134" class="outline-3">
+<h3 id="orgheadline134"><span class="section-number-3">15.2</span> threading &amp; queue</h3>
+<div class="outline-text-3" id="text-15-2">
+</div><div id="outline-container-orgheadline132" class="outline-4">
+<h4 id="orgheadline132"><span class="section-number-4">15.2.1</span> install</h4>
+<div class="outline-text-4" id="text-15-2-1">
+<div class="org-src-container">
+
+<pre class="src src-shell">pip install queuelib
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline133" class="outline-4">
+<h4 id="orgheadline133"><span class="section-number-4">15.2.2</span> example</h4>
+<div class="outline-text-4" id="text-15-2-2">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> Queue <span style="color: #F92672;">import</span> Queue
+<span style="color: #F92672;">import</span> threading
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline135" class="outline-3">
+<h3 id="orgheadline135"><span class="section-number-3">15.3</span> multiprocessing — Process-based parallelism</h3>
+</div>
+<div id="outline-container-orgheadline136" class="outline-3">
+<h3 id="orgheadline136"><span class="section-number-3">15.4</span> The concurrent package</h3>
+</div>
+<div id="outline-container-orgheadline137" class="outline-3">
+<h3 id="orgheadline137"><span class="section-number-3">15.5</span> concurrent.futures — Launching parallel tasks</h3>
+</div>
+<div id="outline-container-orgheadline138" class="outline-3">
+<h3 id="orgheadline138"><span class="section-number-3">15.6</span> subprocess — Subprocess management</h3>
+</div>
+<div id="outline-container-orgheadline139" class="outline-3">
+<h3 id="orgheadline139"><span class="section-number-3">15.7</span> sched — Event scheduler</h3>
+</div>
+<div id="outline-container-orgheadline140" class="outline-3">
+<h3 id="orgheadline140"><span class="section-number-3">15.8</span> queue — A synchronized queue class</h3>
+</div>
+<div id="outline-container-orgheadline141" class="outline-3">
+<h3 id="orgheadline141"><span class="section-number-3">15.9</span> dummy<sub>threading</sub> — Drop-in replacement for the threading module</h3>
+</div>
+<div id="outline-container-orgheadline142" class="outline-3">
+<h3 id="orgheadline142"><span class="section-number-3">15.10</span> _thread — Low-level threading API</h3>
+</div>
+<div id="outline-container-orgheadline143" class="outline-3">
+<h3 id="orgheadline143"><span class="section-number-3">15.11</span> _dummy<sub>thread</sub> — Drop-in replacement for the _thread module</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline150" class="outline-2">
+<h2 id="orgheadline150"><span class="section-number-2">16</span> Internet Data Handling</h2>
+<div class="outline-text-2" id="text-16">
+</div><div id="outline-container-orgheadline146" class="outline-3">
+<h3 id="orgheadline146"><span class="section-number-3">16.1</span> Jupyter notebook</h3>
+<div class="outline-text-3" id="text-16-1">
+</div><div id="outline-container-orgheadline145" class="outline-4">
+<h4 id="orgheadline145"><span class="section-number-4">16.1.1</span> Using a virtualenv in an IPython notebook</h4>
+<div class="outline-text-4" id="text-16-1-1">
+<ol class="org-ol">
+<li>Install the ipython kernel module into your virtualenv</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">workon my-virtualenv-name  <span style="color: #75715E;"># </span><span style="color: #75715E;">activate your virtualenv, if you haven't already</span>
+pip install ipykernel
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>Now run the kernel "self-install" script:</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">python -m ipykernel install --user --<span style="color: #FD971F;">name</span>=my-virtualenv-name
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline147" class="outline-3">
+<h3 id="orgheadline147"><span class="section-number-3">16.2</span> fetch data from yahoo</h3>
+<div class="outline-text-3" id="text-16-2">
+<p>
+install pandas-datareader first.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">conda install pandas-datareader
+</pre>
+</div>
+
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #F92672;">import</span> pandas <span style="color: #F92672;">as</span> pd
 <span style="color: #F92672;">import</span> datetime <span style="color: #F92672;">as</span> dt
 <span style="color: #F92672;">import</span> numpy <span style="color: #F92672;">as</span> np
-<span style="color: #F92672;">import</span> pandas.io.data <span style="color: #F92672;">as</span> web
+<span style="color: #F92672;">from</span> pandas_datareader <span style="color: #F92672;">import</span> data <span style="color: #F92672;">as</span> web
 
 <span style="color: #FD971F;">data</span> = pd.DataFrame<span style="color: #AE81FF;">()</span>
 <span style="color: #FD971F;">symbols</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'GLD'</span>, <span style="color: #E6DB74;">'GDX'</span><span style="color: #AE81FF;">]</span>
@@ -790,16 +1673,691 @@ int64
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline148" class="outline-3">
+<h3 id="orgheadline148"><span class="section-number-3">16.3</span> email — An email and MIME handling package</h3>
+</div>
+<div id="outline-container-orgheadline149" class="outline-3">
+<h3 id="orgheadline149"><span class="section-number-3">16.4</span> json — JSON encoder and decoder</h3>
+</div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-2">
-<h2 id="orgheadline28"><span class="section-number-2">2</span> Data Analysis:</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">2.1</span> pandas:</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-orgheadline179" class="outline-2">
+<h2 id="orgheadline179"><span class="section-number-2">17</span> Internet Protocols and Support</h2>
+<div class="outline-text-2" id="text-17">
+</div><div id="outline-container-orgheadline151" class="outline-3">
+<h3 id="orgheadline151"><span class="section-number-3">17.1</span> webbrowser — Convenient Web-browser controller</h3>
+</div>
+<div id="outline-container-orgheadline152" class="outline-3">
+<h3 id="orgheadline152"><span class="section-number-3">17.2</span> cgi — Common Gateway Interface support</h3>
+</div>
+<div id="outline-container-orgheadline153" class="outline-3">
+<h3 id="orgheadline153"><span class="section-number-3">17.3</span> cgitb — Traceback manager for CGI scripts</h3>
+</div>
+<div id="outline-container-orgheadline154" class="outline-3">
+<h3 id="orgheadline154"><span class="section-number-3">17.4</span> wsgiref — WSGI Utilities and Reference Implementation</h3>
+</div>
+<div id="outline-container-orgheadline155" class="outline-3">
+<h3 id="orgheadline155"><span class="section-number-3">17.5</span> urllib — URL handling modules</h3>
+</div>
+<div id="outline-container-orgheadline156" class="outline-3">
+<h3 id="orgheadline156"><span class="section-number-3">17.6</span> urllib.request — Extensible library for opening URLs</h3>
+</div>
+<div id="outline-container-orgheadline157" class="outline-3">
+<h3 id="orgheadline157"><span class="section-number-3">17.7</span> urllib.response — Response classes used by urllib</h3>
+</div>
+<div id="outline-container-orgheadline158" class="outline-3">
+<h3 id="orgheadline158"><span class="section-number-3">17.8</span> urllib.parse — Parse URLs into components</h3>
+</div>
+<div id="outline-container-orgheadline159" class="outline-3">
+<h3 id="orgheadline159"><span class="section-number-3">17.9</span> urllib.error — Exception classes raised by urllib.request</h3>
+</div>
+<div id="outline-container-orgheadline160" class="outline-3">
+<h3 id="orgheadline160"><span class="section-number-3">17.10</span> urllib.robotparser — Parser for robots.txt</h3>
+</div>
+<div id="outline-container-orgheadline161" class="outline-3">
+<h3 id="orgheadline161"><span class="section-number-3">17.11</span> http — HTTP modules</h3>
+</div>
+<div id="outline-container-orgheadline162" class="outline-3">
+<h3 id="orgheadline162"><span class="section-number-3">17.12</span> http.client — HTTP protocol client</h3>
+</div>
+<div id="outline-container-orgheadline163" class="outline-3">
+<h3 id="orgheadline163"><span class="section-number-3">17.13</span> ftplib — FTP protocol client</h3>
+</div>
+<div id="outline-container-orgheadline164" class="outline-3">
+<h3 id="orgheadline164"><span class="section-number-3">17.14</span> poplib — POP3 protocol client</h3>
+</div>
+<div id="outline-container-orgheadline165" class="outline-3">
+<h3 id="orgheadline165"><span class="section-number-3">17.15</span> imaplib — IMAP4 protocol client</h3>
+</div>
+<div id="outline-container-orgheadline166" class="outline-3">
+<h3 id="orgheadline166"><span class="section-number-3">17.16</span> nntplib — NNTP protocol client</h3>
+</div>
+<div id="outline-container-orgheadline167" class="outline-3">
+<h3 id="orgheadline167"><span class="section-number-3">17.17</span> smtplib — SMTP protocol client</h3>
+</div>
+<div id="outline-container-orgheadline168" class="outline-3">
+<h3 id="orgheadline168"><span class="section-number-3">17.18</span> smtpd — SMTP Server</h3>
+</div>
+<div id="outline-container-orgheadline169" class="outline-3">
+<h3 id="orgheadline169"><span class="section-number-3">17.19</span> telnetlib — Telnet client</h3>
+</div>
+<div id="outline-container-orgheadline170" class="outline-3">
+<h3 id="orgheadline170"><span class="section-number-3">17.20</span> uuid — UUID objects according to RFC 4122</h3>
+</div>
+<div id="outline-container-orgheadline171" class="outline-3">
+<h3 id="orgheadline171"><span class="section-number-3">17.21</span> socketserver — A framework for network servers</h3>
+</div>
+<div id="outline-container-orgheadline172" class="outline-3">
+<h3 id="orgheadline172"><span class="section-number-3">17.22</span> http.server — HTTP servers</h3>
+</div>
+<div id="outline-container-orgheadline173" class="outline-3">
+<h3 id="orgheadline173"><span class="section-number-3">17.23</span> http.cookies — HTTP state management</h3>
+</div>
+<div id="outline-container-orgheadline174" class="outline-3">
+<h3 id="orgheadline174"><span class="section-number-3">17.24</span> http.cookiejar — Cookie handling for HTTP clients</h3>
+</div>
+<div id="outline-container-orgheadline175" class="outline-3">
+<h3 id="orgheadline175"><span class="section-number-3">17.25</span> xmlrpc — XMLRPC server and client modules</h3>
+</div>
+<div id="outline-container-orgheadline176" class="outline-3">
+<h3 id="orgheadline176"><span class="section-number-3">17.26</span> xmlrpc.client — XML-RPC client access</h3>
+</div>
+<div id="outline-container-orgheadline177" class="outline-3">
+<h3 id="orgheadline177"><span class="section-number-3">17.27</span> xmlrpc.server — Basic XML-RPC servers</h3>
+</div>
+<div id="outline-container-orgheadline178" class="outline-3">
+<h3 id="orgheadline178"><span class="section-number-3">17.28</span> ipaddress — IPv4/IPv6 manipulation library</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline188" class="outline-2">
+<h2 id="orgheadline188"><span class="section-number-2">18</span> Development Tools</h2>
+<div class="outline-text-2" id="text-18">
+</div><div id="outline-container-orgheadline180" class="outline-3">
+<h3 id="orgheadline180"><span class="section-number-3">18.1</span> typing — Support for type hints</h3>
+</div>
+<div id="outline-container-orgheadline181" class="outline-3">
+<h3 id="orgheadline181"><span class="section-number-3">18.2</span> pydoc — Documentation generator and online help system</h3>
+</div>
+<div id="outline-container-orgheadline182" class="outline-3">
+<h3 id="orgheadline182"><span class="section-number-3">18.3</span> doctest — Test interactive Python examples</h3>
+</div>
+<div id="outline-container-orgheadline183" class="outline-3">
+<h3 id="orgheadline183"><span class="section-number-3">18.4</span> unittest — Unit testing framework</h3>
+<div class="outline-text-3" id="text-18-4">
+<ul class="org-ul">
+<li>check data operation:
+<ul class="org-ul">
+<li>create, select, update, delete.</li>
+</ul></li>
+
+<li>purpose of unit test
+<ul class="org-ul">
+<li>checking parameter types, classes, or values.</li>
+<li>checking data structure invariants.</li>
+<li>checking “can’t happen” situations (duplicates in a list, contradictory state variables.)</li>
+<li>after calling a function, to make sure that its return is reasonable.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline184" class="outline-3">
+<h3 id="orgheadline184"><span class="section-number-3">18.5</span> unittest.mock — mock object library</h3>
+</div>
+<div id="outline-container-orgheadline185" class="outline-3">
+<h3 id="orgheadline185"><span class="section-number-3">18.6</span> unittest.mock — getting started</h3>
+</div>
+
+<div id="outline-container-orgheadline186" class="outline-3">
+<h3 id="orgheadline186"><span class="section-number-3">18.7</span> test — Regression tests package for Python</h3>
+</div>
+<div id="outline-container-orgheadline187" class="outline-3">
+<h3 id="orgheadline187"><span class="section-number-3">18.8</span> test.support — Utilities for the Python test suite</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline196" class="outline-2">
+<h2 id="orgheadline196"><span class="section-number-2">19</span> Debugging and Profiling</h2>
+<div class="outline-text-2" id="text-19">
+</div><div id="outline-container-orgheadline189" class="outline-3">
+<h3 id="orgheadline189"><span class="section-number-3">19.1</span> bdb — Debugger framework</h3>
+</div>
+<div id="outline-container-orgheadline190" class="outline-3">
+<h3 id="orgheadline190"><span class="section-number-3">19.2</span> faulthandler — Dump the Python traceback</h3>
+</div>
+<div id="outline-container-orgheadline191" class="outline-3">
+<h3 id="orgheadline191"><span class="section-number-3">19.3</span> pdb — The Python Debugger</h3>
+</div>
+<div id="outline-container-orgheadline192" class="outline-3">
+<h3 id="orgheadline192"><span class="section-number-3">19.4</span> The Python Profilers</h3>
+<div class="outline-text-3" id="text-19-4">
 <p>
-<a href="./pandas.html">pandas</a>
+STEPS:
+1). install snakeviz using pip from cmd.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">pip install snakeviz
+</pre>
+</div>
+
+<p>
+2). profile the test python file using below command.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">$ python -m cProfile -o profile.stats test.py
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">test.py</span>
+<span style="color: #F92672;">from</span> random <span style="color: #F92672;">import</span> randint
+<span style="color: #FD971F;">max_size</span> = <span style="color: #AE81FF;">10</span>**<span style="color: #AE81FF;">4</span>
+<span style="color: #FD971F;">data</span> = <span style="color: #AE81FF;">[</span>randint<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">0</span>, max_size<span style="color: #66D9EF;">)</span> <span style="color: #F92672;">for</span> _ <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span>max_size<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">test</span> = <span style="color: #F92672;">lambda</span>: insertion_sort<span style="color: #AE81FF;">(</span>data<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+3). check the efficiency result from profile.stats file.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">$ snakeviz profile.stats
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline193" class="outline-3">
+<h3 id="orgheadline193"><span class="section-number-3">19.5</span> timeit — Measure execution time of small code snippets</h3>
+</div>
+<div id="outline-container-orgheadline194" class="outline-3">
+<h3 id="orgheadline194"><span class="section-number-3">19.6</span> trace — Trace or track Python statement execution</h3>
+</div>
+<div id="outline-container-orgheadline195" class="outline-3">
+<h3 id="orgheadline195"><span class="section-number-3">19.7</span> tracemalloc — Trace memory allocations</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline202" class="outline-2">
+<h2 id="orgheadline202"><span class="section-number-2">20</span> Software Packaging and Distribution</h2>
+<div class="outline-text-2" id="text-20">
+</div><div id="outline-container-orgheadline197" class="outline-3">
+<h3 id="orgheadline197"><span class="section-number-3">20.1</span> pip</h3>
+<div class="outline-text-3" id="text-20-1">
+<ul class="org-ul">
+<li>add below setup to ~/.pip/pip.conf</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-txt">[global]
+#index-url=https://pypi.mirrors.ustc.edu.cn/simple/
+#index-url=https://pypi.python.org/simple/
+index-url=http://mirrors.aliyun.com/pypi/simple/
+#index-url=https://pypi.gocept.com/pypi/simple/
+#index-url=https://mirror.picosecond.org/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com
+#trusted-host=mirrors.ustc.edu.cn
+#trusted-host=http://mirrors.aliyun.com/pypi/simple/
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>pip install directly:</li>
+</ul>
+<p>
+requirements.txt
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">--index-url http://mirrors.aliyun.com/pypi/simple/
+pandas
+pylint
+pep8
+sphinx
+ipython
+numpy
+ipdb
+mock
+nose
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline198" class="outline-3">
+<h3 id="orgheadline198"><span class="section-number-3">20.2</span> distutils — Building and installing Python modules</h3>
+</div>
+<div id="outline-container-orgheadline199" class="outline-3">
+<h3 id="orgheadline199"><span class="section-number-3">20.3</span> ensurepip — Bootstrapping the pip installer</h3>
+</div>
+<div id="outline-container-orgheadline200" class="outline-3">
+<h3 id="orgheadline200"><span class="section-number-3">20.4</span> venv — Creation of virtual environments</h3>
+</div>
+<div id="outline-container-orgheadline201" class="outline-3">
+<h3 id="orgheadline201"><span class="section-number-3">20.5</span> zipapp — Manage executable python zip archives</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline217" class="outline-2">
+<h2 id="orgheadline217"><span class="section-number-2">21</span> Python Runtime Services</h2>
+<div class="outline-text-2" id="text-21">
+</div><div id="outline-container-orgheadline203" class="outline-3">
+<h3 id="orgheadline203"><span class="section-number-3">21.1</span> sysconfig — Provide access to Python’s configuration information</h3>
+</div>
+<div id="outline-container-orgheadline204" class="outline-3">
+<h3 id="orgheadline204"><span class="section-number-3">21.2</span> os, sys — System-specific parameters and functions</h3>
+<div class="outline-text-3" id="text-21-2">
+<ul class="org-ul">
+<li>check if file or directory exists, if not then make directory:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+os.path.exists<span style="color: #AE81FF;">(</span>test_file.txt<span style="color: #AE81FF;">)</span>
+os.path.isfile<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"test-data"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">export_dir</span> = <span style="color: #E6DB74;">"export/"</span>
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> os.path.exists<span style="color: #AE81FF;">(</span>export_dir<span style="color: #AE81FF;">)</span>:
+    os.mkdir<span style="color: #AE81FF;">(</span>export_dir<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>read a file:</li>
+</ul>
+<p>
+import os
+folder = '/file/path'
+file = os.path.join(folder, 'file<sub>name</sub>')
+</p>
+
+<ul class="org-ul">
+<li>list all the files under a directory:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">os.listdir() &#26041;&#27861;&#29992;&#20110;&#36820;&#22238;&#25351;&#23450;&#30340;&#25991;&#20214;&#22841;&#21253;&#21547;&#30340;&#25991;&#20214;&#25110;&#25991;&#20214;&#22841;&#30340;&#21517;&#23383;&#30340;&#21015;&#34920;&#12290;&#36825;&#20010;&#21015;&#34920;&#20197;&#23383;&#27597;&#39034;&#24207;&#12290; &#23427;&#19981;&#21253;&#25324; '.' &#21644;'..' &#21363;&#20351;&#23427;&#22312;&#25991;&#20214;&#22841;&#20013;.</span>
+<span style="color: #FD971F;">path</span> = os.getcwd<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">dirs</span> = os.listdir<span style="color: #AE81FF;">(</span>path<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check if the file readable:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">if</span> os.access<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/file/path/foo.txt"</span>, os.F_OK<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"Given file path is exist."</span>
+
+<span style="color: #F92672;">if</span> os.access<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/file/path/foo.txt"</span>, os.R_OK<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"File is accessible to read"</span>
+
+<span style="color: #F92672;">if</span> os.access<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/file/path/foo.txt"</span>, os.W_OK<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"File is accessible to write"</span>
+
+<span style="color: #F92672;">if</span> os.access<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/file/path/foo.txt"</span>, os.X_OK<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"File is accessible to execute"</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>use sys to get command arguments:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/usr/bin/python3</span>
+
+<span style="color: #F92672;">import</span> sys
+
+<span style="color: #F92672;">print</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#21442;&#25968;&#20010;&#25968;&#20026;:'</span>, <span style="color: #F92672;">len</span><span style="color: #66D9EF;">(</span>sys.argv<span style="color: #66D9EF;">)</span>, <span style="color: #E6DB74;">'&#20010;&#21442;&#25968;&#12290;'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#21442;&#25968;&#21015;&#34920;:'</span>, <span style="color: #F92672;">str</span><span style="color: #66D9EF;">(</span>sys.argv<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-shell">$ python3 test.py arg1 arg2 arg3
+&#21442;&#25968;&#20010;&#25968;&#20026;: <span style="color: #AE81FF;">4</span> &#20010;&#21442;&#25968;&#12290;
+&#21442;&#25968;&#21015;&#34920;: <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'test.py'</span>, <span style="color: #E6DB74;">'arg1'</span>, <span style="color: #E6DB74;">'arg2'</span>, <span style="color: #E6DB74;">'arg3'</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline205" class="outline-3">
+<h3 id="orgheadline205"><span class="section-number-3">21.3</span> builtins — Built-in objects</h3>
+</div>
+<div id="outline-container-orgheadline206" class="outline-3">
+<h3 id="orgheadline206"><span class="section-number-3">21.4</span> _<sub>main</sub>__ — Top-level script environment</h3>
+</div>
+<div id="outline-container-orgheadline207" class="outline-3">
+<h3 id="orgheadline207"><span class="section-number-3">21.5</span> warnings — Warning control</h3>
+</div>
+<div id="outline-container-orgheadline208" class="outline-3">
+<h3 id="orgheadline208"><span class="section-number-3">21.6</span> contextlib — Utilities for with-statement contexts</h3>
+</div>
+<div id="outline-container-orgheadline209" class="outline-3">
+<h3 id="orgheadline209"><span class="section-number-3">21.7</span> abc — Abstract Base Classes</h3>
+</div>
+<div id="outline-container-orgheadline210" class="outline-3">
+<h3 id="orgheadline210"><span class="section-number-3">21.8</span> atexit — Exit handlers</h3>
+</div>
+<div id="outline-container-orgheadline211" class="outline-3">
+<h3 id="orgheadline211"><span class="section-number-3">21.9</span> traceback — Print or retrieve a stack traceback</h3>
+</div>
+<div id="outline-container-orgheadline212" class="outline-3">
+<h3 id="orgheadline212"><span class="section-number-3">21.10</span> _<sub>future</sub>__ — Future statement definitions</h3>
+</div>
+<div id="outline-container-orgheadline213" class="outline-3">
+<h3 id="orgheadline213"><span class="section-number-3">21.11</span> gc — Garbage Collector interface</h3>
+</div>
+<div id="outline-container-orgheadline214" class="outline-3">
+<h3 id="orgheadline214"><span class="section-number-3">21.12</span> inspect — Inspect live objects</h3>
+</div>
+<div id="outline-container-orgheadline215" class="outline-3">
+<h3 id="orgheadline215"><span class="section-number-3">21.13</span> site — Site-specific configuration hook</h3>
+</div>
+<div id="outline-container-orgheadline216" class="outline-3">
+<h3 id="orgheadline216"><span class="section-number-3">21.14</span> fpectl — Floating point exception control</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline220" class="outline-2">
+<h2 id="orgheadline220"><span class="section-number-2">22</span> Custom Python Interpreters</h2>
+<div class="outline-text-2" id="text-22">
+</div><div id="outline-container-orgheadline218" class="outline-3">
+<h3 id="orgheadline218"><span class="section-number-3">22.1</span> code — Interpreter base classes</h3>
+</div>
+<div id="outline-container-orgheadline219" class="outline-3">
+<h3 id="orgheadline219"><span class="section-number-3">22.2</span> codeop — Compile Python code</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline227" class="outline-2">
+<h2 id="orgheadline227"><span class="section-number-2">23</span> Importing Modules</h2>
+<div class="outline-text-2" id="text-23">
+</div><div id="outline-container-orgheadline221" class="outline-3">
+<h3 id="orgheadline221"><span class="section-number-3">23.1</span> Module</h3>
+<div class="outline-text-3" id="text-23-1">
+<ul class="org-ul">
+<li>当你运行一个Python模块 python fibo.py &lt;arguments&gt;
+Remember, everything in python is an object.</li>
+
+<li>python解释器CPython.</li>
+
+<li>如果字符串里面有’\’,而实际上要把斜杠加到字符串里面，要在前面加r，代表raw. 例如r’Y:\codes’.</li>
+
+<li>如果主目录下有子目录packages，记得要在子目录下加init.py，最好在主目录下建main.py函数。</li>
+
+<li>解释器如果执行哪个一个文件为主程序，如 python program1.py，it will set the special variable name to program1.py equals to ‘main’</li>
+<li>One of the reasons for doing this is that sometimes you write a module (a .py file) where it can be executed directly. Alternatively, it can also be imported and used in another module. By doing the main check, you can have that code only execute when you want to run the module as a program and not have it execute when someone just wants to import your module and call your functions themselves.</li>
+
+<li>模块中的代码将会被执行，就像导入它一样，不过此时name 被设置为 “main“。这意味着，通过在你的模块末尾添加此代码.</li>
+
+<li>can’t import module from upper directory.
+
+<ul class="org-ul">
+<li>need to add the working directory to .bashrc PYTHONPATH</li>
+<li>using ipython.</li>
+</ul></li>
+<li>Add custom folder path to the Windows environment.
+add PYTHONEXE%; to System Variable PATH;
+add System variable name: PYTHONEXE , value: C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
+add PYTHONPATH:  C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
+or add module path in Spyder directly;</li>
+<li>import module temperarily from parental directory without add path to the system.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">folder1</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\__init__.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\State.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\StateMachine.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\mouse_folder</span>
+<span style="color: #75715E;">#        </span><span style="color: #75715E;">\MouseAction.py</span>
+<span style="color: #F92672;">import</span> os,sys,inspect
+<span style="color: #FD971F;">currentdir</span> = os.path.dirname<span style="color: #AE81FF;">(</span>os.path.abspath<span style="color: #66D9EF;">(</span>inspect.getfile<span style="color: #A6E22E;">(</span>inspect.currentframe<span style="color: #E6DB74;">()</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">parentdir</span> = os.path.dirname<span style="color: #AE81FF;">(</span>currentdir<span style="color: #AE81FF;">)</span>
+sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>,parentdir+<span style="color: #E6DB74;">'\\mouse'</span><span style="color: #AE81FF;">)</span>
+sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>,parentdir<span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">from</span> State <span style="color: #F92672;">import</span> State
+<span style="color: #F92672;">from</span> StateMachine <span style="color: #F92672;">import</span> StateMachine
+<span style="color: #F92672;">from</span> MouseAction <span style="color: #F92672;">import</span> MouseAction
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check module path:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">print</span> os.path.abspath<span style="color: #AE81FF;">(</span>ylib.__file__<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>make a python 3 virtual environment:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sh">mkvirtual -p python3 ENVNAME
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>install setup.py:</li>
+</ul>
+<p>
+python setup.py install
+to virtual environment:
+<i>home/weiwu</i>.virtualenvs/data<sub>analysis</sub>/bin/python2 setup.py install
+</p>
+
+<ul class="org-ul">
+<li>install from github:</li>
+</ul>
+<p>
+pip install git+<a href="https://github.com/quantopian/zipline.git">https://github.com/quantopian/zipline.git</a>
+</p>
+
+<ul class="org-ul">
+<li>change conda source:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">conda config --add channels <span style="color: #E6DB74;">'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'</span>
+conda config --set show_channel_urls yes
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>create conda virtualenv:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #75715E;"># </span><span style="color: #75715E;">&#21019;&#24314; conda &#34394;&#25311;&#29615;&#22659;&#65288; :code:`env_name` &#26159;&#24744;&#24076;&#26395;&#21019;&#24314;&#30340;&#34394;&#25311;&#29615;&#22659;&#21517;&#65289;</span>
+$ conda create --name env_name <span style="color: #FD971F;">python</span>=<span style="color: #AE81FF;">3.5</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#24744;&#24819;&#21019;&#24314;&#19968;&#20010;&#21517;&#20026;rqalpha&#30340;&#34394;&#25311;&#29615;&#22659;</span>
+$ conda create --name rqalpha <span style="color: #FD971F;">python</span>=<span style="color: #AE81FF;">3.5</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#20351;&#29992; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ source activate env_name
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#26524;&#26159; Windows &#29615;&#22659;&#19979; &#30452;&#25509;&#25191;&#34892; activcate</span>
+$ activate env_name
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#36864;&#20986; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ source deactivate env_name
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#26524;&#26159; Windows &#29615;&#22659;&#19979; &#30452;&#25509;&#25191;&#34892; deactivate</span>
+$ deactivate env_name
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#21024;&#38500; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ conda-env remove --name env_name
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>percentage output format:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> future <span style="color: #F92672;">import</span> division
+<span style="color: #F92672;">print</span> &#8220;%s %.<span style="color: #AE81FF;">4f</span>%%&#8221; % <span style="color: #AE81FF;">(</span>sid, <span style="color: #66D9EF;">(</span><span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>not_close<span style="color: #A6E22E;">)</span>/<span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>ctp<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline222" class="outline-3">
+<h3 id="orgheadline222"><span class="section-number-3">23.2</span> zipimport — Import modules from Zip archives</h3>
+</div>
+<div id="outline-container-orgheadline223" class="outline-3">
+<h3 id="orgheadline223"><span class="section-number-3">23.3</span> pkgutil — Package extension utility</h3>
+</div>
+<div id="outline-container-orgheadline224" class="outline-3">
+<h3 id="orgheadline224"><span class="section-number-3">23.4</span> modulefinder — Find modules used by a script</h3>
+</div>
+<div id="outline-container-orgheadline225" class="outline-3">
+<h3 id="orgheadline225"><span class="section-number-3">23.5</span> runpy — Locating and executing Python modules</h3>
+</div>
+<div id="outline-container-orgheadline226" class="outline-3">
+<h3 id="orgheadline226"><span class="section-number-3">23.6</span> importlib — The implementation of import</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline241" class="outline-2">
+<h2 id="orgheadline241"><span class="section-number-2">24</span> Python Language Services</h2>
+<div class="outline-text-2" id="text-24">
+</div><div id="outline-container-orgheadline228" class="outline-3">
+<h3 id="orgheadline228"><span class="section-number-3">24.1</span> parser — Access Python parse trees</h3>
+</div>
+<div id="outline-container-orgheadline229" class="outline-3">
+<h3 id="orgheadline229"><span class="section-number-3">24.2</span> ast — Abstract Syntax Trees</h3>
+</div>
+<div id="outline-container-orgheadline230" class="outline-3">
+<h3 id="orgheadline230"><span class="section-number-3">24.3</span> symtable — Access to the compiler’s symbol tables</h3>
+</div>
+<div id="outline-container-orgheadline231" class="outline-3">
+<h3 id="orgheadline231"><span class="section-number-3">24.4</span> symbol — Constants used with Python parse trees</h3>
+</div>
+<div id="outline-container-orgheadline232" class="outline-3">
+<h3 id="orgheadline232"><span class="section-number-3">24.5</span> token — Constants used with Python parse trees</h3>
+</div>
+<div id="outline-container-orgheadline233" class="outline-3">
+<h3 id="orgheadline233"><span class="section-number-3">24.6</span> keyword — Testing for Python keywords</h3>
+</div>
+<div id="outline-container-orgheadline234" class="outline-3">
+<h3 id="orgheadline234"><span class="section-number-3">24.7</span> tokenize — Tokenizer for Python source</h3>
+</div>
+<div id="outline-container-orgheadline235" class="outline-3">
+<h3 id="orgheadline235"><span class="section-number-3">24.8</span> tabnanny — Detection of ambiguous indentation</h3>
+</div>
+<div id="outline-container-orgheadline236" class="outline-3">
+<h3 id="orgheadline236"><span class="section-number-3">24.9</span> pyclbr — Python class browser support</h3>
+</div>
+<div id="outline-container-orgheadline237" class="outline-3">
+<h3 id="orgheadline237"><span class="section-number-3">24.10</span> py<sub>compile</sub> — Compile Python source files</h3>
+</div>
+<div id="outline-container-orgheadline238" class="outline-3">
+<h3 id="orgheadline238"><span class="section-number-3">24.11</span> compileall — Byte-compile Python libraries</h3>
+</div>
+<div id="outline-container-orgheadline239" class="outline-3">
+<h3 id="orgheadline239"><span class="section-number-3">24.12</span> dis — Disassembler for Python bytecode</h3>
+</div>
+<div id="outline-container-orgheadline240" class="outline-3">
+<h3 id="orgheadline240"><span class="section-number-3">24.13</span> pickletools — Tools for pickle developers</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline243" class="outline-2">
+<h2 id="orgheadline243"><span class="section-number-2">25</span> Miscellaneous Services</h2>
+<div class="outline-text-2" id="text-25">
+</div><div id="outline-container-orgheadline242" class="outline-3">
+<h3 id="orgheadline242"><span class="section-number-3">25.1</span> formatter — Generic output formatting</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline248" class="outline-2">
+<h2 id="orgheadline248"><span class="section-number-2">26</span> MS Windows Specific Services</h2>
+<div class="outline-text-2" id="text-26">
+</div><div id="outline-container-orgheadline244" class="outline-3">
+<h3 id="orgheadline244"><span class="section-number-3">26.1</span> msilib — Read and write Microsoft Installer files</h3>
+</div>
+<div id="outline-container-orgheadline245" class="outline-3">
+<h3 id="orgheadline245"><span class="section-number-3">26.2</span> msvcrt — Useful routines from the MS VC++ runtime</h3>
+</div>
+<div id="outline-container-orgheadline246" class="outline-3">
+<h3 id="orgheadline246"><span class="section-number-3">26.3</span> winreg — Windows registry access</h3>
+</div>
+<div id="outline-container-orgheadline247" class="outline-3">
+<h3 id="orgheadline247"><span class="section-number-3">26.4</span> winsound — Sound-playing interface for Windows</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline262" class="outline-2">
+<h2 id="orgheadline262"><span class="section-number-2">27</span> Unix Specific Services</h2>
+<div class="outline-text-2" id="text-27">
+</div><div id="outline-container-orgheadline249" class="outline-3">
+<h3 id="orgheadline249"><span class="section-number-3">27.1</span> posix — The most common POSIX system calls</h3>
+</div>
+<div id="outline-container-orgheadline250" class="outline-3">
+<h3 id="orgheadline250"><span class="section-number-3">27.2</span> pwd — The password database</h3>
+</div>
+<div id="outline-container-orgheadline251" class="outline-3">
+<h3 id="orgheadline251"><span class="section-number-3">27.3</span> spwd — The shadow password database</h3>
+</div>
+<div id="outline-container-orgheadline252" class="outline-3">
+<h3 id="orgheadline252"><span class="section-number-3">27.4</span> grp — The group database</h3>
+</div>
+<div id="outline-container-orgheadline253" class="outline-3">
+<h3 id="orgheadline253"><span class="section-number-3">27.5</span> crypt — Function to check Unix passwords</h3>
+</div>
+<div id="outline-container-orgheadline254" class="outline-3">
+<h3 id="orgheadline254"><span class="section-number-3">27.6</span> termios — POSIX style tty control</h3>
+</div>
+<div id="outline-container-orgheadline255" class="outline-3">
+<h3 id="orgheadline255"><span class="section-number-3">27.7</span> tty — Terminal control functions</h3>
+</div>
+<div id="outline-container-orgheadline256" class="outline-3">
+<h3 id="orgheadline256"><span class="section-number-3">27.8</span> pty — Pseudo-terminal utilities</h3>
+</div>
+<div id="outline-container-orgheadline257" class="outline-3">
+<h3 id="orgheadline257"><span class="section-number-3">27.9</span> fcntl — The fcntl and ioctl system calls</h3>
+</div>
+<div id="outline-container-orgheadline258" class="outline-3">
+<h3 id="orgheadline258"><span class="section-number-3">27.10</span> pipes — Interface to shell pipelines</h3>
+</div>
+<div id="outline-container-orgheadline259" class="outline-3">
+<h3 id="orgheadline259"><span class="section-number-3">27.11</span> resource — Resource usage information</h3>
+</div>
+<div id="outline-container-orgheadline260" class="outline-3">
+<h3 id="orgheadline260"><span class="section-number-3">27.12</span> nis — Interface to Sun’s NIS (Yellow Pages)</h3>
+</div>
+<div id="outline-container-orgheadline261" class="outline-3">
+<h3 id="orgheadline261"><span class="section-number-3">27.13</span> syslog — Unix syslog library routines</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline265" class="outline-2">
+<h2 id="orgheadline265"><span class="section-number-2">28</span> Superseded Modules</h2>
+<div class="outline-text-2" id="text-28">
+</div><div id="outline-container-orgheadline263" class="outline-3">
+<h3 id="orgheadline263"><span class="section-number-3">28.1</span> optparse — Parser for command line options</h3>
+</div>
+<div id="outline-container-orgheadline264" class="outline-3">
+<h3 id="orgheadline264"><span class="section-number-3">28.2</span> imp — Access the import internals</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline267" class="outline-2">
+<h2 id="orgheadline267"><span class="section-number-2">29</span> Undocumented Modules</h2>
+<div class="outline-text-2" id="text-29">
+</div><div id="outline-container-orgheadline266" class="outline-3">
+<h3 id="orgheadline266"><span class="section-number-3">29.1</span> Platform specific modules</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline288" class="outline-2">
+<h2 id="orgheadline288"><span class="section-number-2">30</span> Data Analysis:</h2>
+<div class="outline-text-2" id="text-30">
+</div><div id="outline-container-orgheadline280" class="outline-3">
+<h3 id="orgheadline280"><span class="section-number-3">30.1</span> pandas:</h3>
+<div class="outline-text-3" id="text-30-1">
+<p>
+<a href="./pandas.html">advanced pandas</a>
 </p>
 <ul class="org-ul">
 <li>generate a dataframe:</li>
@@ -823,7 +2381,114 @@ pandas.read_sql<span style="color: #AE81FF;">(</span>sql, con=engine<span style=
 <span style="color: #FD971F;">result</span> = engine.execute<span style="color: #AE81FF;">(</span>sql<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+<ul class="org-ul">
+<li>dropna:</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-python">DataFrame.dropna<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0</span>, how=<span style="color: #E6DB74;">'any'</span>, thresh=<span style="color: #AE81FF;">None</span>, subset=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>melt.</li>
+</ul>
+<p>
+pandas.melt(frame, id<sub>vars</sub>=None, value<sub>vars</sub>=None, var<sub>name</sub>=None, value<sub>name</sub>='value', col<sub>level</sub>=None)[source]
+</p>
+
+<p>
+This function is useful to massage a DataFrame into a format where one or more columns are identifier variables (id<sub>vars</sub>), while all other columns, considered measured variables (value<sub>vars</sub>), are “unpivoted” to the row axis, leaving just two non-identifier columns, ‘variable’ and ‘value’.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #E6DB74;">"""</span>
+<span style="color: #E6DB74;">Parameters:</span>
+<span style="color: #E6DB74;">frame : DataFrame</span>
+<span style="color: #E6DB74;">id_vars : tuple, list, or ndarray, optional</span>
+<span style="color: #E6DB74;">Column(s) to use as identifier variables.</span>
+<span style="color: #E6DB74;">value_vars : tuple, list, or ndarray, optional</span>
+<span style="color: #E6DB74;">Column(s) to unpivot. If not specified, uses all columns that are not set as id_vars.</span>
+<span style="color: #E6DB74;">var_name : scalar</span>
+<span style="color: #E6DB74;">Name to use for the &#8216;variable&#8217; column. If None it uses frame.columns.name or &#8216;variable&#8217;.</span>
+<span style="color: #E6DB74;">value_name : scalar, default &#8216;value&#8217;</span>
+<span style="color: #E6DB74;">Name to use for the &#8216;value&#8217; column.</span>
+<span style="color: #E6DB74;">col_level : int or string, optional</span>
+<span style="color: #E6DB74;">If columns are a MultiIndex then use this level to melt.</span>
+<span style="color: #E6DB74;">"""</span>
+<span style="color: #FD971F;">DataFrame</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'idname'</span><span style="color: #AE81FF;">]</span> = DataFrame.index
+pd.melt<span style="color: #AE81FF;">(</span>DataFrame, id_vars=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'idname'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<pre class="example">
+&gt;&gt;&gt; import pandas as pd
+&gt;&gt;&gt; df = pd.DataFrame({'A': {0: 'a', 1: 'b', 2: 'c'},
+...                    'B': {0: 1, 1: 3, 2: 5},
+...                    'C': {0: 2, 1: 4, 2: 6}})
+&gt;&gt;&gt; df
+   A  B  C
+0  a  1  2
+1  b  3  4
+2  c  5  6
+&gt;&gt;&gt; pd.melt(df, id_vars=['A'], value_vars=['B'])
+   A variable  value
+0  a        B      1
+1  b        B      3
+2  c        B      5
+</pre>
+
+<ul class="org-ul">
+<li>fill nan:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.fillna<span style="color: #AE81FF;">(</span>value=<span style="color: #AE81FF;">None</span>, method=<span style="color: #AE81FF;">None</span>, axis=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, limit=<span style="color: #AE81FF;">None</span>, downcast=<span style="color: #AE81FF;">None</span>, **kwargs<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select non zero rows from series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">s<span style="color: #AE81FF;">[</span>s.nonzero<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>dataframe to series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">s</span> = df<span style="color: #AE81FF;">[</span>df.columns<span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>replace value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.replace<span style="color: #AE81FF;">(</span>to_replace=<span style="color: #AE81FF;">None</span>, value=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, limit=<span style="color: #AE81FF;">None</span>, regex=<span style="color: #AE81FF;">False</span>, method=<span style="color: #E6DB74;">'pad'</span>, axis=<span style="color: #AE81FF;">None</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>pandas has value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">value <span style="color: #F92672;">in</span> df<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'column_name'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">set</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)</span>.issubset<span style="color: #AE81FF;">(</span>df<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>pandas has null value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.isnull<span style="color: #AE81FF;">()</span>.values.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>find all the values of TRUE in a dataframe:</li>
 </ul>
@@ -835,6 +2500,14 @@ pd.concat<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</
 </div>
 
 <ul class="org-ul">
+<li>if array a is a subset of another array b:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">set</span><span style="color: #AE81FF;">(</span>B<span style="color: #AE81FF;">)</span>.issubset<span style="color: #AE81FF;">(</span><span style="color: #F92672;">set</span><span style="color: #66D9EF;">(</span>A<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>remove negative value from a column:</li>
 </ul>
 <div class="org-src-container">
@@ -845,6 +2518,87 @@ b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="colo
 </div>
 
 <ul class="org-ul">
+<li>drop a lable:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.drop<span style="color: #AE81FF;">(</span>labels, axis=<span style="color: #AE81FF;">0</span>, level=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, errors=<span style="color: #E6DB74;">'raise'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check if any value is NaN in DataFrame</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.isnull<span style="color: #AE81FF;">()</span>.values.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>
+df.isnull<span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>maximum &amp; minimum value of a dataframe:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.values.<span style="color: #F92672;">max</span><span style="color: #AE81FF;">()</span>
+df.values.<span style="color: #F92672;">min</span><span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select value by creteria:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"all weight are bigger than 0? %s"</span>, <span style="color: #66D9EF;">(</span>df_opts_weight&gt;<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"all weight are smaller than 1? %s"</span>, <span style="color: #66D9EF;">(</span>df_opts_weight&lt;=<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"weight sum smaller than 0: %s"</span>, df_opts_weight<span style="color: #66D9EF;">[</span>df_opts_weight&lt;<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span>.<span style="color: #F92672;">sum</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>count all duplicates:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> pandas <span style="color: #F92672;">as</span> pd
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">15</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">a</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'a'</span>:<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'b'</span>:<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">count</span> = a.groupby<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'a'</span><span style="color: #AE81FF;">)</span>.count<span style="color: #AE81FF;">()</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">20</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span>count&gt;<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">20</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">False</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">21</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span>count&gt;<span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">21</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">True</span>
+
+- datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span> missing data, null:
+For datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span> types, NaT represents missing values. This <span style="color: #F92672;">is</span> a pseudo-native sentinel value that can be represented by numpy <span style="color: #F92672;">in</span> a singular dtype <span style="color: #AE81FF;">(</span>datetime64<span style="color: #66D9EF;">[</span>ns<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>. pandas objects provide intercompatibility between NaT <span style="color: #F92672;">and</span> NaN.
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">+BEGIN_SRC python</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>: df2
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>:
+        one       two     three four   five  timestamp
+a -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">166778</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">501113</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">355322</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+c -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">337890</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">580967</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">983801</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+e  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">057802</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">761948</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">712964</span>  bar   <span style="color: #AE81FF;">True</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+f -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">443160</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">974602</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">047704</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+h -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">717852</span> -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">053898</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">019369</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">17</span><span style="color: #AE81FF;">]</span>: df2.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span>,<span style="color: #E6DB74;">'c'</span>,<span style="color: #E6DB74;">'h'</span><span style="color: #66D9EF;">]</span>,<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'one'</span>,<span style="color: #E6DB74;">'timestamp'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span> = np.nan
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">18</span><span style="color: #AE81FF;">]</span>: df2
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">18</span><span style="color: #AE81FF;">]</span>:
+        one       two     three four   five  timestamp
+a       NaN  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">501113</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">355322</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+c       NaN  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">580967</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">983801</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+e  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">057802</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">761948</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">712964</span>  bar   <span style="color: #AE81FF;">True</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+f -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">443160</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">974602</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">047704</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+h       NaN -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">053898</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">019369</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+</pre>
+</div>
+<ul class="org-ul">
 <li>rename column names:</li>
 </ul>
 <div class="org-src-container">
@@ -852,7 +2606,26 @@ b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="colo
 <pre class="src src-python"><span style="color: #FD971F;">df_bbg</span> = df_bbg.rename<span style="color: #AE81FF;">(</span>columns = <span style="color: #F92672;">lambda</span> x: x<span style="color: #66D9EF;">[</span>:<span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">]</span>.replace<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">' '</span>,<span style="color: #E6DB74;">''</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+<ul class="org-ul">
+<li><p>
+rename according to column value type:
+</p>
+<div class="org-src-container">
 
+<pre class="src src-python"><span style="color: #FD971F;">name</span> = <span style="color: #AE81FF;">{</span><span style="color: #AE81FF;">2</span>:<span style="color: #E6DB74;">'idname'</span>, <span style="color: #AE81FF;">23</span>:<span style="color: #E6DB74;">'value'</span>, <span style="color: #AE81FF;">4</span>:<span style="color: #E6DB74;">'variable'</span><span style="color: #AE81FF;">}</span>
+df.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F92672;">lambda</span> x: name<span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">(</span>gftIO.get_column_type<span style="color: #E6DB74;">(</span>df,x<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">]</span>, inplace=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div></li>
+<li>rename column according to value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">name</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'INNERCODE'</span>: <span style="color: #E6DB74;">'contract_code'</span>, <span style="color: #E6DB74;">'OPTIONCODE'</span>: <span style="color: #E6DB74;">'contract_name'</span>,
+        <span style="color: #E6DB74;">'SETTLEMENTDATE'</span>: <span style="color: #E6DB74;">'settlement_date'</span>, <span style="color: #E6DB74;">'ENDDATE'</span>: <span style="color: #E6DB74;">'date'</span>,
+        <span style="color: #E6DB74;">'CLOSEPRICE'</span>: <span style="color: #E6DB74;">'close_price'</span><span style="color: #AE81FF;">}</span>
+data.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F92672;">lambda</span> x: name<span style="color: #66D9EF;">[</span>x<span style="color: #66D9EF;">]</span>, inplace=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>remove characters after space:</li>
 </ul>
@@ -868,6 +2641,11 @@ b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="colo
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FD971F;">pivoted</span> = df.pivot<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'name1'</span>,<span style="color: #E6DB74;">'name2'</span>,<span style="color: #E6DB74;">'name3'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">specific_risk</span> = <span style="color: #F92672;">self</span>.risk_model<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'specificRisk'</span><span style="color: #AE81FF;">]</span>.pivot<span style="color: #AE81FF;">(</span>
+    index=<span style="color: #E6DB74;">'date'</span>, columns=<span style="color: #E6DB74;">'symbol'</span>, values=<span style="color: #E6DB74;">'specificrisk'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">df_pivot_industries_asset_weights</span> = pd.pivot_table<span style="color: #AE81FF;">(</span>
+        df_industries_asset_weight, values=<span style="color: #E6DB74;">'value'</span>, index=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'date'</span><span style="color: #66D9EF;">]</span>,
+        columns=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'industry'</span>, <span style="color: #E6DB74;">'symbol'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -899,12 +2677,89 @@ b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="colo
 <span style="color: #F92672;">if</span> dt_diff &lt; pd.Timedelta<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'3 days'</span><span style="color: #AE81FF;">)</span>:
 </pre>
 </div>
+
+<ul class="org-ul">
+<li>resample by month and keep the last valid row</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">benchmark_weight.index.name</span> = <span style="color: #E6DB74;">'Date'</span>
+<span style="color: #FD971F;">m</span> = benchmark_weight.index.to_period<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'m'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">benchmark_weight</span> = benchmark_weight.reset_index<span style="color: #AE81FF;">()</span>.groupby<span style="color: #AE81FF;">(</span>m<span style="color: #AE81FF;">)</span>.last<span style="color: #AE81FF;">()</span>.set_index<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Date'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">benchmark_weight.index.name</span> = <span style="color: #E6DB74;">''</span>
+</pre>
+</div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-4">
-<h4 id="orgheadline24"><span class="section-number-4">2.1.1</span> Index</h4>
-<div class="outline-text-4" id="text-2-1-1">
-</div><ol class="org-ol"><li><a id="orgheadline18"></a>Index manuplication<br  /><div class="outline-text-5" id="text-2-1-1-1">
+<div id="outline-container-orgheadline268" class="outline-4">
+<h4 id="orgheadline268"><span class="section-number-4">30.1.1</span> multiplying</h4>
+<div class="outline-text-4" id="text-30-1-1">
+<ul class="org-ul">
+<li>the multiplying calculation is not about the sequence of the index or column.</li>
+</ul>
+
+<p>
+pandas will calculate on a sorted index and column value.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">87</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">a</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'dog'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'fox'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">4</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span>,index=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span>,<span style="color: #E6DB74;">'b'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">88</span><span style="color: #AE81FF;">]</span>: a
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">88</span><span style="color: #AE81FF;">]</span>:
+   dog  fox
+a    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">3</span>
+b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">89</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">b</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'fox'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'dog'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">4</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span>,index=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'b'</span>,<span style="color: #E6DB74;">'a'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">94</span><span style="color: #AE81FF;">]</span>: b
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">94</span><span style="color: #AE81FF;">]</span>:
+   dog  fox
+b    <span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">1</span>
+a    <span style="color: #AE81FF;">4</span>    <span style="color: #AE81FF;">2</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">95</span><span style="color: #AE81FF;">]</span>: a*b
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">95</span><span style="color: #AE81FF;">]</span>:
+   dog  fox
+a    <span style="color: #AE81FF;">4</span>    <span style="color: #AE81FF;">6</span>
+b    <span style="color: #AE81FF;">6</span>    <span style="color: #AE81FF;">4</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>dot multiplying</li>
+</ul>
+<p>
+dot multiplying will sort the value.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">99</span><span style="color: #AE81FF;">]</span>: a.dot<span style="color: #AE81FF;">(</span>b.T<span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">99</span><span style="color: #AE81FF;">]</span>:
+    b   a
+a   <span style="color: #AE81FF;">6</span>  <span style="color: #AE81FF;">10</span>
+b  <span style="color: #AE81FF;">10</span>  <span style="color: #AE81FF;">16</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">100</span><span style="color: #AE81FF;">]</span>: b.T
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">104</span><span style="color: #AE81FF;">]</span>:
+     b  a
+dog  <span style="color: #AE81FF;">3</span>  <span style="color: #AE81FF;">4</span>
+fox  <span style="color: #AE81FF;">1</span>  <span style="color: #AE81FF;">2</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">105</span><span style="color: #AE81FF;">]</span>: a
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">105</span><span style="color: #AE81FF;">]</span>:
+   dog  fox
+a    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">3</span>
+b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline279" class="outline-4">
+<h4 id="orgheadline279"><span class="section-number-4">30.1.2</span> Index</h4>
+<div class="outline-text-4" id="text-30-1-2">
+</div><ol class="org-ol"><li><a id="orgheadline269"></a>Index manuplication<br  /><div class="outline-text-5" id="text-30-1-2-1">
 <ul class="org-ul">
 <li>set column as datetime index</li>
 </ul>
@@ -925,6 +2780,23 @@ pd.concat<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</
 </pre>
 </div>
 
+<ul class="org-ul">
+<li>check if the index is datetimeindex:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">if</span> <span style="color: #F92672;">isinstance</span><span style="color: #AE81FF;">(</span>df_otv.index, pd.DatetimeIndex<span style="color: #AE81FF;">)</span>:
+    df_otv.reset_index<span style="color: #AE81FF;">(</span>inplace=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>pandas are two dataframe identical</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pandas.DataFrame.equals<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>change index name:</li>
 </ul>
@@ -971,10 +2843,40 @@ df2.plot<span style="color: #AE81FF;">(</span>ax=ax<span style="color: #AE81FF;"
 <pre class="src src-python">pd.concat<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>df1, df2<span style="color: #66D9EF;">]</span>, axis=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+<p>
+concate will take two dataframe to a new dataframe by index, preserving the columns.
+A:
+index variable value
+B:
+index variable value
+</p>
+
+<p>
+pd.concat([A, B])
+index variable value variable value
+</p>
+</div></li>
+<li><a id="orgheadline270"></a>merge<br  /><div class="outline-text-5" id="text-30-1-2-2">
+<p>
+merge will take two dataframe to a new dataframe by index, on the columns.
+A:
+index variable value
+B:
+index variable value
+</p>
+
+<p>
+pd.merge(A, B, how='left', on=['index', 'variable'])
+index variable value value
+</p>
+</div></li>
+<li><a id="orgheadline271"></a>update<br  /><div class="outline-text-5" id="text-30-1-2-3">
+<p>
+update dataframe1 with dataframe2
+</p>
 </div></li>
 
-
-<li><a id="orgheadline19"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-2-1-1-2">
+<li><a id="orgheadline272"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-30-1-2-4">
 <ul class="org-ul">
 <li>A MultiIndex can be created from a list of arrays (using MultiIndex.from<sub>arrays</sub>), an array of tuples (using MultiIndex.from<sub>tuples</sub>), or a crossed set of iterables (using MultiIndex.from<sub>product</sub>).</li>
 </ul>
@@ -1013,6 +2915,15 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 
 <ul class="org-ul">
+<li>select rows with certain column value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.loc<span style="color: #AE81FF;">[</span>df<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'column_name'</span><span style="color: #66D9EF;">]</span>.isin<span style="color: #66D9EF;">(</span>some_values<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
 <li>select date range using pd series.</li>
 </ul>
 <div class="org-src-container">
@@ -1023,7 +2934,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline22"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline20"></a>#1<br  /><div class="outline-text-6" id="text-2-1-1-3-1">
+<li><a id="orgheadline276"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline273"></a>#1<br  /><div class="outline-text-6" id="text-30-1-2-5-1">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FD971F;">grouped</span> = sym.groupby<span style="color: #AE81FF;">(</span>level=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
@@ -1032,27 +2943,50 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline21"></a>#2<br  /><div class="outline-text-6" id="text-2-1-1-3-2">
+<li><a id="orgheadline274"></a>#2<br  /><div class="outline-text-6" id="text-30-1-2-5-2">
 <div class="org-src-container">
 
 <pre class="src src-python">df2<span style="color: #AE81FF;">[</span>~df2.index.duplicated<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
 </pre>
 </div>
-</div></li></ol></li>
+</div></li>
 
-<li><a id="orgheadline23"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-2-1-1-4">
+<li><a id="orgheadline275"></a>remove duplicated rows<br  /><div class="outline-text-6" id="text-30-1-2-5-3">
+<div class="org-src-container">
+
+<pre class="src src-python">pandas.DataFrame.drop_duplicates<span style="color: #AE81FF;">(</span>subset=<span style="color: #AE81FF;">None</span>, keep=<span style="color: #E6DB74;">'first'</span>, inplace=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">subset : column label or sequence of labels, optional</span>
+</pre>
+</div>
+</div></li></ol></li>
+<li><a id="orgheadline277"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-30-1-2-6">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">pd.dataframe.to_matrix<span style="color: #AE81FF;">()</span>
 </pre>
 </div>
+</div></li>
+
+<li><a id="orgheadline278"></a>panel:<br  /><div class="outline-text-5" id="text-30-1-2-7">
+<ul class="org-ul">
+<li>create from dictionary:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">datetime_index</span> = pd.DatetimeIndex<span style="color: #AE81FF;">(</span>assets_group<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'date'</span><span style="color: #66D9EF;">]</span>.unique<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">panel_model</span> = pd.Panel<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span>date: pd.DataFrame<span style="color: #A6E22E;">(</span><span style="color: #AE81FF;">0</span>, index=assets.loc<span style="color: #E6DB74;">[</span>date,<span style="color: #E6DB74;">'variable'</span><span style="color: #E6DB74;">]</span>,
+                                           columns=assets.loc<span style="color: #E6DB74;">[</span>date,<span style="color: #E6DB74;">'variable'</span><span style="color: #E6DB74;">]</span><span style="color: #A6E22E;">)</span> <span style="color: #F92672;">for</span> date <span style="color: #F92672;">in</span> datetime_index<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+pandas panel item axis should be datetime64, this should not be an array.
+</p>
 </div></li></ol>
 </div>
 </div>
-
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">2.2</span> numpy</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline281" class="outline-3">
+<h3 id="orgheadline281"><span class="section-number-3">30.2</span> numpy</h3>
+<div class="outline-text-3" id="text-30-2">
 <ul class="org-ul">
 <li>count nan:</li>
 </ul>
@@ -1069,15 +3003,57 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 <pre class="src src-python">np.<span style="color: #F92672;">sum</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span>df &lt; <span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span>.values.ravel<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+
+<ul class="org-ul">
+<li>check the difference of two arrays:</li>
+</ul>
+<p>
+numpy.setdiff1d:
+Return the sorted, unique values in ar1 that are not in ar2
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">np.setdiff1d<span style="color: #AE81FF;">(</span>ar1, ar2<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>reshape:</li>
+</ul>
+<p>
+np.reshape((1, -1)), -1 means automatic number of columns.
+</p>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">2.3</span> plot:</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgheadline286" class="outline-3">
+<h3 id="orgheadline286"><span class="section-number-3">30.3</span> plot:</h3>
+<div class="outline-text-3" id="text-30-3">
+</div><div id="outline-container-orgheadline282" class="outline-4">
+<h4 id="orgheadline282"><span class="section-number-4">30.3.1</span> subplot with the same axis:</h4>
+<div class="outline-text-4" id="text-30-3-1">
 <p>
 pandas plot.
 using matplotlib:
 </p>
+<ul class="org-ul">
+<li>plot different series on the same chart.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">cl_active_contract_pricing.plot<span style="color: #AE81FF;">()</span>
+cl_pricing.plot<span style="color: #AE81FF;">(</span>style=<span style="color: #E6DB74;">'k--'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>plot in ipython or jupyter notebook:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">ax</span> = contract_data.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+continuous_price.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span>, style=<span style="color: #E6DB74;">'k--'</span>, ax=ax<span style="color: #AE81FF;">)</span>
+plt.show<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>multiple subplots</li>
 </ul>
@@ -1092,10 +3068,33 @@ using matplotlib:
 fig, ax : <span style="color: #F92672;">tuple</span>
 </pre>
 </div>
+</div>
+</div>
+<div id="outline-container-orgheadline283" class="outline-4">
+<h4 id="orgheadline283"><span class="section-number-4">30.3.2</span> subplot with different axis</h4>
+<div class="outline-text-4" id="text-30-3-2">
+<div class="org-src-container">
 
-<ul class="org-ul">
-<li>plot a secondary y scale</li>
-</ul>
+<pre class="src src-python">plt.subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+plt.boxplot<span style="color: #AE81FF;">(</span>x1<span style="color: #AE81FF;">)</span>
+plt.plot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span>, x1.ix<span style="color: #66D9EF;">[</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, <span style="color: #E6DB74;">'r*'</span>, markersize=<span style="color: #AE81FF;">15</span>.<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+
+plt.subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+x1.plot<span style="color: #AE81FF;">()</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #FD971F;">fig</span>, <span style="color: #FD971F;">axes</span> = plt.subplots<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, figsize=<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">14</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+axes<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>.boxplot<span style="color: #AE81FF;">(</span>pe000001<span style="color: #AE81FF;">)</span>
+axes<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>.plot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span>, pe000001.ix<span style="color: #66D9EF;">[</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, <span style="color: #E6DB74;">'r*'</span>, markersize=<span style="color: #AE81FF;">15</span>.<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+
+pe000001.plot<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline284" class="outline-4">
+<h4 id="orgheadline284"><span class="section-number-4">30.3.3</span> plot a secondary y scale</h4>
+<div class="outline-text-4" id="text-30-3-3">
 <div class="org-src-container">
 
 <pre class="src src-python">df.price.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
@@ -1111,10 +3110,12 @@ fig, ax : <span style="color: #F92672;">tuple</span>
 plt.axvline<span style="color: #AE81FF;">(</span>a<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'DGAZ.US'</span><span style="color: #66D9EF;">][</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, color=<span style="color: #E6DB74;">'b'</span>, linestyle=<span style="color: #E6DB74;">'dashed'</span>, linewidth=<span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+</div>
+</div>
 
-<ul class="org-ul">
-<li>plot a 3d figure:</li>
-</ul>
+<div id="outline-container-orgheadline285" class="outline-4">
+<h4 id="orgheadline285"><span class="section-number-4">30.3.4</span> plot a 3d figure:</h4>
+<div class="outline-text-4" id="text-30-3-4">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #F92672;">from</span> mpl_toolkits.mplot3d <span style="color: #F92672;">import</span> Axes3D
@@ -1156,12 +3157,40 @@ fig is the :class:matplotlib.figure.Figure object.
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline287" class="outline-3">
+<h3 id="orgheadline287"><span class="section-number-3">30.4</span> scipy</h3>
+<div class="outline-text-3" id="text-30-4">
+<ul class="org-ul">
+<li>combination k from n.</li>
+</ul>
+<p>
+\[
+{\displaystyle {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}},} {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}}\]
+</p>
+
+<p>
+which can be written using factorials as\[ {\displaystyle \textstyle {\frac {n!}{k!(n-k)!}}} \textstyle {\frac {n!}{k!(n-k)!}} \]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">from</span> scipy.special <span style="color: #F92672;">import</span> comb
+&gt;&gt;&gt; <span style="color: #FD971F;">k</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">n</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">10</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span>n, k, exact=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span> <span style="color: #AE81FF;">120</span>.,  <span style="color: #AE81FF;">210</span>.<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">3</span>, exact=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">120L</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">3</span>, exact=<span style="color: #AE81FF;">True</span>, repetition=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">220L</span>
+</pre>
 </div>
-<div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-22 Sat&gt;</span></span></p>
-<p class="author">Author: weiwu</p>
-<p class="date">Created: 2017-07-04 Tue 14:28</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p>
+[<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html</a>]
+</p>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

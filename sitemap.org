@@ -1,39 +1,61 @@
-+ Finance
-  + [[file:./finance/option.org][Option]]
-  + [[file:./finance/ComputationalInvestment.org][MLInvestment]]
-  + [[file:./finance/FundAnalysis.org][FundAnalysis]]
-  + [[file:./finance/MultiFactorModel.org][MultiFactorModel]]
-  + [[file:./finance/QuantitativeInvestment.org][QuantitativeInvestment]]
-+ Mathematics
-  + [[file:./Math/knowledge_tree.html][MathMap]]
-  + [[file:./Math/Statistics.org][Statistics]]
+#+SETUPFILE: ./configOrg/level0.org
+#+OPTIONS: ^:nil
 + CS
-  + MachineLearning
-    + [[file:./CS/MachineLearning/MachineLearning.org][ML]]
-  + [[file:./CS/Python/python2.org][Python]]
-    + [[file:./CS/Python/PythonForFinance.org][PythonForFinance]]
-    + [[file:./CS/Python/DesignPattern.org][DesignPattern]]
-    + [[file:./CS/Python/EffectivePython.org][EffectivePython]]
-    + [[file:./CS/Python/high_performance_python.html][HighPerformanceOfPython]]
-    + [[file:./CS/Python/HighPerformancePython][ProfilePython]]
-    + Ipython notebooks
-      + [[file:./ipynb/site/index.html][JupyterNotebooks]]
-    + [[file:./CS/Python/python_rules.html][PythonRules]]
   + C++
-    + [[file:./CS/C++/C++.org][C++ObjectOrientedProgramming]]
-  + VersionControl
-    + [[file:./CS/VersionControl.org][VersionControl]]
+    + [[file:CS/C++/C++.org][C++]]
   + Linux
-    + [[file:./CS/Linux/Linux.org][Linux]]
-+ Database
-  + [[file:./Database/DBMS.org][DatabaseManagement]]
-  + [[file:./CS/Python/sqlalchemy.org][SQLAlchemy]]
-+ Emacs
-  + [[file:./emacs/emacs.org][Emacs]]
-+ Business
-  + [[file:./Business/O2O.html][O2O]]
-  + [[file:./Business/巴菲特投资哲学.html][巴菲特的投资哲学]]
-  + [[file:./Business/经济停滞.html][经济停滞]]
-  + [[file:./Business/风格分析.htm][FundReturnBasedStyleApproach]]
-+ Books
-  + [[file:./books/有效network.html][network]]
+    + [[file:CS/Linux/Linux.org][Linux]]
+  + ProgramicStyle
+    + [[file:CS/ProgramicStyle/PragmaticProgrammer.org][PragmaticProgrammer]]
+  + Python
+    + [[file:CS/Python/DesignPattern.org][DesignPattern]]
+    + [[file:CS/Python/EffectivePython.org][EffectivePython]]
+    + [[file:CS/Python/HighPerformancePython.org][HighPerformancePython]]
+    + [[file:CS/Python/PythonForFinance.org][PythonForFinance]]
+    + [[file:CS/Python/guide.org][guide]]
+    + [[file:CS/Python/pandas.org][pandas]]
+    + [[file:CS/Python/python.org][python]]
+    + [[file:CS/Python/sqlalchemy.org][sqlalchemy]]
+  + Database
+    + [[file:Database/DBMS.org][DBMS]]
+    + [[file:CS/DB.org][DB]]
+  + [[file:CS/Regular_Expression.org][RegularExpression]]
+  + [[file:CS/VersionControl.org][VersionControl]]
+  + Emacs
+    + [[file:emacs/emacs.org][emacs]]
+    + [[file:emacs/markdown.org][markdown]]
+    + [[file:emacs/tutorial.org][tutorial]]
+    + [[file:emacs/tutorial_backup.org][backup]]
++ Calendar
+  + [[file:Calendar/sentiment.org][sentiment]]
++ GS
+  + Introduction
+    + [[file:GS/Introduction/functions.org][functions]]
+  + Research
+    + [[file:GS/OSet/oset.org][ObjectSets]]
+    + The Handbook of Equity Market Anomalies
+      + [[file:GS/OSet/anomalies.org][Anomalies]]
++ Math
+  + [[file:./Math/knowledge_tree.html/index.html][KnowledgeTree]]
+  + [[file:Math/Statistics.org][Statistics]]
+  + MachineLearning
+    + [[file:CS/MachineLearning/BasicModule.org][BasicModule]]
+    + [[file:CS/MachineLearning/BasicModule2.org][BasicModule2]]
+    + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
+    + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
+    + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]
++ Finance
+  + [[file:finance/Backtest.org][Backtest]]
+  + [[file:finance/ComputationalInvestment.org][ComputationalInvestment]]
+  + [[file:finance/EventStudy.org][EventStudy]]
+  + [[file:finance/FactorBacktest.org][FactorBacktest]]
+  + [[file:finance/FundAnalysis.org][FundAnalysis]]
+  + [[file:finance/IndustryNeutral.org][IndustryNeutral]]
+  + [[file:finance/MultiFactorModel.org][MultiFactorModel]]
+  + [[file:finance/PortfolioOptimization.org][PortfolioOptimization]]
+  + [[file:finance/QuantitativeInvestment.org][QuantitativeInvestment]]
+  + [[file:finance/future.org][future]]
+  + [[file:finance/option.org][option]]
++ Notes
+  + [[file:notes/thought.org][thought]]
++ [[file:work_plan.org][work_plan]]
