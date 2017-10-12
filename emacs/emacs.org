@@ -459,3 +459,6 @@ $ sudo make uninstall
 [[./image.png]]
 C-c C-x C-v (org-toggle-inline-mages)
 #+end_src
+
+* layers
+=M-x configuration-layer/create-layer=
