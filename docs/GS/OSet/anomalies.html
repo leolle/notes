@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-10-12 Thu 15:09 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Bullets</a></li>
+<li><a href="#orgheadline12">2. Structure of the book</a>
+<ul>
+<li><a href="#orgheadline2">2.1. chapter 1 financial theory</a></li>
+<li><a href="#orgheadline3">2.2. chapter 2 accural anomalies</a></li>
+<li><a href="#orgheadline4">2.3. chapter 3 analyst-related anomalies</a></li>
+<li><a href="#orgheadline5">2.4. chapter 4 post-earnings announcement drift</a></li>
+<li><a href="#orgheadline6">2.5. chapter 5 non-accrual related fundamental anomalies</a></li>
+<li><a href="#orgheadline7">2.6. chapter 6 net stock anomalies</a></li>
+<li><a href="#orgheadline8">2.7. chapter 7 inside trading</a></li>
+<li><a href="#orgheadline9">2.8. chapter 8 technical analysis</a></li>
+<li><a href="#orgheadline10">2.9. chapter 9 seasonality</a></li>
+<li><a href="#orgheadline11">2.10. chapter 10 size and value anomalies</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline13">3. 股权The Accural Anomaly</a></li>
+<li><a href="#orgheadline15">4. 分析师预测和盈利预测</a>
+<ul>
+<li><a href="#orgheadline14">4.1. 盈利预测修正 Earnings Forecast Revisions</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline16">5. 盈余惯性</a></li>
+<li><a href="#orgheadline23">6. 公司财务数据</a>
+<ul>
+<li><a href="#orgheadline17">6.1. Capital Investment and Growth Anomalies</a></li>
+<li><a href="#orgheadline22">6.2. 基础科目与衍生</a>
+<ul>
+<li><a href="#orgheadline18">6.2.1. 主要会计数据</a></li>
+<li><a href="#orgheadline19">6.2.2. 现金流量表</a></li>
+<li><a href="#orgheadline20">6.2.3. 资产负债表</a></li>
+<li><a href="#orgheadline21">6.2.4. 利润表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline32">7. 净股异常</a>
+<ul>
+<li><a href="#orgheadline24">7.1. 首次公开募股(Initial Public Offerings)</a></li>
+<li><a href="#orgheadline25">7.2. 股权再融资(Seasoned Equity Offerings)</a></li>
+<li><a href="#orgheadline26">7.3. 债务发行(Debt Issuances)</a></li>
+<li><a href="#orgheadline27">7.4. 股权回购和要约收购(Share Repurchases and Tender Offers)</a></li>
+<li><a href="#orgheadline28">7.5. 股票股利初次发放与停发(Dividend Initiation and Omissions)</a></li>
+<li><a href="#orgheadline29">7.6. 非公开发行股票, 定向增发(Private Equity Placement)</a></li>
+<li><a href="#orgheadline30">7.7. 净外部融资(Overall Net External Financing)</a></li>
+<li><a href="#orgheadline31">7.8. 企业兼并与收购(Mergers and Acquisitions)</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline34">8. 内幕交易(The Insider Trading Anomaly)</a>
+<ul>
+<li><a href="#orgheadline33">8.1. Documentation of the Anomaly</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline39">9. 动量，技术分析(Momentum: The Technical Analysis)</a>
+<ul>
+<li><a href="#orgheadline35">9.1. 移动平均 Moving Averages</a></li>
+<li><a href="#orgheadline36">9.2. 52周新高新低 52-Week High/Low</a></li>
+<li><a href="#orgheadline37">9.3. 行业动量 Momentum at Industry Levels</a></li>
+<li><a href="#orgheadline38">9.4. 公募基金动量 Momentum and Mutual Funds</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline62">10. 季节性(Seasonality)</a>
+<ul>
+<li><a href="#orgheadline45">10.1. A股</a>
+<ul>
+<li><a href="#orgheadline40">10.1.1. 五穷六绝七翻身</a></li>
+<li><a href="#orgheadline41">10.1.2. 春季行情 January Effect</a></li>
+<li><a href="#orgheadline42">10.1.3. 资金面效应</a></li>
+<li><a href="#orgheadline43">10.1.4. 假期效应 Holiday Effects</a></li>
+<li><a href="#orgheadline44">10.1.5. 会议效应</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline61">10.2. 美股</a>
+<ul>
+<li><a href="#orgheadline46">10.2.1. January Effect</a></li>
+<li><a href="#orgheadline47">10.2.2. Holiday Effects</a></li>
+<li><a href="#orgheadline48">10.2.3. January Small Cap Effect in the Futures Markets</a></li>
+<li><a href="#orgheadline49">10.2.4. 一月晴雨表(The January Barometer)</a></li>
+<li><a href="#orgheadline50">10.2.5. Sell-in-May-and-Go-Away</a></li>
+<li><a href="#orgheadline51">10.2.6. Same Month Next Year</a></li>
+<li><a href="#orgheadline52">10.2.7. The Sell on Rosh Hashanah</a></li>
+<li><a href="#orgheadline53">10.2.8. Ramadan</a></li>
+<li><a href="#orgheadline54">10.2.9. Day-of-the-Week Effects</a></li>
+<li><a href="#orgheadline55">10.2.10. Seasonality Calendars</a></li>
+<li><a href="#orgheadline56">10.2.11. Political Effects</a></li>
+<li><a href="#orgheadline57">10.2.12. Election Cycles</a></li>
+<li><a href="#orgheadline58">10.2.13. Turn-of-the-Month Effects</a></li>
+<li><a href="#orgheadline59">10.2.14. Open/Close Daily Trade on the Open</a></li>
+<li><a href="#orgheadline60">10.2.15. Weather: Sun, Rain, Snow, Moon, and the Stars</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline70">11. 规模和价值</a>
+<ul>
+<li><a href="#orgheadline63">11.1. Fama-French Three-Factor Model</a></li>
+<li><a href="#orgheadline66">11.2. Alternative Value Indicators</a>
+<ul>
+<li><a href="#orgheadline64">11.2.1. price-to-earnings ratio (P/E)</a></li>
+<li><a href="#orgheadline65">11.2.2. E/P ratio</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline67">11.3. Time Variation in the Value Premium</a></li>
+<li><a href="#orgheadline68">11.4. Cross-Sectional Variation in the Value Premium</a></li>
+<li><a href="#orgheadline69">11.5. Anatomy of the Size Anomaly</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<b>The handbook of equity market anomalies</b>
+</p>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Bullets</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Efficient Market Hypothesis</li>
+</ul>
+<p>
+a weak form where the history of prices cannot be used to generate positive risk adjusted returns; a semi strong form where public information cannot be used to outperform the market; and a strong form where private information cannot be used to outperform the market.
+</p>
+
+<p>
+The growth of the hedge fund industry has shown that the market is not strongly efficient while the continued existence of anomalies described in this book and the many billions of dollars managed in the quant investment processes show that public information can be used to outperform the market and the success of statistical arbitrage proves that even historical price and volume patterns can generate positivealphas.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">2</span> Structure of the book</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> chapter 1 financial theory</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Professor Khan clearly explains the financial theory required to understand the concept of a “nonzero risk-adjusted return".
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.2</span> chapter 2 accural anomalies</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+xplains the concept of accruals.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.3</span> chapter 3 analyst-related anomalies</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+performance of broker recommendations and reviews the research on the information anomalies related to estimate revisions and changes in analyst recommendations.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.4</span> chapter 4 post-earnings announcement drift</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+This chapter includes a good overview of the history of the anomaly, an update of performance results, and a clear discussion of the possible causes of the anomaly.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.5</span> chapter 5 non-accrual related fundamental anomalies</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+The chapter provides a concise overview of the anomalies related to financial ratios, investment growth, and distress risk, and discusses the Piotroski and Mohanram stock scoring systems that can be used by individual investors to outperform value or growth indexes.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.6</span> chapter 6 net stock anomalies</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+reviews the research on stock buybacks, IPO, SEOs, and other stock purchase and stock issuance anomalies.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">2.7</span> chapter 7 inside trading</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+provides an optimistic view from a professional of the possibility of generating excess returns from insider information.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">2.8</span> chapter 8 technical analysis</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+provides a good overview of how technical trading evolved from a backwater to become a major theme of respected academic anomaly research.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">2.9</span> chapter 9 seasonality</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+provides an in-depth overview of the opportunities to earn returns using seasonal anomalies.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">2.10</span> chapter 10 size and value anomalies</h3>
+<div class="outline-text-3" id="text-2-10">
+<p>
+concludes that value is a real anomaly but that size may not be an anomaly and discusses the basics of tactical asset allocation.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">3</span> 股权The Accural Anomaly</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Accruals are adjustments for 1)  revenues that have been earned but are not yet recorded in the accounts, and 2) expenses that have been incurred but are not yet recorded in the accounts. The accruals need to be added via adjusting entries so that the financial statements report these amounts.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">4</span> 分析师预测和盈利预测</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">4.1</span> 盈利预测修正 Earnings Forecast Revisions</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">5</span> 盈余惯性</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+是一种在财务公布后的数周甚至数月内，仍然向超额回报方向连续获取超额收益的趋势。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">6</span> 公司财务数据</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">6.1</span> Capital Investment and Growth Anomalies</h3>
+</div>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">6.2</span> 基础科目与衍生</h3>
+<div class="outline-text-3" id="text-6-2">
+</div><div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">6.2.1</span> 主要会计数据</h4>
+</div>
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">6.2.2</span> 现金流量表</h4>
+</div>
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">6.2.3</span> 资产负债表</h4>
+</div>
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">6.2.4</span> 利润表</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-2">
+<h2 id="orgheadline32"><span class="section-number-2">7</span> 净股异常</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+stock prices of firms following corporate events tend to drift in predictable manners, for a period of up to five years.
+</p>
+</div>
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">7.1</span> 首次公开募股(Initial Public Offerings)</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+IPO firms underperform the industry- and size-matched firms by 27.4%. Ritter (1991) concludes that the IPO issuing firms
+underperform their peer firms in both the buy-and-hold and the monthly rebalancing strategies. Ritter
+conjectures that this mispricing may be due to firms going public when investors are too optimistic about
+their prospects.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">7.2</span> 股权再融资(Seasoned Equity Offerings)</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+research has shown that firms that issued equity through an SEO, experience negative stock returns in the years following the equity issues.
+</p>
+
+<p>
+market-timing:
+managers exploit their information advantage relative to outsiders to time their SEOs at
+opportune times when their stock is most likely to be overvalued.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">7.3</span> 债务发行(Debt Issuances)</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+straight debt issuances are associated with an average abnormal negative stock return of 14.3% for a period of 5 years, the evidence suggests that abnormal stock returns for the straight debt call sample is between 0.18% and 0.34% per month, depending on the benchmark used for a period of 5 years following the debt call event. As for convertible debt, the authors find mixed evidence following the calls of convertible debt.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">7.4</span> 股权回购和要约收购(Share Repurchases and Tender Offers)</h3>
+</div>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">7.5</span> 股票股利初次发放与停发(Dividend Initiation and Omissions)</h3>
+</div>
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">7.6</span> 非公开发行股票, 定向增发(Private Equity Placement)</h3>
+</div>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">7.7</span> 净外部融资(Overall Net External Financing)</h3>
+</div>
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">7.8</span> 企业兼并与收购(Mergers and Acquisitions)</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline34" class="outline-2">
+<h2 id="orgheadline34"><span class="section-number-2">8</span> 内幕交易(The Insider Trading Anomaly)</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+The large shareholders who hold more than 10% of a stock's outstanding shares, all members of the board of directors, the CEO, CFO, and other highest-level officers are considered insiders. Attorneys, underwriters, and consultants to these highest-level officers and directors are also considered insiders.
+</p>
+</div>
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">8.1</span> Documentation of the Anomaly</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-2">
+<h2 id="orgheadline39"><span class="section-number-2">9</span> 动量，技术分析(Momentum: The Technical Analysis)</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">9.1</span> 移动平均 Moving Averages</h3>
+</div>
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">9.2</span> 52周新高新低 52-Week High/Low</h3>
+</div>
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">9.3</span> 行业动量 Momentum at Industry Levels</h3>
+</div>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">9.4</span> 公募基金动量 Momentum and Mutual Funds</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline62" class="outline-2">
+<h2 id="orgheadline62"><span class="section-number-2">10</span> 季节性(Seasonality)</h2>
+<div class="outline-text-2" id="text-10">
+</div><div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45"><span class="section-number-3">10.1</span> A股</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+<a href="http://www.laohucaijing.com/news/index/121894/">初探A股季节性效应 民生证券首席策略分析师</a>
+</p>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">10.1.1</span> 五穷六绝七翻身</h4>
+</div>
+<div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41"><span class="section-number-4">10.1.2</span> 春季行情 January Effect</h4>
+<div class="outline-text-4" id="text-10-1-2">
+<p>
+胜率八成，历史平均涨幅逾7%。
+</p>
+
+<p>
+“春季行情”的概念在本研究中得到证实，而“秋季行情”表现不稳定。过去10年上证指数在2、3、4、7、10月表现较好，而1、6、8月表现不佳。过去20年若从春节持有上证指数组合到4月上旬，则年均涨7.35%，中位数7.97%，胜率为80%（20年中有16年上涨）。春季行情的形成，或与春节后资金回流、长假后市场活跃度恢复、两会及其他重要会议召开等季节性出现的因素有关联。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">10.1.3</span> 资金面效应</h4>
+<div class="outline-text-4" id="text-10-1-3">
+<p>
+把握季末与春节的V形走势。
+</p>
+
+<p>
+春节假期、6月末、9月末、12月末等关键时点前资金面较为紧张，股票市场会出现换手率下降、股指走弱等情况；资金面冲击过后，市场交投重新活跃，股指强势修复，完成V形走势。由于资金期限的原因，V形底相对关键时点有几天提前量，使得季末时点成为较好的建仓时间。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43"><span class="section-number-4">10.1.4</span> 假期效应 Holiday Effects</h4>
+<div class="outline-text-4" id="text-10-1-4">
+<p>
+长假V形走势，短假影响有限。
+</p>
+
+<p>
+在十一长假、春节长假、2008年以前的五一长假，股市大概率出现底部提前的V形走势。十一、春节还有资金面效应的驱动，因而股指波动也较大。值得注意的是，端午、清明、2008年后五一等短假期没有相同规律。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44"><span class="section-number-4">10.1.5</span> 会议效应</h4>
+<div class="outline-text-4" id="text-10-1-5">
+<p>
+呈现倒V走势，两会后趋于上行。
+</p>
+
+<p>
+无论每年定期出现的重要会议（包括两会、中央经济工作会议、党的全国代表大会/中央委员会全体会议等）对股市的影响亦有规律可循，表现为会议开幕前市场大概率上涨，而会议开幕后不久即回落，形成倒V形。其中两会影响的特别之处在于：股指虽然在会议期间略有下跌，在闭幕后却还有一波上涨行情。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">10.2</span> 美股</h3>
+<div class="outline-text-3" id="text-10-2">
+</div><div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46"><span class="section-number-4">10.2.1</span> January Effect</h4>
+</div>
+<div id="outline-container-orgheadline47" class="outline-4">
+<h4 id="orgheadline47"><span class="section-number-4">10.2.2</span> Holiday Effects</h4>
+</div>
+<div id="outline-container-orgheadline48" class="outline-4">
+<h4 id="orgheadline48"><span class="section-number-4">10.2.3</span> January Small Cap Effect in the Futures Markets</h4>
+</div>
+<div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">10.2.4</span> 一月晴雨表(The January Barometer)</h4>
+</div>
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">10.2.5</span> Sell-in-May-and-Go-Away</h4>
+</div>
+<div id="outline-container-orgheadline51" class="outline-4">
+<h4 id="orgheadline51"><span class="section-number-4">10.2.6</span> Same Month Next Year</h4>
+</div>
+<div id="outline-container-orgheadline52" class="outline-4">
+<h4 id="orgheadline52"><span class="section-number-4">10.2.7</span> The Sell on Rosh Hashanah</h4>
+</div>
+<div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53"><span class="section-number-4">10.2.8</span> Ramadan</h4>
+</div>
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54"><span class="section-number-4">10.2.9</span> Day-of-the-Week Effects</h4>
+</div>
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">10.2.10</span> Seasonality Calendars</h4>
+</div>
+<div id="outline-container-orgheadline56" class="outline-4">
+<h4 id="orgheadline56"><span class="section-number-4">10.2.11</span> Political Effects</h4>
+</div>
+<div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57"><span class="section-number-4">10.2.12</span> Election Cycles</h4>
+</div>
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58"><span class="section-number-4">10.2.13</span> Turn-of-the-Month Effects</h4>
+</div>
+<div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59"><span class="section-number-4">10.2.14</span> Open/Close Daily Trade on the Open</h4>
+</div>
+<div id="outline-container-orgheadline60" class="outline-4">
+<h4 id="orgheadline60"><span class="section-number-4">10.2.15</span> Weather: Sun, Rain, Snow, Moon, and the Stars</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline70" class="outline-2">
+<h2 id="orgheadline70"><span class="section-number-2">11</span> 规模和价值</h2>
+<div class="outline-text-2" id="text-11">
+</div><div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">11.1</span> Fama-French Three-Factor Model</h3>
+</div>
+<div id="outline-container-orgheadline66" class="outline-3">
+<h3 id="orgheadline66"><span class="section-number-3">11.2</span> Alternative Value Indicators</h3>
+<div class="outline-text-3" id="text-11-2">
+</div><div id="outline-container-orgheadline64" class="outline-4">
+<h4 id="orgheadline64"><span class="section-number-4">11.2.1</span> price-to-earnings ratio (P/E)</h4>
+</div>
+<div id="outline-container-orgheadline65" class="outline-4">
+<h4 id="orgheadline65"><span class="section-number-4">11.2.2</span> E/P ratio</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline67" class="outline-3">
+<h3 id="orgheadline67"><span class="section-number-3">11.3</span> Time Variation in the Value Premium</h3>
+</div>
+<div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68"><span class="section-number-3">11.4</span> Cross-Sectional Variation in the Value Premium</h3>
+</div>
+<div id="outline-container-orgheadline69" class="outline-3">
+<h3 id="orgheadline69"><span class="section-number-3">11.5</span> Anatomy of the Size Anomaly</h3>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -255,7 +255,8 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 * GS
 ** organize OSet structure
 DEADLINE: <2017-10-11 Wed>
-- [ ] 原有指标加入新建OSet
+- [ ] 原有因子指标加入新建OSet
+- [ ] add machine learning functions to statistical inference
 - [X] add abnormal factors on GS
 - [X] add computer age statistical inference function content on GS
 - [ ] strategies

@@ -1,0 +1,119 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: anomalies
+#+DATE: <2017-10-12 Thu>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
+
+
+* 异常(The handbook of equity market anomalies)
+** Structure of the book
+*** chapter 1 financial theory
+Professor Khan clearly explains the financial theory required to understand the concept of a “nonzero risk-adjusted return".
+*** chapter 2 accural anomalies
+xplains the concept of accruals.
+*** chapter 3 analyst-related anomalies
+performance of broker recommendations and reviews the research on the information anomalies related to estimate revisions and changes in analyst recommendations.
+*** chapter 4 post-earnings announcement drift
+This chapter includes a good overview of the history of the anomaly, an update of performance results, and a clear discussion of the possible causes of the anomaly.
+*** chapter 5 non-accrual related fundamental anomalies
+The chapter provides a concise overview of the anomalies related to financial ratios, investment growth, and distress risk, and discusses the Piotroski and Mohanram stock scoring systems that can be used by individual investors to outperform value or growth indexes.
+*** chapter 6 net stock anomalies
+reviews the research on stock buybacks, IPO, SEOs, and other stock purchase and stock issuance anomalies.
+*** chapter 7 inside trading
+provides an optimistic view from a professional of the possibility of generating excess returns from insider information.
+*** chapter 8 technical analysis
+provides a good overview of how technical trading evolved from a backwater to become a major theme of respected academic anomaly research.
+** 股权The Accural Anomaly
+Accruals are adjustments for 1)  revenues that have been earned but are not yet recorded in the accounts, and 2) expenses that have been incurred but are not yet recorded in the accounts. The accruals need to be added via adjusting entries so that the financial statements report these amounts.
+** 分析师预测和盈利预测
+*** 盈利预测修正 Earnings Forecast Revisions
+** 盈余惯性
+是一种在财务公布后的数周甚至数月内，仍然向超额回报方向连续获取超额收益的趋势。
+** 公司财务数据
+*** Capital Investment and Growth Anomalies
+*** 基础科目与衍生
+**** 主要会计数据
+**** 现金流量表
+**** 资产负债表
+**** 利润表
+** 净股异常
+stock prices of firms following corporate events tend to drift in predictable manners, for a period of up to five years.
+*** 首次公开募股(Initial Public Offerings)
+IPO firms underperform the industry- and size-matched firms by 27.4%. Ritter (1991) concludes that the IPO issuing firms
+underperform their peer firms in both the buy-and-hold and the monthly rebalancing strategies. Ritter
+conjectures that this mispricing may be due to firms going public when investors are too optimistic about
+their prospects.
+*** 股权再融资(Seasoned Equity Offerings)
+research has shown that firms that issued equity through an SEO, experience negative stock returns in the years following the equity issues.
+
+market-timing:
+managers exploit their information advantage relative to outsiders to time their SEOs at
+opportune times when their stock is most likely to be overvalued.
+*** 债务发行(Debt Issuances)
+straight debt issuances are associated with an average abnormal negative stock return of 14.3% for a period of 5 years, the evidence suggests that abnormal stock returns for the straight debt call sample is between 0.18% and 0.34% per month, depending on the benchmark used for a period of 5 years following the debt call event. As for convertible debt, the authors find mixed evidence following the calls of convertible debt.
+*** 股权回购和要约收购(Share Repurchases and Tender Offers)
+*** 股票股利初次发放与停发(Dividend Initiation and Omissions)
+*** 非公开发行股票, 定向增发(Private Equity Placement)
+*** 净外部融资(Overall Net External Financing)
+*** 企业兼并与收购(Mergers and Acquisitions)
+** 内幕交易(The Insider Trading Anomaly)
+The large shareholders who hold more than 10% of a stock's outstanding shares, all members of the board of directors, the CEO, CFO, and other highest-level officers are considered insiders. Attorneys, underwriters, and consultants to these highest-level officers and directors are also considered insiders.
+*** Documentation of the Anomaly
+** 动量，技术分析(Momentum: The Technical Analysis)
+*** 移动平均 Moving Averages
+*** 52周新高新低 52-Week High/Low
+*** 行业动量 Momentum at Industry Levels
+*** 公募基金动量 Momentum and Mutual Funds
+** 季节性(Seasonality)
+*** A股
+[[http://www.laohucaijing.com/news/index/121894/][初探A股季节性效应 民生证券首席策略分析师]]
+
+**** 五穷六绝七翻身
+**** 春季行情 January Effect
+胜率八成，历史平均涨幅逾7%。
+
+“春季行情”的概念在本研究中得到证实，而“秋季行情”表现不稳定。过去10年上证指数在2、3、4、7、10月表现较好，而1、6、8月表现不佳。过去20年若从春节持有上证指数组合到4月上旬，则年均涨7.35%，中位数7.97%，胜率为80%（20年中有16年上涨）。春季行情的形成，或与春节后资金回流、长假后市场活跃度恢复、两会及其他重要会议召开等季节性出现的因素有关联。
+**** 资金面效应
+把握季末与春节的V形走势。
+
+春节假期、6月末、9月末、12月末等关键时点前资金面较为紧张，股票市场会出现换手率下降、股指走弱等情况；资金面冲击过后，市场交投重新活跃，股指强势修复，完成V形走势。由于资金期限的原因，V形底相对关键时点有几天提前量，使得季末时点成为较好的建仓时间。
+**** 假期效应 Holiday Effects
+长假V形走势，短假影响有限。
+
+在十一长假、春节长假、2008年以前的五一长假，股市大概率出现底部提前的V形走势。十一、春节还有资金面效应的驱动，因而股指波动也较大。值得注意的是，端午、清明、2008年后五一等短假期没有相同规律。
+**** 会议效应
+呈现倒V走势，两会后趋于上行。
+
+无论每年定期出现的重要会议（包括两会、中央经济工作会议、党的全国代表大会/中央委员会全体会议等）对股市的影响亦有规律可循，表现为会议开幕前市场大概率上涨，而会议开幕后不久即回落，形成倒V形。其中两会影响的特别之处在于：股指虽然在会议期间略有下跌，在闭幕后却还有一波上涨行情。
+*** 美股
+**** January Effect
+**** Holiday Effects
+**** January Small Cap Effect in the Futures Markets
+**** 一月晴雨表(The January Barometer)
+**** Sell-in-May-and-Go-Away
+**** Same Month Next Year
+**** The Sell on Rosh Hashanah
+**** Ramadan
+**** Day-of-the-Week Effects
+**** Seasonality Calendars
+**** Political Effects
+**** Election Cycles
+**** Turn-of-the-Month Effects
+**** Open/Close Daily Trade on the Open
+**** Weather: Sun, Rain, Snow, Moon, and the Stars
+** 规模和价值
+*** Fama-French Three-Factor Model
+*** Alternative Value Indicators
+**** price-to-earnings ratio (P/E)
+**** E/P ratio
+*** Time Variation in the Value Premium
+*** Cross-Sectional Variation in the Value Premium
+*** Anatomy of the Size Anomaly
