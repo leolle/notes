@@ -291,7 +291,7 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 +------+   +-----+   +-----+   +-----+
 |{io}  |   |{d}  |   |{s}  |   |cBLU |
 | Foo  +---+ Bar +---+ Baz +---+ Moo |
-|      |   |     |   |     |   |{d}  |
+|      |   |     |   |     |   |     |
 +------+   +-----+   +--+--+   +-----+
                         |
            /-----\      |      +------+
@@ -306,7 +306,7 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 
 ** UML diagrams with PlantUML
 *** Class diagrams
-#+BEGIN_SRC plantuml :noweb yes :file assets/clientmodel.png :exports results
+#+BEGIN_SRC plantuml :noweb yes :file clientmodel.png :exports results
 @startuml
 
 <<uml-style>>
@@ -319,6 +319,10 @@ User -right-> "1" UserRole : > has
 
 @enduml
 #+END_SRC
+
+#+RESULTS:
+[[file:clientmodel.png]]
+
 *** Sequences diagrams
 
 ** export org to html using styles
