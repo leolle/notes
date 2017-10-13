@@ -6,25 +6,54 @@
 
 #+end_src
 
+
+*C++ Premier Plus*
+
 * C++ Basics
 
-** Comments
-- //
-- /* */
+
 ** Variables, Operators and Expressions
 
 *** naming
 
-**** Variables:
 
-***** common variables names
+*** logic operation
+- --i and i--.
+- logical and arithmetic shift.
+
+*** scientific output expression
+- use “%10.1f” as format specifier.
+
+
+* GETTING STARTED
+** Learning C++: What Lies Before You
+** The Origins of C++: A Little History
+** Portability and Standards
+** The Mechanics of Creating a Program
+
+* SETTING OUT TO C++
+** C++ Initiation
+** C++ Statements
+*** Comments
+- //
+- /* */
+** More C++ Statements
+** Functions
+
+
+
+* DEALING WITH DATA
+** Simple Variables
+*** Variables:
+
+**** common variables names
 #+begin_src c++
 int price_count_reader;    // No abbreviation.
 int num_errors;            // "num" is a widespread convention.
 int num_dns_connections;   // Most people know what "DNS" stands for.
 #+end_src
 
-***** Class Data Members
+**** Class Data Members
 Data members of classes, both static and non-static, are named like ordinary nonmember variables, but with a trailing underscore.
 #+begin_src c++
 class TableInfo {
@@ -36,33 +65,39 @@ class TableInfo {
 };
 #+end_src
 
-**** Constant Names
+*** Constant Names
 Variables declared constexpr or const, and whose value is fixed for the duration of the program, are named with a leading "k" followed by mixed case. For example:
 #+begin_src c++
 const int kDaysInAWeek = 7;
 #+end_src
 
-**** Function Names
+*** Function Names
 #+begin_src c++ :tangle yes
 AddTableEntry()
 DeleteUrl()
 OpenFileOrDie()
 #+end_src
 
-**** File Names
+*** File Names
 - my_useful_class.cc
 - my-useful-class.cc
 - myusefulclass.cc
 - myusefulclass_test.cc // _unittest and _regtest are deprecated.
-*** logic operation
-- --i and i--.
-- logical and arithmetic shift.
+** The const Qualifier
+** Floating-Point Numbers
+** C++ Arithmetic Operators
 
-*** scientific output expression
-- use “%10.1f” as format specifier.
 
-** Pointers and Arrays
 
+* COMPOUND TYPES
+** Introducing Arrays
+** Strings
+** Introducing the string Class
+** Introducing Structures
+** Unions
+** Enumerations
+** Pointers and the Free Store
+** Pointers, Arrays, and Pointer Arithmetic
 *** swap value of two variables using pointers
 #+begin_src c++
 #include <stdio.h>
@@ -87,3 +122,131 @@ int main()
 return 0;
 }
 #+end_src
+
+
+* LOOPS AND RELATIONAL EXPRESSIONS
+** Introducing for Loops
+** Relational Expressions
+** The while Loop
+** The do while Loop
+** Loops and Text Input
+** Nested Loops and Two-Dimensional Arrays
+
+
+
+* BRANCHING STATEMENTS AND LOGICAL OPERATORS
+** The if Statement
+** Logical Expressions
+** The cctype Library of Character Functions
+** The ?: Operator
+** The switch Statement
+** The break and continue Statements
+** Number-Reading Loops
+** Simple File Input/Output
+
+
+
+* FUNCTIONS: C++’S PROGRAMMING MODULES
+** Function Review
+** Function Arguments and Passing by Value
+** Functions and Arrays
+** Functions and Two-Dimensional Arrays
+** Functions and C-Style Strings
+** Functions and Structures
+** Functions and string Class Objects
+** Recursion
+** Pointers to Functions
+
+
+
+* ADVENTURES IN FUNCTIONS
+** C++ Inline Functions
+** Reference Variables
+** Default Arguments
+** Function Overloading
+** Function Templates
+
+
+
+* MEMORY MODELS AND NAMESPACES
+** Separate Compilation
+** Storage Duration, Scope, and Linkage
+** The Placement new Operator
+** Namespaces
+
+
+
+* OBJECTS AND CLASSES
+** Procedural and Object-Oriented Programming
+** Abstraction and Classes
+** Class Constructors and Destructors
+** Knowing Your Objects: The this Pointer
+** An Array of Objects
+** The Interface and Implementation Revisited
+** Class Scope
+** Abstract Data Types
+
+
+
+* WORKING WITH CLASSES
+** Operator Overloading
+** Time on Our Hands: Developing an Operator Overloading Example
+** Introducing Friends
+** Overloaded Operators: Member Versus Nonmember Functions
+** More Overloading: A Vector Class
+** Automatic Conversions and Type Casts for Classes
+
+
+
+* CLASSES AND DYNAMIC MEMORY ALLOCATION
+** Dynamic Memory and Classes
+** A Queue Simulation
+
+
+
+* CLASS INHERITANCE
+** Beginning with a Simple Base Class
+** Inheritance: An Is-a Relationship
+** Polymorphic Public Inheritance
+** Access Control: protected
+** Abstract Base Classes
+** Inheritance and Dynamic Memory Allocation
+** Class Design Review
+
+
+
+* REUSING CODE IN C++
+** Classes with Object Members
+** Private Inheritance
+** Multiple Inheritance
+** Class Templates
+
+
+
+* FRIENDS, EXCEPTIONS, AND MORE
+** Friends
+** Nested Classes
+** Exceptions
+** RTTI
+** Type Cast Operators
+
+
+
+* THE string CLASS AND THE STANDARD TEMPLATE LIBRARY
+** The string Class
+** The auto_ptr Class
+** The STL
+** Generic Programming
+** Function Objects (aka Functors)
+** Algorithms
+** Other Libraries
+
+
+
+* INPUT, OUTPUT, AND FILES
+** An Overview of C++ Input and Output
+** Output with cout
+** Input with cin
+** File Input and Output
+** Incore Formatting
+** What Now?

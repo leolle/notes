@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-13 Fri 14:07 -->
+<!-- 2017-10-13 Fri 16:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -257,9 +257,12 @@ Matches any non-alphanumeric character; this is equivalent to the class [<sup>a<
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-txt">(\t){2} -&gt; **
+<pre class="src src-txt">SECTION\s\w+: -&gt; *
+(\t){1}CHAPTER(\s)[\d]{1,} -&gt; **
+(\t){1}[\d]{1,} -&gt;
+
+(\t){2} -&gt; **
 (\t){1} -&gt; *
-(\t){1}CHAPTER(\s)[\d]{1,2}
 </pre>
 </div>
 </div>
