@@ -42,6 +42,10 @@ Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z
 
 - content to strings
 #+BEGIN_SRC txt
+SECTION\s\w+: -> *
+(\t){1}CHAPTER(\s)[\d]{1,} -> **
+(\t){1}[\d]{1,} ->
+
 (\t){2} -> **
 (\t){1} -> *
 (\t){1}CHAPTER(\s)[\d]{1,2}

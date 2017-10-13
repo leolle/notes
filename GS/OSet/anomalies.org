@@ -14,7 +14,7 @@
 
 
 *The handbook of equity market anomalies*
-* Bullets
+* Basics
 - Efficient Market Hypothesis
 a weak form where the history of prices cannot be used to generate positive risk adjusted returns; a semi strong form where public information cannot be used to outperform the market; and a strong form where private information cannot be used to outperform the market.
 
@@ -52,6 +52,8 @@ concludes that value is a real anomaly but that size may not be an anomaly and d
 Accruals are adjustments for
 - revenues that have been earned but are not yet recorded in the accounts.
 - expenses that have been incurred but are not yet recorded in the accounts. The accruals need to be added via adjusting entries so that the financial statements report these amounts.
+
+$$ Accurals = Current Net Operating Assets(End of This Year) - Current Net Operating Assets(End of Previous Year)$$
 * 分析师预测和盈利预测
 ** 盈利预测修正 Earnings Forecast Revisions
 * 盈余惯性
