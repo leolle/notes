@@ -12,17 +12,34 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../../configOrg/level2.org
 
+*content table source: UNIX AND LINUX SYSTEM*
+
+* BASIC ADMINISTRATION
+** WHERE TO START
+*** Essential duties of the system administrator
+*** Suggested background
+*** Friction between UNIX and Linux
+*** Linux distributions
+*** Example systems used in this book
+*** System-specific administration tools
+*** Notation and typographical conventions
+*** Units
+*** Man pages and other on-line documentation
+*** Other authoritative documentation
+*** Other sources of information
+*** Ways to find and install software
+*** System administration under duress
 
 
-* Shell commands:
-- check python versions:
-#+BEGIN_SRC shell
-sudo find / -type f -executable -iname 'python*' -exec file -i '{}' \; | awk -F: '/x-executable; charset=binary/ {print $1}' | xargs readlink -f | sort -u | xargs -I % sh -c 'echo -n "%: "; % -V'
+** SCRIPTING AND THE SHELL
+*** Shell basics
+*** bash scripting
+*** Regular expressions
+*** Perl programming
+*** Python scripting
+*** Scripting best practices
 
-# 2
-ls -ls /usr/bin/python*
-#+END_SRC
-
+*** Shell commands:
 - unpack a tar.gz file
 #+BEGIN_SRC shell
 # tar.gz
@@ -50,30 +67,31 @@ sudo service network-manager restart
 #+BEGIN_SRC shell
 ln -s /absolute/path/of/source/folder /absolute/path/of/target/folder
 #+END_SRC
-* nano
-- 光标控制 移动光标：使用用方向键移动。
-- 选择文字：按住鼠标左键拖到。
-- 复制、剪贴和粘贴
-- 复制一整行：Alt+6
-- 剪贴一整行：Ctrl+K
-- 粘贴：Ctrl+U 如果需要复制／剪贴多行或者一行中的一部分，先将光标移动到需要复制／剪贴的文本的开头，按Ctrl+6（或者Alt+A）做标记，然后移动光标到 待复制／剪贴的文本末尾。这时选定的文本会反白，用Alt+6来复制，Ctrl+K来剪贴。若在选择文本过程中要取消，只需要再按一次Ctrl+6。
-- 搜索 按Ctrl+W，然后输入你要搜索的关键字，回车确定。这将会定位到第一个匹配的文本，接着可以用Alt+W来定位到下一个匹配的文本。
-- 翻页 Ctrl+Y到上一页 Ctrl+V到下一页
-- 保存 使用Ctrl+O来保存所做的修改.
-- 退出 按Ctrl+X 如果你修改了文件，下面会询问你是否需要保存修改。输入Y确认保存，输入N不保存，按Ctrl+C取消返回。如果输入了Y，下一步会让你输入想要保存的文件名。如果不需要修改文件名直接回车就行；若想要保存成别的名字（也就是另存为）则输入新名称然后确 定。这个时候也可用Ctrl+C来取消返回。
 
-| name     | shortcut         |
-| 标记     | 	Ctrl+6 / Alt+A |
-| 复制整行 | Alt+6            |
-| 剪贴整行 | Ctrl+K           |
-| 粘贴     | Ctrl+U           |
-| 查找     | Ctrl+W (WhereIs) |
-| 继续查找 | Alt+W            |
-| 上一页   | Ctrl+Y           |
-| 下一页   | Ctrl+V           |
-| 保存     | 	Ctrl+O         |
-|  退出	        |      Ctrl+X            |
-* zsh
+*** find string
+- find string or regex in files
+#+begin_src shell
+# grep = global regular expression parser
+grep -inR "Regular Expression" .
+grep -inR "Regular Expression" . | less
+
+# find specific formats
+grep -inR "Regular Expression" . --include \*.h
+#+end_src
+
+- find process in the ps
+#+begin_src emacs-lisp :tangle yes
+ps -ef | grep mysql
+#+end_src
+
+- check python versions:
+#+BEGIN_SRC shell
+sudo find / -type f -executable -iname 'python*' -exec file -i '{}' \; | awk -F: '/x-executable; charset=binary/ {print $1}' | xargs readlink -f | sort -u | xargs -I % sh -c 'echo -n "%: "; % -V'
+
+# 2
+ls -ls /usr/bin/python*
+#+END_SRC
+*** zsh
 #+BEGIN_SRC shell
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -220,3 +238,372 @@ if [ -f '/home/weiwu/projects/sentiment/google-cloud-sdk/path.zsh.inc' ]; then s
 if [ -f '/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc'; fi
 
 #+END_SRC
+
+** BOOTING AND SHUTTING DOWN
+*** Bootstrapping
+*** Booting PCs
+*** GRUB: The GRand Unified Boot loader
+*** Booting to single-user mode
+*** Working with startup scripts
+*** Booting Solaris
+*** Rebooting and shutting down
+
+** ACCESS CONTROL AND ROOTLY POWERS
+*** Traditional UNIX access control
+*** Modern access control
+*** Real-world access control
+*** Pseudo-users other than root
+
+** CONTROLLING PROCESSES
+*** Components of a process
+*** The life cycle of a process
+*** Signals
+*** kill: send signals
+*** Process states
+*** nice and renice: influence scheduling priority
+*** ps: monitor processes
+*** Dynamic monitoring with top, prstat, and topas
+*** The /proc filesystem
+*** strace, truss, and tusc: trace signals and system calls
+*** Runaway processes
+
+
+** THE FILESYSTEM
+*** Pathnames
+*** Filesystem mounting and unmounting
+*** The organization of the file tree
+*** File types
+*** File attributes
+*** Access control lists
+
+** ADDING NEW USERS
+*** The /etc/passwd file
+*** The /etc/shadow and /etc/security/passwd files
+*** The /etc/group file
+*** Adding users: the basic steps
+*** Adding users with useradd
+*** Adding users in bulk with newusers (Linux)
+*** Removing users
+*** Disabling logins
+*** Managing users with system-specific tools
+*** Reducing risk with PAM
+*** Centralizing account management
+
+
+** STORAGE
+*** I just want to add a disk!
+*** Storage hardware
+*** Storage hardware interfaces
+*** Peeling the onion: the software side of storage
+*** Attachment and low-level management of drives
+*** Disk partitioning
+*** RAID: redundant arrays of inexpensive disks
+*** Logical volume management
+*** Filesystems
+*** ZFS: all your storage problems solved
+*** Storage area networking
+
+** PERIODIC PROCESSES
+*** cron: schedule commands
+*** The format of crontab files
+*** Crontab management
+*** Linux and Vixie-cron extensions
+*** Some common uses for cron
+
+** BACKUPS
+*** Motherhood and apple pie
+*** Backup devices and media
+*** Saving space and time with incremental backups
+*** Setting up a backup regime with dump
+*** Dumping and restoring for upgrades
+*** Using other archiving programs
+*** Using multiple files on a single tape
+*** Bacula
+*** Commercial backup products
+
+
+** SYSLOG AND LOG FILES
+*** Finding log files
+*** Syslog: the system event logger
+*** AIX logging and error handling
+*** logrotate: manage log files
+*** Condensing log files to useful information
+*** Logging policies
+
+** SOFTWARE INSTALLATION AND MANAGEMENT
+*** Installing Linux and OpenSolaris
+*** Installing Solaris
+*** Installing HP-UX
+*** Installing AIX with the Network Installation Manager
+*** Managing packages
+*** Managing Linux packages
+*** Using high-level Linux package management systems
+*** Managing packages for UNIX
+*** Revision control
+*** Software localization and configuration
+*** Using configuration management tools
+*** Sharing software over NFS
+
+
+** DRIVERS AND THE KERNEL
+*** Kernel adaptation
+*** Drivers and device files
+*** Linux kernel configuration
+*** Solaris kernel configuration
+*** HP-UX kernel configuration
+*** Management of the AIX kernel
+*** Loadable kernel modules
+*** Linux udev for fun and profit
+
+** geditor
+*** nano
+- 光标控制 移动光标：使用用方向键移动。
+- 选择文字：按住鼠标左键拖到。
+- 复制、剪贴和粘贴
+- 复制一整行：Alt+6
+- 剪贴一整行：Ctrl+K
+- 粘贴：Ctrl+U 如果需要复制／剪贴多行或者一行中的一部分，先将光标移动到需要复制／剪贴的文本的开头，按Ctrl+6（或者Alt+A）做标记，然后移动光标到 待复制／剪贴的文本末尾。这时选定的文本会反白，用Alt+6来复制，Ctrl+K来剪贴。若在选择文本过程中要取消，只需要再按一次Ctrl+6。
+- 搜索 按Ctrl+W，然后输入你要搜索的关键字，回车确定。这将会定位到第一个匹配的文本，接着可以用Alt+W来定位到下一个匹配的文本。
+- 翻页 Ctrl+Y到上一页 Ctrl+V到下一页
+- 保存 使用Ctrl+O来保存所做的修改.
+- 退出 按Ctrl+X 如果你修改了文件，下面会询问你是否需要保存修改。输入Y确认保存，输入N不保存，按Ctrl+C取消返回。如果输入了Y，下一步会让你输入想要保存的文件名。如果不需要修改文件名直接回车就行；若想要保存成别的名字（也就是另存为）则输入新名称然后确 定。这个时候也可用Ctrl+C来取消返回。
+
+| name     | shortcut         |
+| 标记     | 	Ctrl+6 / Alt+A |
+| 复制整行 | Alt+6            |
+| 剪贴整行 | Ctrl+K           |
+| 粘贴     | Ctrl+U           |
+| 查找     | Ctrl+W (WhereIs) |
+| 继续查找 | Alt+W            |
+| 上一页   | Ctrl+Y           |
+| 下一页   | Ctrl+V           |
+| 保存     | 	Ctrl+O         |
+|  退出	        |      Ctrl+X            |
+*** [[file:../../emacs/emacs.org][emacs]]
+* NETWORKING
+** TCP/IP NETWORKING
+*** TCP/IP and its relationship to the Internet
+*** Networking road map
+*** Packet addressing
+*** IP addresses: the gory details
+*** Routing
+*** ARP: the Address Resolution Protocol
+*** DHCP: the Dynamic Host Configuration Protocol
+*** Security issues
+*** PPP: the Point-to-Point Protocol
+*** Basic network configuration
+*** System-specific network configuration
+*** Linux networking
+*** Solaris networking
+*** HP-UX networking
+*** AIX networking
+
+
+** ROUTING
+*** Packet forwarding: a closer look
+*** Routing daemons and routing protocols
+*** Protocols on parade
+*** Routing strategy selection criteria
+*** Routing daemons
+*** Cisco routers
+
+
+** NETWORK HARDWARE
+*** Ethernet: the Swiss Army knife of networking
+*** Wireless: ethernet for nomads
+*** DSL and cable modems: the last mile
+*** Network testing and debugging
+*** Building wiring
+*** Network design issues
+*** Management issues
+*** Recommended vendors
+
+
+** DNS: THE DOMAIN NAME SYSTEM
+*** Who needs DNS?
+*** How DNS works
+*** DNS for the impatient
+*** Name servers
+*** The DNS namespace
+*** Designing your DNS environment
+*** What’s new in DNS
+*** The DNS database
+*** The BIND software
+*** BIND configuration examples
+*** The NSD/Unbound software
+*** Updating zone files
+*** Security issues
+*** Microsoft and DNS
+*** Testing and debugging
+*** Vendor specifics
+
+
+** THE NETWORK FILE SYSTEM
+*** Introduction to network file services
+*** The NFS approach
+*** Server-side NFS
+*** Client-side NFS
+*** Identity mapping for NFS version 4
+*** nfsstat: dump NFS statistics
+*** Dedicated NFS file servers
+*** Automatic mounting
+
+
+** SHARING SYSTEM FILES
+*** What to share
+*** Copying files around
+*** LDAP: the Lightweight Directory Access Protocol
+*** NIS: the Network Information Service
+*** Prioritizing sources of administrative information
+
+
+** ELECTRONIC MAIL
+*** Mail systems
+*** The anatomy of a mail message
+*** The SMTP protocol
+*** Mail system design
+*** Mail aliases
+*** Content scanning: spam and malware
+*** Email configuration
+*** sendmail
+*** sendmail configuration
+*** sendmail configuration primitives
+*** Security and sendmail
+*** sendmail performance
+*** sendmail testing and debugging
+*** Exim
+*** Postfix
+*** DKIM Configuration
+*** Integrated email solutions
+
+
+** NETWORK MANAGEMENT AND DEBUGGING
+*** Network troubleshooting
+*** ping: check to see if a host is alive
+*** SmokePing: gather ping statistics over time
+*** traceroute: trace IP packets
+*** netstat: get network statistics
+*** Inspection of live interface activity
+*** Packet sniffers
+*** The ICSI Netalyzr
+*** Network management protocols
+*** SNMP: the Simple Network Management Protocol
+*** The NET-SNMP agent
+*** Network management applications
+*** NetFlow: connection-oriented monitoring
+
+
+** SECURITY
+*** Is UNIX secure?
+*** How security is compromised
+*** Security tips and philosophy
+*** Passwords and user accounts
+*** PAM: cooking spray or authentication wonder?
+*** Setuid programs
+*** Effective use of chroot
+*** Security power tools
+*** Mandatory Access Control (MAC)
+*** Cryptographic security tools
+*** Firewalls
+*** Linux firewall features
+*** IPFilter for UNIX systems
+*** Virtual private networks (VPNs)
+*** Certifications and standards
+*** Sources of security information
+*** What to do when your site has been attacked
+
+
+** WEB HOSTING
+*** Web hosting basics
+*** HTTP server installation
+*** Virtual interfaces
+*** The Secure Sockets Layer (SSL)
+*** Caching and proxy servers
+*** Scaling beyond your limits
+
+* BUNCH O' STUFF
+** VIRTUALIZATION
+*** Virtual vernacular
+*** Benefits of virtualization
+*** A practical approach
+*** Virtualization with Linux
+*** Solaris zones and containers
+*** AIX workload partitions
+*** Integrity Virtual Machines in HP-UX
+*** VMware: an operating system in its own right
+*** Amazon Web Services
+
+
+** THE X WINDOW SYSTEM
+*** The display manager
+*** Process for running an X application
+*** X server configuration
+*** X server troubleshooting and debugging
+*** A brief note on desktop environments
+
+
+** PRINTING
+*** Printing-system architecture
+*** CUPS printing
+*** Printing from desktop environments
+*** System V printing
+*** BSD and AIX printing
+*** What a long, strange trip it’s
+*** Common printing software
+*** Printer languages
+*** PPD files
+*** Paper sizes
+*** Printer practicalities
+*** Troubleshooting tips
+
+
+** DATA CENTER BASICS
+*** Data center reliability tiers
+*** Cooling
+*** Power
+*** Racks
+*** Tools
+
+
+** GREEN IT
+*** Green IT initiation
+*** The green IT eco-pyramid
+*** Green IT strategies: data center
+*** Green IT strategies: user workspace
+*** Green IT friends
+
+** PERFORMANCE ANALYSIS
+*** What you can do to improve performance
+*** Factors that affect performance
+*** How to analyze performance problems
+*** System performance checkup
+*** Help! My system just got really slow!
+
+
+** COOPERATING WITH WINDOWS
+*** Logging in to a UNIX system from Windows
+*** Accessing remote desktops
+*** Running Windows and Windows-like applications
+*** Using command-line tools with Windows
+*** Windows compliance with email and web standards
+*** Sharing files with Samba and CIFS
+*** Sharing printers with Samba
+*** Debugging Samba
+*** Active Directory authentication
+
+
+** SERIAL DEVICES AND TERMINALS
+*** The RS-232C standard
+*** Alternative connectors
+*** Hard and soft carrier
+*** Hardware flow control
+*** Serial device files
+*** setserial: set serial port parameters under Linux
+*** Pseudo-terminals
+*** Configuration of terminals
+*** Special characters and the terminal driver
+*** stty: set terminal options
+*** tset: set options automatically
+*** Terminal unwedging
+*** Debugging a serial line
+*** Connecting to serial device consoles

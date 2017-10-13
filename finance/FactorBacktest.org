@@ -16,6 +16,8 @@
 - TTM
 trailing twelve months
 
+- PIT
+point in time
 * Factor Classes
 (country allocation)，大量不同国家、不同地区配置的收益，其实更多来源于行业选择，即行业差异对基金投资业绩表现的贡献度，要大于地区差异所带来的投资业绩差异。
 

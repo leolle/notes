@@ -96,6 +96,7 @@ The large shareholders who hold more than 10% of a stock's outstanding shares, a
 [[http://www.laohucaijing.com/news/index/121894/][初探A股季节性效应 民生证券首席策略分析师]]
 
 *** 五穷六绝七翻身
+如果股票在六月反弹，七月可能有行情延续。
 *** 春季行情 January Effect
 胜率八成，历史平均涨幅逾7%。
 
@@ -121,6 +122,7 @@ The large shareholders who hold more than 10% of a stock's outstanding shares, a
 *** Same Month Next Year
 *** The Sell on Rosh Hashanah
 *** Ramadan
+斋月
 *** Day-of-the-Week Effects
 *** Seasonality Calendars
 *** Political Effects
