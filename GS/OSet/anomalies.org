@@ -107,12 +107,15 @@ Recommendation revisions are more valuable than recommendation levels.
 ** Determinants of Recommendations
 recommendations are more associated with less favorable value-to-price ratio companies.
 
-
-
-
-
-* 盈余惯性
+* 盈余惯性 post-earnings announcement drift
 是一种在财务公布后的数周甚至数月内，仍然向超额回报方向连续获取超额收益的趋势。
+- [ ] institutional history of post-earnings announcement drift.
+- [ ] how to measure an earnings surprise, how the measurement of an earnings surprise affects post-earnings announcement drift, and how managers might manipulate an earnings surprise.
+** theories as to why post-earnings announcement drift exists.
+*** rational explanations based on latent risks
+asset pricing theory: stocks that earn higher (lower) expected returns than the market must be higher (lower) risk.
+*** behavioral explanations based on investor tradingbehavior
+** how investors can refine post-earnings announcement drift using other publicly available information.
 * 公司财务数据
 ** Capital Investment and Growth Anomalies
 ** 基础科目与衍生

@@ -68,7 +68,7 @@ sudo service network-manager restart
 ln -s /absolute/path/of/source/folder /absolute/path/of/target/folder
 #+END_SRC
 
-*** find string
+*** find/search string
 - find string or regex in files
 #+begin_src shell
 # grep = global regular expression parser
@@ -76,7 +76,7 @@ grep -inR "Regular Expression" .
 grep -inR "Regular Expression" . | less
 
 # find specific formats
-grep -inR "Regular Expression" . --include \*.h
+grep -inR "Regular Expression" . --include \*.org
 #+end_src
 
 - find process in the ps
