@@ -16,7 +16,11 @@
 *The handbook of equity market anomalies*
 * Basics
 - Efficient Market Hypothesis
-a weak form where the history of prices cannot be used to generate positive risk adjusted returns; a semi strong form where public information cannot be used to outperform the market; and a strong form where private information cannot be used to outperform the market.
+a weak form where the history of prices cannot be used to generate positive risk adjusted returns;
+
+a semi strong form where public information cannot be used to outperform the market;
+
+and a strong form where private information cannot be used to outperform the market.
 
 The growth of the hedge fund industry has shown that the market is not strongly efficient while the continued existence of anomalies described in this book and the many billions of dollars managed in the quant investment processes show that public information can be used to outperform the market and the success of statistical arbitrage proves that even historical price and volume patterns can generate positivealphas.
 
@@ -54,8 +58,59 @@ Accruals are adjustments for
 - expenses that have been incurred but are not yet recorded in the accounts. The accruals need to be added via adjusting entries so that the financial statements report these amounts.
 
 $$ Accurals = Current Net Operating Assets(End of This Year) - Current Net Operating Assets(End of Previous Year)$$
+** Basic Tests and Results
+In order to systematically analyze earnings quality across a large set of firms, Sloan first had to standardize all the measuresto facilitate the comparison of firms with vastly different sizes. Sloan accomplished this by scaling earnings, accruals, and cash flows by total assets.
+*** steps:
+1.Compute earnings, accruals, and cash flows for a sample of firm-years from the COMPUSTAT database between 1970 and 2007.
+
+2.Within each fiscal year, rank observations from lowest to highest based on earnings.
+
+3.Assign firm-years into deciles based on the rank of earnings, with decile 1 consisting of the lowest-ranked 10% and decile 10 consisting of the highest-ranked 10%.
+
+4.Compute the average level of earnings for firm-years in each decile.
+
+5.Track the average level of earnings for the corresponding set of firm-years in the surrounding 10 years (5 years either side of the ranking year).
+
+6.Construct a plot of average earnings over the 11 years for the highest and lowest deciles.
 * 分析师预测和盈利预测
+- role of research analysts
+Accumulating information allows an individual to make a better decision and potentially trade a certain asset at a more favorable price. Therefore, investors spend considerable amounts of money tobuy analysis from information intermediaries such as security analysts.
+
+- [ ] Recommendation revisions are more valuable than recommendation levels.
+- [X] Transaction costs significantly reduce the investment value of recommendations.
+- [X] The investment value of recommendations is concentrated primarily on small stocks.
+- [X] Taking into account fundamental characteristics of the covered firms that are able to predictfuture stock returns can enhance the profitability of recommendations.
+- [X] There are cross-sectional differences in analyst ability to find mispriced stocks.
+
+
+** 分析师预测
+半强式有效市场假说认为价格已充分反应出所有已公开的有关公司营运前景的信息。这些信息有成交价、成交量、盈利资料、盈利预测值，公司管理状况及其它公开披露的财务信息等。假如投资者能迅速获得这些信息，股价应迅速作出反应。
+
+信息在市场里面起着关键的作用，信息搜集可以对投资者对资产估值做出更好的决策作用，因此社会倾注了大量的资源（包括人力和物力）在证券分析上面。但是也许正是因为股票上有这么多的分析师分析研究，根据半强式有效市场假说，这些分析报告能否产生的价值是一个疑问。
+
+已经有研究指出，分析师推荐调整已经反映了企业的各种行为了，所以股价已经priced in，对于大部分股票平均来说分析师预测已经不再推动股价波动，但是在一小部分股价没有反映出分析师预测的股票上，可以产生积极作用，因此我们可以根据这一现象去寻找那些未反映分析师预测的股票。
+
+ratio of fundamental value is not positively associated with the optimism of analysyst recommendations.
+有可能是因为分析师并只用了简单的估值模型，所以导致推荐的内容并不准确，因此可以通过residual-income model来做一个估值策略。
+
+还有可能是因为分析师的观点并不中立，带有自己利益的偏见，那么有些推荐的股票并不一定能符合分析师预测。
+
+因此，可以设置选股策略1：筛选没有立即反映分析师预测的股票；选股策略2：找出通过自己模型定价出与分析师识推荐的股票价格有差异的股票。
+
+交易策略：每个季度初，把每只股票的分析师推荐平均以后排序，买入10%最乐观的股票，卖出10%最悲观的股票，每季节做一次rebalance.
 ** 盈利预测修正 Earnings Forecast Revisions
+Recommendation revisions are more valuable than recommendation levels.
+** The influence of firm characteristics
+分析师预测因子跟其它基本面因子结合，例如和高价格动量，高EP ratio，高BP ratio，低应收帐款，低成长，低资本支出几个因子结合，能提升策略表现效果。
+** The influence of analyst and brokerage house characteristics
+跟踪能够持续预测的分析师的强烈买入信号的策略表现可能会比较好。
+** Determinants of Recommendations
+recommendations are more associated with less favorable value-to-price ratio companies.
+
+
+
+
+
 * 盈余惯性
 是一种在财务公布后的数周甚至数月内，仍然向超额回报方向连续获取超额收益的趋势。
 * 公司财务数据
