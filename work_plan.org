@@ -254,10 +254,11 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 
 * GS
 ** organize OSet structure
-DEADLINE: <2017-10-16 Mon>
-- [ ] 从handbook of equity market anomalies提取因子，策略，转化为能产生alpha的需求。
-  - [ ] 分析师预测和盈利预测
+DEADLINE: <2017-10-17 Tue>
+- [-] 从handbook of equity market anomalies提取因子，策略，转化为能产生alpha的需求。
+  - [ ] 建立动量需求，搜动量因子满足需求
   - [ ] 盈余惯性
+  - [X] 分析师预测和盈利预测
 - [ ] 原有因子指标加入新建OSet
 - [ ] add machine learning functions to statistical inference
 - [X] add abnormal factors on GS

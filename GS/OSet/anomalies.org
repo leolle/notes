@@ -115,6 +115,7 @@ recommendations are more associated with less favorable value-to-price ratio com
 *** rational explanations based on latent risks
 asset pricing theory: stocks that earn higher (lower) expected returns than the market must be higher (lower) risk.
 *** behavioral explanations based on investor tradingbehavior
+
 ** how investors can refine post-earnings announcement drift using other publicly available information.
 * 公司财务数据
 ** Capital Investment and Growth Anomalies
@@ -147,6 +148,25 @@ straight debt issuances are associated with an average abnormal negative stock r
 The large shareholders who hold more than 10% of a stock's outstanding shares, all members of the board of directors, the CEO, CFO, and other highest-level officers are considered insiders. Attorneys, underwriters, and consultants to these highest-level officers and directors are also considered insiders.
 ** Documentation of the Anomaly
 * 动量，技术分析(Momentum: The Technical Analysis)
+two interesting patterns in stock returns tend to surface from the data over time: short-term to medium-term momentum, and long-term reversals.
+
+short-term and medium-term momentum generate average returns of about 1% per month, to arrive at this return estimate, researchers use past return data to simply sort stocks into deciles based on their recent return performance (typically measured over the prior 6 months) and then assess the relative performance of these decile portfolios over a subsequent holding period, ranging anywhere from one to twelve months.
+
+In summary, most past studies reveal that the top decile portfolio (the set of stocks that were the best performers over therecent past) tend to continue to outperform,
+
+and the bottom decile (the set of stocks that were the worst performers over the recent past) continue to be losers.
+
+long-term reversals also tend to generate statistically positive returns.
+
+To assess the profitability of trading strategies based on long-term reversals, researchers again sort stocks into deciles based on their past return performance (typically measured over a longer period, such as the past 3 years),
+
+and then assess the relative performance of these decile portfolios over a longer-term holding period, ranging anywhere from 3 to 5 years.
+
+Contrary to the short-term momentum findings, these past studies document that the bottom decile portfolio (the set of stocks that were the worst past performers) tend to reverse this past poor performance and become winners, and the top decile (the set of stocks that were the best past performers) tend to reverse and become losers.
+
+In summary, DeBondt and Thaler conclude that the difference in returns for these two portfolios was due to overreaction in security prices as the extreme losers become too cheap and bounce back, whereas the extreme winners become too expensive and earn lower subsequent returns.
+
+
 ** 移动平均 Moving Averages
 ** 52周新高新低 52-Week High/Low
 ** 行业动量 Momentum at Industry Levels
