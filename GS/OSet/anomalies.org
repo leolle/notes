@@ -166,7 +166,8 @@ Contrary to the short-term momentum findings, these past studies document that t
 
 In summary, DeBondt and Thaler conclude that the difference in returns for these two portfolios was due to overreaction in security prices as the extreme losers become too cheap and bounce back, whereas the extreme winners become too expensive and earn lower subsequent returns.
 
-
+*rejecting the weak efficient market hypothesis*
+Using annual data from 1871 to 1985 and monthly return data from 1926 to 1985, the authors utilize variance ratio tests and reject the hypothesis that stock prices follow a random walk, which, of course, implies stock price predictability. Specifically, the authors find evidence that stock prices tend to exhibit positive autocorrelation (or momentum) over shorter periods (less than one year) and negative autocorrelation (or reversals) over longer horizons.
 ** 移动平均 Moving Averages
 ** 52周新高新低 52-Week High/Low
 ** 行业动量 Momentum at Industry Levels
