@@ -30,28 +30,28 @@ The first step is identifying a mispricing signal.
 The second step is evaluating the economic significance and statistical reliability of the mispricing signal.
 
 - alpha metric
-The magnitude of the average risk-adjusted return, or alpha, on a portfolio that is longon stocks in one extreme decile, and short stocks in the other extreme decile, is a measure of the economic significance of the mispricing signal.
+The magnitude of the average risk-adjusted return, or alpha, on a portfolio that is long on stocks in one extreme decile, and short stocks in the other extreme decile, is a measure of the economic significance of the mispricing signal.
 * Structure of the book
 ** chapter 1 financial theory
 Professor Khan clearly explains the financial theory required to understand the concept of a “nonzero risk-adjusted return".
 ** chapter 2 accural anomalies
-xplains the concept of accruals.
+Explaining the concept of accruals.
 ** chapter 3 analyst-related anomalies
-performance of broker recommendations and reviews the research on the information anomalies related to estimate revisions and changes in analyst recommendations.
+Performance of broker recommendations and reviews the research on the information anomalies related to estimate revisions and changes in analyst recommendations.
 ** chapter 4 post-earnings announcement drift
 This chapter includes a good overview of the history of the anomaly, an update of performance results, and a clear discussion of the possible causes of the anomaly.
 ** chapter 5 non-accrual related fundamental anomalies
 The chapter provides a concise overview of the anomalies related to financial ratios, investment growth, and distress risk, and discusses the Piotroski and Mohanram stock scoring systems that can be used by individual investors to outperform value or growth indexes.
 ** chapter 6 net stock anomalies
-reviews the research on stock buybacks, IPO, SEOs, and other stock purchase and stock issuance anomalies.
+Reviewing the research on stock buybacks, IPO, SEOs, and other stock purchase and stock issuance anomalies.
 ** chapter 7 inside trading
-provides an optimistic view from a professional of the possibility of generating excess returns from insider information.
+Providing an optimistic view from a professional of the possibility of generating excess returns from insider information.
 ** chapter 8 technical analysis
-provides a good overview of how technical trading evolved from a backwater to become a major theme of respected academic anomaly research.
+Providing a good overview of how technical trading evolved from a backwater to become a major theme of respected academic anomaly research.
 ** chapter 9 seasonality
-provides an in-depth overview of the opportunities to earn returns using seasonal anomalies.
+Providing an in-depth overview of the opportunities to earn returns using seasonal anomalies.
 ** chapter 10 size and value anomalies
-concludes that value is a real anomaly but that size may not be an anomaly and discusses the basics of tactical asset allocation.
+Concluding that value is a real anomaly but that size may not be an anomaly and discusses the basics of tactical asset allocation.
 * 权责发生制The Accural Anomaly
 Accruals are adjustments for
 - revenues that have been earned but are not yet recorded in the accounts.
