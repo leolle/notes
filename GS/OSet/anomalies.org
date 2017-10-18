@@ -172,13 +172,36 @@ Using annual data from 1871 to 1985 and monthly return data from 1926 to 1985, t
 strategy:
 J/K, evaluate stocks return in J periods, buy and hold for K periods.
 ** Reasons of individual investors failure
-Individual investors have been found to hold losers too long and sell winners too soon—called the disposition effect处置效应 (Shefrin and Statman 1985;
+Individual investors have been found to hold losers too long and sell winners too soon—called the disposition effect处置效应 (Shefrin and Statman 1985; Barber and Odean 2000; Grinblatt and Keloharju 2001), and only sell stocks that have experienced recent positive returns (Griffin, Harris, and Topaloglu 2003). Because the pain from the loss is more effective than the joy from the winning, it's hard for them to acknoledge the loss so that the loss trades are held longer than the winning trade.
 
-Barber and Odean 2000; Grinblatt and Keloharju 2001), and only sell stocks that have experienced recent positive returns (Griffin, Harris, and Topaloglu 2003). The implication of such behavior is that individual investors are likely to be considered more as contrarian(逆势) investors and less as momentum-based investors.
+The implication of such behavior is that individual investors are likely to be considered more as contrarian(逆势) investors and less as momentum-based investors.
 ** 移动平均 Moving Averages
 ** 52周新高新低 52-Week High/Low
 ** 行业动量 Momentum at Industry Levels
 ** 公募基金动量 Momentum and Mutual Funds
+** Explanations for momentum and reversals
+These explanations typically fall into one of two categories: risk-based and investor behavior-based
+arguments.
+
+The risk-based argument is based on the idea that high-risk investments should earn higher returns. Thus, it could be the case that momentum returns are merely compensation to investors for the inherent high risk of momentum portfolios or compensation for some unique risk associated with momentum investing.
+
+However, as some of the aforementioned research has shown, it appears that momentum returns remain significant even after controlling for risk.
+
+3-factor risk model fully explains the long-term reversals. after controlling for risk, returns from long-term reversal strategies become insignificant but momentum strategies remain profitable on a risk-adjusted basis.
+
+so the reversal strategies can't fully explained by the risk theory.
+
+- explanation of negative autocorrelation reversal and autocorrelation momentum.
+Hong and Stein (1999) present a model of investor behavior based on the existence of two types of rational
+agents: “newswatchers” and “momentum traders.” In their model, newswatchers trade on fundamental
+information whereas momentum traders make trades based on past price movements. New, fundamental
+information diffuses gradually across the newswatchers and this causes prices to underreact and display
+positive autocorrelation (momentum). The momentum in prices incentivizes the momentum traders to
+enter the market; their simple trading strategies based on past prices eventually drive prices above
+fundamental value, leading prices to overreact and display negative autocorrelations over longer horizons
+(reversals) as prices move back to fundamental value.
+
+Momentum returns can mostly be explained by changes in the business cycle.
 * 季节性(Seasonality)
 ** A股
 [[http://www.laohucaijing.com/news/index/121894/][初探A股季节性效应 民生证券首席策略分析师]]
