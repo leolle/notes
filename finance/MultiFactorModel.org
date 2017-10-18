@@ -185,18 +185,18 @@ SMB accounts for publicly traded companies with small market caps that generate 
 *** excess return on the market, portfolio's return less the risk free rate of return
 
 ** Fundamental Factor Model
-| Style Factors                | Description                                                                                                   |
-|------------------------------+---------------------------------------------------------------------------------------------------------------|
-| 负债率因子暴露（mark-cap）   | Total debt to market capitalization                                                                           |
-| 价值因子暴露（mark-cap）     | Book-to-price                                                                                                 |
-| 短期动量因子暴露（mark-cap） | Cumulative return over past month                                                                             |
-| 成长因子暴露（mark-cap）_L   | Plowback times return-on-equity                                                                               |
-| 规模因子暴露（mark-cap）     | Natural logarithm of market capitalization                                                                    |
-| 中期动量因子暴露（mark-cap） | Cumulative return over past year excluding most recent month                                                  |
-| 换手率因子暴露（mark-cap）   | 1 month average daily volume over market capitalization                                                       |
-| 波动率因子暴露（mark-cap）   | 3 month average of absolute return over cross-sectional standard deviation                                    |
-|------------------------------+---------------------------------------------------------------------------------------------------------------|
-| Industry Factors (32)        | GICS-based industry classification with 0/1 assignments.(see the additional AX-CN Further Results Appendix)   |
+| Style Factors                | Description                                                                                                 |
+|------------------------------+-------------------------------------------------------------------------------------------------------------|
+| 负债率因子暴露（mark-cap）   | Total debt to market capitalization                                                                         |
+| 价值因子暴露（mark-cap）     | Book-to-price                                                                                               |
+| 短期动量因子暴露（mark-cap） | Cumulative return over past month                                                                           |
+| 成长因子暴露（mark-cap）_L   | Plowback times return-on-equity                                                                             |
+| 规模因子暴露（mark-cap）     | Natural logarithm of market capitalization                                                                  |
+| 中期动量因子暴露（mark-cap） | Cumulative return over past year excluding most recent month                                                |
+| 换手率因子暴露（mark-cap）   | 1 month average daily volume over market capitalization                                                     |
+| 波动率因子暴露（mark-cap）   | 3 month average of absolute return over cross-sectional standard deviation                                  |
+|------------------------------+-------------------------------------------------------------------------------------------------------------|
+| Industry Factors (32)        | GICS-based industry classification with 0/1 assignments.(see the additional AX-CN Further Results Appendix) |
 
 ** Statistical Factor Model
 | Factor Structure | 15 statistical factors                                                                          |
@@ -434,3 +434,80 @@ Another explanation for the low-risk premium comes from the fact that while one 
 The latest contribution to the literature on the low-risk phenomenon is from Cliff Asness, Andrea Frazzini, Niels Joachim Gormsen and Lasse Heje Pedersen, authors of the January 2017 study “Betting Against Correlation: Testing Theories of the Low-Risk Effect.” They suggest that if the low-risk effect is driven by leverage constraints, risk should be measured using systematic risk (beta). On the other hand, if the low-risk effect is driven by behavioral effects, then risk should be measured using idiosyncratic risk (volatility) — stocks with low idiosyncratic risk outperform stocks with high idiosyncratic risk.
 
 The authors noted that “the challenge with the existing literature is that it seeks to run a horse race between factors that are, by construction, highly correlated since risky stocks are usually risky in many ways… Hence, the most powerful way to credibly distinguish these theories is to construct a new factor that captures one theory while at the same being relatively unrelated to factors capturing the alternative theory. To accomplish this, we decompose BAB into two factors: betting against correlation (BAC) and betting against volatility (BAV). BAC goes long stocks that have low correlation to the market and shorts those with high correlation, while seeking to match the volatility of the stocks that are bought and sold.” Note that stocks with low correlation to the market are likely to have low betas. They write: “Likewise, BAV goes long and short based on volatility, while seeking to match correlation. This decomposition of BAB creates a component that is relatively unrelated to the behavioral factors (BAC) and a closely related component (BAV).”
+
+
+* Factor Models and General Definition
+** Introduction
+** What are factor models?
+*** Notations
+*** Factor representation
+** Why factor models in finance?
+*** Style analysis
+*** Optimal portfolio allocation
+** How to build factor models?
+*** Factor selection
+*** Parameters estimation
+** Historical perspective
+*** CAPM and Sharpe’s market model
+*** APT for arbitrage pricing theory
+** Glossary Volatility
+* Factor Selection
+** Introduction
+** Qualitative know-how
+*** Fama and French model
+*** The Chen et al. model
+*** The risk-based factor model of Fung and Hsieh
+** Quantitative methods based on eigenfactors
+*** Notation
+*** Subspace methods: the Principal Component Analysis
+** Model order choice
+*** Information criteria
+** Appendix 1: Covariance matrix estimation
+*** Sample mean
+*** Sample covariance matrix
+*** Robust covariance matrix estimation: M-estimators
+** Appendix 2: Similarity of the eigenfactor selection with the MUSIC algorithm
+** Appendix 3: Large panel data
+*** Large panel data criteria
+** *highlights
+* Least Squares Estimation (LSE) and Kalman Filtering (KF) for Factor Modeling: A Geometrical Perspective
+** Introduction
+** Why LSE and KF in factor modeling?
+*** Factor model per return
+*** Alpha and beta estimation per return
+** LSE setup
+*** Current observation window and block processing
+*** LSE regression
+** LSE objective and criterion
+** How LSE is working (for LSE users and programmers)
+** Interpretation of the LSE solution
+*** Bias and variance
+*** Geometrical interpretation of LSE
+** Derivations of LSE solution
+** Why KF and which setup?
+*** LSE method does not provide a recursive estimate
+*** The state space model and its recursive component
+*** Parsimony and orthogonality assumptions
+** What are the main properties of the KF model?
+*** Self-aggregation feature
+*** Markovian property
+*** Innovation property
+** What is the objective of KF?
+** How does the KF work (for users and programmers)?
+*** Algorithm summary
+*** Initialization of the KF recursive equations
+** Interpretation of the KF updates
+*** Prediction filtering, equation [3.34]
+*** Prediction accuracy processing, equation [3.35]
+*** Correction filtering equations [3.36]–[3.37]
+*** Correction accuracy processing, equation [3.38]
+** Practice
+*** Comparison of the estimation methods on synthetic data
+*** Market risk hedging given a single-factor model
+*** Hedge fund style analysis using a multi-factor model
+** Geometrical derivation of KF updating equations
+*** Geometrical interpretation of MSE criterion and the MMSE solution
+*** Derivation of the prediction filtering update
+*** Derivation of the prediction accuracy update
+*** Derivation of the correction filtering update
+*** Derivation of the correction accuracy update

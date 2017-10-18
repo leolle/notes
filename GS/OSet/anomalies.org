@@ -58,6 +58,34 @@ Accruals are adjustments for
 - expenses that have been incurred but are not yet recorded in the accounts. The accruals need to be added via adjusting entries so that the financial statements report these amounts.
 
 $$ Accurals = Current Net Operating Assets(End of This Year) - Current Net Operating Assets(End of Previous Year)$$
+
+$$Current Net Operating Assets = (Current Assets – Cash) – (Current Liabilities – Short Term Debt – Income Taxes Payable)$$
+
+** fundamental derivative variable:
+*** Inventory
+$inventory = Difference between Changes in sales and changes in inventory$
+*** Gross Margin
+measured as change in GM less change in sales.
+*** S&A
+measured as change in sales less change in S&A expenses.
+*** Percent Accruals
+1. $Earnings = Income from Continuing Operations / Average Total Assets$
+2. $Accrual Component = Accruals / Average Total Assets$
+3. $Cash Flow Component = (Income from Continuing Operations – Accruals) / Average Total Assets$
+
+$1=2+3$
+
+$2/1 = Percent Accruals$
+*** Piotroski F- score
+1. Profitability: i) ROA ii) CFO, iii) Change in ROA and iv) Accrual = ROA-CFO
+
+2. Financial Leverage: i) Change in Leverage (change in ratio of long term
+debt to average total assets, ii) Change in Liquidity (difference between
+firm’s ratio of current assets to current liabilities and iii) Equity offering,
+set as 1 if the firm didn’t issue stock, and 0 otherwise.
+
+3. Operating Efficiency: i) Change in Gross Margin ii) Change in firm’s
+current year asset turnover ratio
 ** Basic Tests and Results
 In order to systematically analyze earnings quality across a large set of firms, Sloan first had to standardize all the measuresto facilitate the comparison of firms with vastly different sizes. Sloan accomplished this by scaling earnings, accruals, and cash flows by total assets.
 *** steps:
@@ -100,6 +128,17 @@ ratio of fundamental value is not positively associated with the optimism of ana
 交易策略：每个季度初，把每只股票的分析师推荐平均以后排序，买入10%最乐观的股票，卖出10%最悲观的股票，每季节做一次rebalance.
 ** 盈利预测修正 Earnings Forecast Revisions
 Recommendation revisions are more valuable than recommendation levels.
+
+Ball and Philip found that stocks with the largest variance in earnings also
+had the largest variance in stock price. Additionally, they found that stocks
+tended to move as long as three months in the direction of the earnings
+surprise.
+
+*** strategy:
+1. Buy (sell) stocks with more than X percent up (down) revision.
+2. Buy stocks that move forecast towards the consensus.
+3. Buy (sell) stocks in the top 5% of revisions.
+4. Buy (sell) stocks with upward (downward) revisions with low analyst coverage.
 ** The influence of firm characteristics
 分析师预测因子跟其它基本面因子结合，例如和高价格动量，高EP ratio，高BP ratio，低应收帐款，低成长，低资本支出几个因子结合，能提升策略表现效果。
 ** The influence of analyst and brokerage house characteristics

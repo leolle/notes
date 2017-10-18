@@ -29,7 +29,6 @@
 |                  | 528FC2E4CC73469496D330AC39E4AE50 | GROUP WEIGHT                                      |
 |                  | 05E0CAE034244B75BB8CD5580CEF3F5C | 搭函数                                            |
 |                  | 047D8ECFE75E44689D1D10EDF06620BF | FD, portfolio optimization                        |
-|                  | B694A0402A20481091906F5A1C5CC942 | 主页                                              |
 |                  | 171A21059C62E84D330A4D7B53D72DDC | set target risk and target return                 |
 |                  | 3A29CB69BD7879553AAF2EDDD23810F0 | 基准风格因子暴露_python                           |
 |                  | E647EFFF80C540A58A2BFC7719658756 | 组合优化FR                                        |
@@ -37,16 +36,17 @@
 |                  | A5A7240AE18DC1D9C84A3D7629EC1B63 | STYLE风格因子暴露 刘鑫                            |
 |                  | 363F23CF55484C6BB57291A6543385BC | function of generate factors                      |
 |                  | 0D5E7E6A76524DC8A6DA5F5AF0BFB3C3 | function of getting factor exposure               |
-|                  | B58B375C952C486C80CC94F041B0EF63 | 	j of getting factor exposure                    |
+|                  | B58B375C952C486C80CC94F041B0EF63 | j of getting factor exposure                     |
 | <2017-08-11 Fri> | B04D8EC4FC14CBDCCD9FD61B9C831955 | FI optimization                                   |
 | <2017-08-11 Fri> | DB7575569F231472384F462E9A0E69AF | j stock portfolio optimization                    |
 |                  | 6224F5BAEF1D4BC9BAC9FFE0244357D8 | multiple period optimization                      |
 | <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
 | <2017-10-17 Tue> | 2D7FFE3045D945B9A84D7CE26329C0D6 | 分类搜索（旧） (吴伟;函数定义;)                   |
-|                  | 44DE982C48224407BF421AA865E9D0C0 | 分类搜索（旧） (吴伟;指标;)                       |
+|                  | 44DE982C48224407BF421AA865E9D0C0 | 搜索指标  分类搜索（旧） (吴伟;指标;)                 |
 |                  | A894DF1EA89F4229B04ADECB5D1A0661 | 搭函数                                            |
 |                  | E9FA85212E6D4A9C879E36CD7261D84A | 添加Element (吴伟;股票因子（OTV&O是A股股票）;)    |
 |                  | BA205C0589AB4F6CA1FCAF885763B927 | 分类搜索（旧）                                    |
+|                  | FE1171DA00604BF797EE8D6A2AD63924 | 添加Element (吴伟;函数定义;)                      |
 |                  |                                  |                                                   |
 
 * other projects
@@ -259,7 +259,7 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 
 * GS
 ** organize OSet structure
-DEADLINE: <2017-10-17 Tue>
+DEADLINE: <2017-10-18 Wed>
 - [-] 从handbook of equity market anomalies提取因子，策略，转化为能产生alpha的需求。
   - [ ] GS技术分析因子分类，到需求tree
   - [X] GS函数定义机器学习分类，到需求tree
