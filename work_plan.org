@@ -261,8 +261,8 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 ** organize OSet structure
 DEADLINE: <2017-10-17 Tue>
 - [-] 从handbook of equity market anomalies提取因子，策略，转化为能产生alpha的需求。
-  - [X] GS函数定义机器学习分类，到需求tree
   - [ ] GS技术分析因子分类，到需求tree
+  - [X] GS函数定义机器学习分类，到需求tree
   - [ ] 建立动量需求，搜动量因子满足需求
   - [ ] 盈余惯性
   - [X] 分析师预测和盈利预测

@@ -171,6 +171,10 @@ Using annual data from 1871 to 1985 and monthly return data from 1926 to 1985, t
 
 strategy:
 J/K, evaluate stocks return in J periods, buy and hold for K periods.
+** Reasons of individual investors failure
+Individual investors have been found to hold losers too long and sell winners too soon—called the disposition effect处置效应 (Shefrin and Statman 1985;
+
+Barber and Odean 2000; Grinblatt and Keloharju 2001), and only sell stocks that have experienced recent positive returns (Griffin, Harris, and Topaloglu 2003). The implication of such behavior is that individual investors are likely to be considered more as contrarian(逆势) investors and less as momentum-based investors.
 ** 移动平均 Moving Averages
 ** 52周新高新低 52-Week High/Low
 ** 行业动量 Momentum at Industry Levels
