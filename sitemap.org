@@ -33,8 +33,7 @@
     + [[file:GS/Introduction/functions.org][functions]]
   + Research
     + [[file:GS/OSet/oset.org][ObjectSets]]
-    + The Handbook of Equity Market Anomalies
-      + [[file:GS/OSet/anomalies.org][Anomalies]]
+      + [[file:GS/OSet/anomalies.org][The Handbook of Equity Market Anomalies]]
 + Math
   + [[file:./Math/knowledge_tree.html/index.html][KnowledgeTree]]
   + [[file:Math/Statistics.org][Statistics]]
