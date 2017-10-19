@@ -253,7 +253,7 @@ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 
 ** remove remote
 #+begin_src emacs-lisp :tangle yes
-git remote rm xxx
+git remote rm xx
 #+end_src
 
 opposite operation:
