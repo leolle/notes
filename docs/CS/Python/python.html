@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-11 Wed 09:58 -->
+<!-- 2017-10-19 Thu 17:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -356,9 +356,9 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline138">15.6. subprocess — Subprocess management</a></li>
 <li><a href="#orgheadline139">15.7. sched — Event scheduler</a></li>
 <li><a href="#orgheadline140">15.8. queue — A synchronized queue class</a></li>
-<li><a href="#orgheadline141">15.9. dummy<sub>threading</sub> — Drop-in replacement for the threading module</a></li>
+<li><a href="#orgheadline141">15.9. dummy_threading — Drop-in replacement for the threading module</a></li>
 <li><a href="#orgheadline142">15.10. _thread — Low-level threading API</a></li>
-<li><a href="#orgheadline143">15.11. _dummy<sub>thread</sub> — Drop-in replacement for the _thread module</a></li>
+<li><a href="#orgheadline143">15.11. _dummy_thread — Drop-in replacement for the _thread module</a></li>
 </ul>
 </li>
 <li><a href="#orgheadline150">16. Internet Data Handling</a>
@@ -442,13 +442,13 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline203">21.1. sysconfig — Provide access to Python’s configuration information</a></li>
 <li><a href="#orgheadline204">21.2. os, sys — System-specific parameters and functions</a></li>
 <li><a href="#orgheadline205">21.3. builtins — Built-in objects</a></li>
-<li><a href="#orgheadline206">21.4. _<sub>main</sub>__ — Top-level script environment</a></li>
+<li><a href="#orgheadline206">21.4. __main__ — Top-level script environment</a></li>
 <li><a href="#orgheadline207">21.5. warnings — Warning control</a></li>
 <li><a href="#orgheadline208">21.6. contextlib — Utilities for with-statement contexts</a></li>
 <li><a href="#orgheadline209">21.7. abc — Abstract Base Classes</a></li>
 <li><a href="#orgheadline210">21.8. atexit — Exit handlers</a></li>
 <li><a href="#orgheadline211">21.9. traceback — Print or retrieve a stack traceback</a></li>
-<li><a href="#orgheadline212">21.10. _<sub>future</sub>__ — Future statement definitions</a></li>
+<li><a href="#orgheadline212">21.10. __future__ — Future statement definitions</a></li>
 <li><a href="#orgheadline213">21.11. gc — Garbage Collector interface</a></li>
 <li><a href="#orgheadline214">21.12. inspect — Inspect live objects</a></li>
 <li><a href="#orgheadline215">21.13. site — Site-specific configuration hook</a></li>
@@ -482,7 +482,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline234">24.7. tokenize — Tokenizer for Python source</a></li>
 <li><a href="#orgheadline235">24.8. tabnanny — Detection of ambiguous indentation</a></li>
 <li><a href="#orgheadline236">24.9. pyclbr — Python class browser support</a></li>
-<li><a href="#orgheadline237">24.10. py<sub>compile</sub> — Compile Python source files</a></li>
+<li><a href="#orgheadline237">24.10. py_compile — Compile Python source files</a></li>
 <li><a href="#orgheadline238">24.11. compileall — Byte-compile Python libraries</a></li>
 <li><a href="#orgheadline239">24.12. dis — Disassembler for Python bytecode</a></li>
 <li><a href="#orgheadline240">24.13. pickletools — Tools for pickle developers</a></li>
@@ -610,7 +610,6 @@ pip install tables
 </div>
 </div>
 </div>
-
 
 <div id="outline-container-orgheadline20" class="outline-2">
 <h2 id="orgheadline20"><span class="section-number-2">3</span> Built-in Types</h2>
@@ -949,7 +948,7 @@ re.search('[a-zA-Z0-9]', 'x')
 
 <li><a id="orgheadline30"></a>not<br  /><div class="outline-text-5" id="text-5-2-2-2">
 <p>
-re.search('[<sup>0</sup>-9]', 'x')
+re.search('[^0-9]', 'x')
 </p>
 </div></li>
 
@@ -1604,13 +1603,13 @@ logger.removeHandler<span style="color: #AE81FF;">(</span>handler<span style="co
 <h3 id="orgheadline140"><span class="section-number-3">15.8</span> queue — A synchronized queue class</h3>
 </div>
 <div id="outline-container-orgheadline141" class="outline-3">
-<h3 id="orgheadline141"><span class="section-number-3">15.9</span> dummy<sub>threading</sub> — Drop-in replacement for the threading module</h3>
+<h3 id="orgheadline141"><span class="section-number-3">15.9</span> dummy_threading — Drop-in replacement for the threading module</h3>
 </div>
 <div id="outline-container-orgheadline142" class="outline-3">
 <h3 id="orgheadline142"><span class="section-number-3">15.10</span> _thread — Low-level threading API</h3>
 </div>
 <div id="outline-container-orgheadline143" class="outline-3">
-<h3 id="orgheadline143"><span class="section-number-3">15.11</span> _dummy<sub>thread</sub> — Drop-in replacement for the _thread module</h3>
+<h3 id="orgheadline143"><span class="section-number-3">15.11</span> _dummy_thread — Drop-in replacement for the _thread module</h3>
 </div>
 </div>
 
@@ -1969,7 +1968,7 @@ os.path.isfile<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;
 <p>
 import os
 folder = '/file/path'
-file = os.path.join(folder, 'file<sub>name</sub>')
+file = os.path.join(folder, 'file_name')
 </p>
 
 <ul class="org-ul">
@@ -2029,7 +2028,7 @@ file = os.path.join(folder, 'file<sub>name</sub>')
 <h3 id="orgheadline205"><span class="section-number-3">21.3</span> builtins — Built-in objects</h3>
 </div>
 <div id="outline-container-orgheadline206" class="outline-3">
-<h3 id="orgheadline206"><span class="section-number-3">21.4</span> _<sub>main</sub>__ — Top-level script environment</h3>
+<h3 id="orgheadline206"><span class="section-number-3">21.4</span> __main__ — Top-level script environment</h3>
 </div>
 <div id="outline-container-orgheadline207" class="outline-3">
 <h3 id="orgheadline207"><span class="section-number-3">21.5</span> warnings — Warning control</h3>
@@ -2047,7 +2046,7 @@ file = os.path.join(folder, 'file<sub>name</sub>')
 <h3 id="orgheadline211"><span class="section-number-3">21.9</span> traceback — Print or retrieve a stack traceback</h3>
 </div>
 <div id="outline-container-orgheadline212" class="outline-3">
-<h3 id="orgheadline212"><span class="section-number-3">21.10</span> _<sub>future</sub>__ — Future statement definitions</h3>
+<h3 id="orgheadline212"><span class="section-number-3">21.10</span> __future__ — Future statement definitions</h3>
 </div>
 <div id="outline-container-orgheadline213" class="outline-3">
 <h3 id="orgheadline213"><span class="section-number-3">21.11</span> gc — Garbage Collector interface</h3>
@@ -2151,7 +2150,7 @@ sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF
 <p>
 python setup.py install
 to virtual environment:
-<i>home/weiwu</i>.virtualenvs/data<sub>analysis</sub>/bin/python2 setup.py install
+<i>home/weiwu</i>.virtualenvs/data_analysis/bin/python2 setup.py install
 </p>
 
 <ul class="org-ul">
@@ -2255,7 +2254,7 @@ $ conda-env remove --name env_name
 <h3 id="orgheadline236"><span class="section-number-3">24.9</span> pyclbr — Python class browser support</h3>
 </div>
 <div id="outline-container-orgheadline237" class="outline-3">
-<h3 id="orgheadline237"><span class="section-number-3">24.10</span> py<sub>compile</sub> — Compile Python source files</h3>
+<h3 id="orgheadline237"><span class="section-number-3">24.10</span> py_compile — Compile Python source files</h3>
 </div>
 <div id="outline-container-orgheadline238" class="outline-3">
 <h3 id="orgheadline238"><span class="section-number-3">24.11</span> compileall — Byte-compile Python libraries</h3>
@@ -2393,11 +2392,11 @@ pandas.read_sql<span style="color: #AE81FF;">(</span>sql, con=engine<span style=
 <li>melt.</li>
 </ul>
 <p>
-pandas.melt(frame, id<sub>vars</sub>=None, value<sub>vars</sub>=None, var<sub>name</sub>=None, value<sub>name</sub>='value', col<sub>level</sub>=None)[source]
+pandas.melt(frame, id_vars=None, value_vars=None, var_name=None, value_name='value', col_level=None)[source]
 </p>
 
 <p>
-This function is useful to massage a DataFrame into a format where one or more columns are identifier variables (id<sub>vars</sub>), while all other columns, considered measured variables (value<sub>vars</sub>), are “unpivoted” to the row axis, leaving just two non-identifier columns, ‘variable’ and ‘value’.
+This function is useful to massage a DataFrame into a format where one or more columns are identifier variables (id_vars), while all other columns, considered measured variables (value_vars), are “unpivoted” to the row axis, leaving just two non-identifier columns, ‘variable’ and ‘value’.
 </p>
 <div class="org-src-container">
 
@@ -2878,7 +2877,7 @@ update dataframe1 with dataframe2
 
 <li><a id="orgheadline272"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-30-1-2-4">
 <ul class="org-ul">
-<li>A MultiIndex can be created from a list of arrays (using MultiIndex.from<sub>arrays</sub>), an array of tuples (using MultiIndex.from<sub>tuples</sub>), or a crossed set of iterables (using MultiIndex.from<sub>product</sub>).</li>
+<li>A MultiIndex can be created from a list of arrays (using MultiIndex.from_arrays), an array of tuples (using MultiIndex.from_tuples), or a crossed set of iterables (using MultiIndex.from_product).</li>
 </ul>
 <div class="org-src-container">
 

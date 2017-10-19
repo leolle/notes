@@ -26,7 +26,7 @@
     + [[file:emacs/markdown.org][markdown]]
     + [[file:emacs/tutorial.org][tutorial]]
     + [[file:emacs/tutorial_backup.org][backup]]
-+ Calendar
++ Project
   + [[file:Calendar/sentiment.org][sentiment]]
 + GS
   + Introduction
@@ -36,7 +36,6 @@
       + [[file:GS/OSet/anomalies.org][The Handbook of Equity Market Anomalies]]
 + Math
   + [[file:./Math/knowledge_tree.html/index.html][KnowledgeTree]]
-  + [[file:Math/Statistics.org][Statistics]]
   + MachineLearning
     + [[file:CS/MachineLearning/BasicModule.org][BasicModule]]
     + [[file:CS/MachineLearning/BasicModule2.org][BasicModule2]]

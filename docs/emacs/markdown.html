@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-10 Tue 09:32 -->
+<!-- 2017-10-19 Thu 17:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -168,7 +168,7 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <p>
-#+BEGINing<sub>SRC</sub> markdown
+#+BEGINing_SRC markdown
 </p>
 
 <p>
@@ -200,13 +200,13 @@ for the JavaScript code in this tag.
 </p>
 
 <p>
-正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为**粗体**或者*斜体*，创建一个[链接](<a href="http://www.example.com/">http://www.example.com/</a>)或一个脚注[<sup>demo</sup>]。下面列举了几个高级功能，更多语法请按`Ctrl + /`查看帮助。
+正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为**粗体**或者*斜体*，创建一个[链接](<a href="http://www.example.com/">http://www.example.com/</a>)或一个脚注[^demo]。下面列举了几个高级功能，更多语法请按`Ctrl + /`查看帮助。
 </p>
 
 <p>
 ### 代码块
 ``` python
-@requires<sub>authorization</sub>
+@requires_authorization
 def somefunc(param1='', param2=0):
     '''A docstring'''
     if param1 &gt; param2: # interesting
@@ -421,7 +421,7 @@ Bob&#x2013;&gt;Alice: I am good thanks!
 
 
 <p>
-[<sup>demo</sup>]: 这是一个示例脚注。请查阅 [MultiMarkdown 文档](<a href="https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide#footnotes">https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide#footnotes</a>) 关于脚注的说明。 <b><b>限制：</b></b> 印象笔记的笔记内容使用 [ENML] 格式，基于 HTML，但是不支持某些标签和属性，例如id，这就导致`脚注`和`TOC`无法正常点击。
+[^demo]: 这是一个示例脚注。请查阅 [MultiMarkdown 文档](<a href="https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide#footnotes">https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide#footnotes</a>) 关于脚注的说明。 <b><b>限制：</b></b> 印象笔记的笔记内容使用 [ENML] 格式，基于 HTML，但是不支持某些标签和属性，例如id，这就导致`脚注`和`TOC`无法正常点击。
 </p>
 
 
@@ -434,7 +434,7 @@ https://dev.yinxiang.com/doc/articles/enml.php
 </pre>
 
 <p>
-#+end<sub>src</sub>
+#+end_src
 </p>
 </div>
 </body>

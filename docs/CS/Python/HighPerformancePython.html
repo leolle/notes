@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-10 Tue 09:33 -->
+<!-- 2017-10-19 Thu 17:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -153,10 +153,10 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline1">1.1. simple decorator to measure the time spending on a function.</a></li>
 <li><a href="#orgheadline2">1.2. Inside Ipython:</a></li>
-<li><a href="#orgheadline3">1.3. python -m cProfile -s cumulative julia1<sub>nopil.py</sub></a></li>
+<li><a href="#orgheadline3">1.3. python -m cProfile -s cumulative julia1_nopil.py</a></li>
 <li><a href="#orgheadline4">1.4. python -m cProfile -o profile.stats julia1.py</a></li>
-<li><a href="#orgheadline5">1.5. Using line<sub>profiler</sub> for line by line measurements</a></li>
-<li><a href="#orgheadline8">1.6. Using memory<sub>profiler</sub> to Diagnose Memory Usage</a>
+<li><a href="#orgheadline5">1.5. Using line_profiler for line by line measurements</a></li>
+<li><a href="#orgheadline8">1.6. Using memory_profiler to Diagnose Memory Usage</a>
 <ul>
 <li><a href="#orgheadline6">1.6.1. Could we use less RAM by rewriting this function to work more efficiently?</a></li>
 <li><a href="#orgheadline7">1.6.2. Could we use more RAM and save CPU cycles by caching?</a></li>
@@ -207,7 +207,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgheadline42">7. RAM</a>
 <ul>
-<li><a href="#orgheadline36">7.1. memory<sub>profiler</sub> for tracking RAM usage.</a></li>
+<li><a href="#orgheadline36">7.1. memory_profiler for tracking RAM usage.</a></li>
 <li><a href="#orgheadline37">7.2. Why should I use less RAM?</a></li>
 <li><a href="#orgheadline38">7.3. Why are numpy and array better for storing lots of numbers?</a></li>
 <li><a href="#orgheadline39">7.4. How can lots of text be efficiently stored in RAM?</a></li>
@@ -258,7 +258,7 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> python -m cProfile -s cumulative julia1<sub>nopil.py</sub></h3>
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> python -m cProfile -s cumulative julia1_nopil.py</h3>
 </div>
 
 <div id="outline-container-orgheadline4" class="outline-3">
@@ -280,7 +280,7 @@ p.print_callees<span style="color: #AE81FF;">()</span> <span style="color: #7571
 </div>
 
 <div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Using line<sub>profiler</sub> for line by line measurements</h3>
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Using line_profiler for line by line measurements</h3>
 <div class="outline-text-3" id="text-1-5">
 <div class="org-src-container">
 
@@ -293,7 +293,7 @@ kernprof.py -l -v julia1_lineprofiler.py
 </div>
 
 <div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">1.6</span> Using memory<sub>profiler</sub> to Diagnose Memory Usage</h3>
+<h3 id="orgheadline8"><span class="section-number-3">1.6</span> Using memory_profiler to Diagnose Memory Usage</h3>
 <div class="outline-text-3" id="text-1-6">
 </div><div id="outline-container-orgheadline6" class="outline-4">
 <h4 id="orgheadline6"><span class="section-number-4">1.6.1</span> Could we use less RAM by rewriting this function to work more efficiently?</h4>
@@ -424,7 +424,7 @@ global variable
 </p>
 
 <p>
-_<sub>builtin</sub>__
+__builtin__
 </p>
 </div>
 </div>
@@ -517,7 +517,7 @@ Since xrange already returns an iterator, calling iter on it is a trivial operat
 <h2 id="orgheadline42"><span class="section-number-2">7</span> RAM</h2>
 <div class="outline-text-2" id="text-7">
 </div><div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">7.1</span> memory<sub>profiler</sub> for tracking RAM usage.</h3>
+<h3 id="orgheadline36"><span class="section-number-3">7.1</span> memory_profiler for tracking RAM usage.</h3>
 </div>
 <div id="outline-container-orgheadline37" class="outline-3">
 <h3 id="orgheadline37"><span class="section-number-3">7.2</span> Why should I use less RAM?</h3>

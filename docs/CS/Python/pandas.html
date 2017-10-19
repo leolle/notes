@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-10 Tue 09:32 -->
+<!-- 2017-10-19 Thu 17:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -556,9 +556,9 @@ split-apply-combine
 A MultiIndex can be created from
 </p>
 <ul class="org-ul">
-<li>a list of arrays (using MultiIndex.from<sub>arrays</sub>)</li>
-<li>an array of tuples (using MultiIndex.from<sub>tuples</sub>)</li>
-<li>a crossed set of iterables (using MultiIndex.from<sub>product</sub>).</li>
+<li>a list of arrays (using MultiIndex.from_arrays)</li>
+<li>an array of tuples (using MultiIndex.from_tuples)</li>
+<li>a crossed set of iterables (using MultiIndex.from_product).</li>
 </ul>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -594,7 +594,7 @@ A MultiIndex can be created from
 </table>
 
 <p>
-All of the MultiIndex constructors accept a names argument which stores string names for the levels themselves. The method get<sub>level</sub><sub>values</sub> will return a vector of the labels for each location at a particular level:
+All of the MultiIndex constructors accept a names argument which stores string names for the levels themselves. The method get_level_values will return a vector of the labels for each location at a particular level:
 </p>
 </div>
 
@@ -751,11 +751,11 @@ items: datetimeindex
 </p>
 
 <p>
-Major<sub>axis</sub>: factors
+Major_axis: factors
 </p>
 
 <p>
-Minor<sub>axis</sub>: symbols
+Minor_axis: symbols
 </p>
 <div class="org-src-container">
 

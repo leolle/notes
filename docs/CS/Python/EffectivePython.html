@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-10 Tue 09:33 -->
+<!-- 2017-10-19 Thu 17:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -217,15 +217,15 @@ for the JavaScript code in this tag.
 <h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> Naming:</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
-<li>Protected instance attributes should be in _leading<sub>underscore</sub> format.</li>
-<li>Private instance attributes should be in _<sub>double</sub><sub>leading</sub><sub>underscore</sub></li>
+<li>Protected instance attributes should be in _leading_underscore format.</li>
+<li>Private instance attributes should be in __double_leading_underscore</li>
 </ul>
 <p>
 format.
 </p>
 <ul class="org-ul">
 <li>Classes and exceptions should be in CapitalizedWord format.</li>
-<li>Module-level constants should be in ALL<sub>CAPS</sub> format.</li>
+<li>Module-level constants should be in ALL_CAPS format.</li>
 <li>Instance methods in classes should use self as the name of the first parameter</li>
 </ul>
 <p>
@@ -471,7 +471,7 @@ export from the module as part of its public API.
 </pre>
 </div>
 <p>
-internal-only functions like mypackage.utils.<sub>dot</sub><sub>product</sub> will not be
+internal-only functions like mypackage.utils._dot_product will not be
 available to the API consumer on mypackage because they weren’t present in all__. Being omitted from <span class="underline"><span class="underline">all</span></span> means they weren’t imported by the from mypackage import * statement.
 </p>
 </div>

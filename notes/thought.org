@@ -23,3 +23,12 @@
 但是在投资领域里面并没有万金油的规律。这个跟黑天鹅现象很像，人们直到看到黑天鹅出现时，才知道原来天鹅不全都是白色的。一个规则运用的场景，次数很多，不代表这就是应用背后的规律。
 
 投资时避免选择拥护的交易，逆向思维，用排除法去除大众的想法，而应该选择去寻找Anormaly，风险小，收益高。
+
+* Zero-sum game theory<2017-10-19 Thu>
+When applied specifically to economics there are multiple factors to consider when understanding a zero-sum game. Zero-sum game assumes a version of perfect competition and perfect information; that is, both opponents in the model have all the relevant information to make an informed decision. To take a step back, most transactions or trades are inherently non zero-sum games because when two parties agree to trade they do so with the understanding that the goods or services they are receiving are more valuable than the goods or services they are trading for it, after transaction costs. This is called positive-sum, and most transactions fall under this category.
+
+Accumenting information is a key element at trading so that a lot of economic resources are put on the research. Most of the time the institutional investors have more and depth information than the individual investors, this makes the game not a fair one. And the disposition effect makes the unbalance evern worse, frequent buying high and selling low bothers investors, which brings loss to them.
+
+The increasement of the corporate value will bring more value to investors as long as the stock prices go up over long term as the aggregate of economic expansion.
+
+However, this is different from the poker game, where winners' gain is losers' loss.

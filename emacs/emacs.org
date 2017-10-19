@@ -290,7 +290,7 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 #+begin_src ditaa :file ditaa-seqboxes.png
 +------+   +-----+   +-----+   +-----+
 |{io}  |   |{d}  |   |{s}  |   |cBLU |
-| Foo  +---+ Bar +---+ Baz +---+ Moo |
+| Foo  +---+ Bar +---+ Baz +---+ Mo  |
 |      |   |     |   |     |   |     |
 +------+   +-----+   +--+--+   +-----+
                         |
@@ -303,6 +303,7 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 
 #+RESULTS:
 [[file:ditaa-seqboxes.png]]
+
 
 ** UML diagrams with PlantUML
 *** Class diagrams

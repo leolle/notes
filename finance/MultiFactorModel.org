@@ -30,8 +30,6 @@ expeced residual return, or expected exceptional return, or realized residual, o
 residual return plus benchmark timing return.
 $\Theta = \beta*(residual return + benchmark return exceeds consensus expected return)$
 
-* One factor model
-associated with the Capital Asset Pricing Model (CAPM).
 
 * Multi-Factor Model
 ** What is a 'Multi-Factor Model'
@@ -285,39 +283,6 @@ $h_n$ is the holding of asset n, $r_n$ is the expected return to asset n, $\lamb
 ** Factor Returns
 ** Factor Covariance Matrix
 ** Specific Risk
-* 量化选股
-
-** 基本面选股
-
-*** 多因子模型
-优点是可以综合很多信息后给出一个选股结果. 综合因子的方法有打分法和回归法两种，打分法较常见。
-
-**** steps:
-
-***** 备选因子选取
-
-****** 估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）
-
-****** 成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)
-
-****** 资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）
-
-***** 因子有效性检验
-采用排序的方法检验备选因子的有效性。
-
-*** 风格轮动模型
-
-*** 行业轮动模型
-
-** 市场行为选股
-
-*** 资金流选股
-
-*** 动量反转模型
-
-*** 一致预期模型
-
-*** 趋势追踪模型
 
 * The low risk effect
 ** What is the Low Risk Effect?
@@ -342,6 +307,9 @@ The authors noted that “the challenge with the existing literature is that it 
 
 * Factor Models and General Definition[1]
 ** Introduction
+The expected excess return (or risk premium) of asset i is the return we can expect from asset i in excess of rf, $expected excess return = expected return - r_f$
+
+To select uncorrelated factors, empirical dimension reduction techniques, such as factor analysis (FA) or principal component analysis (PCA), are performed on the covariance matrix of the returns of the risky assets.
 ** What are factor models?
 *** Notations
 *** Factor representation
@@ -352,6 +320,8 @@ The authors noted that “the challenge with the existing literature is that it 
 *** Factor selection
 *** Parameters estimation
 ** Historical perspective
+One factor model:
+associated with the Capital Asset Pricing Model (CAPM).
 *** CAPM and Sharpe’s market model
 - measure systematic risk, it depends only upon exposure to the overall market, usually proxied by a broad stock market index, such as the S&P 500. This exposure is measured by the CAPM beta.
 - capital asset pricing model (CAPM) is a model used to determine a theoretically appropriate required rate of return of an asset, to make decisions about adding assets to a well-diversified portfolio.
@@ -411,6 +381,39 @@ $$E[r_i(t)] = P_0 + \beta_i1 P_1 + ... + \beta_iK P_K$$
 $$r_i(t) - P_0  = \beta_i1 [P_1 + f_1(t)] + ... + \beta_iK[P_K + f_K(t)] + \epsilon_i(t)$$
 ** Glossary Volatility
 * Factor Selection
+
+** 量化选股基本面选股
+
+*** 多因子模型
+优点是可以综合很多信息后给出一个选股结果. 综合因子的方法有打分法和回归法两种，打分法较常见。
+
+**** steps:
+
+***** 备选因子选取
+
+****** 估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）
+
+****** 成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)
+
+****** 资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）
+
+***** 因子有效性检验
+采用排序的方法检验备选因子的有效性。
+
+*** 风格轮动模型
+
+*** 行业轮动模型
+
+** 市场行为选股
+
+*** 资金流选股
+
+*** 动量反转模型
+
+*** 一致预期模型
+
+*** 趋势追踪模型
+
 ** Introduction
 ** Qualitative know-how
 *** Fama and French model

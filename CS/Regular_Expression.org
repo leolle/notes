@@ -22,7 +22,8 @@
 - The first metacharacters we’ll look at are [ and ]. They’re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a '-'. For example, [abc] will match any of the characters a, b, or c; this is the same as [a-c], which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be [a-z].
 - You can match the characters not listed within the class by complementing the set.
  This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [^5] will match any character except '5'.
-- \. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It’s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a [ or \, you can precede them with a backslash to remove their special meaning: \[ or \\.
+- \.
+As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It’s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a [ or \, you can precede them with a backslash to remove their special meaning: \[ or \\.
 - \d
 Matches any decimal digit; this is equivalent to the class [0-9].
 - \D
@@ -36,6 +37,15 @@ Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_]
 - \W
 Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].
 
+** Quantification
+- ?
+indicates zero or one occurrences of the preceding element.
+
+- *
+The asterisk indicates zero or more occurrences of the preceding element.
+
+- +
+indicates one or more occurrences of the preceding element.
 ** cases:
 - machine space and numbers:
 \s\b\d+\b
