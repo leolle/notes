@@ -1,4 +1,4 @@
-#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
@@ -244,6 +244,10 @@ stash@{0}: WIP on dev: 6224937 add merge
 git remote -v
 origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
 origin  https://github.com/USERNAME/REPOSITORY.git (push)
+
+git@github.com:leolle/leolle.github.io.git
+github.com:leolle/leolle.github.io.git
+git@github.com:leolle/notes.git
 #+end_src
 
 *** Change your remote's URL from HTTPS to SSH with the git remote set-url command.

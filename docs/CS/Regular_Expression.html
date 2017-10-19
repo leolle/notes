@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-13 Fri 16:32 -->
+<!-- 2017-10-19 Thu 10:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -202,7 +202,7 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>The first metacharacters we’ll look at are [ and ]. They’re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a '-'. For example, [abc] will match any of the characters a, b, or c; this is the same as [a-c], which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be [a-z].</li>
 <li>You can match the characters not listed within the class by complementing the set.
-This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [<sup>5</sup>] will match any character except '5'.</li>
+This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [^5] will match any character except '5'.</li>
 <li>\. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It’s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a [ or \, you can precede them with a backslash to remove their special meaning: \[ or \\.</li>
 <li>\d</li>
 </ul>
@@ -213,7 +213,7 @@ Matches any decimal digit; this is equivalent to the class [0-9].
 <li>\D</li>
 </ul>
 <p>
-Matches any non-digit character; this is equivalent to the class [<sup>0</sup>-9].
+Matches any non-digit character; this is equivalent to the class [^0-9].
 </p>
 <ul class="org-ul">
 <li>\s</li>
@@ -237,7 +237,7 @@ Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_]
 <li>\W</li>
 </ul>
 <p>
-Matches any non-alphanumeric character; this is equivalent to the class [<sup>a</sup>-zA-Z0-9_].
+Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].
 </p>
 </div>
 </div>

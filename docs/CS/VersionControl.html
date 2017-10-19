@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-09 Mon 09:58 -->
+<!-- 2017-10-19 Thu 10:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -401,7 +401,7 @@ git push --set-upstream origin master
 <h3 id="orgheadline18"><span class="section-number-3">2.4</span> 版本回退</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
-<li>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset &#x2013;hard commit<sub>id</sub></li>
+<li>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset &#x2013;hard commit_id</li>
 <li>用git log可以查看提交历史，以便确定要回退到哪个版本。</li>
 <li>用git reflog查看命令历史，以便确定要回到未来的哪个版本。</li>
 </ul>
@@ -625,6 +625,10 @@ stash@{0}: WIP on dev: <span style="color: #AE81FF;">6224937</span> add merge
 <pre class="src src-emacs-lisp">git remote -v
 origin  https://github.com/USERNAME/REPOSITORY.git <span style="color: #AE81FF;">(</span>fetch<span style="color: #AE81FF;">)</span>
 origin  https://github.com/USERNAME/REPOSITORY.git <span style="color: #AE81FF;">(</span>push<span style="color: #AE81FF;">)</span>
+
+git@github.com:leolle/leolle.github.io.git
+github.com:leolle/leolle.github.io.git
+git@github.com:leolle/notes.git
 </pre>
 </div>
 </div>
@@ -646,7 +650,7 @@ origin  https://github.com/USERNAME/REPOSITORY.git <span style="color: #AE81FF;"
 <div class="outline-text-3" id="text-2-12">
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">git remote rm
+<pre class="src src-emacs-lisp">git remote rm xxx
 </pre>
 </div>
 
