@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-19 Thu 10:57 -->
+<!-- 2017-10-19 Thu 11:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -142,28 +142,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -204,37 +182,37 @@ for the JavaScript code in this tag.
 <li>You can match the characters not listed within the class by complementing the set.
 This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [^5] will match any character except '5'.</li>
 <li>\. As in Python string literals, the backslash can be followed by various characters to signal various special sequences. It’s also used to escape all the metacharacters so you can still match them in patterns; for example, if you need to match a [ or \, you can precede them with a backslash to remove their special meaning: \[ or \\.</li>
-<li>\d</li>
+<li></li>
 </ul>
 <p>
 Matches any decimal digit; this is equivalent to the class [0-9].
 </p>
 <ul class="org-ul">
-<li>\D</li>
+<li></li>
 </ul>
 <p>
 Matches any non-digit character; this is equivalent to the class [^0-9].
 </p>
 <ul class="org-ul">
-<li>\s</li>
+<li></li>
 </ul>
 <p>
-Matches any whitespace character; this is equivalent to the class [ \t\n\r\f\v].
+Matches any whitespace character; this is equivalent to the class [ ].
 </p>
 <ul class="org-ul">
 <li>&sect;</li>
 </ul>
 <p>
-Matches any non-whitespace character; this is equivalent to the class [^ \t\n\r\f\v].
+Matches any non-whitespace character; this is equivalent to the class [^ ].
 </p>
 <ul class="org-ul">
-<li>\w</li>
+<li></li>
 </ul>
 <p>
 Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_].
 </p>
 <ul class="org-ul">
-<li>\W</li>
+<li></li>
 </ul>
 <p>
 Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].
@@ -249,7 +227,7 @@ Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z
 <li>machine space and numbers:</li>
 </ul>
 <p>
-\s\b\d+\b
++
 </p>
 
 <ul class="org-ul">
