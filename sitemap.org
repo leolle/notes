@@ -51,6 +51,7 @@
   + [[file:finance/FundAnalysis.org][FundAnalysis]]
   + [[file:finance/IndustryNeutral.org][IndustryNeutral]]
   + [[file:finance/MultiFactorModel.org][MultiFactorModel]]
+  + [[file:finance/ActivePortfolioManagement.org][PortfolioManagement]]
   + [[file:finance/PortfolioOptimization.org][PortfolioOptimization]]
   + [[file:finance/QuantitativeInvestment.org][QuantitativeInvestment]]
   + [[file:finance/future.org][future]]

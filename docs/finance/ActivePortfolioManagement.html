@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-10-19 Thu 09:58 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline24">1. Active Portfolio Management</a>
+<ul>
+<li><a href="#orgheadline1">1.1. benchmark portfolio</a></li>
+<li><a href="#orgheadline2">1.2. exceptional returns relative to benchmark</a></li>
+<li><a href="#orgheadline3">1.3. trade off forecasts of exceptional return against additional risk</a></li>
+<li><a href="#orgheadline7">1.4. process of active management</a>
+<ul>
+<li><a href="#orgheadline4">1.4.1. processing of raw signals into exceptional return forecasts</a></li>
+<li><a href="#orgheadline5">1.4.2. portfolio construction, trading, performance analysis</a></li>
+<li><a href="#orgheadline6">1.4.3. asset selection, asset allocation, benchmark timing</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline9">1.5. forecasting</a>
+<ul>
+<li><a href="#orgheadline8">1.5.1. superior information</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline10">1.6. success relies on breath and skill</a></li>
+<li><a href="#orgheadline11">1.7. mathematics cannot overcome ignorance, half-life</a></li>
+<li><a href="#orgheadline15">1.8. where to look for superior information</a>
+<ul>
+<li><a href="#orgheadline12">1.8.1. forecasting factor returns</a></li>
+<li><a href="#orgheadline13">1.8.2. forecasting asset specific return</a></li>
+<li><a href="#orgheadline14">1.8.3. information sources that have proven valuable in the past</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline20">1.9. Applications</a>
+<ul>
+<li><a href="#orgheadline16">1.9.1. Structure model 1: Given Exposure, estimate factor returns</a></li>
+<li><a href="#orgheadline17">1.9.2. Structure model 2: Given Factor returns, estimate exposures.</a></li>
+<li><a href="#orgheadline18">1.9.3. Statistical Model 1: Principal Components Analysis</a></li>
+<li><a href="#orgheadline19">1.9.4. Statistical Model 2: Maximum Likeliood factor analysis</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline22">1.10. Valuation from cash flows</a>
+<ul>
+<li><a href="#orgheadline21">1.10.1. Valuation of equities</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline23">1.11. Valuation in practice</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline30">2. Foundations</a>
+<ul>
+<li><a href="#orgheadline25">2.1. Consensus Expected Returns: The Capital Asset Pricing Model</a></li>
+<li><a href="#orgheadline26">2.2. Risk</a></li>
+<li><a href="#orgheadline27">2.3. Exceptional Return, Benchmarks, and Value Added</a></li>
+<li><a href="#orgheadline28">2.4. Residual Risk and Return: The Information Ratio</a></li>
+<li><a href="#orgheadline29">2.5. The Fundamental Law of Active Management</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline34">3. Expected Returns and Valuation</a>
+<ul>
+<li><a href="#orgheadline31">3.1. Expected Returns and the Arbitrage Pricing Theory</a></li>
+<li><a href="#orgheadline32">3.2. Valuation in Theory</a></li>
+<li><a href="#orgheadline33">3.3. Valuation in Practice</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline39">4. Information Processing</a>
+<ul>
+<li><a href="#orgheadline35">4.1. Forecasting Basics</a></li>
+<li><a href="#orgheadline36">4.2. Advanced Forecasting</a></li>
+<li><a href="#orgheadline37">4.3. Information Analysis</a></li>
+<li><a href="#orgheadline38">4.4. The Information Horizon</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline52">5. Implementation</a>
+<ul>
+<li><a href="#orgheadline43">5.1. Portfolio Construction</a>
+<ul>
+<li><a href="#orgheadline40">5.1.1. Quadratic Programming</a></li>
+<li><a href="#orgheadline41">5.1.2. SUMMARY</a></li>
+<li><a href="#orgheadline42">5.1.3. ALTERNATIVES TO MEAN/VARIANCE OPTIMIZATION</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline44">5.2. Long/Short Investing</a></li>
+<li><a href="#orgheadline45">5.3. Transactions Costs, Turnover, and Trading</a></li>
+<li><a href="#orgheadline46">5.4. Performance Analysis</a></li>
+<li><a href="#orgheadline47">5.5. Asset Allocation</a></li>
+<li><a href="#orgheadline48">5.6. Benchmark Timing</a></li>
+<li><a href="#orgheadline49">5.7. The Historical Record for Active Management</a></li>
+<li><a href="#orgheadline50">5.8. Open Questions</a></li>
+<li><a href="#orgheadline51">5.9. Summary</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">1</span> Active Portfolio Management<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> benchmark portfolio</h3>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> exceptional returns relative to benchmark</h3>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> trade off forecasts of exceptional return against additional risk</h3>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">1.4</span> process of active management</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">1.4.1</span> processing of raw signals into exceptional return forecasts</h4>
+</div>
+<div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">1.4.2</span> portfolio construction, trading, performance analysis</h4>
+</div>
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">1.4.3</span> asset selection, asset allocation, benchmark timing</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">1.5</span> forecasting</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.5.1</span> superior information</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+if your forecasts match the consensus, or your forecasts differe from the consensus but contain no information, this machinery will lead you back to the benchmark.
+</p>
+
+<p>
+only as you develop superior information will your portfolio deviate from the benchmark.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.6</span> success relies on breath and skill</h3>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.7</span> mathematics cannot overcome ignorance, half-life</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+how to evaluating the horizon value of information.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">1.8</span> where to look for superior information</h3>
+<div class="outline-text-3" id="text-1-8">
+</div><div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.8.1</span> forecasting factor returns</h4>
+</div>
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">1.8.2</span> forecasting asset specific return</h4>
+</div>
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">1.8.3</span> information sources that have proven valuable in the past</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">1.9</span> Applications</h3>
+<div class="outline-text-3" id="text-1-9">
+</div><div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">1.9.1</span> Structure model 1: Given Exposure, estimate factor returns</h4>
+</div>
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">1.9.2</span> Structure model 2: Given Factor returns, estimate exposures.</h4>
+</div>
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">1.9.3</span> Statistical Model 1: Principal Components Analysis</h4>
+<div class="outline-text-4" id="text-1-9-3">
+<p>
+use the principal components to explain the other stocks, the historical return are already known, use this as the factors, then calculate the coefficients.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">1.9.4</span> Statistical Model 2: Maximum Likeliood factor analysis</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">1.10</span> Valuation from cash flows</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Risk-adjusted expectations:
+</p>
+
+<p>
+the modern theory of valuation prices uncertain future cash flows by risk-adjusting the expected cash flows and discounting them to the present using the risk-free rate.
+</p>
+</div>
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">1.10.1</span> Valuation of equities</h4>
+<div class="outline-text-4" id="text-1-10-1">
+<p>
+the standard quantitative method is the dividend discount model, which focuses on dividends, earnings, and growth.
+</p>
+
+<p>
+Dividend discount model is only as good as their growth forecasts.
+</p>
+
+<p>
+The goal of valuation is trying to find those equities which are mispriced and to make money when the price is corrected by the market.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">1.11</span> Valuation in practice</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+stock value = financial value + operational value
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline30" class="outline-2">
+<h2 id="orgheadline30"><span class="section-number-2">2</span> Foundations</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">2.1</span> Consensus Expected Returns: The Capital Asset Pricing Model</h3>
+</div>
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">2.2</span> Risk</h3>
+</div>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">2.3</span> Exceptional Return, Benchmarks, and Value Added</h3>
+</div>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">2.4</span> Residual Risk and Return: The Information Ratio</h3>
+</div>
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">2.5</span> The Fundamental Law of Active Management</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline34" class="outline-2">
+<h2 id="orgheadline34"><span class="section-number-2">3</span> Expected Returns and Valuation</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">3.1</span> Expected Returns and the Arbitrage Pricing Theory</h3>
+</div>
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">3.2</span> Valuation in Theory</h3>
+</div>
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">3.3</span> Valuation in Practice</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-2">
+<h2 id="orgheadline39"><span class="section-number-2">4</span> Information Processing</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">4.1</span> Forecasting Basics</h3>
+</div>
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">4.2</span> Advanced Forecasting</h3>
+</div>
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">4.3</span> Information Analysis</h3>
+</div>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">4.4</span> The Information Horizon</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline52" class="outline-2">
+<h2 id="orgheadline52"><span class="section-number-2">5</span> Implementation</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">5.1</span> Portfolio Construction</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">5.1.1</span> Quadratic Programming</h4>
+</div>
+<div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41"><span class="section-number-4">5.1.2</span> SUMMARY</h4>
+</div>
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">5.1.3</span> ALTERNATIVES TO MEAN/VARIANCE OPTIMIZATION</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">5.2</span> Long/Short Investing</h3>
+</div>
+<div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45"><span class="section-number-3">5.3</span> Transactions Costs, Turnover, and Trading</h3>
+</div>
+<div id="outline-container-orgheadline46" class="outline-3">
+<h3 id="orgheadline46"><span class="section-number-3">5.4</span> Performance Analysis</h3>
+</div>
+<div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">5.5</span> Asset Allocation</h3>
+</div>
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48"><span class="section-number-3">5.6</span> Benchmark Timing</h3>
+</div>
+<div id="outline-container-orgheadline49" class="outline-3">
+<h3 id="orgheadline49"><span class="section-number-3">5.7</span> The Historical Record for Active Management</h3>
+</div>
+<div id="outline-container-orgheadline50" class="outline-3">
+<h3 id="orgheadline50"><span class="section-number-3">5.8</span> Open Questions</h3>
+</div>
+<div id="outline-container-orgheadline51" class="outline-3">
+<h3 id="orgheadline51"><span class="section-number-3">5.9</span> Summary</h3>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Active+Portfolio+Management+Second+Edition, Richard Grinold and Ronald Kahn
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

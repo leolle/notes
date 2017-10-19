@@ -1,0 +1,87 @@
+#+SETUPFILE: ../configOrg/level1.org
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: PortfolioManagement
+#+DATE: <2017-10-19 Thu>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Active Portfolio Management[1]
+** benchmark portfolio
+** exceptional returns relative to benchmark
+** trade off forecasts of exceptional return against additional risk
+** process of active management
+*** processing of raw signals into exceptional return forecasts
+*** portfolio construction, trading, performance analysis
+*** asset selection, asset allocation, benchmark timing
+** forecasting
+*** superior information
+if your forecasts match the consensus, or your forecasts differe from the consensus but contain no information, this machinery will lead you back to the benchmark.
+
+only as you develop superior information will your portfolio deviate from the benchmark.
+** success relies on breath and skill
+** mathematics cannot overcome ignorance, half-life
+how to evaluating the horizon value of information.
+** where to look for superior information
+*** forecasting factor returns
+*** forecasting asset specific return
+*** information sources that have proven valuable in the past
+** Applications
+*** Structure model 1: Given Exposure, estimate factor returns
+*** Structure model 2: Given Factor returns, estimate exposures.
+*** Statistical Model 1: Principal Components Analysis
+use the principal components to explain the other stocks, the historical return are already known, use this as the factors, then calculate the coefficients.
+*** Statistical Model 2: Maximum Likeliood factor analysis
+** Valuation from cash flows
+Risk-adjusted expectations:
+
+the modern theory of valuation prices uncertain future cash flows by risk-adjusting the expected cash flows and discounting them to the present using the risk-free rate.
+*** Valuation of equities
+the standard quantitative method is the dividend discount model, which focuses on dividends, earnings, and growth.
+
+Dividend discount model is only as good as their growth forecasts.
+
+The goal of valuation is trying to find those equities which are mispriced and to make money when the price is corrected by the market.
+** Valuation in practice
+stock value = financial value + operational value
+
+
+
+* Foundations
+** Consensus Expected Returns: The Capital Asset Pricing Model
+** Risk
+** Exceptional Return, Benchmarks, and Value Added
+** Residual Risk and Return: The Information Ratio
+** The Fundamental Law of Active Management
+* Expected Returns and Valuation
+** Expected Returns and the Arbitrage Pricing Theory
+** Valuation in Theory
+** Valuation in Practice
+* Information Processing
+** Forecasting Basics
+** Advanced Forecasting
+** Information Analysis
+** The Information Horizon
+* Implementation
+** Portfolio Construction
+*** Quadratic Programming
+*** SUMMARY
+*** ALTERNATIVES TO MEAN/VARIANCE OPTIMIZATION
+** Long/Short Investing
+** Transactions Costs, Turnover, and Trading
+** Performance Analysis
+** Asset Allocation
+** Benchmark Timing
+** The Historical Record for Active Management
+** Open Questions
+** Summary
+
+* Footnotes
+
+[1] Active+Portfolio+Management+Second+Edition, Richard Grinold and Ronald Kahn
