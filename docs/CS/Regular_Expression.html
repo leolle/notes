@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-19 Thu 17:30 -->
+<!-- 2017-10-20 Fri 12:00 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -171,30 +171,38 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline4">1. Matching characters</a>
+<li><a href="#orgheadline6">1. Matching characters</a>
 <ul>
-<li><a href="#orgheadline1">1.1. metacharacters</a></li>
-<li><a href="#orgheadline2">1.2. Quantification</a></li>
-<li><a href="#orgheadline3">1.3. cases:</a></li>
+<li><a href="#orgheadline4">1.1. metacharacters</a>
+<ul>
+<li><a href="#orgheadline1">1.1.1. Anchors</a></li>
+<li><a href="#orgheadline2">1.1.2. Pattern Matching</a></li>
+<li><a href="#orgheadline3">1.1.3. Quantification</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline6">2. Repeating Things</a>
-<ul>
-<li><a href="#orgheadline5">2.1. *.</a></li>
+<li><a href="#orgheadline5">1.2. cases:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">3. replace content to org mode strings</a></li>
+<li><a href="#orgheadline8">2. Repeating Things</a>
+<ul>
+<li><a href="#orgheadline7">2.1. *.</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline9">3. replace content to org mode strings</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">1</span> Matching characters</h2>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">1</span> Matching characters</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> metacharacters</h3>
+</div><div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.1</span> metacharacters</h3>
 <div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-orgheadline1" class="outline-4">
+<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> Anchors</h4>
+<div class="outline-text-4" id="text-1-1-1">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">. ^ $ * + ? { } <span style="color: #AE81FF;">[</span> <span style="color: #AE81FF;">]</span> \ | <span style="color: #AE81FF;">(</span> <span style="color: #AE81FF;">)</span>
@@ -202,6 +210,61 @@ for the JavaScript code in this tag.
 </div>
 <ul class="org-ul">
 <li>The first metacharacters we’ll look at are [ and ]. They’re used for specifying a character class, which is a set of characters that you wish to match. Characters can be listed individually, or a range of characters can be indicated by giving two characters and separating them by a '-'. For example, [abc] will match any of the characters a, b, or c; this is the same as [a-c], which uses a range to express the same set of characters. If you wanted to match only lowercase letters, your RE would be [a-z].</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">^
+</pre>
+</div>
+<p>
+The match must occur at the beginning of the <b>line</b>.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">$
+</pre>
+</div>
+<p>
+The match must occur at the end of the <b>line</b>.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\&lt;
+</pre>
+</div>
+<p>
+The match must occur at the beginning of the <b>string</b>.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\&gt;
+</pre>
+</div>
+<p>
+The match must occur at the end of the string.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">\b
+</pre>
+</div>
+<p>
+Defines the boundary for the word.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-4">
+<h4 id="orgheadline2"><span class="section-number-4">1.1.2</span> Pattern Matching</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>?</li>
+</ul>
+<p>
+indicates zero or one occurrences of the preceding element.
+</p>
+
+<ul class="org-ul">
 <li>You can match the characters not listed within the class by complementing the set.
 This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [^5] will match any character except '5'.</li>
 <li>\.</li>
@@ -248,16 +311,9 @@ Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Quantification</h3>
-<div class="outline-text-3" id="text-1-2">
-<ul class="org-ul">
-<li>?</li>
-</ul>
-<p>
-indicates zero or one occurrences of the preceding element.
-</p>
-
+<div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">1.1.3</span> Quantification</h4>
+<div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>*</li>
 </ul>
@@ -271,11 +327,20 @@ The asterisk indicates zero or more occurrences of the preceding element.
 <p>
 indicates one or more occurrences of the preceding element.
 </p>
+
+<ul class="org-ul">
+<li>{m,n}</li>
+</ul>
+<p>
+Used to match between m and n occurences of the previous character. The example tries to match between three and five w's.
+</p>
 </div>
 </div>
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> cases:</h3>
-<div class="outline-text-3" id="text-1-3">
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.2</span> cases:</h3>
+<div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>machine space and numbers:</li>
 </ul>
@@ -301,11 +366,11 @@ indicates one or more occurrences of the preceding element.
 </div>
 
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">2</span> Repeating Things</h2>
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">2</span> Repeating Things</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.1</span> *.</h3>
+</div><div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.1</span> *.</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>doesn’t match the literal character *; instead, it specifies that the previous character can be matched zero or more times, instead of exactly once.</li>
@@ -316,8 +381,8 @@ For example, ca*t will match ct (0 a characters), cat (1 a), caaat (3 a characte
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">3</span> replace content to org mode strings</h2>
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">3</span> replace content to org mode strings</h2>
 </div>
 </div>
 </body>

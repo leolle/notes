@@ -12,21 +12,34 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
+* What's GS?
+GS is a highly adaptive AI research platform to help investors manage ideas, verify and analyze data and strategy, produce report, make asset allocation decision with just mouse clicks.
+
+* Content:
+1. Functions, j(factors, function instance).
+2. Task definition(workflow).
+3. Task instance(strategies).
+4. Task queue(results).
+
+* Generate content
+Content includes interesting ideas, factors, thoughts, strategies, workflow, results.
+
+* Orgnize content
+1. arrange.
+2. manage.
+3. search.
+4. check.
+
+* Feature
+Implement, verify ideas, strategies from source to
+
+#+BEGIN_SRC plantuml :noweb yes :file GS_structure.png :exports results
+@startuml
+Content -> Manage: want
+@enduml
+#+END_SRC
+
 * Structure
-#+begin_src ditaa :file GS_structure.png
-
-
-
-+-----+   +-----+
-|cBLU |   |cBLU |
-| GS  +---+ ToDo|
-|     |   |     |
-+-----+   +-----+
-
-#+end_src
-
-#+RESULTS:
-[[file:GS_structure.png]]
 
 
 * Task management

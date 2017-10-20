@@ -305,19 +305,12 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 [[file:ditaa-seqboxes.png]]
 
 
+
 ** UML diagrams with PlantUML
 *** Class diagrams
 #+BEGIN_SRC plantuml :noweb yes :file clientmodel.png :exports results
 @startuml
-
-<<uml-style>>
-
-<<client-user>>
-
-<<client-user-role>>
-
-User -right-> "1" UserRole : > has
-
+Content -> Manage: want
 @enduml
 #+END_SRC
 
