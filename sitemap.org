@@ -23,14 +23,14 @@
   + [[file:CS/VersionControl.org][VersionControl]]
   + Emacs
     + [[file:emacs/emacs.org][Emacs]]
-    + [[file:emacs/markdown.org][markdown]]
-    + [[file:emacs/tutorial.org][tutorial]]
-    + [[file:emacs/tutorial_backup.org][backup]]
+    + [[file:emacs/markdown.org][Markdown]]
+    + [[file:emacs/tutorial.org][Tutorial]]
+    + [[file:emacs/tutorial_backup.org][Backup]]
 + Project
-  + [[file:Calendar/sentiment.org][sentiment]]
+  + [[file:Calendar/sentiment.org][Sentiment]]
 + GS
   + Introduction
-    + [[file:GS/Introduction/functions.org][functions]]
+    + [[file:GS/Introduction/functions.org][Functions]]
   + Research
     + [[file:GS/OSet/oset.org][ObjectSets]]
       + [[file:GS/OSet/anomalies.org][The Handbook of Equity Market Anomalies]]
@@ -57,4 +57,4 @@
   + [[file:finance/option.org][Option]]
 + Notes
   + [[file:notes/thought.org][Thought]]
-+ [[file:work_plan.org][Work_plan]]
++ [[file:work_plan.org][WorkPlan]]

@@ -144,11 +144,9 @@ Or change the start-up configuration.
 =C-x )= or =<f4>= stop defining the keyboard macro
 
 And here is how to execute a keyboard macro you’ve defined:
-
-=C-x e= or =f4= – execute the keyboard macro
+=C-x e= or =f4= – execute the keyboard macro.
 
 Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37):
-
 =C-u 37 C-x e=
 
 - open a python buffer:
@@ -250,6 +248,7 @@ Narrow buffer to current subtree.
 
 =C-x n b=     (org-narrow-to-block)
 Narrow buffer to current block.
+
 =C-x n w=     (widen)
 Widen buffer to remove narrowing.
 
@@ -492,4 +491,4 @@ C-c C-x C-v (org-toggle-inline-mages)
 #+end_src
 
 * layers
-=M-x configuration-layer/create-layer=
+=M-x= configuration-layer/create-layer

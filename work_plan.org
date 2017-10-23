@@ -257,27 +257,52 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
 - [ ] 查看Google Trende API.
 
+* Machine Learning
+Principle: research and project oriented, adjusting speed based on progress.
+
+Spend at most 1 week to learn all those, then pick one to go deeper.
+** Week 1/2
+*** Logistic Regression
+*** Regularization
+*** Classification
+**** Linear Discriminant Analysis
+
+**** Comparison
+*** Decision tree and random forest
+*** Boosting
+*** XGBoost
+*** SVM
+*** Clustering
+*** Bayesian Network
+*** LDA
+*** HMM
+*** Neural Network
+* Deep Learning
+** Week 1/2
+*** Gradient algorithm
+*** CNN
+*** RNN
 * GS
 ** organize OSet structure
-DEADLINE: <2017-10-18 Wed>
-- [-] 从handbook of equity market anomalies提取因子，策略，转化为能产生alpha的需求。
-  - [ ] GS技术分析因子分类
-  - [ ] analyst-related anomalies
-  - [ ] accural anomalies
-  - [ ] post-earnings announcement drift
+DEADLINE: <2017-10-23 Mon>
+- [-] 从Handbook Of Equity Market Anomalies提取因子，策略，转化为能产生alpha的需求。
+  - [ ] Analyst-related anomalies
+  - [X] GS技术分析因子分类
+  - [ ] Accural anomalies
+  - [ ] Post-earnings announcement drift
   - [X] GS函数定义机器学习分类，到需求tree
   - [ ] 建立动量需求，搜动量因子满足需求
   - [ ] 盈余惯性
   - [X] 分析师预测和盈利预测
 - [ ] 原有因子指标加入新建OSet
-- [ ] add machine learning functions to statistical inference
+- [X] add machine learning functions to statistical inference
 - [X] add abnormal factors on GS
 - [X] add computer age statistical inference function content on GS
 - [ ] strategies
 - [X] stocks
 - [X] f def
 - [X] abnormal factors
-
+** follow GS workflow
 * TODO optimization
 <2017-07-21 Fri> - <2017-09-18 Mon>
 - [ ] construnct FS, FR, workflow.

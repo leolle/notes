@@ -39,8 +39,13 @@ Content -> Manage: want
 @enduml
 #+END_SRC
 
-* Structure
+#+RESULTS:
+[[file:GS_structure.png]]
 
+* Structure
+Oset -> GS类 -> 需求树
+
+管理需求树
 
 * Task management
 ** [[file:./ideas_from_docs/converted_file_d64e468e.html][from documents to wants]]
