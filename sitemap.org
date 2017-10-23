@@ -8,13 +8,13 @@
   + ProgramicStyle
     + [[file:CS/ProgramicStyle/PragmaticProgrammer.org][PragmaticProgrammer]]
   + Python
+    + [[file:CS/Python/python.org][Python]]
+    + [[file:CS/Python/pandas.org][pandas]]
+    + [[file:CS/Python/guide.org][DesignGuide]]
     + [[file:CS/Python/DesignPattern.org][DesignPattern]]
     + [[file:CS/Python/EffectivePython.org][EffectivePython]]
     + [[file:CS/Python/HighPerformancePython.org][HighPerformancePython]]
     + [[file:CS/Python/PythonForFinance.org][PythonForFinance]]
-    + [[file:CS/Python/guide.org][guide]]
-    + [[file:CS/Python/pandas.org][pandas]]
-    + [[file:CS/Python/python.org][python]]
     + [[file:CS/Python/sqlalchemy.org][sqlalchemy]]
   + Database
     + [[file:Database/DBMS.org][DBMS]]
@@ -22,7 +22,7 @@
   + [[file:CS/Regular_Expression.org][RegularExpression]]
   + [[file:CS/VersionControl.org][VersionControl]]
   + Emacs
-    + [[file:emacs/emacs.org][emacs]]
+    + [[file:emacs/emacs.org][Emacs]]
     + [[file:emacs/markdown.org][markdown]]
     + [[file:emacs/tutorial.org][tutorial]]
     + [[file:emacs/tutorial_backup.org][backup]]
@@ -53,8 +53,8 @@
   + [[file:finance/ActivePortfolioManagement.org][PortfolioManagement]]
   + [[file:finance/PortfolioOptimization.org][PortfolioOptimization]]
   + [[file:finance/QuantitativeInvestment.org][QuantitativeInvestment]]
-  + [[file:finance/future.org][future]]
-  + [[file:finance/option.org][option]]
+  + [[file:finance/future.org][Future]]
+  + [[file:finance/option.org][Option]]
 + Notes
-  + [[file:notes/thought.org][thought]]
-+ [[file:work_plan.org][work_plan]]
+  + [[file:notes/thought.org][Thought]]
++ [[file:work_plan.org][Work_plan]]
