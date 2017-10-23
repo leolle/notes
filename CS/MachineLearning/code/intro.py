@@ -138,9 +138,9 @@ if __name__ == "__main__":
     # print g
     # #
     # 3.存取
-    3.1常规办法：数组元素的存取方法和Python的标准方法相同
-a = np.arange(10)
-print a
+    # 3.1常规办法：数组元素的存取方法和Python的标准方法相同
+    a = np.arange(10)
+    print a
 # # 获取某个元素
 print a[3]
 # # # 切片[3,6)，左闭右开
