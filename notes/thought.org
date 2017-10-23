@@ -11,20 +11,20 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../configOrg/level1.org
-
-* 线性与非线性思维 <2017-09-23 Sat>
+* September 2017
+** 线性与非线性思维 <2017-09-23 Sat>
 世界是非线性的，人的大脑为了适应环境，会常选择用线性的思维来判断周围的环境，从而做出比较机械式的决定--《思维的快与慢》。例如人们以为成功是有秘诀的，所有的成功是有一套模式的，从而从成功人士身上提取一堆特质，并认为只要具有这些特质，自然而然就会成功了。这也是为什么畅销书一直火爆的秘密。但是人们忘记了，成功并没有范式，同样具有这样物征的人也许有很多很多，有这样特征的人失败的人并没有常被人们提起，而因为幸存者偏差被遗忘了。同样的道理，线性的模型认为经过了一些漏斗选择出来的股票，将来有大概率的机会会上涨或者反弹，但是这些alpha在现实世界上往往经不起考验，因为还有beta的因素在影响股票的价格。
 打破线性思维，用非线性模型来思考，就像Taleb在《黑天鹅》里面说的一样，当人们见到的大多数天鹅是白色的，就认为所有的天鹅是白色的，当黑天鹅出现的时候，人们才想起天鹅还有黑色的。逆向思维，当提出一个假设以后，通过反面的例子去否定他。
 
-* Anormalies <2017-09-27 Wed>
+** Anormalies <2017-09-27 Wed>
 
 科学的产生是经验的总结，人的习惯性思维是去寻找一些规律，好利用这些规律来辅助生产。
 
 但是在投资领域里面并没有万金油的规律。这个跟黑天鹅现象很像，人们直到看到黑天鹅出现时，才知道原来天鹅不全都是白色的。一个规则运用的场景，次数很多，不代表这就是应用背后的规律。
 
 投资时避免选择拥护的交易，逆向思维，用排除法去除大众的想法，而应该选择去寻找Anormaly，风险小，收益高。
-
-* Zero-sum game theory<2017-10-19 Thu>
+* October 2017
+** Zero-sum game theory<2017-10-19 Thu>
 When applied specifically to economics there are multiple factors to consider when understanding a zero-sum game. Zero-sum game assumes a version of perfect competition and perfect information; that is, both opponents in the model have all the relevant information to make an informed decision. To take a step back, most transactions or trades are inherently non zero-sum games because when two parties agree to trade they do so with the understanding that the goods or services they are receiving are more valuable than the goods or services they are trading for it, after transaction costs. This is called positive-sum, and most transactions fall under this category.
 
 Accumenting information is a key element at trading so that a lot of economic resources are put on the research. Most of the time the institutional investors have more and depth information than the individual investors, this makes the game not a fair one. And the disposition effect makes the unbalance evern worse, frequent buying high and selling low bothers investors, which brings loss to them.
@@ -33,10 +33,10 @@ The increasement of the corporate value will bring more value to investors as lo
 
 However, this is different from the poker game, where winners' gain is losers' loss.
 
-* Survival in the financial technology industry<2017-10-23 Mon>
+** Survival in the financial technology industry<2017-10-23 Mon>
 There are two competition factors that affect people's career expectation at the financial technology industry, one is industry advancing by the era, beginners/newbies bring more resource including new knowledge and more capital, you have to learn more knlowlege to compete with other peers. The other one is the threat of Artifical Intellegience, most of the nowadays jobs will be eliminated by AI because of their high efficiency in the next few decades. Imaging the competition from AI that will be more productive than average people by many times, it's not hard to get the conclusion that you need study much much harder to face the competition of AI from in the future.
 
 The benefit of not being eliminated, or still having a job in the future is huge. It means you can still produce productivity and effort from a job, which is not token by robots or other competitors. This high payoff will bring those survivors enough resources to get people the most wanted dream since thousand years ago, longervity. In order to prove that you can still produce good for the society, you need a talent job making value. Otherwise, your future social function can not be approved by others, and the natural aging will be an end. Longervity can brought by the high curing level, which can cancel the aging or even better, modifying your body organs.
 
-* Why not follow a standard course schedule on studying after your graduation?<2017-10-23 Mon>
+** Why not follow a standard course schedule on studying after your graduation?<2017-10-23 Mon>
 Standard course is designed for average people, or even worse the lowest level to save time and money in the society. Adapting learning progress and not following those old-fashion style studying skills, learninig the basic principles then choosing one topic to go deeper related to your work or project is a more talent way for people above avergae.
