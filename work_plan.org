@@ -14,13 +14,16 @@
 =C-c C-d=
 
 * Workflow
-1. search
-2. read pdf/code
-3. modify code
-4. plugging gs to run with data
-5. check result
-6. prepare presentation of all previous steps
-7. present and get feedback
+1. search.
+2. read pdf/code, take notes.
+3. present general idea.
+4. write pseudo code, set input parameters.
+5. write/modify code.
+6. plugging gs to run with data.
+7. check result.
+8. prepare presentation of all previous steps.
+9. present and get feedback.
+10. deploy function definition, function sampling.
 
 * GID table
 | date             | GID                              | descriptions                                      |
@@ -303,7 +306,30 @@ DEADLINE: <2017-10-23 Mon>
 - [X] f def
 - [X] abnormal factors
 ** follow GS workflow
+
 * TODO optimization
+
+** black-litterman model
+DEADLINE: <2017-10-24 Tue>
+1. [ ] read pdf/code, take notes.
+2. [ ] present general idea.
+3. [ ] write pseudo code, set input parameters.
+4. [ ] write/modify code.
+5. [ ] plugging gs to run with data.
+6. [ ] check result.
+7. [ ] prepare presentation of all previous steps.
+8. [ ] present and get feedback.
+9. [ ] deploy function definition, function sampling.
+** cvxportfolio
+- [ ] 查看cvxportfolio的使用说明。
+- [ ] 在开发的帮助下安装cvxportfolio library，调试。
+- [ ] 调试cvxportfolio library，把代码换用该库。
+- [ ] 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。
+** cvxpy
+- [ ] research on soft constraint using cvxpy.
+- [ ] 搭建workflow。
+- [ ] 多期优化。
+** record
 <2017-07-21 Fri> - <2017-09-18 Mon>
 - [ ] construnct FS, FR, workflow.
 - [ ] soft constraint.
@@ -423,7 +449,6 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 - [X] profile the program.
 90% of program running time is spent on loading data and decompresssing data.
 - [ ] present &review project.
-- [ ] portfolio construction with black-litterman model.
 - [ ] portfolio construction with risk-parity model.
 - [-] test:
   - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
@@ -432,19 +457,8 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 - [X] industry weight constraint match the benchmark weight.
 - [ ] pack functions to modules.
 - [ ] follow up correction.
-- [ ] black-litterman portfolio.
 - [ ] pack functions to modules.
 - [ ] follow up correction.
-** cvxportfolio
-- [ ] 查看cvxportfolio的使用说明。
-- [ ] 在开发的帮助下安装cvxportfolio library，调试。
-- [ ] 调试cvxportfolio library，把代码换用该库。
-- [ ] 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。
-** cvxpy
-- [ ] research on soft constraint using cvxpy.
-- [ ] 搭建workflow。
-- [ ] 多期优化。
-
 * TODO future simulation                                :future:optimization:
 
  <2017-09-19 Tue> - <2017-10-01 Sun>

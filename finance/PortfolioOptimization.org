@@ -209,6 +209,7 @@ The variation in asset allocation around that target is called tactical asset al
 - building portfolios
 - analyzing out-of-sample performance.
 * Black litterman model step-by-step
+** Introduction
 The Black-Litterman model uses a *Bayesian* approach to combine the subjective views of an investor regarding the expected returns of one or more assets with the market equilibrium vector of expected returns (the prior distribution) to form a new, mixed estimate of expected returns.
 
 Black–Litterman model is a mathematical model for portfolio allocation developed in 1990 at Goldman Sachs by Fischer Black and Robert Litterman, and published in 1992. It seeks to overcome problems that institutional investors have encountered in applying modern portfolio theory in practice, although the covariances of a few assets can be adequately estimated, *it is difficult to come up with reasonable estimates of expected returns*. The model starts with the equilibrium assumption that the asset allocation of a representative agent should be proportional to the market values of the available assets, and then modifies that to take into account the 'views' (i.e., the specific opinions about asset returns) of the investor in question to arrive at a bespoke asset allocation.
@@ -218,7 +219,24 @@ Black–Litterman overcame this problem by not requiring the user to input estim
 In general, when there are portfolio constraints - for example, when short sales are not allowed
 - the easiest way to find the optimal portfolio is to use the Black–Litterman model to generate the expected returns for the assets,
 - and then use a mean-variance optimizer to solve the constrained optimization problem.
+** Problem of mean-variance optimization
+- Extreme long or short positions
+It could bring extreme long or short positions without constraint(excluding risk exposure constraint, weight constraint).
 
+- Heavy weight on a small number of assets
+When subject to a long only constraint, portfolios will concentrate in a relatively small number of assets.
+- Importance of expected return
+A small increase in the expected return of one of the portfolio's assets can force half of the assets from the portfolio.
+
+*** reverse optimization to mitigate this problem
+$$\Pi = \lambda\Sigma\omega_{mkt}$$
+where
+$\Pi$ is the impolied excess equilibrium return vector(Nx1 vector);
+$\lambda$ is the risk aversion coefficient;
+$\Sigma$ is the covariance matrix of excess returns(NxN matrix);
+$\omega_{mkt}$ is the market capitalization asset weight(Nx1 vector).
+** Black-Litterman model and the process of building the required inputs.
+** Implied confidence framework for the views.
 * NLP
 - Hidden factor model
 - portfolio optimization based on factor model

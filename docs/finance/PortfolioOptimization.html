@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-09 Mon 09:57 -->
+<!-- 2017-10-24 Tue 10:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -219,8 +219,19 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline37">8.2. asset allocation strategies is a three-step process:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline39">9. Black litterman model step-by-step</a></li>
-<li><a href="#orgheadline40">10. NLP</a></li>
+<li><a href="#orgheadline44">9. Black litterman model step-by-step</a>
+<ul>
+<li><a href="#orgheadline39">9.1. Introduction</a></li>
+<li><a href="#orgheadline41">9.2. Problem of mean-variance optimization</a>
+<ul>
+<li><a href="#orgheadline40">9.2.1. reverse optimization to mitigate this problem</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline42">9.3. Black-Litterman model and the process of building the required inputs.</a></li>
+<li><a href="#orgheadline43">9.4. Implied confidence framework for the views.</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline45">10. NLP</a></li>
 </ul>
 </div>
 </div>
@@ -674,9 +685,12 @@ The variation in asset allocation around that target is called tactical asset al
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline39" class="outline-2">
-<h2 id="orgheadline39"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
+<div id="outline-container-orgheadline44" class="outline-2">
+<h2 id="orgheadline44"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
 <div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">9.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-9-1">
 <p>
 The Black-Litterman model uses a <b>Bayesian</b> approach to combine the subjective views of an investor regarding the expected returns of one or more assets with the market equilibrium vector of expected returns (the prior distribution) to form a new, mixed estimate of expected returns.
 </p>
@@ -698,9 +712,53 @@ In general, when there are portfolio constraints - for example, when short sales
 </ul>
 </div>
 </div>
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">9.2</span> Problem of mean-variance optimization</h3>
+<div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li>Extreme long or short positions</li>
+</ul>
+<p>
+It could bring extreme long or short positions without constraint(excluding risk exposure constraint, weight constraint).
+</p>
 
-<div id="outline-container-orgheadline40" class="outline-2">
-<h2 id="orgheadline40"><span class="section-number-2">10</span> NLP</h2>
+<ul class="org-ul">
+<li>Heavy weight on a small number of assets</li>
+</ul>
+<p>
+When subject to a long only constraint, portfolios will concentrate in a relatively small number of assets.
+</p>
+<ul class="org-ul">
+<li>Importance of expected return</li>
+</ul>
+<p>
+A small increase in the expected return of one of the portfolio's assets can force half of the assets from the portfolio.
+</p>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">9.2.1</span> reverse optimization to mitigate this problem</h4>
+<div class="outline-text-4" id="text-9-2-1">
+<p>
+\[\Pi = \lambda\Sigma\omega_{mkt}\]
+where
+\(\Pi\) is the impolied excess equilibrium return vector(Nx1 vector);
+\(\lambda\) is the risk aversion coefficient;
+\(\Sigma\) is the covariance matrix of excess returns(NxN matrix);
+\(\omega_{mkt}\) is the market capitalization asset weight(Nx1 vector).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42"><span class="section-number-3">9.3</span> Black-Litterman model and the process of building the required inputs.</h3>
+</div>
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">9.4</span> Implied confidence framework for the views.</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline45" class="outline-2">
+<h2 id="orgheadline45"><span class="section-number-2">10</span> NLP</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Hidden factor model</li>
