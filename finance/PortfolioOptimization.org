@@ -296,7 +296,14 @@ Assets A and B will outperform/underperform assets C and D by xx basis points; E
 - $\Omega$
 - $Q$
 
-** Implied confidence framework for the views.
+** Implied confidence framework for the views
+$\Omega$, which representing the uncertainty of the views, and $\tau$ are the most abstract mathematical parameters of this model.
+
+how to specify a probability density function for each view?
+
+*** Implied confidence levels
+$$\frac{
+*** An intuitive approach
 * NLP
 - Hidden factor model
 - portfolio optimization based on factor model
