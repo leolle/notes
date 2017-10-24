@@ -7,9 +7,9 @@ git add *
 if [ -z "$*" ]
 then
     echo "AA"
+else
+    git commit -m "$*"
     fi
-#then
- #   git commit -m "$1"
 #  else
 git commit -m "update notes"
 #git checkout master
