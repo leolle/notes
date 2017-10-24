@@ -10,7 +10,6 @@ if ["$1"]; then
 #then
  #   git commit -m "$1"
 #  else
-echo "A"
 git commit -m "update notes"
 #git checkout master
 #git merge home
