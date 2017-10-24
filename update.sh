@@ -4,7 +4,8 @@ cp -R -u ./ipynb/site/fonts ./docs/ipynb/site/
 cp -R -u ./ipynb/site/ ./docs/ipynb/
 git add *
 
-if [$1]; then
+if [$1]
+then
     echo $1
     fi
 #then
