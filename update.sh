@@ -4,7 +4,7 @@ cp -R -u ./ipynb/site/fonts ./docs/ipynb/site/
 cp -R -u ./ipynb/site/ ./docs/ipynb/
 git add *
 
-if [ -z "$@" ]
+if [ -z "$*" ]
 then
     echo "AA"
     fi
