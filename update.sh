@@ -6,7 +6,7 @@ git add *
 
 if [$1]
 then
-    echo $1
+    echo "AA"
     fi
 #then
  #   git commit -m "$1"
