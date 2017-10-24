@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-24 Tue 10:50 -->
+<!-- 2017-10-24 Tue 17:05 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -219,7 +219,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline37">8.2. asset allocation strategies is a three-step process:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline44">9. Black litterman model step-by-step</a>
+<li><a href="#orgheadline48">9. Black litterman model step-by-step</a>
 <ul>
 <li><a href="#orgheadline39">9.1. Introduction</a></li>
 <li><a href="#orgheadline41">9.2. Problem of mean-variance optimization</a>
@@ -227,11 +227,16 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline40">9.2.1. reverse optimization to mitigate this problem</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline42">9.3. Black-Litterman model and the process of building the required inputs.</a></li>
-<li><a href="#orgheadline43">9.4. Implied confidence framework for the views.</a></li>
+<li><a href="#orgheadline46">9.3. Black-Litterman model and the process of building the required inputs.</a>
+<ul>
+<li><a href="#orgheadline44">9.3.1. Black-Litterman model</a></li>
+<li><a href="#orgheadline45">9.3.2. Inputs</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline45">10. NLP</a></li>
+<li><a href="#orgheadline47">9.4. Implied confidence framework for the views.</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline49">10. NLP</a></li>
 </ul>
 </div>
 </div>
@@ -685,8 +690,8 @@ The variation in asset allocation around that target is called tactical asset al
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline44" class="outline-2">
-<h2 id="orgheadline44"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
+<div id="outline-container-orgheadline48" class="outline-2">
+<h2 id="orgheadline48"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
 <div class="outline-text-2" id="text-9">
 </div><div id="outline-container-orgheadline39" class="outline-3">
 <h3 id="orgheadline39"><span class="section-number-3">9.1</span> Introduction</h3>
@@ -742,23 +747,153 @@ A small increase in the expected return of one of the portfolio's assets can for
 <p>
 \[\Pi = \lambda\Sigma\omega_{mkt}\]
 where
+</p>
+
+<p>
 \(\Pi\) is the impolied excess equilibrium return vector(Nx1 vector);
-\(\lambda\) is the risk aversion coefficient;
+</p>
+
+<p>
+\(\lambda\) is the risk aversion coefficient, \(\lambda=\frac{E(r)-r_f}{\sigma^2}\);
+</p>
+
+<p>
 \(\Sigma\) is the covariance matrix of excess returns(NxN matrix);
+</p>
+
+<p>
 \(\omega_{mkt}\) is the market capitalization asset weight(Nx1 vector).
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline42" class="outline-3">
-<h3 id="orgheadline42"><span class="section-number-3">9.3</span> Black-Litterman model and the process of building the required inputs.</h3>
+<div id="outline-container-orgheadline46" class="outline-3">
+<h3 id="orgheadline46"><span class="section-number-3">9.3</span> Black-Litterman model and the process of building the required inputs.</h3>
+<div class="outline-text-3" id="text-9-3">
+</div><div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44"><span class="section-number-4">9.3.1</span> Black-Litterman model</h4>
+<div class="outline-text-4" id="text-9-3-1">
+</div><ol class="org-ol"><li><a id="orgheadline42"></a>Formula<br  /><div class="outline-text-5" id="text-9-3-1-1">
+<p>
+\[E(R)=[(\tau\Sigma)^{-1}+P'\Omega^{-1}P]^{-1}[(\tau\Sigma)^{-1}\Pi+P'\Omega^{-1}P]\]
+where
+</p>
+
+<ul class="org-ul">
+<li>\(E(R)\)</li>
+</ul>
+<p>
+is the new(posterior) combined return vector(Nx1);
+</p>
+
+<ul class="org-ul">
+<li>\(\tau\)</li>
+</ul>
+<p>
+is a scalar;
+</p>
+
+<ul class="org-ul">
+<li>\(\Sigma\)</li>
+</ul>
+<p>
+is the covariance matrix of excess returns(NxN matrix);
+</p>
+
+<ul class="org-ul">
+<li>\(P\)</li>
+</ul>
+<p>
+is a matrix that identifies the assets involved in the views(KxN);
+</p>
+
+<ul class="org-ul">
+<li>\(\Omega\)</li>
+</ul>
+<p>
+is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
+</p>
+
+<p>
+A view has the form \(Q+\epsilon\).
+\[\begin{bmatrix}
+w1 & 0 & 0\\
+0 & ... & 0\\
+0 & 0 & w3
+\end{bmatrix}\]
+</p>
+
+<ul class="org-ul">
+<li>\(\Pi\)</li>
+</ul>
+<p>
+is the implied equilibrium return vector(Nx1);
+\[\begin{cases}
+Litterman & \text {percentage} \\
+Satchell and Scowcroft & \text{ equal weight } \\
+Thomas Idzorek & \text{ market capital weight }
+\end{cases}\]
+The relative weighting of each individual asset is proportional to the asset’s market capitalization divided by the total market capitalization of either the outperforming or underperforming assets of that particular view.
+</p>
+
+<p>
+The net long positions less the net short positions equal 0.
+</p>
+
+<p>
+Thus one can calculate the variance of each individual view portfolio \(p_k\Sigma p'_k\).
+</p>
+<ul class="org-ul">
+<li>\(Q\)</li>
+</ul>
+<p>
+is the view vector(Kx1);
+</p>
+</div></li>
+<li><a id="orgheadline43"></a>Investor views<br  /><div class="outline-text-5" id="text-9-3-1-2">
+<p>
+Absolute or relative manager views regarding the expected reutnr of some of the assets in the portfolio.
+</p>
+
+<ul class="org-ul">
+<li>absolute view:</li>
+</ul>
+<p>
+Asset A will have an absolute excess return of x%;
+</p>
+
+<ul class="org-ul">
+<li>relative view 1:</li>
+</ul>
+<p>
+Asset A will outperform/underperform asset B by xx basis point;
+</p>
+
+<ul class="org-ul">
+<li>relative view 2:</li>
+</ul>
+<p>
+Assets A and B will outperform/underperform assets C and D by xx basis points; Equivallently a mini long/short portfolio including A and B vesus a mini short/long portfolio.
+</p>
+</div></li></ol>
 </div>
-<div id="outline-container-orgheadline43" class="outline-3">
-<h3 id="orgheadline43"><span class="section-number-3">9.4</span> Implied confidence framework for the views.</h3>
+<div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45"><span class="section-number-4">9.3.2</span> Inputs</h4>
+<div class="outline-text-4" id="text-9-3-2">
+<ul class="org-ul">
+<li>\(\Omega\)</li>
+<li>\(Q\)</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-orgheadline45" class="outline-2">
-<h2 id="orgheadline45"><span class="section-number-2">10</span> NLP</h2>
+</div>
+
+<div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">9.4</span> Implied confidence framework for the views.</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline49" class="outline-2">
+<h2 id="orgheadline49"><span class="section-number-2">10</span> NLP</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Hidden factor model</li>

@@ -231,11 +231,71 @@ A small increase in the expected return of one of the portfolio's assets can for
 *** reverse optimization to mitigate this problem
 $$\Pi = \lambda\Sigma\omega_{mkt}$$
 where
+
 $\Pi$ is the impolied excess equilibrium return vector(Nx1 vector);
-$\lambda$ is the risk aversion coefficient;
+
+$\lambda$ is the risk aversion coefficient, $\lambda=\frac{E(r)-r_f}{\sigma^2}$;
+
 $\Sigma$ is the covariance matrix of excess returns(NxN matrix);
+
 $\omega_{mkt}$ is the market capitalization asset weight(Nx1 vector).
 ** Black-Litterman model and the process of building the required inputs.
+*** Black-Litterman model
+**** Formula
+$$E(R)=[(\tau\Sigma)^{-1}+P'\Omega^{-1}P]^{-1}[(\tau\Sigma)^{-1}\Pi+P'\Omega^{-1}P]$$
+where
+
+- $E(R)$
+is the new(posterior) combined return vector(Nx1);
+
+- $\tau$
+is a scalar;
+
+- $\Sigma$
+is the covariance matrix of excess returns(NxN matrix);
+
+- $P$
+is a matrix that identifies the assets involved in the views(KxN);
+
+- $\Omega$
+is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
+
+A view has the form $Q+\epsilon$.
+$$\begin{bmatrix}
+w1 & 0 & 0\\
+0 & ... & 0\\
+0 & 0 & w3
+\end{bmatrix}$$
+
+- $\Pi$
+is the implied equilibrium return vector(Nx1);
+$$\begin{cases}
+Litterman & \text {percentage} \\
+Satchell and Scowcroft & \text{ equal weight } \\
+Thomas Idzorek & \text{ market capital weight }
+\end{cases}$$
+The relative weighting of each individual asset is proportional to the asset’s market capitalization divided by the total market capitalization of either the outperforming or underperforming assets of that particular view.
+
+The net long positions less the net short positions equal 0.
+
+Thus one can calculate the variance of each individual view portfolio $p_k\Sigma p'_k$.
+- $Q$
+is the view vector(Kx1);
+**** Investor views
+Absolute or relative manager views regarding the expected reutnr of some of the assets in the portfolio.
+
+- absolute view:
+Asset A will have an absolute excess return of x%;
+
+- relative view 1:
+Asset A will outperform/underperform asset B by xx basis point;
+
+- relative view 2:
+Assets A and B will outperform/underperform assets C and D by xx basis points; Equivallently a mini long/short portfolio including A and B vesus a mini short/long portfolio.
+*** Inputs
+- $\Omega$
+- $Q$
+
 ** Implied confidence framework for the views.
 * NLP
 - Hidden factor model

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-23 Mon 17:09 -->
+<!-- 2017-10-24 Tue 17:05 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -203,13 +203,15 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline36">follow GS workflow</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline38"><span class="todo TODO">TODO</span> optimization</a>
+<li><a href="#orgheadline42"><span class="todo TODO">TODO</span> optimization</a>
 <ul>
+<li><a href="#orgheadline38">black-litterman model</a></li>
 <li><a href="#orgheadline39">cvxportfolio</a></li>
 <li><a href="#orgheadline40">cvxpy</a></li>
+<li><a href="#orgheadline41">record</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></a></li>
+<li><a href="#orgheadline43"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></a></li>
 </ul>
 </div>
 </div>
@@ -244,13 +246,16 @@ for the JavaScript code in this tag.
 <h2 id="orgheadline2">Workflow</h2>
 <div class="outline-text-2" id="text-orgheadline2">
 <ol class="org-ol">
-<li>search</li>
-<li>read pdf/code</li>
-<li>modify code</li>
-<li>plugging gs to run with data</li>
-<li>check result</li>
-<li>prepare presentation of all previous steps</li>
-<li>present and get feedback</li>
+<li>search.</li>
+<li>read pdf/code, take notes.</li>
+<li>present general idea.</li>
+<li>write pseudo code, set input parameters.</li>
+<li>write/modify code.</li>
+<li>plugging gs to run with data.</li>
+<li>check result.</li>
+<li>prepare presentation of all previous steps.</li>
+<li>present and get feedback.</li>
+<li>deploy function definition, function sampling.</li>
 </ol>
 </div>
 </div>
@@ -1054,9 +1059,50 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 <h3 id="orgheadline36">follow GS workflow</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline38" class="outline-2">
-<h2 id="orgheadline38"><span class="todo TODO">TODO</span> optimization</h2>
-<div class="outline-text-2" id="text-orgheadline38">
+
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="todo TODO">TODO</span> optimization</h2>
+<div class="outline-text-2" id="text-orgheadline42">
+</div><div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38">black-litterman model</h3>
+<div class="outline-text-3" id="text-orgheadline38">
+<ol class="org-ol">
+<li class="off"><code>[&#xa0;]</code> read pdf/code, take notes.</li>
+<li class="off"><code>[&#xa0;]</code> present general idea.</li>
+<li class="off"><code>[&#xa0;]</code> write pseudo code, set input parameters.</li>
+<li class="off"><code>[&#xa0;]</code> write/modify code.</li>
+<li class="off"><code>[&#xa0;]</code> plugging gs to run with data.</li>
+<li class="off"><code>[&#xa0;]</code> check result.</li>
+<li class="off"><code>[&#xa0;]</code> prepare presentation of all previous steps.</li>
+<li class="off"><code>[&#xa0;]</code> present and get feedback.</li>
+<li class="off"><code>[&#xa0;]</code> deploy function definition, function sampling.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39">cvxportfolio</h3>
+<div class="outline-text-3" id="text-orgheadline39">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 查看cvxportfolio的使用说明。</li>
+<li class="off"><code>[&#xa0;]</code> 在开发的帮助下安装cvxportfolio library，调试。</li>
+<li class="off"><code>[&#xa0;]</code> 调试cvxportfolio library，把代码换用该库。</li>
+<li class="off"><code>[&#xa0;]</code> 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40">cvxpy</h3>
+<div class="outline-text-3" id="text-orgheadline40">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> research on soft constraint using cvxpy.</li>
+<li class="off"><code>[&#xa0;]</code> 搭建workflow。</li>
+<li class="off"><code>[&#xa0;]</code> 多期优化。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41">record</h3>
+<div class="outline-text-3" id="text-orgheadline41">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-21 Fri&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-18 Mon&gt;</span></span>
 </p>
@@ -1219,7 +1265,6 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 </p>
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> present &amp;review project.</li>
-<li class="off"><code>[&#xa0;]</code> portfolio construction with black-litterman model.</li>
 <li class="off"><code>[&#xa0;]</code> portfolio construction with risk-parity model.</li>
 <li class="trans"><code>[-]</code> test:
 <ul class="org-ul">
@@ -1230,37 +1275,15 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 <li class="on"><code>[X]</code> industry weight constraint match the benchmark weight.</li>
 <li class="off"><code>[&#xa0;]</code> pack functions to modules.</li>
 <li class="off"><code>[&#xa0;]</code> follow up correction.</li>
-<li class="off"><code>[&#xa0;]</code> black-litterman portfolio.</li>
 <li class="off"><code>[&#xa0;]</code> pack functions to modules.</li>
 <li class="off"><code>[&#xa0;]</code> follow up correction.</li>
 </ul>
 </div>
-<div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39">cvxportfolio</h3>
-<div class="outline-text-3" id="text-orgheadline39">
-<ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> 查看cvxportfolio的使用说明。</li>
-<li class="off"><code>[&#xa0;]</code> 在开发的帮助下安装cvxportfolio library，调试。</li>
-<li class="off"><code>[&#xa0;]</code> 调试cvxportfolio library，把代码换用该库。</li>
-<li class="off"><code>[&#xa0;]</code> 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。</li>
-</ul>
 </div>
 </div>
-<div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40">cvxpy</h3>
-<div class="outline-text-3" id="text-orgheadline40">
-<ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> research on soft constraint using cvxpy.</li>
-<li class="off"><code>[&#xa0;]</code> 搭建workflow。</li>
-<li class="off"><code>[&#xa0;]</code> 多期优化。</li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></h2>
-<div class="outline-text-2" id="text-orgheadline41">
+<div id="outline-container-orgheadline43" class="outline-2">
+<h2 id="orgheadline43"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></h2>
+<div class="outline-text-2" id="text-orgheadline43">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-19 Tue&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-01 Sun&gt;</span></span>
 </p>
