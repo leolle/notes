@@ -20,7 +20,7 @@ Specific, for particular purpose.
 By or in itself or themselves; intrinsically.
 - excess return
 Return relative to the risk-free return.
-$r = r_a - r_f$
+$ r = r_a - r_f $
 - expected return
 - active return
 Return relative to a benchmark.

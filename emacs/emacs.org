@@ -259,7 +259,7 @@ Turn a normal line or plain list item into a headline (so that it becomes a subh
 
 =M-u= Uppercase for the whole word.
 
-=M-d= downcase for the whole word.
+=M-d= delete the whole word.
 
 =C-x C-u= upcase-region.
 

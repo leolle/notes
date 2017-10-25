@@ -63,7 +63,7 @@ OLS assumptions:
 - Homoskedasticity
 
 Pitfall of Modern Portfolio Theory(MPT):
-- It is based on the historical return performance. If the political visk shows up or the fund changes policy or manager, the corporate or the fund performance may change.
+- It is based on the historical return performance. If the political visk shows up or the fund changes policy or manager, the corporate or the fund performance may change, investor views can't be integrated into the problem.
 
 * Sparse Markowitz Portfolios
 
@@ -209,30 +209,48 @@ The variation in asset allocation around that target is called tactical asset al
 - building portfolios
 - analyzing out-of-sample performance.
 * Black litterman model step-by-step
-** Introduction
-The Black-Litterman model uses a *Bayesian* approach to combine the subjective views of an investor regarding the expected returns of one or more assets with the market equilibrium vector of expected returns (the prior distribution) to form a new, mixed estimate of expected returns.
+** Modern Portfolio Optimization
+Markowitz mean-variance optimization:
+$$max: \omega\mu - \lambda\Sigma\lambda'/2$$
 
-Black–Litterman model is a mathematical model for portfolio allocation developed in 1990 at Goldman Sachs by Fischer Black and Robert Litterman, and published in 1992. It seeks to overcome problems that institutional investors have encountered in applying modern portfolio theory in practice, although the covariances of a few assets can be adequately estimated, *it is difficult to come up with reasonable estimates of expected returns*. The model starts with the equilibrium assumption that the asset allocation of a representative agent should be proportional to the market values of the available assets, and then modifies that to take into account the 'views' (i.e., the specific opinions about asset returns) of the investor in question to arrive at a bespoke asset allocation.
+Lagrange multiplier solution: $\omega=(\lambda\Sigma)^{-1}\mu$
 
-Black–Litterman overcame this problem by not requiring the user to input estimates of expected return; instead it assumes that the initial expected returns are whatever is required so that the equilibrium asset allocation is equal to what we observe in the markets. *The user is only required to state how his assumptions about expected returns differ from the market's and to state his degree of confidence in the alternative assumptions*. From this, the Black–Litterman method computes the desired (mean-variance efficient) asset allocation.
+Two most important elements: Expected return $\mu$, Covariance matrix $\Sigma$.
 
-In general, when there are portfolio constraints - for example, when short sales are not allowed
-- the easiest way to find the optimal portfolio is to use the Black–Litterman model to generate the expected returns for the assets,
-- and then use a mean-variance optimizer to solve the constrained optimization problem.
 ** Problem of mean-variance optimization
 - Extreme long or short positions
 It could bring extreme long or short positions without constraint(excluding risk exposure constraint, weight constraint).
 
 - Heavy weight on a small number of assets
 When subject to a long only constraint, portfolios will concentrate in a relatively small number of assets.
+
 - Importance of expected return
 A small increase in the expected return of one of the portfolio's assets can force half of the assets from the portfolio.
+
+- Lack of investor views
+Expected return estimate is based on the historical return performance.
+
+If the political risk shows up, macro economy forecast changes, or the fund changes policy or manager, the corporate or the fund performance may change.
+Investor views can't be integrated into the problem.
+
+** Introduction
+The Black-Litterman model uses a *Bayesian* approach to combine the subjective views of an investor regarding the expected returns of one or more assets with the market equilibrium vector of expected returns (the prior distribution) to form a new, mixed estimate of expected returns.
+
+prior return distribution -> posterior expected return estimated distribution.
+
+Black–Litterman model is a mathematical model for portfolio allocation developed in 1990 at Goldman Sachs by Fischer Black and Robert Litterman, and published in 1992. It seeks to overcome problems that institutional investors have encountered in applying modern portfolio theory in practice, although the covariances of a few assets can be adequately estimated, *it is difficult to come up with reasonable estimates of expected returns*. The model starts with the equilibrium assumption that the asset allocation of a representative agent should be proportional to the market values of the available assets, and then modifies that to take into account the 'views' (i.e., the specific opinions about asset returns) of the investor in question to arrive at a bespoke asset allocation.
+
+Black–Litterman overcame this problem by not requiring the user to input estimates of expected return; instead it assumes that the initial expected returns are whatever is required so that the equilibrium asset allocation is equal to what we observe in the markets. *The user is only required to state how his assumptions about expected returns differ from the market's and to state his degree of confidence in the alternative assumptions*. From this, the Black–Litterman method computes the desired (mean-variance efficient) asset allocation.
+
+In general, when there are portfolio constraints - for example, when short sales are not allowed.
+- the easiest way to find the optimal portfolio is to use the Black–Litterman model to generate the expected returns for the assets,
+- and then use a mean-variance optimizer to solve the constrained optimization problem.
 
 *** reverse optimization to mitigate this problem
 $$\Pi = \lambda\Sigma\omega_{mkt}$$
 where
 
-$\Pi$ is the impolied excess equilibrium return vector(Nx1 vector);
+$\Pi$ is the implied excess equilibrium return vector(Nx1 vector);
 
 $\lambda$ is the risk aversion coefficient, $\lambda=\frac{E(r)-r_f}{\sigma^2}$;
 
@@ -241,6 +259,22 @@ $\Sigma$ is the covariance matrix of excess returns(NxN matrix);
 $\omega_{mkt}$ is the market capitalization asset weight(Nx1 vector).
 ** Black-Litterman model and the process of building the required inputs.
 *** Black-Litterman model
+**** Prior distribution of expected return
+One of the core assumptions of the model is that the security returns are normally distributed.
+
+1. Prior equilibrium distribution
+Because of this reason during the implementation of model the prior and conditional probabilities are considered to be normally distributed.
+$$N~(\Pi, \tau\Sigma)$$
+
+2. View distribution
+$$N~(Q, \Omega)$$
+
+3. New combined return distribution(Posterior distribution)
+Now as the inputs in the Bayes’ rule are normally distributed so will be the posterior probability.
+$$N~(E[R], [(\tau\Sigma)^{-1}+(P'\Omega^{-1}P)]^{-1})$$
+
+One can assume different distributions for each of these probabilities and hence create different variants of Black Litterman model.
+
 **** Formula
 $$E(R)=[(\tau\Sigma)^{-1}+P'\Omega^{-1}P]^{-1}[(\tau\Sigma)^{-1}\Pi+P'\Omega^{-1}P]$$
 where
@@ -260,7 +294,7 @@ is a matrix that identifies the assets involved in the views(KxN);
 - $\Omega$
 is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
 
-A view has the form $Q+\epsilon$.
+A view has the form $Q+\epsilon$:
 $$\begin{bmatrix}
 w1 & 0 & 0\\
 0 & ... & 0\\
@@ -293,8 +327,65 @@ Asset A will outperform/underperform asset B by xx basis point;
 - relative view 2:
 Assets A and B will outperform/underperform assets C and D by xx basis points; Equivallently a mini long/short portfolio including A and B vesus a mini short/long portfolio.
 *** Inputs
-- $\Omega$
-- $Q$
+- $\omega$
+每个资产的均衡权重
+- $\Sigma$
+Covariance matrix of excess return.
+
+资产之间的协方差矩阵, 通过历史数据计算得到（当然，也可以对协方差矩阵进行估计预测）.
+- $\lambda$
+Risk aversion coefficient.
+- $\tau$
+Scalar. Proportional to the relative weight given to the implied equilibrium return vector($\Pi$).
+
+Usually between 0.01~0.05.
+*** Steps:
+
+1. Calculate the equilibrium return using reverse optimization.
+$$\Pi=\lambda\Sigma\omega_{mkt}$$
+
+Calculate implied market equilibrium returns based on the given benchmark asset allocation weights.
+
+2. Build covariance matrix of error terms($\Omega$).
+观点可以涉及单个资产，也可以涉及多个资产乃至所有资产，也可以有多个资产，最后按照一定的规则将所有观点构建成矩阵P、Q和Ω。
+
+考虑有K个观点n个资产的例子，此时，P就是k*n矩阵，每一行代表一个观点，Q为K*1矩阵，存放每个观点的超额收益。Ω是k*k对角矩阵，对角线上的每一个元素代表该观点的方差，与对该观点的置信程度成反比:
+$$\Omega=(P\SigmaP^T)\tau$$
+
+For example:
+#+CAPTION: expected_excess_return_vector
+[[./images/expected_excess_return_vector.png]]
+
+View 1: International Developed Equity will have an absolute excess return of 5.25% (Confidence of View = 25%).
+
+View 2: International Bonds will outperform US Bonds by 25 basis points (Confidence of View = 50%).
+
+View 3: US Large Growth and US Small Growth will outperform US Large Value and US Small Value by 2% (Confidence of View = 65%).
+
+$$P=\begin{bmatrix}
+0 &0  &0  &0  &0  &0  &1  &0 \\
+-1 &1  &0  &0  &0  &0  &0  &0 \\
+0 &0  &.5  &-.5  &.5  &-.5  &0  &0
+\end{bmatrix}$$
+
+$$Q=\begin{bmatrix}
+ 5.25 \\
+ 0.25 \\
+ 2
+\end{bmatrix}$$
+
+3. Calculate implied expected excess return vector
+$$\hat\Tau = \Tau + \tau\SigmaP'(P\tau|sigmaP')^{-1}(Q-P\Tau)$$
+
+4. New weight.
+Posterior expected return distribution covariance matrix:
+$$M=\tau\Sigma - \tau\Sigma\P'[P\SigmaP'+\Sigma]^{-1}P\tau\Sigma$$
+
+New covariance of excess return:
+$$\Sigma_p = \Sigma + M$$
+
+Calculate unconstrainted optimized weight:
+$$\hat\omega=(\lambda\Sigma_p)^{-1}\hat\Pi$$
 
 ** Implied confidence framework for the views
 $\Omega$, which representing the uncertainty of the views, and $\tau$ are the most abstract mathematical parameters of this model.
@@ -302,7 +393,8 @@ $\Omega$, which representing the uncertainty of the views, and $\tau$ are the mo
 how to specify a probability density function for each view?
 
 *** Implied confidence levels
-$$\frac{
+$$\frac{\hat{\omega}-\omega_{mkt}}{\hat{\omega_{100%}}-\omega_{mkt}}$$
+
 *** An intuitive approach
 * NLP
 - Hidden factor model
