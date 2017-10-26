@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-25 Wed 14:28 -->
+<!-- 2017-10-26 Thu 13:21 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -219,7 +219,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline37">8.2. asset allocation strategies is a three-step process:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline53">9. Black litterman model step-by-step</a>
+<li><a href="#orgheadline54">9. Black litterman model step-by-step</a>
 <ul>
 <li><a href="#orgheadline39">9.1. Modern Portfolio Optimization</a></li>
 <li><a href="#orgheadline40">9.2. Problem of mean-variance optimization</a></li>
@@ -241,9 +241,10 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline51">9.5.2. An intuitive approach</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline53">9.6. Deployment on GS:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline54">10. NLP</a></li>
+<li><a href="#orgheadline55">10. NLP</a></li>
 </ul>
 </div>
 </div>
@@ -697,15 +698,15 @@ The variation in asset allocation around that target is called tactical asset al
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline53" class="outline-2">
-<h2 id="orgheadline53"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
+<div id="outline-container-orgheadline54" class="outline-2">
+<h2 id="orgheadline54"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
 <div class="outline-text-2" id="text-9">
 </div><div id="outline-container-orgheadline39" class="outline-3">
 <h3 id="orgheadline39"><span class="section-number-3">9.1</span> Modern Portfolio Optimization</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 Markowitz mean-variance optimization:
-\[max: \omega\mu - \lambda\Sigma\lambda'/2\]
+\[max: \omega\mu - \omega\Sigma\omega'/2\]
 </p>
 
 <p>
@@ -887,7 +888,11 @@ is a matrix that identifies the assets involved in the views(KxN);
 <li>\(\Omega\)</li>
 </ul>
 <p>
-is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
+The level of confidence, expressed as the standard deviation around the expected return of the view. The weaker confidence that is set to a view, the less the view is to affect the portfolio weights.
+</p>
+
+<p>
+Is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
 </p>
 
 <p>
@@ -903,13 +908,17 @@ w1 & 0 & 0\\
 <li>\(\Pi\)</li>
 </ul>
 <p>
-is the implied equilibrium return vector(Nx1);
+is the implied equilibrium return vector(Nx1); Equilibrium is an idealized state in which supply equals demand.
 \[\begin{cases}
 Litterman & \text {percentage} \\
 Satchell and Scowcroft & \text{ equal weight } \\
 Thomas Idzorek & \text{ market capital weight }
 \end{cases}\]
 The relative weighting of each individual asset is proportional to the asset’s market capitalization divided by the total market capitalization of either the outperforming or underperforming assets of that particular view.
+</p>
+
+<p>
+It has three factors: 1. the views; 2. the level of condence assigned to each view; 3.the weight-on-views.
 </p>
 
 <p>
@@ -928,7 +937,7 @@ is the view vector(Kx1);
 </div></li>
 <li><a id="orgheadline45"></a>Investor views<br  /><div class="outline-text-5" id="text-9-4-1-3">
 <p>
-Absolute or relative manager views regarding the expected reutnr of some of the assets in the portfolio.
+Absolute or relative manager views regarding the expected return of some of the assets in the portfolio.
 </p>
 
 <ul class="org-ul">
@@ -953,6 +962,7 @@ Assets A and B will outperform/underperform assets C and D by xx basis points; E
 </p>
 </div></li></ol>
 </div>
+
 <div id="outline-container-orgheadline47" class="outline-4">
 <h4 id="orgheadline47"><span class="section-number-4">9.4.2</span> Inputs</h4>
 <div class="outline-text-4" id="text-9-4-2">
@@ -1013,7 +1023,7 @@ Calculate implied market equilibrium returns based on the given benchmark asset 
 
 <p>
 考虑有K个观点n个资产的例子，此时，P就是k*n矩阵，每一行代表一个观点，Q为K*1矩阵，存放每个观点的超额收益。Ω是k*k对角矩阵，对角线上的每一个元素代表该观点的方差，与对该观点的置信程度成反比:
-\[\Omega=(P\SigmaP^T)\tau\]
+\[\Omega=(P\Sigma P^T)\tau\]
 </p>
 
 <p>
@@ -1055,10 +1065,10 @@ View 3: US Large Growth and US Small Growth will outperform US Large Value and U
 </p>
 
 <ol class="org-ol">
-<li>Calculate implied expected excess return vector</li>
+<li>Calculate implied expected excess return vector.</li>
 </ol>
 <p>
-\[\hat\Tau = \Tau + \tau\SigmaP'(P\tau|sigmaP')^{-1}(Q-P\Tau)\]
+\[\hat\Tau = \Tau + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Tau)\]
 </p>
 
 <ol class="org-ol">
@@ -1066,7 +1076,7 @@ View 3: US Large Growth and US Small Growth will outperform US Large Value and U
 </ol>
 <p>
 Posterior expected return distribution covariance matrix:
-\[M=\tau\Sigma - \tau\Sigma\P'[P\SigmaP'+\Sigma]^{-1}P\tau\Sigma\]
+\[M=\tau \Sigma - \tau \Sigma P'[P\Sigma P'+\Sigma]^{-1}P\tau \Sigma\]
 </p>
 
 <p>
@@ -1107,9 +1117,19 @@ how to specify a probability density function for each view?
 <h4 id="orgheadline51"><span class="section-number-4">9.5.2</span> An intuitive approach</h4>
 </div>
 </div>
+
+<div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53"><span class="section-number-3">9.6</span> Deployment on GS:</h3>
+<div class="outline-text-3" id="text-9-6">
+<p>
+Input:
+</p>
 </div>
-<div id="outline-container-orgheadline54" class="outline-2">
-<h2 id="orgheadline54"><span class="section-number-2">10</span> NLP</h2>
+</div>
+</div>
+
+<div id="outline-container-orgheadline55" class="outline-2">
+<h2 id="orgheadline55"><span class="section-number-2">10</span> NLP</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Hidden factor model</li>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-25 Wed 14:28 -->
+<!-- 2017-10-26 Thu 13:21 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -196,7 +196,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline17">2.3. shortcut :</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline32">3. ORG Mode</a>
+<li><a href="#orgheadline33">3. ORG Mode</a>
 <ul>
 <li><a href="#orgheadline19">3.1. Structure editing</a></li>
 <li><a href="#orgheadline24">3.2. Latex</a>
@@ -207,33 +207,34 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline23">3.2.4. Derivatives, Limits, Sums and Integrals</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline26">3.3. ditaa figures</a>
+<li><a href="#orgheadline25">3.3. Insert image into org file</a></li>
+<li><a href="#orgheadline27">3.4. ditaa figures</a>
 <ul>
-<li><a href="#orgheadline25">3.3.1. Connected elements with colors</a></li>
+<li><a href="#orgheadline26">3.4.1. Connected elements with colors</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline29">3.4. UML diagrams with PlantUML</a>
+<li><a href="#orgheadline30">3.5. UML diagrams with PlantUML</a>
 <ul>
-<li><a href="#orgheadline27">3.4.1. Class diagrams</a></li>
-<li><a href="#orgheadline28">3.4.2. Sequences diagrams</a></li>
+<li><a href="#orgheadline28">3.5.1. Class diagrams</a></li>
+<li><a href="#orgheadline29">3.5.2. Sequences diagrams</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline30">3.5. export org to html using styles</a></li>
-<li><a href="#orgheadline31">3.6. graphviz</a></li>
+<li><a href="#orgheadline31">3.6. export org to html using styles</a></li>
+<li><a href="#orgheadline32">3.7. graphviz</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline40">4. emacs python workflow.</a>
+<li><a href="#orgheadline41">4. emacs python workflow.</a>
 <ul>
-<li><a href="#orgheadline33">4.1. install elpy, jedi</a></li>
-<li><a href="#orgheadline34">4.2. Keybinding</a></li>
-<li><a href="#orgheadline35">4.3. upgrade git</a></li>
-<li><a href="#orgheadline36">4.4. reinstall EMACS</a></li>
-<li><a href="#orgheadline37">4.5. Spacemacs Dired</a></li>
-<li><a href="#orgheadline38">4.6. magit</a></li>
-<li><a href="#orgheadline39">4.7. insert images and links</a></li>
+<li><a href="#orgheadline34">4.1. install elpy, jedi</a></li>
+<li><a href="#orgheadline35">4.2. Keybinding</a></li>
+<li><a href="#orgheadline36">4.3. upgrade git</a></li>
+<li><a href="#orgheadline37">4.4. reinstall EMACS</a></li>
+<li><a href="#orgheadline38">4.5. Spacemacs Dired</a></li>
+<li><a href="#orgheadline39">4.6. magit</a></li>
+<li><a href="#orgheadline40">4.7. insert images and links</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41">5. layers</a></li>
+<li><a href="#orgheadline42">5. layers</a></li>
 </ul>
 </div>
 </div>
@@ -590,8 +591,8 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 </div>
 </div>
 
-<div id="outline-container-orgheadline32" class="outline-2">
-<h2 id="orgheadline32"><span class="section-number-2">3</span> ORG Mode</h2>
+<div id="outline-container-orgheadline33" class="outline-2">
+<h2 id="orgheadline33"><span class="section-number-2">3</span> ORG Mode</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4">Example</a>
@@ -858,12 +859,24 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">3.3</span> ditaa figures</h3>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">3.3</span> Insert image into org file</h3>
 <div class="outline-text-3" id="text-3-3">
-</div><div id="outline-container-orgheadline25" class="outline-4">
-<h4 id="orgheadline25"><span class="section-number-4">3.3.1</span> Connected elements with colors</h4>
-<div class="outline-text-4" id="text-3-3-1">
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #75715E;">#+CAPTION:</span> <span style="color: #F8F8F0; background-color: #3E3D31;">fiture title</span>
+<span style="color: #66D9EF; text-decoration: underline;"><a href="./images/xxx.png">./images/xxx.png</a></span>
+<span style="color: #75715E;">=C-c C-x C-v=</span> to display toggled images.
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">3.4</span> ditaa figures</h3>
+<div class="outline-text-3" id="text-3-4">
+</div><div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">3.4.1</span> Connected elements with colors</h4>
+<div class="outline-text-4" id="text-3-4-1">
 
 <div class="figure">
 <p><img src="ditaa-seqboxes.png" alt="ditaa-seqboxes.png" />
@@ -875,12 +888,12 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 
 
 
-<div id="outline-container-orgheadline29" class="outline-3">
-<h3 id="orgheadline29"><span class="section-number-3">3.4</span> UML diagrams with PlantUML</h3>
-<div class="outline-text-3" id="text-3-4">
-</div><div id="outline-container-orgheadline27" class="outline-4">
-<h4 id="orgheadline27"><span class="section-number-4">3.4.1</span> Class diagrams</h4>
-<div class="outline-text-4" id="text-3-4-1">
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">3.5</span> UML diagrams with PlantUML</h3>
+<div class="outline-text-3" id="text-3-5">
+</div><div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">3.5.1</span> Class diagrams</h4>
+<div class="outline-text-4" id="text-3-5-1">
 
 <div class="figure">
 <p><img src="clientmodel.png" alt="clientmodel.png" />
@@ -890,23 +903,23 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 </div>
 
 
-<div id="outline-container-orgheadline28" class="outline-4">
-<h4 id="orgheadline28"><span class="section-number-4">3.4.2</span> Sequences diagrams</h4>
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">3.5.2</span> Sequences diagrams</h4>
 </div>
 </div>
 
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">3.5</span> export org to html using styles</h3>
-<div class="outline-text-3" id="text-3-5">
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">3.6</span> export org to html using styles</h3>
+<div class="outline-text-3" id="text-3-6">
 <p>
 <a href="http://demo.thi.ng/org-spec/">styles</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">3.6</span> graphviz</h3>
-<div class="outline-text-3" id="text-3-6">
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">3.7</span> graphviz</h3>
+<div class="outline-text-3" id="text-3-7">
 
 <div class="figure">
 <p><img src="some_filename.png" alt="some_filename.png" />
@@ -917,11 +930,11 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 </div>
 
 
-<div id="outline-container-orgheadline40" class="outline-2">
-<h2 id="orgheadline40"><span class="section-number-2">4</span> emacs python workflow.</h2>
+<div id="outline-container-orgheadline41" class="outline-2">
+<h2 id="orgheadline41"><span class="section-number-2">4</span> emacs python workflow.</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">4.1</span> install elpy, jedi</h3>
+</div><div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">4.1</span> install elpy, jedi</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 
@@ -934,8 +947,8 @@ install package jedi elpy magit
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34"><span class="section-number-3">4.2</span> Keybinding</h3>
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">4.2</span> Keybinding</h3>
 <div class="outline-text-3" id="text-4-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -984,8 +997,8 @@ install package jedi elpy magit
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">4.3</span> upgrade git</h3>
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">4.3</span> upgrade git</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 
@@ -997,8 +1010,8 @@ git --version
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">4.4</span> reinstall EMACS</h3>
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">4.4</span> reinstall EMACS</h3>
 <div class="outline-text-3" id="text-4-4">
 <div class="org-src-container">
 
@@ -1017,8 +1030,8 @@ $ sudo make uninstall
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">4.5</span> Spacemacs Dired</h3>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">4.5</span> Spacemacs Dired</h3>
 <div class="outline-text-3" id="text-4-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1092,8 +1105,8 @@ $ sudo make uninstall
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38"><span class="section-number-3">4.6</span> magit</h3>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">4.6</span> magit</h3>
 <div class="outline-text-3" id="text-4-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1290,8 +1303,8 @@ $ sudo make uninstall
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39"><span class="section-number-3">4.7</span> insert images and links</h3>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">4.7</span> insert images and links</h3>
 <div class="outline-text-3" id="text-4-7">
 <div class="org-src-container">
 
@@ -1304,8 +1317,8 @@ C-c C-x C-v <span style="color: #AE81FF;">(</span>org-toggle-inline-mages<span s
 </div>
 </div>
 
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="section-number-2">5</span> layers</h2>
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="section-number-2">5</span> layers</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <code>M-x</code> configuration-layer/create-layer

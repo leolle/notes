@@ -211,7 +211,7 @@ The variation in asset allocation around that target is called tactical asset al
 * Black litterman model step-by-step
 ** Modern Portfolio Optimization
 Markowitz mean-variance optimization:
-$$max: \omega\mu - \lambda\Sigma\lambda'/2$$
+$$max: \omega\mu - \omega\Sigma\omega'/2$$
 
 Lagrange multiplier solution: $\omega=(\lambda\Sigma)^{-1}\mu$
 
@@ -292,7 +292,9 @@ is the covariance matrix of excess returns(NxN matrix);
 is a matrix that identifies the assets involved in the views(KxN);
 
 - $\Omega$
-is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
+The level of confidence, expressed as the standard deviation around the expected return of the view. The weaker confidence that is set to a view, the less the view is to affect the portfolio weights.
+
+Is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
 
 A view has the form $Q+\epsilon$:
 $$\begin{bmatrix}
@@ -309,6 +311,8 @@ Satchell and Scowcroft & \text{ equal weight } \\
 Thomas Idzorek & \text{ market capital weight }
 \end{cases}$$
 The relative weighting of each individual asset is proportional to the asset’s market capitalization divided by the total market capitalization of either the outperforming or underperforming assets of that particular view.
+
+It has three factors: 1. the views; 2. the level of condence assigned to each view; 3.the weight-on-views.
 
 The net long positions less the net short positions equal 0.
 
@@ -351,7 +355,7 @@ Calculate implied market equilibrium returns based on the given benchmark asset 
 观点可以涉及单个资产，也可以涉及多个资产乃至所有资产，也可以有多个资产，最后按照一定的规则将所有观点构建成矩阵P、Q和Ω。
 
 考虑有K个观点n个资产的例子，此时，P就是k*n矩阵，每一行代表一个观点，Q为K*1矩阵，存放每个观点的超额收益。Ω是k*k对角矩阵，对角线上的每一个元素代表该观点的方差，与对该观点的置信程度成反比:
-$$\Omega=(P\SigmaP^T)\tau$$
+$$\Omega=(P\Sigma P^T)\tau$$
 
 For example:
 #+CAPTION: expected_excess_return_vector
@@ -376,11 +380,11 @@ $$Q=\begin{bmatrix}
 \end{bmatrix}$$
 
 3. Calculate implied expected excess return vector.
-$$\hat\Tau = \Tau + \tau\SigmaP'(P\tau|sigmaP')^{-1}(Q-P\Tau)$$
+$$\hat\Tau = \Tau + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Tau)$$
 
 4. New weight.
 Posterior expected return distribution covariance matrix:
-$$M=\tau\Sigma - \tau\Sigma\P'[P\SigmaP'+\Sigma]^{-1}P\tau\Sigma$$
+$$M=\tau \Sigma - \tau \Sigma P'[P\Sigma P'+\Sigma]^{-1}P\tau \Sigma$$
 
 New covariance of excess return:
 $$\Sigma_p = \Sigma + M$$
@@ -398,8 +402,47 @@ $$\frac{\hat{\omega}-\omega_{mkt}}{\hat{\omega_{100%}}-\omega_{mkt}}$$
 
 *** An intuitive approach
 
+** Select asset classes
+criteria for specifying asset classes are:
+- Assets within an Asset Class should be homogenous.
+- Asset Classes should be mutually exclusive.
+- Asset Classes should be diversifying.
+- All Asset Classes as a group should make up a significant fraction of all investor's wealth.
+- The Asset Class should have the capacity to absorb a significant fraction of the investor's wealth.
+
+
+- Domestic Equity (can be further sub-divided by value vs growth, or large cap vs small cap).
+- International Equity (can be further divided by developed, emerging, or frontier, or large cap vs small cap, or value vs growth).
+- Domestic Fixed Income (can be further divided by sovereign vs corporate, nominal vs inflation protected, short vs long term, furher sub-divided by issuer or credit rating).
+- International Fixed Income (can be further divided by sovereign vs corporate, nominal vs inflation protected, developed vs emerging, or other distinctions.
+- Real Estate (can be further divided by public vs private, type of real estate holding, loans vs properties, domestic vs international).
+- Commodities (can be further divided by public vs private, by type, e.g. energy vs crops vs metals).
+- Private Equity (can be divided by domestic vs international)
+- Cash or cash equivalents
+
 ** Deployment on GS:
 Input:
+| w	  | Equilibrium market capitalization weights for each asset.                                                                                                                      |
+| Σ	  | Matrix of covariances between the assets. Usually computed from historical data.                                                                                               |
+| rf	 | Risk free rate                                                                                                                                                                 |
+| δ    | 	The risk aversion coeffficient of the market portfolio. This can be specified, or can be computed if the investor knows the market return and standard deviation of returns. |
+| τ	  | A measure of the uncertainty of the prior estimate of the mean returns.                                                                                                        |
+1. Π = δΣw
+2. Quantify their uncertainty in the prior by selecting a value for τ.
+If the covariance matrix has been generated from historical data, then τ = 1/n is a good place to start.
+3. Formulates their views, specifying P, Ω, and Q.
+Given k views and n assets, then P is a k × n matrix where each row sums to 0 (relative view) or 1 (absolute view). Q is a k × 1 vector of the excess returns for each view. Ω is a diagonal k × k matrix of the variance of the estimated view mean about the unknown view mean. As a starting point, some authors call for the diagonal values of Ω to be set equal to pTτΣp (where p is the row from P for the specific view). This weights the views the same as the prior estimates.
+4. Compute the posterior estimate of the returns using the following equation.
+$$\hat\Pi = \Pi + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Pi)$$
+5. Compute the posterior variance of the estimated mean about the unknown mean using the following equation.
+$$M=\tau \Sigma - \tau \Sigma P'[P\tau\Sigma P'+\Omega]^{-1}P\tau \Sigma$$
+6. Get the covariance of retujrns about the estimated mean.
+Assuming the uncertainty in the estimates is independent of the known covariance of returns about the unknown mean.
+$$\Sigma_p = \Sigma + M$$
+7. Compute the portfolio weights for the optimal portfolio on the unconstrained efficient frontier.
+$$\omega=\hat{\Pi}(\delta\Sigma_p)^{-1}$$
+
+
 
 * NLP
 - Hidden factor model
