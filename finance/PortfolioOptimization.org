@@ -21,6 +21,8 @@
 - Black–Litterman portfolios (Black and Litterman, 1992)
 - log-optimal portfolios (Cover and Ordentlich, 1996)
 - conditional value at risk (cVaR) and coherent risk measures for portfolios (Rockafellar and Uryasev, 2000)
+#+CAPTION: model comparison
+[[./images/model_comparison.png]]
 
 * Basics
 ** Risk aversion parameter
@@ -330,6 +332,14 @@ Asset A will outperform/underperform asset B by xx basis point;
 
 - relative view 2:
 Assets A and B will outperform/underperform assets C and D by xx basis points; Equivallently a mini long/short portfolio including A and B vesus a mini short/long portfolio.
+***** Assessing views
+- 我们考量了其它一些财务指标，如净利润增长率、主营业务收入增长率、净资产收益率等，将各指标进行对比后发现，在我国市场，净利润增长率和主营业务收入增长率等指标非常不稳定、有时具有奇异值，而净资产收益率较为稳定，因此我们在本次实证中使用了净资产收益率作为观点收益，考虑到数据的时效性，我们选用朝阳永续提供的主流券商研究员对行业的一致预期净资产收益率(ROE)数据。
+
+使用上年底的一致预期 ROE 作为观点收益，设置 20%、 50%和 80%三个信心水平， W_mkt 表示按流通市值权重配置的资产组合.
+
+- 对第 i 个观点设置信心水平 LCi，根据信心水平和标准刻度因子 CF 来构建观点误差矩阵Ω.
+
+- 在传统的 B-L 模型中，投资者给出的主观观点是对资产的预期收益，而很多时候投资者可能是一些间接的观点，例如对一些指标的观点（股息率、 EPS、 ROE 等），这些因子可能驱动股价波动。 Wing Cheung 提出了 ABL 模型（Augmented B-L模型），首次将因子模型融入到传统 B-L 模型的框架中，大幅度拓宽了 B-L 模型的适用面。
 
 *** Inputs
 - $\omega$
@@ -442,7 +452,12 @@ $$\Sigma_p = \Sigma + M$$
 7. Compute the portfolio weights for the optimal portfolio on the unconstrained efficient frontier.
 $$\omega=\hat{\Pi}(\delta\Sigma_p)^{-1}$$
 
+** Pitfall of BLM
+- 非正态分布市场
+由于 B-L 模型里假设的资产收益都是服从正态分布，这对绝大多数市场来说并不现实， Attilio Meucci 提出了在非正态分布的条件下如何去使用 B-L 模型，并且在对风险的处理中，不再采用传统B-L 模型里的方式，也就是说不再用方差来表示风险，改用 CVAR 等来描述风险，以便能够捕捉到非对称和尾部的风险。
 
+- 多因子扩展模型
+在传统的 B-L模型中，投资者给出的主观观点是对资产的预期收益，而很多时候投资者可能是一些间接的观点，例如对一些指标的观点（股息率、 EPS、 ROE 等），这些因子可能驱动股价波动。Wing Cheung 提出了 ABL 模型（Augmented B-L 模型），首次将因子模型融入到传统 B-L 模型的框架中，大幅度拓宽了 B-L 模型的适用面。
 
 * NLP
 - Hidden factor model
