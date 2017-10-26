@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-26 Thu 16:43 -->
+<!-- 2017-10-26 Thu 19:02 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -219,34 +219,34 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline37">8.2. asset allocation strategies is a three-step process:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline57">9. Black litterman model step-by-step</a>
+<li><a href="#orgheadline59">9. Black litterman model step-by-step</a>
 <ul>
 <li><a href="#orgheadline39">9.1. Modern Portfolio Optimization</a></li>
 <li><a href="#orgheadline40">9.2. Problem of mean-variance optimization</a></li>
 <li><a href="#orgheadline42">9.3. Introduction</a>
 <ul>
-<li><a href="#orgheadline41">9.3.1. reverse optimization to mitigate this problem</a></li>
+<li><a href="#orgheadline41">9.3.1. reverse optimization to mitigate this problem for unconstrainted solution</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline50">9.4. Black-Litterman model and the process of building the required inputs.</a>
+<li><a href="#orgheadline52">9.4. Black-Litterman model and the process of building the required inputs.</a>
 <ul>
-<li><a href="#orgheadline47">9.4.1. Black-Litterman model</a></li>
-<li><a href="#orgheadline48">9.4.2. Inputs</a></li>
-<li><a href="#orgheadline49">9.4.3. Steps:</a></li>
+<li><a href="#orgheadline49">9.4.1. Black-Litterman model</a></li>
+<li><a href="#orgheadline50">9.4.2. Inputs</a></li>
+<li><a href="#orgheadline51">9.4.3. Steps:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline53">9.5. Implied confidence framework for the views</a>
+<li><a href="#orgheadline55">9.5. Implied confidence framework for the views</a>
 <ul>
-<li><a href="#orgheadline51">9.5.1. Implied confidence levels</a></li>
-<li><a href="#orgheadline52">9.5.2. An intuitive approach</a></li>
+<li><a href="#orgheadline53">9.5.1. Implied confidence levels</a></li>
+<li><a href="#orgheadline54">9.5.2. An intuitive approach</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline54">9.6. Select asset classes</a></li>
-<li><a href="#orgheadline55">9.7. Deployment on GS:</a></li>
-<li><a href="#orgheadline56">9.8. Pitfall of BLM</a></li>
+<li><a href="#orgheadline56">9.6. Select asset classes</a></li>
+<li><a href="#orgheadline57">9.7. Deployment on GS:</a></li>
+<li><a href="#orgheadline58">9.8. Shortfall of BLM</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline58">10. NLP</a></li>
+<li><a href="#orgheadline60">10. NLP</a></li>
 </ul>
 </div>
 </div>
@@ -367,7 +367,7 @@ OLS assumptions:
 </ul>
 
 <p>
-Pitfall of Modern Portfolio Theory(MPT):
+Shortfall of Modern Portfolio Theory(MPT):
 </p>
 <ul class="org-ul">
 <li>It is based on the historical return performance. If the political visk shows up or the fund changes policy or manager, the corporate or the fund performance may change, investor views can't be integrated into the problem.</li>
@@ -706,8 +706,8 @@ The variation in asset allocation around that target is called tactical asset al
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline57" class="outline-2">
-<h2 id="orgheadline57"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
+<div id="outline-container-orgheadline59" class="outline-2">
+<h2 id="orgheadline59"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
 <div class="outline-text-2" id="text-9">
 </div><div id="outline-container-orgheadline39" class="outline-3">
 <h3 id="orgheadline39"><span class="section-number-3">9.1</span> Modern Portfolio Optimization</h3>
@@ -794,7 +794,7 @@ In general, when there are portfolio constraints - for example, when short sales
 </div>
 
 <div id="outline-container-orgheadline41" class="outline-4">
-<h4 id="orgheadline41"><span class="section-number-4">9.3.1</span> reverse optimization to mitigate this problem</h4>
+<h4 id="orgheadline41"><span class="section-number-4">9.3.1</span> reverse optimization to mitigate this problem for unconstrainted solution</h4>
 <div class="outline-text-4" id="text-9-3-1">
 <p>
 \[\Pi = \lambda\Sigma\omega_{mkt}\]
@@ -816,22 +816,27 @@ where
 <p>
 \(\omega_{mkt}\) is the market capitalization asset weight(Nx1 vector).
 </p>
+
+<p>
+Finally,
+\[\omega^* = (\lambda\Sigma)^{-1}\Pi\]
+</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline50" class="outline-3">
-<h3 id="orgheadline50"><span class="section-number-3">9.4</span> Black-Litterman model and the process of building the required inputs.</h3>
+<div id="outline-container-orgheadline52" class="outline-3">
+<h3 id="orgheadline52"><span class="section-number-3">9.4</span> Black-Litterman model and the process of building the required inputs.</h3>
 <div class="outline-text-3" id="text-9-4">
-</div><div id="outline-container-orgheadline47" class="outline-4">
-<h4 id="orgheadline47"><span class="section-number-4">9.4.1</span> Black-Litterman model</h4>
+</div><div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">9.4.1</span> Black-Litterman model</h4>
 <div class="outline-text-4" id="text-9-4-1">
-</div><ol class="org-ol"><li><a id="orgheadline43"></a>Prior distribution of expected return<br  /><div class="outline-text-5" id="text-9-4-1-1">
+</div><ol class="org-ol"><li><a id="orgheadline43"></a>Posterior distribution of expected return combining Prior distribution of equilibrium excess return and investor views.<br  /><div class="outline-text-5" id="text-9-4-1-1">
 <p>
 One of the core assumptions of the model is that the security returns are normally distributed.
 </p>
 
 <ol class="org-ol">
-<li>Prior equilibrium distribution</li>
+<li>Prior equilibrium excess return distribution</li>
 </ol>
 <p>
 Because of this reason during the implementation of model the prior and conditional probabilities are considered to be normally distributed.
@@ -864,43 +869,33 @@ One can assume different distributions for each of these probabilities and hence
 where
 </p>
 
-<ul class="org-ul">
-<li>\(E(R)\)</li>
-</ul>
 <p>
+\(E(R)\)
 is the new(posterior) combined return vector(Nx1);
 </p>
 
-<ul class="org-ul">
-<li>\(\tau\)</li>
-</ul>
 <p>
+\(\tau\)
 is a scalar;
 </p>
 
-<ul class="org-ul">
-<li>\(\Sigma\)</li>
-</ul>
 <p>
+\(\Sigma\)
 is the covariance matrix of excess returns(NxN matrix);
 </p>
 
-<ul class="org-ul">
-<li>\(P\)</li>
-</ul>
 <p>
+\(P\)
 is a matrix that identifies the assets involved in the views(KxN);
 </p>
 
-<ul class="org-ul">
-<li>\(\Omega\)</li>
-</ul>
 <p>
+\(\Omega\)
 The level of confidence, expressed as the standard deviation around the expected return of the view. The weaker confidence that is set to a view, the less the view is to affect the portfolio weights.
 </p>
 
 <p>
-Is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
+Is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);对第 i 个观点设置信心水平 LCi，根据信心水平和标准刻度因子 CF 来构建观点误差矩阵Ω.
 </p>
 
 <p>
@@ -912,10 +907,8 @@ w1 & 0 & 0\\
 \end{bmatrix}\]
 </p>
 
-<ul class="org-ul">
-<li>\(\Pi\)</li>
-</ul>
 <p>
+\(\Pi\)
 is the implied equilibrium return vector(Nx1); Equilibrium is an idealized state in which supply equals demand.
 \[\begin{cases}
 Litterman & \text {percentage} \\
@@ -936,14 +929,24 @@ The net long positions less the net short positions equal 0.
 <p>
 Thus one can calculate the variance of each individual view portfolio \(p_k\Sigma p'_k\).
 </p>
-<ul class="org-ul">
-<li>\(Q\)</li>
-</ul>
+
 <p>
+\(Q\)
 is the view vector(Kx1);
 </p>
+<ol class="org-ol">
+<li>Idzorek method.</li>
+</ol>
+<p>
+\[Q=\begin{bmatrix}
+CF/LC_1 &0  &0 \\0
+ &...  &0 \\0
+ &0  &CF/LC_k
+\end{bmatrix}\], where \[CF=P^*\Sigma P^{*t}/(100/50), LC_k=\text {level of confidence of kth view}, P^* \text {1xn vector, sum of each column from P}\]
+</p>
 </div></li>
-<li><a id="orgheadline46"></a>Investor views<br  /><div class="outline-text-5" id="text-9-4-1-3">
+
+<li><a id="orgheadline48"></a>Investor views<br  /><div class="outline-text-5" id="text-9-4-1-3">
 <p>
 Absolute or relative manager views regarding the expected return of some of the assets in the portfolio.
 </p>
@@ -969,82 +972,107 @@ Asset A will outperform/underperform asset B by xx basis point;
 Assets A and B will outperform/underperform assets C and D by xx basis points; Equivallently a mini long/short portfolio including A and B vesus a mini short/long portfolio.
 </p>
 </div>
-<ol class="org-ol"><li><a id="orgheadline45"></a>Assessing views<br  /><div class="outline-text-6" id="text-9-4-1-3-1">
+<ol class="org-ol"><li><a id="orgheadline47"></a>Assessing views<br  /><ol class="org-ol"><li><a id="orgheadline45"></a>Objective<br  /><div class="outline-text-7" id="text-9-4-1-3-1-1">
 <ul class="org-ul">
-<li>我们考量了其它一些财务指标，如净利润增长率、主营业务收入增长率、净资产收益率等，将各指标进行对比后发现，在我国市场，净利润增长率和主营业务收入增长率等指标非常不稳定、有时具有奇异值，而净资产收益率较为稳定，因此我们在本次实证中使用了净资产收益率作为观点收益，考虑到数据的时效性，我们选用朝阳永续提供的主流券商研究员对行业的一致预期净资产收益率(ROE)数据。</li>
+<li>财务指标</li>
 </ul>
+<p>
+我们考量了其它一些财务指标，如净利润增长率、主营业务收入增长率、净资产收益率等，将各指标进行对比后发现，在我国市场，净利润增长率和主营业务收入增长率等指标非常不稳定、有时具有奇异值，而净资产收益率较为稳定，因此我们在本次实证中使用了净资产收益率作为观点收益，考虑到数据的时效性，我们选用朝阳永续提供的主流券商研究员对行业的一致预期净资产收益率(ROE)数据。
+</p>
 
 <p>
 使用上年底的一致预期 ROE 作为观点收益，设置 20%、 50%和 80%三个信心水平， W<sub>mkt</sub> 表示按流通市值权重配置的资产组合.
 </p>
 
 <ul class="org-ul">
-<li>对第 i 个观点设置信心水平 LCi，根据信心水平和标准刻度因子 CF 来构建观点误差矩阵Ω.</li>
-
-<li>在传统的 B-L 模型中，投资者给出的主观观点是对资产的预期收益，而很多时候投资者可能是一些间接的观点，例如对一些指标的观点（股息率、 EPS、 ROE 等），这些因子可能驱动股价波动。 Wing Cheung 提出了 ABL 模型（Augmented B-L模型），首次将因子模型融入到传统 B-L 模型的框架中，大幅度拓宽了 B-L 模型的适用面。</li>
+<li>间接的观点</li>
 </ul>
-</div></li></ol></li></ol>
+<p>
+在传统的 B-L 模型中，投资者给出的主观观点是对资产的预期收益，而很多时候投资者可能是一些间接的观点，例如对一些指标的观点（股息率、 EPS、 ROE 等），这些因子可能驱动股价波动。 Wing Cheung 提出了 ABL 模型（Augmented B-L模型），首次将因子模型融入到传统 B-L 模型的框架中，大幅度拓宽了 B-L 模型的适用面。
+</p>
+</div></li>
+<li><a id="orgheadline46"></a>Subjective<br  /><div class="outline-text-7" id="text-9-4-1-3-1-2">
+<ul class="org-ul">
+<li>分析师主观预期</li>
+</ul>
+<p>
+采用行业、个股一致预期（ consensus data）是对看法（ views）的一个有效构建方式。用个股预期评级综合得分的增长量表示个股预期收益率，具体处理细节是，每一个评分增量（减量）相当于5%预期收益（或-5%预期收益）。
+</p>
+</div></li></ol></li></ol></li></ol>
 </div>
-
-<div id="outline-container-orgheadline48" class="outline-4">
-<h4 id="orgheadline48"><span class="section-number-4">9.4.2</span> Inputs</h4>
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">9.4.2</span> Inputs</h4>
 <div class="outline-text-4" id="text-9-4-2">
-<ul class="org-ul">
-<li>\(\omega\)</li>
-</ul>
 <p>
-每个资产的均衡权重
+Input:
 </p>
-<ul class="org-ul">
-<li>\(\Sigma\)</li>
-</ul>
-<p>
-Covariance matrix of excess return.
-</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<p>
-资产之间的协方差矩阵, 通过历史数据计算得到（当然，也可以对协方差矩阵进行估计预测）.
-</p>
-<ul class="org-ul">
-<li>\(\lambda\)</li>
-</ul>
-<p>
-Risk aversion coefficient.
-</p>
-<ul class="org-ul">
-<li>\(\tau\)</li>
-</ul>
-<p>
-Scalar. Proportional to the relative weight given to the implied equilibrium return vector(\(\Pi\)).
-</p>
 
-<p>
-Usually between 0.01~0.05.
-</p>
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">w</td>
+<td class="org-left">Equilibrium market capitalization weights for each asset.</td>
+</tr>
+
+<tr>
+<td class="org-left">Σ</td>
+<td class="org-left">Matrix of covariances between the assets. Usually computed from historical data.</td>
+</tr>
+
+<tr>
+<td class="org-left">rf</td>
+<td class="org-left">Risk free rate</td>
+</tr>
+
+<tr>
+<td class="org-left">δ</td>
+<td class="org-left">The risk aversion coeffficient of the market portfolio. This can be specified, or can be computed if the investor knows the market return and standard deviation of returns.</td>
+</tr>
+
+<tr>
+<td class="org-left">τ</td>
+<td class="org-left">A measure of the uncertainty of the prior estimate of the mean returns.   Scalar. Proportional to the relative weight given to the implied equilibrium return vector(\(\Pi\)).       Usually between 0.01~0.05.</td>
+</tr>
+<tbody>
+<tr>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="outline-container-orgheadline49" class="outline-4">
-<h4 id="orgheadline49"><span class="section-number-4">9.4.3</span> Steps:</h4>
+<div id="outline-container-orgheadline51" class="outline-4">
+<h4 id="orgheadline51"><span class="section-number-4">9.4.3</span> Steps:</h4>
 <div class="outline-text-4" id="text-9-4-3">
 <ol class="org-ol">
-<li>Calculate the equilibrium return using reverse optimization.</li>
+<li>Π = δΣw</li>
 </ol>
 <p>
+Calculate the equilibrium return using reverse optimization.
 \[\Pi=\lambda\Sigma\omega_{mkt}\]
 </p>
 
 <p>
 Calculate implied market equilibrium returns based on the given benchmark asset allocation weights.
 </p>
-
 <ol class="org-ol">
-<li>Build covariance matrix of error terms(\(\Omega\)).</li>
+<li>Quantify their uncertainty in the prior by selecting a value for τ.</li>
 </ol>
 <p>
-观点可以涉及单个资产，也可以涉及多个资产乃至所有资产，也可以有多个资产，最后按照一定的规则将所有观点构建成矩阵P、Q和Ω。
+If the covariance matrix has been generated from historical data, then τ = 1/n is a good place to start.
 </p>
-
+<ol class="org-ol">
+<li>Formulates their views, specifying P, Ω, and Q.</li>
+</ol>
 <p>
+Given k views and n assets, then P is a k × n matrix where each row sums to 0 (relative view) or 1 (absolute view).
+Q is a k × 1 vector of the excess returns for each view.
+Ω is a diagonal k × k matrix of the variance of the estimated view mean about the unknown view mean. As a starting point, some authors call for the diagonal values of Ω to be set equal to pTτΣp (where p is the row from P for the specific view). This weights the views the same as the prior estimates.
 考虑有K个观点n个资产的例子，此时，P就是k*n矩阵，每一行代表一个观点，Q为K*1矩阵，存放每个观点的超额收益。Ω是k*k对角矩阵，对角线上的每一个元素代表该观点的方差，与对该观点的置信程度成反比:
 \[\Omega=(P\Sigma P^T)\tau\]
 </p>
@@ -1088,35 +1116,36 @@ View 3: US Large Growth and US Small Growth will outperform US Large Value and U
 </p>
 
 <ol class="org-ol">
-<li>Calculate implied expected excess return vector.</li>
+<li>Compute the posterior estimate of the returns using the following equation.</li>
 </ol>
 <p>
-\[\hat\Tau = \Tau + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Tau)\]
+\[\hat\Pi = \Pi + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Pi)\]
 </p>
-
 <ol class="org-ol">
-<li>New weight.</li>
+<li>Compute the posterior variance of the estimated mean about the unknown mean using the following equation.</li>
 </ol>
 <p>
-Posterior expected return distribution covariance matrix:
-\[M=\tau \Sigma - \tau \Sigma P'[P\Sigma P'+\Sigma]^{-1}P\tau \Sigma\]
+\[M=\tau \Sigma - \tau \Sigma P'[P\tau\Sigma P'+\Omega]^{-1}P\tau \Sigma\]
 </p>
-
+<ol class="org-ol">
+<li>Get the covariance of retujrns about the estimated mean.</li>
+</ol>
 <p>
-New covariance of excess return:
+Assuming the uncertainty in the estimates is independent of the known covariance of returns about the unknown mean.
 \[\Sigma_p = \Sigma + M\]
 </p>
-
+<ol class="org-ol">
+<li>Compute the portfolio weights for the optimal portfolio on the unconstrained efficient frontier.</li>
+</ol>
 <p>
-Calculate unconstrainted optimized weight:
-\[\hat\omega=(\lambda\Sigma_p)^{-1}\hat\Pi\]
+\[\hat {\omega}=(\lambda\Sigma_p)^{-1}\hat {\Pi}\]
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline53" class="outline-3">
-<h3 id="orgheadline53"><span class="section-number-3">9.5</span> Implied confidence framework for the views</h3>
+<div id="outline-container-orgheadline55" class="outline-3">
+<h3 id="orgheadline55"><span class="section-number-3">9.5</span> Implied confidence framework for the views</h3>
 <div class="outline-text-3" id="text-9-5">
 <p>
 \(\Omega\), which representing the uncertainty of the views, and \(\tau\) are the most abstract mathematical parameters of this model.
@@ -1127,22 +1156,22 @@ how to specify a probability density function for each view?
 </p>
 </div>
 
-<div id="outline-container-orgheadline51" class="outline-4">
-<h4 id="orgheadline51"><span class="section-number-4">9.5.1</span> Implied confidence levels</h4>
+<div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53"><span class="section-number-4">9.5.1</span> Implied confidence levels</h4>
 <div class="outline-text-4" id="text-9-5-1">
 <p>
-\[\frac{\hat{\omega}-\omega_{mkt}}{\hat{\omega_{100%}}-\omega_{mkt}}\]
+\[\frac{\hat {\omega} - \omega_{mkt}}{\hat {\omega_{100%}} - \omega_{mkt}}\]
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline52" class="outline-4">
-<h4 id="orgheadline52"><span class="section-number-4">9.5.2</span> An intuitive approach</h4>
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54"><span class="section-number-4">9.5.2</span> An intuitive approach</h4>
 </div>
 </div>
 
-<div id="outline-container-orgheadline54" class="outline-3">
-<h3 id="orgheadline54"><span class="section-number-3">9.6</span> Select asset classes</h3>
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">9.6</span> Select asset classes</h3>
 <div class="outline-text-3" id="text-9-6">
 <p>
 criteria for specifying asset classes are:
@@ -1169,90 +1198,13 @@ criteria for specifying asset classes are:
 </div>
 </div>
 
-<div id="outline-container-orgheadline55" class="outline-3">
-<h3 id="orgheadline55"><span class="section-number-3">9.7</span> Deployment on GS:</h3>
-<div class="outline-text-3" id="text-9-7">
-<p>
-Input:
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">w</td>
-<td class="org-left">Equilibrium market capitalization weights for each asset.</td>
-</tr>
-
-<tr>
-<td class="org-left">Σ</td>
-<td class="org-left">Matrix of covariances between the assets. Usually computed from historical data.</td>
-</tr>
-
-<tr>
-<td class="org-left">rf</td>
-<td class="org-left">Risk free rate</td>
-</tr>
-
-<tr>
-<td class="org-left">δ</td>
-<td class="org-left">The risk aversion coeffficient of the market portfolio. This can be specified, or can be computed if the investor knows the market return and standard deviation of returns.</td>
-</tr>
-
-<tr>
-<td class="org-left">τ</td>
-<td class="org-left">A measure of the uncertainty of the prior estimate of the mean returns.</td>
-</tr>
-</tbody>
-</table>
-<ol class="org-ol">
-<li>Π = δΣw</li>
-<li>Quantify their uncertainty in the prior by selecting a value for τ.</li>
-</ol>
-<p>
-If the covariance matrix has been generated from historical data, then τ = 1/n is a good place to start.
-</p>
-<ol class="org-ol">
-<li>Formulates their views, specifying P, Ω, and Q.</li>
-</ol>
-<p>
-Given k views and n assets, then P is a k × n matrix where each row sums to 0 (relative view) or 1 (absolute view). Q is a k × 1 vector of the excess returns for each view. Ω is a diagonal k × k matrix of the variance of the estimated view mean about the unknown view mean. As a starting point, some authors call for the diagonal values of Ω to be set equal to pTτΣp (where p is the row from P for the specific view). This weights the views the same as the prior estimates.
-</p>
-<ol class="org-ol">
-<li>Compute the posterior estimate of the returns using the following equation.</li>
-</ol>
-<p>
-\[\hat\Pi = \Pi + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Pi)\]
-</p>
-<ol class="org-ol">
-<li>Compute the posterior variance of the estimated mean about the unknown mean using the following equation.</li>
-</ol>
-<p>
-\[M=\tau \Sigma - \tau \Sigma P'[P\tau\Sigma P'+\Omega]^{-1}P\tau \Sigma\]
-</p>
-<ol class="org-ol">
-<li>Get the covariance of retujrns about the estimated mean.</li>
-</ol>
-<p>
-Assuming the uncertainty in the estimates is independent of the known covariance of returns about the unknown mean.
-\[\Sigma_p = \Sigma + M\]
-</p>
-<ol class="org-ol">
-<li>Compute the portfolio weights for the optimal portfolio on the unconstrained efficient frontier.</li>
-</ol>
-<p>
-\[\omega=\hat{\Pi}(\delta\Sigma_p)^{-1}\]
-</p>
-</div>
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">9.7</span> Deployment on GS:</h3>
 </div>
 
-<div id="outline-container-orgheadline56" class="outline-3">
-<h3 id="orgheadline56"><span class="section-number-3">9.8</span> Pitfall of BLM</h3>
+
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">9.8</span> Shortfall of BLM</h3>
 <div class="outline-text-3" id="text-9-8">
 <ul class="org-ul">
 <li>非正态分布市场</li>
@@ -1271,8 +1223,8 @@ Assuming the uncertainty in the estimates is independent of the known covariance
 </div>
 </div>
 
-<div id="outline-container-orgheadline58" class="outline-2">
-<h2 id="orgheadline58"><span class="section-number-2">10</span> NLP</h2>
+<div id="outline-container-orgheadline60" class="outline-2">
+<h2 id="orgheadline60"><span class="section-number-2">10</span> NLP</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Hidden factor model</li>

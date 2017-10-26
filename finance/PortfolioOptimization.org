@@ -64,7 +64,7 @@ OLS assumptions:
 - No Perfect Collinearity
 - Homoskedasticity
 
-Pitfall of Modern Portfolio Theory(MPT):
+Shortfall of Modern Portfolio Theory(MPT):
 - It is based on the historical return performance. If the political visk shows up or the fund changes policy or manager, the corporate or the fund performance may change, investor views can't be integrated into the problem.
 
 * Sparse Markowitz Portfolios
@@ -248,7 +248,7 @@ In general, when there are portfolio constraints - for example, when short sales
 - the easiest way to find the optimal portfolio is to use the Black–Litterman model to generate the expected returns for the assets,
 - and then use a mean-variance optimizer to solve the constrained optimization problem.
 
-*** reverse optimization to mitigate this problem
+*** reverse optimization to mitigate this problem for unconstrainted solution
 $$\Pi = \lambda\Sigma\omega_{mkt}$$
 where
 
@@ -259,12 +259,15 @@ $\lambda$ is the risk aversion coefficient, $\lambda=\frac{E(r)-r_f}{\sigma^2}$;
 $\Sigma$ is the covariance matrix of excess returns(NxN matrix);
 
 $\omega_{mkt}$ is the market capitalization asset weight(Nx1 vector).
+
+Finally,
+$$\omega^* = (\lambda\Sigma)^{-1}\Pi$$
 ** Black-Litterman model and the process of building the required inputs.
 *** Black-Litterman model
-**** Prior distribution of expected return
+**** Posterior distribution of expected return combining Prior distribution of equilibrium excess return and investor views.
 One of the core assumptions of the model is that the security returns are normally distributed.
 
-1. Prior equilibrium distribution
+1. Prior equilibrium excess return distribution
 Because of this reason during the implementation of model the prior and conditional probabilities are considered to be normally distributed.
 $$N~(\Pi, \tau\Sigma)$$
 
@@ -281,22 +284,22 @@ One can assume different distributions for each of these probabilities and hence
 $$E(R)=[(\tau\Sigma)^{-1}+P'\Omega^{-1}P]^{-1}[(\tau\Sigma)^{-1}\Pi+P'\Omega^{-1}P]$$
 where
 
-- $E(R)$
+$E(R)$
 is the new(posterior) combined return vector(Nx1);
 
-- $\tau$
+$\tau$
 is a scalar;
 
-- $\Sigma$
+$\Sigma$
 is the covariance matrix of excess returns(NxN matrix);
 
-- $P$
+$P$
 is a matrix that identifies the assets involved in the views(KxN);
 
-- $\Omega$
+$\Omega$
 The level of confidence, expressed as the standard deviation around the expected return of the view. The weaker confidence that is set to a view, the less the view is to affect the portfolio weights.
 
-Is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);
+Is a diagonal covariance matrix of error terms from the expressed views representing the uncertainty in each view(KxK);对第 i 个观点设置信心水平 LCi，根据信心水平和标准刻度因子 CF 来构建观点误差矩阵Ω.
 
 A view has the form $Q+\epsilon$:
 $$\begin{bmatrix}
@@ -305,7 +308,7 @@ w1 & 0 & 0\\
 0 & 0 & w3
 \end{bmatrix}$$
 
-- $\Pi$
+$\Pi$
 is the implied equilibrium return vector(Nx1); Equilibrium is an idealized state in which supply equals demand.
 $$\begin{cases}
 Litterman & \text {percentage} \\
@@ -319,8 +322,16 @@ It has three factors: 1. the views; 2. the level of condence assigned to each vi
 The net long positions less the net short positions equal 0.
 
 Thus one can calculate the variance of each individual view portfolio $p_k\Sigma p'_k$.
-- $Q$
+
+$Q$
 is the view vector(Kx1);
+1) Idzorek method.
+$$Q=\begin{bmatrix}
+CF/LC_1 &0  &0 \\0
+ &...  &0 \\0
+ &0  &CF/LC_k
+\end{bmatrix}$$, where $$CF=P^*\Sigma P^{*t}/(100/50), LC_k=\text {level of confidence of kth view}, P^* \text {1xn vector, sum of each column from P}$$
+
 **** Investor views
 Absolute or relative manager views regarding the expected return of some of the assets in the portfolio.
 
@@ -333,37 +344,38 @@ Asset A will outperform/underperform asset B by xx basis point;
 - relative view 2:
 Assets A and B will outperform/underperform assets C and D by xx basis points; Equivallently a mini long/short portfolio including A and B vesus a mini short/long portfolio.
 ***** Assessing views
-- 我们考量了其它一些财务指标，如净利润增长率、主营业务收入增长率、净资产收益率等，将各指标进行对比后发现，在我国市场，净利润增长率和主营业务收入增长率等指标非常不稳定、有时具有奇异值，而净资产收益率较为稳定，因此我们在本次实证中使用了净资产收益率作为观点收益，考虑到数据的时效性，我们选用朝阳永续提供的主流券商研究员对行业的一致预期净资产收益率(ROE)数据。
+****** Objective
+- 财务指标
+我们考量了其它一些财务指标，如净利润增长率、主营业务收入增长率、净资产收益率等，将各指标进行对比后发现，在我国市场，净利润增长率和主营业务收入增长率等指标非常不稳定、有时具有奇异值，而净资产收益率较为稳定，因此我们在本次实证中使用了净资产收益率作为观点收益，考虑到数据的时效性，我们选用朝阳永续提供的主流券商研究员对行业的一致预期净资产收益率(ROE)数据。
 
 使用上年底的一致预期 ROE 作为观点收益，设置 20%、 50%和 80%三个信心水平， W_mkt 表示按流通市值权重配置的资产组合.
 
-- 对第 i 个观点设置信心水平 LCi，根据信心水平和标准刻度因子 CF 来构建观点误差矩阵Ω.
-
-- 在传统的 B-L 模型中，投资者给出的主观观点是对资产的预期收益，而很多时候投资者可能是一些间接的观点，例如对一些指标的观点（股息率、 EPS、 ROE 等），这些因子可能驱动股价波动。 Wing Cheung 提出了 ABL 模型（Augmented B-L模型），首次将因子模型融入到传统 B-L 模型的框架中，大幅度拓宽了 B-L 模型的适用面。
-
+- 间接的观点
+在传统的 B-L 模型中，投资者给出的主观观点是对资产的预期收益，而很多时候投资者可能是一些间接的观点，例如对一些指标的观点（股息率、 EPS、 ROE 等），这些因子可能驱动股价波动。 Wing Cheung 提出了 ABL 模型（Augmented B-L模型），首次将因子模型融入到传统 B-L 模型的框架中，大幅度拓宽了 B-L 模型的适用面。
+****** Subjective
+- 分析师主观预期
+采用行业、个股一致预期（ consensus data）是对看法（ views）的一个有效构建方式。用个股预期评级综合得分的增长量表示个股预期收益率，具体处理细节是，每一个评分增量（减量）相当于5%预期收益（或-5%预期收益）。
 *** Inputs
-- $\omega$
-每个资产的均衡权重
-- $\Sigma$
-Covariance matrix of excess return.
-
-资产之间的协方差矩阵, 通过历史数据计算得到（当然，也可以对协方差矩阵进行估计预测）.
-- $\lambda$
-Risk aversion coefficient.
-- $\tau$
-Scalar. Proportional to the relative weight given to the implied equilibrium return vector($\Pi$).
-
-Usually between 0.01~0.05.
+Input:
+| w	  | Equilibrium market capitalization weights for each asset.                                                                                                                      |
+| Σ	  | Matrix of covariances between the assets. Usually computed from historical data.                                                                                               |
+| rf	 | Risk free rate                                                                                                                                                                 |
+| δ    | 	The risk aversion coeffficient of the market portfolio. This can be specified, or can be computed if the investor knows the market return and standard deviation of returns. |
+| τ	  | A measure of the uncertainty of the prior estimate of the mean returns.   Scalar. Proportional to the relative weight given to the implied equilibrium return vector($\Pi$).       Usually between 0.01~0.05.
+                                                                                              |
 *** Steps:
 
-1. Calculate the equilibrium return using reverse optimization.
+1. Π = δΣw
+Calculate the equilibrium return using reverse optimization.
 $$\Pi=\lambda\Sigma\omega_{mkt}$$
 
 Calculate implied market equilibrium returns based on the given benchmark asset allocation weights.
-
-2. Build covariance matrix of error terms($\Omega$).
-观点可以涉及单个资产，也可以涉及多个资产乃至所有资产，也可以有多个资产，最后按照一定的规则将所有观点构建成矩阵P、Q和Ω。
-
+2. Quantify their uncertainty in the prior by selecting a value for τ.
+If the covariance matrix has been generated from historical data, then τ = 1/n is a good place to start.
+3. Formulates their views, specifying P, Ω, and Q.
+Given k views and n assets, then P is a k × n matrix where each row sums to 0 (relative view) or 1 (absolute view).
+Q is a k × 1 vector of the excess returns for each view.
+Ω is a diagonal k × k matrix of the variance of the estimated view mean about the unknown view mean. As a starting point, some authors call for the diagonal values of Ω to be set equal to pTτΣp (where p is the row from P for the specific view). This weights the views the same as the prior estimates.
 考虑有K个观点n个资产的例子，此时，P就是k*n矩阵，每一行代表一个观点，Q为K*1矩阵，存放每个观点的超额收益。Ω是k*k对角矩阵，对角线上的每一个元素代表该观点的方差，与对该观点的置信程度成反比:
 $$\Omega=(P\Sigma P^T)\tau$$
 
@@ -389,18 +401,15 @@ $$Q=\begin{bmatrix}
  2
 \end{bmatrix}$$
 
-3. Calculate implied expected excess return vector.
-$$\hat\Tau = \Tau + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Tau)$$
-
-4. New weight.
-Posterior expected return distribution covariance matrix:
-$$M=\tau \Sigma - \tau \Sigma P'[P\Sigma P'+\Sigma]^{-1}P\tau \Sigma$$
-
-New covariance of excess return:
+4. Compute the posterior estimate of the returns using the following equation.
+$$\hat\Pi = \Pi + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Pi)$$
+5. Compute the posterior variance of the estimated mean about the unknown mean using the following equation.
+$$M=\tau \Sigma - \tau \Sigma P'[P\tau\Sigma P'+\Omega]^{-1}P\tau \Sigma$$
+6. Get the covariance of retujrns about the estimated mean.
+Assuming the uncertainty in the estimates is independent of the known covariance of returns about the unknown mean.
 $$\Sigma_p = \Sigma + M$$
-
-Calculate unconstrainted optimized weight:
-$$\hat\omega=(\lambda\Sigma_p)^{-1}\hat\Pi$$
+7. Compute the portfolio weights for the optimal portfolio on the unconstrained efficient frontier.
+$$\hat {\omega}=(\lambda\Sigma_p)^{-1}\hat {\Pi}$$
 
 ** Implied confidence framework for the views
 $\Omega$, which representing the uncertainty of the views, and $\tau$ are the most abstract mathematical parameters of this model.
@@ -408,7 +417,7 @@ $\Omega$, which representing the uncertainty of the views, and $\tau$ are the mo
 how to specify a probability density function for each view?
 
 *** Implied confidence levels
-$$\frac{\hat{\omega}-\omega_{mkt}}{\hat{\omega_{100%}}-\omega_{mkt}}$$
+$$\frac{\hat {\omega} - \omega_{mkt}}{\hat {\omega_{100%}} - \omega_{mkt}}$$
 
 *** An intuitive approach
 
@@ -431,28 +440,9 @@ criteria for specifying asset classes are:
 - Cash or cash equivalents
 
 ** Deployment on GS:
-Input:
-| w	  | Equilibrium market capitalization weights for each asset.                                                                                                                      |
-| Σ	  | Matrix of covariances between the assets. Usually computed from historical data.                                                                                               |
-| rf	 | Risk free rate                                                                                                                                                                 |
-| δ    | 	The risk aversion coeffficient of the market portfolio. This can be specified, or can be computed if the investor knows the market return and standard deviation of returns. |
-| τ	  | A measure of the uncertainty of the prior estimate of the mean returns.                                                                                                        |
-1. Π = δΣw
-2. Quantify their uncertainty in the prior by selecting a value for τ.
-If the covariance matrix has been generated from historical data, then τ = 1/n is a good place to start.
-3. Formulates their views, specifying P, Ω, and Q.
-Given k views and n assets, then P is a k × n matrix where each row sums to 0 (relative view) or 1 (absolute view). Q is a k × 1 vector of the excess returns for each view. Ω is a diagonal k × k matrix of the variance of the estimated view mean about the unknown view mean. As a starting point, some authors call for the diagonal values of Ω to be set equal to pTτΣp (where p is the row from P for the specific view). This weights the views the same as the prior estimates.
-4. Compute the posterior estimate of the returns using the following equation.
-$$\hat\Pi = \Pi + \tau\Sigma P'(P\tau\Sigma P')^{-1}(Q-P\Pi)$$
-5. Compute the posterior variance of the estimated mean about the unknown mean using the following equation.
-$$M=\tau \Sigma - \tau \Sigma P'[P\tau\Sigma P'+\Omega]^{-1}P\tau \Sigma$$
-6. Get the covariance of retujrns about the estimated mean.
-Assuming the uncertainty in the estimates is independent of the known covariance of returns about the unknown mean.
-$$\Sigma_p = \Sigma + M$$
-7. Compute the portfolio weights for the optimal portfolio on the unconstrained efficient frontier.
-$$\omega=\hat{\Pi}(\delta\Sigma_p)^{-1}$$
 
-** Pitfall of BLM
+
+** Shortfall of BLM
 - 非正态分布市场
 由于 B-L 模型里假设的资产收益都是服从正态分布，这对绝大多数市场来说并不现实， Attilio Meucci 提出了在非正态分布的条件下如何去使用 B-L 模型，并且在对风险的处理中，不再采用传统B-L 模型里的方式，也就是说不再用方差来表示风险，改用 CVAR 等来描述风险，以便能够捕捉到非对称和尾部的风险。
 
