@@ -310,10 +310,13 @@ DEADLINE: <2017-10-23 Mon>
 * TODO optimization
 
 ** black-litterman model
-DEADLINE: <2017-10-24 Tue>
-1. [ ] read pdf/code, take notes.
-2. [ ] present general idea.
-3. [ ] write pseudo code, set input parameters.
+DEADLINE: <2017-10-26 Thu>
+1. [X] read pdf/code, take notes.
+2. [X] present general idea.
+explain exact meaning with each parameter with cases.
+search more industrial use cases.
+view details.
+3. [X] write pseudo code, set input parameters.
 4. [ ] write/modify code.
 5. [ ] plugging gs to run with data.
 6. [ ] check result.

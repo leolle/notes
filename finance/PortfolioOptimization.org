@@ -302,7 +302,7 @@ w1 & 0 & 0\\
 \end{bmatrix}$$
 
 - $\Pi$
-is the implied equilibrium return vector(Nx1);
+is the implied equilibrium return vector(Nx1); Equilibrium is an idealized state in which supply equals demand.
 $$\begin{cases}
 Litterman & \text {percentage} \\
 Satchell and Scowcroft & \text{ equal weight } \\
@@ -316,7 +316,7 @@ Thus one can calculate the variance of each individual view portfolio $p_k\Sigma
 - $Q$
 is the view vector(Kx1);
 **** Investor views
-Absolute or relative manager views regarding the expected reutnr of some of the assets in the portfolio.
+Absolute or relative manager views regarding the expected return of some of the assets in the portfolio.
 
 - absolute view:
 Asset A will have an absolute excess return of x%;
@@ -326,6 +326,7 @@ Asset A will outperform/underperform asset B by xx basis point;
 
 - relative view 2:
 Assets A and B will outperform/underperform assets C and D by xx basis points; Equivallently a mini long/short portfolio including A and B vesus a mini short/long portfolio.
+
 *** Inputs
 - $\omega$
 每个资产的均衡权重
@@ -374,7 +375,7 @@ $$Q=\begin{bmatrix}
  2
 \end{bmatrix}$$
 
-3. Calculate implied expected excess return vector
+3. Calculate implied expected excess return vector.
 $$\hat\Tau = \Tau + \tau\SigmaP'(P\tau|sigmaP')^{-1}(Q-P\Tau)$$
 
 4. New weight.
@@ -396,6 +397,10 @@ how to specify a probability density function for each view?
 $$\frac{\hat{\omega}-\omega_{mkt}}{\hat{\omega_{100%}}-\omega_{mkt}}$$
 
 *** An intuitive approach
+
+** Deployment on GS:
+Input:
+
 * NLP
 - Hidden factor model
 - portfolio optimization based on factor model

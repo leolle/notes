@@ -316,6 +316,12 @@ $$\[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\] $$
 #+begin_src emacs-lisp :tangle yes
 \[ \int \!\!\! \int_D f(x,y)\,dx\,dy.\]
 #+end_src
+** Insert image into org file
+#+BEGIN_SRC org
+#+CAPTION: fiture title
+[[./images/xxx.png]]
+=C-c C-x C-v= to display toggled images.
+#+END_SRC
 ** ditaa figures
 *** Connected elements with colors
 #+begin_src ditaa :file ditaa-seqboxes.png
