@@ -27,18 +27,27 @@
 
 * Structure
 ** Introduction
+State the contribution.
 - Problem
 Benefits to be gained by the research or why the problem has not been solved yet.
 - Purpose
 What you are trying to achieve.
 - Own position
 Overall view of the paper. A quick summary of the form that the parts of the research paper is going to take.
-** Method/Model
+** Literature Review
+- Previous research
+- Contribution in more detail
+Differences from what has been done before: Is it new data? A new model? A
+new identication strategy? Are you answering a question more broadly/specially? Specifically
+comparing how you are improving on a previous paper is useful.
+- Method/Model
 Exact design and methodology used to perform the research.
-
 - Data
-- Formulas
-- Steps
+Describe the name and source of the data you are using and the period it covers.
+
+Present (relevant) descriptive statistics of the data.
+- Formulate
+A specific question problem, or conjecture, and to describe the approach you will take to answer, solve, or test it. Often, this will take the form of an empirical hypothesis: social security depresses personal savings;
 ** Results
 Numerical results and data, tables or graphs of data.
 ** Discussion
