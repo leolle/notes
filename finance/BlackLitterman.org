@@ -22,6 +22,7 @@
 - log-optimal portfolios (Cover and Ordentlich, 1996)
 - conditional value at risk (cVaR) and coherent risk measures for portfolios (Rockafellar and Uryasev, 2000)
 #+CAPTION: model comparison
+#+ATTR_LaTeX: width=5cm
 [[./images/model_comparison.png]]
 
 * Basics
