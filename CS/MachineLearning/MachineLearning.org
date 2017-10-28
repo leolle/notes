@@ -264,27 +264,3 @@ which group of stocks could possibly move up in the next trading period.
 * Google Natural Language Processing
 
 * Outline of Machine Learning
-
-* Week 1
-** Logistic Regression
-** Regularization
-** Classification
-*** Linear Discriminant Analysis
-
-*** Comparison
-* Week 1
-** Decision tree and random forest
-* Week 2
-** Boosting
-* Week 3
-** XGBoost
-* Week 4
-** SVM
-* Week 5
-** Clustering
-* Week 6
-** Bayesian Network
-* Week 7
-** LDA
-* Week 8
-** HMM

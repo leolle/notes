@@ -342,12 +342,12 @@ DEADLINE: <2017-10-23 Mon>
 
 ** black-litterman model
 DEADLINE: <2017-10-27 Fri>
-- [ ] create idea map on GS.
-- [ ] write pseudo code.
-- [ ] prepapre industial historical price data, data problem on class market capitalization.
+- [X] create idea map on GS.
+- [X] write pseudo code.
+- [X] prepapre industial historical price data, data problem on class market capitalization.
 - [ ] translate ROE to views.
-1. [X] read pdf/code, take notes.
-2. [X] present general idea.
+- [X] read pdf/code, take notes.
+- [X] present general idea.
 vivid views on expected return.
 explain exact meaning with each parameter with cases.
 search more industrial use cases.

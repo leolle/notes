@@ -44,6 +44,9 @@ The match must occur at the end of the string.
 Defines the boundary for the word.
 
 *** Pattern Matching
+- ?
+indicates zero or one occurrences of the preceding element.
+
 - You can match the characters not listed within the class by complementing the set.
  This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [^5] will match any character except '5'.
 - \.
@@ -61,15 +64,17 @@ Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_]
 - \W
 Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].
 
-** Quantification
-- ?
-indicates zero or one occurrences of the preceding element.
+*** Quantification
 
 - *
 The asterisk indicates zero or more occurrences of the preceding element.
 
 - +
 indicates one or more occurrences of the preceding element.
+
+- {m,n}
+Used to match between m and n occurences of the previous character. The example tries to match between three and five w's.
+
 ** cases:
 - machine space and numbers:
 \s\b\d+\b
