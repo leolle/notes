@@ -88,6 +88,7 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 
 *** 自编码
 *** 深度学习
+[[file:./DeepLearning.org][DeepLearning]]
 *** 多层感知机
 *** RNN
 *** 受限玻尔兹曼机
@@ -123,13 +124,10 @@ Fitting some data to a function or function approximation.
 
 Figuring out what the data is without any feedback. For instance, if we were given many data points, we could group them by similarity, or perhaps determine which variables are better than others.
 
-- Reinforcement Learning
-
-** Decision tree learning
 $$H = {H|h: X \to Y}$$
 
 *** Top-Down induction of DTree
-- A \to the best decision attribute for next node.
+- A to the best decision attribute for next node.
 - Assign A as decision attribute for node.
 - For each value of A, create new descendant of node.
 - Sort training examples to leaf nodes.
@@ -237,7 +235,11 @@ accuracy_score(y_true, predicts)
 * Tree-Based Methods
 
 ** Decision Trees
+如何利用熵分类：
+怎么样贪心地分类让熵以最快的速度降低。
 
+信息增益：
+给定特征A的信息而使得类X的信息的不确定性减少的程度。
 ** Bagging, Random Forests, Boosting
 
 * Unsupervised Learning

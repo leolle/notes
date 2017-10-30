@@ -94,12 +94,17 @@ ICA
 
 - [ ] 公司帮忙照看搬家。
 8 hours.
-
+** Deep learning
+- stuff from Zhupengjia, Liguofu
+- Yoshua paper deep learning.
+- Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
+- deep learning book, author goodfellow.
+- Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
+- Neural Language Processing(NLP), 结巴分词.
 * Personal stuff
 ** knowledge database website
 - [X] modify python content aligned with python library index.
 [[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
-
 - [ ] publish org files to gitbook.
 * Errand
 * NaturalLanguageProcessing
@@ -341,11 +346,13 @@ DEADLINE: <2017-10-23 Mon>
 * TODO optimization
 
 ** black-litterman model
-DEADLINE: <2017-10-27 Fri>
+DEADLINE: <2017-10-30 Mon>
+- [ ] simply use stocks in a sector instead of all sector classes that ignore sector market capitalization.
+- [ ] translate ROE to views.
+- [ ] Omega should be calculated via 2 methods, one is to calculate Omega using LC and Calibration Factor, the other is integrating tilt to new weight w.
 - [X] create idea map on GS.
 - [X] write pseudo code.
 - [X] prepapre industial historical price data, data problem on class market capitalization.
-- [ ] translate ROE to views.
 - [X] read pdf/code, take notes.
 - [X] present general idea.
 vivid views on expected return.

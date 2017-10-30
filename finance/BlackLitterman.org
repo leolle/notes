@@ -356,6 +356,8 @@ Assets A and B will outperform/underperform assets C and D by xx basis points; E
 ****** Subjective
 - 分析师主观预期
 采用行业、个股一致预期（ consensus data）是对看法（ views）的一个有效构建方式。用个股预期评级综合得分的增长量表示个股预期收益率，具体处理细节是，每一个评分增量（减量）相当于5%预期收益（或-5%预期收益）。
+***** Confidence level
+对第 i 个观点设置信心水平 LCi，根据信心水平和标准刻度因子 CF 来构建观点误差矩阵Ω.
 *** Inputs
 Input:
 | w	  | Equilibrium market capitalization weights for each asset.                                                                                                                      |
