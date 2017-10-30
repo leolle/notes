@@ -11,3 +11,8 @@
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Boosting
+
+- 给定输入向量x和输出变量y组成的若干训练样本(x1,y1),(x2,y2),...,(xn,yn),目标是找到近似函数F，使得损失函数L(y,F(x))的损失值最小。
+假定先取所有样本的平均值，作为第一个先行的预测。

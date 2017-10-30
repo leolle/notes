@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-27 Fri 14:53 -->
+<!-- 2017-10-30 Mon 12:00 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -219,7 +219,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline37">8.2. asset allocation strategies is a three-step process:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline59">9. Black litterman model step-by-step</a>
+<li><a href="#orgheadline60">9. Black litterman model step-by-step</a>
 <ul>
 <li><a href="#orgheadline39">9.1. Modern Portfolio Optimization</a></li>
 <li><a href="#orgheadline40">9.2. Problem of mean-variance optimization</a></li>
@@ -228,25 +228,25 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline41">9.3.1. reverse optimization to mitigate this problem for unconstrainted solution</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline52">9.4. Black-Litterman model and the process of building the required inputs.</a>
+<li><a href="#orgheadline53">9.4. Black-Litterman model and the process of building the required inputs.</a>
 <ul>
-<li><a href="#orgheadline49">9.4.1. Black-Litterman model</a></li>
-<li><a href="#orgheadline50">9.4.2. Inputs</a></li>
-<li><a href="#orgheadline51">9.4.3. Steps:</a></li>
+<li><a href="#orgheadline50">9.4.1. Black-Litterman model</a></li>
+<li><a href="#orgheadline51">9.4.2. Inputs</a></li>
+<li><a href="#orgheadline52">9.4.3. Steps:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline55">9.5. Implied confidence framework for the views</a>
+<li><a href="#orgheadline56">9.5. Implied confidence framework for the views</a>
 <ul>
-<li><a href="#orgheadline53">9.5.1. Implied confidence levels</a></li>
-<li><a href="#orgheadline54">9.5.2. An intuitive approach</a></li>
+<li><a href="#orgheadline54">9.5.1. Implied confidence levels</a></li>
+<li><a href="#orgheadline55">9.5.2. An intuitive approach</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline56">9.6. Select asset classes</a></li>
-<li><a href="#orgheadline57">9.7. Deployment on GS:</a></li>
-<li><a href="#orgheadline58">9.8. Shortfall of BLM</a></li>
+<li><a href="#orgheadline57">9.6. Select asset classes</a></li>
+<li><a href="#orgheadline58">9.7. Deployment on GS:</a></li>
+<li><a href="#orgheadline59">9.8. Shortfall of BLM</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline60">10. NLP</a></li>
+<li><a href="#orgheadline61">10. NLP</a></li>
 </ul>
 </div>
 </div>
@@ -706,8 +706,8 @@ The variation in asset allocation around that target is called tactical asset al
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline59" class="outline-2">
-<h2 id="orgheadline59"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
+<div id="outline-container-orgheadline60" class="outline-2">
+<h2 id="orgheadline60"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
 <div class="outline-text-2" id="text-9">
 </div><div id="outline-container-orgheadline39" class="outline-3">
 <h3 id="orgheadline39"><span class="section-number-3">9.1</span> Modern Portfolio Optimization</h3>
@@ -824,11 +824,11 @@ Finally,
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline52" class="outline-3">
-<h3 id="orgheadline52"><span class="section-number-3">9.4</span> Black-Litterman model and the process of building the required inputs.</h3>
+<div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53"><span class="section-number-3">9.4</span> Black-Litterman model and the process of building the required inputs.</h3>
 <div class="outline-text-3" id="text-9-4">
-</div><div id="outline-container-orgheadline49" class="outline-4">
-<h4 id="orgheadline49"><span class="section-number-4">9.4.1</span> Black-Litterman model</h4>
+</div><div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">9.4.1</span> Black-Litterman model</h4>
 <div class="outline-text-4" id="text-9-4-1">
 </div><ol class="org-ol"><li><a id="orgheadline43"></a>Posterior distribution of expected return combining Prior distribution of equilibrium excess return and investor views.<br  /><div class="outline-text-5" id="text-9-4-1-1">
 <p>
@@ -946,7 +946,7 @@ CF/LC_1 &0  &0 \\0
 </p>
 </div></li>
 
-<li><a id="orgheadline48"></a>Investor views<br  /><div class="outline-text-5" id="text-9-4-1-3">
+<li><a id="orgheadline49"></a>Investor views<br  /><div class="outline-text-5" id="text-9-4-1-3">
 <p>
 Absolute or relative manager views regarding the expected return of some of the assets in the portfolio.
 </p>
@@ -998,10 +998,15 @@ Assets A and B will outperform/underperform assets C and D by xx basis points; E
 <p>
 采用行业、个股一致预期（ consensus data）是对看法（ views）的一个有效构建方式。用个股预期评级综合得分的增长量表示个股预期收益率，具体处理细节是，每一个评分增量（减量）相当于5%预期收益（或-5%预期收益）。
 </p>
-</div></li></ol></li></ol></li></ol>
+</div></li></ol></li>
+<li><a id="orgheadline48"></a>Confidence level<br  /><div class="outline-text-6" id="text-9-4-1-3-2">
+<p>
+对第 i 个观点设置信心水平 LCi，根据信心水平和标准刻度因子 CF 来构建观点误差矩阵Ω.
+</p>
+</div></li></ol></li></ol>
 </div>
-<div id="outline-container-orgheadline50" class="outline-4">
-<h4 id="orgheadline50"><span class="section-number-4">9.4.2</span> Inputs</h4>
+<div id="outline-container-orgheadline51" class="outline-4">
+<h4 id="orgheadline51"><span class="section-number-4">9.4.2</span> Inputs</h4>
 <div class="outline-text-4" id="text-9-4-2">
 <p>
 Input:
@@ -1046,8 +1051,8 @@ Input:
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline51" class="outline-4">
-<h4 id="orgheadline51"><span class="section-number-4">9.4.3</span> Steps:</h4>
+<div id="outline-container-orgheadline52" class="outline-4">
+<h4 id="orgheadline52"><span class="section-number-4">9.4.3</span> Steps:</h4>
 <div class="outline-text-4" id="text-9-4-3">
 <ol class="org-ol">
 <li>Π = δΣw</li>
@@ -1144,8 +1149,8 @@ Assuming the uncertainty in the estimates is independent of the known covariance
 </div>
 </div>
 
-<div id="outline-container-orgheadline55" class="outline-3">
-<h3 id="orgheadline55"><span class="section-number-3">9.5</span> Implied confidence framework for the views</h3>
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">9.5</span> Implied confidence framework for the views</h3>
 <div class="outline-text-3" id="text-9-5">
 <p>
 \(\Omega\), which representing the uncertainty of the views, and \(\tau\) are the most abstract mathematical parameters of this model.
@@ -1156,8 +1161,8 @@ how to specify a probability density function for each view?
 </p>
 </div>
 
-<div id="outline-container-orgheadline53" class="outline-4">
-<h4 id="orgheadline53"><span class="section-number-4">9.5.1</span> Implied confidence levels</h4>
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54"><span class="section-number-4">9.5.1</span> Implied confidence levels</h4>
 <div class="outline-text-4" id="text-9-5-1">
 <p>
 \[\frac{\hat {\omega} - \omega_{mkt}}{\hat {\omega_{100%}} - \omega_{mkt}}\]
@@ -1165,13 +1170,13 @@ how to specify a probability density function for each view?
 </div>
 </div>
 
-<div id="outline-container-orgheadline54" class="outline-4">
-<h4 id="orgheadline54"><span class="section-number-4">9.5.2</span> An intuitive approach</h4>
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">9.5.2</span> An intuitive approach</h4>
 </div>
 </div>
 
-<div id="outline-container-orgheadline56" class="outline-3">
-<h3 id="orgheadline56"><span class="section-number-3">9.6</span> Select asset classes</h3>
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">9.6</span> Select asset classes</h3>
 <div class="outline-text-3" id="text-9-6">
 <p>
 criteria for specifying asset classes are:
@@ -1198,13 +1203,13 @@ criteria for specifying asset classes are:
 </div>
 </div>
 
-<div id="outline-container-orgheadline57" class="outline-3">
-<h3 id="orgheadline57"><span class="section-number-3">9.7</span> Deployment on GS:</h3>
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">9.7</span> Deployment on GS:</h3>
 </div>
 
 
-<div id="outline-container-orgheadline58" class="outline-3">
-<h3 id="orgheadline58"><span class="section-number-3">9.8</span> Shortfall of BLM</h3>
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">9.8</span> Shortfall of BLM</h3>
 <div class="outline-text-3" id="text-9-8">
 <ul class="org-ul">
 <li>非正态分布市场</li>
@@ -1223,8 +1228,8 @@ criteria for specifying asset classes are:
 </div>
 </div>
 
-<div id="outline-container-orgheadline60" class="outline-2">
-<h2 id="orgheadline60"><span class="section-number-2">10</span> NLP</h2>
+<div id="outline-container-orgheadline61" class="outline-2">
+<h2 id="orgheadline61"><span class="section-number-2">10</span> NLP</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Hidden factor model</li>
