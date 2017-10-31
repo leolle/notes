@@ -301,6 +301,7 @@ time.strptime(string[, format])
 
 - datetime, Timestamp, datetime64
 pandas, Timestamp
+
 -- DatetimeIndex is composed by Timestamps.
 #+BEGIN_SRC python
 #Timestamp to string:i
@@ -309,6 +310,12 @@ str_timestamp = str_timestamp.strftime('%Y-%m-%d')
 #+END_SRC
 datetime, utc
 datetime64
+
+- datetime off set, subtract
+#+BEGIN_SRC python
+pd.DateOffset(years=1)
+pd.Timedelta(days=365) #allowed keywords are [weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds]
+#+END_SRC
 ** calendar — General calendar-related functions
 ** collections — Container datatypes
 ** collections — High-performance container datatypes
@@ -326,6 +333,9 @@ datetime64
 ** weakref — Weak references
 ** types — Dynamic type creation and names for built-in types
 ** copy — Shallow and deep copy operations
+#+BEGIN_SRC python
+from copy import copy
+#+END_SRC
 ** pprint — Data pretty printer
 适合打印列表。
 #+BEGIN_SRC python
@@ -906,6 +916,11 @@ dates = pd.date_range('1/1/2000', periods=8)
 df = pd.DataFrame(np.random.randn(8, 4), index=dates, columns=['A', 'B', 'C', 'D'])
 #+end_src
 
+- create diagonal matrix/dataframe using a series:
+#+BEGIN_SRC python
+df = pd.DataFrame(np.diag(s), columns=Q.index)
+#+END_SRC
+
 - connection with mysql:
 #+begin_src python
 pandas.read_sql_query(sql, con=engine):
@@ -960,11 +975,17 @@ pd.melt(DataFrame, id_vars=['idname'])
 - fill nan:
 #+BEGIN_SRC python
 DataFrame.fillna(value=None, method=None, axis=None, inplace=False, limit=None, downcast=None, **kwargs)
+# method : {‘backfill’, ‘bfill’, ‘pad’, ‘ffill’, None}, default None
 #+END_SRC
 
 - select non zero rows from series:
 #+BEGIN_SRC python
 s[s.nonzero()]
+#+END_SRC
+
+- create value by cretics
+#+BEGIN_SRC python
+df[df.col1.map(lambda x: x != 0)] = 1
 #+END_SRC
 
 - dataframe to series:
@@ -980,6 +1001,11 @@ DataFrame.replace(to_replace=None, value=None, inplace=False, limit=None, regex=
 #+BEGIN_SRC python
 value in df['column_name']
 set(a).issubset(df['a'])
+#+END_SRC
+
+- calculate percentage of sum on a row:
+#+BEGIN_SRC python
+df.apply(lambda x: x / x.sum() * 100, axis=0)
 #+END_SRC
 
 - pandas has null value:
@@ -1112,7 +1138,11 @@ df = pd.Dataframe(data = w.wsd().Data[0], index=w.wsd().Times)
 dt_diff = df_single_period_return.index.to_series().diff().mean()
 if dt_diff < pd.Timedelta('3 days'):
 #+END_SRC
-
+- time delta
+#+BEGIN_SRC python
+import datetime
+s + datetime.timedelta(minutes=5)
+#+END_SRC
 - resample by month and keep the last valid row
 #+BEGIN_SRC python
 benchmark_weight.index.name = 'Date'
@@ -1305,10 +1335,26 @@ panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
 #+END_SRC
 pandas panel item axis should be datetime64, this should not be an array.
 ** numpy
+- expand 1-D numpy array to 2-D:
+#+BEGIN_SRC python
+numpy.expand_dims(a, axis)
+# Expand the shape of an array.
+# Insert a new axis that will appear at the axis position in the expanded array shape.
+>>> x = np.array([1,2])
+>>> x.shape
+(2,)
+>>> y = np.expand_dims(x, axis=0)
+>>> y
+array([[1, 2]])
+>>> y.shape
+(1, 2)
+#+END_SRC
+
 - count nan:
 #+begin_src python
 np.count_nonzero(~np.isnan(df['series']))
 #+end_src
+
 - count number of negative value:
 #+begin_src python
 np.sum((df < 0).values.ravel())
@@ -1323,6 +1369,15 @@ np.setdiff1d(ar1, ar2)
 
 - reshape:
 np.reshape((1, -1)), -1 means automatic number of columns.
+
+- select random symbols from a listdir:
+#+BEGIN_SRC python
+# get random symbols at the target position limit
+position_limit = 8
+arr = list(range(len(target_symbols)))
+np.random.shuffle(arr)
+target_symbols = target_symbols[arr[:position_limit]]
+#+END_SRC
 ** plot:
 *** subplot with the same axis:
 pandas plot.

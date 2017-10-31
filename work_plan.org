@@ -82,6 +82,10 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 |                  | BA205C0589AB4F6CA1FCAF885763B927 | 分类搜索（旧）                                    |
 |                  | FE1171DA00604BF797EE8D6A2AD63924 | 添加Element (吴伟;函数定义;)                      |
 | <2017-10-27 Fri> | 39B85F94CA20442D99C118A6306984F7 | map homepage                                      |
+| <2017-10-31 Tue> | 7D13DEA9E6C405B8176961A15D0D4860 | 总市值L                                           |
+|                  | 83F882F5CB3AF07D00ADA79F77A7C4DD | A股日涨跌幅_L                                     |
+|                  | DAA28C9560375A07DE91319BA0946298 | 资产收益率_TTM_PIT_L                              |
+|                  |                                  |                                                   |
 
 * other projects
 - [X] 搭建基金策略

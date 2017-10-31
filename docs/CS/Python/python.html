@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-19 Thu 17:30 -->
+<!-- 2017-10-31 Tue 18:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1092,6 +1092,9 @@ re.search<span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'[
 </ul>
 <p>
 pandas, Timestamp
+</p>
+
+<p>
 &#x2013; DatetimeIndex is composed by Timestamps.
 </p>
 <div class="org-src-container">
@@ -1105,6 +1108,16 @@ pandas, Timestamp
 datetime, utc
 datetime64
 </p>
+
+<ul class="org-ul">
+<li>datetime off set, subtract</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pd.DateOffset<span style="color: #AE81FF;">(</span>years=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+pd.Timedelta<span style="color: #AE81FF;">(</span>days=<span style="color: #AE81FF;">365</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;">#</span><span style="color: #75715E;">allowed keywords are [weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds]</span>
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline49" class="outline-3">
@@ -1170,6 +1183,13 @@ datetime64
 </div>
 <div id="outline-container-orgheadline58" class="outline-3">
 <h3 id="orgheadline58"><span class="section-number-3">6.12</span> copy — Shallow and deep copy operations</h3>
+<div class="outline-text-3" id="text-6-12">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> copy <span style="color: #F92672;">import</span> copy
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline59" class="outline-3">
 <h3 id="orgheadline59"><span class="section-number-3">6.13</span> pprint — Data pretty printer</h3>
@@ -2369,6 +2389,15 @@ $ conda-env remove --name env_name
 </div>
 
 <ul class="org-ul">
+<li>create diagonal matrix/dataframe using a series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">df</span> = pd.DataFrame<span style="color: #AE81FF;">(</span>np.diag<span style="color: #66D9EF;">(</span>s<span style="color: #66D9EF;">)</span>, columns=Q.index<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
 <li>connection with mysql:</li>
 </ul>
 <div class="org-src-container">
@@ -2441,6 +2470,7 @@ pd.melt<span style="color: #AE81FF;">(</span>DataFrame, id_vars=<span style="col
 <div class="org-src-container">
 
 <pre class="src src-python">DataFrame.fillna<span style="color: #AE81FF;">(</span>value=<span style="color: #AE81FF;">None</span>, method=<span style="color: #AE81FF;">None</span>, axis=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, limit=<span style="color: #AE81FF;">None</span>, downcast=<span style="color: #AE81FF;">None</span>, **kwargs<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">method : {&#8216;backfill&#8217;, &#8216;bfill&#8217;, &#8216;pad&#8217;, &#8216;ffill&#8217;, None}, default None</span>
 </pre>
 </div>
 
@@ -2450,6 +2480,15 @@ pd.melt<span style="color: #AE81FF;">(</span>DataFrame, id_vars=<span style="col
 <div class="org-src-container">
 
 <pre class="src src-python">s<span style="color: #AE81FF;">[</span>s.nonzero<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>create value by cretics</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">df</span><span style="color: #AE81FF;">[</span>df.col1.<span style="color: #F92672;">map</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">lambda</span> x: x != <span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span> = <span style="color: #AE81FF;">1</span>
 </pre>
 </div>
 
@@ -2477,6 +2516,15 @@ pd.melt<span style="color: #AE81FF;">(</span>DataFrame, id_vars=<span style="col
 
 <pre class="src src-python">value <span style="color: #F92672;">in</span> df<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'column_name'</span><span style="color: #AE81FF;">]</span>
 <span style="color: #F92672;">set</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)</span>.issubset<span style="color: #AE81FF;">(</span>df<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>calculate percentage of sum on a row:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.<span style="color: #F92672;">apply</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x: x / x.<span style="color: #F92672;">sum</span><span style="color: #66D9EF;">()</span> * <span style="color: #AE81FF;">100</span>, axis=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -2676,7 +2724,15 @@ data.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F9
 <span style="color: #F92672;">if</span> dt_diff &lt; pd.Timedelta<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'3 days'</span><span style="color: #AE81FF;">)</span>:
 </pre>
 </div>
+<ul class="org-ul">
+<li>time delta</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-python"><span style="color: #F92672;">import</span> datetime
+s + datetime.timedelta<span style="color: #AE81FF;">(</span>minutes=<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>resample by month and keep the last valid row</li>
 </ul>
@@ -2987,6 +3043,25 @@ pandas panel item axis should be datetime64, this should not be an array.
 <h3 id="orgheadline281"><span class="section-number-3">30.2</span> numpy</h3>
 <div class="outline-text-3" id="text-30-2">
 <ul class="org-ul">
+<li>expand 1-D numpy array to 2-D:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">numpy.expand_dims<span style="color: #AE81FF;">(</span>a, axis<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Expand the shape of an array.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Insert a new axis that will appear at the axis position in the expanded array shape.</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">x</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; x.shape
+<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">y</span> = np.expand_dims<span style="color: #AE81FF;">(</span>x, axis=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; y
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; y.shape
+<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
 <li>count nan:</li>
 </ul>
 <div class="org-src-container">
@@ -2994,6 +3069,7 @@ pandas panel item axis should be datetime64, this should not be an array.
 <pre class="src src-python">np.count_nonzero<span style="color: #AE81FF;">(</span>~np.isnan<span style="color: #66D9EF;">(</span>df<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'series'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+
 <ul class="org-ul">
 <li>count number of negative value:</li>
 </ul>
@@ -3022,6 +3098,19 @@ Return the sorted, unique values in ar1 that are not in ar2
 <p>
 np.reshape((1, -1)), -1 means automatic number of columns.
 </p>
+
+<ul class="org-ul">
+<li>select random symbols from a listdir:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">get random symbols at the target position limit</span>
+<span style="color: #FD971F;">position_limit</span> = <span style="color: #AE81FF;">8</span>
+<span style="color: #FD971F;">arr</span> = <span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>target_symbols<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+np.random.shuffle<span style="color: #AE81FF;">(</span>arr<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">target_symbols</span> = target_symbols<span style="color: #AE81FF;">[</span>arr<span style="color: #66D9EF;">[</span>:position_limit<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline286" class="outline-3">

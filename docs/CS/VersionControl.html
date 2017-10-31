@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-19 Thu 10:57 -->
+<!-- 2017-10-31 Tue 18:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -165,7 +165,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline12">1.12. svn up -r version name + file name:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline31">2. GIT</a>
+<li><a href="#orgheadline32">2. GIT</a>
 <ul>
 <li><a href="#orgheadline14">2.1. update git version:</a></li>
 <li><a href="#orgheadline16">2.2. 创建版本库</a>
@@ -174,25 +174,26 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline17">2.3. 用命令git commit告诉Git，把文件提交到仓库：</a></li>
-<li><a href="#orgheadline18">2.4. 版本回退</a></li>
-<li><a href="#orgheadline19">2.5. 撤销修改</a></li>
-<li><a href="#orgheadline23">2.6. 创建与合并分支</a>
+<li><a href="#orgheadline18">2.4. 查询git log</a></li>
+<li><a href="#orgheadline19">2.5. 版本回退</a></li>
+<li><a href="#orgheadline20">2.6. 撤销修改</a></li>
+<li><a href="#orgheadline24">2.7. 创建与合并分支</a>
 <ul>
-<li><a href="#orgheadline20">2.6.1. master分支是一条线，Git用master指向最新的提交，再用HEAD指向master</a></li>
-<li><a href="#orgheadline21">2.6.2. 当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上.</a></li>
-<li><a href="#orgheadline22">2.6.3. 假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并.</a></li>
+<li><a href="#orgheadline21">2.7.1. master分支是一条线，Git用master指向最新的提交，再用HEAD指向master</a></li>
+<li><a href="#orgheadline22">2.7.2. 当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上.</a></li>
+<li><a href="#orgheadline23">2.7.3. 假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并.</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline24">2.7. 解决冲突</a></li>
-<li><a href="#orgheadline25">2.8. 分支管理策略</a></li>
-<li><a href="#orgheadline26">2.9. Bug分支</a></li>
-<li><a href="#orgheadline27">2.10. 多人协作</a></li>
-<li><a href="#orgheadline29">2.11. Switching remote URLs from HTTPS to SSH</a>
+<li><a href="#orgheadline25">2.8. 解决冲突</a></li>
+<li><a href="#orgheadline26">2.9. 分支管理策略</a></li>
+<li><a href="#orgheadline27">2.10. Bug分支</a></li>
+<li><a href="#orgheadline28">2.11. 多人协作</a></li>
+<li><a href="#orgheadline30">2.12. Switching remote URLs from HTTPS to SSH</a>
 <ul>
-<li><a href="#orgheadline28">2.11.1. Change your remote's URL from HTTPS to SSH with the git remote set-url command.</a></li>
+<li><a href="#orgheadline29">2.12.1. Change your remote's URL from HTTPS to SSH with the git remote set-url command.</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline30">2.12. remove remote</a></li>
+<li><a href="#orgheadline31">2.13. remove remote</a></li>
 </ul>
 </li>
 </ul>
@@ -335,8 +336,8 @@ reverse file back to a version.
 </div>
 </div>
 
-<div id="outline-container-orgheadline31" class="outline-2">
-<h2 id="orgheadline31"><span class="section-number-2">2</span> GIT</h2>
+<div id="outline-container-orgheadline32" class="outline-2">
+<h2 id="orgheadline32"><span class="section-number-2">2</span> GIT</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline14" class="outline-3">
 <h3 id="orgheadline14"><span class="section-number-3">2.1</span> update git version:</h3>
@@ -398,8 +399,19 @@ git push --set-upstream origin master
 </div>
 
 <div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">2.4</span> 版本回退</h3>
+<h3 id="orgheadline18"><span class="section-number-3">2.4</span> 查询git log</h3>
 <div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+
+<pre class="src src-shell">git log -g --grep=update
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">2.5</span> 版本回退</h3>
+<div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset &#x2013;hard commit_id</li>
 <li>用git log可以查看提交历史，以便确定要回退到哪个版本。</li>
@@ -428,9 +440,9 @@ HEAD is now at ea34578 add distributed
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">2.5</span> 撤销修改</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">2.6</span> 撤销修改</h3>
+<div class="outline-text-3" id="text-2-6">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">$ git checkout -- readme.txt
@@ -458,20 +470,20 @@ git checkout -- .
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">2.6</span> 创建与合并分支</h3>
-<div class="outline-text-3" id="text-2-6">
-</div><div id="outline-container-orgheadline20" class="outline-4">
-<h4 id="orgheadline20"><span class="section-number-4">2.6.1</span> master分支是一条线，Git用master指向最新的提交，再用HEAD指向master</h4>
-</div>
-
-<div id="outline-container-orgheadline21" class="outline-4">
-<h4 id="orgheadline21"><span class="section-number-4">2.6.2</span> 当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上.</h4>
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">2.7</span> 创建与合并分支</h3>
+<div class="outline-text-3" id="text-2-7">
+</div><div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">2.7.1</span> master分支是一条线，Git用master指向最新的提交，再用HEAD指向master</h4>
 </div>
 
 <div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22"><span class="section-number-4">2.6.3</span> 假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并.</h4>
-<div class="outline-text-4" id="text-2-6-3">
+<h4 id="orgheadline22"><span class="section-number-4">2.7.2</span> 当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上.</h4>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">2.7.3</span> 假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并.</h4>
+<div class="outline-text-4" id="text-2-7-3">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">$ git checkout master
@@ -488,9 +500,9 @@ Fast-forward
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">2.7</span> 解决冲突</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">2.8</span> 解决冲突</h3>
+<div class="outline-text-3" id="text-2-8">
 <p>
 用带参数的git log也可以看到分支的合并情况：
 </p>
@@ -509,9 +521,9 @@ Fast-forward
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">2.8</span> 分支管理策略</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">2.9</span> 分支管理策略</h3>
+<div class="outline-text-3" id="text-2-9">
 <p>
 准备合并dev分支，请注意&#x2013;no-ff参数，表示禁用Fast forward：
 </p>
@@ -537,9 +549,9 @@ Fast-forward
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">2.9</span> Bug分支</h3>
-<div class="outline-text-3" id="text-2-9">
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">2.10</span> Bug分支</h3>
+<div class="outline-text-3" id="text-2-10">
 <ul class="org-ul">
 <li>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：</li>
 <li>并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？</li>
@@ -609,17 +621,17 @@ stash@{0}: WIP on dev: <span style="color: #AE81FF;">6224937</span> add merge
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">2.10</span> 多人协作</h3>
-<div class="outline-text-3" id="text-2-10">
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">2.11</span> 多人协作</h3>
+<div class="outline-text-3" id="text-2-11">
 <p>
 推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline29" class="outline-3">
-<h3 id="orgheadline29"><span class="section-number-3">2.11</span> Switching remote URLs from HTTPS to SSH</h3>
-<div class="outline-text-3" id="text-2-11">
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">2.12</span> Switching remote URLs from HTTPS to SSH</h3>
+<div class="outline-text-3" id="text-2-12">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">git remote -v
@@ -633,9 +645,9 @@ git@github.com:leolle/notes.git
 </div>
 </div>
 
-<div id="outline-container-orgheadline28" class="outline-4">
-<h4 id="orgheadline28"><span class="section-number-4">2.11.1</span> Change your remote's URL from HTTPS to SSH with the git remote set-url command.</h4>
-<div class="outline-text-4" id="text-2-11-1">
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">2.12.1</span> Change your remote's URL from HTTPS to SSH with the git remote set-url command.</h4>
+<div class="outline-text-4" id="text-2-12-1">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
@@ -645,9 +657,9 @@ git@github.com:leolle/notes.git
 </div>
 </div>
 
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">2.12</span> remove remote</h3>
-<div class="outline-text-3" id="text-2-12">
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">2.13</span> remove remote</h3>
+<div class="outline-text-3" id="text-2-13">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">git remote rm xxx
