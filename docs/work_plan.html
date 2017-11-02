@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-31 Tue 18:46 -->
+<!-- 2017-11-02 Thu 10:16 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -229,6 +229,7 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline51"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></a></li>
+<li><a href="#orgheadline52">Risk model</a></li>
 </ul>
 </div>
 </div>
@@ -531,6 +532,30 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 <td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-27 Fri&gt;</span></span></td>
 <td class="org-left">39B85F94CA20442D99C118A6306984F7</td>
 <td class="org-left">map homepage</td>
+</tr>
+
+<tr>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-31 Tue&gt;</span></span></td>
+<td class="org-left">7D13DEA9E6C405B8176961A15D0D4860</td>
+<td class="org-left">总市值L</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">83F882F5CB3AF07D00ADA79F77A7C4DD</td>
+<td class="org-left">A股日涨跌幅<sub>L</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DAA28C9560375A07DE91319BA0946298</td>
+<td class="org-left">资产收益率<sub>TTM</sub><sub>PIT</sub><sub>L</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -1188,10 +1213,21 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 <h3 id="orgheadline45">black-litterman model</h3>
 <div class="outline-text-3" id="text-orgheadline45">
 <ul class="org-ul">
+<li class="on"><code>[X]</code> calculate unconstrainted optimized weight.</li>
+</ul>
+<p>
+bug: inaccurate view will cause extreme result.
+</p>
+<ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> translate ROE to views.</li>
+</ul>
+<p>
+look ahead 3 months strategy.
+</p>
+<ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> Omega should be calculated via 2 methods, one is to calculate Omega using LC and Calibration Factor, the other is integrating tilt to new weight w.</li>
-
 <li class="off"><code>[&#xa0;]</code> write/modify code.</li>
+
 <li class="off"><code>[&#xa0;]</code> plugging gs to run with data.</li>
 <li class="off"><code>[&#xa0;]</code> check result.</li>
 <li class="off"><code>[&#xa0;]</code> prepare presentation of all previous steps.</li>
@@ -1216,9 +1252,9 @@ explain exact meaning with each parameter with cases.
 search more industrial use cases.
 view details.
 </p>
-<ol class="org-ol">
+<ul class="org-ul">
 <li class="on"><code>[X]</code> write pseudo code, set input parameters.</li>
-</ol>
+</ul>
 </div>
 <div id="outline-container-orgheadline46" class="outline-4">
 <h4 id="orgheadline46">why most of the cases are on assets classes optimization, not on individual stocks.</h4>
@@ -1536,6 +1572,16 @@ moving average crossing over on the continous contract.
 <li class="on"><code>[X]</code> range osets.</li>
 <li class="on"><code>[X]</code> parse future continious contract data.</li>
 <li class="off"><code>[&#xa0;]</code> simple mode test with real data.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline52" class="outline-2">
+<h2 id="orgheadline52">Risk model</h2>
+<div class="outline-text-2" id="text-orgheadline52">
+<ul class="org-ul">
+<li>cut the risk model to three sequential parts.</li>
+<li>read the barra&amp;axioma documents about risk model.</li>
+<li>create charts from the risk model report.</li>
 </ul>
 </div>
 </div>
