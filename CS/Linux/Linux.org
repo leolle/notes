@@ -33,6 +33,11 @@
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- linux folder tree output to clipboard.
+#+BEGIN_SRC shell
+tree | xclip
+xclip -o
+#+END_SRC
 *** bash scripting
 *** Regular expressions
 *** Perl programming
