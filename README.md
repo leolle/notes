@@ -1,1 +1,680 @@
-# leolle.github.io
+# Wei Wu's notes
+.
+├── books
+│   ├── 有效network_files
+│   │   └── images
+│   │       ├── flag_orange.png
+│   │       └── 有效network.jpg
+│   └── 有效network.html
+├── Boosting.org
+├── Business
+│   ├── O2O_files
+│   │   ├── b4ea9f2aca4608d4e9a59900d3a48edd42d8d42d06d803c7c8d54b34d6415f22.png
+│   │   ├── c6edffbe48085b136c9525afa3c660b16df1c7e45fb43c307ec1431add6ff2d0.png
+│   │   └── images
+│   │       └── O2O.jpg
+│   ├── O2O.html
+│   ├── 巴菲特投资哲学_files
+│   │   └── images
+│   │       └── 巴菲特投资哲学.jpg
+│   ├── 巴菲特投资哲学.html
+│   ├── 经济停滞_files
+│   │   └── images
+│   │       └── 经济停滞.jpg
+│   ├── 经济停滞.html
+│   ├── 风格分析_files
+│   │   ├── colorschememapping.xml
+│   │   ├── filelist.xml
+│   │   ├── image001.png
+│   │   ├── image002.png
+│   │   ├── image003.png
+│   │   ├── image004.png
+│   │   ├── image005.png
+│   │   ├── image006.png
+│   │   ├── image007.png
+│   │   ├── image008.png
+│   │   ├── image009.png
+│   │   ├── image010.png
+│   │   ├── image011.png
+│   │   ├── image012.png
+│   │   ├── image013.png
+│   │   ├── image014.png
+│   │   ├── image015.png
+│   │   ├── image016.png
+│   │   ├── image017.png
+│   │   ├── image018.png
+│   │   ├── image019.png
+│   │   ├── image020.png
+│   │   ├── image021.png
+│   │   ├── image022.png
+│   │   ├── item0001.xml
+│   │   ├── props002.xml
+│   │   └── themedata.thmx
+│   └── 风格分析.htm
+├── Calendar
+│   └── sentiment.org
+├── clip
+├── configOrg
+│   ├── level0.org
+│   ├── level1.org
+│   └── level2.org
+├── CS
+│   ├── C++
+│   │   └── C++.org
+│   ├── DB.org
+│   ├── Linux
+│   │   └── Linux.org
+│   ├── MachineLearning
+│   │   ├── BasicModule2.org
+│   │   ├── BasicModule.org
+│   │   ├── code
+│   │   │   ├── gaussian_3_d_plot.png
+│   │   │   ├── intro.py
+│   │   │   ├── regression
+│   │   │   │   └── L2_regression.py
+│   │   │   └── taylor_expansion.py
+│   │   ├── DecisionTree.org
+│   │   ├── DeepLearning.org
+│   │   ├── MachineLearning.org
+│   │   ├── NaturalLanguageProcessing.org
+│   │   ├── nlp
+│   │   │   └── clustering_test.png
+│   │   └── TextBasedIndustryClassification.org
+│   ├── ProgramicStyle
+│   │   └── PragmaticProgrammer.org
+│   ├── Python
+│   │   ├── DesignPattern.org
+│   │   ├── EffectivePython.org
+│   │   ├── guide.org
+│   │   ├── high_performance_python_files
+│   │   │   └── images
+│   │   │       └── high_performance_python.jpg
+│   │   ├── high_performance_python.html
+│   │   ├── HighPerformancePython.org
+│   │   ├── pandas.org
+│   │   ├── py4fi
+│   │   │   ├── BayesFormula.html
+│   │   │   ├── Optimization.html
+│   │   │   ├── PCA.html
+│   │   │   ├── PerformanceOfPythonParadigms.html
+│   │   │   ├── Regression.html
+│   │   │   └── sentiment.html
+│   │   ├── python2.org
+│   │   ├── PythonForFinance.md
+│   │   ├── PythonForFinance.org
+│   │   ├── python.org
+│   │   ├── python_rules.html
+│   │   └── sqlalchemy.org
+│   ├── Regular_Expression.org
+│   └── VersionControl.org
+├── Database
+│   ├── DBMS.org
+│   ├── DBMS.tex
+│   └── sqlalchemy.md
+├── docs
+│   ├── books
+│   │   ├── 有效network_files
+│   │   │   └── images
+│   │   │       ├── flag_orange.png
+│   │   │       └── 有效network.jpg
+│   │   └── 有效network.html
+│   ├── Boosting.html
+│   ├── Business
+│   │   ├── O2O_files
+│   │   │   ├── b4ea9f2aca4608d4e9a59900d3a48edd42d8d42d06d803c7c8d54b34d6415f22.png
+│   │   │   ├── c6edffbe48085b136c9525afa3c660b16df1c7e45fb43c307ec1431add6ff2d0.png
+│   │   │   └── images
+│   │   │       └── O2O.jpg
+│   │   ├── O2O.html
+│   │   ├── 巴菲特投资哲学_files
+│   │   │   └── images
+│   │   │       └── 巴菲特投资哲学.jpg
+│   │   ├── 巴菲特投资哲学.html
+│   │   ├── 经济停滞_files
+│   │   │   └── images
+│   │   │       └── 经济停滞.jpg
+│   │   ├── 经济停滞.html
+│   │   ├── 风格分析_files
+│   │   │   ├── image001.png
+│   │   │   ├── image002.png
+│   │   │   ├── image003.png
+│   │   │   ├── image004.png
+│   │   │   ├── image005.png
+│   │   │   ├── image006.png
+│   │   │   ├── image007.png
+│   │   │   ├── image008.png
+│   │   │   ├── image009.png
+│   │   │   ├── image010.png
+│   │   │   ├── image011.png
+│   │   │   ├── image012.png
+│   │   │   ├── image013.png
+│   │   │   ├── image014.png
+│   │   │   ├── image015.png
+│   │   │   ├── image016.png
+│   │   │   ├── image017.png
+│   │   │   ├── image018.png
+│   │   │   ├── image019.png
+│   │   │   ├── image020.png
+│   │   │   ├── image021.png
+│   │   │   └── image022.png
+│   │   └── 风格分析.htm
+│   ├── Calendar
+│   │   └── sentiment.html
+│   ├── configOrg
+│   │   ├── level0.html
+│   │   ├── level1.html
+│   │   └── level2.html
+│   ├── CS
+│   │   ├── C++
+│   │   │   └── C++.html
+│   │   ├── DB.html
+│   │   ├── Linux
+│   │   │   └── Linux.html
+│   │   ├── MachineLearning
+│   │   │   ├── BasicModule2.html
+│   │   │   ├── BasicModule.html
+│   │   │   ├── BayesianNetworkDescribingYourData.html
+│   │   │   ├── code
+│   │   │   │   └── gaussian_3_d_plot.png
+│   │   │   ├── DecisionTree.html
+│   │   │   ├── DeepLearning.html
+│   │   │   ├── MachineLearning.html
+│   │   │   ├── NaturalLanguageProcessing.html
+│   │   │   ├── nlp
+│   │   │   │   └── clustering_test.png
+│   │   │   └── TextBasedIndustryClassification.html
+│   │   ├── ProgramicStyle
+│   │   │   └── PragmaticProgrammer.html
+│   │   ├── Python
+│   │   │   ├── DesignPattern.html
+│   │   │   ├── EffectivePython.html
+│   │   │   ├── guide.html
+│   │   │   ├── high_performance_python_files
+│   │   │   │   └── images
+│   │   │   │       └── high_performance_python.jpg
+│   │   │   ├── high_performance_python.html
+│   │   │   ├── HighPerformancePython.html
+│   │   │   ├── pandas.html
+│   │   │   ├── py4fi
+│   │   │   │   ├── BayesFormula.html
+│   │   │   │   ├── Optimization.html
+│   │   │   │   ├── PC+A.html
+│   │   │   │   ├── PCA.html
+│   │   │   │   ├── PerformanceOfPythonParadigms.html
+│   │   │   │   ├── PortfolioOptimization.html
+│   │   │   │   ├── Regression.html
+│   │   │   │   └── sentiment.html
+│   │   │   ├── python2.html
+│   │   │   ├── PythonForFinance.html
+│   │   │   ├── python.html
+│   │   │   ├── python_rules.html
+│   │   │   └── sqlalchemy.html
+│   │   ├── Regular_Expression.html
+│   │   └── VersionControl.html
+│   ├── Database
+│   │   └── DBMS.html
+│   ├── emacs
+│   │   ├── ditaa-seqboxes.png
+│   │   ├── emacs.html
+│   │   ├── markdown.html
+│   │   ├── tutorial_backup.html
+│   │   └── tutorial.html
+│   ├── finance
+│   │   ├── ActivePortfolioManagement.html
+│   │   ├── Backtest.html
+│   │   ├── black_litterman.html
+│   │   ├── BlackLitterman.html
+│   │   ├── ComputationalInvestment.html
+│   │   ├── EventStudy.html
+│   │   ├── FactorBacktest.html
+│   │   ├── FundAnalysis.html
+│   │   ├── future.html
+│   │   ├── images
+│   │   │   ├── active_contract.png
+│   │   │   ├── adjusted_price_vs_actual_price.png
+│   │   │   ├── futures_getting_started1_l4_screenshot2-1b3494846e592d6899c7f931b9d9d16516e51762aa400673138b6bb96e339669.png
+│   │   │   ├── futures_value.png
+│   │   │   └── market_impact.png
+│   │   ├── IndustryNeutral.html
+│   │   ├── MultiFactorModel.html
+│   │   ├── option.html
+│   │   ├── PortfolioOptimization.html
+│   │   └── QuantitativeInvestment.html
+│   ├── GS
+│   │   ├── converted_file_d64e468e.html
+│   │   ├── converted_file_d64e468e_html_2d293890.jpg
+│   │   ├── converted_file_d64e468e_html_3435f944.jpg
+│   │   ├── converted_file_d64e468e_html_66533ceb.jpg
+│   │   ├── converted_file_d64e468e_html_92e9e65d.jpg
+│   │   ├── converted_file_d64e468e_html_9637eff5.jpg
+│   │   ├── converted_file_d64e468e_html_9d353abe.jpg
+│   │   ├── converted_file_d64e468e_html_a6a10145.jpg
+│   │   ├── converted_file_d64e468e_html_acef20b.jpg
+│   │   ├── converted_file_d64e468e_html_b51ff0bc.jpg
+│   │   ├── converted_file_d64e468e_html_f950e069.jpg
+│   │   ├── create_strategies
+│   │   │   ├── converted_file_88cffbcb.html
+│   │   │   ├── converted_file_88cffbcb_html_2fc50489.png
+│   │   │   ├── converted_file_88cffbcb_html_351ca1e7.png
+│   │   │   ├── converted_file_88cffbcb_html_766ec056.png
+│   │   │   ├── converted_file_88cffbcb_html_8859b79e.png
+│   │   │   ├── converted_file_88cffbcb_html_8ff2587b.png
+│   │   │   ├── converted_file_88cffbcb_html_90734580.jpg
+│   │   │   ├── converted_file_88cffbcb_html_a5072e78.png
+│   │   │   ├── converted_file_88cffbcb_html_b1977728.png
+│   │   │   ├── converted_file_88cffbcb_html_cda28df8.jpg
+│   │   │   ├── converted_file_88cffbcb_html_d59667ef.png
+│   │   │   ├── converted_file_88cffbcb_html_e2a1162e.jpg
+│   │   │   └── converted_file_88cffbcb_html_ff8f78cd.png
+│   │   ├── factors
+│   │   │   ├── converted_file_2edd553f.html
+│   │   │   ├── converted_file_2edd553f_html_39f11f1b.png
+│   │   │   ├── converted_file_2edd553f_html_6763722f.png
+│   │   │   └── converted_file_2edd553f_html_8eb97218.png
+│   │   ├── Introduction
+│   │   │   ├── create_strategies
+│   │   │   │   ├── converted_file_88cffbcb.html
+│   │   │   │   ├── converted_file_88cffbcb_html_2fc50489.png
+│   │   │   │   ├── converted_file_88cffbcb_html_351ca1e7.png
+│   │   │   │   ├── converted_file_88cffbcb_html_766ec056.png
+│   │   │   │   ├── converted_file_88cffbcb_html_8859b79e.png
+│   │   │   │   ├── converted_file_88cffbcb_html_8ff2587b.png
+│   │   │   │   ├── converted_file_88cffbcb_html_90734580.jpg
+│   │   │   │   ├── converted_file_88cffbcb_html_a5072e78.png
+│   │   │   │   ├── converted_file_88cffbcb_html_b1977728.png
+│   │   │   │   ├── converted_file_88cffbcb_html_cda28df8.jpg
+│   │   │   │   ├── converted_file_88cffbcb_html_d59667ef.png
+│   │   │   │   ├── converted_file_88cffbcb_html_e2a1162e.jpg
+│   │   │   │   └── converted_file_88cffbcb_html_ff8f78cd.png
+│   │   │   ├── Display_chart_of_data_table
+│   │   │   │   ├── Display_chart_of_data_table.html
+│   │   │   │   └── images
+│   │   │   │       ├── image1.png
+│   │   │   │       ├── image2.png
+│   │   │   │       ├── image3.png
+│   │   │   │       └── image4.png
+│   │   │   ├── ditaa-seqboxes.png
+│   │   │   ├── factors
+│   │   │   │   ├── converted_file_2edd553f.html
+│   │   │   │   ├── converted_file_2edd553f_html_39f11f1b.png
+│   │   │   │   ├── converted_file_2edd553f_html_6763722f.png
+│   │   │   │   └── converted_file_2edd553f_html_8eb97218.png
+│   │   │   ├── function_sampling
+│   │   │   │   ├── function_sampling.html
+│   │   │   │   └── images
+│   │   │   │       └── image1.png
+│   │   │   ├── functions.html
+│   │   │   └── ideas_from_docs
+│   │   │       ├── converted_file_d64e468e.html
+│   │   │       ├── converted_file_d64e468e_html_2d293890.jpg
+│   │   │       ├── converted_file_d64e468e_html_3435f944.jpg
+│   │   │       ├── converted_file_d64e468e_html_66533ceb.jpg
+│   │   │       ├── converted_file_d64e468e_html_92e9e65d.jpg
+│   │   │       ├── converted_file_d64e468e_html_9637eff5.jpg
+│   │   │       ├── converted_file_d64e468e_html_9d353abe.jpg
+│   │   │       ├── converted_file_d64e468e_html_a6a10145.jpg
+│   │   │       ├── converted_file_d64e468e_html_acef20b.jpg
+│   │   │       ├── converted_file_d64e468e_html_b51ff0bc.jpg
+│   │   │       └── converted_file_d64e468e_html_f950e069.jpg
+│   │   ├── OSet
+│   │   │   ├── anomalies.html
+│   │   │   ├── oset.html
+│   │   │   └── oset.html.bak
+│   │   ├── 从文档到创建需求.docx
+│   │   ├── 从文档到创建需求.files
+│   │   │   ├── image001.jpg
+│   │   │   ├── image002.jpg
+│   │   │   ├── image003.jpg
+│   │   │   ├── image004.jpg
+│   │   │   ├── image005.jpg
+│   │   │   ├── image006.jpg
+│   │   │   ├── image007.jpg
+│   │   │   ├── image008.jpg
+│   │   │   ├── image009.jpg
+│   │   │   ├── image010.jpg
+│   │   │   ├── image011.jpg
+│   │   │   ├── image012.jpg
+│   │   │   ├── image013.jpg
+│   │   │   ├── image014.jpg
+│   │   │   ├── image015.jpg
+│   │   │   ├── image016.jpg
+│   │   │   ├── image017.jpg
+│   │   │   ├── image018.jpg
+│   │   │   ├── image019.jpg
+│   │   │   └── image020.jpg
+│   │   └── 从文档到创建需求.htm
+│   ├── index.html
+│   ├── ipynb
+│   │   ├── about
+│   │   │   └── index.html
+│   │   ├── css
+│   │   │   ├── highlight.css
+│   │   │   ├── theme.css
+│   │   │   └── theme_extra.css
+│   │   ├── docs
+│   │   │   ├── output_24_1.png
+│   │   │   ├── output_27_1.png
+│   │   │   ├── output_30_1.png
+│   │   │   ├── output_34_1.png
+│   │   │   └── test.html
+│   │   ├── fonts
+│   │   │   ├── fontawesome-webfont.eot
+│   │   │   ├── fontawesome-webfont.svg
+│   │   │   ├── fontawesome-webfont.ttf
+│   │   │   └── fontawesome-webfont.woff
+│   │   ├── img
+│   │   │   └── favicon.ico
+│   │   ├── index.html
+│   │   ├── js
+│   │   │   ├── highlight.pack.js
+│   │   │   ├── jquery-2.1.1.min.js
+│   │   │   ├── modernizr-2.8.3.min.js
+│   │   │   └── theme.js
+│   │   ├── mkdocs
+│   │   │   ├── js
+│   │   │   │   ├── lunr.min.js
+│   │   │   │   ├── mustache.min.js
+│   │   │   │   ├── require.js
+│   │   │   │   ├── search.js
+│   │   │   │   ├── search-results-template.mustache
+│   │   │   │   └── text.js
+│   │   │   └── search_index.json
+│   │   ├── optimization
+│   │   │   └── index.html
+│   │   ├── output_24_1.png
+│   │   ├── output_27_1.png
+│   │   ├── output_30_1.png
+│   │   ├── output_34_1.png
+│   │   ├── python_rules
+│   │   │   └── index.html
+│   │   ├── python_style_rules
+│   │   │   └── index.html
+│   │   ├── search.html
+│   │   ├── site
+│   │   │   ├── 404.html
+│   │   │   ├── about
+│   │   │   │   └── index.html
+│   │   │   ├── css
+│   │   │   │   ├── base.css
+│   │   │   │   ├── bootstrap-custom.min.css
+│   │   │   │   ├── font-awesome-4.5.0.css
+│   │   │   │   ├── highlight.css
+│   │   │   │   ├── theme.css
+│   │   │   │   └── theme_extra.css
+│   │   │   ├── fontawesome-webfont.eot
+│   │   │   ├── fontawesome-webfont.svg
+│   │   │   ├── fontawesome-webfont.ttf
+│   │   │   ├── fontawesome-webfont.woff
+│   │   │   ├── fonts
+│   │   │   │   ├── fontawesome-webfont.eot
+│   │   │   │   ├── fontawesome-webfont.svg
+│   │   │   │   ├── fontawesome-webfont.ttf
+│   │   │   │   ├── fontawesome-webfont.woff
+│   │   │   │   ├── fontawesome-webfont.woff2
+│   │   │   │   ├── glyphicons-halflings-regular.eot
+│   │   │   │   ├── glyphicons-halflings-regular.svg
+│   │   │   │   ├── glyphicons-halflings-regular.ttf
+│   │   │   │   ├── glyphicons-halflings-regular.woff
+│   │   │   │   └── glyphicons-halflings-regular.woff2
+│   │   │   ├── img
+│   │   │   │   ├── favicon.ico
+│   │   │   │   └── grid.png
+│   │   │   ├── index.html
+│   │   │   ├── js
+│   │   │   │   ├── base.js
+│   │   │   │   ├── bootstrap-3.0.3.min.js
+│   │   │   │   ├── highlight.pack.js
+│   │   │   │   ├── jquery-1.10.2.min.js
+│   │   │   │   ├── jquery-2.1.1.min.js
+│   │   │   │   ├── modernizr-2.8.3.min.js
+│   │   │   │   └── theme.js
+│   │   │   ├── mkdocs
+│   │   │   │   ├── js
+│   │   │   │   │   ├── lunr.min.js
+│   │   │   │   │   ├── mustache.min.js
+│   │   │   │   │   ├── require.js
+│   │   │   │   │   ├── search.js
+│   │   │   │   │   ├── search-results-template.mustache
+│   │   │   │   │   └── text.js
+│   │   │   │   └── search_index.json
+│   │   │   ├── optimization
+│   │   │   │   └── index.html
+│   │   │   ├── output_24_1.png
+│   │   │   ├── output_27_1.png
+│   │   │   ├── output_30_1.png
+│   │   │   ├── output_34_1.png
+│   │   │   ├── python_rules
+│   │   │   │   └── index.html
+│   │   │   ├── python_style_rules
+│   │   │   │   └── index.html
+│   │   │   ├── python_style_rules.html
+│   │   │   ├── python_style_rules.org
+│   │   │   ├── search.html
+│   │   │   ├── sitemap.xml
+│   │   │   ├── test.html
+│   │   │   └── test.org
+│   │   ├── sitemap.xml
+│   │   └── test.org
+│   ├── Math
+│   │   ├── knowledge_tree.html
+│   │   │   ├── blank.png
+│   │   │   ├── Checked.png
+│   │   │   ├── Collapsed.png
+│   │   │   ├── Expanded.png
+│   │   │   ├── index.html
+│   │   │   ├── LeafRowHandle.png
+│   │   │   ├── Mixed.png
+│   │   │   └── Unchecked.png
+│   │   └── Statistics.html
+│   ├── notes
+│   │   ├── Jiajia.html
+│   │   ├── miscellaneous.html
+│   │   └── thought.html
+│   ├── org
+│   │   ├── index.html
+│   │   └── sitemap.html
+│   ├── python_rules.html
+│   ├── sitemap.html
+│   ├── styles
+│   │   ├── demo
+│   │   │   └── css
+│   │   │       └── demo.css
+│   │   └── readtheorg
+│   │       ├── css
+│   │       │   ├── htmlize.css
+│   │       │   ├── readtheorg.css
+│   │       │   └── rtd-full.css
+│   │       └── js
+│   │           ├── jquery.stickytableheaders.min.js
+│   │           └── readtheorg.js
+│   └── work_plan.html
+├── emacs
+│   ├── clientmodel.png
+│   ├── ditaa-seqboxes.png
+│   ├── emacs.org
+│   ├── markdown.org
+│   ├── some_filename.png
+│   ├── tutorial_backup.org
+│   └── tutorial.org
+├── finance
+│   ├── ActivePortfolioManagement.org
+│   ├── Backtest.org
+│   ├── black_litterman.html
+│   ├── BlackLitterman.org
+│   ├── ComputationalInvestment.org
+│   ├── EventStudy.org
+│   ├── FactorBacktest.org
+│   ├── FundAnalysis.org
+│   ├── future.org
+│   ├── images
+│   │   ├── active_contract.png
+│   │   ├── adjusted_price_vs_actual_price.png
+│   │   ├── black_litterman_step1_benchmark.png
+│   │   ├── black_litterman_step3_views.png
+│   │   ├── expected_excess_return_vector.png
+│   │   ├── futures_getting_started1_l4_screenshot2-1b3494846e592d6899c7f931b9d9d16516e51762aa400673138b6bb96e339669.png
+│   │   ├── futures_value.png
+│   │   ├── market_impact.png
+│   │   └── model_comparison.png
+│   ├── IndustryNeutral.org
+│   ├── MultiFactorModel.org
+│   ├── option.org
+│   ├── PortfolioOptimization.org
+│   └── QuantitativeInvestment.org
+├── GS
+│   ├── Introduction
+│   │   ├── create_strategies
+│   │   │   ├── converted_file_88cffbcb.html
+│   │   │   ├── converted_file_88cffbcb_html_2fc50489.png
+│   │   │   ├── converted_file_88cffbcb_html_351ca1e7.png
+│   │   │   ├── converted_file_88cffbcb_html_766ec056.png
+│   │   │   ├── converted_file_88cffbcb_html_8859b79e.png
+│   │   │   ├── converted_file_88cffbcb_html_8ff2587b.png
+│   │   │   ├── converted_file_88cffbcb_html_90734580.jpg
+│   │   │   ├── converted_file_88cffbcb_html_a5072e78.png
+│   │   │   ├── converted_file_88cffbcb_html_b1977728.png
+│   │   │   ├── converted_file_88cffbcb_html_cda28df8.jpg
+│   │   │   ├── converted_file_88cffbcb_html_d59667ef.png
+│   │   │   ├── converted_file_88cffbcb_html_e2a1162e.jpg
+│   │   │   └── converted_file_88cffbcb_html_ff8f78cd.png
+│   │   ├── Display_chart_of_data_table
+│   │   │   ├── Display_chart_of_data_table.html
+│   │   │   └── images
+│   │   │       ├── image1.png
+│   │   │       ├── image2.png
+│   │   │       ├── image3.png
+│   │   │       └── image4.png
+│   │   ├── ditaa-seqboxes.png
+│   │   ├── factors
+│   │   │   ├── converted_file_2edd553f.html
+│   │   │   ├── converted_file_2edd553f_html_39f11f1b.png
+│   │   │   ├── converted_file_2edd553f_html_6763722f.png
+│   │   │   └── converted_file_2edd553f_html_8eb97218.png
+│   │   ├── function_sampling
+│   │   │   ├── function_sampling.html
+│   │   │   └── images
+│   │   │       └── image1.png
+│   │   ├── functions.org
+│   │   ├── functions.tex
+│   │   ├── GS_structure.png
+│   │   └── ideas_from_docs
+│   │       ├── converted_file_d64e468e.html
+│   │       ├── converted_file_d64e468e_html_2d293890.jpg
+│   │       ├── converted_file_d64e468e_html_3435f944.jpg
+│   │       ├── converted_file_d64e468e_html_66533ceb.jpg
+│   │       ├── converted_file_d64e468e_html_92e9e65d.jpg
+│   │       ├── converted_file_d64e468e_html_9637eff5.jpg
+│   │       ├── converted_file_d64e468e_html_9d353abe.jpg
+│   │       ├── converted_file_d64e468e_html_a6a10145.jpg
+│   │       ├── converted_file_d64e468e_html_acef20b.jpg
+│   │       ├── converted_file_d64e468e_html_b51ff0bc.jpg
+│   │       └── converted_file_d64e468e_html_f950e069.jpg
+│   └── OSet
+│       ├── anomalies.org
+│       ├── oset.org
+│       └── oset.tex
+├── img
+├── index.org
+├── ipynb
+│   ├── config
+│   │   └── jupyter_notebook_config.py
+│   ├── docs
+│   │   ├── about.md
+│   │   ├── index.md
+│   │   ├── optimization.md
+│   │   ├── output_24_1.png
+│   │   ├── output_27_1.png
+│   │   ├── output_30_1.png
+│   │   ├── output_34_1.png
+│   │   ├── PCA.md
+│   │   ├── python_rules.md
+│   │   ├── python_style_rules.md
+│   │   └── test.org
+│   ├── jupyters
+│   │   ├── BayesFormula.ipynb
+│   │   ├── Optimization.ipynb
+│   │   ├── PerformanceOfPythonParadigms.ipynb
+│   │   ├── Principal Component Analysis.ipynb
+│   │   ├── Regression.ipynb
+│   │   ├── sentiment.ipynb
+│   │   ├── test2.ipynb
+│   │   └── test.md
+│   ├── mkdocs.yml
+│   └── site
+│       ├── about
+│       │   └── index.html
+│       ├── css
+│       │   ├── highlight.css
+│       │   ├── theme.css
+│       │   └── theme_extra.css
+│       ├── fonts
+│       │   ├── fontawesome-webfont.eot
+│       │   ├── fontawesome-webfont.svg
+│       │   ├── fontawesome-webfont.ttf
+│       │   └── fontawesome-webfont.woff
+│       ├── img
+│       │   └── favicon.ico
+│       ├── index.html
+│       ├── js
+│       │   ├── highlight.pack.js
+│       │   ├── jquery-2.1.1.min.js
+│       │   ├── modernizr-2.8.3.min.js
+│       │   └── theme.js
+│       ├── mkdocs
+│       │   ├── js
+│       │   │   ├── lunr.min.js
+│       │   │   ├── mustache.min.js
+│       │   │   ├── require.js
+│       │   │   ├── search.js
+│       │   │   ├── search-results-template.mustache
+│       │   │   └── text.js
+│       │   └── search_index.json
+│       ├── optimization
+│       │   └── index.html
+│       ├── output_24_1.png
+│       ├── output_27_1.png
+│       ├── output_30_1.png
+│       ├── output_34_1.png
+│       ├── python_rules
+│       │   └── index.html
+│       ├── python_style_rules
+│       │   └── index.html
+│       ├── search.html
+│       ├── sitemap.xml
+│       └── test.org
+├── Math
+│   ├── knowledge_tree.html
+│   │   ├── blank.png
+│   │   ├── Checked.png
+│   │   ├── Collapsed.png
+│   │   ├── Expanded.png
+│   │   ├── index.html
+│   │   ├── LeafRowHandle.png
+│   │   ├── Mixed.png
+│   │   └── Unchecked.png
+│   └── Statistics.org
+├── notes
+│   ├── Jiajia.org
+│   ├── miscellaneous.org
+│   └── thought.org
+├── open_index.sh
+├── README.md
+├── search.sh
+├── sitemap.org
+├── some_filename.png
+├── styles
+│   ├── demo
+│   │   └── css
+│   │       └── demo.css
+│   └── readtheorg
+│       ├── css
+│       │   ├── htmlize.css
+│       │   ├── readtheorg.css
+│       │   └── rtd-full.css
+│       └── js
+│           ├── jquery.stickytableheaders.min.js
+│           └── readtheorg.js
+├── update.sh
+└── work_plan.org
+
+139 directories, 537 files

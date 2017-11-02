@@ -1,0 +1,18 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+AUTHOR: weiwu
+#+SETUPFILE: ../../configOrg/level2.org
+#+TITLES: Boosting
+#+DATE: <2017-10-30 Mon>
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Boosting
+
+- 给定输入向量x和输出变量y组成的若干训练样本(x1,y1),(x2,y2),...,(xn,yn),目标是找到近似函数F，使得损失函数L(y,F(x))的损失值最小。
+假定先取所有样本的平均值，作为第一个先行的预测。
