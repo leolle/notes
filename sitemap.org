@@ -48,7 +48,7 @@
   + [[file:finance/ComputationalInvestment.org][ComputationalInvestment]]
   + [[file:finance/EventStudy.org][EventStudy]]
   + [[file:finance/ActivePortfolioManagement.org][PortfolioManagement]]
-    + FactorsResearch
+  + FactorsResearch
     + [[file:./finance/RiskModelHandbook/RiskModelHandbook.html][RiskModelHandbook]]
     + [[file:finance/IndustryNeutral.org][IndustryNeutral]]
     + [[file:finance/FundAnalysis.org][FundAnalysis]]

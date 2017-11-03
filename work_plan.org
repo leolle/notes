@@ -593,6 +593,6 @@ moving average crossing over on the continous contract.
 - [X] parse future continious contract data.
 - [ ] simple mode test with real data.
 * Risk model
-- cut the risk model to three sequential parts.
+- change panel to to_xarray()
 - read the barra&axioma documents about risk model.
 - create charts from the risk model report.
