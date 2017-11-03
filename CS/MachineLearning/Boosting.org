@@ -2,7 +2,7 @@
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
-#+AUTHOR: weiwu
+#+AUTHORw: weiwu
 #+SETUPFILE: ../../configOrg/level2.org
 #+TITLES: Boosting
 #+DATE: <2017-10-30 Mon>
