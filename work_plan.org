@@ -85,7 +85,8 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 | <2017-10-31 Tue> | 7D13DEA9E6C405B8176961A15D0D4860 | 总市值L                                           |
 |                  | 83F882F5CB3AF07D00ADA79F77A7C4DD | A股日涨跌幅_L                                     |
 |                  | DAA28C9560375A07DE91319BA0946298 | 资产收益率_TTM_PIT_L                              |
-|                  |                                  |                                                   |
+|                  | 08CFD0E436A442E5B48894CFCBACAB2D | factor return covariance                          |
+|                  | 22503DED4E434CF09DE6DBAAD8BA717C | factor return specific risk                       |
 
 * other projects
 - [X] 搭建基金策略
