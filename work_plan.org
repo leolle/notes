@@ -323,6 +323,12 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 *** HMM
 *** Neural Network
 * Deep Learning
+** Machine Learning Basics
+:LOGBOOK:
+CLOCK: [2017-11-04 Sat 12:46]--[2017-11-04 Sat 12:46] =>  0:00
+CLOCK: [2017-11-04 Sat 12:44]--[2017-11-04 Sat 12:44] =>  0:00
+:END:
+
 ** Week 1/2
 *** Gradient algorithm
 *** CNN

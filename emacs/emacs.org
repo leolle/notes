@@ -177,6 +177,13 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 * ORG Mode
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4][Example]]
 ** Structure editing
+=C-c C-x C-i=
+Clock in
+=C-c C-x C-o=
+Clock out
+=C-c C-x C-x=
+Clock back to the last task
+
 =M-<RET>=     (org-insert-heading)
 Insert a new heading/item with the same level as the one at point.
 If the command is used at the beginning of a line, and if there is a heading or a plain list item (see Plain lists) at point, the new heading/item is created before the current line. When used at the beginning of a regular line of text, turn that line into a heading.
