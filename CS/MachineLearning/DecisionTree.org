@@ -13,5 +13,57 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
 * Decision Tree
+[[file:./code/tree.py][decision_tree.py]]
+[[https://metacademy.org/graphs/concepts/decision_trees]]
+** Goals
+- Know what a decision tree is.
+选一个特征，使得熵降低程度最大，直到降为0. greedy searching.
+- Give examples of functions which can't be represented compactly (e.g. majority, parity)
+- Be able to fit a decision tree using a recursive greedy strategy.
+特征选择，决策树的生成，决策树的修剪。
+- What is the information gain criterion, and why does it produce better splits than classification accuracy?
+- Be aware that decision trees can be unstable, in that the structure changes dramatically with respect to small changes in the training data.
+
+** Terminology
+- CART
+classification and regression tree.
+
+** Tree construction
+To build a decision tree, you need to make a first decision on the dataset to dictate
+which feature is used to split the data. To determine this, you try every feature and measure which split will give you the best results. After that, you’ll split the dataset into subsets. The subsets will then traverse down the branches of the first decision node. If the
+data on the branches is the same class, then you’ve properly classified it and don’t need
+to continue splitting it. If the data isn’t the same, then you need to repeat the splitting
+process on this subset. The decision on how to split this subset is done the same way as
+the original dataset, and you repeat this process until you’ve classified all the data.
+*** Pseudo code
+
+```text
+Check if every item in the dataset is in the same class:
+If so return the class label
+Else
+find the best feature to split the data
+split the dataset
+create a branch node
+for each split
+call createBranch and add the result to the branch node
+return branch nod
+```
+*** Information gain
+measure of information of a set is known as Shannon entropy, entropy is defined as the expected value of the information.
+information:
+$$l(x_i) = log_2p(x_i)$$
+**** entropy, expected value of all the information of all posible values of our class.
+$$H=-\sum_{i=1}^n p(x_i)log_2p(x_i)$$
+Goals
+- Understand the notion of entropy of a discrete random variable.
+- What is the largest possible entropy of a discrete random variable which takes on r possible values?
+- Know the definitions of joint entropy and conditional entropy.
+- Derive the chain rule for writing joint entropy as a sum of conditional entropies.
+- Show that the entropy of a set of independent random variables is the sum of the individual entropies.
+*** 条件熵
+$$H(Y|X) = H(X,Y) - H(X)$$
+*** 互信息
+$$H(Y)-H(Y|X)=I(X,Y)$$
+
 
 * Random Forest
