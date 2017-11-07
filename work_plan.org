@@ -332,7 +332,7 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 * Risk model
 DEADLINE: <2017-11-07 Tue>
 - load xarray data.
-- calculate covariance and specific risk.
+- calculate calculate factor return, covariance and residual(specific risk).
 - change panel to to_xarray().
 - read the barra&axioma documents about risk model.
 - create charts from the risk model report.
@@ -349,7 +349,7 @@ CLOCK: [2017-11-06 Mon 10:25]--[2017-11-07 Tue 10:03] => 23:38
 2. [X] Highlight those topics to create topics idea
 3. [X] Create topics OSET and Want based on topics idea
    1. Such want can be under project want or under agent want such as SSRN, Journal
-4. [ ] Create a Want workflow to research the topics, e.g.,
+4. [X] Create a Want workflow to research the topics, e.g.,
    1. find top school and authors of that topics
    2. find top papers chronologically in that topics
 5. [X] Search top papers and websites under the topics
@@ -363,6 +363,7 @@ CLOCK: [2017-11-06 Mon 10:25]--[2017-11-07 Tue 10:03] => 23:38
    5. related topics
 8. [ ] Create wants of different oset (doc, idea, func instance, func def, oset) for idea workflow
 9. [ ] highlights in related papers to meet above wants, create additional f def and f inst oset, then follow GS workflow to create f def, f instance, etc
+10. [ ] define function sampling.
 
 ** organize OSet structure
 DEADLINE: <2017-10-23 Mon>

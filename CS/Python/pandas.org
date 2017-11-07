@@ -456,18 +456,201 @@ xarray has two core data structures. Both are fundamentally N-dimensional:
 
 - DataArray is our implementation of a labeled, N-dimensional array. It is an N-D generalization of a pandas.Series. The name DataArray itself is borrowed from Fernando Perez’s datarray project, which prototyped a similar data structure.
 - Dataset is a multi-dimensional, in-memory array database. It is a dict-like container of DataArray objects aligned along any number of shared dimensions, and serves a similar purpose in xarray to the pandas.DataFrame.
+The power of the dataset over a plain dictionary is that, in addition to pulling out arrays by name, it is possible to select or combine data along a dimension across all arrays simultaneously.
+Like a DataFrame, datasets facilitate array operations with heterogeneous data – the difference is that the arrays in a dataset can not only have different data types, but can also have different numbers of dimensions.
+
 
 *** Goals and aspirations
-** Frequently Asked Questions
+pandas excels at working with tabular data. That suffices for many statistical analyses, but physical scientists rely on N-dimensional arrays – which is where xarray comes in.
+
+xarray aims to provide a data analysis toolkit as powerful as pandas but designed for working with homogeneous N-dimensional arrays instead of tabular data.
+
+Importantly, xarray has robust support for converting its objects to and from a numpy ndarray or a pandas DataFrame or Series, providing compatibility with the full PyData ecosystem.
+
 ** Examples
+*** Quick overview
+#+BEGIN_SRC python
+import xarray as xr
+#+END_SRC
+**** Create a DataArray
+You can make a DataArray from scratch by supplying data in the form of a numpy array or list, with optional dimensions and coordinates:
+#+BEGIN_SRC python
+In [4]: xr.DataArray(np.random.randn(2, 3))
+Out[4]:
+<xarray.DataArray (dim_0: 2, dim_1: 3)>
+array([[ 1.643563, -1.469388,  0.357021],
+       [-0.6746  , -1.776904, -0.968914]])
+Dimensions without coordinates: dim_0, dim_1
+
+In [5]: data = xr.DataArray(np.random.randn(2, 3), coords={'x': ['a', 'b']}, dims=('x', 'y'))
+
+In [6]: data
+Out[6]:
+<xarray.DataArray (x: 2, y: 3)>
+array([[-1.294524,  0.413738,  0.276662],
+       [-0.472035, -0.01396 , -0.362543]])
+Coordinates:
+  * x        (x) <U1 'a' 'b'
+Dimensions without coordinates: y
+#+END_SRC
+the key properties for a DataArray:
+#+BEGIN_SRC python
+# like in pandas, values is a numpy array that you can modify in-place
+In [8]: data.values
+Out[8]:
+array([[-1.295,  0.414,  0.277],
+       [-0.472, -0.014, -0.363]])
+
+In [9]: data.dims
+Out[9]: ('x', 'y')
+
+In [10]: data.coords
+Out[10]:
+Coordinates:
+  * x        (x) <U1 'a' 'b'
+
+# you can use this dictionary to store arbitrary metadata
+In [11]: data.attrs
+Out[11]: OrderedDict()
+#+END_SRC
+
+**** Indexing
+#+BEGIN_SRC python
+# positional and by integer label, like numpy
+In [12]: data[[0, 1]]
+Out[12]:
+<xarray.DataArray (x: 2, y: 3)>
+array([[-1.294524,  0.413738,  0.276662],
+       [-0.472035, -0.01396 , -0.362543]])
+Coordinates:
+  * x        (x) <U1 'a' 'b'
+Dimensions without coordinates: y
+
+# positional and by coordinate label, like pandas
+In [13]: data.loc['a':'b']
+Out[13]:
+<xarray.DataArray (x: 2, y: 3)>
+array([[-1.294524,  0.413738,  0.276662],
+       [-0.472035, -0.01396 , -0.362543]])
+Coordinates:
+  * x        (x) <U1 'a' 'b'
+Dimensions without coordinates: y
+
+# by dimension name and integer label
+In [14]: data.isel(x=slice(2))
+Out[14]:
+<xarray.DataArray (x: 2, y: 3)>
+array([[-1.294524,  0.413738,  0.276662],
+       [-0.472035, -0.01396 , -0.362543]])
+Coordinates:
+  * x        (x) <U1 'a' 'b'
+Dimensions without coordinates: y
+
+# by dimension name and coordinate label
+In [15]: data.sel(x=['a', 'b'])
+Out[15]:
+<xarray.DataArray (x: 2, y: 3)>
+array([[-1.294524,  0.413738,  0.276662],
+       [-0.472035, -0.01396 , -0.362543]])
+Coordinates:
+  * x        (x) <U1 'a' 'b'
+Dimensions without coordinates: y
+#+END_SRC
+**** Computation
+**** GroupBy
+#+BEGIN_SRC python
+In [28]: labels = xr.DataArray(['E', 'F', 'E'], [data.coords['y']], name='labels')
+
+In [29]: labels
+Out[29]:
+<xarray.DataArray 'labels' (y: 3)>
+array(['E', 'F', 'E'],
+      dtype='<U1')
+Coordinates:
+  * y        (y) int64 0 1 2
+
+In [30]: data.groupby(labels).mean('y')
+Out[30]:
+<xarray.DataArray (x: 2, labels: 2)>
+array([[-0.508931,  0.413738],
+       [-0.417289, -0.01396 ]])
+Coordinates:
+  * x        (x) <U1 'a' 'b'
+  * labels   (labels) object 'E' 'F'
+
+In [31]: data.groupby(labels).apply(lambda x: x - x.min())
+Out[31]:
+<xarray.DataArray (x: 2, y: 3)>
+array([[ 0.      ,  0.427698,  1.571185],
+       [ 0.822489,  0.      ,  0.931981]])
+Coordinates:
+  * x        (x) <U1 'a' 'b'
+  * y        (y) int64 0 1 2
+    labels   (y) <U1 'E' 'F' 'E'
+#+END_SRC
+**** pandas
+**** Datasets
+**** NetCDF
+*** Toy weather data
+**** Examine a dataset with pandas and seaborn
+**** Probability of freeze by calendar month
+**** Monthly averaging
+**** Calculate monthly anomalies
+**** Fill missing values with climatology
+*** Calculating Seasonal Averages from Timeseries of Monthly Means
+**** Some calendar information so we can support any netCDF calendar.
+**** A few calendar functions to determine the number of days in each month
+**** Open the Dataset
+**** Now for the heavy lifting:
+*** Working with Multidimensional Coordinates
+**** Plotting
+**** Multidimensional Groupby
+*** Recipes
+
 ** Installation
+*** For accelerating xarray
+bottleneck: speeds up NaN-skipping and rolling window aggregations by a large factor (1.0 or later)
+*** For parallel computing
+dask.array (0.9.0 or later): required for Out of core computation with dask.
 ** Data Structures
 ** Indexing and selecting data
+| Dimension lookup | 	Index lookup | 	DataArray syntax                                 | 	Dataset syntax                                 |
+| Positional       | 	By integer   | 	arr[:, 0]	                                      | not available                                    |
+| Positional       | 	By label     | 	arr.loc[:, 'IA']	                               | not available                                    |
+| By name          | 	By integer   | 	arr.isel(space=0) or arr[dict(space=0)]          | 	ds.isel(space=0) or ds[dict(space=0)]          |
+| By name          | 	By label     | 	arr.sel(space='IA') or arr.loc[dict(space='IA')] | 	ds.sel(space='IA') or ds.loc[dict(space='IA')] |
+
 ** Computation
+*** Rolling window operations
+
 ** GroupBy: split-apply-combine
 ** Reshaping and reorganizing data
 ** Combining data
 ** Time series data
+*** Datetime indexing
+#+BEGIN_SRC python
+In [8]: time = pd.date_range('2000-01-01', freq='H', periods=365 * 24)
+
+In [9]: ds = xr.Dataset({'foo': ('time', np.arange(365 * 24)), 'time': time})
+
+In [10]: ds.sel(time='2000-01')
+Out[10]:
+<xarray.Dataset>
+Dimensions:  (time: 744)
+Coordinates:
+  * time     (time) datetime64[ns] 2000-01-01 2000-01-01T01:00:00 ...
+Data variables:
+    foo      (time) int64 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 ...
+
+In [11]: ds.sel(time=slice('2000-06-01', '2000-06-10'))
+Out[11]:
+<xarray.Dataset>
+Dimensions:  (time: 240)
+Coordinates:
+  * time     (time) datetime64[ns] 2000-06-01 2000-06-01T01:00:00 ...
+Data variables:
+    foo      (time) int64 3648 3649 3650 3651 3652 3653 3654 3655 3656 3657 ...
+#+END_SRC
 ** Working with pandas
 ** Serialization and IO
 ** Out of core computation with dask
