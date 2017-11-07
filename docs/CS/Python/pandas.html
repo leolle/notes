@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-19 Thu 17:30 -->
+<!-- 2017-11-07 Tue 13:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -179,6 +179,33 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline16">6. Panels</a></li>
+<li><a href="#orgheadline37">7. xarray</a>
+<ul>
+<li><a href="#orgheadline20">7.1. Overview: Why xarray?</a>
+<ul>
+<li><a href="#orgheadline17">7.1.1. Features</a></li>
+<li><a href="#orgheadline18">7.1.2. Core data structures</a></li>
+<li><a href="#orgheadline19">7.1.3. Goals and aspirations</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline21">7.2. Frequently Asked Questions</a></li>
+<li><a href="#orgheadline22">7.3. Examples</a></li>
+<li><a href="#orgheadline23">7.4. Installation</a></li>
+<li><a href="#orgheadline24">7.5. Data Structures</a></li>
+<li><a href="#orgheadline25">7.6. Indexing and selecting data</a></li>
+<li><a href="#orgheadline26">7.7. Computation</a></li>
+<li><a href="#orgheadline27">7.8. GroupBy: split-apply-combine</a></li>
+<li><a href="#orgheadline28">7.9. Reshaping and reorganizing data</a></li>
+<li><a href="#orgheadline29">7.10. Combining data</a></li>
+<li><a href="#orgheadline30">7.11. Time series data</a></li>
+<li><a href="#orgheadline31">7.12. Working with pandas</a></li>
+<li><a href="#orgheadline32">7.13. Serialization and IO</a></li>
+<li><a href="#orgheadline33">7.14. Out of core computation with dask</a></li>
+<li><a href="#orgheadline34">7.15. Plotting</a></li>
+<li><a href="#orgheadline35">7.16. API reference</a></li>
+<li><a href="#orgheadline36">7.17. xarray Internals</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -767,6 +794,97 @@ panel.minor_axis
 panel.minor_xs<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'A'</span>, <span style="color: #E6DB74;">'B'</span>, <span style="color: #E6DB74;">'C'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+</div>
+</div>
+<div id="outline-container-orgheadline37" class="outline-2">
+<h2 id="orgheadline37"><span class="section-number-2">7</span> xarray</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">7.1</span> Overview: Why xarray?</h3>
+<div class="outline-text-3" id="text-7-1">
+</div><div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">7.1.1</span> Features</h4>
+<div class="outline-text-4" id="text-7-1-1">
+<p>
+Adding dimensions names and coordinate indexes to numpy’s ndarray.
+</p>
+
+<ul class="org-ul">
+<li>Apply operations over dimensions by name: x.sum('time').</li>
+<li>Select values by label instead of integer location: x.loc['2014-01-01'] or x.sel(time='2014-01-01').</li>
+<li>Mathematical operations (e.g., x - y) vectorize across multiple dimensions (array broadcasting) based on dimension names, not shape.</li>
+<li>Flexible split-apply-combine operations with groupby: x.groupby('time.dayofyear').mean().</li>
+<li>Database like alignment based on coordinate labels that smoothly handles missing values: x, y = xr.align(x, y, join='outer').</li>
+<li>Keep track of arbitrary metadata in the form of a Python dictionary: x.attrs.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">7.1.2</span> Core data structures</h4>
+<div class="outline-text-4" id="text-7-1-2">
+<p>
+xarray has two core data structures. Both are fundamentally N-dimensional:
+</p>
+
+<ul class="org-ul">
+<li>DataArray is our implementation of a labeled, N-dimensional array. It is an N-D generalization of a pandas.Series. The name DataArray itself is borrowed from Fernando Perez’s datarray project, which prototyped a similar data structure.</li>
+<li>Dataset is a multi-dimensional, in-memory array database. It is a dict-like container of DataArray objects aligned along any number of shared dimensions, and serves a similar purpose in xarray to the pandas.DataFrame.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">7.1.3</span> Goals and aspirations</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">7.2</span> Frequently Asked Questions</h3>
+</div>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">7.3</span> Examples</h3>
+</div>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">7.4</span> Installation</h3>
+</div>
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">7.5</span> Data Structures</h3>
+</div>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">7.6</span> Indexing and selecting data</h3>
+</div>
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">7.7</span> Computation</h3>
+</div>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">7.8</span> GroupBy: split-apply-combine</h3>
+</div>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">7.9</span> Reshaping and reorganizing data</h3>
+</div>
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">7.10</span> Combining data</h3>
+</div>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">7.11</span> Time series data</h3>
+</div>
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">7.12</span> Working with pandas</h3>
+</div>
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">7.13</span> Serialization and IO</h3>
+</div>
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">7.14</span> Out of core computation with dask</h3>
+</div>
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">7.15</span> Plotting</h3>
+</div>
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">7.16</span> API reference</h3>
+</div>
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">7.17</span> xarray Internals</h3>
 </div>
 </div>
 </div>

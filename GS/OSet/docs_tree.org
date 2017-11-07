@@ -1,0 +1,135 @@
+C: Mathematical and Quantitative Methods
+
+C00 - General
+C01 - Econometrics
+C02 - Mathematical Methods
+C1 - Econometric and Statistical Methods: General
+C10 - General
+C11 - Bayesian Analysis: General
+C12 - Hypothesis Testing: General
+C13 - Estimation: General
+C14 - Semiparametric and Nonparametric Methods: General
+C15 - Statistical Simulation Methods: General
+C18 - Methodological Issues: General
+C19 - Other
+C2 - Econometric Methods: Single Equation Models
+C20 - General
+C21 - Cross-Sectional Models; Spatial Models; Treatment Effect Models; Quantile Regressions
+C22 - Time-Series Models; Dynamic Quantile Regressions; Dynamic Treatment Effect Models; Diffusion Processes
+C23 - Panel Data Models; Spatio-temporal Models
+C24 - Truncated and Censored Models; Switching Regression Models; Threshold Regression Models
+C25 - Discrete Regression and Qualitative Choice Models; Discrete Regressors; Proportions; Probabilities
+C26 - Instrumental Variables (IV) Estimation
+C29 - Other
+C3 - Multiple or Simultaneous Equation Models; Multiple Variables
+C30 - General
+C31 - Cross-Sectional Models; Spatial Models; Treatment Effect Models; Quantile Regressions; Social Interaction Models
+C32 - Time-Series Models; Dynamic Quantile Regressions; Dynamic Treatment Effect Models;Processes; State Space Models
+C33 - Panel Data Models; Spatio-temporal Models
+C34 - Truncated and Censored Models; Switching Regression Models
+C35 - Discrete Regression and Qualitative Choice Models; Discrete Regressors; Proportions
+C36 - Instrumental Variables (IV) Estimation
+C38 - Classification Methods; Cluster Analysis; Principal Components; Factor Models
+C39 - Other
+C4 - Econometric and Statistical Methods: Special Topics
+C40 - General
+C41 - Duration Analysis; Optimal Timing Strategies
+C43 - Index Numbers and Aggregation
+C44 - Operations Research; Statistical Decision Theory
+C45 - Neural Networks and Related Topics
+C49 - Other
+C5 - Econometric Modeling
+C50 - General
+C51 - Model Construction and Estimation
+C52 - Model Evaluation, Validation, and Selection
+C53 - Forecasting and Prediction Methods; Simulation Methods
+C54 - Quantitative Policy Modeling
+C55 - Large Data Sets: Modeling and Analysis
+C57 - Econometrics of Games and Auctions
+C58 - Financial Econometrics
+C59 - Other
+C6 - Mathematical Methods; Programming Models; Mathematical and Simulation Modeling
+C60 - General
+C61 - Optimization Techniques; Programming Models; Dynamic Analysis
+C62 - Existence and Stability Conditions of Equilibrium
+C63 - Computational Techniques; Simulation Modeling
+C65 - Miscellaneous Mathematical Tools
+C67 - Input-Output Models
+C68 - Computable General Equilibrium Models
+C69 - Other
+C7 - Game Theory and Bargaining Theory
+C70 - General
+C71 - Cooperative Games
+C72 - Noncooperative Games
+C73 - Stochastic and Dynamic Games; Evolutionary Games; Repeated Games
+C78 - Bargaining Theory; Matching Theory
+C79 - Other
+C8 - Data Collection and Data Estimation Methodology; Computer Programs
+C80 - General
+C81 - Methodology for Collecting, Estimating, and Organizing Microeconomic Data
+C82 - Methodology for Collecting, Estimating, and Organizing Macroeconomic Data
+C83 - Survey Methods; Sampling Methods
+C87 - Econometric Software
+C88 - Other Computer Software
+C89 - Other
+C9 - Design of Experiments
+C90 - General
+C91 - Laboratory, Individual Behavior
+C92 - Laboratory, Group Behavior
+C93 - Field Experiments
+C99 - Other
+
+G: Financial Economics
+
+G00 - General
+G01 - Financial Crises
+G02 - Behavioral Finance: Underlying Principles
+G1 - General Financial Markets
+G10 - General
+G11 - Portfolio Choice; Investment Decisions
+G12 - Asset Pricing; Trading Volume; Bond Interest Rates
+G13 - Contingent Pricing; Futures Pricing
+G14 - Information and Market Efficiency; Event Studies; Insider Trading
+G15 - International Financial Markets
+G18 - Government Policy and Regulation
+G19 - Other
+G2 - Financial Institutions and Services
+G20 - General
+G21 - Banks; Depository Institutions; Micro Finance Institutions; Mortgages
+G22 - Insurance; Insurance Companies; Actuarial Studies
+G23 - Non-bank Financial Institutions; Financial Instruments; Institutional Investors
+G24 - Investment Banking; Venture Capital; Brokerage; Ratings and Ratings Agencies
+G28 - Government Policy and Regulation
+G29 - Other
+G3 - Corporate Finance and Governance
+G30 - General
+G31 - Capital Budgeting; Fixed Investment and Inventory Studies; Capacity
+G32 - Financing Policy; Financial Risk and Risk Management; Capital and Ownership Structure; Value of Firms; Goodwill
+G33 - Bankruptcy; Liquidation
+G34 - Mergers; Acquisitions; Restructuring; Corporate Governance
+G35 - Payout Policy
+G38 - Government Policy and Regulation
+G39 - Other
+
+Y: Miscellaneous Categories
+
+Y1 - Data: Tables and Charts
+Y10 - Data: Tables and Charts
+Y2 - Introductory Material
+Y20 - Introductory Material
+Y3 - Book Reviews (unclassified)
+Y30 - Book Reviews (unclassified)
+Y4 - Dissertations (unclassified)
+Y40 - Dissertations (unclassified)
+Y5 - Further Reading (unclassified)
+Y50 - Further Reading (unclassified)
+Y6 - Excerpts
+Y60 - Excerpts
+Y7 - No Author General Discussions
+Y70 - No Author General Discussions
+Y8 - Related Disciplines
+Y80 - Related Disciplines
+Y9 - Other
+Y90 - Other
+Y92 - Pictures and Maps
+Y93 - Novels, Self-Help Books, etc.

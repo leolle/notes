@@ -693,6 +693,26 @@ nose
 ** ensurepip — Bootstrapping the pip installer
 ** venv — Creation of virtual environments
 ** zipapp — Manage executable python zip archives
+** pyenv — Simple Python version management
+- check installed versions
+#+BEGIN_SRC shell
+pyenv versions
+#+END_SRC
+
+#+RESULT:
+:  system
+:  2.7.13
+:  3.6.0
+:  3.6.0/envs/general
+:  3.6.0/envs/simulate
+:  3.6.0/envs/venv3.6.0
+:  3.6.0/envs/venv3.6.0.1
+: * anaconda3-4.4.0 (set by /home/weiwu/projects/simulate/.python-version)
+:  general
+:  simulate
+:  venv3.6.0
+:  venv3.6.0.1
+
 * Python Runtime Services
 ** sysconfig — Provide access to Python’s configuration information
 ** os, sys — System-specific parameters and functions

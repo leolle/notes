@@ -21,12 +21,22 @@
 - Give examples of functions which can't be represented compactly (e.g. majority, parity)
 - Be able to fit a decision tree using a recursive greedy strategy.
 特征选择，决策树的生成，决策树的修剪。
+
+特征的选择，计算每个特征的信息增益，ID3, C4.5, CART。
+
+recursive searching生成树。
+
+- 剪枝(pruning a tree)
+The standard approach is therefore to grow a “full” tree, and then to perform pruning. This
+can be done using a scheme that prunes the branches giving the least increase in the error.
+
+cost function: Gini function, CART.
 - What is the information gain criterion, and why does it produce better splits than classification accuracy?
 - Be aware that decision trees can be unstable, in that the structure changes dramatically with respect to small changes in the training data.
 
 ** Terminology
 - CART
-classification and regression tree.
+Classification and regression trees or CART models, also called decision trees are defined by recursively partitioning the input space, and defining a local model in each resulting region of input space. This can be represented by a tree, with one leaf per region.
 
 ** Tree construction
 To build a decision tree, you need to make a first decision on the dataset to dictate
@@ -52,7 +62,7 @@ return branch nod
 measure of information of a set is known as Shannon entropy, entropy is defined as the expected value of the information.
 information:
 $$l(x_i) = log_2p(x_i)$$
-**** entropy, expected value of all the information of all posible values of our class.
+**** entropy, or deviance, expected value of all the information of all posible values of our class.
 $$H=-\sum_{i=1}^n p(x_i)log_2p(x_i)$$
 Goals
 - Understand the notion of entropy of a discrete random variable.
@@ -63,7 +73,33 @@ Goals
 *** 条件熵
 $$H(Y|X) = H(X,Y) - H(X)$$
 *** 互信息
-$$H(Y)-H(Y|X)=I(X,Y)$$
-
+$$I(X,Y) = H(Y) - H(Y|X)$$
+** Pros and cons of trees
+*** Pros:
+- they are easy to interpret.
+- they can easily handle mixed discrete and continuous inputs.
+- they are insensitive to monotone transformations of the inputs (because the split points are based on ranking the data points).
+- they perform automatic variable selection.
+- they are relatively robust to outliers.
+- they scale well to large data sets.
+- they can be modified to handle missing inputs.
+*** Cons:
+- they do not predict very accurately compared to other kinds of model. This is in part due to the
+greedy nature of the tree construction algorithm.
+- A related problem is that trees are unstable:
+small changes to the input data can have large eﬀects on the structure of the tree, due to the hierarchical nature of the tree-growing process, causing errors at the top to aﬀect the rest of the tree.
 
 * Random Forest
+Random forests are a machine learning algorithm which averages the predictions over decision trees restricted to random subsets of the input features. They are widely used because they often perform very well with almost no parameter tuning.
+** Context
+This concept has the prerequisites:
+- decision trees (Random forests are ensembles of decision trees.)
+- bagging (Bagging is a part of the random forest algorithm.)
+Bagging is a technique for reducing the variance of a learning algorithm by averaging the predictions obtained from random resamplings of the training data. It can improve the performance of unstable algorithms such as decision trees.
+
+- generalization (Averaging over random resamplings is intended to improve generalization performance.)
+** Goals
+- Know the basic random forest algorithm
+- What effect does varying the number of features have? What are the advantages of larger or smaller values?
+- How do you determine the relevance of each of the input features to the classification?
+- How do you estimate out-of-sample error as the training is progressing?

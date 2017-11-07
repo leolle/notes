@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-06 Mon 09:31 -->
+<!-- 2017-11-07 Tue 13:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -171,7 +171,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline9">1. Decision Tree</a>
+<li><a href="#orgheadline12">1. Decision Tree</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Goals</a></li>
 <li><a href="#orgheadline2">1.2. Terminology</a></li>
@@ -183,15 +183,26 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline7">1.3.4. 互信息</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline11">1.4. Pros and cons of trees</a>
+<ul>
+<li><a href="#orgheadline9">1.4.1. Pros:</a></li>
+<li><a href="#orgheadline10">1.4.2. Cons:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">2. Random Forest</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline15">2. Random Forest</a>
+<ul>
+<li><a href="#orgheadline13">2.1. Context</a></li>
+<li><a href="#orgheadline14">2.2. Goals</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">1</span> Decision Tree</h2>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">1</span> Decision Tree</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="./code/tree.py">decision<sub>tree.py</sub></a>
@@ -214,6 +225,26 @@ for the JavaScript code in this tag.
 <p>
 特征选择，决策树的生成，决策树的修剪。
 </p>
+
+<p>
+特征的选择，计算每个特征的信息增益，ID3, C4.5, CART。
+</p>
+
+<p>
+recursive searching生成树。
+</p>
+
+<ul class="org-ul">
+<li>剪枝(pruning a tree)</li>
+</ul>
+<p>
+The standard approach is therefore to grow a “full” tree, and then to perform pruning. This
+can be done using a scheme that prunes the branches giving the least increase in the error.
+</p>
+
+<p>
+cost function: Gini function, CART.
+</p>
 <ul class="org-ul">
 <li>What is the information gain criterion, and why does it produce better splits than classification accuracy?</li>
 <li>Be aware that decision trees can be unstable, in that the structure changes dramatically with respect to small changes in the training data.</li>
@@ -228,7 +259,7 @@ for the JavaScript code in this tag.
 <li>CART</li>
 </ul>
 <p>
-classification and regression tree.
+Classification and regression trees or CART models, also called decision trees are defined by recursively partitioning the input space, and defining a local model in each resulting region of input space. This can be represented by a tree, with one leaf per region.
 </p>
 </div>
 </div>
@@ -272,7 +303,7 @@ information:
 \[l(x_i) = log_2p(x_i)\]
 </p>
 </div>
-<ol class="org-ol"><li><a id="orgheadline4"></a>entropy, expected value of all the information of all posible values of our class.<br  /><div class="outline-text-5" id="text-1-3-2-1">
+<ol class="org-ol"><li><a id="orgheadline4"></a>entropy, or deviance, expected value of all the information of all posible values of our class.<br  /><div class="outline-text-5" id="text-1-3-2-1">
 <p>
 \[H=-\sum_{i=1}^n p(x_i)log_2p(x_i)\]
 Goals
@@ -298,16 +329,85 @@ Goals
 <h4 id="orgheadline7"><span class="section-number-4">1.3.4</span> 互信息</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
-\[H(Y)-H(Y|X)=I(X,Y)\]
+\[I(X,Y) = H(Y) - H(Y|X)\]
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.4</span> Pros and cons of trees</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.4.1</span> Pros:</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li>they are easy to interpret.</li>
+<li>they can easily handle mixed discrete and continuous inputs.</li>
+<li>they are insensitive to monotone transformations of the inputs (because the split points are based on ranking the data points).</li>
+<li>they perform automatic variable selection.</li>
+<li>they are relatively robust to outliers.</li>
+<li>they scale well to large data sets.</li>
+<li>they can be modified to handle missing inputs.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">1.4.2</span> Cons:</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li>they do not predict very accurately compared to other kinds of model. This is in part due to the</li>
+</ul>
+<p>
+greedy nature of the tree construction algorithm.
+</p>
+<ul class="org-ul">
+<li>A related problem is that trees are unstable:</li>
+</ul>
+<p>
+small changes to the input data can have large eﬀects on the structure of the tree, due to the hierarchical nature of the tree-growing process, causing errors at the top to aﬀect the rest of the tree.
 </p>
 </div>
 </div>
 </div>
 </div>
 
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">2</span> Random Forest</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Random forests are a machine learning algorithm which averages the predictions over decision trees restricted to random subsets of the input features. They are widely used because they often perform very well with almost no parameter tuning.
+</p>
+</div>
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">2.1</span> Context</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+This concept has the prerequisites:
+</p>
+<ul class="org-ul">
+<li>decision trees (Random forests are ensembles of decision trees.)</li>
+<li>bagging (Bagging is a part of the random forest algorithm.)</li>
+</ul>
+<p>
+Bagging is a technique for reducing the variance of a learning algorithm by averaging the predictions obtained from random resamplings of the training data. It can improve the performance of unstable algorithms such as decision trees.
+</p>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">2</span> Random Forest</h2>
+<ul class="org-ul">
+<li>generalization (Averaging over random resamplings is intended to improve generalization performance.)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">2.2</span> Goals</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Know the basic random forest algorithm</li>
+<li>What effect does varying the number of features have? What are the advantages of larger or smaller values?</li>
+<li>How do you determine the relevance of each of the input features to the classification?</li>
+<li>How do you estimate out-of-sample error as the training is progressing?</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </body>

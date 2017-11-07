@@ -438,3 +438,39 @@ panel.minor_axis
 
 panel.minor_xs(['A', 'B', 'C'])
 #+END_SRC
+* xarray
+** Overview: Why xarray?
+
+*** Features
+Adding dimensions names and coordinate indexes to numpy’s ndarray.
+
+- Apply operations over dimensions by name: x.sum('time').
+- Select values by label instead of integer location: x.loc['2014-01-01'] or x.sel(time='2014-01-01').
+- Mathematical operations (e.g., x - y) vectorize across multiple dimensions (array broadcasting) based on dimension names, not shape.
+- Flexible split-apply-combine operations with groupby: x.groupby('time.dayofyear').mean().
+- Database like alignment based on coordinate labels that smoothly handles missing values: x, y = xr.align(x, y, join='outer').
+- Keep track of arbitrary metadata in the form of a Python dictionary: x.attrs.
+
+*** Core data structures
+xarray has two core data structures. Both are fundamentally N-dimensional:
+
+- DataArray is our implementation of a labeled, N-dimensional array. It is an N-D generalization of a pandas.Series. The name DataArray itself is borrowed from Fernando Perez’s datarray project, which prototyped a similar data structure.
+- Dataset is a multi-dimensional, in-memory array database. It is a dict-like container of DataArray objects aligned along any number of shared dimensions, and serves a similar purpose in xarray to the pandas.DataFrame.
+
+*** Goals and aspirations
+** Frequently Asked Questions
+** Examples
+** Installation
+** Data Structures
+** Indexing and selecting data
+** Computation
+** GroupBy: split-apply-combine
+** Reshaping and reorganizing data
+** Combining data
+** Time series data
+** Working with pandas
+** Serialization and IO
+** Out of core computation with dask
+** Plotting
+** API reference
+** xarray Internals

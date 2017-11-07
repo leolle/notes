@@ -97,15 +97,9 @@ ICA
 - portfolio optimization based on factor model
 - non linear constrain on factor model
 
-- [ ] 公司帮忙照看搬家。
+- [X] 公司帮忙照看搬家。
 8 hours.
-** Deep learning
-- [ ] stuff from Zhupengjia, Liguofu
-- [ ] Yoshua paper deep learning.
-- [ ] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
-- [ ] deep learning book, author goodfellow.
-- [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
-- [ ] Neural Language Processing(NLP), 结巴分词.
+
 * Personal stuff
 ** knowledge database website
 - [X] modify python content aligned with python library index.
@@ -323,31 +317,45 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 *** HMM
 *** Neural Network
 * Deep Learning
+** other
+- [ ] stuff from Zhupengjia, Liguofu
+- [ ] Yoshua paper deep learning.
+- [ ] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
+- [ ] deep learning book, author goodfellow.
+- [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
+- [ ] Neural Language Processing(NLP), 结巴分词.
 ** Machine Learning Basics
-:LOGBOOK:
-CLOCK: [2017-11-04 Sat 12:46]--[2017-11-04 Sat 12:46] =>  0:00
-CLOCK: [2017-11-04 Sat 12:44]--[2017-11-04 Sat 12:44] =>  0:00
-:END:
-
 ** Week 1/2
 *** Gradient algorithm
 *** CNN
 *** RNN
+* Risk model
+DEADLINE: <2017-11-07 Tue>
+- load xarray data.
+- calculate covariance and specific risk.
+- change panel to to_xarray().
+- read the barra&axioma documents about risk model.
+- create charts from the risk model report.
 * GS
 ** Research workflow
 DEADLINE: <2017-11-06 Mon>
+:LOGBOOK:
+CLOCK: [2017-11-06 Mon 10:25]--[2017-11-07 Tue 10:03] => 23:38
+
+#+END:
+
+:END:
 1. [X] Search SSRN and find topics
 2. [X] Highlight those topics to create topics idea
-3. [ ] Create topics OSET and Want based on topics idea
-   1. Such want can be under project want or
-   2. under agent want such as SSRN, Journal
+3. [X] Create topics OSET and Want based on topics idea
+   1. Such want can be under project want or under agent want such as SSRN, Journal
 4. [ ] Create a Want workflow to research the topics, e.g.,
    1. find top school and authors of that topics
    2. find top papers chronologically in that topics
-5. [ ] Search top papers and websites under the topics
+5. [X] Search top papers and websites under the topics
    1. meet the wants in research workflow with top author, school, etc
-6. [ ] Download those papers and Meet the Want(s) of that topics
-7. [ ] Create an idea workflow for such topics
+6. [X] Download those papers and Meet the Want(s) of that topics
+7. [X] Create an idea workflow for such topics
    1. define agent behavior under study
    2. define data
    3. models
@@ -358,6 +366,7 @@ DEADLINE: <2017-11-06 Mon>
 
 ** organize OSet structure
 DEADLINE: <2017-10-23 Mon>
+[[https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit]]
 - [-] 从Handbook Of Equity Market Anomalies提取因子，策略，转化为能产生alpha的需求。
   - [ ] Analyst-related anomalies
   - [X] GS技术分析因子分类
@@ -620,7 +629,3 @@ moving average crossing over on the continous contract.
 - [X] range osets.
 - [X] parse future continious contract data.
 - [ ] simple mode test with real data.
-* Risk model
-- change panel to to_xarray()
-- read the barra&axioma documents about risk model.
-- create charts from the risk model report.
