@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-07 Tue 13:28 -->
+<!-- 2017-11-13 Mon 09:56 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -179,7 +179,7 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline16">6. Panels</a></li>
-<li><a href="#orgheadline37">7. xarray</a>
+<li><a href="#orgheadline63">7. xarray</a>
 <ul>
 <li><a href="#orgheadline20">7.1. Overview: Why xarray?</a>
 <ul>
@@ -188,22 +188,42 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline19">7.1.3. Goals and aspirations</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">7.2. Frequently Asked Questions</a></li>
-<li><a href="#orgheadline22">7.3. Examples</a></li>
-<li><a href="#orgheadline23">7.4. Installation</a></li>
-<li><a href="#orgheadline24">7.5. Data Structures</a></li>
-<li><a href="#orgheadline25">7.6. Indexing and selecting data</a></li>
-<li><a href="#orgheadline26">7.7. Computation</a></li>
-<li><a href="#orgheadline27">7.8. GroupBy: split-apply-combine</a></li>
-<li><a href="#orgheadline28">7.9. Reshaping and reorganizing data</a></li>
-<li><a href="#orgheadline29">7.10. Combining data</a></li>
-<li><a href="#orgheadline30">7.11. Time series data</a></li>
-<li><a href="#orgheadline31">7.12. Working with pandas</a></li>
-<li><a href="#orgheadline32">7.13. Serialization and IO</a></li>
-<li><a href="#orgheadline33">7.14. Out of core computation with dask</a></li>
-<li><a href="#orgheadline34">7.15. Plotting</a></li>
-<li><a href="#orgheadline35">7.16. API reference</a></li>
-<li><a href="#orgheadline36">7.17. xarray Internals</a></li>
+<li><a href="#orgheadline44">7.2. Examples</a>
+<ul>
+<li><a href="#orgheadline28">7.2.1. Quick overview</a></li>
+<li><a href="#orgheadline34">7.2.2. Toy weather data</a></li>
+<li><a href="#orgheadline39">7.2.3. Calculating Seasonal Averages from Timeseries of Monthly Means</a></li>
+<li><a href="#orgheadline42">7.2.4. Working with Multidimensional Coordinates</a></li>
+<li><a href="#orgheadline43">7.2.5. Recipes</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline47">7.3. Installation</a>
+<ul>
+<li><a href="#orgheadline45">7.3.1. For accelerating xarray</a></li>
+<li><a href="#orgheadline46">7.3.2. For parallel computing</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline48">7.4. Data Structures</a></li>
+<li><a href="#orgheadline49">7.5. Indexing and selecting data</a></li>
+<li><a href="#orgheadline51">7.6. Computation</a>
+<ul>
+<li><a href="#orgheadline50">7.6.1. Rolling window operations</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline52">7.7. GroupBy: split-apply-combine</a></li>
+<li><a href="#orgheadline53">7.8. Reshaping and reorganizing data</a></li>
+<li><a href="#orgheadline54">7.9. Combining data</a></li>
+<li><a href="#orgheadline56">7.10. Time series data</a>
+<ul>
+<li><a href="#orgheadline55">7.10.1. Datetime indexing</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline57">7.11. Working with pandas</a></li>
+<li><a href="#orgheadline58">7.12. Serialization and IO</a></li>
+<li><a href="#orgheadline59">7.13. Out of core computation with dask</a></li>
+<li><a href="#orgheadline60">7.14. Plotting</a></li>
+<li><a href="#orgheadline61">7.15. API reference</a></li>
+<li><a href="#orgheadline62">7.16. xarray Internals</a></li>
 </ul>
 </li>
 </ul>
@@ -796,8 +816,8 @@ panel.minor_xs<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline37" class="outline-2">
-<h2 id="orgheadline37"><span class="section-number-2">7</span> xarray</h2>
+<div id="outline-container-orgheadline63" class="outline-2">
+<h2 id="orgheadline63"><span class="section-number-2">7</span> xarray</h2>
 <div class="outline-text-2" id="text-7">
 </div><div id="outline-container-orgheadline20" class="outline-3">
 <h3 id="orgheadline20"><span class="section-number-3">7.1</span> Overview: Why xarray?</h3>
@@ -831,60 +851,353 @@ xarray has two core data structures. Both are fundamentally N-dimensional:
 <li>DataArray is our implementation of a labeled, N-dimensional array. It is an N-D generalization of a pandas.Series. The name DataArray itself is borrowed from Fernando Perez’s datarray project, which prototyped a similar data structure.</li>
 <li>Dataset is a multi-dimensional, in-memory array database. It is a dict-like container of DataArray objects aligned along any number of shared dimensions, and serves a similar purpose in xarray to the pandas.DataFrame.</li>
 </ul>
+<p>
+The power of the dataset over a plain dictionary is that, in addition to pulling out arrays by name, it is possible to select or combine data along a dimension across all arrays simultaneously.
+Like a DataFrame, datasets facilitate array operations with heterogeneous data – the difference is that the arrays in a dataset can not only have different data types, but can also have different numbers of dimensions.
+</p>
 </div>
 </div>
 
+
 <div id="outline-container-orgheadline19" class="outline-4">
 <h4 id="orgheadline19"><span class="section-number-4">7.1.3</span> Goals and aspirations</h4>
+<div class="outline-text-4" id="text-7-1-3">
+<p>
+pandas excels at working with tabular data. That suffices for many statistical analyses, but physical scientists rely on N-dimensional arrays – which is where xarray comes in.
+</p>
+
+<p>
+xarray aims to provide a data analysis toolkit as powerful as pandas but designed for working with homogeneous N-dimensional arrays instead of tabular data.
+</p>
+
+<p>
+Importantly, xarray has robust support for converting its objects to and from a numpy ndarray or a pandas DataFrame or Series, providing compatibility with the full PyData ecosystem.
+</p>
 </div>
 </div>
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">7.2</span> Frequently Asked Questions</h3>
 </div>
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">7.3</span> Examples</h3>
+
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">7.2</span> Examples</h3>
+<div class="outline-text-3" id="text-7-2">
+</div><div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">7.2.1</span> Quick overview</h4>
+<div class="outline-text-4" id="text-7-2-1">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> xarray <span style="color: #F92672;">as</span> xr
+</pre>
 </div>
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">7.4</span> Installation</h3>
 </div>
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">7.5</span> Data Structures</h3>
+<ol class="org-ol"><li><a id="orgheadline21"></a>Create a DataArray<br  /><div class="outline-text-5" id="text-7-2-1-1">
+<p>
+You can make a DataArray from scratch by supplying data in the form of a numpy array or list, with optional dimensions and coordinates:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">]</span>: xr.DataArray<span style="color: #AE81FF;">(</span>np.random.randn<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #AE81FF;">(</span>dim_0: <span style="color: #AE81FF;">2</span>, dim_1: <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span> <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">643563</span>, -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">469388</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">357021</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">6746</span>  , -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">776904</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">968914</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Dimensions without coordinates: dim_0, dim_1
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">data</span> = xr.DataArray<span style="color: #AE81FF;">(</span>np.random.randn<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">)</span>, coords=<span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'x'</span>: <span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'a'</span>, <span style="color: #E6DB74;">'b'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span>, dims=<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'x'</span>, <span style="color: #E6DB74;">'y'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">6</span><span style="color: #AE81FF;">]</span>: data
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">6</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #AE81FF;">(</span>x: <span style="color: #AE81FF;">2</span>, y: <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">294524</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">413738</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">276662</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">472035</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">01396</span> , -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">362543</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * x        <span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'a'</span> <span style="color: #E6DB74;">'b'</span>
+Dimensions without coordinates: y
+</pre>
 </div>
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">7.6</span> Indexing and selecting data</h3>
+<p>
+the key properties for a DataArray:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">like in pandas, values is a numpy array that you can modify in-place</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">]</span>: data.values
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">]</span>:
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">295</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">414</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">277</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">472</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">014</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">363</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">9</span><span style="color: #AE81FF;">]</span>: data.dims
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">9</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'x'</span>, <span style="color: #E6DB74;">'y'</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">]</span>: data.coords
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">]</span>:
+Coordinates:
+  * x        <span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'a'</span> <span style="color: #E6DB74;">'b'</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">you can use this dictionary to store arbitrary metadata</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">11</span><span style="color: #AE81FF;">]</span>: data.attrs
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">11</span><span style="color: #AE81FF;">]</span>: OrderedDict<span style="color: #AE81FF;">()</span>
+</pre>
 </div>
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">7.7</span> Computation</h3>
+</div></li>
+
+<li><a id="orgheadline22"></a>Indexing<br  /><div class="outline-text-5" id="text-7-2-1-2">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">positional and by integer label, like numpy</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">12</span><span style="color: #AE81FF;">]</span>: data<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">12</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #AE81FF;">(</span>x: <span style="color: #AE81FF;">2</span>, y: <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">294524</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">413738</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">276662</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">472035</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">01396</span> , -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">362543</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * x        <span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'a'</span> <span style="color: #E6DB74;">'b'</span>
+Dimensions without coordinates: y
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">positional and by coordinate label, like pandas</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">13</span><span style="color: #AE81FF;">]</span>: data.loc<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'a'</span>:<span style="color: #E6DB74;">'b'</span><span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">13</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #AE81FF;">(</span>x: <span style="color: #AE81FF;">2</span>, y: <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">294524</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">413738</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">276662</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">472035</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">01396</span> , -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">362543</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * x        <span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'a'</span> <span style="color: #E6DB74;">'b'</span>
+Dimensions without coordinates: y
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">by dimension name and integer label</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">14</span><span style="color: #AE81FF;">]</span>: data.isel<span style="color: #AE81FF;">(</span>x=<span style="color: #F92672;">slice</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">14</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #AE81FF;">(</span>x: <span style="color: #AE81FF;">2</span>, y: <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">294524</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">413738</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">276662</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">472035</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">01396</span> , -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">362543</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * x        <span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'a'</span> <span style="color: #E6DB74;">'b'</span>
+Dimensions without coordinates: y
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">by dimension name and coordinate label</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">15</span><span style="color: #AE81FF;">]</span>: data.sel<span style="color: #AE81FF;">(</span>x=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span>, <span style="color: #E6DB74;">'b'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">15</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #AE81FF;">(</span>x: <span style="color: #AE81FF;">2</span>, y: <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">294524</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">413738</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">276662</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">472035</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">01396</span> , -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">362543</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * x        <span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'a'</span> <span style="color: #E6DB74;">'b'</span>
+Dimensions without coordinates: y
+</pre>
 </div>
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">7.8</span> GroupBy: split-apply-combine</h3>
+</div></li>
+<li><a id="orgheadline23"></a>Computation<br  /></li>
+<li><a id="orgheadline24"></a>GroupBy<br  /><div class="outline-text-5" id="text-7-2-1-4">
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">28</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">labels</span> = xr.DataArray<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'E'</span>, <span style="color: #E6DB74;">'F'</span>, <span style="color: #E6DB74;">'E'</span><span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">[</span>data.coords<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'y'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span>, name=<span style="color: #E6DB74;">'labels'</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">29</span><span style="color: #AE81FF;">]</span>: labels
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">29</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #E6DB74;">'labels'</span> <span style="color: #AE81FF;">(</span>y: <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'E'</span>, <span style="color: #E6DB74;">'F'</span>, <span style="color: #E6DB74;">'E'</span><span style="color: #66D9EF;">]</span>,
+      dtype=<span style="color: #E6DB74;">'&lt;U1'</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * y        <span style="color: #AE81FF;">(</span>y<span style="color: #AE81FF;">)</span> int64 <span style="color: #AE81FF;">0</span> <span style="color: #AE81FF;">1</span> <span style="color: #AE81FF;">2</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">30</span><span style="color: #AE81FF;">]</span>: data.groupby<span style="color: #AE81FF;">(</span>labels<span style="color: #AE81FF;">)</span>.mean<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'y'</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">30</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #AE81FF;">(</span>x: <span style="color: #AE81FF;">2</span>, labels: <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">508931</span>,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">413738</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">417289</span>, -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">01396</span> <span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * x        <span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'a'</span> <span style="color: #E6DB74;">'b'</span>
+  * labels   <span style="color: #AE81FF;">(</span>labels<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">object</span> <span style="color: #E6DB74;">'E'</span> <span style="color: #E6DB74;">'F'</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">31</span><span style="color: #AE81FF;">]</span>: data.groupby<span style="color: #AE81FF;">(</span>labels<span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">apply</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x: x - x.<span style="color: #F92672;">min</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">31</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.DataArray <span style="color: #AE81FF;">(</span>x: <span style="color: #AE81FF;">2</span>, y: <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>&gt;
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span> <span style="color: #AE81FF;">0</span>.      ,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">427698</span>,  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">571185</span><span style="color: #A6E22E;">]</span>,
+       <span style="color: #A6E22E;">[</span> <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">822489</span>,  <span style="color: #AE81FF;">0</span>.      ,  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">931981</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * x        <span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'a'</span> <span style="color: #E6DB74;">'b'</span>
+  * y        <span style="color: #AE81FF;">(</span>y<span style="color: #AE81FF;">)</span> int64 <span style="color: #AE81FF;">0</span> <span style="color: #AE81FF;">1</span> <span style="color: #AE81FF;">2</span>
+    labels   <span style="color: #AE81FF;">(</span>y<span style="color: #AE81FF;">)</span> &lt;U1 <span style="color: #E6DB74;">'E'</span> <span style="color: #E6DB74;">'F'</span> <span style="color: #E6DB74;">'E'</span>
+</pre>
 </div>
-<div id="outline-container-orgheadline28" class="outline-3">
-<h3 id="orgheadline28"><span class="section-number-3">7.9</span> Reshaping and reorganizing data</h3>
+</div></li>
+<li><a id="orgheadline25"></a>pandas<br  /></li>
+<li><a id="orgheadline26"></a>Datasets<br  /></li>
+<li><a id="orgheadline27"></a>NetCDF<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline29" class="outline-3">
-<h3 id="orgheadline29"><span class="section-number-3">7.10</span> Combining data</h3>
+<div id="outline-container-orgheadline34" class="outline-4">
+<h4 id="orgheadline34"><span class="section-number-4">7.2.2</span> Toy weather data</h4>
+<div class="outline-text-4" id="text-7-2-2">
+</div><ol class="org-ol"><li><a id="orgheadline29"></a>Examine a dataset with pandas and seaborn<br  /></li>
+<li><a id="orgheadline30"></a>Probability of freeze by calendar month<br  /></li>
+<li><a id="orgheadline31"></a>Monthly averaging<br  /></li>
+<li><a id="orgheadline32"></a>Calculate monthly anomalies<br  /></li>
+<li><a id="orgheadline33"></a>Fill missing values with climatology<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">7.11</span> Time series data</h3>
+<div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39"><span class="section-number-4">7.2.3</span> Calculating Seasonal Averages from Timeseries of Monthly Means</h4>
+<div class="outline-text-4" id="text-7-2-3">
+</div><ol class="org-ol"><li><a id="orgheadline35"></a>Some calendar information so we can support any netCDF calendar.<br  /></li>
+<li><a id="orgheadline36"></a>A few calendar functions to determine the number of days in each month<br  /></li>
+<li><a id="orgheadline37"></a>Open the Dataset<br  /></li>
+<li><a id="orgheadline38"></a>Now for the heavy lifting:<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">7.12</span> Working with pandas</h3>
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">7.2.4</span> Working with Multidimensional Coordinates</h4>
+<div class="outline-text-4" id="text-7-2-4">
+</div><ol class="org-ol"><li><a id="orgheadline40"></a>Plotting<br  /></li>
+<li><a id="orgheadline41"></a>Multidimensional Groupby<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">7.13</span> Serialization and IO</h3>
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43"><span class="section-number-4">7.2.5</span> Recipes</h4>
 </div>
-<div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">7.14</span> Out of core computation with dask</h3>
 </div>
-<div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34"><span class="section-number-3">7.15</span> Plotting</h3>
+
+<div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">7.3</span> Installation</h3>
+<div class="outline-text-3" id="text-7-3">
+</div><div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45"><span class="section-number-4">7.3.1</span> For accelerating xarray</h4>
+<div class="outline-text-4" id="text-7-3-1">
+<p>
+bottleneck: speeds up NaN-skipping and rolling window aggregations by a large factor (1.0 or later)
+</p>
 </div>
-<div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">7.16</span> API reference</h3>
 </div>
-<div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">7.17</span> xarray Internals</h3>
+<div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46"><span class="section-number-4">7.3.2</span> For parallel computing</h4>
+<div class="outline-text-4" id="text-7-3-2">
+<p>
+dask.array (0.9.0 or later): required for Out of core computation with dask.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48"><span class="section-number-3">7.4</span> Data Structures</h3>
+</div>
+<div id="outline-container-orgheadline49" class="outline-3">
+<h3 id="orgheadline49"><span class="section-number-3">7.5</span> Indexing and selecting data</h3>
+<div class="outline-text-3" id="text-7-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Dimension lookup</td>
+<td class="org-left">Index lookup</td>
+<td class="org-left">DataArray syntax</td>
+<td class="org-left">Dataset syntax</td>
+</tr>
+
+<tr>
+<td class="org-left">Positional</td>
+<td class="org-left">By integer</td>
+<td class="org-left">arr[:, 0]</td>
+<td class="org-left">not available</td>
+</tr>
+
+<tr>
+<td class="org-left">Positional</td>
+<td class="org-left">By label</td>
+<td class="org-left">arr.loc[:, 'IA']</td>
+<td class="org-left">not available</td>
+</tr>
+
+<tr>
+<td class="org-left">By name</td>
+<td class="org-left">By integer</td>
+<td class="org-left">arr.isel(space=0) or arr[dict(space=0)]</td>
+<td class="org-left">ds.isel(space=0) or ds[dict(space=0)]</td>
+</tr>
+
+<tr>
+<td class="org-left">By name</td>
+<td class="org-left">By label</td>
+<td class="org-left">arr.sel(space='IA') or arr.loc[dict(space='IA')]</td>
+<td class="org-left">ds.sel(space='IA') or ds.loc[dict(space='IA')]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline51" class="outline-3">
+<h3 id="orgheadline51"><span class="section-number-3">7.6</span> Computation</h3>
+<div class="outline-text-3" id="text-7-6">
+</div><div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">7.6.1</span> Rolling window operations</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline52" class="outline-3">
+<h3 id="orgheadline52"><span class="section-number-3">7.7</span> GroupBy: split-apply-combine</h3>
+</div>
+<div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53"><span class="section-number-3">7.8</span> Reshaping and reorganizing data</h3>
+</div>
+<div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">7.9</span> Combining data</h3>
+</div>
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">7.10</span> Time series data</h3>
+<div class="outline-text-3" id="text-7-10">
+</div><div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">7.10.1</span> Datetime indexing</h4>
+<div class="outline-text-4" id="text-7-10-1">
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">time</span> = pd.date_range<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'2000-01-01'</span>, freq=<span style="color: #E6DB74;">'H'</span>, periods=<span style="color: #AE81FF;">365</span> * <span style="color: #AE81FF;">24</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">9</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">ds</span> = xr.Dataset<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'foo'</span>: <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'time'</span>, np.arange<span style="color: #E6DB74;">(</span><span style="color: #AE81FF;">365</span> * <span style="color: #AE81FF;">24</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span>, <span style="color: #E6DB74;">'time'</span>: time<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">]</span>: ds.sel<span style="color: #AE81FF;">(</span>time=<span style="color: #E6DB74;">'2000-01'</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.Dataset&gt;
+Dimensions:  <span style="color: #AE81FF;">(</span>time: <span style="color: #AE81FF;">744</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * time     <span style="color: #AE81FF;">(</span>time<span style="color: #AE81FF;">)</span> datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span> <span style="color: #AE81FF;">2000</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span> <span style="color: #AE81FF;">2000</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01T01</span>:<span style="color: #AE81FF;">00</span>:<span style="color: #AE81FF;">00</span> ...
+Data variables:
+    foo      <span style="color: #AE81FF;">(</span>time<span style="color: #AE81FF;">)</span> int64 <span style="color: #AE81FF;">0</span> <span style="color: #AE81FF;">1</span> <span style="color: #AE81FF;">2</span> <span style="color: #AE81FF;">3</span> <span style="color: #AE81FF;">4</span> <span style="color: #AE81FF;">5</span> <span style="color: #AE81FF;">6</span> <span style="color: #AE81FF;">7</span> <span style="color: #AE81FF;">8</span> <span style="color: #AE81FF;">9</span> <span style="color: #AE81FF;">10</span> <span style="color: #AE81FF;">11</span> <span style="color: #AE81FF;">12</span> <span style="color: #AE81FF;">13</span> <span style="color: #AE81FF;">14</span> <span style="color: #AE81FF;">15</span> <span style="color: #AE81FF;">16</span> <span style="color: #AE81FF;">17</span> <span style="color: #AE81FF;">18</span> <span style="color: #AE81FF;">19</span> ...
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">11</span><span style="color: #AE81FF;">]</span>: ds.sel<span style="color: #AE81FF;">(</span>time=<span style="color: #F92672;">slice</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'2000-06-01'</span>, <span style="color: #E6DB74;">'2000-06-10'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">11</span><span style="color: #AE81FF;">]</span>:
+&lt;xarray.Dataset&gt;
+Dimensions:  <span style="color: #AE81FF;">(</span>time: <span style="color: #AE81FF;">240</span><span style="color: #AE81FF;">)</span>
+Coordinates:
+  * time     <span style="color: #AE81FF;">(</span>time<span style="color: #AE81FF;">)</span> datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span> <span style="color: #AE81FF;">2000</span>-<span style="color: #AE81FF;">06</span>-<span style="color: #AE81FF;">01</span> <span style="color: #AE81FF;">2000</span>-<span style="color: #AE81FF;">06</span>-<span style="color: #AE81FF;">01T01</span>:<span style="color: #AE81FF;">00</span>:<span style="color: #AE81FF;">00</span> ...
+Data variables:
+    foo      <span style="color: #AE81FF;">(</span>time<span style="color: #AE81FF;">)</span> int64 <span style="color: #AE81FF;">3648</span> <span style="color: #AE81FF;">3649</span> <span style="color: #AE81FF;">3650</span> <span style="color: #AE81FF;">3651</span> <span style="color: #AE81FF;">3652</span> <span style="color: #AE81FF;">3653</span> <span style="color: #AE81FF;">3654</span> <span style="color: #AE81FF;">3655</span> <span style="color: #AE81FF;">3656</span> <span style="color: #AE81FF;">3657</span> ...
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">7.11</span> Working with pandas</h3>
+</div>
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">7.12</span> Serialization and IO</h3>
+</div>
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">7.13</span> Out of core computation with dask</h3>
+</div>
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="section-number-3">7.14</span> Plotting</h3>
+</div>
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">7.15</span> API reference</h3>
+</div>
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62"><span class="section-number-3">7.16</span> xarray Internals</h3>
 </div>
 </div>
 </div>
