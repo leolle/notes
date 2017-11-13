@@ -137,6 +137,21 @@ StopIteration
 #+end_src
 
 *** loop
+- fetch several pairs from a dictionary:
+#+BEGIN_SRC python
+from itertools import islice
+
+def take(n, iterable):
+    "Return first n items of the iterable as a list"
+    return list(islice(iterable, n))
+
+n_items = take(3, dict_df_ret.items())
+n_items
+
+# or
+list(islice(dictionary.items(), 3))
+#+END_SRC
+
 - iterate key and value in a dictionary:
 #+begin_src python
 for index, value in dict.iteritems():
@@ -1355,7 +1370,21 @@ panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
 #+END_SRC
 pandas panel item axis should be datetime64, this should not be an array.
 ** numpy
+- Take a sequence of 1-D arrays and stack them as columns to make a single 2-D:
+#+BEGIN_SRC python
+numpy.column_stack(tup)
+Parameters:
+tup : sequence of 1-D or 2-D arrays.
+Arrays to stack. All of them must have the same first dimension.
+>>> a = np.array((1,2,3))
+>>> b = np.array((2,3,4))
+>>> np.column_stack((a,b))
+
 - expand 1-D numpy array to 2-D:
+
+#+END_SRC
+
+- expand the shape of an array:
 #+BEGIN_SRC python
 numpy.expand_dims(a, axis)
 # Expand the shape of an array.

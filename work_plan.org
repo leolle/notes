@@ -87,6 +87,9 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 |                  | DAA28C9560375A07DE91319BA0946298 | 资产收益率_TTM_PIT_L                              |
 |                  | 08CFD0E436A442E5B48894CFCBACAB2D | factor return covariance                          |
 |                  | 22503DED4E434CF09DE6DBAAD8BA717C | factor return specific risk                       |
+| <2017-11-13 Mon> | 44CE41A497504EA2A158AC868EDFB48C | risk model compatible                             |
+|                  | 1084AEFAC31C8780344A53F281B1D2EF | risk model data preprocess                        |
+|                  |                                  |                                                   |
 
 * other projects
 - [X] 搭建基金策略
@@ -330,10 +333,11 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 *** CNN
 *** RNN
 * Risk model
-DEADLINE: <2017-11-07 Tue>
+DEADLINE: <2017-11-13 Mon>
 - load xarray data.
 - calculate calculate factor return, covariance and residual(specific risk).
-- change panel to to_xarray().
+  - regression day by day in a for loop.
+  - use the apply method.
 - read the barra&axioma documents about risk model.
 - create charts from the risk model report.
 * GS
