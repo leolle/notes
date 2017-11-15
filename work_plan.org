@@ -13,6 +13,14 @@
 - set deadline for an item
 =C-c C-d=
 
+- clock log in
+=C-c C-x C-i=
+
+- clock log out
+=C-c C-x C-o=
+
+- clock cancle
+=C-c C-x C-q=
 * Workflow
 1. search.
 2. read pdf/code, take notes.
@@ -25,7 +33,7 @@
 9. present and get feedback.
 10. deploy function definition, function sampling.
 
-* Structure
+* Social Science Paper Structure
 ** Introduction
 State the contribution.
 - Problem
@@ -89,6 +97,8 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 |                  | 22503DED4E434CF09DE6DBAAD8BA717C | factor return specific risk                       |
 | <2017-11-13 Mon> | 44CE41A497504EA2A158AC868EDFB48C | risk model compatible                             |
 |                  | 1084AEFAC31C8780344A53F281B1D2EF | risk model data preprocess                        |
+|                  | 58F613096423BCD84783F165C8918368 | regression                                        |
+| <2017-11-14 Tue> | 566186C314C7A760C626249E168D3362 | risk model(extract result)                        |
 |                  |                                  |                                                   |
 
 * other projects
@@ -111,6 +121,16 @@ ICA
 - [ ] Machine Learning
 * Errand
 * NaturalLanguageProcessing
+** TODO Building the Wikipedia Knowledge Graph in Neo4j
+[[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
+- [X] watch the youtube video
+[[https://www.youtube.com/watch?v=o6wueyweC34 ]]
+- [ ] read Neo4j document
+[[http://guides.neo4j.com/wiki]]
+- [ ] try Neo4j sandbox
+[[https://neo4j.com/sandbox-v2/]]
+- [ ] create Neo4j docker
+- [ ] create special wiki reference edge between read only text nodes
 ** Setup
 - [X] 配置好GOOGLE GCLOUD PLATORM的代理
 - [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
@@ -333,11 +353,17 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 *** CNN
 *** RNN
 * Risk model
-DEADLINE: <2017-11-13 Mon>
-- load xarray data.
-- calculate calculate factor return, covariance and residual(specific risk).
-  - regression day by day in a for loop.
-  - use the apply method.
+DEADLINE: <2017-11-14 Tue>
+:LOGBOOK:
+CLOCK: [2017-11-14 Tue 10:57]--[2017-11-14 Tue 19:30] =>  8:33
+:END:
+- [X] calculate calculate factor return and residual(specific risk).
+  - [X] stock return should add one more column constraint.
+  - [X] extract factor exposure and stock return as regression model input X and Y.
+  - [X] apply regression function on groupby.
+  - [X] change regression input parameter name.
+  - [X] regression day by day in a for loop.
+- [X] load xarray data.
 - read the barra&axioma documents about risk model.
 - create charts from the risk model report.
 * GS

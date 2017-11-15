@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-07 Tue 13:28 -->
+<!-- 2017-11-15 Wed 12:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -780,6 +780,25 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 <div id="outline-container-orgheadline11" class="outline-4">
 <h4 id="orgheadline11"><span class="section-number-4">3.7.1</span> loop</h4>
 <div class="outline-text-4" id="text-3-7-1">
+<ul class="org-ul">
+<li>fetch several pairs from a dictionary:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> itertools <span style="color: #F92672;">import</span> islice
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">take</span><span style="color: #AE81FF;">(</span>n, iterable<span style="color: #AE81FF;">)</span>:
+    <span style="color: #E6DB74;">"Return first n items of the iterable as a list"</span>
+    <span style="color: #F92672;">return</span> <span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span>islice<span style="color: #66D9EF;">(</span>iterable, n<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">n_items</span> = take<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span>, dict_df_ret.items<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+n_items
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span>islice<span style="color: #66D9EF;">(</span>dictionary.items<span style="color: #A6E22E;">()</span>, <span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
 <ul class="org-ul">
 <li>iterate key and value in a dictionary:</li>
 </ul>
@@ -3073,7 +3092,24 @@ pandas panel item axis should be datetime64, this should not be an array.
 <h3 id="orgheadline282"><span class="section-number-3">30.2</span> numpy</h3>
 <div class="outline-text-3" id="text-30-2">
 <ul class="org-ul">
-<li>expand 1-D numpy array to 2-D:</li>
+<li>Take a sequence of 1-D arrays and stack them as columns to make a single 2-D:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">numpy.column_stack<span style="color: #AE81FF;">(</span>tup<span style="color: #AE81FF;">)</span>
+Parameters:
+tup : sequence of <span style="color: #AE81FF;">1</span>-D <span style="color: #F92672;">or</span> <span style="color: #AE81FF;">2</span>-D arrays.
+Arrays to stack. All of them must have the same first dimension.
+&gt;&gt;&gt; <span style="color: #FD971F;">a</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">b</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; np.column_stack<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span>a,b<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+- expand <span style="color: #AE81FF;">1</span>-D numpy array to <span style="color: #AE81FF;">2</span>-D:
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>expand the shape of an array:</li>
 </ul>
 <div class="org-src-container">
 

@@ -33,6 +33,60 @@ opinions, positive and negative.
 - issue
 spam review
 
+* Neo4j
+An open-source NoSQL graph database.
+** Graph Fundamentals
+- Nodes - graph data records
+- Relationships - connect nodes
+- Properties - named data values
+** A Graph Database
+Neo4j stores data in a Graph, with records called Nodes.
+
+The simplest graph has just a single node with some named values called Properties. Let's draw a social graph of our friends on the Neo4j team:
+
+1.Start by drawing a circle for the node
+2.Add the name Emil
+3.Note that he is from Sweden
+- Nodes are the name for data records in a graph
+- Data is stored as Properties
+- Properties are simple name/value pairs
+** Labels
+Associate a set of nodes.
+
+Nodes can be grouped together by applying a Label to each member. In our social graph, we'll label each node that represents a Person.
+
+1. Apply the label "Person" to the node we created for Emil
+2. Color "Person" nodes red
+- A node can have zero or more labels
+- Labels do not have any properties
+** More Nodes
+Schema-free, nodes can have a mix of common and unique properties.
+
+- Similar nodes can have different properties
+- Properties can be strings, numbers, or booleans
+- Neo4j can store billions of nodes
+** Consider Relationships
+Connect nodes in the graph
+
+The real power of Neo4j is in connected data. To associate any two nodes, add a Relationship which describes how the records are related.
+
+In our social graph, we simply say who KNOWS whom:
+
+1.Emil KNOWS Johan and Ian
+2.Johan KNOWS Ian and Rik
+3.Rik and Ian KNOWS Allison
+- Relationships always have direction
+- Relationships always have a type
+- Relationships form patterns of data
+** Relationship properties
+Store information shared by two nodes.
+
+In a property graph, relationships are data records that can also contain properties. Looking more closely at Emil's relationships, note that:
+
+- Emil has known Johan since 2001
+- Emil rates Ian 5 (out of 5)
+- Everyone else can have similar relationship properties
+
 * Definition of Sentiment Analysis
 ** Structure
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
@@ -52,3 +106,168 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 - 使用流水线方式将各个分析工具结合起来，形成一套统一的中文自然语言处理系统
 - 系统可调用的，用于中文语言处理的模型文件
 - 针对单一自然语言处理任务，基于云端的编程接口
+* Building the Wikipedia Knowledge Graph in Neo4j
+- guide:
+[[http://guides.neo4j.com/wiki]]
+
+- main topic classification:
+[[https://en.wikipedia.org/wiki/Category:Main_topic_classifications]]
+** Login
+#+BEGIN_SRC neo4j
+:server connect
+#+END_SRC
+#+BEGIN_SRC text
+host:
+bolt://ws-10-0-1-111-33640.neo4jsandbox.com:443
+
+username:
+neo4j
+
+pwd:
+darts-quota-alternation
+
+#+END_SRC
+
+** Approach 1: Loading a reduced subset incrementally through the MediaWiki API
+[[https://jesusbarrasa.wordpress.com/2016/08/03/quickgraph2-how-is-wikipedias-knowledge-organised/]]
+
+[[https://jesusbarrasa.wordpress.com/2017/04/26/quickgraph6-building-the-wikipedia-knowledge-graph-in-neo4j-qg2-revisited/]]
+
+https://github.com/jbarrasa/datasets/blob/master/wikipedia/wiki-guide.adoc
+
+- Wiki API JSON format:
+[[https://www.mediawiki.org/wiki/API:Categorymembers]]
+#+BEGIN_SRC json
+{
+    "batchcomplete": "",
+    "continue": {
+        "cmcontinue": "page|2b273f2f3d29272b3b0445434d2f414d37273d0117018f16|55503653",
+        "continue": "-||"
+    },
+    "query": {
+        "categorymembers": [
+            {
+                "pageid": 22939,
+                "ns": 0,
+                "title": "Physics"
+            },
+            {
+                "pageid": 3445246,
+                "ns": 0,
+                "title": "Glossary of classical physics"
+            },
+            {
+                "pageid": 24489,
+                "ns": 0,
+                "title": "Outline of physics"
+            },
+            {
+                "pageid": 1653925,
+                "ns": 100,
+                "title": "Portal:Physics"
+            },
+            {
+                "pageid": 50926902,
+                "ns": 0,
+                "title": "Action angle coordinates"
+            },
+            {
+                "pageid": 9079863,
+                "ns": 0,
+                "title": "Aerometer"
+            },
+            {
+                "pageid": 52657328,
+                "ns": 0,
+                "title": "Bayesian model of computational anatomy"
+            },
+            {
+                "pageid": 49342572,
+                "ns": 0,
+                "title": "Group actions in computational anatomy"
+            },
+            {
+                "pageid": 50724262,
+                "ns": 0,
+                "title": "Blasius\u2013Chaplygin formula"
+            },
+            {
+                "pageid": 33327002,
+                "ns": 0,
+                "title": "Cabbeling"
+            }
+        ]
+    }
+}
+#+END_SRC
+
+- Clause of building wikipedia graph
+#+BEGIN_SRC neo4j
+//Loading the data into Neo4j
+//prepare the DB with a few indexes to accelerate the ingestion and querying of the data:
+CREATE INDEX ON :Category(catId)
+CREATE INDEX ON :Category(catName)
+CREATE INDEX ON :Page(pageTitle)
+
+//Loading a reduced subset incrementally through the MediaWiki API
+//create the Wikipedia Knowledge Graph about Databases.
+//create the root category: Databases.
+CREATE (c:Category:RootCategory {catId: 0, catName: 'Databases', subcatsFetched : false, pagesFetched : false, level: 0 })
+
+//iteratively load the next level of subcategories to a depth of our choice.
+UNWIND range(0,3) as level
+CALL apoc.cypher.doIt("
+MATCH (c:Category { subcatsFetched: false, level: $level})
+CALL apoc.load.json('https://en.wikipedia.org/w/api.php?format=json&action=query&list=categorymembers&cmtype=subcat&cmtitle=Category apoc.text.urlencode(c.catName) + '&cmprop=ids%7Ctitle&cmlimit=500')
+YIELD value as results
+UNWIND results.query.categorymembers AS subcat
+MERGE (sc:Category {catId: subcat.pageid})
+ON CREATE SET sc.catName = substring(subcat.title,9),
+ sc.subcatsFetched = false,
+ sc.pagesFetched = false,
+ sc.level = $level + 1
+WITH sc,c
+CALL apoc.create.addLabels(sc,['Level' + ($level + 1) + 'Category']) YIELD node
+MERGE (sc)-[:SUBCAT_OF]->(c)
+WITH DISTINCT c
+SET c.subcatsFetched = true", { level: level }) YIELD value
+RETURN value
+//load the pages in a similar way
+UNWIND range(0,4) as level
+CALL apoc.cypher.doIt("
+MATCH (c:Category { pagesFetched: false, level: $level })
+CALL apoc.load.json('https://en.wikipedia.org/w/api.php?format=json&action=query&list=categorymembers&cmtype=page&cmtitle=Category apoc.text.urlencode(c.catName) + '&cmprop=ids%7Ctitle&cmlimit=500')
+YIELD value as results
+UNWIND results.query.categorymembers AS page
+MERGE (p:Page {pageId: page.pageid})
+ON CREATE SET p.pageTitle = page.title, p.pageUrl = 'http://en.wikipedia.org/wiki/' + apoc.text.urlencode(replace(page.title, ' ', '_'))
+WITH p,c
+MERGE (p)-[:IN_CATEGORY]->(c)
+WITH DISTINCT c
+SET c.pagesFetched = true", { level: level }) yield value
+return value
+
+#+END_SRC
+** Approach 2: Batch loading the data with LOAD CSV from an SQL dump
+- basics
+wiki API
+
+categorymembers
+
+pageid
+
+name space
+
+title
+
+root category
+sub category
+
+- steps
+loop the level of categories
+
+different colors on each level of categories
+
+- category content sample:
+| category id | category | category name               | page count | sub-category count |
+| "895945",   | "3",     | "Computer_storage_devices", | "86",      | "10"               |

@@ -38,6 +38,11 @@
 tree | xclip
 xclip -o
 #+END_SRC
+- count csv file rows
+#+BEGIN_SRC shell
+wc -l filename
+#+END_SRC
+
 *** bash scripting
 *** Regular expressions
 *** Perl programming

@@ -1,0 +1,77 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: Docker
+#+DATE: <2017-11-15 Wed>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../configOrg/level1.org
+
+* Docker 阿里加速
+https://dev.aliyun.com/search.html?spm=5176.1971733.0.1.67788153aOGyoW
+
+https://cr.console.aliyun.com/?spm=5176.1971733.0.2.67788153k1LQf2#/accelerator
+
+- 配置镜像加速器
+#+BEGIN_SRC shell
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://8jnw0wgr.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+#+END_SRC
+* Docker 安装neo4j
+** search
+#+BEGIN_SRC shell
+docker search neo4j
+#+END_SRC
+
+#+RESULTS:
+| NAME                              | DESCRIPTION      | STARS         | OFFICIAL | AUTOMATED       |           |            |                  |         |      |      |
+| neo4j                             | Neo4j            | is            | a        | highly          | scalable, | robust     | native           | ...     |  406 | [OK] |
+| tpires/neo4j                      | Neo4j            | is            | a        | highly          | scalable, | robust     | (fully           | ...     |   82 | [OK] |
+| kbastani/neo4j-graph-analytics    | Graph            | analytics     | engine   | for             | Neo4j     | using      | Apa...           | 24      | [OK] |      |
+| kbastani/docker-neo4j             | Neo4j            | Graph         | Database | Community       | Edition   | 2.2.3      | 14               | [OK]    |      |      |
+| frodenas/neo4j                    | A                | Docker        | Image    | for             | Neo4j     | 8          | [OK]             |         |      |      |
+| ekino/neo4j-cluster               | Up               | &             | Running  | Neo4J           | Cluster   | :          | [[https://githu]]... | 2       | [OK] |      |
+| thetallgrassnet/alpine-neo4j      | Minimal          | Docker        | Images   | for             | the       | Neo4j      | Graph            | ...     |    1 | [OK] |
+| infothrill/neo4j-shell-tools      | Neo4j            | community     | edition  | with            | shell     | tools      | p...             | 1       | [OK] |      |
+| primedio/neo4j-cluster-ecs        | Neo4J            | Docker        | for      | the             | AWS       | E2         | Container        | Serv... |    1 |      |
+| neo4j/neo4j-dcos                  | Neo4j            | image         | to       | run             | in        | DCOS/Mesos | 0                |         |      |      |
+| neo4j/neo4j-experimental          | Experimental     | Neo4j         | Docker   | images          | 0         |            |                  |         |      |      |
+| steelbridgelabs/neo4j-cluster-ecs | Amazon           | ECS           | Neo4J    | Causal          | Cluster   | docker     | image            | 0       | [OK] |      |
+| coco/ft-neo4j                     | neo4j            | 0             | [OK]     |                 |           |            |                  |         |      |      |
+| livingobjects/neo4j               | Neo4J            | 0             | [OK]     |                 |           |            |                  |         |      |      |
+| phenompeople/neo4j                | Neo4j            | is            | a        | highly          | scalable, | robust     | native           | ...     |    0 | [OK] |
+| i386/neo4j                        | Neo4j            | is            | a        | highly          | scalable, | robust     | native           | ...     |    0 |      |
+| coco/roles-rw-neo4j               | roles-rw-neo4j   | 0             | [OK]     |                 |           |            |                  |         |      |      |
+| coco/content-rw-neo4j             | content-rw-neo4j | 0             | [OK]     |                 |           |            |                  |         |      |      |
+| coco/people-rw-neo4j              | An               | API           | for      | reading/writing | people    | into       | Neo...           | 0       | [OK] |      |
+| amd64/neo4j                       | Neo4j            | is            | a        | highly          | scalable, | robust     | native           | ...     |    0 |      |
+| neo4j/neo4j-dcos-proxy            | A                | HTTP          | proxy    | to              | expose    | Neo4j      | Browser          | HTTP    |  ... | 0    |
+| trollin/neo4j                     | 0                |               |          |                 |           |            |                  |         |      |      |
+| coco/genres-rw-neo4j              | An               | API           | for      | reading/writing | genres    | into       | Neo4j.           | 0       | [OK] |      |
+| coco/annotations-rw-neo4j         | Annotation       | Reader-Writer | for      | Neo4j           | 0         | [OK]       |                  |         |      |      |
+| c12e/neo4j                        | 0                | [OK]          |          |                 |           |            |                  |         |      |      |
+** pull
+#+BEGIN_SRC shell
+docker pull neo4j:3.3
+#+END_SRC
+** start an instance
+#+BEGIN_SRC shell
+docker run \
+    --publish=7474:7474 --publish=7687:7687 \
+    --volume=$HOME/neo4j/data:/data \
+    neo4j
+
+#+END_SRC
+* Docker commands
