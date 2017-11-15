@@ -122,14 +122,19 @@ ICA
 * Errand
 * NaturalLanguageProcessing
 ** TODO Building the Wikipedia Knowledge Graph in Neo4j
+:LOGBOOK:
+CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
+:END:
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
 - [X] watch the youtube video
 [[https://www.youtube.com/watch?v=o6wueyweC34 ]]
-- [ ] read Neo4j document
+- [X] read Neo4j document
 [[http://guides.neo4j.com/wiki]]
-- [ ] try Neo4j sandbox
+- [X] try Neo4j sandbox
 [[https://neo4j.com/sandbox-v2/]]
-- [ ] create Neo4j docker
+- [X] create Neo4j docker.
+- [ ] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
+- [ ] import sql file to neo4j, or MySQL.
 - [ ] create special wiki reference edge between read only text nodes
 ** Setup
 - [X] 配置好GOOGLE GCLOUD PLATORM的代理
@@ -250,7 +255,7 @@ Your active configuration is: [nlp1]
 
 (C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
 #+END_SRC
-** - read the book 《自然语言处理综论》
+** read the book 《自然语言处理综论》
 not easy to understand this book.
 - listen to the open course
 https://web.stanford.edu/class/cs224n/syllabus.html

@@ -1,3 +1,4 @@
+
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
@@ -388,7 +389,7 @@ if [ -f '/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc' ]; 
 | 上一页   | Ctrl+Y           |
 | 下一页   | Ctrl+V           |
 | 保存     | 	Ctrl+O         |
-|  退出	        |      Ctrl+X            |
+| 退出	   | Ctrl+X           |
 *** [[file:../../emacs/emacs.org][emacs]]
 * NETWORKING
 ** TCP/IP NETWORKING

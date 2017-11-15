@@ -250,6 +250,63 @@ return value
 #+END_SRC
 ** Approach 2: Batch loading the data with LOAD CSV from an SQL dump
 - basics
+- wiki page structure example:
+[[https://en.wikipedia.org/wiki/Category:Graph_databases]]
+
+Category:Graph databases
+From Wikipedia, the free encyclopedia
+
+Subcategories
+This category has only the following subcategory.
+R
+► Resource Description Framework‎ (5 C, 24 P)
+
+Pages in category "Graph databases"
+The following 15 pages are in this category, out of 15 total. This list may not reflect recent changes (learn more).
+
+Graph database
+A
+AllegroGraph
+ArangoDB
+C
+Cypher Query Language
+D
+DataStax
+Sparksee (graph database)
+F
+FlockDB
+G
+GRAKN.AI
+I
+InfiniteGraph
+L
+Linkurious
+M
+Mulgara (software)
+N
+Neo4j
+O
+Oracle Spatial and Graph
+OrientDB
+S
+Sones GraphDB
+
+Categories: Types of databasesGraph theory
+
+
+- steps
+loop the level of categories
+
+different colors on each level of categories
+
+- category content sample:
+| category id | auto incremental index | category name               | page count | sub-category count |
+| "895945",   | "3",                   | "Computer_storage_devices", | "86",      | "10"               |
+
+- relation sample:
+| from category | to category(supercategory) |
+| "28169972",   | "51326333"  |
+
 wiki API
 
 categorymembers
@@ -262,12 +319,3 @@ title
 
 root category
 sub category
-
-- steps
-loop the level of categories
-
-different colors on each level of categories
-
-- category content sample:
-| category id | category | category name               | page count | sub-category count |
-| "895945",   | "3",     | "Computer_storage_devices", | "86",      | "10"               |
