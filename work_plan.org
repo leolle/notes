@@ -362,7 +362,7 @@ DEADLINE: <2017-11-14 Tue>
 :LOGBOOK:
 CLOCK: [2017-11-14 Tue 10:57]--[2017-11-14 Tue 19:30] =>  8:33
 :END:
-- [X] calculate calculate factor return and residual(specific risk).
+- [X] calculate factor return and residual(specific risk).
   - [X] stock return should add one more column constraint.
   - [X] extract factor exposure and stock return as regression model input X and Y.
   - [X] apply regression function on groupby.

@@ -43,7 +43,10 @@ xclip -o
 #+BEGIN_SRC shell
 wc -l filename
 #+END_SRC
-
+- resume interrupted download via wget:
+#+BEGIN_SRC shell
+wget -c url
+#+END_SRC
 *** bash scripting
 *** Regular expressions
 *** Perl programming

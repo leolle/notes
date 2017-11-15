@@ -267,3 +267,38 @@ which group of stocks could possibly move up in the next trading period.
 * Google Natural Language Processing
 
 * Outline of Machine Learning
+
+* Scikit-lean API
+** basics of the API
+1. Choose a class of model by importing the appropriate estimator class from ScikitLearn.
+#+BEGIN_SRC python
+In[6]: from sklearn.linear_model import LinearRegression
+#+END_SRC
+
+
+2. Choose model hyperparameters by instantiating this class with desired values.
+#+BEGIN_SRC ipython
+In[7]: model = LinearRegression(fit_intercept=True)
+model
+Out[7]: LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1,
+normalize=False)
+#+END_SRC
+3. Arrange data into a features matrix and target vector following the discussion
+from before.
+#+BEGIN_SRC python
+In[8]: X = x[:, np.newaxis]
+X.shape
+Out[8]: (50, 1)
+#+END_SRC
+4. Fit the model to your data by calling the fit() method of the model instance.
+#+BEGIN_SRC python
+In[9]: model.fit(X, y)
+Out[9]:
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1,
+normalize=False)
+#+END_SRC
+5. Apply the model to new data:
+• For supervised learning, often we predict labels for unknown data using the
+predict() method.
+• For unsupervised learning, we often transform or infer properties of the data
+using the transform() or predict() method.
