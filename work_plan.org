@@ -126,6 +126,9 @@ ICA
 CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 :END:
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
+- [ ] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
+- [ ] import sql file to neo4j, or MySQL.
+- [ ] create special wiki reference edge between read only text nodes
 - [X] watch the youtube video
 [[https://www.youtube.com/watch?v=o6wueyweC34 ]]
 - [X] read Neo4j document
@@ -133,9 +136,6 @@ CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 - [X] try Neo4j sandbox
 [[https://neo4j.com/sandbox-v2/]]
 - [X] create Neo4j docker.
-- [ ] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
-- [ ] import sql file to neo4j, or MySQL.
-- [ ] create special wiki reference edge between read only text nodes
 ** Setup
 - [X] 配置好GOOGLE GCLOUD PLATORM的代理
 - [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。

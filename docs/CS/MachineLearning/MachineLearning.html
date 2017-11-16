@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-03 Fri 12:11 -->
+<!-- 2017-11-16 Thu 09:56 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -341,6 +341,11 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgheadline104">15. Google Natural Language Processing</a></li>
 <li><a href="#orgheadline105">16. Outline of Machine Learning</a></li>
+<li><a href="#orgheadline107">17. Scikit-lean API</a>
+<ul>
+<li><a href="#orgheadline106">17.1. basics of the API</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -956,6 +961,81 @@ which group of stocks could possibly move up in the next trading period.
 
 <div id="outline-container-orgheadline105" class="outline-2">
 <h2 id="orgheadline105"><span class="section-number-2">16</span> Outline of Machine Learning</h2>
+</div>
+
+<div id="outline-container-orgheadline107" class="outline-2">
+<h2 id="orgheadline107"><span class="section-number-2">17</span> Scikit-lean API</h2>
+<div class="outline-text-2" id="text-17">
+</div><div id="outline-container-orgheadline106" class="outline-3">
+<h3 id="orgheadline106"><span class="section-number-3">17.1</span> basics of the API</h3>
+<div class="outline-text-3" id="text-17-1">
+<ol class="org-ol">
+<li>Choose a class of model by importing the appropriate estimator class from ScikitLearn.</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">6</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">from</span> sklearn.linear_model <span style="color: #F92672;">import</span> LinearRegression
+</pre>
+</div>
+
+
+<ol class="org-ol">
+<li>Choose model hyperparameters by instantiating this class with desired values.</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-ipython">In[7]: model = LinearRegression(fit_intercept=True)
+model
+Out[7]: LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1,
+normalize=False)
+</pre>
+</div>
+<ol class="org-ol">
+<li>Arrange data into a features matrix and target vector following the discussion</li>
+</ol>
+<p>
+from before.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">X</span> = x<span style="color: #AE81FF;">[</span>:, np.newaxis<span style="color: #AE81FF;">]</span>
+X.shape
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">50</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li>Fit the model to your data by calling the fit() method of the model instance.</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">9</span><span style="color: #AE81FF;">]</span>: model.fit<span style="color: #AE81FF;">(</span>X, y<span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">9</span><span style="color: #AE81FF;">]</span>:
+LinearRegression<span style="color: #AE81FF;">(</span>copy_X=<span style="color: #AE81FF;">True</span>, fit_intercept=<span style="color: #AE81FF;">True</span>, n_jobs=<span style="color: #AE81FF;">1</span>,
+normalize=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">]</span>: model.coef_
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">]</span>: array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span> <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">9776566</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">11</span><span style="color: #AE81FF;">]</span>: model.intercept_
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">11</span><span style="color: #AE81FF;">]</span>: -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">90331072553111635</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li>Apply the model to new data:</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">12</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">xfit</span> = np.linspace<span style="color: #AE81FF;">(</span>-<span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">11</span><span style="color: #AE81FF;">)</span>
+In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">13</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">Xfit</span> = xfit<span style="color: #AE81FF;">[</span>:, np.newaxis<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">yfit</span> = model.predict<span style="color: #AE81FF;">(</span>Xfit<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+• For supervised learning, often we predict labels for unknown data using the
+predict() method.
+• For unsupervised learning, we often transform or infer properties of the data
+using the transform() or predict() method.
+</p>
+</div>
+</div>
 </div>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-15 Wed 12:47 -->
+<!-- 2017-11-16 Thu 09:56 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -656,9 +656,16 @@ xclip -o
 <pre class="src src-shell">wc -l filename
 </pre>
 </div>
-</div>
-</div>
+<ul class="org-ul">
+<li>resume interrupted download via wget:</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-shell">wget -c -t <span style="color: #AE81FF;">0</span> --timeout=<span style="color: #AE81FF;">60</span> --waitretry=<span style="color: #AE81FF;">60</span> url
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline16" class="outline-4">
 <h4 id="orgheadline16"><span class="section-number-4">1.2.2</span> bash scripting</h4>
 </div>
