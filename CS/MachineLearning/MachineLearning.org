@@ -55,6 +55,7 @@
 *** k-NN
 *** 线性回归
 *** 朴素贝叶斯
+[[file:./NaiveBayes.org][Naive Bayes Classifcation]]
 *** 神经网络
 http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 *** 逻辑回归
@@ -296,9 +297,57 @@ In[9]: model.fit(X, y)
 Out[9]:
 LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1,
 normalize=False)
+In[10]: model.coef_
+Out[10]: array([ 1.9776566])
+In[11]: model.intercept_
+Out[11]: -0.90331072553111635
 #+END_SRC
 5. Apply the model to new data:
+#+BEGIN_SRC python
+In[12]: xfit = np.linspace(-1, 11)
+In[13]: Xfit = xfit[:, np.newaxis]
+yfit = model.predict(Xfit)
+#+END_SRC
 • For supervised learning, often we predict labels for unknown data using the
 predict() method.
 • For unsupervised learning, we often transform or infer properties of the data
 using the transform() or predict() method.
+** feature engineering
+*** Imputation of Missing Data
+The sophisticated approaches tend to be very application-specific, and we won’t dive
+into them here. For a baseline imputation approach, using the mean, median, or most
+frequent value, Scikit-Learn provides the Imputer class:
+
+#+BEGIN_SRC python
+In[15]: from sklearn.preprocessing import Imputer
+imp = Imputer(strategy='mean')
+X2 = imp.fit_transform(X)
+X2
+Out[15]: array([[ 4.5, 0. , 3. ],
+[ 3. , 7. , 9. ],
+[ 3. , 5. , 2. ],
+[ 4. , 5. , 6. ],
+[ 8. , 8. , 1. ]])
+#+END_SRC
+*** Feature Pipelines
+1. Impute missing values using the mean
+2. Transform features to quadratic
+3. Fit a linear regression
+#+BEGIN_SRC python
+To streamline this type of processing pipeline, Scikit-Learn provides a pipeline object,
+which can be used as follows:
+In[17]: from sklearn.pipeline import make_pipeline
+model = make_pipeline(Imputer(strategy='mean'),
+PolynomialFeatures(degree=2),
+LinearRegression())
+#+END_SRC
+
+This pipeline looks and acts like a standard Scikit-Learn object, and will apply all the
+specified steps to any input data.
+#+BEGIN_SRC python
+In[18]: model.fit(X, y) # X with missing values, from above
+print(y)
+print(model.predict(X))
+[14 16 -1 8 -5]
+[ 14. 16. -1. 8. -5.]
+#+END_SRC

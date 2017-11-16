@@ -99,6 +99,7 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 |                  | 1084AEFAC31C8780344A53F281B1D2EF | risk model data preprocess                        |
 |                  | 58F613096423BCD84783F165C8918368 | regression                                        |
 | <2017-11-14 Tue> | 566186C314C7A760C626249E168D3362 | risk model(extract result)                        |
+| <2017-11-16 Thu> | 8C01AABF99EB43F28A10D2FB9E3F9F8C | black litterman function F                        |
 |                  |                                  |                                                   |
 
 * other projects
