@@ -7,27 +7,10 @@
 #+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./styles/demo/css/style.css"/>
 
-#+LINK: gh    https://github.com/
-#+LINK: rfc   https://tools.ietf.org/html/
-#+LINK: thing https://github.com/thi-ng/
-#+LINK: wiki  https://en.wikipedia.org/wiki/
-
 #+HTML: <div class="outline-2" id="meta">
 | *Author* | {{{author}}} ({{{email}}})    |
 | *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
 #+HTML: </div>
-
-#+TOC: headlines 3
-#+INCLUDE: "./CS/Python/python2.org" :minlevel 1
-
-#+BEGIN_COMMENT
-Each major section of this document is defined in its own file.
-
-You can jump to each file by moving the cursor on an "#+include" line
-and typing =C-c '= Note: There is *no requirement* to split, but large
-org-mode files can become quite slow to edit, so separate sections help
-keeping things fluid...
-#+END_COMMENT
 
 * Instruction on how to use emacs org mode to orginize calendar.
 
@@ -48,6 +31,23 @@ keeping things fluid...
 
 - clock cancle
 =C-c C-x C-q=
+- org-mode
+#+BEGIN_SRC text
+#+TOC: headlines 3
+#+INCLUDE: "./CS/Python/python2.org" :minlevel 1
+#+BEGIN_COMMENT
+Each major section of this document is defined in its own file.
+
+You can jump to each file by moving the cursor on an "#+include" line
+and typing =C-c '= Note: There is *no requirement* to split, but large
+org-mode files can become quite slow to edit, so separate sections help
+keeping things fluid...
+#+END_COMMENT
+#+LINK: gh    https://github.com/
+#+LINK: rfc   https://tools.ietf.org/html/
+#+LINK: thing https://github.com/thi-ng/
+#+LINK: wiki  https://en.wikipedia.org/wiki/
+#+END_SRC
 * Workflow
 1. search.
 2. read pdf/code, take notes.
