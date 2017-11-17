@@ -1,6 +1,3 @@
-# #+SETUPFILE: ../configOrg/level1.org
-#+OPTIONS: <:active
-#+ICALENDAR_EXCLUDE_TAGS:
 #+TITLEs: Document title
 #+LANGUAGE: en
 #+OPTIONS: toc:nil h:4 html-postamble:nil html-preamble:t tex:t f:t
@@ -22,6 +19,7 @@
 #+HTML: </div>
 
 #+TOC: headlines 3
+#+INCLUDE: "./CS/Python/python2.org" :minlevel 1
 
 #+BEGIN_COMMENT
 Each major section of this document is defined in its own file.

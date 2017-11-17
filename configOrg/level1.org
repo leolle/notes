@@ -14,9 +14,13 @@
 # --------------
 # demo
 # --------------
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../styles/demo/css/demo.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../styles/demo/css/style.css"/>
 
 # --------------
 # common
 # --------------
 #+HTML_HEAD: <link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+#+HTML: <div class="outline-2" id="meta">
+| *Author* | {{{author}}} ({{{email}}})    |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+#+HTML: </div>

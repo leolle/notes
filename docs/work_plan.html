@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2017-11-17 Fri 10:57 -->
+<!-- 2017-11-17 Fri 11:09 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
@@ -141,6 +141,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -161,7 +183,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2017-11-17 10:57:50</td>
+<td class="org-left">2017-11-17 11:09:47</td>
 </tr>
 </tbody>
 </table>
@@ -171,100 +193,2182 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">Instruction on how to use emacs org mode to orginize calendar.</a></li>
-<li><a href="#orgheadline2">Workflow</a></li>
-<li><a href="#orgheadline3">Social Science Paper Structure</a>
+<li><a href="#orgheadline1">Python basic operations:</a>
 <ul>
-<li><a href="#orgheadline4">Introduction</a></li>
-<li><a href="#orgheadline5">Literature Review</a></li>
-<li><a href="#orgheadline6">Results</a></li>
-<li><a href="#orgheadline7">Discussion</a></li>
-<li><a href="#orgheadline8">Conclusion</a></li>
+<li><a href="#orgheadline2">Module</a></li>
+<li><a href="#orgheadline3">zip</a></li>
+<li><a href="#orgheadline4">Float point issue</a></li>
+<li><a href="#orgheadline5">unittest:</a></li>
+<li><a href="#orgheadline6">Time</a></li>
+<li><a href="#orgheadline7">Function</a></li>
+<li><a href="#orgheadline8">Operator</a></li>
+<li><a href="#orgheadline9">pickle</a>
+<ul>
+<li><a href="#orgheadline10">dump:</a></li>
+<li><a href="#orgheadline11">load:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">GID table</a></li>
-<li><a href="#orgheadline10">other projects</a></li>
-<li><a href="#orgheadline11">Personal stuff</a>
+<li><a href="#orgheadline12">list operations:</a></li>
+<li><a href="#orgheadline13">生成器</a>
 <ul>
-<li><a href="#orgheadline12">knowledge database website</a></li>
+<li><a href="#orgheadline14">loop</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">Errand</a></li>
-<li><a href="#orgheadline14">NaturalLanguageProcessing</a>
+<li><a href="#orgheadline15">magic method:</a></li>
+<li><a href="#orgheadline16">logging</a></li>
+<li><a href="#orgheadline17">regular express</a>
 <ul>
-<li><a href="#orgheadline15"><span class="todo TODO">TODO</span> Building the Wikipedia Knowledge Graph in Neo4j</a>
-<ul>
-<li><a href="#orgheadline16">Data dumps/Import</a></li>
+<li><a href="#orgheadline18">useage:</a></li>
+<li><a href="#orgheadline19">string array</a></li>
+<li><a href="#orgheadline20">optional words</a></li>
+<li><a href="#orgheadline21">repeat</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">Setup</a></li>
-<li><a href="#orgheadline18">configuration:</a></li>
-<li><a href="#orgheadline19">SDK</a></li>
-<li><a href="#orgheadline20">read the book 《自然语言处理综论》</a></li>
-<li><a href="#orgheadline21">如何在NLP领域快速学会第一个技能？</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline22">Machine Learning</a>
+<li><a href="#orgheadline22">collections — High-performance container datatypes</a></li>
+<li><a href="#orgheadline23">fetch data from yahoo</a></li>
+<li><a href="#orgheadline24">trouble shooting</a></li>
+<li><a href="#orgheadline25">Jupyter notebook</a>
 <ul>
-<li><a href="#orgheadline23">Week 1/2</a>
+<li><a href="#orgheadline26">Using a virtualenv in an IPython notebook</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline27">profile</a></li>
+<li><a href="#orgheadline28">os, sys:</a></li>
+<li><a href="#orgheadline29">exception</a></li>
+<li><a href="#orgheadline30">threading &amp; queue</a>
 <ul>
-<li><a href="#orgheadline24">Logistic Regression</a></li>
-<li><a href="#orgheadline25">Regularization</a></li>
-<li><a href="#orgheadline26">Classification</a></li>
-<li><a href="#orgheadline27">Decision tree and random forest</a></li>
-<li><a href="#orgheadline28">Boosting</a></li>
-<li><a href="#orgheadline29">XGBoost</a></li>
-<li><a href="#orgheadline30">SVM</a></li>
-<li><a href="#orgheadline31">Clustering</a></li>
-<li><a href="#orgheadline32">Bayesian Network</a></li>
-<li><a href="#orgheadline33">LDA</a></li>
-<li><a href="#orgheadline34">HMM</a></li>
-<li><a href="#orgheadline35">Neural Network</a></li>
+<li><a href="#orgheadline31">install</a></li>
+<li><a href="#orgheadline32">example</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline33">loading configuration</a></li>
+<li><a href="#orgheadline34">pprint</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline36">Deep Learning</a>
+<li><a href="#orgheadline35">Data Analysis:</a>
 <ul>
-<li><a href="#orgheadline37">other</a></li>
-<li><a href="#orgheadline38">Machine Learning Basics</a></li>
-<li><a href="#orgheadline39">Week 1/2</a>
+<li><a href="#orgheadline36">pandas:</a>
 <ul>
-<li><a href="#orgheadline40">Gradient algorithm</a></li>
-<li><a href="#orgheadline41">CNN</a></li>
-<li><a href="#orgheadline42">RNN</a></li>
+<li><a href="#orgheadline37">multiplying</a></li>
+<li><a href="#orgheadline38">Index</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgheadline43">Risk model</a></li>
-<li><a href="#orgheadline44">GS</a>
+<li><a href="#orgheadline39">numpy</a></li>
+<li><a href="#orgheadline40">plot:</a>
 <ul>
-<li><a href="#orgheadline45">Research workflow</a></li>
-<li><a href="#orgheadline46">organize OSet structure</a></li>
-<li><a href="#orgheadline47">follow GS workflow</a></li>
+<li><a href="#orgheadline41">subplot with the same axis:</a></li>
+<li><a href="#orgheadline42">subplot with different axis</a></li>
+<li><a href="#orgheadline43">plot a secondary y scale</a></li>
+<li><a href="#orgheadline44">plot a 3d figure:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline48"><span class="todo TODO">TODO</span> optimization</a>
+<li><a href="#orgheadline45">scipy</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline46">Instruction on how to use emacs org mode to orginize calendar.</a></li>
+<li><a href="#orgheadline47">Workflow</a></li>
+<li><a href="#orgheadline48">Social Science Paper Structure</a>
 <ul>
-<li><a href="#orgheadline49">black-litterman model</a>
+<li><a href="#orgheadline49">Introduction</a></li>
+<li><a href="#orgheadline50">Literature Review</a></li>
+<li><a href="#orgheadline51">Results</a></li>
+<li><a href="#orgheadline52">Discussion</a></li>
+<li><a href="#orgheadline53">Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline54">GID table</a></li>
+<li><a href="#orgheadline55">other projects</a></li>
+<li><a href="#orgheadline56">Personal stuff</a>
 <ul>
-<li><a href="#orgheadline50">why most of the cases are on assets classes optimization, not on individual stocks.</a></li>
+<li><a href="#orgheadline57">knowledge database website</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline51">cvxportfolio</a></li>
-<li><a href="#orgheadline52">cvxpy</a></li>
-<li><a href="#orgheadline53">record</a></li>
+<li><a href="#orgheadline58">Errand</a></li>
+<li><a href="#orgheadline59">NaturalLanguageProcessing</a>
+<ul>
+<li><a href="#orgheadline60"><span class="todo TODO">TODO</span> Building the Wikipedia Knowledge Graph in Neo4j</a>
+<ul>
+<li><a href="#orgheadline61">Data dumps/Import</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline54"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></a></li>
+<li><a href="#orgheadline62">Setup</a></li>
+<li><a href="#orgheadline63">configuration:</a></li>
+<li><a href="#orgheadline64">SDK</a></li>
+<li><a href="#orgheadline65">read the book 《自然语言处理综论》</a></li>
+<li><a href="#orgheadline66">如何在NLP领域快速学会第一个技能？</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline67">Machine Learning</a>
+<ul>
+<li><a href="#orgheadline68">Week 1/2</a>
+<ul>
+<li><a href="#orgheadline69">Logistic Regression</a></li>
+<li><a href="#orgheadline70">Regularization</a></li>
+<li><a href="#orgheadline71">Classification</a></li>
+<li><a href="#orgheadline72">Decision tree and random forest</a></li>
+<li><a href="#orgheadline73">Boosting</a></li>
+<li><a href="#orgheadline74">XGBoost</a></li>
+<li><a href="#orgheadline75">SVM</a></li>
+<li><a href="#orgheadline76">Clustering</a></li>
+<li><a href="#orgheadline77">Bayesian Network</a></li>
+<li><a href="#orgheadline78">LDA</a></li>
+<li><a href="#orgheadline79">HMM</a></li>
+<li><a href="#orgheadline80">Neural Network</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline81">Deep Learning</a>
+<ul>
+<li><a href="#orgheadline82">other</a></li>
+<li><a href="#orgheadline83">Machine Learning Basics</a></li>
+<li><a href="#orgheadline84">Week 1/2</a>
+<ul>
+<li><a href="#orgheadline85">Gradient algorithm</a></li>
+<li><a href="#orgheadline86">CNN</a></li>
+<li><a href="#orgheadline87">RNN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline88">Risk model</a></li>
+<li><a href="#orgheadline89">GS</a>
+<ul>
+<li><a href="#orgheadline90">Research workflow</a></li>
+<li><a href="#orgheadline91">organize OSet structure</a></li>
+<li><a href="#orgheadline92">follow GS workflow</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline93"><span class="todo TODO">TODO</span> optimization</a>
+<ul>
+<li><a href="#orgheadline94">black-litterman model</a>
+<ul>
+<li><a href="#orgheadline95">why most of the cases are on assets classes optimization, not on individual stocks.</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline96">cvxportfolio</a></li>
+<li><a href="#orgheadline97">cvxpy</a></li>
+<li><a href="#orgheadline98">record</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline99"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">Python basic operations:</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2">Module</h3>
+<div class="outline-text-3" id="text-orgheadline2">
+<ul class="org-ul">
+<li>当你运行一个Python模块 python fibo.py &lt;arguments&gt;
+Remember, everything in python is an object.</li>
+
+<li>python解释器CPython.</li>
+
+<li>如果字符串里面有’\’,而实际上要把斜杠加到字符串里面，要在前面加r，代表raw. 例如r’Y:\codes’.</li>
+
+<li>如果主目录下有子目录packages，记得要在子目录下加init.py，最好在主目录下建main.py函数。</li>
+
+<li>解释器如果执行哪个一个文件为主程序，如 python program1.py，it will set the special variable name to program1.py equals to ‘main’</li>
+<li>One of the reasons for doing this is that sometimes you write a module (a .py file) where it can be executed directly. Alternatively, it can also be imported and used in another module. By doing the main check, you can have that code only execute when you want to run the module as a program and not have it execute when someone just wants to import your module and call your functions themselves.</li>
+
+<li>模块中的代码将会被执行，就像导入它一样，不过此时name 被设置为 “main“。这意味着，通过在你的模块末尾添加此代码.</li>
+
+<li>can’t import module from upper directory.
+
+<ul class="org-ul">
+<li>need to add the working directory to .bashrc PYTHONPATH</li>
+<li>using ipython.</li>
+</ul></li>
+<li>Add custom folder path to the Windows environment.
+add PYTHONEXE%; to System Variable PATH;
+add System variable name: PYTHONEXE , value: C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
+add PYTHONPATH:  C:\Users\Wei Wu\Anaconda2;C:\Users\Wei Wu\Python\ylib\src\py\;
+or add module path in Spyder directly;</li>
+<li>import module temperarily from parental directory without add path to the system.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">folder1</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\__init__.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\State.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\StateMachine.py</span>
+<span style="color: #75715E;">#    </span><span style="color: #75715E;">\mouse_folder</span>
+<span style="color: #75715E;">#        </span><span style="color: #75715E;">\MouseAction.py</span>
+<span style="color: #F92672;">import</span> os,sys,inspect
+<span style="color: #FD971F;">currentdir</span> = os.path.dirname<span style="color: #AE81FF;">(</span>os.path.abspath<span style="color: #66D9EF;">(</span>inspect.getfile<span style="color: #A6E22E;">(</span>inspect.currentframe<span style="color: #E6DB74;">()</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">parentdir</span> = os.path.dirname<span style="color: #AE81FF;">(</span>currentdir<span style="color: #AE81FF;">)</span>
+sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>,parentdir+<span style="color: #E6DB74;">'\\mouse'</span><span style="color: #AE81FF;">)</span>
+sys.path.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>,parentdir<span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">from</span> State <span style="color: #F92672;">import</span> State
+<span style="color: #F92672;">from</span> StateMachine <span style="color: #F92672;">import</span> StateMachine
+<span style="color: #F92672;">from</span> MouseAction <span style="color: #F92672;">import</span> MouseAction
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check module path:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">print</span> os.path.abspath<span style="color: #AE81FF;">(</span>ylib.__file__<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>make a python 3 virtual environment:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sh">mkvirtual -p python3 ENVNAME
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>install setup.py:</li>
+</ul>
+<p>
+python setup.py install
+to virtual environment:
+<i>home/weiwu</i>.virtualenvs/data<sub>analysis</sub>/bin/python2 setup.py install
+</p>
+
+<ul class="org-ul">
+<li>install from github:</li>
+</ul>
+<p>
+pip install git+<a href="https://github.com/quantopian/zipline.git">https://github.com/quantopian/zipline.git</a>
+</p>
+
+<ul class="org-ul">
+<li>change conda source:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">conda config --add channels <span style="color: #E6DB74;">'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'</span>
+conda config --set show_channel_urls yes
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>create conda virtualenv:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #75715E;"># </span><span style="color: #75715E;">&#21019;&#24314; conda &#34394;&#25311;&#29615;&#22659;&#65288; :code:`env_name` &#26159;&#24744;&#24076;&#26395;&#21019;&#24314;&#30340;&#34394;&#25311;&#29615;&#22659;&#21517;&#65289;</span>
+$ conda create --name env_name <span style="color: #FD971F;">python</span>=<span style="color: #AE81FF;">3.5</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#24744;&#24819;&#21019;&#24314;&#19968;&#20010;&#21517;&#20026;rqalpha&#30340;&#34394;&#25311;&#29615;&#22659;</span>
+$ conda create --name rqalpha <span style="color: #FD971F;">python</span>=<span style="color: #AE81FF;">3.5</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#20351;&#29992; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ source activate env_name
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#26524;&#26159; Windows &#29615;&#22659;&#19979; &#30452;&#25509;&#25191;&#34892; activcate</span>
+$ activate env_name
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#36864;&#20986; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ source deactivate env_name
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22914;&#26524;&#26159; Windows &#29615;&#22659;&#19979; &#30452;&#25509;&#25191;&#34892; deactivate</span>
+$ deactivate env_name
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#21024;&#38500; conda &#34394;&#25311;&#29615;&#22659;</span>
+$ conda-env remove --name env_name
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>percentage output format:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> future <span style="color: #F92672;">import</span> division
+<span style="color: #F92672;">print</span> &#8220;%s %.<span style="color: #AE81FF;">4f</span>%%&#8221; % <span style="color: #AE81FF;">(</span>sid, <span style="color: #66D9EF;">(</span><span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>not_close<span style="color: #A6E22E;">)</span>/<span style="color: #F92672;">len</span><span style="color: #A6E22E;">(</span>ctp<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3">zip</h3>
+<div class="outline-text-3" id="text-orgheadline3">
+<p>
+zip([iterable, &#x2026;])
+This function returns a list of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The returned list is truncated in length to the length of the shortest argument sequence. When there are multiple arguments which are all of the same length, zip() is similar to map() with an initial argument of None. With a single sequence argument, it returns a list of 1-tuples. With no arguments, it returns an empty list.
+</p>
+
+<p>
+The left-to-right evaluation order of the iterables is guaranteed. This makes possible an idiom for clustering a data series into n-length groups using zip(*[iter(s)]*n).
+</p>
+
+<p>
+zip() in conjunction with the * operator can be used to unzip a list:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">&gt;&gt;&gt;
+&gt;&gt;&gt; <span style="color: #FD971F;">x</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1,</span> <span style="color: #AE81FF;">2,</span> <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">y</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">4,</span> <span style="color: #AE81FF;">5,</span> <span style="color: #AE81FF;">6</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">zipped</span> = zip<span style="color: #AE81FF;">(</span>x, y<span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; zipped
+<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1,</span> <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">)</span>, <span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">2,</span> <span style="color: #AE81FF;">5</span><span style="color: #66D9EF;">)</span>, <span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">3,</span> <span style="color: #AE81FF;">6</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; x2, <span style="color: #FD971F;">y2</span> = zip<span style="color: #AE81FF;">(</span>*zipped<span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">x</span> == list<span style="color: #AE81FF;">(</span>x2<span style="color: #AE81FF;">)</span> and <span style="color: #FD971F;">y</span> == list<span style="color: #AE81FF;">(</span>y2<span style="color: #AE81FF;">)</span>
+True
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4">Float point issue</h3>
+<div class="outline-text-3" id="text-orgheadline4">
+<p>
+Floating-point numbers are represented in computer hardware as base 2 (binary) fractions. For example, the decimal fraction 0.001 has value 0/2 + 0/4 + 1/8.
+On a typical machine running Python, there are 53 bits of precision available for a Python float, so the value stored internally when you enter the decimal number 0.1 is the binary fraction.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">0.00011001100110011001100110011001100110011001100110011010</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">&gt;&gt;&gt; round<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2.675</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">2.67</span>
+</pre>
+</div>
+<p>
+it’s again replaced with a binary approximation, whose exact value is
+</p>
+
+<p>
+2.67499999999999982236431605997495353221893310546875
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5">unittest:</h3>
+<div class="outline-text-3" id="text-orgheadline5">
+<ul class="org-ul">
+<li>check data operation:
+<ul class="org-ul">
+<li>create, select, update, delete.</li>
+</ul></li>
+
+<li>purpose of unit test
+<ul class="org-ul">
+<li>checking parameter types, classes, or values.</li>
+<li>checking data structure invariants.</li>
+<li>checking “can’t happen” situations (duplicates in a list, contradictory state variables.)</li>
+<li>after calling a function, to make sure that its return is reasonable.</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1">Instruction on how to use emacs org mode to orginize calendar.</h2>
-<div class="outline-text-2" id="text-orgheadline1">
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6">Time</h3>
+<div class="outline-text-3" id="text-orgheadline6">
+<ul class="org-ul">
+<li>get specific timezone datetime</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">tz</span> = pytz.timezone<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'America/Los_Angeles'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">date = date.today()</span>
+<span style="color: #FD971F;">now</span> = datetime.now<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">los_angeles_time</span> = datetime.now<span style="color: #AE81FF;">(</span>tz<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>use tqdm as a status bar:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> tqdm <span style="color: #F92672;">import</span> tqdm
+<span style="color: #F92672;">from</span> time <span style="color: #F92672;">import</span> sleep
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> tqdm<span style="color: #AE81FF;">(</span><span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">10</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>:
+    sleep<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>string to datetime:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">time.strptime<span style="color: #AE81FF;">(</span>string<span style="color: #66D9EF;">[</span>, <span style="color: #F92672;">format</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>datetime, Timestamp, datetime64</li>
+</ul>
+<p>
+pandas, Timestamp
+&#x2013; DatetimeIndex is composed by Timestamps.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">Timestamp to string:i</span>
+<span style="color: #FD971F;">str_timestamp</span> = pd.to_datetime<span style="color: #AE81FF;">(</span>Timestamp, <span style="color: #F92672;">format</span> = <span style="color: #E6DB74;">'%Y%m%d'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">str_timestamp</span> = str_timestamp.strftime<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%Y-%m-%d'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+datetime, utc
+datetime64
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7">Function</h3>
+<div class="outline-text-3" id="text-orgheadline7">
+<ul class="org-ul">
+<li>function parameter
+<ul class="org-ul">
+<li>pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.</li>
+</ul></li>
+
+<li>if the input argument is un-mutable,函数中改变形参值不会改变原值。</li>
+</ul>
+<p>
+if the input is mutable, operate on the input like append operation will change the input argument.
+</p>
+
+<ul class="org-ul">
+<li>a, b = b, a + b # 相当于：</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">t</span> = <span style="color: #AE81FF;">(</span>b, a + b<span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">t&#26159;&#19968;&#20010;tuple</span>
+<span style="color: #FD971F;">a</span> = t<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">b</span> = t<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8">Operator</h3>
+<div class="outline-text-3" id="text-orgheadline8">
+<ul class="org-ul">
+<li>The ^ symbol
+<ul class="org-ul">
+<li>The ^ symbol is for the bitwise ‘xor’ operation, but in Python, the exponent operator symbol is **.</li>
+</ul></li>
+<li>the minimum value between nan and infinity is infinity.</li>
+</ul>
+<p>
+min(np.nan, np.inf) = np.inf
+</p>
+
+<ul class="org-ul">
+<li>eval</li>
+</ul>
+<p>
+eval the value of a variable name from string.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9">pickle</h3>
+<div class="outline-text-3" id="text-orgheadline9">
+</div><div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10">dump:</h4>
+<div class="outline-text-4" id="text-orgheadline10">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> pickle
+
+<span style="color: #FD971F;">data1</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'a'</span>: <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span>+<span style="color: #AE81FF;">6j</span><span style="color: #66D9EF;">]</span>,
+         <span style="color: #E6DB74;">'b'</span>: <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'string'</span>, u<span style="color: #E6DB74;">'Unicode string'</span><span style="color: #66D9EF;">)</span>,
+         <span style="color: #E6DB74;">'c'</span>: <span style="color: #AE81FF;">None</span><span style="color: #AE81FF;">}</span>
+
+<span style="color: #FD971F;">selfref_list</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
+selfref_list.append<span style="color: #AE81FF;">(</span>selfref_list<span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">output</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'data.pkl'</span>, <span style="color: #E6DB74;">'wb'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Pickle dictionary using protocol 0.</span>
+pickle.dump<span style="color: #AE81FF;">(</span>data1, output<span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Pickle the list using the highest protocol available.</span>
+pickle.dump<span style="color: #AE81FF;">(</span>selfref_list, output, -<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+
+output.close<span style="color: #AE81FF;">()</span>
+pickle.dump<span style="color: #AE81FF;">(</span> x0, <span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span> <span style="color: #E6DB74;">"x0.pkl"</span>, <span style="color: #E6DB74;">"wb"</span> <span style="color: #66D9EF;">)</span> <span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11">load:</h4>
+<div class="outline-text-4" id="text-orgheadline11">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> pprint, pickle
+
+<span style="color: #FD971F;">pkl_file</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'data.pkl'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">data1</span> = pickle.load<span style="color: #AE81FF;">(</span>pkl_file<span style="color: #AE81FF;">)</span>
+pprint.pprint<span style="color: #AE81FF;">(</span>data1<span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">data2</span> = pickle.load<span style="color: #AE81FF;">(</span>pkl_file<span style="color: #AE81FF;">)</span>
+pprint.pprint<span style="color: #AE81FF;">(</span>data2<span style="color: #AE81FF;">)</span>
+
+pkl_file.close<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12">list operations:</h3>
+<div class="outline-text-3" id="text-orgheadline12">
+<ul class="org-ul">
+<li>find difference of two lists:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">a</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">5</span>,<span style="color: #AE81FF;">6</span>,<span style="color: #AE81FF;">5</span>,<span style="color: #AE81FF;">5</span>,<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">import</span> collections
+<span style="color: #F92672;">print</span> <span style="color: #AE81FF;">[</span>item <span style="color: #F92672;">for</span> item, count <span style="color: #F92672;">in</span> collections.Counter<span style="color: #66D9EF;">(</span>a<span style="color: #66D9EF;">)</span>.items<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">if</span> count &gt; <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>列表生成式</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #AE81FF;">[</span>a.lower<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">for</span> a <span style="color: #F92672;">in</span> x=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'Hello'</span>, <span style="color: #E6DB74;">'World'</span>, <span style="color: #AE81FF;">18</span>, <span style="color: #E6DB74;">'Apple'</span>, <span style="color: #AE81FF;">None</span><span style="color: #66D9EF;">]</span> <span style="color: #F92672;">if</span> <span style="color: #F92672;">isinstance</span><span style="color: #66D9EF;">(</span>a,<span style="color: #F92672;">str</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>read file to a list:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">with</span> <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'y:\codes\data\smart_beta_etf_list.txt'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> f:
+<span style="color: #FD971F;">etf_list</span> = f.readlines<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">etf_list</span> = <span style="color: #AE81FF;">[</span>x.strip<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">for</span> x <span style="color: #F92672;">in</span> etf_list<span style="color: #AE81FF;">]</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">you may also want to remove whitespace characters like `\n` at the end of each line</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>save a list to a file:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">thefile</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'test.txt'</span>, <span style="color: #E6DB74;">'w'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>for item in thelist:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">thefile.write<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%s\n"</span> % item<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>replace comma as next line (enter):</li>
+</ul>
+<p>
+choose extend mode: replace ',' as \r\n
+</p>
+
+<ul class="org-ul">
+<li>split strings by space delimiter from reverse:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">text.rsplit<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">' '</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>split strings by space delimiter from beginning:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">text.split<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">' '</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt;a.split<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'.'</span>,<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'alvy'</span>,<span style="color: #E6DB74;">'test.txt'</span><span style="color: #AE81FF;">]</span>
+&#21518;&#38754;&#22810;&#20102;&#19968;&#20010;&#21442;&#25968;1&#65292;&#20197;&#31532;&#19968;&#20010;<span style="color: #E6DB74;">'.'</span>&#20998;&#30028;&#65292;&#20998;&#25104;&#20004;&#20010;&#23383;&#31526;&#20018;&#65292;&#32452;&#25104;&#19968;&#20010;list
+&gt;&gt;&gt;a.rsplit<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'.'</span>,<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'alvy.test'</span>,<span style="color: #E6DB74;">'txt'</span><span style="color: #AE81FF;">]</span>
+&#29616;&#22312;&#26159;rsplit&#20989;&#25968;&#65292;&#20174;&#21491;&#36793;&#31532;&#19968;&#20010;<span style="color: #E6DB74;">'.'</span>&#20998;&#30028;&#65292;&#20998;&#25104;&#20004;&#20010;&#23383;&#31526;&#20018;&#65292;&#32452;&#25104;&#19968;&#20010;list
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13">生成器</h3>
+<div class="outline-text-3" id="text-orgheadline13">
+<p>
+通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
+而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
+要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator：
+如果要一个一个打印出来，可以通过next()函数获得generator的下一个返回值：
+next(g)
+这里，最难理解的就是generator和函数的执行流程不一样。函数是顺序执行，遇到return语句或者最后一行函数语句就返回。
+而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">odd</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'step 1'</span><span style="color: #AE81FF;">)</span>
+
+    <span style="color: #F92672;">yield</span> <span style="color: #AE81FF;">1</span>
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'step 2'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">yield</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'step 3'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">yield</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">o</span> = odd<span style="color: #AE81FF;">()</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>o<span style="color: #AE81FF;">)</span>
+step <span style="color: #AE81FF;">1</span>
+<span style="color: #AE81FF;">1</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>o<span style="color: #AE81FF;">)</span>
+step <span style="color: #AE81FF;">2</span>
+<span style="color: #AE81FF;">3</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>o<span style="color: #AE81FF;">)</span>
+step <span style="color: #AE81FF;">3</span>
+<span style="color: #AE81FF;">5</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>o<span style="color: #AE81FF;">)</span>
+Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style="color: #AE81FF;">)</span>:
+
+  File <span style="color: #E6DB74;">"&lt;stdin&gt;"</span>, line <span style="color: #AE81FF;">1</span>, <span style="color: #F92672;">in</span> &lt;module&gt;
+<span style="color: #66D9EF;">StopIteration</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14">loop</h4>
+<div class="outline-text-4" id="text-orgheadline14">
+<ul class="org-ul">
+<li>iterate key and value in a dictionary:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> index, value <span style="color: #F92672;">in</span> <span style="color: #F92672;">dict</span>.iteritems<span style="color: #AE81FF;">()</span>:
+<span style="color: #F92672;">print</span> index, value
+</pre>
+</div>
+<ul class="org-ul">
+<li>iterate keys in a dictionary:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> k <span style="color: #F92672;">in</span> <span style="color: #F92672;">dict</span>:
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>iterate a row in pandas series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pd.Series.iteritems<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>iterate a row in pandas dataframe:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.iterrows<span style="color: #AE81FF;">()</span>:
+<span style="color: #F92672;">return</span> generator.
+&gt;&gt;&gt; <span style="color: #FD971F;">df</span> = pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">5</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span>, columns=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'int'</span>, <span style="color: #E6DB74;">'float'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">row</span> = <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>df.iterrows<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; row
+<span style="color: #F92672;">int</span>      <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">0</span>
+<span style="color: #F92672;">float</span>    <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">5</span>
+Name: <span style="color: #AE81FF;">0</span>, dtype: float64
+&gt;&gt;&gt; <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>row<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'int'</span><span style="color: #66D9EF;">]</span>.dtype<span style="color: #AE81FF;">)</span>
+float64
+&gt;&gt;&gt; <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>df<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'int'</span><span style="color: #66D9EF;">]</span>.dtype<span style="color: #AE81FF;">)</span>
+int64
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>To preserve dtypes while iterating over the rows, it is better to use itertuples()
+<ul class="org-ul">
+<li>which returns tuples of the values and which is generally faster as iterrows.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15">magic method:</h3>
+<div class="outline-text-3" id="text-orgheadline15">
+<ul class="org-ul">
+<li>getitem in a class allows its instances to use the [ ] (indexer) operators</li>
+<li>setitem Called to implement assignment to self[key]</li>
+<li>call magic method in a class causes its instances to become callables – in other words, those instances now behave like functions.</li>
+<li>getattr overrides Python’s default mechanism for member access.</li>
+<li>getattr magic method only gets invoked for attributes that are not in the dict magic attribute. Implementing getattr causes the hasattr built-in function to always return True, unless an exception is raised from within getattr.</li>
+<li>setattr allows you to override Python’s default mechanism for member assignment.</li>
+<li>The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards).</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">print</span> `a`
+<span style="color: #F92672;">print</span> <span style="color: #F92672;">repr</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16">logging</h3>
+<div class="outline-text-3" id="text-orgheadline16">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> logging
+<span style="color: #FD971F;">logger</span> = logging.getLogger<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">handler</span> = logging.StreamHandler<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">formatter</span> = logging.Formatter<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%(asctime)s %(name)-12s %(levelname)-8s %(message)s'</span><span style="color: #AE81FF;">)</span>
+handler.setFormatter<span style="color: #AE81FF;">(</span>formatter<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> logger.handler:
+    logger.addHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
+logger.setLevel<span style="color: #AE81FF;">(</span>logging.DEBUG<span style="color: #AE81FF;">)</span>
+logger
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">at the end of the program</span>
+handler.close<span style="color: #AE81FF;">()</span>
+logger.removeHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17">regular express</h3>
+<div class="outline-text-3" id="text-orgheadline17">
+</div><div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18">useage:</h4>
+<div class="outline-text-4" id="text-orgheadline18">
+<ul class="org-ul">
+<li>find strings</li>
+<li>convert strings</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19">string array</h4>
+<div class="outline-text-4" id="text-orgheadline19">
+<p>
+[Pp]ython: find Python or python
+</p>
+</div>
+
+<div id="outline-container-orgheadline100" class="outline-5">
+<h5 id="orgheadline100">parts</h5>
+<div class="outline-text-5" id="text-orgheadline100">
+<p>
+re.search('[a-zA-Z0-9]', 'x')
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline101" class="outline-5">
+<h5 id="orgheadline101">not</h5>
+<div class="outline-text-5" id="text-orgheadline101">
+<p>
+re.search('[<sup>0</sup>-9]', 'x')
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline102" class="outline-5">
+<h5 id="orgheadline102">shortcut</h5>
+<div class="outline-text-5" id="text-orgheadline102">
+<ul class="org-ul">
+<li>word: \w</li>
+<li>number: \d</li>
+<li>space, tab, next line: \s</li>
+<li>0 length sub string: \b</li>
+</ul>
+<p>
+re.search('\bcorn\b', 'corner')
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline103" class="outline-5">
+<h5 id="orgheadline103">start and end with strings</h5>
+<div class="outline-text-5" id="text-orgheadline103">
+<div class="org-src-container">
+
+<pre class="src src-python">re.search<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'^Python'</span>, <span style="color: #E6DB74;">'Python 3'</span><span style="color: #AE81FF;">)</span>
+re.search<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Python$'</span>, <span style="color: #E6DB74;">'this is Python'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline104" class="outline-5">
+<h5 id="orgheadline104">any character</h5>
+<div class="outline-text-5" id="text-orgheadline104">
+<p>
+"."
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20">optional words</h4>
+<div class="outline-text-4" id="text-orgheadline20">
+<p>
+'color' vs 'colour'
+re.search('colou?r', 'my favoriate color')
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21">repeat</h4>
+<div class="outline-text-4" id="text-orgheadline21">
+<p>
+{N}
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">find a telephone number</span>
+re.search<span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'[\d]{3}-[\d]{4}'</span>, <span style="color: #E6DB74;">'867-5309 /Jenny'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">find 32big GID</span>
+<span style="color: #AE81FF;">[</span>x <span style="color: #F92672;">for</span> x <span style="color: #F92672;">in</span> risk_model_merge.keys<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">if</span> re.match<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"[A-Z0-9]{32}$"</span>, x<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline105" class="outline-5">
+<h5 id="orgheadline105">boundary of repeated times</h5>
+<div class="outline-text-5" id="text-orgheadline105">
+<p>
+[\d]{3,4}
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline106" class="outline-5">
+<h5 id="orgheadline106">open selection</h5>
+<div class="outline-text-5" id="text-orgheadline106">
+<p>
+[\d]{3,}
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline107" class="outline-5">
+<h5 id="orgheadline107">speed selection</h5>
+<div class="outline-text-5" id="text-orgheadline107">
+<ul class="org-ul">
+<li>+: {1,}</li>
+<li>*: {0,}</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22">collections — High-performance container datatypes</h3>
+<div class="outline-text-3" id="text-orgheadline22">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">module</th>
+<th scope="col" class="org-left">function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">deque</td>
+<td class="org-left">list-like container with fast appends and pops on either end</td>
+</tr>
+
+<tr>
+<td class="org-left">Counter</td>
+<td class="org-left">dict subclass for counting hashable objects</td>
+</tr>
+
+<tr>
+<td class="org-left">defaultdict</td>
+<td class="org-left">dict subclass that calls a factory function to supply missing values</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23">fetch data from yahoo</h3>
+<div class="outline-text-3" id="text-orgheadline23">
+<p>
+install pandas-datareader first.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">conda install pandas-datareader
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> pandas <span style="color: #F92672;">as</span> pd
+<span style="color: #F92672;">import</span> datetime <span style="color: #F92672;">as</span> dt
+<span style="color: #F92672;">import</span> numpy <span style="color: #F92672;">as</span> np
+<span style="color: #F92672;">from</span> pandas_datareader <span style="color: #F92672;">import</span> data <span style="color: #F92672;">as</span> web
+
+<span style="color: #FD971F;">data</span> = pd.DataFrame<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">symbols</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'GLD'</span>, <span style="color: #E6DB74;">'GDX'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">for</span> sym <span style="color: #F92672;">in</span> symbols:
+    <span style="color: #FD971F;">data</span><span style="color: #AE81FF;">[</span>sym<span style="color: #AE81FF;">]</span> = web.DataReader<span style="color: #AE81FF;">(</span>sym, data_source=<span style="color: #E6DB74;">'yahoo'</span>, start=<span style="color: #E6DB74;">'20100510'</span><span style="color: #AE81FF;">)[</span><span style="color: #E6DB74;">'Adj Close'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">data</span> = data.dropna<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24">trouble shooting</h3>
+<div class="outline-text-3" id="text-orgheadline24">
+<ul class="org-ul">
+<li>linux python FileNotFoundError: [Errno 2] No such file or directory:</li>
+</ul>
+
+<p>
+try to use absolute path instead of relative path to read a file.
+</p>
+
+<ul class="org-ul">
+<li>HDF5</li>
+</ul>
+<p>
+pip install tables
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25">Jupyter notebook</h3>
+<div class="outline-text-3" id="text-orgheadline25">
+</div><div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26">Using a virtualenv in an IPython notebook</h4>
+<div class="outline-text-4" id="text-orgheadline26">
+<ol class="org-ol">
+<li>Install the ipython kernel module into your virtualenv</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">workon my-virtualenv-name  <span style="color: #75715E;"># </span><span style="color: #75715E;">activate your virtualenv, if you haven't already</span>
+pip install ipykernel
+</pre>
+</div>
+
+<ol class="org-ol">
+<li>Now run the kernel "self-install" script:</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">python -m ipykernel install --user --<span style="color: #FD971F;">name</span>=my-virtualenv-name
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27">profile</h3>
+<div class="outline-text-3" id="text-orgheadline27">
+<p>
+STEPS:
+1). install snakeviz using pip from cmd.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">pip install snakeviz
+</pre>
+</div>
+
+<p>
+2). profile the test python file using below command.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">$ python -m cProfile -o profile.stats test.py
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">test.py</span>
+<span style="color: #F92672;">from</span> random <span style="color: #F92672;">import</span> randint
+<span style="color: #FD971F;">max_size</span> = <span style="color: #AE81FF;">10</span>**<span style="color: #AE81FF;">4</span>
+<span style="color: #FD971F;">data</span> = <span style="color: #AE81FF;">[</span>randint<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">0</span>, max_size<span style="color: #66D9EF;">)</span> <span style="color: #F92672;">for</span> _ <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span>max_size<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">test</span> = <span style="color: #F92672;">lambda</span>: insertion_sort<span style="color: #AE81FF;">(</span>data<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+3). check the efficiency result from profile.stats file.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">$ snakeviz profile.stats
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28">os, sys:</h3>
+<div class="outline-text-3" id="text-orgheadline28">
+<ul class="org-ul">
+<li>get latest file:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">import</span> zipfile
+<span style="color: #F92672;">import</span> glob
+
+    <span style="color: #FD971F;">list_of_files</span> = glob.glob<span style="color: #AE81FF;">(</span>app_dir + <span style="color: #E6DB74;">'\*.zip'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">latest_file</span> = <span style="color: #F92672;">max</span><span style="color: #AE81FF;">(</span>list_of_files, key=os.path.getctime<span style="color: #AE81FF;">)</span>
+
+    <span style="color: #F92672;">zip</span> = zipfile.ZipFile<span style="color: #AE81FF;">(</span>latest_file<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">zip</span>.extractall<span style="color: #AE81FF;">(</span>export_dir<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>check if file or directory exists, if not then make directory:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+os.path.exists<span style="color: #AE81FF;">(</span>test_file.txt<span style="color: #AE81FF;">)</span>
+os.path.isfile<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"test-data"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">export_dir</span> = <span style="color: #E6DB74;">"export/"</span>
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> os.path.exists<span style="color: #AE81FF;">(</span>export_dir<span style="color: #AE81FF;">)</span>:
+    os.mkdir<span style="color: #AE81FF;">(</span>export_dir<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>read a file:</li>
+</ul>
+<p>
+import os
+folder = '/file/path'
+file = os.path.join(folder, 'file<sub>name</sub>')
+</p>
+
+<ul class="org-ul">
+<li>list all the files under a directory:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">os.listdir() &#26041;&#27861;&#29992;&#20110;&#36820;&#22238;&#25351;&#23450;&#30340;&#25991;&#20214;&#22841;&#21253;&#21547;&#30340;&#25991;&#20214;&#25110;&#25991;&#20214;&#22841;&#30340;&#21517;&#23383;&#30340;&#21015;&#34920;&#12290;&#36825;&#20010;&#21015;&#34920;&#20197;&#23383;&#27597;&#39034;&#24207;&#12290; &#23427;&#19981;&#21253;&#25324; '.' &#21644;'..' &#21363;&#20351;&#23427;&#22312;&#25991;&#20214;&#22841;&#20013;.</span>
+<span style="color: #FD971F;">path</span> = os.getcwd<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">dirs</span> = os.listdir<span style="color: #AE81FF;">(</span>path<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check if the file readable:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">if</span> os.access<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/file/path/foo.txt"</span>, os.F_OK<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"Given file path is exist."</span>
+
+<span style="color: #F92672;">if</span> os.access<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/file/path/foo.txt"</span>, os.R_OK<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"File is accessible to read"</span>
+
+<span style="color: #F92672;">if</span> os.access<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/file/path/foo.txt"</span>, os.W_OK<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"File is accessible to write"</span>
+
+<span style="color: #F92672;">if</span> os.access<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/file/path/foo.txt"</span>, os.X_OK<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"File is accessible to execute"</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>use sys to get command arguments:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/usr/bin/python3</span>
+
+<span style="color: #F92672;">import</span> sys
+
+<span style="color: #F92672;">print</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#21442;&#25968;&#20010;&#25968;&#20026;:'</span>, <span style="color: #F92672;">len</span><span style="color: #66D9EF;">(</span>sys.argv<span style="color: #66D9EF;">)</span>, <span style="color: #E6DB74;">'&#20010;&#21442;&#25968;&#12290;'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#21442;&#25968;&#21015;&#34920;:'</span>, <span style="color: #F92672;">str</span><span style="color: #66D9EF;">(</span>sys.argv<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-shell">$ python3 test.py arg1 arg2 arg3
+&#21442;&#25968;&#20010;&#25968;&#20026;: <span style="color: #AE81FF;">4</span> &#20010;&#21442;&#25968;&#12290;
+&#21442;&#25968;&#21015;&#34920;: <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'test.py'</span>, <span style="color: #E6DB74;">'arg1'</span>, <span style="color: #E6DB74;">'arg2'</span>, <span style="color: #E6DB74;">'arg3'</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29">exception</h3>
+<div class="outline-text-3" id="text-orgheadline29">
+<ul class="org-ul">
+<li>create an exception:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">ConstraintError</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">Exception</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, arg<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.args = arg
+
+
+<span style="color: #F92672;">if</span> error:
+    <span style="color: #F92672;">raise</span> ConstraintError<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"error"</span><span style="color: #AE81FF;">)</span>
+
+
+<span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Networkerror</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">RuntimeError</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, arg<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.args = arg
+
+
+<span style="color: #F92672;">try</span>:
+    <span style="color: #F92672;">raise</span> Networkerror<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"Bad hostname"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">except</span> Networkerror,e:
+    <span style="color: #F92672;">print</span> e.args
+    <span style="color: #F92672;">print</span> e.message
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30">threading &amp; queue</h3>
+<div class="outline-text-3" id="text-orgheadline30">
+</div><div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31">install</h4>
+<div class="outline-text-4" id="text-orgheadline31">
+<div class="org-src-container">
+
+<pre class="src src-shell">pip install queuelib
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32">example</h4>
+<div class="outline-text-4" id="text-orgheadline32">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> Queue <span style="color: #F92672;">import</span> Queue
+<span style="color: #F92672;">import</span> threading
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33">loading configuration</h3>
+<div class="outline-text-3" id="text-orgheadline33">
+<ul class="org-ul">
+<li>use yaml and config file.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #75715E;"># </span><span style="color: #75715E;">config.yaml</span>
+<span style="color: #FD971F;">engine</span>:
+  <span style="color: #FD971F;">user</span>:
+    <span style="color: #E6DB74;">'jack'</span>
+  <span style="color: #FD971F;">password</span>:
+    <span style="color: #E6DB74;">'password'</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> yaml
+<span style="color: #F92672;">with</span> <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'config.yaml'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> f:
+    <span style="color: #FD971F;">config</span> = yaml.load<span style="color: #AE81FF;">(</span>f<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34">pprint</h3>
+<div class="outline-text-3" id="text-orgheadline34">
+<p>
+适合打印列表。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">import</span> pprint
+&gt;&gt;&gt; <span style="color: #FD971F;">tup</span> = <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'spam'</span>, <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'eggs'</span>, <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'lumberjack'</span>, <span style="color: #E6DB74;">(</span><span style="color: #E6DB74;">'knights'</span>, <span style="color: #FD971F;">(</span><span style="color: #E6DB74;">'ni'</span>, <span style="color: #F92672;">(</span><span style="color: #E6DB74;">'dead'</span>,
+... <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'parrot'</span>, <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'fresh fruit'</span>,<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span><span style="color: #F92672;">)</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">stuff</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'a'</span> * <span style="color: #AE81FF;">10</span>, tup, <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span> * <span style="color: #AE81FF;">30</span>, <span style="color: #E6DB74;">'b'</span> * <span style="color: #AE81FF;">30</span><span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'c'</span> * <span style="color: #AE81FF;">20</span>, <span style="color: #E6DB74;">'d'</span> * <span style="color: #AE81FF;">20</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; pprint.pprint<span style="color: #AE81FF;">(</span>stuff<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'aaaaaaaaaa'</span>,
+ <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'spam'</span>,
+  <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'eggs'</span>,
+   <span style="color: #E6DB74;">(</span><span style="color: #E6DB74;">'lumberjack'</span>,
+    <span style="color: #FD971F;">(</span><span style="color: #E6DB74;">'knights'</span>, <span style="color: #F92672;">(</span><span style="color: #E6DB74;">'ni'</span>, <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'dead'</span>, <span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'parrot'</span>, <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'fresh fruit'</span>,<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span><span style="color: #F92672;">)</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>,
+ <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'</span>, <span style="color: #E6DB74;">'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'</span><span style="color: #66D9EF;">]</span>,
+ <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'cccccccccccccccccccc'</span>, <span style="color: #E6DB74;">'dddddddddddddddddddd'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline35" class="outline-2">
+<h2 id="orgheadline35">Data Analysis:</h2>
+<div class="outline-text-2" id="text-orgheadline35">
+</div><div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36">pandas:</h3>
+<div class="outline-text-3" id="text-orgheadline36">
+<p>
+<a href="./pandas.html">advanced pandas</a>
+</p>
+<ul class="org-ul">
+<li>generate a dataframe:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">dates</span> = pd.date_range<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'1/1/2000'</span>, periods=<span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">df</span> = pd.DataFrame<span style="color: #AE81FF;">(</span>np.random.randn<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">8</span>, <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">)</span>, index=dates, columns=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'A'</span>, <span style="color: #E6DB74;">'B'</span>, <span style="color: #E6DB74;">'C'</span>, <span style="color: #E6DB74;">'D'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>get index number of an item value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">110</span><span style="color: #AE81FF;">]</span>: target_expiry_dates.head<span style="color: #AE81FF;">()</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">112</span><span style="color: #AE81FF;">]</span>:
+contract_code
+b<span style="color: #E6DB74;">'\xe9O\xa4#\xc9\xd7\xfa\x96P\xeb\xd6 \xc4_\xce\xa6'</span>      <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">06</span>-<span style="color: #AE81FF;">16</span>
+b<span style="color: #E6DB74;">'\x99L\xcf\xd2\xd5\x07\xa6p\x19\xc7t%\x8b\xe1O\x87'</span>      <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">07</span>-<span style="color: #AE81FF;">16</span>
+b<span style="color: #E6DB74;">'\xdfG"O\xe3\xde\x83R\xe5\xaa\x83\x92\x80\x87\xb2\xad'</span>   <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">08</span>-<span style="color: #AE81FF;">18</span>
+b<span style="color: #E6DB74;">'\xa9A\xb61\xafV:\x06\xa2\xcfp\x1eLC1\x87'</span>               <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">09</span>-<span style="color: #AE81FF;">16</span>
+b<span style="color: #E6DB74;">'\x8eI\xd2\xd6/\x12\x1c\xff\xf3\x10v\xcd\x0fA\xfc\xa2'</span>   <span style="color: #AE81FF;">2015</span>-<span style="color: #AE81FF;">10</span>-<span style="color: #AE81FF;">16</span>
+Name: settlement_date, dtype: datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">108</span><span style="color: #AE81FF;">]</span>: pd.Index<span style="color: #AE81FF;">(</span>target_expiry_dates<span style="color: #AE81FF;">)</span>.get_loc<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'2015-06-16'</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">109</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">27</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>connection with mysql:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pandas.read_sql_query<span style="color: #AE81FF;">(</span>sql, con=engine<span style="color: #AE81FF;">)</span>:
+pandas.read_sql_table<span style="color: #AE81FF;">(</span>table_name, con=engine<span style="color: #AE81FF;">)</span>:
+pandas.read_sql<span style="color: #AE81FF;">(</span>sql, con=engine<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">sql</span> = <span style="color: #E6DB74;">'DROP TABLE IF EXISTS etf_daily_price;'</span>
+<span style="color: #FD971F;">result</span> = engine.execute<span style="color: #AE81FF;">(</span>sql<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>dropna:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.dropna<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0</span>, how=<span style="color: #E6DB74;">'any'</span>, thresh=<span style="color: #AE81FF;">None</span>, subset=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>melt.</li>
+</ul>
+<p>
+pandas.melt(frame, id<sub>vars</sub>=None, value<sub>vars</sub>=None, var<sub>name</sub>=None, value<sub>name</sub>='value', col<sub>level</sub>=None)[source]
+</p>
+
+<p>
+This function is useful to massage a DataFrame into a format where one or more columns are identifier variables (id<sub>vars</sub>), while all other columns, considered measured variables (value<sub>vars</sub>), are “unpivoted” to the row axis, leaving just two non-identifier columns, ‘variable’ and ‘value’.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #E6DB74;">"""</span>
+<span style="color: #E6DB74;">Parameters:</span>
+<span style="color: #E6DB74;">frame : DataFrame</span>
+<span style="color: #E6DB74;">id_vars : tuple, list, or ndarray, optional</span>
+<span style="color: #E6DB74;">Column(s) to use as identifier variables.</span>
+<span style="color: #E6DB74;">value_vars : tuple, list, or ndarray, optional</span>
+<span style="color: #E6DB74;">Column(s) to unpivot. If not specified, uses all columns that are not set as id_vars.</span>
+<span style="color: #E6DB74;">var_name : scalar</span>
+<span style="color: #E6DB74;">Name to use for the &#8216;variable&#8217; column. If None it uses frame.columns.name or &#8216;variable&#8217;.</span>
+<span style="color: #E6DB74;">value_name : scalar, default &#8216;value&#8217;</span>
+<span style="color: #E6DB74;">Name to use for the &#8216;value&#8217; column.</span>
+<span style="color: #E6DB74;">col_level : int or string, optional</span>
+<span style="color: #E6DB74;">If columns are a MultiIndex then use this level to melt.</span>
+<span style="color: #E6DB74;">"""</span>
+<span style="color: #FD971F;">DataFrame</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'idname'</span><span style="color: #AE81FF;">]</span> = DataFrame.index
+pd.melt<span style="color: #AE81FF;">(</span>DataFrame, id_vars=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'idname'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<pre class="example">
+&gt;&gt;&gt; import pandas as pd
+&gt;&gt;&gt; df = pd.DataFrame({'A': {0: 'a', 1: 'b', 2: 'c'},
+...                    'B': {0: 1, 1: 3, 2: 5},
+...                    'C': {0: 2, 1: 4, 2: 6}})
+&gt;&gt;&gt; df
+   A  B  C
+0  a  1  2
+1  b  3  4
+2  c  5  6
+&gt;&gt;&gt; pd.melt(df, id_vars=['A'], value_vars=['B'])
+   A variable  value
+0  a        B      1
+1  b        B      3
+2  c        B      5
+</pre>
+
+<ul class="org-ul">
+<li>fill nan:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.fillna<span style="color: #AE81FF;">(</span>value=<span style="color: #AE81FF;">None</span>, method=<span style="color: #AE81FF;">None</span>, axis=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, limit=<span style="color: #AE81FF;">None</span>, downcast=<span style="color: #AE81FF;">None</span>, **kwargs<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select non zero rows from series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">s<span style="color: #AE81FF;">[</span>s.nonzero<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>dataframe to series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">s</span> = df<span style="color: #AE81FF;">[</span>df.columns<span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>replace value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.replace<span style="color: #AE81FF;">(</span>to_replace=<span style="color: #AE81FF;">None</span>, value=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, limit=<span style="color: #AE81FF;">None</span>, regex=<span style="color: #AE81FF;">False</span>, method=<span style="color: #E6DB74;">'pad'</span>, axis=<span style="color: #AE81FF;">None</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>pandas has value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">value <span style="color: #F92672;">in</span> df<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'column_name'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">set</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)</span>.issubset<span style="color: #AE81FF;">(</span>df<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>pandas has null value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.isnull<span style="color: #AE81FF;">()</span>.values.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>find all the values of TRUE in a dataframe:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">z</span>=<span style="color: #AE81FF;">(</span>a!=b<span style="color: #AE81FF;">)</span>
+pd.concat<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>a.ix<span style="color: #A6E22E;">[</span>z<span style="color: #E6DB74;">[</span><span style="color: #F92672;">reduce</span><span style="color: #FD971F;">(</span><span style="color: #F92672;">lambda</span> x, y: x | z<span style="color: #F92672;">[</span>y<span style="color: #F92672;">]</span>, z, <span style="color: #AE81FF;">False</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">]</span>.index<span style="color: #A6E22E;">]</span>,b.ix<span style="color: #A6E22E;">[</span>z<span style="color: #E6DB74;">[</span><span style="color: #F92672;">reduce</span><span style="color: #FD971F;">(</span><span style="color: #F92672;">lambda</span> x, y: x | z<span style="color: #F92672;">[</span>y<span style="color: #F92672;">]</span>, z, <span style="color: #AE81FF;">False</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">]</span>.index<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span>,axis=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>if array a is a subset of another array b:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">set</span><span style="color: #AE81FF;">(</span>B<span style="color: #AE81FF;">)</span>.issubset<span style="color: #AE81FF;">(</span><span style="color: #F92672;">set</span><span style="color: #66D9EF;">(</span>A<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>remove negative value from a column:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">filtered_1</span>=b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="color: #AE81FF;">]</span>.<span style="color: #F92672;">apply</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x: <span style="color: #AE81FF;">0</span> <span style="color: #F92672;">if</span> x &lt; <span style="color: #AE81FF;">0</span> <span style="color: #F92672;">else</span> x<span style="color: #AE81FF;">)</span>
+b<span style="color: #AE81FF;">[</span>&#8216;TRADE_size&#8217;<span style="color: #AE81FF;">]</span>.loc<span style="color: #AE81FF;">[</span> b<span style="color: #66D9EF;">[</span>&#8216;TRADE_size&#8217;<span style="color: #66D9EF;">]</span>&lt;<span style="color: #AE81FF;">0</span>, &#8216;TRADE_size&#8217;<span style="color: #AE81FF;">]</span> = <span style="color: #AE81FF;">0</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>drop a lable:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">DataFrame.drop<span style="color: #AE81FF;">(</span>labels, axis=<span style="color: #AE81FF;">0</span>, level=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, errors=<span style="color: #E6DB74;">'raise'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check if any value is NaN in DataFrame</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.isnull<span style="color: #AE81FF;">()</span>.values.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>
+df.isnull<span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">any</span><span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>maximum &amp; minimum value of a dataframe:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.values.<span style="color: #F92672;">max</span><span style="color: #AE81FF;">()</span>
+df.values.<span style="color: #F92672;">min</span><span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select value by creteria:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"all weight are bigger than 0? %s"</span>, <span style="color: #66D9EF;">(</span>df_opts_weight&gt;<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"all weight are smaller than 1? %s"</span>, <span style="color: #66D9EF;">(</span>df_opts_weight&lt;=<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+logger.debug<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"weight sum smaller than 0: %s"</span>, df_opts_weight<span style="color: #66D9EF;">[</span>df_opts_weight&lt;<span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span>.<span style="color: #F92672;">sum</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>count all duplicates:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> pandas <span style="color: #F92672;">as</span> pd
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">15</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">a</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'a'</span>:<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'KBE.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span>,<span style="color: #E6DB74;">'O.US'</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'b'</span>:<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'KBE'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span>,<span style="color: #E6DB74;">'O'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">count</span> = a.groupby<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'a'</span><span style="color: #AE81FF;">)</span>.count<span style="color: #AE81FF;">()</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">20</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span>count&gt;<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">20</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">False</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">21</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span>count&gt;<span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">)</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>.<span style="color: #F92672;">all</span><span style="color: #AE81FF;">()</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">21</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">True</span>
+
+- datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span> missing data, null:
+For datetime64<span style="color: #AE81FF;">[</span>ns<span style="color: #AE81FF;">]</span> types, NaT represents missing values. This <span style="color: #F92672;">is</span> a pseudo-native sentinel value that can be represented by numpy <span style="color: #F92672;">in</span> a singular dtype <span style="color: #AE81FF;">(</span>datetime64<span style="color: #66D9EF;">[</span>ns<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>. pandas objects provide intercompatibility between NaT <span style="color: #F92672;">and</span> NaN.
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">+BEGIN_SRC python</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>: df2
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">16</span><span style="color: #AE81FF;">]</span>:
+        one       two     three four   five  timestamp
+a -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">166778</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">501113</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">355322</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+c -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">337890</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">580967</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">983801</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+e  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">057802</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">761948</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">712964</span>  bar   <span style="color: #AE81FF;">True</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+f -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">443160</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">974602</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">047704</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+h -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">717852</span> -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">053898</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">019369</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">17</span><span style="color: #AE81FF;">]</span>: df2.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span>,<span style="color: #E6DB74;">'c'</span>,<span style="color: #E6DB74;">'h'</span><span style="color: #66D9EF;">]</span>,<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'one'</span>,<span style="color: #E6DB74;">'timestamp'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span> = np.nan
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">18</span><span style="color: #AE81FF;">]</span>: df2
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">18</span><span style="color: #AE81FF;">]</span>:
+        one       two     three four   five  timestamp
+a       NaN  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">501113</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">355322</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+c       NaN  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">580967</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">983801</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+e  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">057802</span>  <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">761948</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">712964</span>  bar   <span style="color: #AE81FF;">True</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+f -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">443160</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">974602</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">047704</span>  bar  <span style="color: #AE81FF;">False</span> <span style="color: #AE81FF;">2012</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>
+h       NaN -<span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">053898</span> -<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">019369</span>  bar  <span style="color: #AE81FF;">False</span>        NaT
+</pre>
+</div>
+<ul class="org-ul">
+<li>rename column names:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">df_bbg</span> = df_bbg.rename<span style="color: #AE81FF;">(</span>columns = <span style="color: #F92672;">lambda</span> x: x<span style="color: #66D9EF;">[</span>:<span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">]</span>.replace<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">' '</span>,<span style="color: #E6DB74;">''</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+rename according to column value type:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">name</span> = <span style="color: #AE81FF;">{</span><span style="color: #AE81FF;">2</span>:<span style="color: #E6DB74;">'idname'</span>, <span style="color: #AE81FF;">23</span>:<span style="color: #E6DB74;">'value'</span>, <span style="color: #AE81FF;">4</span>:<span style="color: #E6DB74;">'variable'</span><span style="color: #AE81FF;">}</span>
+df.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F92672;">lambda</span> x: name<span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">(</span>gftIO.get_column_type<span style="color: #E6DB74;">(</span>df,x<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">]</span>, inplace=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div></li>
+<li>rename column according to value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">name</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'INNERCODE'</span>: <span style="color: #E6DB74;">'contract_code'</span>, <span style="color: #E6DB74;">'OPTIONCODE'</span>: <span style="color: #E6DB74;">'contract_name'</span>,
+        <span style="color: #E6DB74;">'SETTLEMENTDATE'</span>: <span style="color: #E6DB74;">'settlement_date'</span>, <span style="color: #E6DB74;">'ENDDATE'</span>: <span style="color: #E6DB74;">'date'</span>,
+        <span style="color: #E6DB74;">'CLOSEPRICE'</span>: <span style="color: #E6DB74;">'close_price'</span><span style="color: #AE81FF;">}</span>
+data.rename<span style="color: #AE81FF;">(</span>columns=<span style="color: #F92672;">lambda</span> x: name<span style="color: #66D9EF;">[</span>x<span style="color: #66D9EF;">]</span>, inplace=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>remove characters after space:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">df_bbg</span> = df_bbg.rename<span style="color: #AE81FF;">(</span>columns = <span style="color: #F92672;">lambda</span> x: x.<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>pandas long format to pivot:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">pivoted</span> = df.pivot<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'name1'</span>,<span style="color: #E6DB74;">'name2'</span>,<span style="color: #E6DB74;">'name3'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">specific_risk</span> = <span style="color: #F92672;">self</span>.risk_model<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'specificRisk'</span><span style="color: #AE81FF;">]</span>.pivot<span style="color: #AE81FF;">(</span>
+    index=<span style="color: #E6DB74;">'date'</span>, columns=<span style="color: #E6DB74;">'symbol'</span>, values=<span style="color: #E6DB74;">'specificrisk'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">df_pivot_industries_asset_weights</span> = pd.pivot_table<span style="color: #AE81FF;">(</span>
+        df_industries_asset_weight, values=<span style="color: #E6DB74;">'value'</span>, index=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'date'</span><span style="color: #66D9EF;">]</span>,
+        columns=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'industry'</span>, <span style="color: #E6DB74;">'symbol'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>change the time or date or a datetime:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">end</span> = end.replace<span style="color: #AE81FF;">(</span>hour=<span style="color: #AE81FF;">23</span>, minute=<span style="color: #AE81FF;">59</span>, second=<span style="color: #AE81FF;">59</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>万德 wind python pandas</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">df</span> = pd.Dataframe<span style="color: #AE81FF;">(</span>data = w.wsd<span style="color: #66D9EF;">()</span>.Data<span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span>, index=w.wsd<span style="color: #66D9EF;">()</span>.Times<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check DatetimeIndex difference:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">to check the frequency of the strategy, DAILY or MONTHLY</span>
+<span style="color: #FD971F;">dt_diff</span> = df_single_period_return.index.to_series<span style="color: #AE81FF;">()</span>.diff<span style="color: #AE81FF;">()</span>.mean<span style="color: #AE81FF;">()</span>
+<span style="color: #F92672;">if</span> dt_diff &lt; pd.Timedelta<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'3 days'</span><span style="color: #AE81FF;">)</span>:
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>resample by month and keep the last valid row</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">benchmark_weight.index.name</span> = <span style="color: #E6DB74;">'Date'</span>
+<span style="color: #FD971F;">m</span> = benchmark_weight.index.to_period<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'m'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">benchmark_weight</span> = benchmark_weight.reset_index<span style="color: #AE81FF;">()</span>.groupby<span style="color: #AE81FF;">(</span>m<span style="color: #AE81FF;">)</span>.last<span style="color: #AE81FF;">()</span>.set_index<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Date'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">benchmark_weight.index.name</span> = <span style="color: #E6DB74;">''</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37">multiplying</h4>
+<div class="outline-text-4" id="text-orgheadline37">
+<ul class="org-ul">
+<li>the multiplying calculation is not about the sequence of the index or column.</li>
+</ul>
+
+<p>
+pandas will calculate on a sorted index and column value.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">87</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">a</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'dog'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'fox'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">4</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span>,index=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span>,<span style="color: #E6DB74;">'b'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">88</span><span style="color: #AE81FF;">]</span>: a
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">88</span><span style="color: #AE81FF;">]</span>:
+   dog  fox
+a    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">3</span>
+b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">89</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">b</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'fox'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'dog'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">4</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span>,index=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'b'</span>,<span style="color: #E6DB74;">'a'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">94</span><span style="color: #AE81FF;">]</span>: b
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">94</span><span style="color: #AE81FF;">]</span>:
+   dog  fox
+b    <span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">1</span>
+a    <span style="color: #AE81FF;">4</span>    <span style="color: #AE81FF;">2</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">95</span><span style="color: #AE81FF;">]</span>: a*b
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">95</span><span style="color: #AE81FF;">]</span>:
+   dog  fox
+a    <span style="color: #AE81FF;">4</span>    <span style="color: #AE81FF;">6</span>
+b    <span style="color: #AE81FF;">6</span>    <span style="color: #AE81FF;">4</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>dot multiplying</li>
+</ul>
+<p>
+dot multiplying will sort the value.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">99</span><span style="color: #AE81FF;">]</span>: a.dot<span style="color: #AE81FF;">(</span>b.T<span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">99</span><span style="color: #AE81FF;">]</span>:
+    b   a
+a   <span style="color: #AE81FF;">6</span>  <span style="color: #AE81FF;">10</span>
+b  <span style="color: #AE81FF;">10</span>  <span style="color: #AE81FF;">16</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">100</span><span style="color: #AE81FF;">]</span>: b.T
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">104</span><span style="color: #AE81FF;">]</span>:
+     b  a
+dog  <span style="color: #AE81FF;">3</span>  <span style="color: #AE81FF;">4</span>
+fox  <span style="color: #AE81FF;">1</span>  <span style="color: #AE81FF;">2</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">105</span><span style="color: #AE81FF;">]</span>: a
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">105</span><span style="color: #AE81FF;">]</span>:
+   dog  fox
+a    <span style="color: #AE81FF;">1</span>    <span style="color: #AE81FF;">3</span>
+b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>product of a dataframe and a series.</li>
+</ul>
+<p>
+As long as the columns of the dataframe is equal to the index of the series, the result will come as every row of the dataframe multiplies the series value.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">113</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">df</span>=pd.DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'a'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'b'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span>,index=pd.date_range<span style="color: #66D9EF;">(</span>start=<span style="color: #E6DB74;">'2010-01-01'</span>,periods=<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">134</span><span style="color: #AE81FF;">]</span>: df
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">134</span><span style="color: #AE81FF;">]</span>:
+            a  b
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>  <span style="color: #AE81FF;">1</span>  <span style="color: #AE81FF;">1</span>
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">02</span>  <span style="color: #AE81FF;">2</span>  <span style="color: #AE81FF;">2</span>
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">03</span>  <span style="color: #AE81FF;">3</span>  <span style="color: #AE81FF;">3</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">135</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">mul</span>=pd.Series<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">]</span>,index=<span style="color: #F92672;">list</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'ab'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">158</span><span style="color: #AE81FF;">]</span>: mul
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">158</span><span style="color: #AE81FF;">]</span>:
+a    <span style="color: #AE81FF;">2</span>
+b    <span style="color: #AE81FF;">3</span>
+dtype: int64
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">159</span><span style="color: #AE81FF;">]</span>: df*mul
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">160</span><span style="color: #AE81FF;">]</span>:
+            a  b
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">01</span>  <span style="color: #AE81FF;">2</span>  <span style="color: #AE81FF;">3</span>
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">02</span>  <span style="color: #AE81FF;">4</span>  <span style="color: #AE81FF;">6</span>
+<span style="color: #AE81FF;">2010</span>-<span style="color: #AE81FF;">01</span>-<span style="color: #AE81FF;">03</span>  <span style="color: #AE81FF;">6</span>  <span style="color: #AE81FF;">9</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline38" class="outline-4">
+<h4 id="orgheadline38">Index</h4>
+<div class="outline-text-4" id="text-orgheadline38">
+</div><div id="outline-container-orgheadline108" class="outline-5">
+<h5 id="orgheadline108">Index manuplication</h5>
+<div class="outline-text-5" id="text-orgheadline108">
+<ul class="org-ul">
+<li>set column as datetime index</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">df</span> = df.set_index<span style="color: #AE81FF;">(</span>pd.DatetimeIndex<span style="color: #66D9EF;">(</span>df<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'Date'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>concaterate:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pd.concat<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>df1, df2<span style="color: #66D9EF;">]</span>, axis=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>.sort_index<span style="color: #AE81FF;">()</span>
+pd.concat<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>df1, df2<span style="color: #66D9EF;">]</span>, axis=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">result</span> = df1.join<span style="color: #AE81FF;">(</span>df2, how=<span style="color: #E6DB74;">'outer&#8217;)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check if the index is datetimeindex:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">if</span> <span style="color: #F92672;">isinstance</span><span style="color: #AE81FF;">(</span>df_otv.index, pd.DatetimeIndex<span style="color: #AE81FF;">)</span>:
+    df_otv.reset_index<span style="color: #AE81FF;">(</span>inplace=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>pandas are two dataframe identical</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pandas.DataFrame.equals<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>change index name:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">df.index.names</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'Date'</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>for loop in pandas dataframe:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> index, value <span style="color: #F92672;">in</span> DataFrame:
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>compare two time series:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">s1<span style="color: #AE81FF;">[</span>s1.isin<span style="color: #66D9EF;">(</span>s2<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">ax</span> = df1.plot<span style="color: #AE81FF;">()</span>
+df2.plot<span style="color: #AE81FF;">(</span>ax=ax<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>datetime to string:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.index.strftime<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%Y-%m-%d %H:%M:%S"</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>concaterate index</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">pd.concat<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>df1, df2<span style="color: #66D9EF;">]</span>, axis=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+concate will take two dataframe to a new dataframe by index, preserving the columns.
+A:
+index variable value
+B:
+index variable value
+</p>
+
+<p>
+pd.concat([A, B])
+index variable value variable value
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline109" class="outline-5">
+<h5 id="orgheadline109">merge</h5>
+<div class="outline-text-5" id="text-orgheadline109">
+<p>
+merge will take two dataframe to a new dataframe by index, on the columns.
+A:
+index variable value
+B:
+index variable value
+</p>
+
+<p>
+pd.merge(A, B, how='left', on=['index', 'variable'])
+index variable value value
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline110" class="outline-5">
+<h5 id="orgheadline110">update</h5>
+<div class="outline-text-5" id="text-orgheadline110">
+<p>
+update dataframe1 with dataframe2
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline111" class="outline-5">
+<h5 id="orgheadline111">access hierarchical index.</h5>
+<div class="outline-text-5" id="text-orgheadline111">
+<ul class="org-ul">
+<li>A MultiIndex can be created from a list of arrays (using MultiIndex.from<sub>arrays</sub>), an array of tuples (using MultiIndex.from<sub>tuples</sub>), or a crossed set of iterables (using MultiIndex.from<sub>product</sub>).</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.loc<span style="color: #AE81FF;">[</span>&#8216;date&#8217;,&#8217;col&#8217;<span style="color: #AE81FF;">]</span>, df<span style="color: #AE81FF;">[</span>&#8216;date&#8217;<span style="color: #AE81FF;">]</span>, df.ix<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span>&#8216;date1&#8217;, &#8216;date2&#8217;<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>slicing:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.loc<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'start'</span>:<span style="color: #E6DB74;">'end'</span>,<span style="color: #AE81FF;">]</span>, df<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'start'</span>: <span style="color: #E6DB74;">'end'</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>slice with a ‘range’ of values, by providing a slice of tuples:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.loc<span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'2006-11-02'</span>,<span style="color: #E6DB74;">'USO.US'</span><span style="color: #66D9EF;">)</span>:<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'2006-11-06'</span>,<span style="color: #E6DB74;">'USO.US'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)[</span>:,<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'SPY.US'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select certain columns:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)[</span>:,<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'SPY.US'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">][</span><span style="color: #E6DB74;">'updatedTime'</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select rows with certain column value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.loc<span style="color: #AE81FF;">[</span>df<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'column_name'</span><span style="color: #66D9EF;">]</span>.isin<span style="color: #66D9EF;">(</span>some_values<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>select date range using pd series.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">date_not_inserted</span> = whole_index<span style="color: #AE81FF;">[</span>~whole_index.isin<span style="color: #66D9EF;">(</span>date_in_database<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'date'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">df_need_to_be_updated</span> = whole_df_stack.ix<span style="color: #AE81FF;">[</span>days_not_in_db<span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline115" class="outline-5">
+<h5 id="orgheadline115">remove pandas duplicated index</h5>
+<div class="outline-text-5" id="text-orgheadline115">
+</div><ul class="org-ul"><li><a id="orgheadline112"></a>#1<br ><div class="outline-text-6" id="text-orgheadline112">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">grouped</span> = sym.groupby<span style="color: #AE81FF;">(</span>level=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">sym</span> = grouped.last<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline113"></a>#2<br ><div class="outline-text-6" id="text-orgheadline113">
+<div class="org-src-container">
+
+<pre class="src src-python">df2<span style="color: #AE81FF;">[</span>~df2.index.duplicated<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline114"></a>remove duplicated rows<br ><div class="outline-text-6" id="text-orgheadline114">
+<div class="org-src-container">
+
+<pre class="src src-python">pandas.DataFrame.drop_duplicates<span style="color: #AE81FF;">(</span>subset=<span style="color: #AE81FF;">None</span>, keep=<span style="color: #E6DB74;">'first'</span>, inplace=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">subset : column label or sequence of labels, optional</span>
+</pre>
+</div>
+</div></li></ul>
+</div>
+<div id="outline-container-orgheadline116" class="outline-5">
+<h5 id="orgheadline116">convert a dataframe to an array:</h5>
+<div class="outline-text-5" id="text-orgheadline116">
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">pd.dataframe.to_matrix<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline117" class="outline-5">
+<h5 id="orgheadline117">panel:</h5>
+<div class="outline-text-5" id="text-orgheadline117">
+<ul class="org-ul">
+<li>create from dictionary:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">datetime_index</span> = pd.DatetimeIndex<span style="color: #AE81FF;">(</span>assets_group<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'date'</span><span style="color: #66D9EF;">]</span>.unique<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">panel_model</span> = pd.Panel<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span>date: pd.DataFrame<span style="color: #A6E22E;">(</span><span style="color: #AE81FF;">0</span>, index=assets.loc<span style="color: #E6DB74;">[</span>date,<span style="color: #E6DB74;">'variable'</span><span style="color: #E6DB74;">]</span>,
+                                           columns=assets.loc<span style="color: #E6DB74;">[</span>date,<span style="color: #E6DB74;">'variable'</span><span style="color: #E6DB74;">]</span><span style="color: #A6E22E;">)</span> <span style="color: #F92672;">for</span> date <span style="color: #F92672;">in</span> datetime_index<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+pandas panel item axis should be datetime64, this should not be an array.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39">numpy</h3>
+<div class="outline-text-3" id="text-orgheadline39">
+<ul class="org-ul">
+<li>count nan:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">np.count_nonzero<span style="color: #AE81FF;">(</span>~np.isnan<span style="color: #66D9EF;">(</span>df<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'series'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>count number of negative value:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">np.<span style="color: #F92672;">sum</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span>df &lt; <span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span>.values.ravel<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>check the difference of two arrays:</li>
+</ul>
+<p>
+numpy.setdiff1d:
+Return the sorted, unique values in ar1 that are not in ar2
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">np.setdiff1d<span style="color: #AE81FF;">(</span>ar1, ar2<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>reshape:</li>
+</ul>
+<p>
+np.reshape((1, -1)), -1 means automatic number of columns.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40">plot:</h3>
+<div class="outline-text-3" id="text-orgheadline40">
+</div><div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41">subplot with the same axis:</h4>
+<div class="outline-text-4" id="text-orgheadline41">
+<p>
+pandas plot.
+using matplotlib:
+</p>
+<ul class="org-ul">
+<li>plot different series on the same chart.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">cl_active_contract_pricing.plot<span style="color: #AE81FF;">()</span>
+cl_pricing.plot<span style="color: #AE81FF;">(</span>style=<span style="color: #E6DB74;">'k--'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>plot in ipython or jupyter notebook:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">ax</span> = contract_data.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+continuous_price.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span>, style=<span style="color: #E6DB74;">'k--'</span>, ax=ax<span style="color: #AE81FF;">)</span>
+plt.show<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>multiple subplots</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> matplotlib.pyplot <span style="color: #F92672;">as</span> plt
+<span style="color: #FD971F;">fig</span> = plt.figure<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">ax1</span> = fig.add_subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ax2</span> = fig.add_subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ax3</span> = fig.add_subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">fig</span>, <span style="color: #FD971F;">axes</span> = plt.subplots<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>
+fig, ax : <span style="color: #F92672;">tuple</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42">subplot with different axis</h4>
+<div class="outline-text-4" id="text-orgheadline42">
+<div class="org-src-container">
+
+<pre class="src src-python">plt.subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+plt.boxplot<span style="color: #AE81FF;">(</span>x1<span style="color: #AE81FF;">)</span>
+plt.plot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span>, x1.ix<span style="color: #66D9EF;">[</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, <span style="color: #E6DB74;">'r*'</span>, markersize=<span style="color: #AE81FF;">15</span>.<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+
+plt.subplot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+x1.plot<span style="color: #AE81FF;">()</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #FD971F;">fig</span>, <span style="color: #FD971F;">axes</span> = plt.subplots<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, figsize=<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">14</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+axes<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>.boxplot<span style="color: #AE81FF;">(</span>pe000001<span style="color: #AE81FF;">)</span>
+axes<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>.plot<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span>, pe000001.ix<span style="color: #66D9EF;">[</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, <span style="color: #E6DB74;">'r*'</span>, markersize=<span style="color: #AE81FF;">15</span>.<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+
+pe000001.plot<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43">plot a secondary y scale</h4>
+<div class="outline-text-4" id="text-orgheadline43">
+<div class="org-src-container">
+
+<pre class="src src-python">df.price.plot<span style="color: #AE81FF;">(</span>legend=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">100</span>-df.pct_long<span style="color: #AE81FF;">)</span>.plot<span style="color: #AE81FF;">(</span>secondary_y=<span style="color: #AE81FF;">True</span>, style=<span style="color: #E6DB74;">'g'</span>, legend=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>highlight a certain value in the plot:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">a<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'DGAZ.US'</span><span style="color: #AE81FF;">]</span>.hist<span style="color: #AE81FF;">(</span>bins=<span style="color: #AE81FF;">50</span><span style="color: #AE81FF;">)</span>
+plt.axvline<span style="color: #AE81FF;">(</span>a<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'DGAZ.US'</span><span style="color: #66D9EF;">][</span>-<span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">]</span>, color=<span style="color: #E6DB74;">'b'</span>, linestyle=<span style="color: #E6DB74;">'dashed'</span>, linewidth=<span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44">plot a 3d figure:</h4>
+<div class="outline-text-4" id="text-orgheadline44">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> mpl_toolkits.mplot3d <span style="color: #F92672;">import</span> Axes3D
+<span style="color: #F92672;">import</span> matplotlib.pyplot <span style="color: #F92672;">as</span> plt
+
+<span style="color: #FD971F;">strike</span> = np.linspace<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">50</span>, <span style="color: #AE81FF;">150</span>, <span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ttm</span> = np.linspace<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>, <span style="color: #AE81FF;">2</span>.<span style="color: #AE81FF;">5</span>, <span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">strike</span>, <span style="color: #FD971F;">ttm</span> = np.meshgrid<span style="color: #AE81FF;">(</span>strike, ttm<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">iv</span> = <span style="color: #AE81FF;">(</span>strike - <span style="color: #AE81FF;">100</span><span style="color: #AE81FF;">)</span> ** <span style="color: #AE81FF;">2</span> / <span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">100</span> * strike<span style="color: #AE81FF;">)</span> / ttm
+<span style="color: #FD971F;">fig</span> = plt.figure<span style="color: #AE81FF;">(</span>figsize=<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">9</span>,<span style="color: #AE81FF;">6</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">ax</span> = fig.gca<span style="color: #AE81FF;">(</span>projection=<span style="color: #E6DB74;">'3d'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">surf</span> = ax.plot_surface<span style="color: #AE81FF;">(</span>strike, ttm, iv, rstride=<span style="color: #AE81FF;">2</span>, cstride=<span style="color: #AE81FF;">2</span>,
+                       cmap=plt.cm.coolwarm, linewidth=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>,
+                       antialiased=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+fig.colorbar<span style="color: #AE81FF;">(</span>surf, shrink=<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>, aspect=<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+fig is the :class:matplotlib.figure.Figure object.
+</p>
+
+<ul class="org-ul">
+<li>ax can be either a single axis object or an array of axis</li>
+<li>objects if more than one subplot was created.</li>
+</ul>
+
+<p>
+[<a href="http://docs.pythontab.com/interpy/args_kwargs/Usage_args/">http://docs.pythontab.com/interpy/args_kwargs/Usage_args/</a>]
+</p>
+
+<p>
+[<a href="http://python.usyiyi.cn/python_278/library/index.html">http://python.usyiyi.cn/python_278/library/index.html</a>]
+</p>
+
+<p>
+[<a href="https://docs.python.org/2/reference/simple_stmts.html?highlight=assert">https://docs.python.org/2/reference/simple_stmts.html?highlight=assert</a>]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45">scipy</h3>
+<div class="outline-text-3" id="text-orgheadline45">
+<ul class="org-ul">
+<li>combination k from n.</li>
+</ul>
+<p>
+\[
+{\displaystyle {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}},} {\binom {n}{k}}={\frac {n(n-1)\dotsb (n-k+1)}{k(k-1)\dotsb 1}}\]
+</p>
+
+<p>
+which can be written using factorials as\[ {\displaystyle \textstyle {\frac {n!}{k!(n-k)!}}} \textstyle {\frac {n!}{k!(n-k)!}} \]
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">from</span> scipy.special <span style="color: #F92672;">import</span> comb
+&gt;&gt;&gt; <span style="color: #FD971F;">k</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">n</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">10</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span>n, k, exact=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span> <span style="color: #AE81FF;">120</span>.,  <span style="color: #AE81FF;">210</span>.<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">3</span>, exact=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">120L</span>
+&gt;&gt;&gt; comb<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">3</span>, exact=<span style="color: #AE81FF;">True</span>, repetition=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">220L</span>
+</pre>
+</div>
+<p>
+[<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html</a>]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline46" class="outline-2">
+<h2 id="orgheadline46">Instruction on how to use emacs org mode to orginize calendar.</h2>
+<div class="outline-text-2" id="text-orgheadline46">
 <ul class="org-ul">
 <li>insert current date</li>
 </ul>
@@ -308,9 +2412,9 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2">Workflow</h2>
-<div class="outline-text-2" id="text-orgheadline2">
+<div id="outline-container-orgheadline47" class="outline-2">
+<h2 id="orgheadline47">Workflow</h2>
+<div class="outline-text-2" id="text-orgheadline47">
 <ol class="org-ol">
 <li>search.</li>
 <li>read pdf/code, take notes.</li>
@@ -326,12 +2430,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3">Social Science Paper Structure</h2>
-<div class="outline-text-2" id="text-orgheadline3">
-</div><div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4">Introduction</h3>
-<div class="outline-text-3" id="text-orgheadline4">
+<div id="outline-container-orgheadline48" class="outline-2">
+<h2 id="orgheadline48">Social Science Paper Structure</h2>
+<div class="outline-text-2" id="text-orgheadline48">
+</div><div id="outline-container-orgheadline49" class="outline-3">
+<h3 id="orgheadline49">Introduction</h3>
+<div class="outline-text-3" id="text-orgheadline49">
 <p>
 State the contribution.
 </p>
@@ -355,9 +2459,9 @@ Overall view of the paper. A quick summary of the form that the parts of the res
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5">Literature Review</h3>
-<div class="outline-text-3" id="text-orgheadline5">
+<div id="outline-container-orgheadline50" class="outline-3">
+<h3 id="orgheadline50">Literature Review</h3>
+<div class="outline-text-3" id="text-orgheadline50">
 <ul class="org-ul">
 <li>Previous research</li>
 <li>Contribution in more detail</li>
@@ -391,25 +2495,25 @@ A specific question problem, or conjecture, and to describe the approach you wil
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6">Results</h3>
-<div class="outline-text-3" id="text-orgheadline6">
+<div id="outline-container-orgheadline51" class="outline-3">
+<h3 id="orgheadline51">Results</h3>
+<div class="outline-text-3" id="text-orgheadline51">
 <p>
 Numerical results and data, tables or graphs of data.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7">Discussion</h3>
-<div class="outline-text-3" id="text-orgheadline7">
+<div id="outline-container-orgheadline52" class="outline-3">
+<h3 id="orgheadline52">Discussion</h3>
+<div class="outline-text-3" id="text-orgheadline52">
 <p>
 Elaborate on your findings, and explain what you found, adding your own personal interpretations.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8">Conclusion</h3>
-<div class="outline-text-3" id="text-orgheadline8">
+<div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53">Conclusion</h3>
+<div class="outline-text-3" id="text-orgheadline53">
 <p>
 Emphasizes the importance of the results in the field, and ties it in with the previous research.
 </p>
@@ -418,9 +2522,9 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 </div>
 
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9">GID table</h2>
-<div class="outline-text-2" id="text-orgheadline9">
+<div id="outline-container-orgheadline54" class="outline-2">
+<h2 id="orgheadline54">GID table</h2>
+<div class="outline-text-2" id="text-orgheadline54">
 <table>
 
 
@@ -652,9 +2756,9 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10">other projects</h2>
-<div class="outline-text-2" id="text-orgheadline10">
+<div id="outline-container-orgheadline55" class="outline-2">
+<h2 id="orgheadline55">other projects</h2>
+<div class="outline-text-2" id="text-orgheadline55">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> 搭建基金策略</li>
 <li class="on"><code>[X]</code> 对基金策略进行组合优化</li>
@@ -676,12 +2780,12 @@ ICA
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11">Personal stuff</h2>
-<div class="outline-text-2" id="text-orgheadline11">
-</div><div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12">knowledge database website</h3>
-<div class="outline-text-3" id="text-orgheadline12">
+<div id="outline-container-orgheadline56" class="outline-2">
+<h2 id="orgheadline56">Personal stuff</h2>
+<div class="outline-text-2" id="text-orgheadline56">
+</div><div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57">knowledge database website</h3>
+<div class="outline-text-3" id="text-orgheadline57">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> modify python content aligned with python library index.</li>
 </ul>
@@ -695,15 +2799,15 @@ ICA
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13">Errand</h2>
+<div id="outline-container-orgheadline58" class="outline-2">
+<h2 id="orgheadline58">Errand</h2>
 </div>
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14">NaturalLanguageProcessing</h2>
-<div class="outline-text-2" id="text-orgheadline14">
-</div><div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="todo TODO">TODO</span> Building the Wikipedia Knowledge Graph in Neo4j</h3>
-<div class="outline-text-3" id="text-orgheadline15">
+<div id="outline-container-orgheadline59" class="outline-2">
+<h2 id="orgheadline59">NaturalLanguageProcessing</h2>
+<div class="outline-text-2" id="text-orgheadline59">
+</div><div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="todo TODO">TODO</span> Building the Wikipedia Knowledge Graph in Neo4j</h3>
+<div class="outline-text-3" id="text-orgheadline60">
 <p>
 <a href="file:///home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.html">NLP</a>
 </p>
@@ -711,9 +2815,9 @@ ICA
 <li class="on"><code>[X]</code> pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.</li>
 </ul>
 </div>
-<div id="outline-container-orgheadline16" class="outline-4">
-<h4 id="orgheadline16">Data dumps/Import</h4>
-<div class="outline-text-4" id="text-orgheadline16">
+<div id="outline-container-orgheadline61" class="outline-4">
+<h4 id="orgheadline61">Data dumps/Import</h4>
+<div class="outline-text-4" id="text-orgheadline61">
 <ul class="org-ul">
 <li>methods</li>
 </ul>
@@ -761,9 +2865,9 @@ ICA
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17">Setup</h3>
-<div class="outline-text-3" id="text-orgheadline17">
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62">Setup</h3>
+<div class="outline-text-3" id="text-orgheadline62">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> 配置好GOOGLE GCLOUD PLATORM的代理</li>
 <li class="off"><code>[&#xa0;]</code> 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。</li>
@@ -772,9 +2876,9 @@ ICA
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18">configuration:</h3>
-<div class="outline-text-3" id="text-orgheadline18">
+<div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63">configuration:</h3>
+<div class="outline-text-3" id="text-orgheadline63">
 <ul class="org-ul">
 <li>reports-174211</li>
 <li>proxy:</li>
@@ -861,9 +2965,9 @@ sudo `which pip` install &#x2013;upgrade google-cloud-language
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19">SDK</h3>
-<div class="outline-text-3" id="text-orgheadline19">
+<div id="outline-container-orgheadline64" class="outline-3">
+<h3 id="orgheadline64">SDK</h3>
+<div class="outline-text-3" id="text-orgheadline64">
 <ul class="org-ul">
 <li>GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。</li>
 <li><a href="https://cloud.google.com/sdk/docs/quickstart-linux">https://cloud.google.com/sdk/docs/quickstart-linux</a></li>
@@ -931,9 +3035,9 @@ Your active configuration is: <span style="color: #AE81FF;">[</span>nlp1<span st
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20">read the book 《自然语言处理综论》</h3>
-<div class="outline-text-3" id="text-orgheadline20">
+<div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65">read the book 《自然语言处理综论》</h3>
+<div class="outline-text-3" id="text-orgheadline65">
 <p>
 not easy to understand this book.
 </p>
@@ -984,9 +3088,9 @@ Word2Vec
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21">如何在NLP领域快速学会第一个技能？</h3>
-<div class="outline-text-3" id="text-orgheadline21">
+<div id="outline-container-orgheadline66" class="outline-3">
+<h3 id="orgheadline66">如何在NLP领域快速学会第一个技能？</h3>
+<div class="outline-text-3" id="text-orgheadline66">
 <ul class="org-ul">
 <li>找到一个开源项目，比如机器翻译或者深度学习的项目。</li>
 <li>理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。</li>
@@ -1237,9 +3341,9 @@ Word2Vec
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22">Machine Learning</h2>
-<div class="outline-text-2" id="text-orgheadline22">
+<div id="outline-container-orgheadline67" class="outline-2">
+<h2 id="orgheadline67">Machine Learning</h2>
+<div class="outline-text-2" id="text-orgheadline67">
 <p>
 Principle: research and project oriented, adjusting speed based on progress.
 </p>
@@ -1248,61 +3352,61 @@ Principle: research and project oriented, adjusting speed based on progress.
 Spend at most 1 week to learn all those, then pick one to go deeper.
 </p>
 </div>
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23">Week 1/2</h3>
-<div class="outline-text-3" id="text-orgheadline23">
-</div><div id="outline-container-orgheadline24" class="outline-4">
-<h4 id="orgheadline24">Logistic Regression</h4>
+<div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68">Week 1/2</h3>
+<div class="outline-text-3" id="text-orgheadline68">
+</div><div id="outline-container-orgheadline69" class="outline-4">
+<h4 id="orgheadline69">Logistic Regression</h4>
 </div>
-<div id="outline-container-orgheadline25" class="outline-4">
-<h4 id="orgheadline25">Regularization</h4>
+<div id="outline-container-orgheadline70" class="outline-4">
+<h4 id="orgheadline70">Regularization</h4>
 </div>
-<div id="outline-container-orgheadline26" class="outline-4">
-<h4 id="orgheadline26">Classification</h4>
-<div class="outline-text-4" id="text-orgheadline26">
-</div><div id="outline-container-orgheadline55" class="outline-5">
-<h5 id="orgheadline55">Linear Discriminant Analysis</h5>
+<div id="outline-container-orgheadline71" class="outline-4">
+<h4 id="orgheadline71">Classification</h4>
+<div class="outline-text-4" id="text-orgheadline71">
+</div><div id="outline-container-orgheadline118" class="outline-5">
+<h5 id="orgheadline118">Linear Discriminant Analysis</h5>
 </div>
 
-<div id="outline-container-orgheadline56" class="outline-5">
-<h5 id="orgheadline56">Comparison</h5>
+<div id="outline-container-orgheadline119" class="outline-5">
+<h5 id="orgheadline119">Comparison</h5>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-4">
-<h4 id="orgheadline27">Decision tree and random forest</h4>
+<div id="outline-container-orgheadline72" class="outline-4">
+<h4 id="orgheadline72">Decision tree and random forest</h4>
 </div>
-<div id="outline-container-orgheadline28" class="outline-4">
-<h4 id="orgheadline28">Boosting</h4>
+<div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73">Boosting</h4>
 </div>
-<div id="outline-container-orgheadline29" class="outline-4">
-<h4 id="orgheadline29">XGBoost</h4>
+<div id="outline-container-orgheadline74" class="outline-4">
+<h4 id="orgheadline74">XGBoost</h4>
 </div>
-<div id="outline-container-orgheadline30" class="outline-4">
-<h4 id="orgheadline30">SVM</h4>
+<div id="outline-container-orgheadline75" class="outline-4">
+<h4 id="orgheadline75">SVM</h4>
 </div>
-<div id="outline-container-orgheadline31" class="outline-4">
-<h4 id="orgheadline31">Clustering</h4>
+<div id="outline-container-orgheadline76" class="outline-4">
+<h4 id="orgheadline76">Clustering</h4>
 </div>
-<div id="outline-container-orgheadline32" class="outline-4">
-<h4 id="orgheadline32">Bayesian Network</h4>
+<div id="outline-container-orgheadline77" class="outline-4">
+<h4 id="orgheadline77">Bayesian Network</h4>
 </div>
-<div id="outline-container-orgheadline33" class="outline-4">
-<h4 id="orgheadline33">LDA</h4>
+<div id="outline-container-orgheadline78" class="outline-4">
+<h4 id="orgheadline78">LDA</h4>
 </div>
-<div id="outline-container-orgheadline34" class="outline-4">
-<h4 id="orgheadline34">HMM</h4>
+<div id="outline-container-orgheadline79" class="outline-4">
+<h4 id="orgheadline79">HMM</h4>
 </div>
-<div id="outline-container-orgheadline35" class="outline-4">
-<h4 id="orgheadline35">Neural Network</h4>
+<div id="outline-container-orgheadline80" class="outline-4">
+<h4 id="orgheadline80">Neural Network</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline36" class="outline-2">
-<h2 id="orgheadline36">Deep Learning</h2>
-<div class="outline-text-2" id="text-orgheadline36">
-</div><div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37">other</h3>
-<div class="outline-text-3" id="text-orgheadline37">
+<div id="outline-container-orgheadline81" class="outline-2">
+<h2 id="orgheadline81">Deep Learning</h2>
+<div class="outline-text-2" id="text-orgheadline81">
+</div><div id="outline-container-orgheadline82" class="outline-3">
+<h3 id="orgheadline82">other</h3>
+<div class="outline-text-3" id="text-orgheadline82">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> stuff from Zhupengjia, Liguofu</li>
 <li class="off"><code>[&#xa0;]</code> Yoshua paper deep learning.</li>
@@ -1313,26 +3417,26 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38">Machine Learning Basics</h3>
+<div id="outline-container-orgheadline83" class="outline-3">
+<h3 id="orgheadline83">Machine Learning Basics</h3>
 </div>
-<div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39">Week 1/2</h3>
-<div class="outline-text-3" id="text-orgheadline39">
-</div><div id="outline-container-orgheadline40" class="outline-4">
-<h4 id="orgheadline40">Gradient algorithm</h4>
+<div id="outline-container-orgheadline84" class="outline-3">
+<h3 id="orgheadline84">Week 1/2</h3>
+<div class="outline-text-3" id="text-orgheadline84">
+</div><div id="outline-container-orgheadline85" class="outline-4">
+<h4 id="orgheadline85">Gradient algorithm</h4>
 </div>
-<div id="outline-container-orgheadline41" class="outline-4">
-<h4 id="orgheadline41">CNN</h4>
+<div id="outline-container-orgheadline86" class="outline-4">
+<h4 id="orgheadline86">CNN</h4>
 </div>
-<div id="outline-container-orgheadline42" class="outline-4">
-<h4 id="orgheadline42">RNN</h4>
+<div id="outline-container-orgheadline87" class="outline-4">
+<h4 id="orgheadline87">RNN</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline43" class="outline-2">
-<h2 id="orgheadline43">Risk model</h2>
-<div class="outline-text-2" id="text-orgheadline43">
+<div id="outline-container-orgheadline88" class="outline-2">
+<h2 id="orgheadline88">Risk model</h2>
+<div class="outline-text-2" id="text-orgheadline88">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> calculate factor return and residual(specific risk).
 <ul class="org-ul">
@@ -1348,12 +3452,12 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline44" class="outline-2">
-<h2 id="orgheadline44">GS</h2>
-<div class="outline-text-2" id="text-orgheadline44">
-</div><div id="outline-container-orgheadline45" class="outline-3">
-<h3 id="orgheadline45">Research workflow</h3>
-<div class="outline-text-3" id="text-orgheadline45">
+<div id="outline-container-orgheadline89" class="outline-2">
+<h2 id="orgheadline89">GS</h2>
+<div class="outline-text-2" id="text-orgheadline89">
+</div><div id="outline-container-orgheadline90" class="outline-3">
+<h3 id="orgheadline90">Research workflow</h3>
+<div class="outline-text-3" id="text-orgheadline90">
 <ol class="org-ol">
 <li class="on"><code>[X]</code> Search SSRN and find topics</li>
 <li class="on"><code>[X]</code> Highlight those topics to create topics idea</li>
@@ -1386,9 +3490,9 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 </div>
 </div>
 
-<div id="outline-container-orgheadline46" class="outline-3">
-<h3 id="orgheadline46">organize OSet structure</h3>
-<div class="outline-text-3" id="text-orgheadline46">
+<div id="outline-container-orgheadline91" class="outline-3">
+<h3 id="orgheadline91">organize OSet structure</h3>
+<div class="outline-text-3" id="text-orgheadline91">
 <p>
 <a href="https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit">https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit</a>
 </p>
@@ -1415,17 +3519,17 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline47" class="outline-3">
-<h3 id="orgheadline47">follow GS workflow</h3>
+<div id="outline-container-orgheadline92" class="outline-3">
+<h3 id="orgheadline92">follow GS workflow</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline48" class="outline-2">
-<h2 id="orgheadline48"><span class="todo TODO">TODO</span> optimization</h2>
-<div class="outline-text-2" id="text-orgheadline48">
-</div><div id="outline-container-orgheadline49" class="outline-3">
-<h3 id="orgheadline49">black-litterman model</h3>
-<div class="outline-text-3" id="text-orgheadline49">
+<div id="outline-container-orgheadline93" class="outline-2">
+<h2 id="orgheadline93"><span class="todo TODO">TODO</span> optimization</h2>
+<div class="outline-text-2" id="text-orgheadline93">
+</div><div id="outline-container-orgheadline94" class="outline-3">
+<h3 id="orgheadline94">black-litterman model</h3>
+<div class="outline-text-3" id="text-orgheadline94">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> calculate unconstrainted optimized weight.</li>
 </ul>
@@ -1470,9 +3574,9 @@ view details.
 <li class="on"><code>[X]</code> write pseudo code, set input parameters.</li>
 </ul>
 </div>
-<div id="outline-container-orgheadline50" class="outline-4">
-<h4 id="orgheadline50">why most of the cases are on assets classes optimization, not on individual stocks.</h4>
-<div class="outline-text-4" id="text-orgheadline50">
+<div id="outline-container-orgheadline95" class="outline-4">
+<h4 id="orgheadline95">why most of the cases are on assets classes optimization, not on individual stocks.</h4>
+<div class="outline-text-4" id="text-orgheadline95">
 <ol class="org-ol">
 <li>The data points of individual asset are not enough, and are not stable.</li>
 
@@ -1481,9 +3585,9 @@ view details.
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline51" class="outline-3">
-<h3 id="orgheadline51">cvxportfolio</h3>
-<div class="outline-text-3" id="text-orgheadline51">
+<div id="outline-container-orgheadline96" class="outline-3">
+<h3 id="orgheadline96">cvxportfolio</h3>
+<div class="outline-text-3" id="text-orgheadline96">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> 查看cvxportfolio的使用说明。</li>
 <li class="off"><code>[&#xa0;]</code> 在开发的帮助下安装cvxportfolio library，调试。</li>
@@ -1492,9 +3596,9 @@ view details.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline52" class="outline-3">
-<h3 id="orgheadline52">cvxpy</h3>
-<div class="outline-text-3" id="text-orgheadline52">
+<div id="outline-container-orgheadline97" class="outline-3">
+<h3 id="orgheadline97">cvxpy</h3>
+<div class="outline-text-3" id="text-orgheadline97">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> research on soft constraint using cvxpy.</li>
 <li class="off"><code>[&#xa0;]</code> 搭建workflow。</li>
@@ -1502,9 +3606,9 @@ view details.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline53" class="outline-3">
-<h3 id="orgheadline53">record</h3>
-<div class="outline-text-3" id="text-orgheadline53">
+<div id="outline-container-orgheadline98" class="outline-3">
+<h3 id="orgheadline98">record</h3>
+<div class="outline-text-3" id="text-orgheadline98">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-21 Fri&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-18 Mon&gt;</span></span>
 </p>
@@ -1683,9 +3787,9 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline54" class="outline-2">
-<h2 id="orgheadline54"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></h2>
-<div class="outline-text-2" id="text-orgheadline54">
+<div id="outline-container-orgheadline99" class="outline-2">
+<h2 id="orgheadline99"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></h2>
+<div class="outline-text-2" id="text-orgheadline99">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-19 Tue&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-01 Sun&gt;</span></span>
 </p>

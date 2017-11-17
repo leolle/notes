@@ -12,7 +12,6 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../../configOrg/level2.org
 
-
 * Overview
 - Document level:
 The task at this level is to classify whether a whole opinion document expresses a positive or negative sentiment.
