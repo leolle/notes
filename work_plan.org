@@ -10,7 +10,6 @@
 #+LINK: gh    https://github.com/
 #+LINK: rfc   https://tools.ietf.org/html/
 #+LINK: thing https://github.com/thi-ng/
-#+LINK: w3    https://w3.org/TR/
 #+LINK: wiki  https://en.wikipedia.org/wiki/
 
 #+HTML: <div class="outline-2" id="meta">
