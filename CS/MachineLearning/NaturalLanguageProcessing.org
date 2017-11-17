@@ -371,20 +371,22 @@ The actual import[edit]
 Note: maybe using charset 'binary' here would be better!
 
 I imported all of the above files into MySQL, doing the following:
+#+BEGIN_SRC sql
 mysql -u root -p
 mysql>use elwikt
 mysql>SET autocommit=0;
 mysql>SET foreign_key_checks=0;
 mysql>SET unique_checks=0;
 mysql>SET character_set_client = utf8;
-unpacked the tab delimited file
+# unpacked the tab delimited file
 mysql>TRUNCATE TABLE tablenamehere;
 mysql>LOAD DATA INFILE path-to-tab-delim-file-for-table-here FIELDS OPTIONALLY ENCLOSED BY '\'';
 repeated this for all tab delim files
 mysql>exit;
+#+END_SRC
 After the import[edit]
 Since this is a wiktionary, I updated the LocalSettings.php file so that page titles need not start with a capital letter, adding $wgCapitalLinks = false; to the file
-Since this wiki has extra namespaces beyond the standard ones defined by MediaWiki, I added those to LocalSettings.php. You can find such namespaces by looking at the first few lines of the stubs XML file. Lines added: $wgExtraNamespaces[100] = 'Παράρτημα'; and $wgExtraNamespaces[101] = 'Συζήτηση_παραρτήματος';.
+Since this wiki has extra namespaces beyond the standard ones defined by MediaWiki, I added those to LocalSettings.php. You can find such namespaces by looking at the first few lines of the stubs XML file. Lines added: $wgExtraNamespaces = 'Παράρτημα'; and $wgExtraNamespaces = 'Συζήτηση_παραρτήματος';.
 The namespace for the project and for project discussion are typically special localized names. I added those to LocalSettings.php, finding the names in the stub XML file at the beginning: $wgMetaNamespace = 'Βικιλεξικό'; and $wgMetaNamespaceTalk = 'Συζήτηση_βικιλεξικού';
 I installed tidy and added the following lines to LocalSettings.php to reflect that: $wgUseTidy = true; and $wgTidyBin = '/usr/bin/tidy';. No configuration file was necessary; one is provided as part of MediaWiki and used by default.
 I set up the interwiki cache cdb file, by using fixup-interwikis.py via the command python fixup-interwikis.py --localsettings /var/www/html/elwikt/LocalSettings.php --sitetype wiktionary and then added $wgInterwikiCache = "$IP/cache/interwiki.cdb" to the LocalSettings.php file. (See mw:Interwiki_cache/Setup_for_your_own_wiki for info.)

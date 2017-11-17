@@ -945,6 +945,22 @@ print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- quantile
+DataFrame.quantile(q=0.5, axis=0, numeric_only=True, interpolation='linear')[source]
+Return values at the given quantile over requested axis, a la numpy.percentile.
+#+BEGIN_SRC python
+>>> df = DataFrame(np.array([[1, 1], [2, 10], [3, 100], [4, 100]]),
+                   columns=['a', 'b'])
+>>> df.quantile(.1)
+a    1.3
+b    3.7
+dtype: float64
+>>> df.quantile([.1, .5])
+       a     b
+0.1  1.3   3.7
+0.5  2.5  55.0
+#+END_SRC
+
 - generate a dataframe:
 #+begin_src python
 dates = pd.date_range('1/1/2000', periods=8)

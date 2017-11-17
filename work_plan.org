@@ -1,6 +1,36 @@
-#+SETUPFILE: ../configOrg/level1.org
+# #+SETUPFILE: ../configOrg/level1.org
 #+OPTIONS: <:active
 #+ICALENDAR_EXCLUDE_TAGS:
+#+TITLEs: Document title
+#+LANGUAGE: en
+#+OPTIONS: toc:nil h:4 html-postamble:nil html-preamble:t tex:t f:t
+#+OPTIONS: prop:("VERSION")
+#+HTML_DOCTYPE: <!DOCTYPE html>
+#+HTML_HEAD: <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./styles/demo/css/style.css"/>
+
+#+LINK: gh    https://github.com/
+#+LINK: rfc   https://tools.ietf.org/html/
+#+LINK: thing https://github.com/thi-ng/
+#+LINK: w3    https://w3.org/TR/
+#+LINK: wiki  https://en.wikipedia.org/wiki/
+
+#+HTML: <div class="outline-2" id="meta">
+| *Author* | {{{author}}} ({{{email}}})    |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+#+HTML: </div>
+
+#+TOC: headlines 3
+
+#+BEGIN_COMMENT
+Each major section of this document is defined in its own file.
+
+You can jump to each file by moving the cursor on an "#+include" line
+and typing =C-c '= Note: There is *no requirement* to split, but large
+org-mode files can become quite slow to edit, so separate sections help
+keeping things fluid...
+#+END_COMMENT
 
 * Instruction on how to use emacs org mode to orginize calendar.
 

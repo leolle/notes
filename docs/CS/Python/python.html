@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-15 Wed 12:47 -->
+<!-- 2017-11-17 Fri 10:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -2427,6 +2427,56 @@ $ conda-env remove --name env_name
 <p>
 <a href="./pandas.html">advanced pandas</a>
 </p>
+<ul class="org-ul">
+<li>rank</li>
+</ul>
+<p>
+DataFrame.rank(axis=0, method='average', numeric_only=None, na_option='keep', ascending=True, pct=False)[source]
+Compute numerical data ranks (1 through n) along axis. Equal values are assigned a rank that is the average of the ranks of those values
+</p>
+
+<ul class="org-ul">
+<li>n largest value</li>
+</ul>
+<p>
+DataFrame.nlargest(n, columns, keep='first')
+Get the rows of a DataFrame sorted by the n largest values of columns.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #FD971F;">df</span> = DataFrame<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'a'</span>: <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">10</span>, <span style="color: #AE81FF;">8</span>, <span style="color: #AE81FF;">11</span>, -<span style="color: #AE81FF;">1</span><span style="color: #A6E22E;">]</span>,
+...                 <span style="color: #E6DB74;">'b'</span>: <span style="color: #F92672;">list</span><span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">'abdce'</span><span style="color: #A6E22E;">)</span>,
+...                 <span style="color: #E6DB74;">'c'</span>: <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">2</span>.<span style="color: #AE81FF;">0</span>, np.nan, <span style="color: #AE81FF;">3</span>.<span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">4</span>.<span style="color: #AE81FF;">0</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; df.nlargest<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span>, <span style="color: #E6DB74;">'a'</span><span style="color: #AE81FF;">)</span>
+    a  b   c
+<span style="color: #AE81FF;">3</span>  <span style="color: #AE81FF;">11</span>  c   <span style="color: #AE81FF;">3</span>
+<span style="color: #AE81FF;">1</span>  <span style="color: #AE81FF;">10</span>  b   <span style="color: #AE81FF;">2</span>
+<span style="color: #AE81FF;">2</span>   <span style="color: #AE81FF;">8</span>  d NaN
+</pre>
+</div>
+<ul class="org-ul">
+<li>quantile</li>
+</ul>
+<p>
+DataFrame.quantile(q=0.5, axis=0, numeric_only=True, interpolation='linear')[source]
+Return values at the given quantile over requested axis, a la numpy.percentile.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #FD971F;">df</span> = DataFrame<span style="color: #AE81FF;">(</span>np.array<span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">]</span>, <span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">10</span><span style="color: #E6DB74;">]</span>, <span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">100</span><span style="color: #E6DB74;">]</span>, <span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">100</span><span style="color: #E6DB74;">]</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>,
+                   columns=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'a'</span>, <span style="color: #E6DB74;">'b'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; df.quantile<span style="color: #AE81FF;">(</span>.<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+a    <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">3</span>
+b    <span style="color: #AE81FF;">3</span>.<span style="color: #AE81FF;">7</span>
+dtype: float64
+&gt;&gt;&gt; df.quantile<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>.<span style="color: #AE81FF;">1</span>, .<span style="color: #AE81FF;">5</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+       a     b
+<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">1</span>  <span style="color: #AE81FF;">1</span>.<span style="color: #AE81FF;">3</span>   <span style="color: #AE81FF;">3</span>.<span style="color: #AE81FF;">7</span>
+<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>  <span style="color: #AE81FF;">2</span>.<span style="color: #AE81FF;">5</span>  <span style="color: #AE81FF;">55</span>.<span style="color: #AE81FF;">0</span>
+</pre>
+</div>
+
 <ul class="org-ul">
 <li>generate a dataframe:</li>
 </ul>

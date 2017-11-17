@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-16 Thu 09:56 -->
+<!-- 2017-11-17 Fri 10:59 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -341,9 +341,15 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgheadline104">15. Google Natural Language Processing</a></li>
 <li><a href="#orgheadline105">16. Outline of Machine Learning</a></li>
-<li><a href="#orgheadline107">17. Scikit-lean API</a>
+<li><a href="#orgheadline110">17. Scikit-lean API</a>
 <ul>
 <li><a href="#orgheadline106">17.1. basics of the API</a></li>
+<li><a href="#orgheadline109">17.2. feature engineering</a>
+<ul>
+<li><a href="#orgheadline107">17.2.1. Imputation of Missing Data</a></li>
+<li><a href="#orgheadline108">17.2.2. Feature Pipelines</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -450,6 +456,11 @@ for the JavaScript code in this tag.
 </div>
 <div id="outline-container-orgheadline13" class="outline-4">
 <h4 id="orgheadline13"><span class="section-number-4">1.2.5</span> 朴素贝叶斯</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+<a href="./NaiveBayes.html">Naive Bayes Classifcation</a>
+</p>
+</div>
 </div>
 <div id="outline-container-orgheadline14" class="outline-4">
 <h4 id="orgheadline14"><span class="section-number-4">1.2.6</span> 神经网络</h4>
@@ -963,8 +974,8 @@ which group of stocks could possibly move up in the next trading period.
 <h2 id="orgheadline105"><span class="section-number-2">16</span> Outline of Machine Learning</h2>
 </div>
 
-<div id="outline-container-orgheadline107" class="outline-2">
-<h2 id="orgheadline107"><span class="section-number-2">17</span> Scikit-lean API</h2>
+<div id="outline-container-orgheadline110" class="outline-2">
+<h2 id="orgheadline110"><span class="section-number-2">17</span> Scikit-lean API</h2>
 <div class="outline-text-2" id="text-17">
 </div><div id="outline-container-orgheadline106" class="outline-3">
 <h3 id="orgheadline106"><span class="section-number-3">17.1</span> basics of the API</h3>
@@ -1034,6 +1045,68 @@ predict() method.
 • For unsupervised learning, we often transform or infer properties of the data
 using the transform() or predict() method.
 </p>
+</div>
+</div>
+<div id="outline-container-orgheadline109" class="outline-3">
+<h3 id="orgheadline109"><span class="section-number-3">17.2</span> feature engineering</h3>
+<div class="outline-text-3" id="text-17-2">
+</div><div id="outline-container-orgheadline107" class="outline-4">
+<h4 id="orgheadline107"><span class="section-number-4">17.2.1</span> Imputation of Missing Data</h4>
+<div class="outline-text-4" id="text-17-2-1">
+<p>
+The sophisticated approaches tend to be very application-specific, and we won’t dive
+into them here. For a baseline imputation approach, using the mean, median, or most
+frequent value, Scikit-Learn provides the Imputer class:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python">In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">15</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">from</span> sklearn.preprocessing <span style="color: #F92672;">import</span> Imputer
+<span style="color: #FD971F;">imp</span> = Imputer<span style="color: #AE81FF;">(</span>strategy=<span style="color: #E6DB74;">'mean'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">X2</span> = imp.fit_transform<span style="color: #AE81FF;">(</span>X<span style="color: #AE81FF;">)</span>
+X2
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">15</span><span style="color: #AE81FF;">]</span>: array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span> <span style="color: #AE81FF;">4</span>.<span style="color: #AE81FF;">5</span>, <span style="color: #AE81FF;">0</span>. , <span style="color: #AE81FF;">3</span>. <span style="color: #A6E22E;">]</span>,
+<span style="color: #A6E22E;">[</span> <span style="color: #AE81FF;">3</span>. , <span style="color: #AE81FF;">7</span>. , <span style="color: #AE81FF;">9</span>. <span style="color: #A6E22E;">]</span>,
+<span style="color: #A6E22E;">[</span> <span style="color: #AE81FF;">3</span>. , <span style="color: #AE81FF;">5</span>. , <span style="color: #AE81FF;">2</span>. <span style="color: #A6E22E;">]</span>,
+<span style="color: #A6E22E;">[</span> <span style="color: #AE81FF;">4</span>. , <span style="color: #AE81FF;">5</span>. , <span style="color: #AE81FF;">6</span>. <span style="color: #A6E22E;">]</span>,
+<span style="color: #A6E22E;">[</span> <span style="color: #AE81FF;">8</span>. , <span style="color: #AE81FF;">8</span>. , <span style="color: #AE81FF;">1</span>. <span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline108" class="outline-4">
+<h4 id="orgheadline108"><span class="section-number-4">17.2.2</span> Feature Pipelines</h4>
+<div class="outline-text-4" id="text-17-2-2">
+<ol class="org-ol">
+<li>Impute missing values using the mean</li>
+<li>Transform features to quadratic</li>
+<li>Fit a linear regression</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-python">To streamline this <span style="color: #F92672;">type</span> of processing pipeline, Scikit-Learn provides a pipeline <span style="color: #F92672;">object</span>,
+which can be used <span style="color: #F92672;">as</span> follows:
+In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">17</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">from</span> sklearn.pipeline <span style="color: #F92672;">import</span> make_pipeline
+<span style="color: #FD971F;">model</span> = make_pipeline<span style="color: #AE81FF;">(</span>Imputer<span style="color: #66D9EF;">(</span>strategy=<span style="color: #E6DB74;">'mean'</span><span style="color: #66D9EF;">)</span>,
+PolynomialFeatures<span style="color: #66D9EF;">(</span>degree=<span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">)</span>,
+LinearRegression<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+This pipeline looks and acts like a standard Scikit-Learn object, and will apply all the
+specified steps to any input data.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">18</span><span style="color: #AE81FF;">]</span>: model.fit<span style="color: #AE81FF;">(</span>X, y<span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">X with missing values, from above</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>y<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>model.predict<span style="color: #66D9EF;">(</span>X<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">14</span> <span style="color: #AE81FF;">16</span> -<span style="color: #AE81FF;">1</span> <span style="color: #AE81FF;">8</span> -<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">]</span>
+<span style="color: #AE81FF;">[</span> <span style="color: #AE81FF;">14</span>. <span style="color: #AE81FF;">16</span>. -<span style="color: #AE81FF;">1</span>. <span style="color: #AE81FF;">8</span>. -<span style="color: #AE81FF;">5</span>.<span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>

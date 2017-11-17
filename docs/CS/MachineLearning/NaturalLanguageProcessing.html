@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-16 Thu 09:56 -->
+<!-- 2017-11-17 Fri 10:59 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -175,11 +175,15 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline13">4.1. features:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<li><a href="#orgheadline19">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
 <ul>
 <li><a href="#orgheadline15">5.1. Login</a></li>
 <li><a href="#orgheadline16">5.2. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
-<li><a href="#orgheadline17">5.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a></li>
+<li><a href="#orgheadline18">5.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<ul>
+<li><a href="#orgheadline17">5.3.1. Data dumps/Import</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -407,8 +411,8 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>guide:</li>
@@ -586,8 +590,8 @@ return value
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">5.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">5.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>basics</li>
@@ -645,18 +649,6 @@ Sones GraphDB
 
 <p>
 Categories: Types of databasesGraph theory
-</p>
-
-
-<ul class="org-ul">
-<li>steps</li>
-</ul>
-<p>
-loop the level of categories
-</p>
-
-<p>
-different colors on each level of categories
 </p>
 
 <ul class="org-ul">
@@ -719,6 +711,17 @@ different colors on each level of categories
 </tbody>
 </table>
 
+<ul class="org-ul">
+<li>steps</li>
+</ul>
+<p>
+loop the level of categories
+</p>
+
+<p>
+different colors on each level of categories
+</p>
+
 <p>
 wiki API
 </p>
@@ -743,6 +746,111 @@ title
 root category
 sub category
 </p>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">5.3.1</span> Data dumps/Import</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<ul class="org-ul">
+<li>methods</li>
+</ul>
+<p>
+<a href="https://meta.wikimedia.org/wiki/Data_dumps">https://meta.wikimedia.org/wiki/Data_dumps</a>
+</p>
+
+<p>
+<a href="https://meta.wikimedia.org/wiki/Data_dumps/Import_examples">https://meta.wikimedia.org/wiki/Data_dumps/Import_examples</a>
+</p>
+
+<p>
+<a href="https://phabricator.wikimedia.org/source/operations-dumps-import-tools/browse/master/xmlfileutils/">https://phabricator.wikimedia.org/source/operations-dumps-import-tools/browse/master/xmlfileutils/</a>
+</p>
+<ul class="org-ul">
+<li>tools</li>
+</ul>
+<p>
+<a href="http://wikipapers.referata.com/wiki/List_of_visualization_tools">http://wikipapers.referata.com/wiki/List_of_visualization_tools</a>
+</p>
+
+<ul class="org-ul">
+<li>Import into an empty wiki of el wiktionary on Linux with MySQL[edit]</li>
+</ul>
+<p>
+MediaWiki version: 1.20
+</p>
+
+<p>
+This wiki was chosen because it uses a non-latin1 character set, has a reasonable number of articles but isn't huge, and relies on only a small number of extensions.
+</p>
+
+<p>
+I chose to import only the current pages, with User or Talk pages, because most folks who set up local mirrors want the article content and not the revision history or the discussion pages.
+</p>
+
+<p>
+Before the import[edit]
+I downloaded the dumps for a given day. I got all the sql.gz files, the stub-articles.xml.gz file, and the pages-articles.xml.bz2 file from <a href="http://download.wikimedia.org/elwiktionary/">http://download.wikimedia.org/elwiktionary/</a> even though I knew there would be a few of those sql files I wouldn't need.
+I installed the prerequisites for MediaWiki, including MySQL, PHP 5, Apache, php-mysql, php-intl, ImageMagick and rsvg (see the manual).
+I downloaded MediaWiki 1.20 and unpacked it into /var/www/html/elwikt (your location may vary).
+I installed MediaWiki 1.20 on my laptop, with the following settings:
+el for my language and the wiki language
+MySQL database type
+localhost for hostname (hey, it's a local install on my laptop :-P)
+elwikt for database name
+no database table prefix
+root db username and password for the database username and password for install
+a different user name and password for the database account for web access, with 'create if it does not exist' checked
+InnoDB table format
+Binary character set
+Disable media uploads
+use InstantCommons
+I selected the extensions I wanted installed via the installer, some of them not being necessary but I thought they would be useful to have if I did decide to locally edit:
+ConfirmEdit
+Gadgets
+Nuke
+ParserFunctions
+RenameUser
+Vector
+WikiEditor
+I generated page, revision and text sql files from the stub and page content XML files, using mwxml2sql via the command mwxml2sql -s elwiktionary-blahblah-stub-articles.xml.gz -t elwiktionary-blahblah-pages-articles.xml.bz2 -f elwikt-pages-current-sql.gz -m 1.20
+I converted all the sql files to tab delimited files using sql2txt (same repo as previous step) via the command zcat elwiktionary-blahdate-blahtable.sql.gz | sql2txt | gzip &gt; elwiktionary-blahdate-blahtable.tabs.gz. Actually that's a lie, I wrote a tiny bash script to do them all for me. I skipped the following downloaded files:
+site<sub>stats</sub> - I didn't want or need these, the numbers would be wrong anyways
+user<sub>groups</sub> - Not needed for displaying page content
+old<sub>image</sub> and image - using InstantCommons
+page - generated from XML files instead
+I converted the page, revision and text table files that were generated from the XML files, to tab delimited, using a command similar to the above step
+The actual import[edit]
+Note: maybe using charset 'binary' here would be better!
+</p>
+
+<p>
+I imported all of the above files into MySQL, doing the following:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sql">mysql -u root -p
+mysql&gt;use elwikt
+mysql&gt;<span style="color: #F92672;">SET</span> autocommit=<span style="color: #AE81FF;">0</span>;
+mysql&gt;<span style="color: #F92672;">SET</span> foreign_key_checks=<span style="color: #AE81FF;">0</span>;
+mysql&gt;<span style="color: #F92672;">SET</span> unique_checks=<span style="color: #AE81FF;">0</span>;
+mysql&gt;<span style="color: #F92672;">SET</span> character_set_client = utf8;
+# unpacked the tab delimited file
+mysql&gt;TRUNCATE <span style="color: #F92672;">TABLE</span> tablenamehere;
+mysql&gt;LOAD <span style="color: #F92672;">DATA</span> INFILE <span style="color: #F92672;">path</span>-<span style="color: #F92672;">to</span>-tab-delim-file-<span style="color: #F92672;">for</span>-<span style="color: #F92672;">table</span>-here FIELDS OPTIONALLY ENCLOSED <span style="color: #F92672;">BY</span> <span style="color: #E6DB74;">'\'';</span>
+<span style="color: #E6DB74;">repeated this for all tab delim files</span>
+<span style="color: #E6DB74;">mysql&gt;exit;</span>
+</pre>
+</div>
+<p>
+After the import[edit]
+Since this is a wiktionary, I updated the LocalSettings.php file so that page titles need not start with a capital letter, adding $wgCapitalLinks = false; to the file
+Since this wiki has extra namespaces beyond the standard ones defined by MediaWiki, I added those to LocalSettings.php. You can find such namespaces by looking at the first few lines of the stubs XML file. Lines added: $wgExtraNamespaces = 'Παράρτημα'; and $wgExtraNamespaces = 'Συζήτηση<sub>παραρτήματος</sub>';.
+The namespace for the project and for project discussion are typically special localized names. I added those to LocalSettings.php, finding the names in the stub XML file at the beginning: $wgMetaNamespace = 'Βικιλεξικό'; and $wgMetaNamespaceTalk = 'Συζήτηση<sub>βικιλεξικού</sub>';
+I installed tidy and added the following lines to LocalSettings.php to reflect that: $wgUseTidy = true; and $wgTidyBin = '/usr/bin/tidy';. No configuration file was necessary; one is provided as part of MediaWiki and used by default.
+I set up the interwiki cache cdb file, by using fixup-interwikis.py via the command python fixup-interwikis.py &#x2013;localsettings /var/www/html/elwikt/LocalSettings.php &#x2013;sitetype wiktionary and then added $wgInterwikiCache = "$IP/cache/interwiki.cdb" to the LocalSettings.php file. (See mw:Interwiki<sub>cache</sub>/Setup<sub>for</sub><sub>your</sub><sub>own</sub><sub>wiki</sub> for info.)
+That was it. This was enough to let me view (most) pages without errors.
+</p>
+</div>
 </div>
 </div>
 </div>
