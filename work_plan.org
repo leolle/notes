@@ -127,6 +127,10 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 |                  | 58F613096423BCD84783F165C8918368 | regression                                        |
 | <2017-11-14 Tue> | 566186C314C7A760C626249E168D3362 | risk model(extract result)                        |
 | <2017-11-16 Thu> | 8C01AABF99EB43F28A10D2FB9E3F9F8C | black litterman function F                        |
+| <2017-11-17 Fri> | 46F5B372BFEC95833468B698AF7A8120 | black litterman j                                 |
+|                  | C482A7C8AAA93082803F78F03D37F51B | ROE_daily（PIT）     % change                     |
+|                  | CCA1D8B93BE90E135FFBBCA59723146A | 盈利ROE_daily_PIT_L                               |
+|                  | B8EA49740ACCF83BABAE7168BAA895CC | ROE（daily）                                      |
 |                  |                                  |                                                   |
 
 * other projects

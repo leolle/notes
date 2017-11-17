@@ -34,6 +34,8 @@ spam review
 
 * Neo4j
 An open-source NoSQL graph database.
+
+[[http://192.168.1.155:7474/browser/]]
 ** Graph Fundamentals
 - Nodes - graph data records
 - Relationships - connect nodes
@@ -300,23 +302,45 @@ Categories: Types of databasesGraph theory
 | from category | to category(supercategory) |
 | "28169972",   | "51326333"                 |
 
-- steps
-loop the level of categories
+- import csv to neo4j
+#+BEGIN_SRC cypher
+USING PERIODIC COMMIT 10000
+LOAD CSV FROM "https://github.com/jbarrasa/datasets/blob/master/wikipedia/data/cats.csv?raw=true" as row
+CREATE (c:Category { catId: row[0]})
+SET c.catName = row[2], c.pageCount = toInt(row[3]), c.subcatCount = toInt(row[4])
 
-different colors on each level of categories
+USING PERIODIC COMMIT 10000
+LOAD CSV FROM "https://github.com/jbarrasa/datasets/blob/master/wikipedia/data/rels.csv?raw=true" as row
+MATCH (from:Category { catId: row[0]})
+MATCH (to:Category { catId: row[1]})
+CREATE (from)-[:SUBCAT_OF]->(to)
+#+END_SRC
 
-wiki API
-
-categorymembers
-
-pageid
-
-name space
-
-title
-
-root category
-sub category
+- regenerating fresh csv files:
+1. Start by downloading the latest DB dumps from the Wikipedia downloads page.
+2. For the category hierarchy, you’ll only need the following tables: category, categorylinks and page.
+3. Load them in your DBMS.
+4. Generate the categories CSV file by running the following SQL.
+#+BEGIN_SRC sql
+select p.page_id as PAGE_ID, c.cat_id as CAT_ID, cast(c.cat_title as nCHAR) as CAT_TITLE , c.cat_pages as CAT_PAGES_COUNT, c.cat_subcats as CAT_SUBCAT_COUNT
+into outfile '/Users/jbarrasa/Applications/neo4j-enterprise-3.1.2/import/wiki/cats.csv' fields terminated by ',' enclosed by '"' escaped by '\\' lines terminated by '\n'
+from test.category c, test.page p
+where c.cat_title = p.page_title
+and p.page_namespace = 14
+#+END_SRC
+5. Generate the relationships file by running the following SQL
+#+BEGIN_SRC sql
+select p.page_id as FROM_PAGE_ID, p2.page_id as TO_PAGE_ID
+into outfile '/Users/jbarrasa/Applications/neo4j-enterprise-3.1.2/import/wiki/rels.csv' fields terminated by ',' enclosed by '"' escaped by '\\' lines terminated by '\n'
+from test.category c, test.page p , test.categorylinks l, test.category c2, test.page p2
+where l.cl_type = 'subcat'
+and c.cat_title = p.page_title
+and p.page_namespace = 14
+and l.cl_from = p.page_id
+and l.cl_to = c2.cat_title
+and c2.cat_title = p2.cat_title
+and p2.page_namespace = 14
+#+END_SRC
 
 *** Data dumps/Import
 - methods
@@ -382,6 +406,10 @@ mysql>TRUNCATE TABLE tablenamehere;
 mysql>LOAD DATA INFILE path-to-tab-delim-file-for-table-here FIELDS OPTIONALLY ENCLOSED BY '\'';
 repeated this for all tab delim files
 mysql>exit;
+
+# or https://meta.wikimedia.org/wiki/Data_dumps/Import_examples/catswiki_bash_script
+echo "TRUNCATE TABLE $table ; " | mysql -u root -pnotverysecure enwiki
+mysql -u root -pnotverysecure enwiki
 #+END_SRC
 After the import[edit]
 Since this is a wiktionary, I updated the LocalSettings.php file so that page titles need not start with a capital letter, adding $wgCapitalLinks = false; to the file
