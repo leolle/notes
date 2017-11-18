@@ -12,8 +12,55 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../../configOrg/level2.org
 
+* Basic prerequisites
+** maximum likelihood estimation
+- Summary
+Maximum likelihood is a general and powerful technique for learning statistical models, i.e. fitting the parameters to data. The maximum likelihood parameters are the ones under which the observed data has the highest probability. It is widely used in practice, and techniques such as Bayesian parameter estimation are closely related to maximum likelihood.
+- Context
+This concept has the prerequisites:
+ - random variables
+ - independent random variables (The data are generally assumed to be independent draws from a distribution.)
+ - optimization problems (Maximum likelihood is formulated as an optimization problem.)
+ - Gaussian distribution (Fitting a Gaussian distribution is an instructive example of maximum likelihood estimation.)
+** terminology:
+- tensor
+a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
 * 深度学习
 
 深度学习（英语：deep learning）是机器学习拉出的分支，它试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法。
 深度学习是机器学习中一种基于对数据进行表征学习的方法。观测值（例如一幅图像）可以使用多种方式来表示，如每个像素强度值的向量，或者更抽象地表示成一系列边、特定形状的区域等。而使用某些特定的表示方法更容易从实例中学习任务（例如，人脸识别或面部表情识别）。深度学习的好处是用非监督式或半监督式的特征学习和分层特征提取高效算法来替代手工获取特征。
 表征学习的目标是寻求更好的表示方法并创建更好的模型来从大规模未标记数据中学习这些表示方法。表达方式类似神经科学的进步，并松散地创建在类似神经系统中的信息处理和通信模式的理解上，如神经编码，试图定义拉动神经元的反应之间的关系以及大脑中的神经元的电活动之间的关系。
+* 学习方法
+- Step 1: 学习机器学习基础
+- Step 2: 深入学习
+- Step 3: 选择一个区域并进一步深入
+  - 计算机视觉 :
+  - 自然语言处理 (NLP)：
+  - 记忆网络 (RNN-LSTM)
+  - 深度加强学习 :
+  - 生成模型
+- Step 4: 建立项目
+* Critical interview questions
+- 传统机器学习考察点：
+1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
+2、lr与svm的区别与联系
+3、gbdt与adaboost的区别与联系
+4、手推svm，svm麻雀虽小五脏俱全
+5、pca与lda的区别与联系，并推导
+6、白化的原理与作用
+7、给一个算法，例如lr，问这个算法的model、evaluate、optimization分别是啥
+- 深度学习考察点：
+1、手推bp
+2、梯度消失/爆炸原因，以及解决方法
+3、bn的原理，与白化的联系
+4、防止过拟合有哪些方法
+5、dnn、cnn、rnn的区别与联系
+6、机器学习与深度学习的联系
+7、batch size大小会怎么影响收敛速度
+- 最优化考察点：
+1、sgd、momentum、rmsprop、adam区别与联系
+2、深度学习为什么不用二阶优化
+3、拉格朗日乘子法、对偶问题、kkt条件
+- coding考察点： 排序、双指针、dp、贪心、分治、递归、回溯、字符串、树、链表、trie、bfs、dfs等等
+- 第一种是广撒网地问一些老生常谈的DL中没有标准答案的问题，比如过拟合怎么办？样本偏斜怎么办？
+drop out，data augmentation， weight decay(常用的weight decay有哪些？怎么处理weight decay的权重).L1，L2。让你比较为什么要两种weight decay，区别在哪里。比如如果你讲L1零点不可导才用L2，那么立马问你SMOOTHL1。如果你都说明白了，就问你为什么weight decay能够一定程度解决过拟合？如果你说到了L0和稀疏性。接着就来问你为什么稀疏性有效？
