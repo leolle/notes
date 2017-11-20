@@ -54,6 +54,11 @@ wget -c -t 0 --timeout=60 --waitretry=60 url
 *** Scripting best practices
 
 *** Shell commands:
+- unzip a compressed file:
+#+BEGIN_SRC shell
+unzip filename.zip
+#+END_SRC
+
 - unpack a tar.gz file
 #+BEGIN_SRC shell
 # tar.gz
