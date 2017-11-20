@@ -271,3 +271,11 @@ opposite operation:
 #+begin_src emacs-lisp :tangle yes
 git remote add origin git@github.git
 #+end_src
+
+** sub modules
+#+BEGIN_SRC shell
+# 1.
+git submodule add https://github.com/chaconinc/DbConnector
+# 2. Cloning a Project with Submodules
+git clone https://github.com/chaconinc/MainProject
+#+END_SRC

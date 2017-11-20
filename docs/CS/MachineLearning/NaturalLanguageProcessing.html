@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-17 Fri 11:09 -->
+<!-- 2017-11-20 Mon 15:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -94,7 +94,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="../../styles/demo/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../styles/demo/css/demo.css"/>
 <link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 /*
@@ -249,6 +249,10 @@ spam review
 <div class="outline-text-2" id="text-2">
 <p>
 An open-source NoSQL graph database.
+</p>
+
+<p>
+<a href="http://192.168.1.155:7474/browser/">http://192.168.1.155:7474/browser/</a>
 </p>
 </div>
 <div id="outline-container-orgheadline3" class="outline-3">
@@ -711,40 +715,56 @@ Categories: Types of databasesGraph theory
 </table>
 
 <ul class="org-ul">
-<li>steps</li>
+<li>import csv to neo4j</li>
 </ul>
-<p>
-loop the level of categories
-</p>
+<div class="org-src-container">
 
-<p>
-different colors on each level of categories
-</p>
+<pre class="src src-cypher">USING PERIODIC COMMIT 10000
+LOAD CSV FROM "https://github.com/jbarrasa/datasets/blob/master/wikipedia/data/cats.csv?raw=true" as row
+CREATE (c:Category { catId: row[0]})
+SET c.catName = row[2], c.pageCount = toInt(row[3]), c.subcatCount = toInt(row[4])
 
-<p>
-wiki API
-</p>
+USING PERIODIC COMMIT 10000
+LOAD CSV FROM "https://github.com/jbarrasa/datasets/blob/master/wikipedia/data/rels.csv?raw=true" as row
+MATCH (from:Category { catId: row[0]})
+MATCH (to:Category { catId: row[1]})
+CREATE (from)-[:SUBCAT_OF]-&gt;(to)
+</pre>
+</div>
 
-<p>
-categorymembers
-</p>
+<ul class="org-ul">
+<li>regenerating fresh csv files:</li>
+<li>Start by downloading the latest DB dumps from the Wikipedia downloads page.</li>
+<li>For the category hierarchy, you’ll only need the following tables: category, categorylinks and page.</li>
+<li>Load them in your DBMS.</li>
+<li>Generate the categories CSV file by running the following SQL.</li>
+</ul>
+<div class="org-src-container">
 
-<p>
-pageid
-</p>
+<pre class="src src-sql"><span style="color: #F92672;">select</span> p.page_id <span style="color: #F92672;">as</span> PAGE_ID, c.cat_id <span style="color: #F92672;">as</span> CAT_ID, <span style="color: #F92672;">cast</span><span style="color: #AE81FF;">(</span>c.cat_title <span style="color: #F92672;">as</span> <span style="color: #66D9EF;">nCHAR</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> CAT_TITLE , c.cat_pages <span style="color: #F92672;">as</span> CAT_PAGES_COUNT, c.cat_subcats <span style="color: #F92672;">as</span> CAT_SUBCAT_COUNT
+<span style="color: #F92672;">into</span> outfile <span style="color: #E6DB74;">'/Users/jbarrasa/Applications/neo4j-enterprise-3.1.2/import/wiki/cats.csv'</span> fields terminated <span style="color: #F92672;">by</span> <span style="color: #E6DB74;">','</span> enclosed <span style="color: #F92672;">by</span> <span style="color: #E6DB74;">'"'</span> escaped <span style="color: #F92672;">by</span> <span style="color: #E6DB74;">'\\'</span> lines terminated <span style="color: #F92672;">by</span> <span style="color: #E6DB74;">'\n'</span>
+<span style="color: #F92672;">from</span> test.category c, test.page p
+<span style="color: #F92672;">where</span> c.cat_title = p.page_title
+<span style="color: #F92672;">and</span> p.page_namespace = <span style="color: #AE81FF;">14</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li>Generate the relationships file by running the following SQL</li>
+</ol>
+<div class="org-src-container">
 
-<p>
-name space
-</p>
-
-<p>
-title
-</p>
-
-<p>
-root category
-sub category
-</p>
+<pre class="src src-sql"><span style="color: #F92672;">select</span> p.page_id <span style="color: #F92672;">as</span> FROM_PAGE_ID, p2.page_id <span style="color: #F92672;">as</span> TO_PAGE_ID
+<span style="color: #F92672;">into</span> outfile <span style="color: #E6DB74;">'/Users/jbarrasa/Applications/neo4j-enterprise-3.1.2/import/wiki/rels.csv'</span> fields terminated <span style="color: #F92672;">by</span> <span style="color: #E6DB74;">','</span> enclosed <span style="color: #F92672;">by</span> <span style="color: #E6DB74;">'"'</span> escaped <span style="color: #F92672;">by</span> <span style="color: #E6DB74;">'\\'</span> lines terminated <span style="color: #F92672;">by</span> <span style="color: #E6DB74;">'\n'</span>
+<span style="color: #F92672;">from</span> test.category c, test.page p , test.categorylinks l, test.category c2, test.page p2
+<span style="color: #F92672;">where</span> l.cl_type = <span style="color: #E6DB74;">'subcat'</span>
+<span style="color: #F92672;">and</span> c.cat_title = p.page_title
+<span style="color: #F92672;">and</span> p.page_namespace = <span style="color: #AE81FF;">14</span>
+<span style="color: #F92672;">and</span> l.cl_from = p.page_id
+<span style="color: #F92672;">and</span> l.cl_to = c2.cat_title
+<span style="color: #F92672;">and</span> c2.cat_title = p2.cat_title
+<span style="color: #F92672;">and</span> p2.page_namespace = <span style="color: #AE81FF;">14</span>
+</pre>
+</div>
 </div>
 
 <div id="outline-container-orgheadline17" class="outline-4">
@@ -838,6 +858,10 @@ mysql&gt;TRUNCATE <span style="color: #F92672;">TABLE</span> tablenamehere;
 mysql&gt;LOAD <span style="color: #F92672;">DATA</span> INFILE <span style="color: #F92672;">path</span>-<span style="color: #F92672;">to</span>-tab-delim-file-<span style="color: #F92672;">for</span>-<span style="color: #F92672;">table</span>-here FIELDS OPTIONALLY ENCLOSED <span style="color: #F92672;">BY</span> <span style="color: #E6DB74;">'\'';</span>
 <span style="color: #E6DB74;">repeated this for all tab delim files</span>
 <span style="color: #E6DB74;">mysql&gt;exit;</span>
+
+<span style="color: #E6DB74;"># or https://meta.wikimedia.org/wiki/Data_dumps/Import_examples/catswiki_bash_script</span>
+<span style="color: #E6DB74;">echo "TRUNCATE TABLE $table ; " | mysql -u root -pnotverysecure enwiki</span>
+<span style="color: #E6DB74;">mysql -u root -pnotverysecure enwiki</span>
 </pre>
 </div>
 <p>

@@ -389,16 +389,19 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 * Deep Learning
 ** other
 - [ ] stuff from Zhupengjia, Liguofu
-- [ ] Yoshua paper deep learning.
+- [ ] Yoshua paper Deep Learning.
 - [ ] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
-- [ ] deep learning book, author goodfellow.
+- [ ] Deep Learning book, author Ian Goodfellow.
 - [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
 - [ ] Neural Language Processing(NLP), 结巴分词.
 ** Machine Learning Basics
-** Week 1/2
-*** Gradient algorithm
+[[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.org][Deep Learning]]
+** Basics
+*** ANN
 *** CNN
 *** RNN
+** GPU server comparison
+server vs desktop vs cloud
 * Risk model
 DEADLINE: <2017-11-14 Tue>
 :LOGBOOK:
@@ -506,7 +509,7 @@ view details.
 - [ ] research on soft constraint using cvxpy.
 - [ ] 搭建workflow。
 - [ ] 多期优化。
-** record
+** archive
 <2017-07-21 Fri> - <2017-09-18 Mon>
 - [ ] construnct FS, FR, workflow.
 - [ ] soft constraint.
