@@ -12,6 +12,7 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../../configOrg/level2.org
 
+[[https://docs.google.com/document/d/1NitqVZyU1zZYRUQmj-0c2Pq3qso7jcbF9XekZlC-w04/edit]]
 * Basic prerequisites
 ** maximum likelihood estimation
 - Summary

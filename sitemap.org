@@ -41,6 +41,7 @@
     + [[file:CS/MachineLearning/BasicModule2.org][BasicModule2]]
     + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
     + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
+    + [[file:CS/MachineLearning/DeepLearning.org][DeepLearning]]
     + [[file:./Boosting.org][Boosting]]
     + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]
 + Finance
