@@ -44,14 +44,22 @@ a mathematical object analogous to but more general than a vector, represented b
 * Critical questions
 - 传统机器学习考察点：
 1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
+
 2、lr与svm的区别与联系
+
 3、gbdt与adaboost的区别与联系
+
 4、手推svm，svm麻雀虽小五脏俱全
+
 5、pca与lda的区别与联系，并推导
+
 6、白化的原理与作用
+
 7、给一个算法，例如lr，问这个算法的model、evaluate、optimization分别是啥
+
 - 深度学习考察点：
 1、手推bp
+
 2、梯度消失/爆炸原因，以及解决方法
 随着神经网络层数的加深，优化函数越来越容易陷入局部最优解，并且这个“陷阱”越来越偏离真正的全局最优。
 
@@ -105,6 +113,7 @@ putting extra constraints on models such as adding restrictions on the parameter
 
 - soft constraint
 add extra terms in the objective function that can be thought of as corresponding to a soft constraint on the parameter values.
+
 5、dnn、cnn、rnn的区别与联系
 DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN是在时间上深度的神经网络。
 
@@ -116,12 +125,18 @@ DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN�
 
 
 6、机器学习与深度学习的联系
+
 7、batch size大小会怎么影响收敛速度
+
 - 最优化考察点：
 1、sgd、momentum、rmsprop、adam区别与联系
+
 2、深度学习为什么不用二阶优化
+
 3、拉格朗日乘子法、对偶问题、kkt条件
+
 - coding考察点： 排序、双指针、dp、贪心、分治、递归、回溯、字符串、树、链表、trie、bfs、dfs等等
+
 - 第一种是广撒网地问一些老生常谈的DL中没有标准答案的问题，比如过拟合怎么办？样本偏斜怎么办？
 drop out，data augmentation， weight decay(常用的weight decay有哪些？怎么处理weight decay的权重).L1，L2。让你比较为什么要两种weight decay，区别在哪里。比如如果你讲L1零点不可导才用L2，那么立马问你SMOOTHL1。如果你都说明白了，就问你为什么weight decay能够一定程度解决过拟合？如果你说到了L0和稀疏性。接着就来问你为什么稀疏性有效？
 
