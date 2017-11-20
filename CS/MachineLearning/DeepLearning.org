@@ -41,7 +41,7 @@ a mathematical object analogous to but more general than a vector, represented b
   - 深度加强学习(RDL):
   - 生成模型(GAN):
 - Step 4: 建立项目
-* Critical interview questions
+* Critical questions
 - 传统机器学习考察点：
 1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
 2、lr与svm的区别与联系
