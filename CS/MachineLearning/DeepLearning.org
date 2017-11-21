@@ -28,9 +28,17 @@ This concept has the prerequisites:
 a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
 * 深度学习
 
-深度学习（英语：deep learning）是机器学习拉出的分支，它试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法。
+深度学习（英语：deep learning）是机器学习拉出的分支，*它试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法*.
 深度学习是机器学习中一种基于对数据进行表征学习的方法。观测值（例如一幅图像）可以使用多种方式来表示，如每个像素强度值的向量，或者更抽象地表示成一系列边、特定形状的区域等。而使用某些特定的表示方法更容易从实例中学习任务（例如，人脸识别或面部表情识别）。深度学习的好处是用非监督式或半监督式的特征学习和分层特征提取高效算法来替代手工获取特征。
 表征学习的目标是寻求更好的表示方法并创建更好的模型来从大规模未标记数据中学习这些表示方法。表达方式类似神经科学的进步，并松散地创建在类似神经系统中的信息处理和通信模式的理解上，如神经编码，试图定义拉动神经元的反应之间的关系以及大脑中的神经元的电活动之间的关系。
+** Definitions
+Deep learning is a class of machine learning algorithms that:
+- use a cascade of multiple layers of nonlinear processing units for feature extraction and transformation. Each successive layer uses the output from the previous layer as input.
+- learn in supervised (e.g., classification) and/or unsupervised (e.g., pattern analysis, 人脸识别或面部表情识别) manners.
+- learn multiple levels of representations that correspond to different levels of abstraction; the levels form a hierarchy of concepts.
+- use some form of gradient descent for training via backpropagation.
+Layers that have been used in deep learning include hidden layers of an artificial neural network and sets of propositional formulas.
+
 * 学习方法
 - Step 1: 学习机器学习基础
 - Step 2: 深入学习
@@ -46,7 +54,11 @@ a mathematical object analogous to but more general than a vector, represented b
 1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
 
 2、lr与svm的区别与联系
+SVM：非概率二元线性分类器，利用核方法，有效进行非线性分类。Try to maximize the margin between the closest support vectors geometrically. Instead of assuming a probabilistic model, we're trying to find a particular optimal separating hyperplane, where we define "optimality" in the context of the support vectors.
 
+LR：Logistic regression measures the relationship between the categorical dependent variable and one or more independent variables *by estimating probabilities using a logistic function*, which is the cumulative logistic distribution.
+#+CAPTION: lr vs svm
+[[./Images/lr_vs_svm.jpg]]
 3、gbdt与adaboost的区别与联系
 
 4、手推svm，svm麻雀虽小五脏俱全
