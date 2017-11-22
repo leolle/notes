@@ -136,7 +136,10 @@ Or change the start-up configuration.
 -  =C-h f= 寻找函数的帮助信息
 -  =C-l= move the current cursor to the center of the screen.
 
-- <s, press tab to get the src box.
+- =<s=, press tab to get the src box.
+
+- switch to the previous/next buffer
+=C-x <left>/<right>=
 
 - define keyboard macro.
 =C-x (= or =<f3>= start defining a keyboard macro

@@ -26,6 +26,8 @@ This concept has the prerequisites:
 ** terminology:
 - tensor
 a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
+- synapse
+突触,activation/link layer.
 * 深度学习
 
 深度学习（英语：deep learning）是机器学习拉出的分支，*它试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法*.
@@ -50,9 +52,15 @@ Layers that have been used in deep learning include hidden layers of an artifici
   - 生成模型(GAN):
 - Step 4: 建立项目
 * Critical questions
-- 传统机器学习考察点：
+how - overview picture
+why - assumption, hypothesis(formulas), representations, why use this, why does it work, cons, 边界.
+example
+comparison
+results
+conclusion
+*** 传统机器学习考察点：
 1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
-
+https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/
 2、lr与svm的区别与联系
 SVM：非概率二元线性分类器，利用核方法，有效进行非线性分类。Try to maximize the margin between the closest support vectors geometrically. Instead of assuming a probabilistic model, we're trying to find a particular optimal separating hyperplane, where we define "optimality" in the context of the support vectors.
 
@@ -65,11 +73,15 @@ LR：Logistic regression measures the relationship between the categorical depen
 
 5、pca与lda的区别与联系，并推导
 
+
 6、白化的原理与作用
 
 7、给一个算法，例如lr，问这个算法的model、evaluate、optimization分别是啥
 
-- 深度学习考察点：
+- 回归模型中存在多重共线性, 你如何解决这个问题？
+我们可以先去除一个共线性变量; 计算VIF(方差膨胀因子), 采取相应措施;为了避免损失信息, 我们可以使用一些正则化方法, 比如, 岭回归和lasso回归.
+
+*** 深度学习考察点：
 1、手推bp
 
 2、梯度消失/爆炸原因，以及解决方法
@@ -140,7 +152,7 @@ DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN�
 
 7、batch size大小会怎么影响收敛速度
 
-- 最优化考察点：
+*** 最优化考察点：
 1、sgd、momentum、rmsprop、adam区别与联系
 
 2、深度学习为什么不用二阶优化
@@ -151,6 +163,34 @@ DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN�
 
 - 第一种是广撒网地问一些老生常谈的DL中没有标准答案的问题，比如过拟合怎么办？样本偏斜怎么办？
 drop out，data augmentation， weight decay(常用的weight decay有哪些？怎么处理weight decay的权重).L1，L2。让你比较为什么要两种weight decay，区别在哪里。比如如果你讲L1零点不可导才用L2，那么立马问你SMOOTHL1。如果你都说明白了，就问你为什么weight decay能够一定程度解决过拟合？如果你说到了L0和稀疏性。接着就来问你为什么稀疏性有效？
+
+用Map Reduce implement矩阵乘法
+NLP相关的encoding问题 (CBOW vs Skipgram)
+不同的activation function的pros/cons
+Gradient Boosting相关问题
+Random Forest 相关问题
+SVM的Gaussian Kernel 的 dimension
+用Regex分析文本
+如何用python/R 读取JSON, 并且洗数据
+用C++ implement Monte Carlo
+coding: 用DFS走迷宫
+
+用过哪些DL的library呀?
+现在的DL 的state of art model有哪些呀?
+如果如理diminishing gradient的问题呀?
+如果同时处理文本文档+图片呀?
+如果防止overfitting呀?
+如何pre-train model呀?
+能否自己在服务器上用distributed computing部署一个现有的model 呀?
+
+解决网络过拟合的手段有些什么呀
+Dropout的为什么可以解决过拟合呀
+Batch-normalization的思想是什么呀
+类别不平衡的时候怎么办啊
+目标检测中anchor box的做法和adaboost人脸检测中的滑窗检测有什么区别啊？
+跟踪和检测有什么区别啊？
+用过几个框架？
+它们的优劣分析一下
 
 * Footnotes
 

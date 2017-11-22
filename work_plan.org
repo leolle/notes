@@ -156,11 +156,11 @@ ICA
 ** Other's recommendation
 - [ ] stuff from Zhupengjia, Liguofu
 - [ ] Yoshua paper Deep Learning.
-- [ ] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
+- [X] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
 Tensorflow is a mathmatical library including neural network, Keras is a framework based on Tensorflow.
  - Lower Level: This is where frameworks like Tensorflow, MXNet, Theano, and PyTorch sit. This is the level where mathematical operations like Generalized Matrix-Matrix multiplication and Neural Network primitives like Convolutional operations are implemented.
  - Higher Level: This is where frameworks like Keras sit. At this Level, the lower level primitives are used to implement Neural Network abstraction like Layers and models. Generally, at this level other helpful APIs like model saving and model training are also implemented.
-- [ ] Deep Learning book, author Ian Goodfellow.
+- [X] Deep Learning book, author Ian Goodfellow.
 - [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
 - [ ] Neural Language Processing(NLP), 结巴分词.
 ** Machine Learning Basics
@@ -170,17 +170,19 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 *** CNN
 *** RNN
 ** GPU server comparison
-server vs desktop vs cloud
+- [ ] server vs desktop vs cloud
 * NaturalLanguageProcessing
 ** Word Embedding(Word2Vec)
 :LOGBOOK:
+CLOCK: [2017-11-22 Wed 09:45]
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
-- [X] paper word2vec Parameter Learning Explained.
+- [ ] overview of word2vec, why does it work.
 - [ ] video explained by Xin Rong.
-- [ ] forward propagation vs backward propagation.
-- [ ] understand Tensorflow Word2Vec example.
-- [ ] build a backward propagation network.
+- [ ] forward propagation vs backward propagation, CNN explained by Andrew Ng.
+- [X] paper word2vec Parameter Learning Explained.
+- [X] understand Tensorflow Word2Vec example.
+- [X] build a backward propagation network.
 - [ ] fi or function def from output of wants whose idea word2vec is close to target want's idea.
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
 ** TODO Building the Wikipedia Knowledge Graph in Neo4j

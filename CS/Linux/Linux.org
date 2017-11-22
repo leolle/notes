@@ -45,7 +45,7 @@ wc -l filename
 #+END_SRC
 - resume interrupted download via wget:
 #+BEGIN_SRC shell
-wget -c -t 0 --timeout=60 --waitretry=60 url
+wget -c -t 0 --timeout=10 --waitretry=10 url
 #+END_SRC
 *** bash scripting
 *** Regular expressions
