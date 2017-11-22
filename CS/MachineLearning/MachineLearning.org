@@ -80,7 +80,7 @@ http://www.hankcs.com/ml/understanding-the-convolution-in-deep-learning.html
 *** PCA
 - Data preprocessing
 feature scaling/mean normalization
-$$\mu_j=1/m \sum_{i=1}^m x_j^{(i)}$$
+$$\mu_j=\frac{1}{m} \sum_{i=1}^m x_j^{(i)}$$
 replace each $x_j^{(i)}$ with $x_i-\mu_j$
 *** LASSO
 PCA vs Lasso:
