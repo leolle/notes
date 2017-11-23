@@ -174,7 +174,6 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 * NaturalLanguageProcessing
 ** Word Embedding(Word2Vec)
 :LOGBOOK:
-CLOCK: [2017-11-22 Wed 09:45]
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
 - [ ] overview of word2vec, why does it work.

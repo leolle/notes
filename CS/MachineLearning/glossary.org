@@ -1,532 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2017-11-23 Thu 14:37 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title></title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="weiwu" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+- Activation
 
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" type="text/css" href="../../styles/demo/css/demo.css"/>
-<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
-</head>
-<body>
-<div id="content">
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgheadline3">1. Basic prerequisites</a>
-<ul>
-<li><a href="#orgheadline1">1.1. maximum likelihood estimation</a></li>
-<li><a href="#orgheadline2">1.2. terminology:</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline5">2. 深度学习</a>
-<ul>
-<li><a href="#orgheadline4">2.1. Definitions</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline6">3. 学习方法</a></li>
-<li><a href="#orgheadline10">4. Critical questions</a>
-<ul>
-<li>
-<ul>
-<li><a href="#orgheadline7">4.0.1. 传统机器学习考察点：</a></li>
-<li><a href="#orgheadline8">4.0.2. 深度学习考察点：</a></li>
-<li><a href="#orgheadline9">4.0.3. 最优化考察点：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="outline-1" id="meta">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>Author</b></td>
-<td class="org-left">weiwu (victor.wuv@gmail.com)</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>Date</b></td>
-<td class="org-left">2017-11-23 14:37:31</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>Title</b></td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">1</span> Basic prerequisites</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-<a href="https://docs.google.com/document/d/1NitqVZyU1zZYRUQmj-0c2Pq3qso7jcbF9XekZlC-w04/edit">https://docs.google.com/document/d/1NitqVZyU1zZYRUQmj-0c2Pq3qso7jcbF9XekZlC-w04/edit</a>
-</p>
-</div>
-
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> maximum likelihood estimation</h3>
-<div class="outline-text-3" id="text-1-1">
-<ul class="org-ul">
-<li>Summary</li>
-</ul>
-<p>
-Maximum likelihood is a general and powerful technique for learning statistical models, i.e. fitting the parameters to data. The maximum likelihood parameters are the ones under which the observed data has the highest probability. It is widely used in practice, and techniques such as Bayesian parameter estimation are closely related to maximum likelihood.
-</p>
-<ul class="org-ul">
-<li>Context</li>
-</ul>
-<p>
-This concept has the prerequisites:
-</p>
-<ul class="org-ul">
-<li>random variables</li>
-<li>independent random variables (The data are generally assumed to be independent draws from a distribution.)</li>
-<li>optimization problems (Maximum likelihood is formulated as an optimization problem.)</li>
-<li>Gaussian distribution (Fitting a Gaussian distribution is an instructive example of maximum likelihood estimation.)</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> terminology:</h3>
-<div class="outline-text-3" id="text-1-2">
-<ul class="org-ul">
-<li>Activation</li>
-</ul>
-
-<p>
 An activation, or activation function, for a neural network is defined as the mapping of the input to the output via a non-linear transform function at each “node”, which is simply a locus of computation within the net. Each layer in a neural net consists of many nodes, and the number of nodes in a layer is known as its width.
-</p>
 
-<p>
 Activation algorithms are the gates that determine, at each node in the net, whether and to what extent to transmit the signal the node has received from the previous layer. A combination of weights (coefficients) and biases work on the input data from the previous layer to determine whether that signal surpasses a given treshhold and is deemed significant. Those weights and biases are slowly updated as the neural net minimizes its error; i.e. the level of nodes’ activation change in the course of learning. Deeplearning4j includes activation functions such as sigmoid, relu, tanh and ELU. These activation functions allow neural networks to make complex boundary decisions for features at various levels of abstraction.
-</p>
 
-<p>
 Activation Visualizer in Deeplearning4j
-</p>
-<ul class="org-ul">
-<li>Adadelta</li>
-</ul>
+- Adadelta
 
-<p>
 Adadelta is an updater, or learning algorithm, related to gradient descent. Unlike SGD, which applies the same learning rate to all parameters of the network, Adadelta adapts the learning rate per parameter.
-</p>
 
-<p>
 AdaDeltaUpdater in Deepelearning4j
 ADADELTA: An Adaptive Learning Rate Method
-</p>
-<ul class="org-ul">
-<li>Adagrad</li>
-</ul>
+- Adagrad
 
-<p>
 Adagrad, short for adaptive gradient, is an updater or learning algorithm that adjust the learning rate for each parameter in the net by monitoring the squared gradients in the course of learning. It is a substitute for SGD, and can be useful when processing sparse data.
-</p>
 
-<p>
 AdaGradUpdater in Deeplearning4j
 Adaptive Subgradient Methods for Online Learning and Stochastic Optimization
-</p>
-<ul class="org-ul">
-<li>Adam</li>
-</ul>
+- Adam
 
-<p>
 Adam (Gibson) co-created Deeplearning4j. :) Adam is also an updater, similar to rmsprop, which uses a running average of the gradient’s first and second moment plus a bias-correction term.
-</p>
 
-<p>
 AdamUpdater in Deeplearning4j
 Adam: A Method for Stochastic Optimization
-</p>
-<ul class="org-ul">
-<li>Affine Layer</li>
-</ul>
+- Affine Layer
 
-<p>
 Affine is a fancy word for a fully connected layer in a neural network. “Fully connected” means that all the nodes of one layer connect to all the nodes of the subsequent layer. A restricted Boltzmann machine, for example, is a fully connected layer. Convolutional networks use affine layers interspersed with both their namesake convolutional layers (which create feature maps based on convolutions) and downsampling layers, which throw out a lot of data and only keep the maximum value. “Affine” derives from the Latin affinis, which means bordering or connected with. Each connection, in an affine layer, is a passage whereby input is multiplied by a weight and added to a bias before it accumulates with all other inputs at a given node, the sum of which is then passed through an activation function: e.g. output = activation(weight*input+bias), or y = f(w*x+b).
-</p>
 
-<ul class="org-ul">
-<li>AlexNet</li>
-</ul>
+- AlexNet
 
-<p>
 AlexNet is a deep convolutional network named after Alex Krizhevsky, a former student of Geoff Hinton’s at the University of Toronto, now at Google. AlexNet was used to win ILSVRC 2012, and foretold a wave of deep convolutional networks that would set new records in image recognition. AlexNet is now a standard architecture: it contains five convolutional layers, three of which are followed by max-pooling (downsampling) layers, two fully connected (affine) layers – all of which ends in a softmax layer. Here is Deeplearning4j’s implementation of AlexNet.
-</p>
 
-<p>
 AlexNet Example in Deeplearning4j
 ImageNet Classification with Deep Convolutional Neural Networks
-</p>
 
-<ul class="org-ul">
-<li>Attention Models</li>
-</ul>
+- Attention Models
 
-<p>
 Attention models “attend” to specific parts of an image in sequence, one after another. By relying on a sequence of glances, they capture visual structure, much like the human eye is believed to function with foveation. This visual processing, which relies on a recurrent network to process sequential data, can be contrasted with other machine vision techniques that process a whole image in a single, forward pass.
-</p>
 
-<p>
 DRAW: A Recurrent Neural Network For Image Generation.
-</p>
 
-<ul class="org-ul">
-<li>Autoencoder</li>
-</ul>
+- Autoencoder
 
-<p>
 Autoencoders are at the heart of representation learning. They encode input, usually by compressing large vectors into smaller vectors that capture their most significant features; that is, they are useful for data compression (dimensionality reduction) as well as data reconstruction for unsupervised learning. A restricted Boltzmann machine is a type of autoencoder, and in fact, autoencoders come in many flavors, including Variational Autoencoders, Denoising Autoencoders and Sequence Autoencoders. Variational autoencoders have replaced RBMs in many labs because they produce more stable results. Denoising autoencoders provide a form of regularization by introducing Gaussian noise into the input, which the network learns to ignore in search of the true signal.
-</p>
 
-<p>
 Autoencoder in Deeplearning4j
 Auto-Encoding Variational Bayes
 Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion
 Semi-supervised Sequence Learning
 Autoencoder in Deeplearning4j
-</p>
 
-<ul class="org-ul">
-<li>Backpropagation</li>
-</ul>
+- Backpropagation
 
-<p>
 To calculate the gradient the relate weights to error, we use a technique known as backpropagation, which is also referred to as the backward pass of the network. Backpropagation is a repeated application of chain rule of calculus for partial derivatives. The first step is to calculate the derivatives of the objective function with respect to the output units, then the derivatives of the output of the last hidden layer to the input of the last hidden layer; then the input of the last hidden layer to the weights between it and the penultimate hidden layer, etc. Here’s a derivation of backpropagation. And here’s Yann LeCun’s important paper on the subject.
-</p>
 
 
-<ul class="org-ul">
-<li>Alt text</li>
-</ul>
+- Alt text
 
-<p>
 A special form of backpropagation is called backpropagation through time, or BPTT, which is specifically useful for recurrent networks analyzing text and time series. With BPTT, each time step of the RNN is the equivalent of a layer in a feed-forward network. To backpropagate over many time steps, BPTT can be truncated for the purpose of efficiency. Truncated BPTT limits the time steps over which error is propagated.
-</p>
 
-<p>
 Backpropagation Types in Deeplearningtj
 Backpropagation Through Time: What It Does and How to Do It
-</p>
 
-<ul class="org-ul">
-<li>Batch Normalization</li>
-</ul>
+- Batch Normalization
 
-<p>
 Batch Normalization does what is says: it normalizes mini-batches as they’re fed into a neural-net layer. Batch normalization has two potential benefits: it can accelerate learning because it allows you to employ higher learning rates, and also regularizes that learning.
-</p>
 
-<p>
 Batch Normalization in Deeplearning4j
 Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
-Overview  of mini-batch gradient descent (U. Toronto)
-</p>
+Overview	of mini-batch gradient descent (U. Toronto)
 
-<ul class="org-ul">
-<li>Bidirectional Recurrent Neural Networks</li>
-</ul>
+- Bidirectional Recurrent Neural Networks
 
-<p>
 A Bidirectional RNN is composed of two RNNs that process data in opposite directions. One reads a given sequence from start to finish; the other reads it from finish to start. Bidirectional RNNs are employed in NLP for translation problems, among other use cases. Deeplearning4j’s implementation of bidirectional Graves LSTMs is here.
-</p>
 
-<p>
 Bidirectional Recurrent Neural Networks
-</p>
 
-<ul class="org-ul">
-<li>Binarization</li>
-</ul>
+- Binarization
 
-<p>
 The process of transforming data in to a set of zeros and ones. An example would be gray-scaling an image by transforming a picture from the 0-255 spectrum to a 0-1 spectrum.
-</p>
 
 
-<ul class="org-ul">
-<li>Boltzmann Machine</li>
-</ul>
+- Boltzmann Machine
 
-<p>
 “A Boltzmann machine learns internal (not defined by the user) concepts that help to explain (that can generate) the observed data. These concepts are captured by random variables (called hidden units) that have a joint distribution (statistical dependencies) among themselves and with the data, and that allow the learner to capture highly non-linear and complex interactions between the parts (observed random variables) of any observed example (like the pixels in an image). You can also think of these higher-level factors or hidden units as another, more abstract, representation of the data. The Boltzmann machine is parametrized through simple two-way interactions between every pair of random variable involved (the observed ones as well as the hidden ones).” - Yoshua Bengio
-</p>
 
 
-<ul class="org-ul">
-<li>Channel</li>
-</ul>
+- Channel
 
-<p>
 Channel is a word used when speaking of convolutional networks. ConvNets treat color images as volumes; that is, an image has height, width and depth. The depth is the number of channels, which coincide with how you encode colors. RGB images have three channels, for red, green and blue respectively.
-</p>
 
 
-<ul class="org-ul">
-<li>Class</li>
-</ul>
+- Class
 
-<p>
 Used in classification a Class refers to a label applied to a group of records sharing similar characteristics.
-</p>
 
 
-<ul class="org-ul">
-<li>Confusion Matrix</li>
-</ul>
+- Confusion Matrix
 
-<p>
 Also known as an error matrix or contingency table. Confusions matrices allow you to see if your algorithm is systematically confusing two labels, by contrasting your net’s predictions against a benchmark.
-</p>
 
 
-<ul class="org-ul">
-<li>Contrastive Divergence</li>
-</ul>
+- Contrastive Divergence
 
-<p>
-“Contrastive divergence is a recipe for training undirected graphical models (a class of probabilistic models used in machine learning). It relies on an approximation of the gradient (a good direction of change for the parameters) of the log-likelihood (the basic criterion that most probabilistic learning algorithms try to optimize) based on a short Markov chain (a way to sample from probabilistic models) started at the last example seen. It has been popularized in the context of Restricted Boltzmann Machines (Hinton &amp; Salakhutdinov, 2006, Science), the latter being the first and most popular building block for deep learning algorithms.” ~Yoshua Bengio
-</p>
+“Contrastive divergence is a recipe for training undirected graphical models (a class of probabilistic models used in machine learning). It relies on an approximation of the gradient (a good direction of change for the parameters) of the log-likelihood (the basic criterion that most probabilistic learning algorithms try to optimize) based on a short Markov chain (a way to sample from probabilistic models) started at the last example seen. It has been popularized in the context of Restricted Boltzmann Machines (Hinton & Salakhutdinov, 2006, Science), the latter being the first and most popular building block for deep learning algorithms.” ~Yoshua Bengio
 
 
-<ul class="org-ul">
-<li>Convolutional Network (CNN)</li>
-</ul>
+- Convolutional Network (CNN)
 
-<p>
 Convolutional networks are a deep neural network that is currently the state-of-the-art in image processing. They are setting new records in accuracy every year on widely accepted benchmark contests like ImageNet.
-</p>
 
-<p>
 From the Latin convolvere, “to convolve” means to roll together. For mathematical purposes, a convolution is the integral measuring how much two functions overlap as one passes over the other. Think of a convolution as a way of mixing two functions by multiplying them: a fancy form of multiplication.
-</p>
 
-<p>
 Imagine a tall, narrow bell curve standing in the middle of a graph. The integral is the area under that curve. Imagine near it a second bell curve that is shorter and wider, drifting slowly from the left side of the graph to the right. The product of those two functions’ overlap at each point along the x-axis is their convolution. So in a sense, the two functions are being “rolled together.”
-</p>
 
-<p>
 Cosine Similarity
-</p>
 
-<p>
 It turns out two vectors are just 66% of a triangle, so let’s do a quick trig review.
-</p>
 
-<p>
 Trigonometric functions like sine, cosine and tangent are ratios that use the lengths of a side of a right triangle (opposite, adjacent and hypotenuse) to compute the shape’s angles. By feeding the sides into ratios like these
-</p>
 
-<p>
 Alt text
-</p>
 
-<p>
 we can also know the angles at which those sides intersect. Remember SOH-CAH-TOA?
-</p>
 
-<p>
 Differences between word vectors, as they swing around the origin like the arms of a clock, can be thought of as differences in degrees.
-</p>
 
-<p>
 And similar to ancient navigators gauging the stars by a sextant, we will measure the angular distance between words using something called cosine similarity. You can think of words as points of light in a dark canopy, clustered together in constellations of meaning.
-</p>
 
-<p>
 Alt text
-</p>
 
-<p>
 To find that distance knowing only the word vectors, we need the equation for vector dot multiplication (multiplying two vectors to produce a single, scalar value).
-</p>
 
-<p>
 Alt text
-</p>
 
-<p>
 In Java, you can think of the formula to measure cosine similarity like this:
-</p>
 
-<p>
 public static double cosineSimilarity(double[] vectorA, double[] vectorB) {
     double dotProduct = 0.0;
     double normA = 0.0;
     double normB = 0.0;
-    for (int i = 0; i &lt; vectorA.length; i++) {
+    for (int i = 0; i < vectorA.length; i++) {
         dotProduct += vectorA[i] * vectorB[i];
         normA += Math.pow(vectorA[i], 2);
         normB += Math.pow(vectorB[i], 2);
@@ -534,1179 +148,442 @@ public static double cosineSimilarity(double[] vectorA, double[] vectorB) {
     return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 Cosine is the angle attached to the origin, which makes it useful here. (We normalize the measurements so they come out as percentages, where 1 means that two vectors are equal, and 0 means they are perpendicular, bearing no relation to each other.)
-</p>
 
 
-<ul class="org-ul">
-<li>Data Parallelism and Model Parallelism</li>
-</ul>
+- Data Parallelism and Model Parallelism
 
-<p>
 Training a neural network on a very large dataset requires some form of parallelism, of which there are two types: data parallelism and model parallelism.
-</p>
 
-<p>
 Deeplearning4j does data parallelism.
-</p>
 
-<p>
 Let’s say you have a very large image dataset of 1,000,000 faces. Those faces can be divided into batches of 10, and then 10 separate batches can be dispatched simultaneously to 10 different convolutional networks, so that 100 instances can be processed at once. The 10 different CNNs would then train on a batch, calculate the error on that batch, and update their parameters based on that error. Then, using parameter averaging, the 10 CNNs would update a central, master CNN that would take the average of their updated paramters. This process would repeat until the entire dataset has been exhausted. For more information, please see our page on iterative reduce.
-</p>
 
-<p>
 Model parallelism is another way to accelerate neural net training on very large datasets. Here, instead of sending batches of faces to separate neural networks, let’s imagine a different kind of image: an enormous map of the earth. Model parallelism would divide that enormous map into regions, and it would park a separate CNN on each region, to train on only that area and no other. Then, as each enormous map was peeled off the dataset to train the neural networks, it would be broken up and different patches of it would be sent to train on separate CNNs. No parameter averaging necessary here.
-</p>
 
 
-<ul class="org-ul">
-<li>Data Science</li>
-</ul>
+- Data Science
 
-<p>
 Data science is the discipline of drawing conclusions from data using computation. There are three core aspects of effective data analysis: exploration, prediction, and inference.
-</p>
 
 
-<ul class="org-ul">
-<li>Deep-Belief Network (DBN)</li>
-</ul>
+- Deep-Belief Network (DBN)
 
-<p>
 A deep-belief network is a stack of restricted Boltzmann machines, which are themselves a feed-forward autoencoder that learns to reconstruct input layer by layer, greedily. Pioneered by Geoff Hinton and crew. Because a DBN is deep, it learns a hierarchical representation of input. Because DBNs learn to reconstruct that data, they can be useful in unsupervised learning.
-</p>
 
-<p>
 A fast learning algorithm for deep belief nets
-</p>
 
-<ul class="org-ul">
-<li>Deep Learning</li>
-</ul>
+- Deep Learning
 
-<p>
 Deep Learning allows computational models composed of multiple processing layers to learn representations of data with multiple levels of abstraction.  These methods have dramatically improved the state-of-the-art in speech recognition, visual object recognition, object detection, and many other domains such as drug discovery and genomics. Deep learning discovers intricate structure in large datasets by using the back-propagation algorithm to indicate how a machine should change its internal parameters that are used to compute the representation in each layer from the representation in the previous layer.  Deep convolutional nets have brought about dramatic improvements in processing images, video, speech and audio, while recurrent nets have shone on sequential data such as text and speech.  Representation learning is a set of methods that allows a machine to be fed with raw data and to automatically discover the representations needed for detection or classification. Deep learning methods are representation learning methods with multiple levels of representation, obtained by composing simple but non-linear modules that each transform the representation at one level (starting with the raw input) into a representation at a higher, slightly more abstract level.
 -NIPS
-</p>
 
 
-<ul class="org-ul">
-<li>Distributed Representations</li>
-</ul>
+- Distributed Representations
 
-<p>
 The Nupic community has a good explanation of distributed representations here. Other good explanations can be found on this Quora page.
-</p>
 
 
-<ul class="org-ul">
-<li>Downpour Stochastic Gradient Descent</li>
-</ul>
+- Downpour Stochastic Gradient Descent
 
-<p>
 Downpour stochastic gradient descent is an asynchronous stochastic gradient descent procedure, employed by Google among others, that expands the scale and increases the speed of training deep-learning networks.
-</p>
 
 
-<ul class="org-ul">
-<li>Dropout</li>
-</ul>
+- Dropout
 
-<p>
 Dropout is a hyperparameter used for regularization in neural networks. Like all regularization techniques, its purpose is to prevent overfitting. Dropout randomly makes nodes in the neural network “drop out” by setting them to zero, which encourages the network to rely on other features that act as signals. That, in turn, creates more generalizable representations of data.
-</p>
 
-<p>
 Dropout: A Simple Way to Prevent Neural Networks from Overfitting
 Recurrent Neural Network Regularization
-</p>
 
-<ul class="org-ul">
-<li>DropConnect</li>
-</ul>
+- DropConnect
 
-<p>
 DropConnect is a generalization of Dropout for regularizing large fully-connected layers within neural networks. Dropout sets a randomly selected subset of activations to zero at each layer. DropConnect, in contrast, sets a randomly selected subset of weights within the network to zero.
-</p>
 
-<p>
 Regularization of Neural Networks using DropConnect
-</p>
 
-<ul class="org-ul">
-<li>Embedding</li>
-</ul>
+- Embedding
 
-<p>
 An embedding is a representation of input, or an encoding. For example, a neural word embedding is a vector that represents that word. The word is said to be embedded in vector space. Word2vec and GloVe are two techniques used to train word embeddings to predict a word’s context. Because an embedding is a form of representation learning, we can “embed” any data type, including sounds, images and time series.
-</p>
 
 
-<ul class="org-ul">
-<li>Epoch vs. Iteration</li>
-</ul>
+- Epoch vs. Iteration
 
-<p>
 In machine-learning parlance, an epoch is a complete pass through a given dataset. That is, by the end of one epoch, your neural network – be it a restricted Boltzmann machine, convolutional net or deep-belief network – will have been exposed to every record to example within the dataset once. Not to be confused with an iteration, which is simply one update of the neural net model’s parameters. Many iterations can occur before an epoch is over. Epoch and iteration are only synonymous if you update your parameters once for each pass through the whole dataset; if you update using mini-batches, they mean different things. Say your data has 2 minibatches: A and B. .numIterations(3) performs training like AAABBB, while 3 epochs looks like ABABAB.
-</p>
 
 
-<ul class="org-ul">
-<li>Extract, transform, load (ETL)</li>
-</ul>
+- Extract, transform, load (ETL)
 
-<p>
 Data is loaded from disk or other sources into memory with the proper transforms such as binarization and normalization. Broadly, you can think of a datapipeline as the process over gathering data from disparate sources and locations, putting it into a form that your algorithms can learn from, and then placing it in a data structure that they can iterate through.
-</p>
 
 
-<ul class="org-ul">
-<li>f1 Score</li>
-</ul>
+- f1 Score
 
-<p>
 The f1 score is a number between zero and one that explains how well the network performed during training. It is analogous to a percentage, with 1 being the best score and zero the worst. f1 is basically the probability that your net’s guesses are correct.
-</p>
 
-<p>
 F1 = 2 * ((precision * recall) / (precision + recall))
 Accuracy measures how often you get the right answer, while f1 scores are a measure of accuracy. For example, if you have 100 fruit – 99 apples and 1 orange – and your model predicts that all 100 items are apples, then it is 99% accurate. But that model failed to identify the difference between apples and oranges. f1 scores help you judge whether a model is actually doing well as classifying when you have an imbalance in the categories you’re trying to tag.
-</p>
 
-<p>
 An f1 score is an average of both precision and recall. More specifically, it is a type of average called the harmonic mean, which tends to be less than the arithmetic or geometric means. Recall answers: “Given a positive example, how likely is the classifier going to detect it?” It is the ratio of true positives to the sum of true positives and false negatives.
-</p>
 
-<p>
 Precision answers: “Given a positive prediction from the classifier, how likely is it to be correct ?” It is the ratio of true positives to the sum of true positives and false positives.
-</p>
 
-<p>
 For f1 to be high, both recall and precision of the model have to be high.
-</p>
 
-<p>
 Alt text
-</p>
 
 
-<ul class="org-ul">
-<li>Feed-Forward Network</li>
-</ul>
+- Feed-Forward Network
 
-<p>
 A neural network that takes the initial input and triggers the activation of each layer of the network successively, without circulating. Feed-forward nets contrast with recurrent and recursive nets in that feed-forward nets never let the output of one node circle back to the same or previous nodes.
-</p>
 
 
-<ul class="org-ul">
-<li>Gaussian Distribution</li>
-</ul>
+- Gaussian Distribution
 
-<p>
 A Gaussian, or normal, distribution, is a continuous probability distribution that represents the probability that any given observation will occur on different points of a range. Visually, it resembles what’s usually called a Bell curve.
-</p>
 
 
-<ul class="org-ul">
-<li>Gloval Vectores (GloVe)</li>
-</ul>
+- Gloval Vectores (GloVe)
 
-<p>
 GloVe is a generalization of Tomas Mikolov’s word2vec algorithms, a technique for creating neural word embeddings. It was first presented at NIPS by Jeffrey Pennington, Richard Socher and Christopher Manning of Stanford’s NLP department. Deeplearning4j’s implementation of GloVe is here.
-</p>
 
-<p>
 GloVe: Global Vectors for Word Representation
-</p>
 
-<ul class="org-ul">
-<li>Gradient Descent</li>
-</ul>
+- Gradient Descent
 
-<p>
 The gradient is a derivative, which you will know from differential calculus. That is, it’s the ratio of the rate of change of a neural net’s parameters and the error it produces, as it learns how to reconstruct a dataset or make guesses about labels. The process of minimizing error is called gradient descent. Descending a gradient has two aspects: choosing the direction to step in (momentum) and choosing the size of the step (learning rate).
-</p>
 
-<p>
 Since MLPs are, by construction, differentiable operators, they can be trained to minimise any differentiable objective function using gradient descent. The basic idea of gradient descent is to find the derivative of the objective function with respect to each of the network weights, then adjust the weights in the direction of the negative slope. -Graves
-</p>
 
-<ul class="org-ul">
-<li>Gradient Clipping</li>
-</ul>
+- Gradient Clipping
 
-<p>
 Gradient Clipping is one way to solve the problem of exploding gradients. Exploding gradients arise in deep networks when gradients associating weights and the net’s error become too large. Exploding gradients are frequently encountered in RNNs dealing with long-term dependencies. One way to clip gradients is to normalize them when the L2 norm of a parameter vector surpasses a given threshhold.
-</p>
 
 
-<ul class="org-ul">
-<li>Epoch</li>
-</ul>
+- Epoch
 
-<p>
 An Epoch is a complete pass through all the training data. A neural network is trained until the error rate is acceptable, and this will often take multiple passes through the complete data set.
-</p>
 
-<p>
 note An iteration is when parameters are updated and is typically less than a full pass. For example if BatchSize is 100 and data size is 1,000 an epoch will have 10 iterations. If trained for 30 epochs there will be 300 iterations.
-</p>
 
 
-<ul class="org-ul">
-<li>Graphical Models</li>
-</ul>
+- Graphical Models
 
-<p>
 A directed graphical model is another name for a Bayesian net, which represents the probabilistic relationships between the variables represented by its nodes.
-</p>
 
 
-<ul class="org-ul">
-<li>Gated Recurrent Unit (GRU)</li>
-</ul>
+- Gated Recurrent Unit (GRU)
 
-<p>
 A GRU is a pared-down LSTM. GRUs rely on gating mechanisms to learn long-range dependencies while sidestepping the vanishing gradient problem. They include reset and update gates to decide when to update the GRUs memory at each time step.
-</p>
 
-<p>
 Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation
-</p>
 
-<ul class="org-ul">
-<li>Highway Networks</li>
-</ul>
+- Highway Networks
 
-<p>
 Highway networks are an architecture introduced by Schmidhuber et al to let information flow unhindered across several RNN layers on so-called “information highways.” The architecture uses gating units that learn to regulate the flow of information through the net. Highway networks with hundreds of layers can be trained directly using SGD, which means they can support very deep architectures.
-</p>
 
 
-<p>
 Highway Networks
-</p>
 
-<ul class="org-ul">
-<li>Hyperplane</li>
-</ul>
+- Hyperplane
 
-<p>
 “A hyperplane in an n-dimensional Euclidean space is a flat, n-1 dimensional subset of that space that divides the space into two disconnected parts. What does that mean intuitively?
-</p>
 
-<p>
 First think of the real line. Now pick a point. That point divides the real line into two parts (the part above that point, and the part below that point). The real line has 1 dimension, while the point has 0 dimensions. So a point is a hyperplane of the real line.
-</p>
 
-<p>
 Now think of the two-dimensional plane. Now pick any line. That line divides the plane into two parts (“left” and “right” or maybe “above” and “below”). The plane has 2 dimensions, but the line has only one. So a line is a hyperplane of the 2d plane. Notice that if you pick a point, it doesn’t divide the 2d plane into two parts. So one point is not enough.
-</p>
 
-<p>
 Now think of a 3d space. Now to divide the space into two parts, you need a plane. Your plane has two dimensions, your space has three. So a plane is the hyperplane for a 3d space.
-</p>
 
-<p>
 OK, now we’ve run out of visual examples. But suppose you have a space of n dimensions. You can write down an equation describing an n-1 dimensional object that divides the n-dimensional space into two pieces. That’s a hyperplane.” -Quora
-</p>
 
 
-<ul class="org-ul">
-<li>International Conference on Learning Representations</li>
-</ul>
+- International Conference on Learning Representations
 
-<p>
 ICLR, pronounced “I-clear”. An important conference. See representation learning.
-</p>
 
 
-<ul class="org-ul">
-<li>International Conference for Machine Learning</li>
-</ul>
+- International Conference for Machine Learning
 
-<p>
 ICML, or the International Conference for Machine Learning, is a well-known and well attended machine-learning conference.
-</p>
 
 
-<ul class="org-ul">
-<li>ImageNet Large Scale Visual Recognition Challenge (ILSVRC)</li>
-</ul>
+- ImageNet Large Scale Visual Recognition Challenge (ILSVRC)
 
-<p>
 The ImageNet Large Scale Visual Recognition Challenge is the formal name for ImageNet, a yearly contest held to solicit and evalute the best techniques in image recognition. Deep convolutional architectures have driven error rates on the ImageNet competition from 30% to less than 5%, which means they now have human-level accuracy.
-</p>
 
 
-<ul class="org-ul">
-<li>Iteration</li>
-</ul>
+- Iteration
 
-<p>
 An iteration is an update of weights after analysing a batch of input records. See Epoch for clarification.
-</p>
 
 
-<ul class="org-ul">
-<li>LeNet</li>
-</ul>
+- LeNet
 
-<p>
 Google’s LeNet architecture is a deep convolutional network. It won ILSVRC in 2014, and introduced techniques for paring the size of a CNN, thus increasing computational efficiency.
-</p>
 
-<p>
 Going Deeper with Convolutions
-</p>
 
-<ul class="org-ul">
-<li>Long Short-Term Memory Units (LSTM)</li>
-</ul>
+- Long Short-Term Memory Units (LSTM)
 
-<p>
 LSTMs are a form of recurrent neural network invented in the 1990s by Sepp Hochreiter and Juergen Schmidhuber, and now widely used for image, sound and time series analysis, because they help solve the vanishing gradient problem by using a memory gates. Alex Graves made significant improvements to the LSTM with what is now known as the Graves LSTM, which Deeplearning4j implements here.
-</p>
 
-<p>
 LSTMs with Deeplearning4j
 Using RNNs with Deeplearning4j
 Original Paper: LONG SHORT-TERM MEMORY
-</p>
 
-<ul class="org-ul">
-<li>Log-Likelihood</li>
-</ul>
+- Log-Likelihood
 
-<p>
 Log likelihood is related to the statistical idea of the likelihood function. Likelihood is a function of the parameters of a statistical model. “The probability of some observed outcomes given a set of parameter values is referred to as the likelihood of the set of parameter values given the observed outcomes.”
-</p>
 
 
-<ul class="org-ul">
-<li>Maximum Likelihood Estimation</li>
-</ul>
+- Maximum Likelihood Estimation
 
-<p>
 “Say you have a coin and you’re not sure it’s “fair.” So you want to estimate the “true” probability it will come up heads. Call this probability P, and code the outcome of a coin flip as 1 if it’s heads and 0 if it’s tails. You flip the coin four times and get 1, 0, 0, 0 (i.e., 1 heads and 3 tails). What is the likelihood that you would get these outcomes, given P? Well, the probability of heads is P, as we defined it above. That means the probability of tails is (1 - P). So the probability of 1 heads and 3 tails is P * (1 - P)3 [Edit: We call this the “likelihood” of the data]. If we “guess” that the coin is fair, that’s saying P = 0.5, so the likelihood of the data is L = .5 * (1 - .5)3 = .0625. What if we guess that P = 0.45? Then L = .45 * (1 - .45)3 = ~.075. So P = 0.45 is actually a better estimate than P = 0.5, because the data are “more likely” to have occurred if P = 0.45 than if P = 0.5. At P = 0.4, the likelihood is 0.4 * (1 - 0.4)3 = .0864. At P = 0.35, the likelihood is 0.35 * (1 - 0.35)3 = .096. In this case, it turns out that the value of P that maximizes the likelihood is P = 0.25. So that’s our “maximum likelihood” estimate for P. In practice, max likelihood is harder to estimate than this (with predictors and various assumptions about the distribution of the data and error terms), but that’s the basic concept behind it.” –u/jacknbox
-</p>
 
-<p>
 So in a sense, probability is treated as an unseen, internal property of the data. A parameter. And likelihood is a measure of how well the outcomes recorded in the data match our hypothesis about their probability; i.e. our theory about how the data is produced. The better our theory of the data’s probability, the higher the likelihood of a given set of outcomes.
-</p>
 
 
-<ul class="org-ul">
-<li>Model</li>
-</ul>
+- Model
 
-<p>
 In neural networks, the model is the collection of weights and biases that transform input into output. A neural network is a set of algorithms that update models such that the models guess with less error as they learn. A model is a symbolic, logical or mathematical machine whose purpose is to deduce output from input. If a model’s assumptions are correct, then one must necessarily believe its conclusions. Neural networks produced trained models that can be deployed to process, classify, cluster and make predictions about data.
-</p>
 
 
-<ul class="org-ul">
-<li>MNIST</li>
-</ul>
+- MNIST
 
-<p>
 MNIST is the “hello world” of deep-learning datasets. Everyone uses MNIST to test their neural networks, just to see if the net actually works at all. MNIST contains 60,000 training examples and 10,000 test examples of the handwritten numerals 0-9. These images are 28x28 pixels, which means they require 784 nodes on the first input layer of a neural network. MNIST is available for download here. Here is an example of training a DBN on MNIST with Deeplearning4j.
-</p>
 
 
-<ul class="org-ul">
-<li>Model Score</li>
-</ul>
+- Model Score
 
-<p>
 As your model trains the goal of training is to improve the “score” for the output or the overall error rate. The webui will present a graph of the score for each iteration. For text based console output of the score as the model trains you would use ScoreIterationListener
-</p>
 
 
-<ul class="org-ul">
-<li>Nesterov’s Momentum</li>
-</ul>
+- Nesterov’s Momentum
 
-<p>
 Momentum also known as Nesterov’s momentum, influences the speed of learning. It causes the model to converge faster to a point of minimal error. Momentum adjusts the size of the next step, the weight update, based on the previous step’s gradient. That is, it takes the gradient’s history and multiplies it. Before each new step, a provisional gradient is calculated by taking partial derivatives from the model, and the hyperparameters are applied to it to produce a new gradient. Momentum influences the gradient your model uses for the next step.
-</p>
 
-<p>
 Nesterov’s Momentum Updater in Deeplearnign4j
-</p>
 
-<ul class="org-ul">
-<li>Multilayer Perceptron</li>
-</ul>
+- Multilayer Perceptron
 
-<p>
 MLPs are perhaps the oldest form of deep neural network. They consist of multiple, fully connected feedforward layers. Examples of Deeplearning4j’s multilayer perceptrons can be seen here.
-</p>
 
 
-<ul class="org-ul">
-<li>Neural Machine Translation</li>
-</ul>
+- Neural Machine Translation
 
-<p>
 Neural machine translation maps one language to another using neural networks. Typically, recurrent neural networks are use to ingest a sequence from the input language and output a sequence in the target language.
-</p>
 
-<p>
 Sequence to Sequence Learning with Neural Networks
-</p>
 
-<ul class="org-ul">
-<li>Noise-Contrastive Estimations (NCE)</li>
-</ul>
+- Noise-Contrastive Estimations (NCE)
 
-<p>
 Noise-contrastive estimation offers a balance of computational and statistical efficiency. It is used to train classifiers with many classes in the output layer. It replaces the softmax probability density function, an approximation of a maximum likelihood estimator that is cheaper computationally.
-</p>
 
-<p>
 Noise-contrastive estimation: A new estimation principle for unnormalized statistical models
 Learning word embeddings efficiently with noise-contrastive estimation
-</p>
 
-<ul class="org-ul">
-<li>Nonlinear Transform Function</li>
-</ul>
+- Nonlinear Transform Function
 
-<p>
 A function that maps input on a nonlinear scale such as sigmoid or tanh. By definition, a nonlinear function’s output is not directly proportional to its input.
-</p>
 
 
-<ul class="org-ul">
-<li>Normalization</li>
-</ul>
+- Normalization
 
-<p>
 The process of transforming the data to span a range from 0 to 1.
-</p>
 
 
-<ul class="org-ul">
-<li>Object-Oriented Programming (OOP)</li>
-</ul>
+- Object-Oriented Programming (OOP)
 
-<p>
 While deep learning and opject oriented programming don’t necessarily go together, Deeplearning4j is written in Java following the principles of OOP. In object-oriented programming, you create so-called objects, which are generally abstract nouns representing a part in a larger symbolic machine (e.g. in Deeplearning4j, the object class DataSetIterator traverses across datasets and feeds parts of those datasets into another process, iteratively, piece by piece).
-</p>
 
-<p>
 DatasetIterator is actually the name of a class of object. In any particular object-oriented program, you would create a particular instance of that general class, calling it, say, ‘iter’ like this:
-</p>
 
-<p>
 new DataSetIterator iter;
 Every object is really just a data structure that combines fields containing data and methods that act on the data in those fields.
-</p>
 
-<p>
 The way you talk about those fields and methods is with the dot operator ., and parentheses () that contain parameters. For example, if you wrote iter.next(5), then you’d be telling the DataSetIterator to go across a dataset processing 5 instances of that data (say 5 images or records) at a time, where next is the method you call, and 5 is the parameter you pass into it.
-</p>
 
-<p>
 You can learn more about DataSetIterator and other classes in Deeplearning4j in our Javadoc.
-</p>
 
 
-<ul class="org-ul">
-<li>Objective Function</li>
-</ul>
+- Objective Function
 
-<p>
 Also called a loss function or a cost function, an objective function defines what success looks like when an algorithm learns. It is a measure of the difference between a neural net’s guess and the ground truth; that is, the error. Measuring that error is a precondition to updating the neural net in such a way that its guesses generate less error. The error resulting from the loss function is fed into backpropagation in order to update the weights and biases that process input in the neural network.
-</p>
 
-<p>
 One-Hot Encoding
-</p>
 
-<p>
 Used in classification and bag of words. The label for each example is all 0s, except for a 1 at the index of the actual class to which the example belongs. For BOW, the one represents the word encountered.
-</p>
 
-<p>
 Below is an example of one-hot encoding for the phrase “The quick brown fox” One Hot Encoding for words
-</p>
 
 
-<ul class="org-ul">
-<li>Pooling</li>
-</ul>
+- Pooling
 
-<p>
 Pooling, max pooling and average pooling are terms that refer to downsampling or subsampling within a convolutional network. Downsampling is a way of reducing the amount of data flowing through the network, and therefore decreasing the computational cost of the network. Average pooling takes the average of several values. Max pooling takes the greatest of several values. Max pooling is currently the preferred type of downsampling layer in convolutional networks.
-</p>
 
 
-<ul class="org-ul">
-<li>Probability Density</li>
-</ul>
+- Probability Density
 
-<p>
 Probability densities are used in unsupervised learning, with algorithms such as autoencoders, VAEs and GANs.
-</p>
 
-<p>
 “A probability density essentially says “for a given variable (e.g. radius) what, at that particular value, is the likelihood of encountering an event or an object (e.g. an electron)?” So if I’m at the nucleus of a atom and I move to, say, one Angstrom away, at one Angstrom there is a certain likelihood I will spot an electron. But we like to not just ask for the probability at one point; we’d sometimes like to find the probability for a range of points: What is the probability of finding an electron between the nucleus and one Angstrom, for example. So we add up (“integrate”) the probability from zero to one Angstrom. For the sake of convenience, we sometimes employ “normalization”; that is, we require that adding up all the probabilities over every possible value will give us 1.00000000 (etc).” –u/beigebox
-</p>
 
 
-<ul class="org-ul">
-<li>Probability Distribution</li>
-</ul>
+- Probability Distribution
 
-<p>
 “A probability distribution is a mathematical function and/or graph that tells us how likely something is to happen.
-</p>
 
-<p>
 So, for example, if you’re rolling two dice and you want to find the likelihood of each possible number you can get, you could make a chart that looks like this. As you can see, you’re most likely to get a 7, then a 6, then an 8, and so on. The numbers on the left are the percent of the time where you’ll get that value, and the ones on the right are a fraction (they mean the same thing, just different forms of the same number). The way that it you use the distribution to find the likelihood of each outcome is this:
-</p>
 
-<p>
 There are 36 possible ways for the two dice to land. There are 6 combinations that get you 7, 5 that get you 6/8, 4 that get you 5/9, and so on. So, the likelihood of each one happening is the number of possible combinations that get you that number divided by the total number of possible combinations. For 7, it would be 6/36, or 1/6, which you’ll notice is the same as what we see in the graph. For 8, it’s 5/36, etc. etc.
-</p>
 
-<p>
 The key thing to note here is that the sum of all of the probabilities will equal 1 (or, 100%). That’s really important, because it’s absolutely essential that there be a result of rolling the two die every time. If all the percentages added up to 90%, what the heck is happening that last 10% of the time?
-</p>
 
-<p>
 So, for more complex probability distributions, the way that the distribution is generated is more involved, but the way you read it is the same. If, for example, you see a distribution that looks like this, you know that you’re going to get a value of μ 40% (corresponding to .4 on the left side) of the time whenever you do whatever the experiment or test associated with that distribution.
-</p>
 
-<p>
 The percentages in the shaded areas are also important. Just like earlier when I said that the sum of all the probabilities has to equal 1 or 100%, the area under the curve of a probability distribution has to equal 1, too. You don’t need to know why that is (it involves calculus), but it’s worth mentioning. You can see that the graph I linked is actually helpfully labeled; the reason they do that is to show you that you what percentage of the time you’re going to end up somewhere in that area.
-</p>
 
-<p>
 So, for example, about 68% of the time, you’ll end up between -1σ and 1σ.” –u/corpuscle634
-</p>
 
 
-<ul class="org-ul">
-<li>Reconstruction Entropy</li>
-</ul>
+- Reconstruction Entropy
 
-<p>
 After applying Gaussian noise, a kind of statistical white noise, to the data, this objective function punishes the network for any result that is not closer to the original input. That signal prompts the network to learn different features in an attempt to reconstruct the input better and minimize error.
-</p>
 
 
-<ul class="org-ul">
-<li>Rectified Linear Units</li>
-</ul>
+- Rectified Linear Units
 
-<p>
 Rectified linear units, or reLU, are a non-linear activation function widely applied in neural networks because they deal well with the vanishing gradient problem. They can be expressed so: f(x) = max(0, x), where activation is set to zero if the output does not surpass a minimum threshhold, and activation increases linearly above that threshhold.
-</p>
 
-<p>
 Rectifier Nonlinearities Improve Neural Network Acoustic Models
 Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification
 Rectified Linear Units Improve Restricted Boltzmann Machines
 Incorporating Second-Order Functional Knowledge for Better Option Pricing
 Recurrent Neural Networks
-</p>
 
-<p>
 While “a multilayer perceptron (MLP) can only map from input to output vectors, whereas an RNN can in principle map from the entire history of previous inputs to each output. Indeed, the equivalent result to the universal approximation theory for MLPs is that an RNN with a sufficient number of hidden units can approximate any measurable sequence-to-sequence mapping to arbitrary accuracy (Hammer, 2000). The key point is that the recurrent connections allow a ‘memory’ of previous inputs to persist in the network’s internal state, which can then be used to influence the network output. The forward pass of an RNN is the same as that of an MLP with a single hidden layer, except that activations arrive at the hidden layer from both the current external input and the hidden layer activations one step back in time. “ -Graves
-</p>
 
-<p>
 Recursive Neural Networks
-</p>
 
-<p>
 Recursive neural networks learn data with structural hierarchies, such as text arranged grammatically, much like recurrent neural networks learn data structured by its occurance in time. Their chief use is in natural-language processing, and they are associated with Richard Socher of Stanford’s NLP lab.
-</p>
 
-<p>
 Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank
 Reinforcement Learning
-</p>
 
-<p>
 Reinforcement learning is a branch of machine learning that is goal oriented; that is, reinforcement learning algorithms have as their objective to maximize a reward, often over the course of many decisions. Unlike deep neural networks, reinforcement learning is not differentiable.
-</p>
 
 
-<ul class="org-ul">
-<li>Representation Learning</li>
-</ul>
+- Representation Learning
 
-<p>
 Representation learning is learning the best representation of input. A vector, for example, can “represent” an image. Training a neural network will adjust the vector’s elements to represent the image better, or lead to better guesses when a neural network is fed the image. The neural net might train to guess the image’s name, for instance. Deep learning means that several layers of representations are stacked atop one another, and those representations are increasingly abstract; i.e. the initial, low-level representations are granular, and may represent pixels, while the higher representations will stand for combinations of pixels, and then combinations of combinations, and so forth.
-</p>
 
 
-<ul class="org-ul">
-<li>Residual Networks (ResNet)</li>
-</ul>
+- Residual Networks (ResNet)
 
-<p>
 Microsoft Research used deep Residual Networks to win ImageNet in 2015. ResNets create “shortcuts” across several layers (deep resnets have 150 layers), allowing the net to learn so-called residual mappings. ResNets are similar to nets with Highway Layers, although they’re data independent. Microsoft Research created ResNets by generating by different deep networks automatically and relying on hyperparameter optimization.
-</p>
 
-<p>
 Deep Residual Learning for Image Recognition
-</p>
 
-<ul class="org-ul">
-<li>Restricted Boltzmann Machine (RBM)</li>
-</ul>
+- Restricted Boltzmann Machine (RBM)
 
-<p>
 Restricted Boltzmann machines are Boltzmann machines that are constrained to feed input forward symmetrically, which means all the nodes of one layer must connect to all the nodes of the subsequent layer. Stacked RBMs are known as a deep-belief network, and are used to learn how to reconstruct data layer by layer. Introduced by Geoff Hinton, RBMs were partially responsible for the renewed interest in deep learning that began circa 2006. In many labs, they have been replaced with more stable layers such as Variational Autoencoders.
-</p>
 
-<p>
 A Practical Guide to Training Restricted Boltzmann Machines
-</p>
 
-<ul class="org-ul">
-<li>RMSProp</li>
-</ul>
+- RMSProp
 
-<p>
 RMSProp is an optimization algorithm like Adagrad. In contrast to Adagrad, it relies on a decay term to prevent the learning rate from decreasing too rapidly.
-</p>
 
-<p>
 RMSPropUpdater in Deeplearning4j
 Optimization Algorithms (Stanford)
 An overview of gradient descent optimization algorithms
-</p>
 
-<ul class="org-ul">
-<li>Score</li>
-</ul>
+- Score
 
-<p>
 Measurement of the overall error rate of the model. The score of the model will be displayed graphically in the webui or it can be displayed the console by using ScoreIterationListener
-</p>
 
 
-<ul class="org-ul">
-<li>Serialization</li>
-</ul>
+- Serialization
 
-<p>
 Serialization is how you translate data structures or object state into storable formats. Deeplearning4j’s nets are serialized, which means they can operate on devices with limited memory.
-</p>
 
 
-<ul class="org-ul">
-<li>Skipgram</li>
-</ul>
+- Skipgram
 
-<p>
 The prerequisite to a definition of skipgrams is one of ngrams. An n-gram is a contiguous sequence of n items from a given sequence of text or speech. A unigram represents one “item,” a bigram two, a trigram three and so forth. Skipgrams are ngrams in which the items are not necessarily contiguous. This can be illustrated best with a few examples. Skipping is a form of noise, in the sense of noising and denoising, which allows neural nets to better generalize their extraction of features. See how skipgrams are implemented in Word2vec.
-</p>
 
 
-<ul class="org-ul">
-<li>Softmax</li>
-</ul>
+- Softmax
 
-<p>
 Softmax is a function used as the output layer of a neural network that classifies input. It converts vectors into class probabilities. Softmax normalizes the vector of scores by first exponentiating and then dividing by a constant.
-</p>
 
-<p>
 A Scalable Hierarchical Distributed Language Model
-</p>
 
-<ul class="org-ul">
-<li>Stochastic Gradient Descent</li>
-</ul>
+- Stochastic Gradient Descent
 
-<p>
 Stochastic Gradient Descent optimizes gradient descent and minimizes the loss function during network training.
-</p>
 
-<p>
 Stochastic is simply a synonym for “random.” A stochastic process is a process that involves a random variable, such as randomly initialized weights. Stochastic derives from the Greek word stochazesthai, “to guess or aim at”. Stochastic processes describe the evolution of, say, a random set of variables, and as such, they involve some indeterminacy – quite the opposite of having a precisely predicted processes that are deterministic, and have just one outcome.
-</p>
 
-<p>
 The stochastic element of a learning process is a form of search. Random weights represent a hypothesis, an attempt, or a guess that one tests. The results of that search are recorded in the form of a weight adjustment, which effectively shrinks the search space as the parameters move toward a position of less error.
-</p>
 
-<p>
 Neural-network gradients are calculated using backpropagation. SGD is usually used with minibatches, such that parameters are updated based on the average error generated by the instances of a whole batch.
-</p>
 
-<p>
 SGDUpdater in Deeplearning4j
-</p>
 
-<ul class="org-ul">
-<li>Support Vector Machine</li>
-</ul>
+- Support Vector Machine
 
-<p>
 While support-vector machines are not neural networks, they are an important algorithm that deserves explanation:
-</p>
 
-<p>
 An SVM is just trying to draw a line through your training points. So it's just like regular old linear regression except for the following three details: (1) there is an epsilon parameter that means "If the line fits a point to within epsilon then that's good enough; stop trying to fit it and worry about fitting other points." (2) there is a C parameter and the smaller you make it the more you are telling it to find "non-wiggly lines". So if you run SVR and get some crazy wiggly output that's obviously not right you can often make C smaller and it will stop being crazy. And finally (3) when there are outliers (e.g. bad points that will never fit your line) in your data they will only mess up your result a little bit. This is because SVR only gets upset about outliers in proportion to how far away they are from the line it wants to fit. This is contrasted with normal linear regression which gets upset in proportion to the square of the distance from the line. Regular linear regression worries too much about these bad points. TL;DR: SVR is trying to draw a line that gets within epsilon of all the points. Some points are bad and can't be made to get within epsilon and SVR doesn't get too upset about them whereas other regression methods flip out.
 Reddit
-</p>
 
-<ul class="org-ul">
-<li>Tensors</li>
-</ul>
+- Tensors
 
-<p>
 Here is an example of tensor along dimension (TAD):
-</p>
 
-<p>
 Alt text
-</p>
 
 
-<ul class="org-ul">
-<li>Vanishing Gradient Problem</li>
-</ul>
+- Vanishing Gradient Problem
 
-<p>
 The vanishing gradient problem is a challenge the confront backpropagation over many layers. Backpropagation establishes the relationship between a given weight and the error of a neural network. It does so through the chain rule of calculus, calculating how the change in a given weight along a gradient affects the change in error. However, in very deep neural networks, the gradient that relates the weight change to the error change can become very small. So small that updates in the net’s parameters hardly change the net’s guesses and error; so small, in fact, that it is difficult to know in which direction the weight should be adjusted to diminish error. Non-linear activation functions such as sigmoid and tanh make the vanishing gradient problem particularly difficult, because the activation funcion tapers off at both ends. This has led to the widespread adoption of rectified linear units (reLU) for activations in deep nets. It was in seeking to solve the vanishing gradient problem that Sepp Hochreiter and Juergen Schmidhuber invented a form of recurrent network called an LSTM in the 1990s. The inverse of the vanishing gradient problem, in which the gradient is impossibly small, is the exploding gradient problem, in which the gradient is impossibly large (i.e. changing a weight has too much impact on the error.)
-</p>
 
-<p>
 On the difficulty of training recurrent neural networks
 Transfer Learning
-</p>
 
-<p>
 Transfer learning is when a system can recognize and apply knowledge and skills learned in previous domains or tasks to novel domains or tasks. That is, if a model is trained on image data to recognize one set of categories, transfer learning applies if that same model is capable, with minimal additional training, or recognizing a different set of categories. For example, trained on 1,000 celebrity faces, a transfer learning model can be taught to recognize members of your family by swapping in another output layer with the nodes “mom”, “dad”, “elder brother”, “younger sister” and training that output layer on the new classifications.
-</p>
 
 
-<ul class="org-ul">
-<li>Vector</li>
-</ul>
+- Vector
 
-<p>
 Word2vec and other neural networks represent input as vectors.
-</p>
 
-<p>
 A vector is a data structure with at least two components, as opposed to a scalar, which has just one. For example, a vector can represent velocity, an idea that combines speed and direction: wind velocity = (50mph, 35 degrees North East). A scalar, on the other hand, can represent something with one value like temperature or height: 50 degrees Celsius, 180 centimeters.
-</p>
 
-<p>
 Therefore, we can represent two-dimensional vectors as arrows on an x-y graph, with the coordinates x and y each representing one of the vector’s values.
-</p>
 
-<p>
 Alt text
-</p>
 
-<p>
 Two vectors can relate to one another mathematically, and similarities between them (and therefore between anything you can vectorize, including words) can be measured with precision.
-</p>
 
-<p>
 Alt text
-</p>
 
-<p>
 As you can see, these vectors differ from one another in both their length, or magnitude, and in their angle, or direction. The angle is what concerns us here.
-</p>
 
 
-<ul class="org-ul">
-<li>VGG</li>
-</ul>
+- VGG
 
-<p>
 VGG is a deep convolutional architecture that won the benchmark ImageNet competition in 2014. A VGG architecture is composed of 16–19 weight layers and uses small convolutional filters. Deeplearning4j’s implementations of two VGG architecturs are here.
-</p>
 
-<p>
 Very Deep Convolutional Networks for Large-Scale Image Recognition
-</p>
 
-<ul class="org-ul">
-<li>Word2vec</li>
-</ul>
+- Word2vec
 
-<p>
 Tomas Mikolov’s neural networks, known as Word2vec, have become widely used because they help produce state-of-the-art word embeddings. Word2vec is a two-layer neural net that processes text. Its input is a text corpus and its output is a set of vectors: feature vectors for words in that corpus. While Word2vec is not a deep neural network, it turns text into a numerical form that deep nets can understand. Word2vec’s applications extend beyond parsing sentences in the wild. It can be applied just as well to genes, code, playlists, social media graphs and other verbal or symbolic series in which patterns may be discerned. Deeplearning4j implements a distributed form of Word2vec for Java and Scala, which works on Spark with GPUs.
-</p>
 
-<p>
 Word2vec in Deeplearning4j
-</p>
 
-<ul class="org-ul">
-<li>Xavier Initialization</li>
-</ul>
+- Xavier Initialization
 
-<p>
 The Xavier initialization is based on the work of Xavier Glorot and Yoshua Bengio in their paper “Understanding the difficulty of training deep feedforward neural networks.” An explanation can be found here. Weights should be initialized in a way that promotes “learning”. The wrong weight initialization will make gradients too large or too small, and make it difficult to update the weights. Small weights lead to small activations, and large weights lead to large ones. Xavier weight initialization considers the distribution of output activations with regard to input activations. Its purpose is to maintain same distribution of activations, so they aren’t too small (mean zero but with small variance) or too large (mean zero but with large variance). DL4J’s implementation of Xavier weight initialization aligns with the Glorot Bengio paper, Nd4j.randn(order, shape).muli(FastMath.sqrt(2.0 / (fanIn + fanOut))). Where fanIn(k) would be the number of units sending input to k, and fanOut(k) would be the number of units recieving output from k.
-</p>
-<ul class="org-ul">
-<li>tensor</li>
-</ul>
-<p>
-a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
-</p>
-<ul class="org-ul">
-<li>synapse</li>
-</ul>
-<p>
-突触,activation/link layer.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">2</span> 深度学习</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-深度学习（英语：deep learning）是机器学习拉出的分支，*它试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法*.
-深度学习是机器学习中一种基于对数据进行表征学习的方法。观测值（例如一幅图像）可以使用多种方式来表示，如每个像素强度值的向量，或者更抽象地表示成一系列边、特定形状的区域等。而使用某些特定的表示方法更容易从实例中学习任务（例如，人脸识别或面部表情识别）。深度学习的好处是用非监督式或半监督式的特征学习和分层特征提取高效算法来替代手工获取特征。
-表征学习的目标是寻求更好的表示方法并创建更好的模型来从大规模未标记数据中学习这些表示方法。表达方式类似神经科学的进步，并松散地创建在类似神经系统中的信息处理和通信模式的理解上，如神经编码，试图定义拉动神经元的反应之间的关系以及大脑中的神经元的电活动之间的关系。
-</p>
-</div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.1</span> Definitions</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-Deep learning is a class of machine learning algorithms that:
-</p>
-<ul class="org-ul">
-<li>use a cascade of multiple layers of nonlinear processing units for feature extraction and transformation. Each successive layer uses the output from the previous layer as input.</li>
-<li>learn in supervised (e.g., classification) and/or unsupervised (e.g., pattern analysis, 人脸识别或面部表情识别) manners.</li>
-<li>learn multiple levels of representations that correspond to different levels of abstraction; the levels form a hierarchy of concepts.</li>
-<li>use some form of gradient descent for training via backpropagation.</li>
-</ul>
-<p>
-Layers that have been used in deep learning include hidden layers of an artificial neural network and sets of propositional formulas.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> 学习方法</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li>Step 1: 学习机器学习基础</li>
-<li>Step 2: 深入学习</li>
-<li>Step 3: 选择一个区域并进一步深入
-<ul class="org-ul">
-<li>计算机视觉(Computer Vision):</li>
-<li>自然语言处理(NLP)：</li>
-<li>记忆网络(RNN-LSTM)</li>
-<li>深度加强学习(RDL):</li>
-<li>生成模型(GAN):</li>
-</ul></li>
-<li>Step 4: 建立项目</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">4</span> Critical questions</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-how - overview picture
-why - assumption, hypothesis(formulas), representations, why use this, why does it work, cons, 边界.
-example
-comparison
-results
-conclusion
-</p>
-</div>
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">4.0.1</span> 传统机器学习考察点：</h4>
-<div class="outline-text-4" id="text-4-0-1">
-<p>
-1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
-<a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/</a>
-2、lr与svm的区别与联系
-SVM：非概率二元线性分类器，利用核方法，有效进行非线性分类。Try to maximize the margin between the closest support vectors geometrically. Instead of assuming a probabilistic model, we're trying to find a particular optimal separating hyperplane, where we define "optimality" in the context of the support vectors.
-</p>
-
-<p>
-LR：Logistic regression measures the relationship between the categorical dependent variable and one or more independent variables <b>by estimating probabilities using a logistic function</b>, which is the cumulative logistic distribution.
-</p>
-<p>
-<img src="./Images/lr_vs_svm.jpg" alt="lr_vs_svm.jpg" />
-3、gbdt与adaboost的区别与联系
-</p>
-
-<p>
-4、手推svm，svm麻雀虽小五脏俱全
-</p>
-
-<p>
-5、pca与lda的区别与联系，并推导
-</p>
-
-
-<p>
-6、白化的原理与作用
-</p>
-
-<p>
-7、给一个算法，例如lr，问这个算法的model、evaluate、optimization分别是啥
-</p>
-
-<ul class="org-ul">
-<li>回归模型中存在多重共线性, 你如何解决这个问题？</li>
-</ul>
-<p>
-我们可以先去除一个共线性变量; 计算VIF(方差膨胀因子), 采取相应措施;为了避免损失信息, 我们可以使用一些正则化方法, 比如, 岭回归和lasso回归.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">4.0.2</span> 深度学习考察点：</h4>
-<div class="outline-text-4" id="text-4-0-2">
-<ul class="org-ul">
-<li>Nodes of output layer depend on the number of categories?</li>
-</ul>
-<p>
-If there are many categories, weight matrix will be very large. Here we use hierarchical softmax to control the classes falling in (0, 1).
-</p>
-
-<ul class="org-ul">
-<li>NN loss function</li>
-</ul>
-<p>
-<img src="./Images/cost_function.png" alt="cost_function.png" />
-\[J(θ)=∑(y(i)−(1+e−θTx(i))−1)2\]
-\[min J(\Theta)\]
-need code to compute:
-\[-J(\Theta)\]
-\[-\frac{ }{\partial \Theta_{ij}^{(l)}} J(\Theta)\]
-1、手推bp
-</p>
-
-<p>
-2、梯度消失/爆炸原因，以及解决方法
-随着神经网络层数的加深，优化函数越来越容易陷入局部最优解，并且这个“陷阱”越来越偏离真正的全局最优。
-</p>
-
-<p>
-随着网络层数增加，“梯度消失”现象更加严重。具体来说，我们常常使用sigmoid作为神经元的输入输出函数。对于幅度为1的信号，在BP反向传播梯度时，每传递一层，梯度衰减为原来的0.25。层数一多，梯度指数衰减后低层基本上接受不到有效的训练信号。
-</p>
-
-<p>
-Hinton利用预训练方法缓解了局部最优解问题，为了克服梯度消失，ReLU、maxout等传输函数代替了sigmoid，形成了如今DNN的基本形式。去年出现的高速公路网络(highway network)和深度残差学习（deep residual learning）进一步避免了梯度消失，网络层数达到了前所未有的一百多层（深度残差学习：152层）
-</p>
-
-<p>
-全连接DNN的结构里下层神经元和所有上层神经元都能够形成连接，带来的潜在问题是参数数量的膨胀。假设输入的是一幅像素为1K*1K的图像，隐含层有1M个节点，光这一层就有10<sup>12个权重需要训练</sup>，这不仅容易过拟合，而且极容易陷入局部最优。
-</p>
-
-
-<p>
-3、bn的原理，与白化的联系
-<a href="http://blog.csdn.net/fate_fjh/article/details/53375881">http://blog.csdn.net/fate_fjh/article/details/53375881</a>
-Batch Normalization是由google提出的一种训练优化方法。参考论文：Batch Normalization Accelerating Deep Network Training by Reducing Internal Covariate Shift<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
-个人觉得BN层的作用是加快网络学习速率，论文中提及其它的优点都是这个优点的副产品。
-网上对BN解释详细的不多，大多从原理上解释，没有说出实际使用的过程，这里从what, why, how三个角度去解释BN。
-</p>
-
-<ul class="org-ul">
-<li>What is BN</li>
-</ul>
-
-<p>
-Normalization是数据标准化（归一化，规范化），Batch 可以理解为批量，加起来就是批量标准化。
-</p>
-
-<ul class="org-ul">
-<li>Why is BN</li>
-</ul>
-
-<p>
-解决的问题是梯度消失与梯度爆炸。
-</p>
-
-<p>
-关于梯度消失，以sigmoid函数为例子，sigmoid函数使得输出在[0,1]之间。
-</p>
-
-<p>
-事实上x到了一定大小，经过sigmoid函数的输出范围就很小了.
-</p>
-
-<p>
-如果输入很大，其对应的斜率就很小，我们知道，其斜率（梯度）在反向传播中是权值学习速率。所以就会出现如下的问题，
-在深度网络中，如果网络的激活输出很大，其梯度就很小，学习速率就很慢。假设每层学习梯度都小于最大值0.25，网络有n层，因为链式求导的原因，第一层的梯度小于0.25的n次方，所以学习速率就慢，对于最后一层只需对自身求导1次，梯度就大，学习速率就快。
-这会造成的影响是在一个很大的深度网络中，浅层基本不学习，权值变化小，后面几层一直在学习，结果就是，后面几层基本可以表示整个网络，失去了深度的意义。
-</p>
-
-<p>
-关于梯度爆炸，根据链式求导法，
-第一层偏移量的梯度=激活层斜率1x权值1x激活层斜率2x…激活层斜率(n-1)x权值(n-1)x激活层斜率n
-假如激活层斜率均为最大值0.25，所有层的权值为100，这样梯度就会指数增加
-</p>
-
-<p>
--How to use BN
-</p>
-
-<p>
-4、防止过拟合有哪些方法(regularization):
-</p>
-<ul class="org-ul">
-<li>weight decay:</li>
-</ul>
-
-<p>
-\[J(W)= MSE_{train}+\lambda\omega^T\omega\]
-where \(\lambda\) is a value chosen ahead of time that controls the strength of our preference for smaller weights. When \(\lambda=0\), we impose no preference, and larger\(\lambda\) forces the weights to become smaller. Minimizing J(w) results in a choice of weights that make a tradeoff between fitting the training data and being small.
-</p>
-
-
-<p>
-To get the optimized \(\lambda\), splitting data set to train set and validation set.
-\[\lambda={10^{-2}, 10^{-1.5}, 10^{-1}, ..., 10, 10^{1.5}, 10^{2}}\]
-</p>
-
-<ul class="org-ul">
-<li>restrict parameter values</li>
-</ul>
-<p>
-putting extra constraints on models such as adding restrictions on the parameter values.
-</p>
-
-<ul class="org-ul">
-<li>soft constraint</li>
-</ul>
-<p>
-add extra terms in the objective function that can be thought of as corresponding to a soft constraint on the parameter values.
-</p>
-
-<p>
-5、dnn、cnn、rnn的区别与联系
-DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN是在时间上深度的神经网络。
-</p>
-
-<p>
-为了克服梯度消失，ReLU、maxout等传输函数代替了sigmoid，形成了如今DNN的基本形式.
-</p>
-
-<p>
-图像中有固有的局部模式（比如轮廓、边界，人的眼睛、鼻子、嘴等）可以利用，显然应该将图像处理中的概念和神经网络技术相结合。此时我们可以祭出题主所说的卷积神经网络CNN。对于CNN来说，并不是所有上下层神经元都能直接相连，而是通过“卷积核”作为中介。同一个卷积核在所有图像内是共享的，图像通过卷积操作后仍然保留原先的位置关系。
-</p>
-
-<p>
-样本出现的时间顺序对于自然语言处理、语音识别、手写体识别等应用非常重要。对了适应这种需求，就出现了大家所说的另一种神经网络结构——循环神经网络RNN。
-</p>
-
-
-<p>
-6、机器学习与深度学习的联系
-</p>
-
-<p>
-7、batch size大小会怎么影响收敛速度
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">4.0.3</span> 最优化考察点：</h4>
-<div class="outline-text-4" id="text-4-0-3">
-<p>
-1、sgd、momentum、rmsprop、adam区别与联系
-</p>
-
-<p>
-2、深度学习为什么不用二阶优化
-</p>
-
-<p>
-3、拉格朗日乘子法、对偶问题、kkt条件
-</p>
-
-<ul class="org-ul">
-<li>coding考察点： 排序、双指针、dp、贪心、分治、递归、回溯、字符串、树、链表、trie、bfs、dfs等等</li>
-
-<li>第一种是广撒网地问一些老生常谈的DL中没有标准答案的问题，比如过拟合怎么办？样本偏斜怎么办？</li>
-</ul>
-<p>
-drop out，data augmentation， weight decay(常用的weight decay有哪些？怎么处理weight decay的权重).L1，L2。让你比较为什么要两种weight decay，区别在哪里。比如如果你讲L1零点不可导才用L2，那么立马问你SMOOTHL1。如果你都说明白了，就问你为什么weight decay能够一定程度解决过拟合？如果你说到了L0和稀疏性。接着就来问你为什么稀疏性有效？
-</p>
-
-<p>
-用Map Reduce implement矩阵乘法
-NLP相关的encoding问题 (CBOW vs Skipgram)
-不同的activation function的pros/cons
-Gradient Boosting相关问题
-Random Forest 相关问题
-SVM的Gaussian Kernel 的 dimension
-用Regex分析文本
-如何用python/R 读取JSON, 并且洗数据
-用C++ implement Monte Carlo
-coding: 用DFS走迷宫
-</p>
-
-<p>
-用过哪些DL的library呀?
-现在的DL 的state of art model有哪些呀?
-如果如理diminishing gradient的问题呀?
-如果同时处理文本文档+图片呀?
-如果防止overfitting呀?
-如何pre-train model呀?
-能否自己在服务器上用distributed computing部署一个现有的model 呀?
-</p>
-
-<p>
-解决网络过拟合的手段有些什么呀
-Dropout的为什么可以解决过拟合呀
-Batch-normalization的思想是什么呀
-类别不平衡的时候怎么办啊
-目标检测中anchor box的做法和adaboost人脸检测中的滑窗检测有什么区别啊？
-跟踪和检测有什么区别啊？
-</p>
-<ul class="org-ul">
-<li>用过几个框架？</li>
-</ul>
-<p>
-<a href="https://deeplearning4j.org/cn/compare-dl4j-torch7-pylearn#tensorflow">https://deeplearning4j.org/cn/compare-dl4j-torch7-pylearn#tensorflow</a>
-</p>
-<ul class="org-ul">
-<li>Lua</li>
-</ul>
-<p>
-Torch 和 Pytorch
-</p>
-
-<ul class="org-ul">
-<li>Python 框架</li>
-</ul>
-<p>
-Theano及其生态系统, TensorFlow, Caffe, Caffe2, CNTK, Chainer, DSSTNE, DyNet, Keras, Paddle, 它们的优劣分析一下.
-</p>
-</div>
-</div>
-</div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
-<a href="https://arxiv.org/pdf/1502.03167v3.pdf">https://arxiv.org/pdf/1502.03167v3.pdf</a>
-</p></div></div>
-
-
-</div>
-</div></div>
-</body>
-</html>

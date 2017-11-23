@@ -397,6 +397,10 @@ it’s again replaced with a binary approximation, whose exact value is
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
 ** os.path — Common pathname manipulations
+- check if file exist
+#+BEGIN_SRC python
+os.path.isfile(os.path.join(path,name))
+#+END_SRC
 - get current work directory
 #+BEGIN_SRC python
 import os

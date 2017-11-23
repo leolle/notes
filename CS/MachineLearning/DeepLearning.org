@@ -11,9 +11,15 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../../configOrg/level2.org
+#+HTML: <div class="outline-2" id="meta">
+| *Author* | {{{author}}} ({{{email}}})    |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+| *Title*  | {{{TITLES}}}                  |
+#+HTML: </div>
 
-[[https://docs.google.com/document/d/1NitqVZyU1zZYRUQmj-0c2Pq3qso7jcbF9XekZlC-w04/edit]]
 * Basic prerequisites
+[[https://docs.google.com/document/d/1NitqVZyU1zZYRUQmj-0c2Pq3qso7jcbF9XekZlC-w04/edit]]
+
 ** maximum likelihood estimation
 - Summary
 Maximum likelihood is a general and powerful technique for learning statistical models, i.e. fitting the parameters to data. The maximum likelihood parameters are the ones under which the observed data has the highest probability. It is widely used in practice, and techniques such as Bayesian parameter estimation are closely related to maximum likelihood.
@@ -24,6 +30,7 @@ This concept has the prerequisites:
  - optimization problems (Maximum likelihood is formulated as an optimization problem.)
  - Gaussian distribution (Fitting a Gaussian distribution is an instructive example of maximum likelihood estimation.)
 ** terminology:
+#+INCLUDE: glossary.org
 - tensor
 a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
 - synapse
@@ -82,6 +89,16 @@ LR：Logistic regression measures the relationship between the categorical depen
 我们可以先去除一个共线性变量; 计算VIF(方差膨胀因子), 采取相应措施;为了避免损失信息, 我们可以使用一些正则化方法, 比如, 岭回归和lasso回归.
 
 *** 深度学习考察点：
+- Nodes of output layer depend on the number of categories?
+If there are many categories, weight matrix will be very large. Here we use hierarchical softmax to control the classes falling in (0, 1).
+
+- NN loss function
+[[./Images/cost_function.png]]
+$$J(θ)=∑(y(i)−(1+e−θTx(i))−1)2$$
+$$min J(\Theta)$$
+need code to compute:
+$$-J(\Theta)$$
+$$-\frac{ }{\partial \Theta_{ij}^{(l)}} J(\Theta)$$
 1、手推bp
 
 2、梯度消失/爆炸原因，以及解决方法
@@ -189,8 +206,13 @@ Batch-normalization的思想是什么呀
 类别不平衡的时候怎么办啊
 目标检测中anchor box的做法和adaboost人脸检测中的滑窗检测有什么区别啊？
 跟踪和检测有什么区别啊？
-用过几个框架？
-它们的优劣分析一下
+- 用过几个框架？
+https://deeplearning4j.org/cn/compare-dl4j-torch7-pylearn#tensorflow
+ - Lua
+ Torch 和 Pytorch
+
+ - Python 框架
+ Theano及其生态系统, TensorFlow, Caffe, Caffe2, CNTK, Chainer, DSSTNE, DyNet, Keras, Paddle, 它们的优劣分析一下.
 
 * Footnotes
 
