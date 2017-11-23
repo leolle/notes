@@ -143,7 +143,7 @@ $$H = {H|h: X \to Y}$$
 
 *** Entropy
 Entropy H(X) of a random variable X:
-$$H(X) = -\Sum{P(X=i)log_2*P(X=i)}$$
+$$H(X) = -\sum{P(X=i)log_2*P(X=i)}$$
 
 ** Course logistics
 - Linear Regression
@@ -193,12 +193,12 @@ The slope of the tangent is the derivative at that point and it will give us a d
 We make steps down the cost function in the direction with the steepest descent.
 The size of each step is determined by the parameter α, which is called the learning rate.
 - Algorithm:
-$$\Theta_j = \Theta_j + \Alpha\Derivative{J(\Theta_0,\Theta_1)}$$
+$$\Theta_j = \Theta_j + \alpha \derivative{J(\Theta_0,\Theta_1)}$$
 Update simutaneously:
-$$Temp_0 := \Theta_0 - \Alpha\Derivative{J(\Theta_0,\Theta_1)} $$
-$$Temp_1 := \Theta_1 - \Alpha\Derivative{J(\Theta_0,\Theta_1)} $$
+$$Temp_0 := \Theta_0 - \alpha \triangledown J(\Theta_0,\Theta_1)} $$
+$$Temp_1 := \Theta_1 - \alpha \bigtriangledown J(\Theta_0,\Theta_1) $$
 - normalization
-$$\theta_0 = \theta_0 - \alpha\partial{J(\theta)}{\theta}$$
+$$\theta_0 = \Theta_0 - \alpha\partial{J(\theta)}{\theta}$$
 
 * Week 5
 ** Neural Networks: Learning

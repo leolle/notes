@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-22 Wed 19:23 -->
+<!-- 2017-11-22 Wed 19:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -695,7 +695,7 @@ Figuring out what the data is without any feedback. For instance, if we were giv
 <div class="outline-text-4" id="text-2-4-2">
 <p>
 Entropy H(X) of a random variable X:
-\[H(X) = -\Sum{P(X=i)log_2*P(X=i)}\]
+\[H(X) = -\sum{P(X=i)log_2*P(X=i)}\]
 </p>
 </div>
 </div>
@@ -795,16 +795,16 @@ The size of each step is determined by the parameter α, which is called the lea
 <li>Algorithm:</li>
 </ul>
 <p>
-\[\Theta_j = \Theta_j + \Alpha\Derivative{J(\Theta_0,\Theta_1)}\]
+\[\Theta_j = \Theta_j + \alpha \derivative{J(\Theta_0,\Theta_1)}\]
 Update simutaneously:
-\[Temp_0 := \Theta_0 - \Alpha\Derivative{J(\Theta_0,\Theta_1)} \]
-\[Temp_1 := \Theta_1 - \Alpha\Derivative{J(\Theta_0,\Theta_1)} \]
+\[Temp_0 := \Theta_0 - \alpha \triangledown J(\Theta_0,\Theta_1)} \]
+\[Temp_1 := \Theta_1 - \alpha \bigtriangledown J(\Theta_0,\Theta_1) \]
 </p>
 <ul class="org-ul">
 <li>normalization</li>
 </ul>
 <p>
-\[\theta_0 = \theta_0 - \alpha\partial{J(\theta)}{\theta}\]
+\[\theta_0 = \Theta_0 - \alpha\partial{J(\theta)}{\theta}\]
 </p>
 </div>
 </div>

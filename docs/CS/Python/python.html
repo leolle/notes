@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-17 Fri 10:58 -->
+<!-- 2017-11-22 Wed 19:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1313,6 +1313,26 @@ it’s again replaced with a binary approximation, whose exact value is
 </div>
 <div id="outline-container-orgheadline76" class="outline-3">
 <h3 id="orgheadline76"><span class="section-number-3">9.2</span> os.path — Common pathname manipulations</h3>
+<div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li>get current work directory</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #FD971F;">cwd</span> = os.getcwd<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>get temporary work directory</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> tempfile <span style="color: #F92672;">import</span> gettempdir
+<span style="color: #FD971F;">tmp_dir</span> = gettempdir<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline77" class="outline-3">
 <h3 id="orgheadline77"><span class="section-number-3">9.3</span> fileinput — Iterate over lines from multiple input streams</h3>

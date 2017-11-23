@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-21 Tue 14:00 -->
+<!-- 2017-11-22 Wed 19:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -183,7 +183,17 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline6">3. 学习方法</a></li>
-<li><a href="#orgheadline7">4. Critical questions</a></li>
+<li><a href="#orgheadline10">4. Critical questions</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgheadline7">4.0.1. 传统机器学习考察点：</a></li>
+<li><a href="#orgheadline8">4.0.2. 深度学习考察点：</a></li>
+<li><a href="#orgheadline9">4.0.3. 最优化考察点：</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -224,6 +234,12 @@ This concept has the prerequisites:
 </ul>
 <p>
 a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
+</p>
+<ul class="org-ul">
+<li>synapse</li>
+</ul>
+<p>
+突触,activation/link layer.
 </p>
 </div>
 </div>
@@ -274,17 +290,24 @@ Layers that have been used in deep learning include hidden layers of an artifici
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">4</span> Critical questions</h2>
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">4</span> Critical questions</h2>
 <div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li>传统机器学习考察点：</li>
-</ul>
+<p>
+how - overview picture
+why - assumption, hypothesis(formulas), representations, why use this, why does it work, cons, 边界.
+example
+comparison
+results
+conclusion
+</p>
+</div>
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">4.0.1</span> 传统机器学习考察点：</h4>
+<div class="outline-text-4" id="text-4-0-1">
 <p>
 1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
-</p>
-
-<p>
+<a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/</a>
 2、lr与svm的区别与联系
 SVM：非概率二元线性分类器，利用核方法，有效进行非线性分类。Try to maximize the margin between the closest support vectors geometrically. Instead of assuming a probabilistic model, we're trying to find a particular optimal separating hyperplane, where we define "optimality" in the context of the support vectors.
 </p>
@@ -305,6 +328,7 @@ LR：Logistic regression measures the relationship between the categorical depen
 5、pca与lda的区别与联系，并推导
 </p>
 
+
 <p>
 6、白化的原理与作用
 </p>
@@ -314,8 +338,17 @@ LR：Logistic regression measures the relationship between the categorical depen
 </p>
 
 <ul class="org-ul">
-<li>深度学习考察点：</li>
+<li>回归模型中存在多重共线性, 你如何解决这个问题？</li>
 </ul>
+<p>
+我们可以先去除一个共线性变量; 计算VIF(方差膨胀因子), 采取相应措施;为了避免损失信息, 我们可以使用一些正则化方法, 比如, 岭回归和lasso回归.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">4.0.2</span> 深度学习考察点：</h4>
+<div class="outline-text-4" id="text-4-0-2">
 <p>
 1、手推bp
 </p>
@@ -443,10 +476,12 @@ DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN�
 <p>
 7、batch size大小会怎么影响收敛速度
 </p>
+</div>
+</div>
 
-<ul class="org-ul">
-<li>最优化考察点：</li>
-</ul>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">4.0.3</span> 最优化考察点：</h4>
+<div class="outline-text-4" id="text-4-0-3">
 <p>
 1、sgd、momentum、rmsprop、adam区别与联系
 </p>
@@ -467,6 +502,41 @@ DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN�
 <p>
 drop out，data augmentation， weight decay(常用的weight decay有哪些？怎么处理weight decay的权重).L1，L2。让你比较为什么要两种weight decay，区别在哪里。比如如果你讲L1零点不可导才用L2，那么立马问你SMOOTHL1。如果你都说明白了，就问你为什么weight decay能够一定程度解决过拟合？如果你说到了L0和稀疏性。接着就来问你为什么稀疏性有效？
 </p>
+
+<p>
+用Map Reduce implement矩阵乘法
+NLP相关的encoding问题 (CBOW vs Skipgram)
+不同的activation function的pros/cons
+Gradient Boosting相关问题
+Random Forest 相关问题
+SVM的Gaussian Kernel 的 dimension
+用Regex分析文本
+如何用python/R 读取JSON, 并且洗数据
+用C++ implement Monte Carlo
+coding: 用DFS走迷宫
+</p>
+
+<p>
+用过哪些DL的library呀?
+现在的DL 的state of art model有哪些呀?
+如果如理diminishing gradient的问题呀?
+如果同时处理文本文档+图片呀?
+如果防止overfitting呀?
+如何pre-train model呀?
+能否自己在服务器上用distributed computing部署一个现有的model 呀?
+</p>
+
+<p>
+解决网络过拟合的手段有些什么呀
+Dropout的为什么可以解决过拟合呀
+Batch-normalization的思想是什么呀
+类别不平衡的时候怎么办啊
+目标检测中anchor box的做法和adaboost人脸检测中的滑窗检测有什么区别啊？
+跟踪和检测有什么区别啊？
+用过几个框架？
+它们的优劣分析一下
+</p>
+</div>
 </div>
 </div>
 <div id="footnotes">
