@@ -316,6 +316,7 @@ time.strptime(string[, format])
 
 - datetime, Timestamp, datetime64
 pandas, Timestamp
+np.dtype('<M8[ns]')
 
 -- DatetimeIndex is composed by Timestamps.
 #+BEGIN_SRC python
