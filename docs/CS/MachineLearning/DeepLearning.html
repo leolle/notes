@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-23 Thu 14:37 -->
+<!-- 2017-11-26 Sun 16:16 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -197,7 +197,7 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div class="outline-1" id="meta">
+<div class="outline-2" id="meta">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -214,12 +214,12 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2017-11-23 14:37:31</td>
+<td class="org-left">2017-11-26 16:16:00</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Title</b></td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">{{{TITLES}}</td>
 </tr>
 </tbody>
 </table>
@@ -271,9 +271,6 @@ An activation, or activation function, for a neural network is defined as the ma
 Activation algorithms are the gates that determine, at each node in the net, whether and to what extent to transmit the signal the node has received from the previous layer. A combination of weights (coefficients) and biases work on the input data from the previous layer to determine whether that signal surpasses a given treshhold and is deemed significant. Those weights and biases are slowly updated as the neural net minimizes its error; i.e. the level of nodes’ activation change in the course of learning. Deeplearning4j includes activation functions such as sigmoid, relu, tanh and ELU. These activation functions allow neural networks to make complex boundary decisions for features at various levels of abstraction.
 </p>
 
-<p>
-Activation Visualizer in Deeplearning4j
-</p>
 <ul class="org-ul">
 <li>Adadelta</li>
 </ul>
@@ -295,7 +292,6 @@ Adagrad, short for adaptive gradient, is an updater or learning algorithm that a
 </p>
 
 <p>
-AdaGradUpdater in Deeplearning4j
 Adaptive Subgradient Methods for Online Learning and Stochastic Optimization
 </p>
 <ul class="org-ul">
@@ -307,7 +303,6 @@ Adam (Gibson) co-created Deeplearning4j. :) Adam is also an updater, similar to 
 </p>
 
 <p>
-AdamUpdater in Deeplearning4j
 Adam: A Method for Stochastic Optimization
 </p>
 <ul class="org-ul">
@@ -327,7 +322,6 @@ AlexNet is a deep convolutional network named after Alex Krizhevsky, a former st
 </p>
 
 <p>
-AlexNet Example in Deeplearning4j
 ImageNet Classification with Deep Convolutional Neural Networks
 </p>
 
@@ -352,11 +346,9 @@ Autoencoders are at the heart of representation learning. They encode input, usu
 </p>
 
 <p>
-Autoencoder in Deeplearning4j
 Auto-Encoding Variational Bayes
 Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion
 Semi-supervised Sequence Learning
-Autoencoder in Deeplearning4j
 </p>
 
 <ul class="org-ul">
@@ -390,7 +382,6 @@ Batch Normalization does what is says: it normalizes mini-batches as they’re f
 </p>
 
 <p>
-Batch Normalization in Deeplearning4j
 Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
 Overview  of mini-batch gradient descent (U. Toronto)
 </p>
@@ -505,17 +496,13 @@ Differences between word vectors, as they swing around the origin like the arms 
 And similar to ancient navigators gauging the stars by a sextant, we will measure the angular distance between words using something called cosine similarity. You can think of words as points of light in a dark canopy, clustered together in constellations of meaning.
 </p>
 
-<p>
-Alt text
-</p>
+
 
 <p>
 To find that distance knowing only the word vectors, we need the equation for vector dot multiplication (multiplying two vectors to produce a single, scalar value).
 </p>
 
-<p>
-Alt text
-</p>
+
 
 <p>
 In Java, you can think of the formula to measure cosine similarity like this:
@@ -684,9 +671,7 @@ Precision answers: “Given a positive prediction from the classifier, how likel
 For f1 to be high, both recall and precision of the model have to be high.
 </p>
 
-<p>
-Alt text
-</p>
+
 
 
 <ul class="org-ul">
@@ -868,11 +853,6 @@ Going Deeper with Convolutions
 LSTMs are a form of recurrent neural network invented in the 1990s by Sepp Hochreiter and Juergen Schmidhuber, and now widely used for image, sound and time series analysis, because they help solve the vanishing gradient problem by using a memory gates. Alex Graves made significant improvements to the LSTM with what is now known as the Graves LSTM, which Deeplearning4j implements here.
 </p>
 
-<p>
-LSTMs with Deeplearning4j
-Using RNNs with Deeplearning4j
-Original Paper: LONG SHORT-TERM MEMORY
-</p>
 
 <ul class="org-ul">
 <li>Log-Likelihood</li>
@@ -1178,7 +1158,6 @@ RMSProp is an optimization algorithm like Adagrad. In contrast to Adagrad, it re
 </p>
 
 <p>
-RMSPropUpdater in Deeplearning4j
 Optimization Algorithms (Stanford)
 An overview of gradient descent optimization algorithms
 </p>
@@ -1242,9 +1221,6 @@ The stochastic element of a learning process is a form of search. Random weights
 Neural-network gradients are calculated using backpropagation. SGD is usually used with minibatches, such that parameters are updated based on the average error generated by the instances of a whole batch.
 </p>
 
-<p>
-SGDUpdater in Deeplearning4j
-</p>
 
 <ul class="org-ul">
 <li>Support Vector Machine</li>
@@ -1267,9 +1243,7 @@ Reddit
 Here is an example of tensor along dimension (TAD):
 </p>
 
-<p>
-Alt text
-</p>
+
 
 
 <ul class="org-ul">
@@ -1306,17 +1280,11 @@ A vector is a data structure with at least two components, as opposed to a scala
 Therefore, we can represent two-dimensional vectors as arrows on an x-y graph, with the coordinates x and y each representing one of the vector’s values.
 </p>
 
-<p>
-Alt text
-</p>
 
 <p>
 Two vectors can relate to one another mathematically, and similarities between them (and therefore between anything you can vectorize, including words) can be measured with precision.
 </p>
 
-<p>
-Alt text
-</p>
 
 <p>
 As you can see, these vectors differ from one another in both their length, or magnitude, and in their angle, or direction. The angle is what concerns us here.
@@ -1343,9 +1311,7 @@ Very Deep Convolutional Networks for Large-Scale Image Recognition
 Tomas Mikolov’s neural networks, known as Word2vec, have become widely used because they help produce state-of-the-art word embeddings. Word2vec is a two-layer neural net that processes text. Its input is a text corpus and its output is a set of vectors: feature vectors for words in that corpus. While Word2vec is not a deep neural network, it turns text into a numerical form that deep nets can understand. Word2vec’s applications extend beyond parsing sentences in the wild. It can be applied just as well to genes, code, playlists, social media graphs and other verbal or symbolic series in which patterns may be discerned. Deeplearning4j implements a distributed form of Word2vec for Java and Scala, which works on Spark with GPUs.
 </p>
 
-<p>
-Word2vec in Deeplearning4j
-</p>
+
 
 <ul class="org-ul">
 <li>Xavier Initialization</li>
@@ -1353,6 +1319,7 @@ Word2vec in Deeplearning4j
 
 <p>
 The Xavier initialization is based on the work of Xavier Glorot and Yoshua Bengio in their paper “Understanding the difficulty of training deep feedforward neural networks.” An explanation can be found here. Weights should be initialized in a way that promotes “learning”. The wrong weight initialization will make gradients too large or too small, and make it difficult to update the weights. Small weights lead to small activations, and large weights lead to large ones. Xavier weight initialization considers the distribution of output activations with regard to input activations. Its purpose is to maintain same distribution of activations, so they aren’t too small (mean zero but with small variance) or too large (mean zero but with large variance). DL4J’s implementation of Xavier weight initialization aligns with the Glorot Bengio paper, Nd4j.randn(order, shape).muli(FastMath.sqrt(2.0 / (fanIn + fanOut))). Where fanIn(k) would be the number of units sending input to k, and fanOut(k) would be the number of units recieving output from k.
+<a href="glossary.html">glossary.html</a>
 </p>
 <ul class="org-ul">
 <li>tensor</li>

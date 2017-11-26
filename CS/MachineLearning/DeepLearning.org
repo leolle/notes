@@ -14,7 +14,7 @@
 #+HTML: <div class="outline-2" id="meta">
 | *Author* | {{{author}}} ({{{email}}})    |
 | *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
-| *Title*  | {{{TITLES}}}                  |
+| *Title*  | {{{TITLES}}                   |
 #+HTML: </div>
 
 * Basic prerequisites
@@ -31,6 +31,7 @@ This concept has the prerequisites:
  - Gaussian distribution (Fitting a Gaussian distribution is an instructive example of maximum likelihood estimation.)
 ** terminology:
 #+INCLUDE: glossary.org
+[[file:glossary.org]]
 - tensor
 a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
 - synapse

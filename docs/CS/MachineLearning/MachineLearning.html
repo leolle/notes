@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-22 Wed 19:34 -->
+<!-- 2017-11-26 Sun 16:15 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -738,9 +738,26 @@ m—is called a training set.
 contour is the bow projected on the 2D surface.
 A contour plot is a graph that contains many contour lines. A contour line of a two variable function has a constant value at all points of the same line.
 </p>
+<ul class="org-ul">
+<li><b>Loss function</b> is usually a function defined on a data point, prediction and label, and measures the penalty. For example:
+<ul class="org-ul">
+<li>square loss l(f(xi|θ),yi)=(f(xi|θ)−yi)2l(f(xi|θ),yi)=(f(xi|θ)−yi)2, used in linear regression</li>
+<li>hinge loss l(f(xi|θ),yi)=max(0,1−f(xi|θ)yi)l(f(xi|θ),yi)=max(0,1−f(xi|θ)yi), used in SVM</li>
+<li>0/1 loss l(f(xi|θ),yi)=1⟺f(xi|θ)≠yil(f(xi|θ),yi)=1⟺f(xi|θ)≠yi, used in theoretical analysis and definition of accuracy</li>
+</ul></li>
+<li><b>Cost function</b> is usually more general. It might be a sum of loss functions over your training set plus some model complexity penalty (regularization). For example:
+<ul class="org-ul">
+<li>Mean Squared Error MSE(θ)=1N∑Ni=1(f(xi|θ)−yi)2MSE(θ)=1N∑i=1N(f(xi|θ)−yi)2</li>
+<li>SVM cost function SVM(θ)=∥θ∥2+C∑Ni=1ξiSVM(θ)=‖θ‖2+C∑i=1Nξi (there are additional constraints connecting ξiξi with CC and with training set)</li>
+</ul></li>
+<li><b>Objective function</b> is the most general term for any function that you optimize during training. For example, a probability of generating training set in maximum likelihood approach is a well defined objective function, but it is not a loss function nor cost function (however you could define an equivalent cost function). For example:
+<ul class="org-ul">
+<li>MLE is a type of objective function (which you maximize)</li>
+<li>Divergence between classes can be an objective function but it is barely a cost function, unless you define something artificial, like 1-Divergence, and name it a cost</li>
+</ul></li>
+</ul>
 </div>
 </div>
-
 <div id="outline-container-orgheadline67" class="outline-3">
 <h3 id="orgheadline67"><span class="section-number-3">2.8</span> Linear Regression with One Variable</h3>
 <div class="outline-text-3" id="text-2-8">

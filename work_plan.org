@@ -165,14 +165,8 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 - [ ] Neural Language Processing(NLP), 结巴分词.
 ** Machine Learning Basics
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.org][Deep Learning]]
-** Basics
-*** ANN
-*** CNN
-*** RNN
-** GPU server comparison
-- [ ] server vs desktop vs cloud
-* NaturalLanguageProcessing
-** Word Embedding(Word2Vec)
+** NaturalLanguageProcessing
+*** Word Embedding(Word2Vec)
 DEADLINE: <2017-11-24 Fri>
 :LOGBOOK:
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
@@ -186,13 +180,13 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - [X] build a backward propagation network.
 - [ ] fi or function def from output of wants whose idea word2vec is close to target want's idea.
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
-** TODO Building the Wikipedia Knowledge Graph in Neo4j
+*** TODO Building the Wikipedia Knowledge Graph in Neo4j
 :LOGBOOK:
 CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 :END:
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
 - [X] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
-*** Data dumps/Import
+**** Data dumps/Import
 - methods
 [[https://meta.wikimedia.org/wiki/Data_dumps]]
 
@@ -211,12 +205,12 @@ CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 - [X] try Neo4j sandbox
 [[https://neo4j.com/sandbox-v2/]]
 - [X] create Neo4j docker.
-** Setup
+*** Setup
 - [X] 配置好GOOGLE GCLOUD PLATORM的代理
 - [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
 - [ ] deep learning of bank stress in the news
 - [ ] detect events based on text, obtain descriptions of events.
-** configuration:
+*** configuration:
 - reports-174211
 - proxy:
 127.0.0.1:1080
@@ -281,7 +275,7 @@ methon 1:
 curl https://sdk.cloud.google.com | bash
 sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
 sudo `which pip` install --upgrade google-cloud-language
-** SDK
+*** SDK
 - GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
 - https://cloud.google.com/sdk/docs/quickstart-linux
 - key:
@@ -330,7 +324,7 @@ Your active configuration is: [nlp1]
 
 (C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
 #+END_SRC
-** read the book 《自然语言处理综论》
+*** read the book 《自然语言处理综论》
 not easy to understand this book.
 - listen to the open course
 https://web.stanford.edu/class/cs224n/syllabus.html
@@ -351,7 +345,7 @@ Word2Vec
 https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
 https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 - 目标学习：信息抽取
-** 如何在NLP领域快速学会第一个技能？
+*** 如何在NLP领域快速学会第一个技能？
 - 找到一个开源项目，比如机器翻译或者深度学习的项目。
 - 理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。
 - 然后再深入理解开源项目示范程序的算法。
@@ -398,6 +392,12 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 - [ ] 语义角色标注
 语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
 - [ ] 查看Google Trende API.
+** Basics
+*** ANN
+*** CNN
+*** RNN
+** GPU server comparison
+- [ ] server vs desktop vs cloud
 
 * Machine Learning
 Principle: research and project oriented, adjusting speed based on progress.

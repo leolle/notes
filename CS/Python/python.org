@@ -260,6 +260,10 @@ re.search('Python$', 'this is Python')
 **** any character
 "."
 
+**** all lines contain a specific string
+#+BEGIN_SRC python
+^.*Deeplearning4j$
+#+END_SRC
 *** optional words
 'color' vs 'colour'
 re.search('colou?r', 'my favoriate color')
