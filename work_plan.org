@@ -165,6 +165,9 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 - [ ] Neural Language Processing(NLP), 结巴分词.
 ** Machine Learning Basics
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.org][Deep Learning]]
+** GPU server hardware comparison
+- [X] server vs desktop vs cloud
+- [ ] hardware purchase.
 ** NaturalLanguageProcessing
 *** Word Embedding(Word2Vec)
 DEADLINE: <2017-11-24 Fri>
@@ -187,6 +190,7 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 :END:
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
+- [ ] wiki SQL database links graph.
 - [X] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
 **** Data dumps/Import
 - methods
@@ -398,9 +402,6 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 *** ANN
 *** CNN
 *** RNN
-** GPU server comparison
-- [ ] server vs desktop vs cloud
-
 * Machine Learning
 Principle: research and project oriented, adjusting speed based on progress.
 

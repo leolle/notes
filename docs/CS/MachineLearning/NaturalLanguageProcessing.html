@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-27 Mon 12:09 -->
+<!-- 2017-11-27 Mon 19:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -178,13 +178,13 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline16">4.1. features:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline22">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<li><a href="#orgheadline24">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
 <ul>
 <li><a href="#orgheadline18">5.1. Login</a></li>
 <li><a href="#orgheadline19">5.2. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
-<li><a href="#orgheadline21">5.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<li><a href="#orgheadline23">5.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
 <ul>
-<li><a href="#orgheadline20">5.3.1. Data dumps/Import</a></li>
+<li><a href="#orgheadline22">5.3.1. Data dumps/Import</a></li>
 </ul>
 </li>
 </ul>
@@ -462,8 +462,8 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>guide:</li>
@@ -641,8 +641,8 @@ return value
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">5.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">5.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>basics</li>
@@ -815,12 +815,164 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-4">
-<h4 id="orgheadline20"><span class="section-number-4">5.3.1</span> Data dumps/Import</h4>
+<div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">5.3.1</span> Data dumps/Import</h4>
 <div class="outline-text-4" id="text-5-3-1">
+</div><ol class="org-ol"><li><a id="orgheadline20"></a>structure:<br  /><div class="outline-text-5" id="text-5-3-1-1">
 <ul class="org-ul">
-<li>methods</li>
+<li>category:</li>
 </ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">cat<sub>id</sub></td>
+<td class="org-left">cat<sub>title</sub></td>
+<td class="org-right">cat<sub>pages</sub></td>
+<td class="org-right">cat<sub>subcats</sub></td>
+<td class="org-right">cat<sub>files</sub></td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">'Computer<sub>storage</sub><sub>devices</sub>'</td>
+<td class="org-right">88</td>
+<td class="org-right">10</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>category links:</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">cl<sub>from</sub></td>
+<td class="org-left">cl<sub>to</sub></td>
+<td class="org-left">cl<sub>sortke</sub></td>
+<td class="org-left">cl<sub>timestamp</sub></td>
+<td class="org-left">cl<sub>sortkey</sub><sub>prefix</sub></td>
+<td class="org-left">cl<sub>collation</sub></td>
+<td class="org-left">cl<sub>type</sub>('page','subcat','file')</td>
+</tr>
+
+<tr>
+<td class="org-right">55706942</td>
+<td class="org-left">'NA-importance<sub>NA</sub>-Class<sub>Russia</sub><sub>articles</sub>'</td>
+<td class="org-left">'<sup>R</sup>&lt;82&gt;,&lt;BF&gt;<sup>DIOKK7</sup>\'A<sup>D</sup>+CAKM7MOM7CA\'=<sup>D</sup>+I7K7K<sup>A</sup>#<sup>A</sup>&lt;84&gt;&lt;8F&gt; '</td>
+<td class="org-left">'2017-11-04 07:25:01'</td>
+<td class="org-left">'Adonis, Rochelle'</td>
+<td class="org-left">'uca-default-u-kn'</td>
+<td class="org-left">'page'</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>pages:</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">page<sub>id</sub></td>
+<td class="org-left">page<sub>namespace</sub></td>
+<td class="org-left">page<sub>title</sub></td>
+<td class="org-left">page<sub>restrictions</sub></td>
+<td class="org-left">page<sub>counter</sub></td>
+<td class="org-left">page<sub>is</sub><sub>redirect</sub></td>
+<td class="org-left">page<sub>is</sub><sub>new</sub></td>
+<td class="org-left">page<sub>random</sub></td>
+<td class="org-left">page<sub>touched</sub></td>
+<td class="org-left">page<sub>links</sub><sub>updated</sub></td>
+<td class="org-left">page<sub>latest</sub></td>
+<td class="org-left">page<sub>len</sub></td>
+<td class="org-left">page<sub>content</sub><sub>model</sub></td>
+<td class="org-left">page<sub>lang</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">'10'</td>
+<td class="org-left">'0'</td>
+<td class="org-left">'AccessibleComputing'</td>
+<td class="org-left">?</td>
+<td class="org-left">'0'</td>
+<td class="org-left">'1'</td>
+<td class="org-left">'0'</td>
+<td class="org-left">'0.33167112649574004'</td>
+<td class="org-left">'20171002144257'</td>
+<td class="org-left">'20171003005845'</td>
+<td class="org-left">'767284433'</td>
+<td class="org-left">'124'</td>
+<td class="org-left">'wikitext'</td>
+<td class="org-left">NULL</td>
+</tr>
+</tbody>
+</table>
+</div></li>
+
+<li><a id="orgheadline21"></a>methods<br  /><div class="outline-text-5" id="text-5-3-1-2">
 <p>
 <a href="https://meta.wikimedia.org/wiki/Data_dumps">https://meta.wikimedia.org/wiki/Data_dumps</a>
 </p>
@@ -921,7 +1073,7 @@ I installed tidy and added the following lines to LocalSettings.php to reflect t
 I set up the interwiki cache cdb file, by using fixup-interwikis.py via the command python fixup-interwikis.py &#x2013;localsettings /var/www/html/elwikt/LocalSettings.php &#x2013;sitetype wiktionary and then added $wgInterwikiCache = "$IP/cache/interwiki.cdb" to the LocalSettings.php file. (See mw:Interwiki<sub>cache</sub>/Setup<sub>for</sub><sub>your</sub><sub>own</sub><sub>wiki</sub> for info.)
 That was it. This was enough to let me view (most) pages without errors.
 </p>
-</div>
+</div></li></ol>
 </div>
 </div>
 </div>

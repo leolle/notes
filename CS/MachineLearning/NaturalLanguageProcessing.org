@@ -360,7 +360,20 @@ and p2.page_namespace = 14
 #+END_SRC
 
 *** Data dumps/Import
-- methods
+**** structure:
+- category:
+| cat_id | cat_title                  | cat_pages | cat_subcats | cat_files |
+|      3 | 'Computer_storage_devices' |        88 |          10 |         0 |
+
+- category links:
+|  cl_from | cl_to                                    | cl_sortke                                                      | cl_timestamp          | cl_sortkey_prefix  | cl_collation       | cl_type('page','subcat','file') |
+| 55706942 | 'NA-importance_NA-Class_Russia_articles' | '^R<82>,<BF>^DIOKK7\'A^D+CAKM7MOM7CA\'=^D+I7K7K^A#^A<84><8F> ' | '2017-11-04 07:25:01' | 'Adonis, Rochelle' | 'uca-default-u-kn' | 'page'                          |
+
+- pages:
+| page_id | page_namespace | page_title            | page_restrictions | page_counter | page_is_redirect | page_is_new | page_random           | page_touched     | page_links_updated | page_latest | page_len | page_content_model | page_lang |
+| '10'    | '0'            | 'AccessibleComputing' | ?                 | '0'          | '1'              | '0'         | '0.33167112649574004' | '20171002144257' | '20171003005845'   | '767284433' | '124'    | 'wikitext'         | NULL      |
+
+**** methods
 [[https://meta.wikimedia.org/wiki/Data_dumps]]
 
 [[https://meta.wikimedia.org/wiki/Data_dumps/Import_examples]]
