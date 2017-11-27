@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-26 Sun 16:15 -->
+<!-- 2017-11-27 Mon 10:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -252,11 +252,6 @@ To calculate the gradient the relate weights to error, we use a technique known 
 A special form of backpropagation is called backpropagation through time, or BPTT, which is specifically useful for recurrent networks analyzing text and time series. With BPTT, each time step of the RNN is the equivalent of a layer in a feed-forward network. To backpropagate over many time steps, BPTT can be truncated for the purpose of efficiency. Truncated BPTT limits the time steps over which error is propagated.
 </p>
 
-<p>
-Backpropagation Types in Deeplearningtj
-Backpropagation Through Time: What It Does and How to Do It
-</p>
-
 <ul class="org-ul">
 <li>Batch Normalization</li>
 </ul>
@@ -416,9 +411,6 @@ Cosine is the angle attached to the origin, which makes it useful here. (We norm
 Training a neural network on a very large dataset requires some form of parallelism, of which there are two types: data parallelism and model parallelism.
 </p>
 
-<p>
-Deeplearning4j does data parallelism.
-</p>
 
 <p>
 Let’s say you have a very large image dataset of 1,000,000 faces. Those faces can be divided into batches of 10, and then 10 separate batches can be dispatched simultaneously to 10 different convolutional networks, so that 100 instances can be processed at once. The 10 different CNNs would then train on a batch, calculate the error on that batch, and update their parameters based on that error. Then, using parameter averaging, the 10 CNNs would update a central, master CNN that would take the average of their updated paramters. This process would repeat until the entire dataset has been exhausted. For more information, please see our page on iterative reduce.
@@ -774,7 +766,7 @@ In neural networks, the model is the collection of weights and biases that trans
 </ul>
 
 <p>
-MNIST is the “hello world” of deep-learning datasets. Everyone uses MNIST to test their neural networks, just to see if the net actually works at all. MNIST contains 60,000 training examples and 10,000 test examples of the handwritten numerals 0-9. These images are 28x28 pixels, which means they require 784 nodes on the first input layer of a neural network. MNIST is available for download here. Here is an example of training a DBN on MNIST with Deeplearning4j.
+MNIST is the “hello world” of deep-learning datasets. Everyone uses MNIST to test their neural networks, just to see if the net actually works at all. MNIST contains 60,000 training examples and 10,000 test examples of the handwritten numerals 0-9. These images are 28x28 pixels, which means they require 784 nodes on the first input layer of a neural network. MNIST is available for download here.
 </p>
 
 
@@ -818,6 +810,13 @@ Neural machine translation maps one language to another using neural networks. T
 
 <p>
 Sequence to Sequence Learning with Neural Networks
+</p>
+
+<ul class="org-ul">
+<li>Neural Network architecture</li>
+</ul>
+<p>
+feed-forward networks and Recurrent Recursive networks. Feed-forward networks include networks with fully connected layers, such as the multi-layer perceptron, as well as networks with convolutional and pooling layers. All of the networks act as classifiers, but each with different strengths.
 </p>
 
 <ul class="org-ul">

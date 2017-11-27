@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-26 Sun 16:16 -->
+<!-- 2017-11-27 Mon 11:43 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -174,7 +174,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline3">1. Basic prerequisites</a>
 <ul>
 <li><a href="#orgheadline1">1.1. maximum likelihood estimation</a></li>
-<li><a href="#orgheadline2">1.2. terminology:</a></li>
+<li><a href="#orgheadline2">1.2. terminology/jargon:</a></li>
 </ul>
 </li>
 <li><a href="#orgheadline5">2. 深度学习</a>
@@ -183,13 +183,20 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline6">3. 学习方法</a></li>
-<li><a href="#orgheadline10">4. Critical questions</a>
+<li><a href="#orgheadline10">4. NLP</a>
+<ul>
+<li><a href="#orgheadline7">4.1. Neural Network Architectures</a></li>
+<li><a href="#orgheadline8">4.2. Feature Representation</a></li>
+<li><a href="#orgheadline9">4.3. Word Embedding</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline14">5. Critical questions</a>
 <ul>
 <li>
 <ul>
-<li><a href="#orgheadline7">4.0.1. 传统机器学习考察点：</a></li>
-<li><a href="#orgheadline8">4.0.2. 深度学习考察点：</a></li>
-<li><a href="#orgheadline9">4.0.3. 最优化考察点：</a></li>
+<li><a href="#orgheadline11">5.0.1. 传统机器学习考察点：</a></li>
+<li><a href="#orgheadline12">5.0.2. 深度学习考察点：</a></li>
+<li><a href="#orgheadline13">5.0.3. 最优化考察点：</a></li>
 </ul>
 </li>
 </ul>
@@ -214,7 +221,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2017-11-26 16:16:00</td>
+<td class="org-left">2017-11-27 11:43:22</td>
 </tr>
 
 <tr>
@@ -257,7 +264,7 @@ This concept has the prerequisites:
 </div>
 </div>
 <div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> terminology:</h3>
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> terminology/jargon:</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Activation</li>
@@ -366,11 +373,6 @@ To calculate the gradient the relate weights to error, we use a technique known 
 
 <p>
 A special form of backpropagation is called backpropagation through time, or BPTT, which is specifically useful for recurrent networks analyzing text and time series. With BPTT, each time step of the RNN is the equivalent of a layer in a feed-forward network. To backpropagate over many time steps, BPTT can be truncated for the purpose of efficiency. Truncated BPTT limits the time steps over which error is propagated.
-</p>
-
-<p>
-Backpropagation Types in Deeplearningtj
-Backpropagation Through Time: What It Does and How to Do It
 </p>
 
 <ul class="org-ul">
@@ -532,9 +534,6 @@ Cosine is the angle attached to the origin, which makes it useful here. (We norm
 Training a neural network on a very large dataset requires some form of parallelism, of which there are two types: data parallelism and model parallelism.
 </p>
 
-<p>
-Deeplearning4j does data parallelism.
-</p>
 
 <p>
 Let’s say you have a very large image dataset of 1,000,000 faces. Those faces can be divided into batches of 10, and then 10 separate batches can be dispatched simultaneously to 10 different convolutional networks, so that 100 instances can be processed at once. The 10 different CNNs would then train on a batch, calculate the error on that batch, and update their parameters based on that error. Then, using parameter averaging, the 10 CNNs would update a central, master CNN that would take the average of their updated paramters. This process would repeat until the entire dataset has been exhausted. For more information, please see our page on iterative reduce.
@@ -890,7 +889,7 @@ In neural networks, the model is the collection of weights and biases that trans
 </ul>
 
 <p>
-MNIST is the “hello world” of deep-learning datasets. Everyone uses MNIST to test their neural networks, just to see if the net actually works at all. MNIST contains 60,000 training examples and 10,000 test examples of the handwritten numerals 0-9. These images are 28x28 pixels, which means they require 784 nodes on the first input layer of a neural network. MNIST is available for download here. Here is an example of training a DBN on MNIST with Deeplearning4j.
+MNIST is the “hello world” of deep-learning datasets. Everyone uses MNIST to test their neural networks, just to see if the net actually works at all. MNIST contains 60,000 training examples and 10,000 test examples of the handwritten numerals 0-9. These images are 28x28 pixels, which means they require 784 nodes on the first input layer of a neural network. MNIST is available for download here.
 </p>
 
 
@@ -934,6 +933,13 @@ Neural machine translation maps one language to another using neural networks. T
 
 <p>
 Sequence to Sequence Learning with Neural Networks
+</p>
+
+<ul class="org-ul">
+<li>Neural Network architecture</li>
+</ul>
+<p>
+feed-forward networks and Recurrent Recursive networks. Feed-forward networks include networks with fully connected layers, such as the multi-layer perceptron, as well as networks with convolutional and pooling layers. All of the networks act as classifiers, but each with different strengths.
 </p>
 
 <ul class="org-ul">
@@ -1383,8 +1389,58 @@ Layers that have been used in deep learning include hidden layers of an artifici
 </div>
 </div>
 <div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">4</span> Critical questions</h2>
+<h2 id="orgheadline10"><span class="section-number-2">4</span> NLP</h2>
 <div class="outline-text-2" id="text-4">
+<p>
+<a href="./nlp/NLP.html">Stanford NLP CS224n notes</a>
+</p>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">4.1</span> Neural Network Architectures</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Feed-forward networks and Recurrent Recursive networks.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">4.2</span> Feature Representation</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>Input X:</li>
+</ul>
+<p>
+When dealing with natural language, the input x encodes features such as words, part-of-speech tags or other linguistic information. Perhaps the biggest jump when moving from sparse-input linear models to neural-network based models is to stop representing each feature as a unique dimension (the so called one-hot representation) and representing them instead as dense vectors. That is, each core feature is embedded into a d dimensional space, and represented as a vector in that space. The embeddings (the vector representation of each core feature) can then be trained like the other parameter of the function NN.
+</p>
+
+<p>
+The main benefit of the dense representations is in generalization power: if we believe
+some features may provide similar clues, it is worthwhile to provide a representation that
+is able to capture these similarities.
+</p>
+
+<p>
+Probabilities: Dog(10 times) vs Cat(several times), almost no connection from probability. But very similar from dense vectors.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">4.3</span> Word Embedding</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>Similarity:</li>
+</ul>
+<p>
+We represent word meaning similarity using the meaning of the context words.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">5</span> Critical questions</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 how - overview picture
 why - assumption, hypothesis(formulas), representations, why use this, why does it work, cons, 边界.
@@ -1394,9 +1450,9 @@ results
 conclusion
 </p>
 </div>
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">4.0.1</span> 传统机器学习考察点：</h4>
-<div class="outline-text-4" id="text-4-0-1">
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">5.0.1</span> 传统机器学习考察点：</h4>
+<div class="outline-text-4" id="text-5-0-1">
 <p>
 1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
 <a href="https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/">https://machinelearningmastery.com/gentle-introduction-to-the-bias-variance-trade-off-in-machine-learning/</a>
@@ -1438,9 +1494,9 @@ LR：Logistic regression measures the relationship between the categorical depen
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">4.0.2</span> 深度学习考察点：</h4>
-<div class="outline-text-4" id="text-4-0-2">
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">5.0.2</span> 深度学习考察点：</h4>
+<div class="outline-text-4" id="text-5-0-2">
 <ul class="org-ul">
 <li>Nodes of output layer depend on the number of categories?</li>
 </ul>
@@ -1587,9 +1643,9 @@ DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN�
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">4.0.3</span> 最优化考察点：</h4>
-<div class="outline-text-4" id="text-4-0-3">
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">5.0.3</span> 最优化考察点：</h4>
+<div class="outline-text-4" id="text-5-0-3">
 <p>
 1、sgd、momentum、rmsprop、adam区别与联系
 </p>

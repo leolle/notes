@@ -29,7 +29,7 @@ This concept has the prerequisites:
  - independent random variables (The data are generally assumed to be independent draws from a distribution.)
  - optimization problems (Maximum likelihood is formulated as an optimization problem.)
  - Gaussian distribution (Fitting a Gaussian distribution is an instructive example of maximum likelihood estimation.)
-** terminology:
+** terminology/jargon:
 #+INCLUDE: glossary.org
 [[file:glossary.org]]
 - tensor
@@ -59,6 +59,24 @@ Layers that have been used in deep learning include hidden layers of an artifici
   - 深度加强学习(RDL):
   - 生成模型(GAN):
 - Step 4: 建立项目
+* NLP
+[[file:./nlp/NLP.html][Stanford NLP CS224n notes]]
+** Neural Network Architectures
+Feed-forward networks and Recurrent Recursive networks.
+** Feature Representation
+- Input X:
+When dealing with natural language, the input x encodes features such as words, part-of-speech tags or other linguistic information. Perhaps the biggest jump when moving from sparse-input linear models to neural-network based models is to stop representing each feature as a unique dimension (the so called one-hot representation) and representing them instead as dense vectors. That is, each core feature is embedded into a d dimensional space, and represented as a vector in that space. The embeddings (the vector representation of each core feature) can then be trained like the other parameter of the function NN.
+
+The main benefit of the dense representations is in generalization power: if we believe
+some features may provide similar clues, it is worthwhile to provide a representation that
+is able to capture these similarities.
+
+Probabilities: Dog(10 times) vs Cat(several times), almost no connection from probability. But very similar from dense vectors.
+
+
+** Word Embedding
+- Similarity:
+We represent word meaning similarity using the meaning of the context words.
 * Critical questions
 how - overview picture
 why - assumption, hypothesis(formulas), representations, why use this, why does it work, cons, 边界.
