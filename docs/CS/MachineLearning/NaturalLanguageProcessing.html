@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-27 Mon 19:10 -->
+<!-- 2017-11-27 Mon 19:48 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -505,6 +505,10 @@ darts-quota-alternation
 <div id="outline-container-orgheadline19" class="outline-3">
 <h3 id="orgheadline19"><span class="section-number-3">5.2</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
 <div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>wiki dumps:</li>
+</ul>
+
 <p>
 <a href="https://jesusbarrasa.wordpress.com/2016/08/03/quickgraph2-how-is-wikipedias-knowledge-organised/">https://jesusbarrasa.wordpress.com/2016/08/03/quickgraph2-how-is-wikipedias-knowledge-organised/</a>
 </p>
@@ -731,7 +735,7 @@ Categories: Types of databasesGraph theory
 <tr>
 <td class="org-left">"895945",</td>
 <td class="org-left">"3",</td>
-<td class="org-left">"Computer<sub>storage</sub><sub>devices</sub>",</td>
+<td class="org-left">"Computer_storage_devices",</td>
 <td class="org-left">"86",</td>
 <td class="org-left">"10"</td>
 </tr>
@@ -838,16 +842,16 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </colgroup>
 <tbody>
 <tr>
-<td class="org-right">cat<sub>id</sub></td>
-<td class="org-left">cat<sub>title</sub></td>
-<td class="org-right">cat<sub>pages</sub></td>
-<td class="org-right">cat<sub>subcats</sub></td>
-<td class="org-right">cat<sub>files</sub></td>
+<td class="org-right">cat_id</td>
+<td class="org-left">cat_title</td>
+<td class="org-right">cat_pages</td>
+<td class="org-right">cat_subcats</td>
+<td class="org-right">cat_files</td>
 </tr>
 
 <tr>
 <td class="org-right">3</td>
-<td class="org-left">'Computer<sub>storage</sub><sub>devices</sub>'</td>
+<td class="org-left">'Computer_storage_devices'</td>
 <td class="org-right">88</td>
 <td class="org-right">10</td>
 <td class="org-right">0</td>
@@ -878,19 +882,19 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </colgroup>
 <tbody>
 <tr>
-<td class="org-right">cl<sub>from</sub></td>
-<td class="org-left">cl<sub>to</sub></td>
-<td class="org-left">cl<sub>sortke</sub></td>
-<td class="org-left">cl<sub>timestamp</sub></td>
-<td class="org-left">cl<sub>sortkey</sub><sub>prefix</sub></td>
-<td class="org-left">cl<sub>collation</sub></td>
-<td class="org-left">cl<sub>type</sub>('page','subcat','file')</td>
+<td class="org-right">cl_from</td>
+<td class="org-left">cl_to</td>
+<td class="org-left">cl_sortke</td>
+<td class="org-left">cl_timestamp</td>
+<td class="org-left">cl_sortkey_prefix</td>
+<td class="org-left">cl_collation</td>
+<td class="org-left">cl_type('page','subcat','file')</td>
 </tr>
 
 <tr>
 <td class="org-right">55706942</td>
-<td class="org-left">'NA-importance<sub>NA</sub>-Class<sub>Russia</sub><sub>articles</sub>'</td>
-<td class="org-left">'<sup>R</sup>&lt;82&gt;,&lt;BF&gt;<sup>DIOKK7</sup>\'A<sup>D</sup>+CAKM7MOM7CA\'=<sup>D</sup>+I7K7K<sup>A</sup>#<sup>A</sup>&lt;84&gt;&lt;8F&gt; '</td>
+<td class="org-left">'NA-importance_NA-Class_Russia_articles'</td>
+<td class="org-left">'^R&lt;82&gt;,&lt;BF&gt;^DIOKK7\'A^D+CAKM7MOM7CA\'=^D+I7K7K^A#^A&lt;84&gt;&lt;8F&gt; '</td>
 <td class="org-left">'2017-11-04 07:25:01'</td>
 <td class="org-left">'Adonis, Rochelle'</td>
 <td class="org-left">'uca-default-u-kn'</td>
@@ -936,20 +940,20 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">page<sub>id</sub></td>
-<td class="org-left">page<sub>namespace</sub></td>
-<td class="org-left">page<sub>title</sub></td>
-<td class="org-left">page<sub>restrictions</sub></td>
-<td class="org-left">page<sub>counter</sub></td>
-<td class="org-left">page<sub>is</sub><sub>redirect</sub></td>
-<td class="org-left">page<sub>is</sub><sub>new</sub></td>
-<td class="org-left">page<sub>random</sub></td>
-<td class="org-left">page<sub>touched</sub></td>
-<td class="org-left">page<sub>links</sub><sub>updated</sub></td>
-<td class="org-left">page<sub>latest</sub></td>
-<td class="org-left">page<sub>len</sub></td>
-<td class="org-left">page<sub>content</sub><sub>model</sub></td>
-<td class="org-left">page<sub>lang</sub></td>
+<td class="org-left">page_id</td>
+<td class="org-left">page_namespace</td>
+<td class="org-left">page_title</td>
+<td class="org-left">page_restrictions</td>
+<td class="org-left">page_counter</td>
+<td class="org-left">page_is_redirect</td>
+<td class="org-left">page_is_new</td>
+<td class="org-left">page_random</td>
+<td class="org-left">page_touched</td>
+<td class="org-left">page_links_updated</td>
+<td class="org-left">page_latest</td>
+<td class="org-left">page_len</td>
+<td class="org-left">page_content_model</td>
+<td class="org-left">page_lang</td>
 </tr>
 
 <tr>
@@ -1033,9 +1037,9 @@ Vector
 WikiEditor
 I generated page, revision and text sql files from the stub and page content XML files, using mwxml2sql via the command mwxml2sql -s elwiktionary-blahblah-stub-articles.xml.gz -t elwiktionary-blahblah-pages-articles.xml.bz2 -f elwikt-pages-current-sql.gz -m 1.20
 I converted all the sql files to tab delimited files using sql2txt (same repo as previous step) via the command zcat elwiktionary-blahdate-blahtable.sql.gz | sql2txt | gzip &gt; elwiktionary-blahdate-blahtable.tabs.gz. Actually that's a lie, I wrote a tiny bash script to do them all for me. I skipped the following downloaded files:
-site<sub>stats</sub> - I didn't want or need these, the numbers would be wrong anyways
-user<sub>groups</sub> - Not needed for displaying page content
-old<sub>image</sub> and image - using InstantCommons
+site_stats - I didn't want or need these, the numbers would be wrong anyways
+user_groups - Not needed for displaying page content
+old_image and image - using InstantCommons
 page - generated from XML files instead
 I converted the page, revision and text table files that were generated from the XML files, to tab delimited, using a command similar to the above step
 The actual import[edit]
@@ -1067,10 +1071,10 @@ mysql&gt;LOAD <span style="color: #F92672;">DATA</span> INFILE <span style="colo
 <p>
 After the import[edit]
 Since this is a wiktionary, I updated the LocalSettings.php file so that page titles need not start with a capital letter, adding $wgCapitalLinks = false; to the file
-Since this wiki has extra namespaces beyond the standard ones defined by MediaWiki, I added those to LocalSettings.php. You can find such namespaces by looking at the first few lines of the stubs XML file. Lines added: $wgExtraNamespaces = 'Παράρτημα'; and $wgExtraNamespaces = 'Συζήτηση<sub>παραρτήματος</sub>';.
-The namespace for the project and for project discussion are typically special localized names. I added those to LocalSettings.php, finding the names in the stub XML file at the beginning: $wgMetaNamespace = 'Βικιλεξικό'; and $wgMetaNamespaceTalk = 'Συζήτηση<sub>βικιλεξικού</sub>';
+Since this wiki has extra namespaces beyond the standard ones defined by MediaWiki, I added those to LocalSettings.php. You can find such namespaces by looking at the first few lines of the stubs XML file. Lines added: $wgExtraNamespaces = 'Παράρτημα'; and $wgExtraNamespaces = 'Συζήτηση_παραρτήματος';.
+The namespace for the project and for project discussion are typically special localized names. I added those to LocalSettings.php, finding the names in the stub XML file at the beginning: $wgMetaNamespace = 'Βικιλεξικό'; and $wgMetaNamespaceTalk = 'Συζήτηση_βικιλεξικού';
 I installed tidy and added the following lines to LocalSettings.php to reflect that: $wgUseTidy = true; and $wgTidyBin = '/usr/bin/tidy';. No configuration file was necessary; one is provided as part of MediaWiki and used by default.
-I set up the interwiki cache cdb file, by using fixup-interwikis.py via the command python fixup-interwikis.py &#x2013;localsettings /var/www/html/elwikt/LocalSettings.php &#x2013;sitetype wiktionary and then added $wgInterwikiCache = "$IP/cache/interwiki.cdb" to the LocalSettings.php file. (See mw:Interwiki<sub>cache</sub>/Setup<sub>for</sub><sub>your</sub><sub>own</sub><sub>wiki</sub> for info.)
+I set up the interwiki cache cdb file, by using fixup-interwikis.py via the command python fixup-interwikis.py &#x2013;localsettings /var/www/html/elwikt/LocalSettings.php &#x2013;sitetype wiktionary and then added $wgInterwikiCache = "$IP/cache/interwiki.cdb" to the LocalSettings.php file. (See mw:Interwiki_cache/Setup_for_your_own_wiki for info.)
 That was it. This was enough to let me view (most) pages without errors.
 </p>
 </div></li></ol>

@@ -1,4 +1,4 @@
-#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
 #+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
 #+OPTIONS: title:t toc:t todo:t |:t
@@ -147,6 +147,8 @@ darts-quota-alternation
 #+END_SRC
 
 ** Approach 1: Loading a reduced subset incrementally through the MediaWiki API
+- wiki dumps:
+
 [[https://jesusbarrasa.wordpress.com/2016/08/03/quickgraph2-how-is-wikipedias-knowledge-organised/]]
 
 [[https://jesusbarrasa.wordpress.com/2017/04/26/quickgraph6-building-the-wikipedia-knowledge-graph-in-neo4j-qg2-revisited/]]
