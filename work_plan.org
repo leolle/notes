@@ -169,7 +169,7 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 *** Word Embedding(Word2Vec)
 DEADLINE: <2017-11-24 Fri>
 :LOGBOOK:
-CLOCK: [2017-11-27 Mon 10:28]
+CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
 - [ ] read A primer on Neural Network Models.
