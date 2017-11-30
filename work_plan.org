@@ -177,12 +177,36 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 建一个想法，根据这个想法找到匹配的FI, or FD. 例如，建一个optimize需求，自动推荐black litterman model, or markowitz mean/variance model.
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
 当前FI,查找相关的下一步FI.
+*** Personalized Intelligent Agents(PIA)
+**** Objective:
+***** Short Term
+- make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter
+- incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process
+***** Long Term
+- context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners
+**** Model
+- State of the Art NL models based on DNN
+**** Data
+***** Text Labeled with (semi) structured data
+- company filings text, filing classification, event time series data (attributes manually extracted)
+- company filings text, company industry classification
+- wiki page titles and page text, wiki category
+- textbook or CFA chapter name, chapter exercise questions, multiple choice questions
+- analyst research reports, report classification, analyst ranking
+- SSRN paper keyword, category, title, abstract, data, model and conclusion
+***** Text Unlabeled
+- analyst research reports
+- textbooks
+**** Applications
+- recommendation of context sensitive synonyms
+- match search keyword, event, data with theory, model
+
 *** TODO Building the Wikipedia Knowledge Graph in Neo4j
 :LOGBOOK:
 CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 :END:
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
-- [ ] wiki SQL database links graph.
+- [X] wiki SQL database links graph.
 - [X] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
 **** Data dumps/Import
 - methods

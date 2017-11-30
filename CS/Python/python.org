@@ -402,6 +402,22 @@ it’s again replaced with a binary approximation, whose exact value is
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
 ** os.path — Common pathname manipulations
+- walk all file from a directory and its sub-directory
+Directory tree generator.
+
+For each directory in the directory tree rooted at top (including top
+itself, but excluding '.' and '..'), yields a 3-tuple
+
+    dirpath, dirnames, filenames
+#+BEGIN_SRC  python
+import os
+from os.path import join, getsize
+for root, dirs, files in os.walk('/home/weiwu/share/deep_learning/data/enwiki'):
+    print(root, "consumes, ")
+    print(sum([getsize(join(root, name)) for name in files]), '\s')
+    print("bytes in", len(files), "non-directory files")
+#+END_SRC
+
 - check if file exist
 #+BEGIN_SRC python
 os.path.isfile(os.path.join(path,name))
