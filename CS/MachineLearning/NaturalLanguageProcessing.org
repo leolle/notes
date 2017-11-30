@@ -375,6 +375,10 @@ and p2.page_namespace = 14
 | page_id | page_namespace | page_title            | page_restrictions | page_counter | page_is_redirect | page_is_new | page_random           | page_touched     | page_links_updated | page_latest | page_len | page_content_model | page_lang |
 | '10'    | '0'            | 'AccessibleComputing' | ?                 | '0'          | '1'              | '0'         | '0.33167112649574004' | '20171002144257' | '20171003005845'   | '767284433' | '124'    | 'wikitext'         | NULL      |
 
+- page links:
+|  pl_from | pl_namespace | pl_title                | pl_from_namespace |
+| 42886934 |            0 | '!Women_Art_Revolution' |                 0 |
+
 **** methods
 [[https://meta.wikimedia.org/wiki/Data_dumps]]
 

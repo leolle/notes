@@ -153,29 +153,19 @@ ICA
 - [ ] Machine Learning
 * Errand
 * Deep Learning
-** Other's recommendation
-- [ ] stuff from Zhupengjia, Liguofu
-- [ ] Yoshua paper Deep Learning.
-- [X] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
-Tensorflow is a mathmatical library including neural network, Keras is a framework based on Tensorflow.
- - Lower Level: This is where frameworks like Tensorflow, MXNet, Theano, and PyTorch sit. This is the level where mathematical operations like Generalized Matrix-Matrix multiplication and Neural Network primitives like Convolutional operations are implemented.
- - Higher Level: This is where frameworks like Keras sit. At this Level, the lower level primitives are used to implement Neural Network abstraction like Layers and models. Generally, at this level other helpful APIs like model saving and model training are also implemented.
-- [X] Deep Learning book, author Ian Goodfellow.
-- [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
-- [ ] Neural Language Processing(NLP), 结巴分词.
-** Machine Learning Basics
-[[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.org][Deep Learning]]
-** GPU server hardware comparison
-- [X] server vs desktop vs cloud
-- [ ] hardware purchase.
 ** NaturalLanguageProcessing
 *** Word Embedding(Word2Vec)
-DEADLINE: <2017-11-24 Fri>
+DEADLINE: <2017-11-28 Tue>
 :LOGBOOK:
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
+- [ ] train word2vec model.
+- [ ] test finding similar words from Wiki corpus.
+- [ ] find corporate finance/mba questions corpos.
 - [ ] read A primer on Neural Network Models.
+- [X] download wiki xml file.
+- [X] transfer wiki xml file to text format.
 - [X] load pre-trained vector matrix, predict the context using a word based on the Skip-Gram model.
 - [X] overview of word2vec, why does it work.
 - [ ] video explained by Xin Rong.
@@ -184,7 +174,9 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - [X] understand Tensorflow Word2Vec example.
 - [X] build a backward propagation network.
 - [ ] fi or function def from output of wants whose idea word2vec is close to target want's idea.
+建一个想法，根据这个想法找到匹配的FI, or FD. 例如，建一个optimize需求，自动推荐black litterman model, or markowitz mean/variance model.
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
+当前FI,查找相关的下一步FI.
 *** TODO Building the Wikipedia Knowledge Graph in Neo4j
 :LOGBOOK:
 CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
@@ -398,6 +390,46 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 - [ ] 语义角色标注
 语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
 - [ ] 查看Google Trende API.
+** GPU server hardware comparison
+- [X] server vs desktop vs cloud
+- [ ] hardware purchase.
+Case	美商海盗船 AIR540 USB3.0 中塔侧透 钢铝混合 游戏散热机箱 支持36CM水冷 黑色	AIR540+AX1500i电源	1000
+CPU	i7 7700k		2500
+RAM	美商海盗船32G频率3000		3300
+GPU	MSI/微星 GTX1080TI AERO 11G公版GPU渲染计算游戏显卡深度学习	X2	12800
+Power	以太坊1600W6卡6P供电静音ETH显卡矿机机箱电源		600
+Storage	Intel/英特尔 600P 512G M.2 PCI-E 3.0X4 NVME SSD固态硬盘		1250
+	Seagate/希捷 ST1000DM010 1T新酷鱼1tb台式机械电脑硬盘		300
+Mother board	Asus/华硕 X99-E WS/USB 3.1工作站主板 单路 2011针 4路全速交火		4000
+			25750
+
+
+Case	美商海盗船 AIR540 USB3.0 中塔侧透 钢铝混合 游戏散热机箱 支持36CM水冷 黑色
+CPU	i7 6800k
+RAM	16G 2400 DDR4
+GPU	GTX
+Power	1000W
+Storage	Intel/英特尔 600P 256G M.2 PCI-E 3.0X4 NVME SSD固态硬盘
+Mother board	微星X99A SLI Plus	只支持2路SLI
+		GTX 1080	14500
+		GTX 1080 Ti	16700
+		GTX Titan XP	21200
+		GTX 1080x2	19000
+		GTX 1080 Tix2	23600
+		GTX Titan XPx2	32800
+
+** Machine Learning Basics
+[[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.org][Deep Learning]]
+** Other's recommendation
+- [ ] stuff from Zhupengjia, Liguofu
+- [ ] Yoshua paper Deep Learning.
+- [X] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
+Tensorflow is a mathmatical library including neural network, Keras is a framework based on Tensorflow.
+ - Lower Level: This is where frameworks like Tensorflow, MXNet, Theano, and PyTorch sit. This is the level where mathematical operations like Generalized Matrix-Matrix multiplication and Neural Network primitives like Convolutional operations are implemented.
+ - Higher Level: This is where frameworks like Keras sit. At this Level, the lower level primitives are used to implement Neural Network abstraction like Layers and models. Generally, at this level other helpful APIs like model saving and model training are also implemented.
+- [X] Deep Learning book, author Ian Goodfellow.
+- [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
+- [ ] Neural Language Processing(NLP), 结巴分词.
 ** Basics
 *** ANN
 *** CNN

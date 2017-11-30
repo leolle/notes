@@ -964,6 +964,17 @@ print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- parse text in csv
+#+BEGIN_SRC python
+reddit_news = pd.read_csv('/home/weiwu/share/deep_learning/data/RedditNews.csv')
+DJA_news = pd.read_csv(
+    '/home/weiwu/share/deep_learning/data/Combined_News_DJIA.csv')
+na_str_DJA_news = DJA_news.iloc[:, 2:].values
+na_str_DJA_news = na_str_DJA_news.flatten()
+na_str_reddit_news = reddit_news.News.values
+sentences_reddit = [s.encode('utf-8').split() for s in na_str_reddit_news]
+sentences_DJA = [s.encode('utf-8').split() for s in na_str_DJA_news]
+#+END_SRC
 - rank
 DataFrame.rank(axis=0, method='average', numeric_only=None, na_option='keep', ascending=True, pct=False)[source]
 Compute numerical data ranks (1 through n) along axis. Equal values are assigned a rank that is the average of the ranks of those values
@@ -1424,6 +1435,12 @@ panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
 #+END_SRC
 pandas panel item axis should be datetime64, this should not be an array.
 ** numpy
+- from 2-D array to 1-D array with one column
+#+BEGIN_SRC python
+import numpy as np
+a = np.array([[1],[2],[3]]))
+a.flattern()
+#+END_SRC
 - Take a sequence of 1-D arrays and stack them as columns to make a single 2-D:
 #+BEGIN_SRC python
 numpy.column_stack(tup)
