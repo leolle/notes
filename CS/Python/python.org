@@ -1451,6 +1451,10 @@ panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
 #+END_SRC
 pandas panel item axis should be datetime64, this should not be an array.
 ** numpy
+- maximum value in each row
+#+BEGIN_SRC python
+np.amax(ar, axis=1)
+#+END_SRC
 - from 2-D array to 1-D array with one column
 #+BEGIN_SRC python
 import numpy as np
