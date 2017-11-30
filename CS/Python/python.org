@@ -229,6 +229,29 @@ except Networkerror,e:
 #+END_SRC
 * Text Processing Services
 ** string — Common string operations
+- 移除字符串头尾指定的字符（默认为空格）
+#+BEGIN_SRC python
+#!/usr/bin/python
+
+str = "0000000this is string example....wow!!!0000000";
+print(str.strip( '0' ))
+#+END_SRC
+
+- checks whether the string consists of alphabetic characters only.
+#+BEGIN_SRC python 2
+#!/usr/bin/python
+
+str = "this";  # No space & digit in this string
+print(str.isalpha())
+
+str = "this is string example....wow!!!";
+print(str.isalpha())
+#+END_SRC
+
+#+RESULTS:
+: True
+: False
+
 ** re — Regular expression operations
 *** useage:
 - find strings
