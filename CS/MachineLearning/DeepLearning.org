@@ -14,7 +14,7 @@
 #+HTML: <div class="outline-2" id="meta">
 | *Author* | {{{author}}} ({{{email}}})    |
 | *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
-| *Title*  | {{{TITLES}}                   |
+| *Title*  | {{{TITLE}}                    |
 #+HTML: </div>
 
 * Basic prerequisites
@@ -61,6 +61,29 @@ Layers that have been used in deep learning include hidden layers of an artifici
 - Step 4: 建立项目
 * NLP
 [[file:./NaturalLanguageProcessing.org][NLP]]
+** Application: Where can Dl be applied for NLP tasks? DL Algorithms NLP Usage Neural Network (NN)
+*** Feed-forward propagation
+- POS, NER, Chunking
+- Entity and Intent Extraction
+*** Recurrent Neural Networks (RNN)
+- Language Modeling and Generating Text
+- Machine Translation
+- Question Answering System
+- Image Captioning
+- Generating Image Descriptions
+*** Recursive Neural Networks
+- Parsing Sentences
+- Sentiment Analysis
+- Paraphrase Detection
+- Relation Classification
+- Object Detection
+*** Convolutional Neural Network (CNN)
+- Sentence / Text Classification
+- Relation Extraction and Classification
+- Sentiment classification
+- Spam Detection or Topic Categorization
+- Classification of Search Queries
+- Semantic relation extraction
 * Critical questions
 how - overview picture
 why - assumption, hypothesis(formulas), representations, why use this, why does it work, cons, 边界.

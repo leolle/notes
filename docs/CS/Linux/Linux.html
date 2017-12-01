@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-22 Wed 19:34 -->
+<!-- 2017-12-01 Fri 10:05 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -640,30 +640,8 @@ for the JavaScript code in this tag.
 <h4 id="orgheadline15"><span class="section-number-4">1.2.1</span> Shell basics</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
-<li>linux folder tree output to clipboard.</li>
+<li>tmux for multiple windows on the terminal like zsh</li>
 </ul>
-<div class="org-src-container">
-
-<pre class="src src-shell">tree | xclip
-xclip -o
-</pre>
-</div>
-<ul class="org-ul">
-<li>count csv file rows</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-shell">wc -l filename
-</pre>
-</div>
-<ul class="org-ul">
-<li>resume interrupted download via wget:</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-shell">wget -c -t <span style="color: #AE81FF;">0</span> --timeout=<span style="color: #AE81FF;">10</span> --waitretry=<span style="color: #AE81FF;">10</span> url
-</pre>
-</div>
 </div>
 </div>
 <div id="outline-container-orgheadline16" class="outline-4">
@@ -686,6 +664,47 @@ xclip -o
 <h4 id="orgheadline21"><span class="section-number-4">1.2.7</span> Shell commands:</h4>
 <div class="outline-text-4" id="text-1-2-7">
 <ul class="org-ul">
+<li>linux folder tree output to clipboard.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">tree | xclip
+xclip -o
+</pre>
+</div>
+<ul class="org-ul">
+<li>count csv file rows</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">wc -l filename
+</pre>
+</div>
+<ul class="org-ul">
+<li>count files</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">ls -l folder/path | wc -l
+</pre>
+</div>
+<ul class="org-ul">
+<li>resume interrupted download via wget:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-shell">wget -c -t <span style="color: #AE81FF;">0</span> --timeout=<span style="color: #AE81FF;">10</span> --waitretry=<span style="color: #AE81FF;">10</span> url
+</pre>
+</div>
+<ul class="org-ul">
+<li>show sub folder and file size</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">du -sh *
+</pre>
+</div>
+<ul class="org-ul">
 <li>unzip a compressed file:</li>
 </ul>
 <div class="org-src-container">
@@ -701,7 +720,27 @@ xclip -o
 
 <pre class="src src-shell"><span style="color: #75715E;"># </span><span style="color: #75715E;">tar.gz</span>
 tar -xvzf rebol.tar.gz
+&#31616;&#20171;
 
+&#21442;&#25968;&#65306;
+
+-c  &#65306;&#24314;&#31435;&#19968;&#20010;&#21387;&#32553;&#26723;&#26696;&#30340;&#21442;&#25968;&#25351;&#20196;<span style="color: #AE81FF;">(</span>create &#30340;&#24847;&#24605;<span style="color: #AE81FF;">)</span>&#65307;
+
+-x  &#65306;&#35299;&#24320;&#19968;&#20010;&#21387;&#32553;&#26723;&#26696;&#30340;&#21442;&#25968;&#25351;&#20196;&#65281;
+
+-t  &#65306;&#26597;&#30475; tarfile &#37324;&#38754;&#30340;&#26723;&#26696;&#65281;
+
+&#29305;&#21035;&#27880;&#24847;&#65292;&#22312;&#21442;&#25968;&#30340;&#19979;&#36798;&#20013;&#65292; c/x/t &#20165;&#33021;&#23384;&#22312;&#19968;&#20010;&#65281;&#19981;&#21487;&#21516;&#26102;&#23384;&#22312;&#65281;
+
+&#22240;&#20026;&#19981;&#21487;&#33021;&#21516;&#26102;&#21387;&#32553;&#19982;&#35299;&#21387;&#32553;&#12290;
+
+-z  &#65306;&#26159;&#21542;&#21516;&#26102;&#20855;&#26377; gzip &#30340;&#23646;&#24615;&#65311;&#20134;&#21363;&#26159;&#21542;&#38656;&#35201;&#29992; gzip &#21387;&#32553;&#65311;
+
+-j  &#65306;&#26159;&#21542;&#21516;&#26102;&#20855;&#26377; bzip2 &#30340;&#23646;&#24615;&#65311;&#20134;&#21363;&#26159;&#21542;&#38656;&#35201;&#29992; bzip2 &#21387;&#32553;&#65311;
+
+-v  &#65306;&#21387;&#32553;&#30340;&#36807;&#31243;&#20013;&#26174;&#31034;&#26723;&#26696;&#65281;&#36825;&#20010;&#24120;&#29992;&#65292;&#20294;&#19981;&#24314;&#35758;&#29992;&#22312;&#32972;&#26223;&#25191;&#34892;&#36807;&#31243;&#65281;
+
+-f  &#65306;&#20351;&#29992;&#26723;&#21517;&#65292;&#35831;&#30041;&#24847;&#65292;&#22312; f &#20043;&#21518;&#35201;&#31435;&#21363;&#25509;&#26723;&#21517;&#21908;&#65281;&#19981;&#35201;&#20877;&#21152;&#21442;&#25968;&#65281;
 <span style="color: #75715E;">#</span><span style="color: #75715E;">*.gz</span>
 </pre>
 </div>

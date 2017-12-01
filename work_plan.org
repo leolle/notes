@@ -160,7 +160,7 @@ DEADLINE: <2017-11-28 Tue>
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
-- [ ] train word2vec model.
+- [X] train word2vec model.
 - [ ] test finding similar words from Wiki corpus.
 - [ ] find corporate finance/mba questions corpos.
 - [ ] read A primer on Neural Network Models.
@@ -186,20 +186,43 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners
 **** Model
 - State of the Art NL models based on DNN
+ - CBOW
+ - Skip gram
 **** Data
 ***** Text Labeled with (semi) structured data
-- company filings text, filing classification, event time series data (attributes manually extracted)
-- company filings text, company industry classification
-- wiki page titles and page text, wiki category
-- textbook or CFA chapter name, chapter exercise questions, multiple choice questions
-- analyst research reports, report classification, analyst ranking
-- SSRN paper keyword, category, title, abstract, data, model and conclusion
+- [ ] company filings text, filing classification, event time series data (attributes manually extracted)
+- [ ] company filings text, company industry classification
+- [X] wiki page titles and page text, wiki category
+- [ ] textbook or CFA chapter name, chapter exercise questions, multiple choice questions
+- [ ] analyst research reports, report classification, analyst ranking
+- [ ] SSRN paper keyword, category, title, abstract, data, model and conclusion
 ***** Text Unlabeled
-- analyst research reports
-- textbooks
+- [ ] analyst research reports
+- [ ] textbooks
 **** Applications
 - recommendation of context sensitive synonyms
 - match search keyword, event, data with theory, model
+*** Graph Convolutional Neural Network
+**** Objective:
+***** Short Term
+- Apply CNN's efficient compositional knowledge extraction ability to graph data, more structured than natural language, image and sound
+***** Long Term
+- Apply RL on top of graph CNN to automatically ACTIVELY build models, workflows, contracts, investment, instead of just passive prediction without market impact
+**** Model
+- Spectral Graph Theory based CNN on graph data
+**** Data
+- Text Like Graph Data, where nodes are discretely different
+ - function network in GS, model architecture
+ - task network in GS, user behavior
+ - supply demand product transaction network in real economy
+ - buy sell financial instrument transaction network in financial market
+- Image Like Graph Data, where nodes are homogeneous with continuous attributes
+ - network of portfolios of different gain and loss, alpha, beta, etc
+ - (social) network of analysts, traders, reporters, officials, etc of different level of influences
+ - network of NN nodes with different weights
+**** Applications
+- Graph Classification and Identification
+- Graph Simplification and Simulation
 
 *** TODO Building the Wikipedia Knowledge Graph in Neo4j
 :LOGBOOK:

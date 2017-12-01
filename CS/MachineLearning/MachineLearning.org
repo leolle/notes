@@ -245,7 +245,28 @@ accuracy_score(y_true, predicts)
 * Week 10
 ** Large Scale Machine Learning
 * Week 11
-** Application Example: Photo OCR
+** Application Example:
+*** Natural language processing (NLP)
+- Automatic summarization
+- Automatic taxonomy construction
+- Dialog system
+- Grammar checker
+- Language recognition
+ - Handwriting recognition
+ - Optical character recognition
+ - Speech recognition
+- Machine translation
+- Question answering
+- Speech synthesis
+- Text mining
+- Term frequency–inverse document frequency (tf–idf)
+- Text simplification
+*** Pattern recognition
+- Facial recognition system
+- Handwriting recognition
+- Image recognition
+- Optical character recognition
+- Speech recognition
 * Bayesian network
 [[file:./BayesianNetworkDescribingYourData.org][BayesianNetworkDescribingYourData]]
 

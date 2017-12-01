@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-26 Sun 16:15 -->
+<!-- 2017-11-30 Thu 18:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -938,7 +938,36 @@ int64
 <div class="outline-text-2" id="text-5">
 </div><div id="outline-container-orgheadline27" class="outline-3">
 <h3 id="orgheadline27"><span class="section-number-3">5.1</span> string — Common string operations</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>移除字符串头尾指定的字符（默认为空格）</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/usr/bin/python</span>
+
+<span style="color: #F92672;">str</span> = <span style="color: #E6DB74;">"0000000this is string example....wow!!!0000000"</span>;
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">str</span>.strip<span style="color: #66D9EF;">(</span> <span style="color: #E6DB74;">'0'</span> <span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
 </div>
+
+<ul class="org-ul">
+<li>checks whether the string consists of alphabetic characters only.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/usr/bin/python</span>
+
+<span style="color: #F92672;">str</span> = <span style="color: #E6DB74;">"this"</span>;  <span style="color: #75715E;"># </span><span style="color: #75715E;">No space &amp; digit in this string</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">str</span>.isalpha<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">str</span> = <span style="color: #E6DB74;">"this is string example....wow!!!"</span>;
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">str</span>.isalpha<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
 <div id="outline-container-orgheadline41" class="outline-3">
 <h3 id="orgheadline41"><span class="section-number-3">5.2</span> re — Regular expression operations</h3>
 <div class="outline-text-3" id="text-5-2">
@@ -1322,6 +1351,32 @@ it’s again replaced with a binary approximation, whose exact value is
 <div id="outline-container-orgheadline77" class="outline-3">
 <h3 id="orgheadline77"><span class="section-number-3">9.2</span> os.path — Common pathname manipulations</h3>
 <div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li>walk all file from a directory and its sub-directory</li>
+</ul>
+<p>
+Directory tree generator.
+</p>
+
+<p>
+For each directory in the directory tree rooted at top (including top
+itself, but excluding '.' and '..'), yields a 3-tuple
+</p>
+
+<p>
+dirpath, dirnames, filenames
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">from</span> os.path <span style="color: #F92672;">import</span> join, getsize
+<span style="color: #F92672;">for</span> root, dirs, files <span style="color: #F92672;">in</span> os.walk<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'/home/weiwu/share/deep_learning/data/enwiki'</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>root, <span style="color: #E6DB74;">"consumes, "</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">sum</span><span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">[</span>getsize<span style="color: #E6DB74;">(</span>join<span style="color: #FD971F;">(</span>root, name<span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span> <span style="color: #F92672;">for</span> name <span style="color: #F92672;">in</span> files<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>, <span style="color: #E6DB74;">'\s'</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"bytes in"</span>, <span style="color: #F92672;">len</span><span style="color: #66D9EF;">(</span>files<span style="color: #66D9EF;">)</span>, <span style="color: #E6DB74;">"non-directory files"</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
 <ul class="org-ul">
 <li>check if file exist</li>
 </ul>
@@ -2464,6 +2519,21 @@ $ conda-env remove --name env_name
 <a href="./pandas.html">advanced pandas</a>
 </p>
 <ul class="org-ul">
+<li>parse text in csv</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">reddit_news</span> = pd.read_csv<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'/home/weiwu/share/deep_learning/data/RedditNews.csv'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">DJA_news</span> = pd.read_csv<span style="color: #AE81FF;">(</span>
+    <span style="color: #E6DB74;">'/home/weiwu/share/deep_learning/data/Combined_News_DJIA.csv'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">na_str_DJA_news</span> = DJA_news.iloc<span style="color: #AE81FF;">[</span>:, <span style="color: #AE81FF;">2</span>:<span style="color: #AE81FF;">]</span>.values
+<span style="color: #FD971F;">na_str_DJA_news</span> = na_str_DJA_news.flatten<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">na_str_reddit_news</span> = reddit_news.News.values
+<span style="color: #FD971F;">sentences_reddit</span> = <span style="color: #AE81FF;">[</span>s.encode<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'utf-8'</span><span style="color: #66D9EF;">)</span>.split<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">for</span> s <span style="color: #F92672;">in</span> na_str_reddit_news<span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">sentences_DJA</span> = <span style="color: #AE81FF;">[</span>s.encode<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'utf-8'</span><span style="color: #66D9EF;">)</span>.split<span style="color: #66D9EF;">()</span> <span style="color: #F92672;">for</span> s <span style="color: #F92672;">in</span> na_str_DJA_news<span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>rank</li>
 </ul>
 <p>
@@ -3177,6 +3247,24 @@ pandas panel item axis should be datetime64, this should not be an array.
 <div id="outline-container-orgheadline283" class="outline-3">
 <h3 id="orgheadline283"><span class="section-number-3">30.2</span> numpy</h3>
 <div class="outline-text-3" id="text-30-2">
+<ul class="org-ul">
+<li>maximum value in each row</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">np.amax<span style="color: #AE81FF;">(</span>ar, axis=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>from 2-D array to 1-D array with one column</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> numpy <span style="color: #F92672;">as</span> np
+<span style="color: #FD971F;">a</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span><span style="color: #A6E22E;">]</span>,<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span>,<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">3</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span><span style="color: #F8F8F2; background-color: #272822;">)</span>
+a.flattern<span style="color: #F8F8F2; background-color: #272822;">()</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>Take a sequence of 1-D arrays and stack them as columns to make a single 2-D:</li>
 </ul>
