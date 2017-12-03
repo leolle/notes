@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2017-12-01 Fri 10:04 -->
+<!-- 2017-12-03 Sun 10:43 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
@@ -161,7 +161,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2017-12-01 10:03:49</td>
+<td class="org-left">2017-12-03 10:43:34</td>
 </tr>
 </tbody>
 </table>
@@ -648,20 +648,23 @@ ICA
 <div id="outline-container-orgheadline13" class="outline-2">
 <h2 id="orgheadline13">Errand</h2>
 </div>
-<div id="outline-container-orgheadline39" class="outline-2">
-<h2 id="orgheadline39">Deep Learning</h2>
-<div class="outline-text-2" id="text-orgheadline39">
-</div><div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31">NaturalLanguageProcessing</h3>
-<div class="outline-text-3" id="text-orgheadline31">
+<div id="outline-container-orgheadline46" class="outline-2">
+<h2 id="orgheadline46">Deep Learning</h2>
+<div class="outline-text-2" id="text-orgheadline46">
+</div><div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38">NaturalLanguageProcessing</h3>
+<div class="outline-text-3" id="text-orgheadline38">
 </div><div id="outline-container-orgheadline14" class="outline-4">
 <h4 id="orgheadline14">Word Embedding(Word2Vec)</h4>
 <div class="outline-text-4" id="text-orgheadline14">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> train word2vec model.</li>
-<li class="off"><code>[&#xa0;]</code> test finding similar words from Wiki corpus.</li>
+<li class="on"><code>[X]</code> train word2vec model.</li>
+<li class="on"><code>[X]</code> test finding similar words from Wiki corpus.</li>
+<li class="off"><code>[&#xa0;]</code> parse Chinese wiki, remove stopwords.</li>
+<li class="off"><code>[&#xa0;]</code> model wiki token.</li>
 <li class="off"><code>[&#xa0;]</code> find corporate finance/mba questions corpos.</li>
 <li class="off"><code>[&#xa0;]</code> read A primer on Neural Network Models.</li>
+<li class="off"><code>[&#xa0;]</code> tensorflow structure.</li>
 <li class="on"><code>[X]</code> download wiki xml file.</li>
 <li class="on"><code>[X]</code> transfer wiki xml file to text format.</li>
 <li class="on"><code>[X]</code> load pre-trained vector matrix, predict the context using a word based on the Skip-Gram model.</li>
@@ -694,19 +697,61 @@ ICA
 <ul class="org-ul">
 <li>make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter</li>
 <li>incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process</li>
+<li>train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.</li>
+<li>ensemble model using mean value.</li>
 </ul>
 </div></li>
 <li><a id="orgheadline16"></a>Long Term<br ><div class="outline-text-6" id="text-orgheadline16">
 <ul class="org-ul">
 <li>context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners</li>
 </ul>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">百科类问句</td>
+<td class="org-left">什么是ST股票 什么是向后复权</td>
+</tr>
+
+<tr>
+<td class="org-left">数据类问句</td>
+<td class="org-left">2010年6月26日钢铁报价是多少 三一重工2009年收益是多少</td>
+</tr>
+
+<tr>
+<td class="org-left">事件类问句</td>
+<td class="org-left">江苏宏宝什么时候复牌 苏宁电器是哪年上市的</td>
+</tr>
+
+<tr>
+<td class="org-left">逻辑推理类问句</td>
+<td class="org-left">预测上海能源本月底的走势 长电科技配股是利好还是利坏</td>
+</tr>
+
+<tr>
+<td class="org-left">选股类问句</td>
+<td class="org-left">每股收益在0.2-0.3之间\且市盈率小于30的股票 浙江省市盈率小于20倍的公司</td>
+</tr>
+</tbody>
+</table>
 </div></li></ul>
 </div>
+
 <div id="outline-container-orgheadline18" class="outline-5">
 <h5 id="orgheadline18">Model</h5>
 <div class="outline-text-5" id="text-orgheadline18">
 <ul class="org-ul">
-<li>State of the Art NL models based on DNN</li>
+<li>State of the Art NL models based on DNN
+<ul class="org-ul">
+<li>CBOW</li>
+<li>Skip gram</li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -740,10 +785,65 @@ ICA
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30">Graph Convolutional Neural Network</h4>
+<div class="outline-text-4" id="text-orgheadline30">
+</div><div id="outline-container-orgheadline26" class="outline-5">
+<h5 id="orgheadline26">Objective:</h5>
+<div class="outline-text-5" id="text-orgheadline26">
+</div><ul class="org-ul"><li><a id="orgheadline24"></a>Short Term<br ><div class="outline-text-6" id="text-orgheadline24">
+<ul class="org-ul">
+<li>Apply CNN's efficient compositional knowledge extraction ability to graph data, more structured than natural language, image and sound</li>
+</ul>
+</div></li>
+<li><a id="orgheadline25"></a>Long Term<br ><div class="outline-text-6" id="text-orgheadline25">
+<ul class="org-ul">
+<li>Apply RL on top of graph CNN to automatically ACTIVELY build models, workflows, contracts, investment, instead of just passive prediction without market impact</li>
+</ul>
+</div></li></ul>
+</div>
+<div id="outline-container-orgheadline27" class="outline-5">
+<h5 id="orgheadline27">Model</h5>
+<div class="outline-text-5" id="text-orgheadline27">
+<ul class="org-ul">
+<li>Spectral Graph Theory based CNN on graph data</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline28" class="outline-5">
+<h5 id="orgheadline28">Data</h5>
+<div class="outline-text-5" id="text-orgheadline28">
+<ul class="org-ul">
+<li>Text Like Graph Data, where nodes are discretely different
+<ul class="org-ul">
+<li>function network in GS, model architecture</li>
+<li>task network in GS, user behavior</li>
+<li>supply demand product transaction network in real economy</li>
+<li>buy sell financial instrument transaction network in financial market</li>
+</ul></li>
+<li>Image Like Graph Data, where nodes are homogeneous with continuous attributes
+<ul class="org-ul">
+<li>network of portfolios of different gain and loss, alpha, beta, etc</li>
+<li>(social) network of analysts, traders, reporters, officials, etc of different level of influences</li>
+<li>network of NN nodes with different weights</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline29" class="outline-5">
+<h5 id="orgheadline29">Applications</h5>
+<div class="outline-text-5" id="text-orgheadline29">
+<ul class="org-ul">
+<li>Graph Classification and Identification</li>
+<li>Graph Simplification and Simulation</li>
+</ul>
+</div>
+</div>
+</div>
 
-<div id="outline-container-orgheadline24" class="outline-4">
-<h4 id="orgheadline24"><span class="todo TODO">TODO</span> Building the Wikipedia Knowledge Graph in Neo4j</h4>
-<div class="outline-text-4" id="text-orgheadline24">
+<div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31"><span class="todo TODO">TODO</span> Building the Wikipedia Knowledge Graph in Neo4j</h4>
+<div class="outline-text-4" id="text-orgheadline31">
 <p>
 <a href="file:///home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.html">NLP</a>
 </p>
@@ -752,9 +852,9 @@ ICA
 <li class="on"><code>[X]</code> pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.</li>
 </ul>
 </div>
-<div id="outline-container-orgheadline25" class="outline-5">
-<h5 id="orgheadline25">Data dumps/Import</h5>
-<div class="outline-text-5" id="text-orgheadline25">
+<div id="outline-container-orgheadline32" class="outline-5">
+<h5 id="orgheadline32">Data dumps/Import</h5>
+<div class="outline-text-5" id="text-orgheadline32">
 <ul class="org-ul">
 <li>methods</li>
 </ul>
@@ -802,9 +902,9 @@ ICA
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline26" class="outline-4">
-<h4 id="orgheadline26">Setup</h4>
-<div class="outline-text-4" id="text-orgheadline26">
+<div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33">Setup</h4>
+<div class="outline-text-4" id="text-orgheadline33">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> 配置好GOOGLE GCLOUD PLATORM的代理</li>
 <li class="off"><code>[&#xa0;]</code> 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。</li>
@@ -813,9 +913,9 @@ ICA
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-4">
-<h4 id="orgheadline27">configuration:</h4>
-<div class="outline-text-4" id="text-orgheadline27">
+<div id="outline-container-orgheadline34" class="outline-4">
+<h4 id="orgheadline34">configuration:</h4>
+<div class="outline-text-4" id="text-orgheadline34">
 <ul class="org-ul">
 <li>reports-174211</li>
 <li>proxy:</li>
@@ -902,9 +1002,9 @@ sudo `which pip` install &#x2013;upgrade google-cloud-language
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline28" class="outline-4">
-<h4 id="orgheadline28">SDK</h4>
-<div class="outline-text-4" id="text-orgheadline28">
+<div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35">SDK</h4>
+<div class="outline-text-4" id="text-orgheadline35">
 <ul class="org-ul">
 <li>GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。</li>
 <li><a href="https://cloud.google.com/sdk/docs/quickstart-linux">https://cloud.google.com/sdk/docs/quickstart-linux</a></li>
@@ -972,9 +1072,9 @@ Your active configuration is: <span style="color: #AE81FF;">[</span>nlp1<span st
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline29" class="outline-4">
-<h4 id="orgheadline29">read the book 《自然语言处理综论》</h4>
-<div class="outline-text-4" id="text-orgheadline29">
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36">read the book 《自然语言处理综论》</h4>
+<div class="outline-text-4" id="text-orgheadline36">
 <p>
 not easy to understand this book.
 </p>
@@ -1025,9 +1125,9 @@ Word2Vec
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline30" class="outline-4">
-<h4 id="orgheadline30">如何在NLP领域快速学会第一个技能？</h4>
-<div class="outline-text-4" id="text-orgheadline30">
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37">如何在NLP领域快速学会第一个技能？</h4>
+<div class="outline-text-4" id="text-orgheadline37">
 <ul class="org-ul">
 <li>找到一个开源项目，比如机器翻译或者深度学习的项目。</li>
 <li>理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。</li>
@@ -1277,9 +1377,9 @@ Word2Vec
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32">GPU server hardware comparison</h3>
-<div class="outline-text-3" id="text-orgheadline32">
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39">GPU server hardware comparison</h3>
+<div class="outline-text-3" id="text-orgheadline39">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> server vs desktop vs cloud</li>
 <li class="off"><code>[&#xa0;]</code> hardware purchase.</li>
@@ -1315,17 +1415,17 @@ Mother board  微星X99A SLI Plus  只支持2路SLI
 </div>
 </div>
 
-<div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33">Machine Learning Basics</h3>
-<div class="outline-text-3" id="text-orgheadline33">
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40">Machine Learning Basics</h3>
+<div class="outline-text-3" id="text-orgheadline40">
 <p>
 <a href="file:///home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.html">Deep Learning</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34">Other's recommendation</h3>
-<div class="outline-text-3" id="text-orgheadline34">
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41">Other's recommendation</h3>
+<div class="outline-text-3" id="text-orgheadline41">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> stuff from Zhupengjia, Liguofu</li>
 <li class="off"><code>[&#xa0;]</code> Yoshua paper Deep Learning.</li>
@@ -1345,23 +1445,23 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38">Basics</h3>
-<div class="outline-text-3" id="text-orgheadline38">
-</div><div id="outline-container-orgheadline35" class="outline-4">
-<h4 id="orgheadline35">ANN</h4>
+<div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45">Basics</h3>
+<div class="outline-text-3" id="text-orgheadline45">
+</div><div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42">ANN</h4>
 </div>
-<div id="outline-container-orgheadline36" class="outline-4">
-<h4 id="orgheadline36">CNN</h4>
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43">CNN</h4>
 </div>
-<div id="outline-container-orgheadline37" class="outline-4">
-<h4 id="orgheadline37">RNN</h4>
+<div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44">RNN</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline40" class="outline-2">
-<h2 id="orgheadline40">Machine Learning</h2>
-<div class="outline-text-2" id="text-orgheadline40">
+<div id="outline-container-orgheadline47" class="outline-2">
+<h2 id="orgheadline47">Machine Learning</h2>
+<div class="outline-text-2" id="text-orgheadline47">
 <p>
 Principle: research and project oriented, adjusting speed based on progress.
 </p>
@@ -1370,58 +1470,58 @@ Principle: research and project oriented, adjusting speed based on progress.
 Spend at most 1 week to learn all those, then pick one to go deeper.
 </p>
 </div>
-<div id="outline-container-orgheadline55" class="outline-3">
-<h3 id="orgheadline55">Week 1/2</h3>
-<div class="outline-text-3" id="text-orgheadline55">
-</div><div id="outline-container-orgheadline41" class="outline-4">
-<h4 id="orgheadline41">Logistic Regression</h4>
-</div>
-<div id="outline-container-orgheadline42" class="outline-4">
-<h4 id="orgheadline42">Regularization</h4>
-</div>
-<div id="outline-container-orgheadline45" class="outline-4">
-<h4 id="orgheadline45">Classification</h4>
-<div class="outline-text-4" id="text-orgheadline45">
-</div><div id="outline-container-orgheadline43" class="outline-5">
-<h5 id="orgheadline43">Linear Discriminant Analysis</h5>
-</div>
-
-<div id="outline-container-orgheadline44" class="outline-5">
-<h5 id="orgheadline44">Comparison</h5>
-</div>
-</div>
-<div id="outline-container-orgheadline46" class="outline-4">
-<h4 id="orgheadline46">Decision tree and random forest</h4>
-</div>
-<div id="outline-container-orgheadline47" class="outline-4">
-<h4 id="orgheadline47">Boosting</h4>
-</div>
-<div id="outline-container-orgheadline48" class="outline-4">
-<h4 id="orgheadline48">XGBoost</h4>
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62">Week 1/2</h3>
+<div class="outline-text-3" id="text-orgheadline62">
+</div><div id="outline-container-orgheadline48" class="outline-4">
+<h4 id="orgheadline48">Logistic Regression</h4>
 </div>
 <div id="outline-container-orgheadline49" class="outline-4">
-<h4 id="orgheadline49">SVM</h4>
-</div>
-<div id="outline-container-orgheadline50" class="outline-4">
-<h4 id="orgheadline50">Clustering</h4>
-</div>
-<div id="outline-container-orgheadline51" class="outline-4">
-<h4 id="orgheadline51">Bayesian Network</h4>
+<h4 id="orgheadline49">Regularization</h4>
 </div>
 <div id="outline-container-orgheadline52" class="outline-4">
-<h4 id="orgheadline52">LDA</h4>
+<h4 id="orgheadline52">Classification</h4>
+<div class="outline-text-4" id="text-orgheadline52">
+</div><div id="outline-container-orgheadline50" class="outline-5">
+<h5 id="orgheadline50">Linear Discriminant Analysis</h5>
+</div>
+
+<div id="outline-container-orgheadline51" class="outline-5">
+<h5 id="orgheadline51">Comparison</h5>
+</div>
 </div>
 <div id="outline-container-orgheadline53" class="outline-4">
-<h4 id="orgheadline53">HMM</h4>
+<h4 id="orgheadline53">Decision tree and random forest</h4>
 </div>
 <div id="outline-container-orgheadline54" class="outline-4">
-<h4 id="orgheadline54">Neural Network</h4>
+<h4 id="orgheadline54">Boosting</h4>
+</div>
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55">XGBoost</h4>
+</div>
+<div id="outline-container-orgheadline56" class="outline-4">
+<h4 id="orgheadline56">SVM</h4>
+</div>
+<div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57">Clustering</h4>
+</div>
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58">Bayesian Network</h4>
+</div>
+<div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59">LDA</h4>
+</div>
+<div id="outline-container-orgheadline60" class="outline-4">
+<h4 id="orgheadline60">HMM</h4>
+</div>
+<div id="outline-container-orgheadline61" class="outline-4">
+<h4 id="orgheadline61">Neural Network</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline56" class="outline-2">
-<h2 id="orgheadline56">Risk model</h2>
-<div class="outline-text-2" id="text-orgheadline56">
+<div id="outline-container-orgheadline63" class="outline-2">
+<h2 id="orgheadline63">Risk model</h2>
+<div class="outline-text-2" id="text-orgheadline63">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> calculate factor return and residual(specific risk).
 <ul class="org-ul">
@@ -1437,12 +1537,12 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline60" class="outline-2">
-<h2 id="orgheadline60">GS</h2>
-<div class="outline-text-2" id="text-orgheadline60">
-</div><div id="outline-container-orgheadline57" class="outline-3">
-<h3 id="orgheadline57">Research workflow</h3>
-<div class="outline-text-3" id="text-orgheadline57">
+<div id="outline-container-orgheadline67" class="outline-2">
+<h2 id="orgheadline67">GS</h2>
+<div class="outline-text-2" id="text-orgheadline67">
+</div><div id="outline-container-orgheadline64" class="outline-3">
+<h3 id="orgheadline64">Research workflow</h3>
+<div class="outline-text-3" id="text-orgheadline64">
 <ol class="org-ol">
 <li class="on"><code>[X]</code> Search SSRN and find topics</li>
 <li class="on"><code>[X]</code> Highlight those topics to create topics idea</li>
@@ -1475,9 +1575,9 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 </div>
 </div>
 
-<div id="outline-container-orgheadline58" class="outline-3">
-<h3 id="orgheadline58">organize OSet structure</h3>
-<div class="outline-text-3" id="text-orgheadline58">
+<div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65">organize OSet structure</h3>
+<div class="outline-text-3" id="text-orgheadline65">
 <p>
 <a href="https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit">https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit</a>
 </p>
@@ -1504,17 +1604,17 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline59" class="outline-3">
-<h3 id="orgheadline59">follow GS workflow</h3>
+<div id="outline-container-orgheadline66" class="outline-3">
+<h3 id="orgheadline66">follow GS workflow</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline66" class="outline-2">
-<h2 id="orgheadline66"><span class="todo TODO">TODO</span> optimization</h2>
-<div class="outline-text-2" id="text-orgheadline66">
-</div><div id="outline-container-orgheadline61" class="outline-3">
-<h3 id="orgheadline61">black-litterman model</h3>
-<div class="outline-text-3" id="text-orgheadline61">
+<div id="outline-container-orgheadline73" class="outline-2">
+<h2 id="orgheadline73"><span class="todo TODO">TODO</span> optimization</h2>
+<div class="outline-text-2" id="text-orgheadline73">
+</div><div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68">black-litterman model</h3>
+<div class="outline-text-3" id="text-orgheadline68">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> calculate unconstrainted optimized weight.</li>
 </ul>
@@ -1559,9 +1659,9 @@ view details.
 <li class="on"><code>[X]</code> write pseudo code, set input parameters.</li>
 </ul>
 </div>
-<div id="outline-container-orgheadline62" class="outline-4">
-<h4 id="orgheadline62">why most of the cases are on assets classes optimization, not on individual stocks.</h4>
-<div class="outline-text-4" id="text-orgheadline62">
+<div id="outline-container-orgheadline69" class="outline-4">
+<h4 id="orgheadline69">why most of the cases are on assets classes optimization, not on individual stocks.</h4>
+<div class="outline-text-4" id="text-orgheadline69">
 <ol class="org-ol">
 <li>The data points of individual asset are not enough, and are not stable.</li>
 
@@ -1570,9 +1670,9 @@ view details.
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline63" class="outline-3">
-<h3 id="orgheadline63">cvxportfolio</h3>
-<div class="outline-text-3" id="text-orgheadline63">
+<div id="outline-container-orgheadline70" class="outline-3">
+<h3 id="orgheadline70">cvxportfolio</h3>
+<div class="outline-text-3" id="text-orgheadline70">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> 查看cvxportfolio的使用说明。</li>
 <li class="off"><code>[&#xa0;]</code> 在开发的帮助下安装cvxportfolio library，调试。</li>
@@ -1581,9 +1681,9 @@ view details.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline64" class="outline-3">
-<h3 id="orgheadline64">cvxpy</h3>
-<div class="outline-text-3" id="text-orgheadline64">
+<div id="outline-container-orgheadline71" class="outline-3">
+<h3 id="orgheadline71">cvxpy</h3>
+<div class="outline-text-3" id="text-orgheadline71">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> research on soft constraint using cvxpy.</li>
 <li class="off"><code>[&#xa0;]</code> 搭建workflow。</li>
@@ -1591,9 +1691,9 @@ view details.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline65" class="outline-3">
-<h3 id="orgheadline65">archive</h3>
-<div class="outline-text-3" id="text-orgheadline65">
+<div id="outline-container-orgheadline72" class="outline-3">
+<h3 id="orgheadline72">archive</h3>
+<div class="outline-text-3" id="text-orgheadline72">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-21 Fri&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-18 Mon&gt;</span></span>
 </p>
@@ -1772,9 +1872,9 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline67" class="outline-2">
-<h2 id="orgheadline67"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></h2>
-<div class="outline-text-2" id="text-orgheadline67">
+<div id="outline-container-orgheadline74" class="outline-2">
+<h2 id="orgheadline74"><span class="todo TODO">TODO</span> future simulation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="future">future</span>&#xa0;<span class="optimization">optimization</span></span></h2>
+<div class="outline-text-2" id="text-orgheadline74">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-19 Tue&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-01 Sun&gt;</span></span>
 </p>

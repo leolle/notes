@@ -35,6 +35,32 @@
 ** SCRIPTING AND THE SHELL
 *** Shell basics
 - tmux for multiple windows on the terminal like zsh
+- convert files in batches
+#+BEGIN_SRC bash
+#!/bin/bash
+show_file()
+{
+    for file in `ls $1`
+    do
+        if [ -d $1"/"$file ];then
+            #目录递归调用show_file函数
+            show_file $1"/"$file
+        else
+            #文件
+            echo "文件繁体转简体"$1"/"$file
+            opencc -i $1"/"$file -o $1"/"$file".zhs" -c zht2zhs.ini
+            rm $1"/"$file
+        fi
+    done
+}
+path=./zhswiki
+show_file $path
+#+END_SRC
+- rename all files
+#+BEGIN_SRC bash
+# to rename all files matching "*.bak" to strip the extension
+rename 's/\.bak$//' *.bak
+#+END_SRC
 *** bash scripting
 *** Regular expressions
 *** Perl programming
@@ -42,6 +68,10 @@
 *** Scripting best practices
 
 *** Shell commands:
+- transfer files
+#+BEGIN_SRC bash
+scp file usr_name@ip:/absolute/path/
+#+END_SRC
 - linux folder tree output to clipboard.
 #+BEGIN_SRC shell
 tree | xclip
@@ -113,7 +143,9 @@ sudo service network-manager restart
 
 - create symbolic link for a directory
 #+BEGIN_SRC shell
-ln -s /absolute/path/of/source/folder /absolute/path/of/target/folder
+ln -s /absolute/path/of/source/folder/ /absolute/path/of/target/folder/
+# create a link dogscats folder in projects/deep_learning/basic/courses/deeplearning1/nbs/data/
+ln -s /home/weiwu/share/deep_learning/data/courses/dogscats/ /home/weiwu/projects/deep_learning/basic/courses/deeplearning1/nbs/data/
 #+END_SRC
 
 *** find/search string

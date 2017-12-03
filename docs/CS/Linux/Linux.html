@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-01 Fri 10:05 -->
+<!-- 2017-12-03 Sun 10:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -641,7 +641,39 @@ for the JavaScript code in this tag.
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
 <li>tmux for multiple windows on the terminal like zsh</li>
+<li>convert files in batches</li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/bin/</span><span style="color: #F92672;">bash</span>
+<span style="color: #A6E22E;">show_file</span><span style="color: #AE81FF;">()</span>
+<span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">for</span> file<span style="color: #F92672;"> in</span> <span style="color: #AE81FF; font-weight: bold;">`ls $1`</span>
+    <span style="color: #F92672;">do</span>
+        <span style="color: #F92672;">if</span> <span style="color: #66D9EF;">[</span> -d $<span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">"/"</span>$<span style="color: #FD971F;">file</span> <span style="color: #66D9EF;">]</span>;<span style="color: #F92672;">then</span>
+            <span style="color: #75715E;">#</span><span style="color: #75715E;">&#30446;&#24405;&#36882;&#24402;&#35843;&#29992;show_file&#20989;&#25968;</span>
+            show_file $<span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">"/"</span>$<span style="color: #FD971F;">file</span>
+        <span style="color: #F92672;">else</span>
+            <span style="color: #75715E;">#</span><span style="color: #75715E;">&#25991;&#20214;</span>
+            <span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"&#25991;&#20214;&#32321;&#20307;&#36716;&#31616;&#20307;"</span>$<span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">"/"</span>$<span style="color: #FD971F;">file</span>
+            opencc -i $<span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">"/"</span>$<span style="color: #FD971F;">file</span> -o $<span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">"/"</span>$<span style="color: #FD971F;">file</span><span style="color: #E6DB74;">".zhs"</span> -c zht2zhs.ini
+            rm $<span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">"/"</span>$<span style="color: #FD971F;">file</span>
+        <span style="color: #F92672;">fi</span>
+    <span style="color: #F92672;">done</span>
+<span style="color: #AE81FF;">}</span>
+<span style="color: #FD971F;">path</span>=./zhswiki
+show_file $<span style="color: #FD971F;">path</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>rename all files</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #75715E;"># </span><span style="color: #75715E;">to rename all files matching "*.bak" to strip the extension</span>
+rename <span style="color: #E6DB74;">'s/\.bak$//'</span> *.bak
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline16" class="outline-4">
@@ -663,6 +695,14 @@ for the JavaScript code in this tag.
 <div id="outline-container-orgheadline21" class="outline-4">
 <h4 id="orgheadline21"><span class="section-number-4">1.2.7</span> Shell commands:</h4>
 <div class="outline-text-4" id="text-1-2-7">
+<ul class="org-ul">
+<li>transfer files</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">scp file usr_name@ip:/absolute/path/
+</pre>
+</div>
 <ul class="org-ul">
 <li>linux folder tree output to clipboard.</li>
 </ul>
@@ -776,7 +816,9 @@ tar -xvzf rebol.tar.gz
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-shell">ln -s /absolute/path/of/source/folder /absolute/path/of/target/folder
+<pre class="src src-shell">ln -s /absolute/path/of/source/folder/ /absolute/path/of/target/folder/
+<span style="color: #75715E;"># </span><span style="color: #75715E;">create a link dogscats folder in projects/deep_learning/basic/courses/deeplearning1/nbs/data/</span>
+ln -s /home/weiwu/share/deep_learning/data/courses/dogscats/ /home/weiwu/projects/deep_learning/basic/courses/deeplearning1/nbs/data/
 </pre>
 </div>
 </div>
