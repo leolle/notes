@@ -851,6 +851,24 @@ $ python3 test.py arg1 arg2 arg3
 ** atexit — Exit handlers
 ** traceback — Print or retrieve a stack traceback
 ** __future__ — Future statement definitions
+从Python 2.7到Python 3.x就有不兼容的一些改动，比如2.x里的字符串用'xxx'表示str，Unicode字符串用u'xxx'表示unicode，而在3.x中，所有字符串都被视为unicode，因此，写u'xxx'和'xxx'是完全一致的，而在2.x中以'xxx'表示的str就必须写成b'xxx'，以此表示“二进制字符串”。
+
+要直接把代码升级到3.x是比较冒进的，因为有大量的改动需要测试。相反，可以在2.7版本中先在一部分代码中测试一些3.x的特性，如果没有问题，再移植到3.x不迟。
+
+Python提供了__future__模块，把下一个新版本的特性导入到当前版本，于是我们就可以在当前版本中测试一些新版本的特性。
+#+BEGIN_SRC python
+from __future__ import print_function
+from __future__ import division
+from __future__ import unicode_literals
+from __future__ import absolute_import
+#+END_SRC
+- division
+新的除法特性，本来的除号`/`对于分子分母是整数的情况会取整，但新特性中在此情况下的除法不会取整，取整的使用`//`。如下可见，只有分子分母都是整数时结果不同。
+- print_function
+新的print是一个函数，如果导入此特性，之前的print语句就不能用了。
+- unicode_literals
+这个是对字符串使用unicode字符
+
 ** gc — Garbage Collector interface
 ** inspect — Inspect live objects
 ** site — Site-specific configuration hook

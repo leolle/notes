@@ -159,13 +159,14 @@ ICA
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
-- [X] train word2vec model.
-- [X] test finding similar words from Wiki corpus.
+- [ ] extract some categories from wiki xml file.
 - [ ] parse Chinese wiki, remove stopwords.
 - [ ] model wiki token.
 - [ ] find corporate finance/mba questions corpos.
 - [ ] read A primer on Neural Network Models.
 - [ ] tensorflow structure.
+- [X] train word2vec model.
+- [X] test finding similar words from Wiki corpus.
 - [X] download wiki xml file.
 - [X] transfer wiki xml file to text format.
 - [X] load pre-trained vector matrix, predict the context using a word based on the Skip-Gram model.
@@ -188,19 +189,23 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - ensemble model using mean value.
 ***** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners
-| 百科类问句     | 	什么是ST股票 什么是向后复权                                         |
-| 数据类问句 	  | 2010年6月26日钢铁报价是多少 三一重工2009年收益是多少                  |
-| 事件类问句     | 	江苏宏宝什么时候复牌 苏宁电器是哪年上市的                           |
+| 百科类问句     | 什么是ST股票 什么是向后复权                                           |
+| 数据类问句     | 2010年6月26日钢铁报价是多少 三一重工2009年收益是多少                  |
+| 事件类问句     | 江苏宏宝什么时候复牌 苏宁电器是哪年上市的                             |
 | 逻辑推理类问句 | 预测上海能源本月底的走势 长电科技配股是利好还是利坏                   |
-| 	选股类问句   | 每股收益在0.2-0.3之间\且市盈率小于30的股票 浙江省市盈率小于20倍的公司 |
+| 选股类问句     | 每股收益在0.2-0.3之间\且市盈率小于30的股票 浙江省市盈率小于20倍的公司 |
 
 **** Model
 - State of the Art NL models based on DNN
  - CBOW
  - Skip gram
+ - Sequence to sequence
+ - LSTM
 **** Data
 ***** Text Labeled with (semi) structured data
 - [ ] company filings text, filing classification, event time series data (attributes manually extracted)
+- [ ] finance conference scripts.
+- [ ] corporate telephone comference notes, memo.
 - [ ] company filings text, company industry classification
 - [X] wiki page titles and page text, wiki category
 - [ ] textbook or CFA chapter name, chapter exercise questions, multiple choice questions
