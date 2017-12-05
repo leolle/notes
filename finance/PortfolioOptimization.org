@@ -22,6 +22,7 @@
 [[./images/model_comparison.png]]
 ** Jargon
 - Utility Values and risk aversion
+risk aversion investor gain the same amount of utility spending more on the risk.
 Because risk can be quantified as the sum of the variance of the returns over time, it is possible to assign a utility score (aka utility value, utility function) to any portfolio by subtracting its variance from its expected return to yield a number that would be commensurate with an investor's tolerance for risk, or a measure of their satisfaction with the investment.
 $$Utility Score = Expected Return – 0.005\sigma^2 × Risk Aversion Coefficient$$
 - Risk-indifference curve
