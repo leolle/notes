@@ -72,6 +72,18 @@ When you read a textbook or listen to a lecture, it's easy to trick yourself int
 *** Memory
 If you're trying to learn math, programming, or anything closely related, try not to do much rote memorization(死记硬背). You get familiar with the concepts by using them.
 
+* December 2017
+** Use model assumption to increase the productivity<2017-12-05 Tue>
+Think about the reading as an investment. We need the cutting edge and be early.
+If we can't replicate the model, cut the loss.
+
+Summarize paper.
+
+What data they use, what do we have, what's the assumption, what's the conclusion, what's the constraint of that paper.
+
+Without backtesting, you have no idea if you can beat the market.
+
+If you want to at least beat average, find the benchmark. But if the benchmark is too high, forget it, or find another opportunity.
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
