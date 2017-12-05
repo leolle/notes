@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-30 Thu 18:23 -->
+<!-- 2017-12-05 Tue 09:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -2207,7 +2207,47 @@ file = os.path.join(folder, 'file_name')
 </div>
 <div id="outline-container-orgheadline214" class="outline-3">
 <h3 id="orgheadline214"><span class="section-number-3">21.10</span> __future__ — Future statement definitions</h3>
+<div class="outline-text-3" id="text-21-10">
+<p>
+从Python 2.7到Python 3.x就有不兼容的一些改动，比如2.x里的字符串用'xxx'表示str，Unicode字符串用u'xxx'表示unicode，而在3.x中，所有字符串都被视为unicode，因此，写u'xxx'和'xxx'是完全一致的，而在2.x中以'xxx'表示的str就必须写成b'xxx'，以此表示“二进制字符串”。
+</p>
+
+<p>
+要直接把代码升级到3.x是比较冒进的，因为有大量的改动需要测试。相反，可以在2.7版本中先在一部分代码中测试一些3.x的特性，如果没有问题，再移植到3.x不迟。
+</p>
+
+<p>
+Python提供了__future__模块，把下一个新版本的特性导入到当前版本，于是我们就可以在当前版本中测试一些新版本的特性。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> __future__ <span style="color: #F92672;">import</span> print_function
+<span style="color: #F92672;">from</span> __future__ <span style="color: #F92672;">import</span> division
+<span style="color: #F92672;">from</span> __future__ <span style="color: #F92672;">import</span> unicode_literals
+<span style="color: #F92672;">from</span> __future__ <span style="color: #F92672;">import</span> absolute_import
+</pre>
 </div>
+<ul class="org-ul">
+<li>division</li>
+</ul>
+<p>
+新的除法特性，本来的除号`/`对于分子分母是整数的情况会取整，但新特性中在此情况下的除法不会取整，取整的使用`//`。如下可见，只有分子分母都是整数时结果不同。
+</p>
+<ul class="org-ul">
+<li>print_function</li>
+</ul>
+<p>
+新的print是一个函数，如果导入此特性，之前的print语句就不能用了。
+</p>
+<ul class="org-ul">
+<li>unicode_literals</li>
+</ul>
+<p>
+这个是对字符串使用unicode字符
+</p>
+</div>
+</div>
+
 <div id="outline-container-orgheadline215" class="outline-3">
 <h3 id="orgheadline215"><span class="section-number-3">21.11</span> gc — Garbage Collector interface</h3>
 </div>

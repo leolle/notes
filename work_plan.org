@@ -159,6 +159,7 @@ ICA
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
+- [ ] find available library to extract wiki content.
 - [ ] extract some categories from wiki xml file.
 - [ ] parse Chinese wiki, remove stopwords.
 - [ ] model wiki token.

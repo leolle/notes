@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-26 Thu 19:05 -->
+<!-- 2017-12-05 Tue 10:07 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -171,51 +171,563 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline21">1. Black litterman model step-by-step</a>
+<li><a href="#orgheadline2">1. Portfolio Optimization objective functions</a>
 <ul>
-<li><a href="#orgheadline1">1.1. Modern Portfolio Optimization</a></li>
-<li><a href="#orgheadline2">1.2. Problem of mean-variance optimization</a></li>
-<li><a href="#orgheadline4">1.3. Introduction</a>
-<ul>
-<li><a href="#orgheadline3">1.3.1. reverse optimization to mitigate this problem for unconstrainted solution</a></li>
+<li><a href="#orgheadline1">1.1. Jargon</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline14">1.4. Black-Litterman model and the process of building the required inputs.</a>
+<li><a href="#orgheadline10">2. Basics</a>
 <ul>
-<li><a href="#orgheadline11">1.4.1. Black-Litterman model</a></li>
-<li><a href="#orgheadline12">1.4.2. Inputs</a></li>
-<li><a href="#orgheadline13">1.4.3. Steps:</a></li>
+<li><a href="#orgheadline3">2.1. Risk aversion parameter</a></li>
+<li><a href="#orgheadline4">2.2. alpha</a></li>
+<li><a href="#orgheadline5">2.3. Quadratic function</a></li>
+<li><a href="#orgheadline6">2.4. Quadratic programming</a></li>
+<li><a href="#orgheadline7">2.5. Nonlinear programming</a></li>
+<li><a href="#orgheadline8">2.6. Equality constraints</a></li>
+<li><a href="#orgheadline9">2.7. Regime shifts</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">1.5. Implied confidence framework for the views</a>
+<li><a href="#orgheadline11">3. Sparse Markowitz Portfolios</a></li>
+<li><a href="#orgheadline12">4. Mean-Reverting Portfolios</a></li>
+<li><a href="#orgheadline17">5. Active portfolio management</a>
 <ul>
-<li><a href="#orgheadline15">1.5.1. Implied confidence levels</a></li>
-<li><a href="#orgheadline16">1.5.2. An intuitive approach</a></li>
+<li><a href="#orgheadline16">5.1. overview</a>
+<ul>
+<li><a href="#orgheadline13">5.1.1. risk aversion from unknown categories.</a></li>
+<li><a href="#orgheadline14">5.1.2. tracking the benchmark</a></li>
+<li><a href="#orgheadline15">5.1.3. easy tracking for management</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">1.6. Select asset classes</a></li>
-<li><a href="#orgheadline19">1.7. Deployment on GS:</a></li>
-<li><a href="#orgheadline20">1.8. Shortfall of BLM</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline18">6. Exceptional Return, benchmarks and value added</a></li>
+<li><a href="#orgheadline36">7. Portfolio Construction</a>
+<ul>
+<li><a href="#orgheadline19">7.1. input:</a></li>
+<li><a href="#orgheadline31">7.2. constraints</a>
+<ul>
+<li><a href="#orgheadline26">7.2.1. alpha constraint</a></li>
+<li><a href="#orgheadline27">7.2.2. risk aversion</a></li>
+<li><a href="#orgheadline30">7.2.3. transaction cost</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline32">7.3. SCREENS</a></li>
+<li><a href="#orgheadline33">7.4. Stratification</a></li>
+<li><a href="#orgheadline34">7.5. comparison with asset selection and asset allocation</a></li>
+<li><a href="#orgheadline35">7.6. solution</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline39">8. Asset Allocation</a>
+<ul>
+<li><a href="#orgheadline37">8.1. tactical asset allocation</a></li>
+<li><a href="#orgheadline38">8.2. asset allocation strategies is a three-step process:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline61">9. Black litterman model step-by-step</a>
+<ul>
+<li><a href="#orgheadline40">9.1. Modern Portfolio Optimization</a></li>
+<li><a href="#orgheadline41">9.2. Problem of mean-variance optimization</a></li>
+<li><a href="#orgheadline43">9.3. Introduction</a>
+<ul>
+<li><a href="#orgheadline42">9.3.1. reverse optimization to mitigate this problem for unconstrainted solution</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline54">9.4. Black-Litterman model and the process of building the required inputs.</a>
+<ul>
+<li><a href="#orgheadline51">9.4.1. Black-Litterman model</a></li>
+<li><a href="#orgheadline52">9.4.2. Inputs</a></li>
+<li><a href="#orgheadline53">9.4.3. Steps:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline57">9.5. Implied confidence framework for the views</a>
+<ul>
+<li><a href="#orgheadline55">9.5.1. Implied confidence levels</a></li>
+<li><a href="#orgheadline56">9.5.2. An intuitive approach</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline58">9.6. Select asset classes</a></li>
+<li><a href="#orgheadline59">9.7. Deployment on GS:</a></li>
+<li><a href="#orgheadline60">9.8. Shortfall of BLM</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline62">10. NLP</a></li>
 </ul>
 </div>
 </div>
-<p>
-<a href="../CS/Python/py4fi/Optimization.html">PortfolioOptimizationJupyterProgramming</a>
-</p>
 
-<p>
-<a href="../CS/Python/py4fi/PortfolioOptimization.html">PortfolioOptimizationReadMe</a>
-</p>
-
-
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">1</span> Black litterman model step-by-step</h2>
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">1</span> Portfolio Optimization objective functions</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Modern Portfolio Optimization</h3>
+<ul class="org-ul">
+<li>risk parity portfolios (Roncalli, 2013)</li>
+<li>Black–Litterman portfolios (Black and Litterman, 1992)</li>
+<li>log-optimal portfolios (Cover and Ordentlich, 1996)</li>
+<li>conditional value at risk (cVaR) and coherent risk measures for portfolios (Rockafellar and Uryasev, 2000)</li>
+</ul>
+
+<div class="figure">
+<p><img src="./images/model_comparison.png" alt="model_comparison.png" />
+</p>
+<p><span class="figure-number">Figure 1:</span> model comparison</p>
+</div>
+</div>
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Jargon</h3>
 <div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Utility Values and risk aversion</li>
+</ul>
+<p>
+Because risk can be quantified as the sum of the variance of the returns over time, it is possible to assign a utility score (aka utility value, utility function) to any portfolio by subtracting its variance from its expected return to yield a number that would be commensurate with an investor's tolerance for risk, or a measure of their satisfaction with the investment.
+\[Utility Score = Expected Return – 0.005\sigma^2 × Risk Aversion Coefficient\]
+</p>
+<ul class="org-ul">
+<li>Risk-indifference curve</li>
+</ul>
+<p>
+The set of all portfolios with the same utility score plots as a risk-indifference curve. An investor will accept any portfolio with a utility score on her risk-indifference curve as being equally acceptable.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">2</span> Basics</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.1</span> Risk aversion parameter</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The weight vector that maximizes the expected portfolio growth rate E log(1 + Rtp) (subject to 1T w = 1, w ≥ 0) is called the Kelly optimal portfolio or log-optimal portfolio. Using the quadratic approximation of the logarithm log(1 + a) ≈ a − (1/2)a2 we obtain
+\[E[log(1 + Rtp)] ≈ E[Rtp − (1/2)(Rtp)2]
+= µT w − (1/2)wT (Σ + µµT )w\],
+</p>
+
+<p>
+where µ = Ert and Σ = E(rt−µ)(rt−µ)T are the mean and covariance of the return rt.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.2</span> alpha</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Alpha is used to determine by how much the realized return of the portfolio varies from the required return, as determined by CAPM.
+\[\alpha = R_{portfolio} - [R_f + (R_m - R_f)\beta]\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.3</span> Quadratic function</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+In algebra, a quadratic function, a quadratic polynomial, a polynomial of degree 2, or simply a quadratic, is a polynomial function in one or more variables in which the highest-degree term is of the second degree. For example, a quadratic function in three variables x, y, and z contains exclusively terms x2, y2, z2, xy, xz, yz, x, y, z, and a constant:
+</p>
+
+<p>
+\[
+{\displaystyle f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,} f(x,y,z)=ax^{2}+by^{2}+cz^{2}+dxy+exz+fyz+gx+hy+iz+j,\]
+with at least one of the coefficients a, b, c, d, e, or f of the second-degree terms being non-zero.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.4</span> Quadratic programming</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Quadratic programming (QP) is the process of solving a special type of mathematical optimization problem—specifically, a (linearly constrained) quadratic optimization problem, that is, the problem of optimizing (minimizing or maximizing) a quadratic function of several variables subject to linear constraints on these variables. Quadratic programming is a particular type of nonlinear programming.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.5</span> Nonlinear programming</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+the process of solving an optimization problem defined by a system of equalities and inequalities, collectively termed constraints, over a set of unknown real variables, along with an objective function to be maximized or minimized, where some of the constraints or the objective function are nonlinear.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">2.6</span> Equality constraints</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Quadratic programming is particularly simple when Q is positive definite and there are only equality constraints; specifically, the solution process is linear. By using Lagrange multipliers and seeking the extremum of the Lagrangian, it may be readily shown that the solution to the equality constrained problem
+\[{\text{Minimize}}\quad {\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x}
+{\text{subject to}}\quad E\mathbf {x} =\mathbf {d}\]
+</p>
+
+<p>
+is given by the linear system
+</p>
+
+<p>
+\[{\begin{bmatrix}Q&E^{T}\\E&0\end{bmatrix}}{\begin{bmatrix}\mathbf {x} \\\lambda \end{bmatrix}}={\begin{bmatrix}-\mathbf {c} \\\mathbf {d} \end{bmatrix}}\]
+where \({\displaystyle \lambda }\)  is a set of Lagrange multipliers which come out of the solution alongside \({\displaystyle \mathbf {x} }\) .
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">2.7</span> Regime shifts</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+OLS assumptions:
+</p>
+<ul class="org-ul">
+<li>Linear in Parameters</li>
+<li>Random Sample of n Observations</li>
+<li>Zero Conditional Mean</li>
+<li>No Perfect Collinearity</li>
+<li>Homoskedasticity</li>
+</ul>
+
+<p>
+Shortfall of Modern Portfolio Theory(MPT):
+</p>
+<ul class="org-ul">
+<li>It is based on the historical return performance. If the political visk shows up or the fund changes policy or manager, the corporate or the fund performance may change, investor views can't be integrated into the problem.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">3</span> Sparse Markowitz Portfolios</h2>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">4</span> Mean-Reverting Portfolios</h2>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">5</span> Active portfolio management</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">5.1</span> overview</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Modern portfolio theory looks at total risk and total return.
+</p>
+
+<p>
+The institutional investor cares about active risk and active return.
+For that reason, we will concentrate on the more general problem of managing relative to a benchmark.
+This focus on active management arises for several <b>reasons</b>:
+</p>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">5.1.1</span> risk aversion from unknown categories.</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+Clients can clump the large number of investment advisers into recognizable categories. With the advisers thus pigeonholed, the client (or consultant) can restrict searches and peer comparisons to pigeons in the same hole.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">5.1.2</span> tracking the benchmark</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+The benchmark acts as a set of instructions from the fund sponsor, as principal, to the investment manager, as agent. The benchmark defines the manager’s investment neighborhood. Moves away from the benchmark carry substantial investment and business risk.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15"><span class="section-number-4">5.1.3</span> easy tracking for management</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+Benchmarks allow the trustee or sponsor to manage the aggregate portfolio without complete knowledge of the holdings of each manager. The sponsor can manage a mix of benchmarks, keeping the “big picture.""
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">6</span> Exceptional Return, benchmarks and value added</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+The CAPM provides consensus expected returns. A multiple-factor model can help to control risk.
+</p>
+
+<p>
+accurate forecasts of expected return.
+a riskfree component (the time premium), a benchmark component\(\beta_n \mu_B\)  (the risk premium), a benchmark timing component\(\beta_n \delta f_B\) (exceptional benchmark return), and an alpha (expected residual return). If Rn is the total return on asset n.
+\[E{R_n} = 1 + i_F + \beta_n \mu_B + \beta_n \delta f_B + \alpha_n\]
+</p>
+<ul class="org-ul">
+<li>\(\beta_n = \frac{Cov{r_n,r_B}}{Var{r_B}}\)</li>
+<li>The Risk Premium \(\beta_n \mu_B\)</li>
+</ul>
+<p>
+The expected excess return on the benchmark, \(\mu_B\), is usually estimated by analysts as a very long run (70+ years) average (although other estimation methods are common). A number between 3 and 7 percent per annum is reasonable for most equity markets.
+</p>
+<ul class="org-ul">
+<li>Exceptional Benchmark return \(\beta_n \Delta f_B\)</li>
+</ul>
+<p>
+\(\Delta f_B\) is your measure of that difference between the expected excess return on the benchmark in the near future and the long-run expected excess return.
+</p>
+<ul class="org-ul">
+<li>\(\alpha_n\)</li>
+</ul>
+<p>
+expected residual return, $&alpha;<sub>n</sub> = E{&Theta;<sub>n</sub>}.$
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">parameters</th>
+<th scope="col" class="org-left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(\beta_n\)</td>
+<td class="org-left">the forecast beta of the portfolio versus the benchmark</td>
+</tr>
+
+<tr>
+<td class="org-left">\(r_f\)</td>
+<td class="org-left">risk-free return</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\mu_B\)</td>
+<td class="org-left">benchmark return over the last period(monthly)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\Delta f_B\)</td>
+<td class="org-left">\(r_p - r_f - \mu_B\)</td>
+</tr>
+
+<tr>
+<td class="org-left">f<sub>b</sub></td>
+<td class="org-left">\(\displaystyle\sum_{n} h_B(n)E{R_N}-(1+i_F)\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline36" class="outline-2">
+<h2 id="orgheadline36"><span class="section-number-2">7</span> Portfolio Construction</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">7.1</span> input:</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>the current portfolio(with certainty)</li>
+<li>alphas(often unreasonable and subject to hidden biases)</li>
+<li>covariance estimates(noisy estimates)</li>
+<li>transactions cost estimates(noisy estimates)</li>
+<li>an active risk aversion(self-biased)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">7.2</span> constraints</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+<b>We can replace any portfolio construction process, regardless of its sophistication, by a process that first refines the alphas and then uses a simple unconstrained mean/variance optimization to determine the active positions.</b>
+</p>
+</div>
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">7.2.1</span> alpha constraint</h4>
+<div class="outline-text-4" id="text-7-2-1">
+<ul class="org-ul">
+<li>most institutional portfolio managers do not take short positions and limit the amount of cash in the portfolio.</li>
+<li>Others may restrict asset coverage because of requirements concerning liquidity, self-dealing, and so on.</li>
+<li>A manager may require that the portfolio be neutral across economic sectors or industries.</li>
+<li>The manager may limit individual stock positions to ensure diversification of the active bets.</li>
+<li>The manager may want to avoid any position based on a forecast of the benchmark portfolio’s performance.</li>
+<li>portfolio holdings cannot exceed benchmark holdings by more than 5%.</li>
+</ul>
+</div>
+<ol class="org-ol"><li><a id="orgheadline20"></a>Scale the Alphas<br  /><div class="outline-text-5" id="text-7-2-1-1">
+<p>
+\[\alpha=volatility*IC*score\]
+</p>
+</div></li>
+<li><a id="orgheadline21"></a>Trim Alpha Outliers<br  /></li>
+<li><a id="orgheadline22"></a>Neutralization<br  /></li>
+<li><a id="orgheadline23"></a>Risk-Factor-Neutral Alphas<br  /></li>
+<li><a id="orgheadline24"></a>For index-tracking portfolios<br  /><div class="outline-text-5" id="text-7-2-1-5">
+<ul class="org-ul">
+<li>Take advantage of ﬂexible options for risk control.
+<ul class="org-ul">
+<li>Minimize the tracking error of your portfolio in the objective or place a hard limit on tracking error using a risk constraint.</li>
+<li>Use more than one risk model to incorporate several perspectives on risk.</li>
+<li>Include risk elements that use more than one benchmark or model portfolio.</li>
+</ul></li>
+<li>Incorporate all the transaction-related costs that impact performance. The transaction cost types available in the optimizer can be used in any combination to accurately reﬂect overall costs.
+<ul class="org-ul">
+<li>Capture market impact using non-linear market-impact models (quadratic, 3/2, and 5/3 powers) or a piecewiselinear approximation.</li>
+<li>Use the fully integrated Goldman Sachs Shortfall Model.</li>
+<li>Include commissions and brokerage fees using linear costs.</li>
+</ul></li>
+<li>Place explicit limits on trading activity.
+<ul class="org-ul">
+<li>Limit overall portfolio turnover or limit turnover of a set of assets.</li>
+<li>Place asset-specifc limits on trading; for example, limit trade size to a fraction of average daily volume.</li>
+</ul></li>
+<li>Control portfolio beta using Axioma-provided historical betas, predicted betas computed relative to any benchmark you choose, or betas you supply.</li>
+<li>Limit the number of names held or traded</li>
+</ul>
+</div></li>
+<li><a id="orgheadline25"></a>For actively managed portfolios…<br  /><div class="outline-text-5" id="text-7-2-1-6">
+<p>
+In addition to the risk and transaction cost controls available for passive portfolio management, the modeling library contains many options designed to get the most from your alpha signal.
+• Augment your risk control using the Alpha Factor. The Alpha Factor compensates for components of your alpha signal that are not included in the risk model, providing more accurate predicted risk estimates.
+• Limit risk contributions at the factor or asset level.
+• Use Robust Optimization to explicitly incorporate uncertainty in your alpha estimates.
+• Incorporate additional tilts in your objective. Tilts can be implemented on any factor, including risk factors, factors from one of Axioma’s factor libraries, or user-supplied factors.
+• Prevent small positions and small trades with threshold constraints.
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">7.2.2</span> risk aversion</h4>
+</div>
+
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">7.2.3</span> transaction cost</h4>
+<div class="outline-text-4" id="text-7-2-3">
+</div><ol class="org-ol"><li><a id="orgheadline28"></a>on stock side<br  /><div class="outline-text-5" id="text-7-2-3-1">
+<ul class="org-ul">
+<li>Transactions costs increase with trade size and the desire for quick execution, which help to identify the manager as an informed trader and require increased inventory risk by the liquidity supplier.</li>
+<li>Transactions costs are difficult to measure. At the same time, accurate estimates of transactions costs, especially distinctions in transactions costs among different stock trades, can significantly affect realized value added.</li>
+<li>Transactions costs lower value added, but you can often achieve at least 75 percent of the value added with only half the turnover (and half the transactions costs). You can do better by distinguishing stocks by their transactions costs.</li>
+<li>Trading is itself a portfolio optimization problem, distinct from the portfolio construction problem. Optimal trading can lower transactions costs, though at the expense of additional short-term risk.</li>
+<li>There are several options for trade implementation, with rules of thumb on which to use when.
+<ul class="org-ul">
+<li>VWAP.</li>
+<li>BARRA model.</li>
+</ul></li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline29"></a>on portfolio side<br  /><div class="outline-text-5" id="text-7-2-3-2">
+<ul class="org-ul">
+<li>construct portfolio relative to industry neutral with categories.</li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">7.3</span> SCREENS</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li>Rank the stocks by alpha.</li>
+<li>Choose the first 50 stocks (for example).</li>
+<li>Equal-weight (or capitalization-weight) the stocks.
+<ul class="org-ul">
+<li>rebalancing:
+<ul class="org-ul">
+<li>divide the stocks into three categores, top 40, next 60, remaining 100.</li>
+<li>buy any stocks on the top 40 not in the portfolio.</li>
+<li>sell any stocks on the bottom 100 in the portfolio.</li>
+<li>holding any stocks on the middle in the portfolio.</li>
+</ul></li>
+<li>pros:
+<ul class="org-ul">
+<li>The screen enhances alphas by concentrating the portfolio in the high-alpha stocks.</li>
+<li>It strives for risk control by including a sufficient number of stocks (50 in the example) and by weighting them to avoid concentration in any single stock.</li>
+<li>Transactions costs are limited by controlling turnover through judicious choice of the size of the buy, sell, and hold lists.</li>
+</ul></li>
+<li>cons:
+<ul class="org-ul">
+<li>They ignore all information in the alphas apart from the rankings.</li>
+<li>They do not protect against biases in the alphas.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">7.4</span> Stratification</h3>
+<div class="outline-text-3" id="text-7-4">
+<ul class="org-ul">
+<li>splitting the list of followed stocks into categories.</li>
+<li>classify the stocks in each sector by size: big, medium, and small.</li>
+<li>industry neutral.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">7.5</span> comparison with asset selection and asset allocation</h3>
+<div class="outline-text-3" id="text-7-5">
+<p>
+The result is that portfolios constructed using returns-based analysis are very close to mean/variance portfolios, although they require much more effort to construct.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">7.6</span> solution</h3>
+<div class="outline-text-3" id="text-7-6">
+<ul class="org-ul">
+<li>placing limits on active stock positions.</li>
+<li>limiting turnover.</li>
+<li>constraining holdings in certain categories of stocks to match the benchmark holdings.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-2">
+<h2 id="orgheadline39"><span class="section-number-2">8</span> Asset Allocation</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Asset allocation comes in several varieties: strategic versus tactical, and domestic versus global.
+</p>
+
+<p>
+The process of selecting a target asset allocation is called strategic asset allocation.
+</p>
+
+<p>
+The variation in asset allocation around that target is called tactical asset allocation.
+</p>
+</div>
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">8.1</span> tactical asset allocation</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li>stocks</li>
+<li>bonds</li>
+<li>cash</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">8.2</span> asset allocation strategies is a three-step process:</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li>forecasting returns</li>
+<li>building portfolios</li>
+<li>analyzing out-of-sample performance.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline61" class="outline-2">
+<h2 id="orgheadline61"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">9.1</span> Modern Portfolio Optimization</h3>
+<div class="outline-text-3" id="text-9-1">
 <p>
 Markowitz mean-variance optimization:
 \[max: \omega\mu - \omega\Sigma\omega'/2\]
@@ -231,9 +743,9 @@ Two most important elements: Expected return \(\mu\), Covariance matrix \(\Sigma
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Problem of mean-variance optimization</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">9.2</span> Problem of mean-variance optimization</h3>
+<div class="outline-text-3" id="text-9-2">
 <ul class="org-ul">
 <li>Extreme long or short positions</li>
 </ul>
@@ -269,9 +781,9 @@ Investor views can't be integrated into the problem.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.3</span> Introduction</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">9.3</span> Introduction</h3>
+<div class="outline-text-3" id="text-9-3">
 <p>
 The Black-Litterman model uses a <b>Bayesian</b> approach to combine the subjective views of an investor regarding the expected returns of one or more assets with the market equilibrium vector of expected returns (the prior distribution) to form a new, mixed estimate of expected returns.
 </p>
@@ -297,9 +809,9 @@ In general, when there are portfolio constraints - for example, when short sales
 </ul>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-4">
-<h4 id="orgheadline3"><span class="section-number-4">1.3.1</span> reverse optimization to mitigate this problem for unconstrainted solution</h4>
-<div class="outline-text-4" id="text-1-3-1">
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">9.3.1</span> reverse optimization to mitigate this problem for unconstrainted solution</h4>
+<div class="outline-text-4" id="text-9-3-1">
 <p>
 \[\Pi = \lambda\Sigma\omega_{mkt}\]
 where
@@ -328,13 +840,13 @@ Finally,
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">1.4</span> Black-Litterman model and the process of building the required inputs.</h3>
-<div class="outline-text-3" id="text-1-4">
-</div><div id="outline-container-orgheadline11" class="outline-4">
-<h4 id="orgheadline11"><span class="section-number-4">1.4.1</span> Black-Litterman model</h4>
-<div class="outline-text-4" id="text-1-4-1">
-</div><ol class="org-ol"><li><a id="orgheadline5"></a>Posterior distribution of expected return combining Prior distribution of equilibrium excess return and investor views.<br  /><div class="outline-text-5" id="text-1-4-1-1">
+<div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">9.4</span> Black-Litterman model and the process of building the required inputs.</h3>
+<div class="outline-text-3" id="text-9-4">
+</div><div id="outline-container-orgheadline51" class="outline-4">
+<h4 id="orgheadline51"><span class="section-number-4">9.4.1</span> Black-Litterman model</h4>
+<div class="outline-text-4" id="text-9-4-1">
+</div><ol class="org-ol"><li><a id="orgheadline44"></a>Posterior distribution of expected return combining Prior distribution of equilibrium excess return and investor views.<br  /><div class="outline-text-5" id="text-9-4-1-1">
 <p>
 One of the core assumptions of the model is that the security returns are normally distributed.
 </p>
@@ -367,7 +879,7 @@ One can assume different distributions for each of these probabilities and hence
 </p>
 </div></li>
 
-<li><a id="orgheadline6"></a>Formula<br  /><div class="outline-text-5" id="text-1-4-1-2">
+<li><a id="orgheadline45"></a>Formula<br  /><div class="outline-text-5" id="text-9-4-1-2">
 <p>
 \[E(R)=[(\tau\Sigma)^{-1}+P'\Omega^{-1}P]^{-1}[(\tau\Sigma)^{-1}\Pi+P'\Omega^{-1}P]\]
 where
@@ -450,7 +962,7 @@ CF/LC_1 &0  &0 \\0
 </p>
 </div></li>
 
-<li><a id="orgheadline10"></a>Investor views<br  /><div class="outline-text-5" id="text-1-4-1-3">
+<li><a id="orgheadline50"></a>Investor views<br  /><div class="outline-text-5" id="text-9-4-1-3">
 <p>
 Absolute or relative manager views regarding the expected return of some of the assets in the portfolio.
 </p>
@@ -476,7 +988,7 @@ Asset A will outperform/underperform asset B by xx basis point;
 Assets A and B will outperform/underperform assets C and D by xx basis points; Equivallently a mini long/short portfolio including A and B vesus a mini short/long portfolio.
 </p>
 </div>
-<ol class="org-ol"><li><a id="orgheadline9"></a>Assessing views<br  /><ol class="org-ol"><li><a id="orgheadline7"></a>Objective<br  /><div class="outline-text-7" id="text-1-4-1-3-1-1">
+<ol class="org-ol"><li><a id="orgheadline48"></a>Assessing views<br  /><ol class="org-ol"><li><a id="orgheadline46"></a>Objective<br  /><div class="outline-text-7" id="text-9-4-1-3-1-1">
 <ul class="org-ul">
 <li>财务指标</li>
 </ul>
@@ -495,18 +1007,23 @@ Assets A and B will outperform/underperform assets C and D by xx basis points; E
 在传统的 B-L 模型中，投资者给出的主观观点是对资产的预期收益，而很多时候投资者可能是一些间接的观点，例如对一些指标的观点（股息率、 EPS、 ROE 等），这些因子可能驱动股价波动。 Wing Cheung 提出了 ABL 模型（Augmented B-L模型），首次将因子模型融入到传统 B-L 模型的框架中，大幅度拓宽了 B-L 模型的适用面。
 </p>
 </div></li>
-<li><a id="orgheadline8"></a>Subjective<br  /><div class="outline-text-7" id="text-1-4-1-3-1-2">
+<li><a id="orgheadline47"></a>Subjective<br  /><div class="outline-text-7" id="text-9-4-1-3-1-2">
 <ul class="org-ul">
 <li>分析师主观预期</li>
 </ul>
 <p>
 采用行业、个股一致预期（ consensus data）是对看法（ views）的一个有效构建方式。用个股预期评级综合得分的增长量表示个股预期收益率，具体处理细节是，每一个评分增量（减量）相当于5%预期收益（或-5%预期收益）。
 </p>
-</div></li></ol></li></ol></li></ol>
+</div></li></ol></li>
+<li><a id="orgheadline49"></a>Confidence level<br  /><div class="outline-text-6" id="text-9-4-1-3-2">
+<p>
+对第 i 个观点设置信心水平 LCi，根据信心水平和标准刻度因子 CF 来构建观点误差矩阵Ω.
+</p>
+</div></li></ol></li></ol>
 </div>
-<div id="outline-container-orgheadline12" class="outline-4">
-<h4 id="orgheadline12"><span class="section-number-4">1.4.2</span> Inputs</h4>
-<div class="outline-text-4" id="text-1-4-2">
+<div id="outline-container-orgheadline52" class="outline-4">
+<h4 id="orgheadline52"><span class="section-number-4">9.4.2</span> Inputs</h4>
+<div class="outline-text-4" id="text-9-4-2">
 <p>
 Input:
 </p>
@@ -550,9 +1067,9 @@ Input:
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-4">
-<h4 id="orgheadline13"><span class="section-number-4">1.4.3</span> Steps:</h4>
-<div class="outline-text-4" id="text-1-4-3">
+<div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53"><span class="section-number-4">9.4.3</span> Steps:</h4>
+<div class="outline-text-4" id="text-9-4-3">
 <ol class="org-ol">
 <li>Π = δΣw</li>
 </ol>
@@ -588,7 +1105,7 @@ For example:
 <div class="figure">
 <p><img src="./images/expected_excess_return_vector.png" alt="expected_excess_return_vector.png" />
 </p>
-<p><span class="figure-number">Figure 1:</span> expected<sub>excess</sub><sub>return</sub><sub>vector</sub></p>
+<p><span class="figure-number">Figure 2:</span> expected<sub>excess</sub><sub>return</sub><sub>vector</sub></p>
 </div>
 
 <p>
@@ -648,9 +1165,9 @@ Assuming the uncertainty in the estimates is independent of the known covariance
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">1.5</span> Implied confidence framework for the views</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">9.5</span> Implied confidence framework for the views</h3>
+<div class="outline-text-3" id="text-9-5">
 <p>
 \(\Omega\), which representing the uncertainty of the views, and \(\tau\) are the most abstract mathematical parameters of this model.
 </p>
@@ -660,23 +1177,23 @@ how to specify a probability density function for each view?
 </p>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-4">
-<h4 id="orgheadline15"><span class="section-number-4">1.5.1</span> Implied confidence levels</h4>
-<div class="outline-text-4" id="text-1-5-1">
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">9.5.1</span> Implied confidence levels</h4>
+<div class="outline-text-4" id="text-9-5-1">
 <p>
 \[\frac{\hat {\omega} - \omega_{mkt}}{\hat {\omega_{100%}} - \omega_{mkt}}\]
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-4">
-<h4 id="orgheadline16"><span class="section-number-4">1.5.2</span> An intuitive approach</h4>
+<div id="outline-container-orgheadline56" class="outline-4">
+<h4 id="orgheadline56"><span class="section-number-4">9.5.2</span> An intuitive approach</h4>
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">1.6</span> Select asset classes</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">9.6</span> Select asset classes</h3>
+<div class="outline-text-3" id="text-9-6">
 <p>
 criteria for specifying asset classes are:
 </p>
@@ -702,14 +1219,14 @@ criteria for specifying asset classes are:
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">1.7</span> Deployment on GS:</h3>
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">9.7</span> Deployment on GS:</h3>
 </div>
 
 
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">1.8</span> Shortfall of BLM</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="section-number-3">9.8</span> Shortfall of BLM</h3>
+<div class="outline-text-3" id="text-9-8">
 <ul class="org-ul">
 <li>非正态分布市场</li>
 </ul>
@@ -724,6 +1241,29 @@ criteria for specifying asset classes are:
 在传统的 B-L模型中，投资者给出的主观观点是对资产的预期收益，而很多时候投资者可能是一些间接的观点，例如对一些指标的观点（股息率、 EPS、 ROE 等），这些因子可能驱动股价波动。Wing Cheung 提出了 ABL 模型（Augmented B-L 模型），首次将因子模型融入到传统 B-L 模型的框架中，大幅度拓宽了 B-L 模型的适用面。
 </p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline62" class="outline-2">
+<h2 id="orgheadline62"><span class="section-number-2">10</span> NLP</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Hidden factor model</li>
+<li>portfolio optimization based on factor model</li>
+<li>non linear constrain on factor model</li>
+</ul>
+
+<p>
+accounting formula production function, using unit conversion, to do mathematical analysis.
+</p>
+
+<p>
+opinions/factors can be used as constraints on factors with hiden factor model.
+</p>
+
+<p>
+such factor constraints can be used in Black-Litterman model.
+</p>
 </div>
 </div>
 </div>

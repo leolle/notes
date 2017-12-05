@@ -56,6 +56,7 @@
     + [[file:finance/MultiFactorModel.org][MultiFactorModel]]
     + [[file:finance/FactorBacktest.org][FactorBacktest]]
   + [[file:finance/PortfolioOptimization.org][PortfolioOptimization]]
+    + [[file:finance/BlackLitterman.org][BlackLitterman]]
   + [[file:finance/QuantitativeInvestment.org][QuantitativeInvestment]]
   + [[file:finance/future.org][Future]]
   + [[file:finance/option.org][Option]]
