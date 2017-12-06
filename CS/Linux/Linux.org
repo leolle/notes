@@ -339,6 +339,13 @@ if [ -f '/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc' ]; 
 *** The life cycle of a process
 *** Signals
 *** kill: send signals
+- kill all matching name:
+#+BEGIN_SRC bash
+pkill -f process_name
+# or
+ps aux | grep -ie amarok | awk '{print $2}' | xargs kill -9
+#+END_SRC
+
 *** Process states
 *** nice and renice: influence scheduling priority
 *** ps: monitor processes
