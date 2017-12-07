@@ -34,6 +34,19 @@
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- list all the files or folders in a directory
+#+BEGIN_SRC bash
+alias lf="ls -l | egrep -v '^d'"
+alias ldir="ls -l | egrep '^d'"
+#+END_SRC
+- list all the sub-folders in a directory
+#+BEGIN_SRC bash
+find ./ -type d
+#+END_SRC
+- remove all the sub-folders in a directory
+#+BEGIN_SRC bash
+rm -R -- */
+#+END_SRC
 - tmux for multiple windows on the terminal like zsh
 - convert files in batches
 #+BEGIN_SRC bash
@@ -56,7 +69,7 @@ show_file()
 path=./zhswiki
 show_file $path
 #+END_SRC
-- rename all files
+- rename all files ending with prefix.
 #+BEGIN_SRC bash
 # to rename all files matching "*.bak" to strip the extension
 rename 's/\.bak$//' *.bak
