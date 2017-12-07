@@ -18,13 +18,8 @@
 
 - [X] 算法与数据结构
 - [ ] 机器学习
-- [ ] Hadoop
-- [ ] Hbase
-- [ ] 图形数据库, Tableau
-- [ ] HANA
-- [ ] Message Queue
-- [ ] Tomcat
-
+  - [ ] DeepLearning
+- [X] 图形数据库, Tableau, Neo4j
 * Introductory Examples
 
 ** Implied Volatilities
@@ -73,7 +68,10 @@ start_date = df_factor.index[0]
 ** Approximation
 
 *** Regression
-$$standard error = \d{standard deviation}{\sqrt{N}}$$
+The residual, ${\displaystyle e_{i}=y_{i}-{\widehat {y}}_{i}}$, is the difference between the value of the dependent variable predicted by the model, ${\displaystyle {\widehat {y}}_{i}}$, and the true value of the dependent variable, $y_{i}$.
+The standard errors of the parameter estimates are given by
+$${\displaystyle {\hat {\sigma }}_{\beta _{1}}={\hat {\sigma }}_{\varepsilon }{\sqrt {\frac {1}{\sum (x_{i}-{\bar {x}})^{2}}}}}$$
+$${\displaystyle {\hat {\sigma }}_{\beta _{0}}={\hat {\sigma }}_{\varepsilon }{\sqrt {{\frac {1}{n}}+{\frac {{\bar {x}}^{2}}{\sum (x_{i}-{\bar {x}})^{2}}}}}={\hat {\sigma }}_{\beta _{1}}{\sqrt {\frac {\sum x_{i}^{2}}{n}}}}$$
 - The standard error is a measure of sample variability.
 - population standard deviation. $\sqrt{N-1}$
 

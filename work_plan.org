@@ -156,18 +156,22 @@ ICA
 ** NaturalLanguageProcessing
 *** Word Embedding(Word2Vec)
 :LOGBOOK:
+CLOCK: [2017-12-06 Wed 11:04]
 CLOCK: [2017-12-05 Tue 11:46]--[2017-12-05 Tue 12:04] =>  0:18
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
+- [X] phrase detection with google pretrained vectors.
+- [X] use [[http://www.cis.lmu.de/pub/phraseEmbedding.txt.bz2][phrase embedding]] as test.
 - [X] find available library to extract wiki content.
 - [X] find all page titles from level 5 finance sub-categories.
 - [X] extract page section from wiki xml file.
 - [ ] parse Chinese wiki, remove stopwords.
-- [ ] model wiki token.
-- [ ] find corporate finance/mba questions corpos.
+- [ ] model wiki token corpus.
+- [ ] [[https://github.com/ryankiros/skip-thoughts][skip-thought]].
+- [X] find corporate finance/mba questions corpos.
 - [ ] read A primer on Neural Network Models.
-- [ ] tensorflow structure.
+- [X] tensorflow structure.
 - [X] train word2vec model.
 - [X] test finding similar words from Wiki corpus.
 - [X] download wiki xml file.

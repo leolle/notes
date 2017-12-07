@@ -253,7 +253,7 @@ In general, when there are portfolio constraints - for example, when short sales
 - the easiest way to find the optimal portfolio is to use the Black–Litterman model to generate the expected returns for the assets,
 - and then use a mean-variance optimizer to solve the constrained optimization problem.
 
-*** reverse optimization to mitigate this problem for unconstrainted solution
+*** reverse optimization to mitigate this problem for unconstrained solution
 $$\Pi = \lambda\Sigma\omega_{mkt}$$
 where
 
@@ -427,6 +427,13 @@ $$\frac{\hat {\omega} - \omega_{mkt}}{\hat {\omega_{100%}} - \omega_{mkt}}$$
 
 *** An intuitive approach
 
+** The constrained portfolio
+
+*** Risk constraint:
+If the investor is targeting a risk level of 20% per annum, one can calculate the constrainted optimal portfolio weights by taking the unconstrained optimal portfolio weights by taking the unconstrained optimal weights, multiplying it by the raio of the targeted risk level of 20% and the volatility of the unconstrained optimal portfolio.
+
+*** Budget constraint:
+a linear combination of the unconstrained optimal portfolio and the global minimum variance portfolio.
 ** Select asset classes
 criteria for specifying asset classes are:
 - Assets within an Asset Class should be homogenous.
