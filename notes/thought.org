@@ -84,6 +84,18 @@ What data they use, what do we have, what's the assumption, what's the conclusio
 Without backtesting, you have no idea if you can beat the market.
 
 If you want to at least beat average, find the benchmark. But if the benchmark is too high, forget it, or find another opportunity.
+** How to learn things fast<2017-12-11 Mon>
+How to efficiently learn things from a meeting or presentation.
+
+If the presenten gives something I know, connect it with my objective. For example, Zhongwei and me all know mean reversion strategy, how is LSTM and PCA used on this subject.
+
+You don't have to know every details about the presentation, connect it with your own working field by utilizing them on your project.
+
+Machine learning is for ungifted people. Feeding the model big trunk of data, let it working out a model/prediction method for you.
+
+Learning new technology or knowledge is the same principle, connect your previous knowledge or understanding or experience, predict the unknown field. If the prediction is right, then you have the optimized understanding of that thing, if not, you correct or re-calibrate it.
+
+Three key points should be minded in Machine learning: objective function, optimization process, prediction.
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
