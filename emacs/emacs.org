@@ -430,7 +430,8 @@ install package jedi elpy magit
 | M-,        | anaconda-mode-find-assignments |
 | M-r        | anaconda-mode-find-references  |
 | M-*        | anaconda-mode-go-back          |
-| M-?	       | anaconda-mode-show-doc         |
+| M-?	      | anaconda-mode-show-doc         |
+| =C-c M-l=  | clear ipython debug buffer     |
 ** upgrade git
 #+BEGIN_SRC shell
 sudo add-apt-repository ppa:git-core/ppa -y

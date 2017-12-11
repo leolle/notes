@@ -32,7 +32,9 @@ A regular opinion expresses a sentiment only on an particular entity or an aspec
 opinions, positive and negative.
 - issue
 spam review
-
+- language structure:
+words -> sentences -> paragraphs -> documents.
+is your input a string text, or a list of strings, or a list of lists composing by string.
 ** Neural Network Architectures
 Feed-forward networks and Recurrent Recursive networks.
 ** Feature Representation
