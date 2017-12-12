@@ -81,6 +81,10 @@ rename 's/\.bak$//' *.bak
 *** Scripting best practices
 
 *** Shell commands:
+- view a document with openoffice:
+#+BEGIN_SRC bash
+soffice filename
+#+END_SRC
 - transfer files
 #+BEGIN_SRC bash
 scp file usr_name@ip:/absolute/path/
