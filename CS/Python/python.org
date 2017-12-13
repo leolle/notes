@@ -235,6 +235,14 @@ except Networkerror,e:
 #+END_SRC
 * Text Processing Services
 ** string — Common string operations
+- if string are digits.
+#+BEGIN_SRC python
+str.isdigit()
+#+END_SRC
+- concatenate two strings
+#+BEGIN_SRC python
+" ".join((str1, str2))
+#+END_SRC
 - 移除字符串头尾指定的字符（默认为空格）
 #+BEGIN_SRC python
 #!/usr/bin/python
@@ -431,6 +439,13 @@ it’s again replaced with a binary approximation, whose exact value is
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
 ** os.path — Common pathname manipulations
+- temperary folder:
+#+BEGIN_SRC python
+import os
+import tempfile
+TEMP_FOLDER = tempfile.gettempdir()
+print('Folder "{}" will be used to save temporary dictionary and corpus.'.format(TEMP_FOLDER))
+#+END_SRC
 - walk all file from a directory and its sub-directory
 Directory tree generator.
 
