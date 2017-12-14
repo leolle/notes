@@ -165,6 +165,8 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - [X] clustering categories by word embedding, osets, idea.
 To calculate the similarity matrix between all 160706 vocabulary in RAM, 160706 *160706 *4(bytes)/1024(bytes)/1014(bytes)=99491MB will be needed.
 - [ ] LSA or LDA analysis, which will give a clustering of words on every topic.
+- [ ] compare similarity between category and end-to-node oset element.
+- [ ] plot vocabulary embedding using t-SNE which project embedding vectors into 2-D surface.
 - [ ] compare the results from GS searching engine and word embedding.
 - [ ] import xml pages to elasticsearch.
 - [X] use [[http://www.cis.lmu.de/pub/phraseEmbedding.txt.bz2][phrase embedding]] as test.
