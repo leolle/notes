@@ -39,6 +39,7 @@ shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 #+BEGIN_SRC bash
 sudo apt-get install openssh-server gedit gcc terminator zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo apt-get install dkms build-essential linux-headers-generic
 sudo apt-get install python-setuptools python-dev build-essential
 sudo easy_install pip
 sudo pip install --upgrade virtualenv
@@ -50,13 +51,34 @@ sudo apt-get install vinagre
 #+END_SRC
 3. change software update sauce to Chinese local sauce.
 4. install nvidia driver
+https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/
+
+https://wiki.zthxxx.me/wiki/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Linux/Ubuntu/Ubuntu-16-%E5%BC%80%E6%9C%BA%E9%BB%98%E8%AE%A4%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2/
+
 If you have an NVIDIA .run file:
 #+BEGIN_SRC bash
 chmod +x NVIDIA-Linux-x86_64-384.98.run
 sudo ./NVIDIA-Linux-x86_64-384.98.run --no-x-check
 # or
-ps ax | grep X
-sudo kill -9 PID
+# ps ax | grep X
+# sudo kill -9 PID
+#+END_SRC
+# remove nvidia
+#+BEGIN_SRC bash
+sudo apt-get remove --purge nvidia*
+sudo apt-get update
+sudo apt-get install dkms build-essential linux-headers-generic
+#+END_SRC
+把 nouveau 驱动加入黑名单
+#+BEGIN_SRC bash
+sudo nano /etc/modprobe.d/blacklist-nouveau.conf
+blacklist nouveau
+blacklist lbm-nouveau
+options nouveau modeset=0
+alias nouveau off
+alias lbm-nouveau off
+
+echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
 #+END_SRC
 5. replace content of .zshrc with bashrc
 6. install CUDA Toolkit
