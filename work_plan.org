@@ -156,20 +156,26 @@ ICA
 ** NaturalLanguageProcessing
 *** Word Embedding(Word2Vec)
 :LOGBOOK:
+CLOCK: [2017-12-14 Thu 10:04]--[2017-12-14 Thu 12:01] =>  1:57
 CLOCK: [2017-12-13 Wed 10:04]--[2017-12-13 Wed 15:45] =>  5:41
 CLOCK: [2017-12-05 Tue 11:46]--[2017-12-05 Tue 12:04] =>  0:18
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
-- [X] incremental training finance pages based on google model.
-- [X] clustering categories by word embedding, osets, idea.
-To calculate the similarity matrix between all 160706 vocabulary in RAM, 160706 *160706 *4(bytes)/1024(bytes)/1014(bytes)=99491MB will be needed.
+- [ ] configuring deep learning hardware, operation system, software.
+- [ ] visualize vocabulary embedding using t-SNE which project embedding vectors into 2-D surface from an proper perspective.
+  need to batch words in frequency.
+- [X] incremental training finance pages based via online training.
+  online training can not continue missing frequency in pretrained google binary file.
+- [ ] cut/training Chinese osets words into files.
 - [ ] LSA or LDA analysis, which will give a clustering of words on every topic.
 - [ ] compare similarity between category and end-to-node oset element.
-- [ ] plot vocabulary embedding using t-SNE which project embedding vectors into 2-D surface.
 - [ ] compare the results from GS searching engine and word embedding.
 - [ ] import xml pages to elasticsearch.
+- [X] clustering categories by word embedding, osets, idea.
+  To calculate the similarity matrix between all 160706 vocabulary in RAM, 160706 *160706 *4(bytes)/1024(bytes)/1014(bytes)=99491MB will be needed.
 - [X] use [[http://www.cis.lmu.de/pub/phraseEmbedding.txt.bz2][phrase embedding]] as test.
+  better phrasing results.
 - [X] take a look at cite space iii.
 - [X] test word2vec model from finance.
 - [X] cut paragraph to short sentences, then phrase.
@@ -180,7 +186,7 @@ To calculate the similarity matrix between all 160706 vocabulary in RAM, 160706 
 - [X] find all page titles from level 5 finance sub-categories.
 - [X] extract page section from wiki xml file.
 - [ ] parse Chinese wiki, remove stopwords.
-- [ ] model wiki token corpus.
+- [X] model wiki token corpus.
 - [ ] [[https://github.com/ryankiros/skip-thoughts][skip-thought]].
 - [X] find corporate finance/mba questions corpos.
 - [ ] read A primer on Neural Network Models.
