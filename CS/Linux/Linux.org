@@ -18,6 +18,10 @@
 * BASIC ADMINISTRATION
 ** WHERE TO START
 *** Essential duties of the system administrator
+- restart system
+#+BEGIN_SRC bash
+shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
+#+END_SRC
 *** Suggested background
 *** Friction between UNIX and Linux
 *** Linux distributions
@@ -30,8 +34,68 @@
 *** Other sources of information
 *** Ways to find and install software
 *** System administration under duress
+*** After installing a new operation system:
+1. install some libraries
+#+BEGIN_SRC bash
+sudo apt-get install openssh-server gedit gcc terminator zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo apt-get install python-setuptools python-dev build-essential
+sudo easy_install pip
+sudo pip install --upgrade virtualenv
 
+#+END_SRC
+2. enable remote control
+#+BEGIN_SRC bash
+sudo apt-get install vinagre
+#+END_SRC
+3. change software update sauce to Chinese local sauce.
+4. install nvidia driver
+If you have an NVIDIA .run file:
+#+BEGIN_SRC bash
+chmod +x NVIDIA-Linux-x86_64-384.98.run
+sudo ./NVIDIA-Linux-x86_64-384.98.run --no-x-check
+# or
+ps ax | grep X
+sudo kill -9 PID
+#+END_SRC
+5. replace content of .zshrc with bashrc
+6. install CUDA Toolkit
+#+BEGIN_SRC bash
+# best way
+sudo apt install nvidia-cuda-toolkit
+# or
+wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+sudo apt-get update
+sudo apt-get install cuda
+#+END_SRC
+7. check nvidia driver installation
+#+BEGIN_SRC bash
+nvidia-smi
+#+END_SRC
+#+RESULTS
+Fri Dec 15 14:07:04 2017
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 387.26                 Driver Version: 387.26                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:03:00.0 Off |                  N/A |
+| 21%   26C    P0    52W / 250W |      0MiB / 11172MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:04:00.0 Off |                  N/A |
+| 21%   30C    P0    54W / 250W |      0MiB / 11170MiB |      3%      Default |
++-------------------------------+----------------------+----------------------+
 
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+8. install cuDNN
 ** SCRIPTING AND THE SHELL
 *** Shell basics
 - list all the files or folders in a directory
@@ -81,6 +145,10 @@ rename 's/\.bak$//' *.bak
 *** Scripting best practices
 
 *** Shell commands:
+- check operation system information:
+#+BEGIN_SRC bash
+uname -m && cat /etc/*release
+#+END_SRC
 - view a document with openoffice:
 #+BEGIN_SRC bash
 soffice filename
@@ -110,6 +178,10 @@ wget -c -t 0 --timeout=10 --waitretry=10 url
 #+BEGIN_SRC bash
 du -sh *
 #+END_SRC
+
+#+RESULTS:
+| 24K | Linux.org |
+
 - unzip a compressed file:
 #+BEGIN_SRC shell
 unzip filename.zip
@@ -397,6 +469,15 @@ ps aux | grep -ie amarok | awk '{print $2}' | xargs kill -9
 ** STORAGE
 *** I just want to add a disk!
 *** Storage hardware
+- check disk storage space:
+#+BEGIN_SRC bash
+df -h
+sudo fdisk -l
+#+END_SRC
+- list size of all files and directories:
+#+BEGIN_SRC bash
+df -sh *
+#+END_SRC
 *** Storage hardware interfaces
 *** Peeling the onion: the software side of storage
 *** Attachment and low-level management of drives
