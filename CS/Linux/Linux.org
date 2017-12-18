@@ -35,9 +35,36 @@ shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 *** Ways to find and install software
 *** System administration under duress
 *** After installing a new operation system:
-1. install some libraries
+*very important:*
+Can't use the recommended graphical driver from the system.
+1. change software update sauce to Chinese local sauce.
 #+BEGIN_SRC bash
-sudo apt-get install openssh-server gedit gcc terminator zsh
+sudo apt-get update
+# sudo apt-get upgrade
+#+END_SRC
+2. install required libraries
+- create example.list:
+touch example.list
+#+BEGIN_SRC txt
+g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
+build-essential cmake git unzip pkg-config python-pip
+libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+libxvidcore-dev libx264-dev
+libgtk-3-dev
+libhdf5-serial-dev graphviz
+libopenblas-dev libatlas-base-dev gfortran
+python2.7-dev python3-dev
+linux-image-generic linux-image-extra-virtual
+linux-source linux-headers-generic
+libglu1-mesa libxi-dev libxmu-dev libglu1-mesa-dev
+freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev libglfw3-dev libgles2-mesa-dev
+#+END_SRC
+cat example.list | xargs sudo apt-get -y install
+
+- additional software:
+#+BEGIN_SRC bash
+# sudo apt-get install python-tk python3-tk python-imaging-tk
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo apt-get install dkms build-essential linux-headers-generic
 sudo apt-get install python-setuptools python-dev build-essential
@@ -45,40 +72,135 @@ sudo easy_install pip
 sudo pip install --upgrade virtualenv
 
 #+END_SRC
+
 2. enable remote control
 #+BEGIN_SRC bash
 sudo apt-get install vinagre
 #+END_SRC
-3. change software update sauce to Chinese local sauce.
 4. install nvidia driver
+- check nvidia driver
+#+BEGIN_SRC bash
+cat /proc/driver/nvidia/version
+lspci | grep -i nvidia
+lsmod | grep nvidia
+#+END_SRC
+- check & install linux headers
+#+BEGIN_SRC bash
+sudo apt-get install linux-headers-$(uname -r)
+#+END_SRC
+- download cuda
+https://developer.nvidia.com/cuda-downloads
+
 https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/
 
 https://wiki.zthxxx.me/wiki/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Linux/Ubuntu/Ubuntu-16-%E5%BC%80%E6%9C%BA%E9%BB%98%E8%AE%A4%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2/
 
-If you have an NVIDIA .run file:
+- Perform the following steps to install CUDA and verify the installation.
+
+- Disable the Nouveau drivers:
+Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
+blacklist nouveau
+options nouveau modeset=0
+- Regenerate the kernel initramfs:
+sudo update-initramfs -u
+- Reboot into runlevel 3 by temporarily adding the number "3" and the word "nomodeset" to the end of the system's kernel boot parameters.
 #+BEGIN_SRC bash
-chmod +x NVIDIA-Linux-x86_64-384.98.run
-sudo ./NVIDIA-Linux-x86_64-384.98.run --no-x-check
+sudo systemctl isolate multi-user.target
+sudo systemctl enable multi-user.target
+sudo systemctl set-default multi-user.target
+sudo reboot
+#+END_SRC
+- Run the installer silently to install with the default selections (implies acceptance of the EULA):
+sudo init 3
+sudo sh cuda_9.1.85_387.26_linux.run
+#+BEGIN_SRC txt
+***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least 384.00 is required for CUDA 9.1 functionality to work.
+#+END_SRC
+- Create an xorg.conf file to use the NVIDIA GPU for display:
+#+BEGIN_SRC bash
+sudo nvidia-xconfig
+#+END_SRC
+- Reboot the system to load the graphical interface.
+Set up the development environment by modifying the PATH and LD_LIBRARY_PATH variables:
+#+BEGIN_SRC bash
+export PATH=/usr/local/cuda-9.1/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+source ~/.bashrc
+#+END_SRC
+- Install a writable copy of the samples then build and run the nbody sample:
+#+BEGIN_SRC bash
+cuda-install-samples-9.1.sh ~
+cd ~/NVIDIA_CUDA-9.1_Samples/5_Simulations/nbody
+GLPATH=/usr/lib make
+./nbody
+#+END_SRC
+- If you have an NVIDIA .run file:
+#+BEGIN_SRC bash
+sudo nano /etc/modprobe.d/blacklist-nouveau.conf
+blacklist nouveau
+options nouveau modeset=0
+
+sudo update-initramfs -u
+#+END_SRC
+
+- Reboot into runlevel 3 by temporarily adding the number "3" and the word "nomodeset" to the end of the system's kernel boot parameters.
+
+#+BEGIN_SRC bash
+# stop x-server
+sudo systemctl isolate multi-user.target
+sudo systemctl enable multi-user.target
+sudo systemctl set-default multi-user.target
+sudo reboot
+sudo init 3
+# chmod +x cuda_9.1.85_387.26_linux.run
+mkdir cuda_installer && cd cuda_installer
+# sudo ../NVIDIA-Linux-x86_64-384.98.run
+# Please make sure that
+# -   PATH includes /usr/local/cuda-9.1/bin
+# -   LD_LIBRARY_PATH includes /usr/local/cuda-9.1/lib64, or, add /usr/local/cuda-9.1/lib64 to /etc/ld.so.conf and run ldconfig as root
+export PATH=/usr/local/cuda-9.1/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+LD_LIBRARY_PATH="/usr/local/cuda/lib64"; export LD_LIBRARY_PATH
+PATH="$PATH:/usr/local/cuda/bin";export PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+exec "$SHELL"
+# update bash
 # or
 # ps ax | grep X
 # sudo kill -9 PID
+# set graphical as default
+sudo systemctl isolate graphical.target
+sudo systemctl enable graphical.target
+sudo systemctl set-default graphical.target
+sudo reboot
+
 #+END_SRC
-# remove nvidia
+
+- remove nvidia
 #+BEGIN_SRC bash
+To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-9.1/bin
+To uninstall the NVIDIA Driver, run nvidia-uninstall
+
+Please see CUDA_Installation_Guide_Linux.pdf in /usr/local/cuda-9.1/doc/pdf for detailed information on setting up CUDA.
+sudo /usr/local/cuda-X.Y/bin/uninstall_cuda_X.Y.pl
 sudo apt-get remove --purge nvidia*
 sudo apt-get update
 sudo apt-get install dkms build-essential linux-headers-generic
 #+END_SRC
-把 nouveau 驱动加入黑名单
+5. install cudnn:
+- mount share folder:
 #+BEGIN_SRC bash
-sudo nano /etc/modprobe.d/blacklist-nouveau.conf
-blacklist nouveau
-blacklist lbm-nouveau
-options nouveau modeset=0
-alias nouveau off
-alias lbm-nouveau off
-
-echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+sudo mount -t cifs -o username="gft" //192.168.1.126/share ~/Downloads/share
+#+END_SRC
+- unzip the cuDNN package
+#+BEGIN_SRC bash
+tar -xzvf cudnn-9.1-linux-x64-v7.tgz
+#+END_SRC
+- Copy the following files into the CUDA Toolkit directory.
+#+BEGIN_SRC bash
+sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 #+END_SRC
 5. replace content of .zshrc with bashrc
 6. install CUDA Toolkit
@@ -118,6 +240,123 @@ Fri Dec 15 14:07:04 2017
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 8. install cuDNN
+#+BEGIN_SRC bash
+oem@dl ~/Downloads $ sudo dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb
+Selecting previously unselected package libcudnn7.
+(Reading database ... 265428 files and directories currently installed.)
+Preparing to unpack libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb ...
+Unpacking libcudnn7 (7.0.5.15-1+cuda9.1) ...
+Setting up libcudnn7 (7.0.5.15-1+cuda9.1) ...
+Processing triggers for libc-bin (2.23-0ubuntu3) ...
+oem@dl ~/Downloads $ sudo dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb
+Selecting previously unselected package libcudnn7-dev.
+(Reading database ... 265435 files and directories currently installed.)
+Preparing to unpack libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb ...
+Unpacking libcudnn7-dev (7.0.5.15-1+cuda9.1) ...
+Setting up libcudnn7-dev (7.0.5.15-1+cuda9.1) ...
+update-alternatives: using /usr/include/x86_64-linux-gnu/cudnn_v7.h to provide /usr/include/cudnn.h (libcudnn) in auto mode
+oem@dl ~/Downloads $ sudo dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb
+(Reading database ... 265441 files and directories currently installed.)
+Preparing to unpack libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb ...
+Unpacking libcudnn7-doc (7.0.5.15-1+cuda9.1) over (7.0.5.15-1+cuda9.1) ...
+Setting up libcudnn7-doc (7.0.5.15-1+cuda9.1) ...
+oem@dl ~/Downloads $ ls
+cuda                          install.sh                                  libcudnn7-doc_7.0.5.15-1+cuda9.1_amd64.deb
+cuda_9.1.85_387.26_linux.run  libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb      NVIDIA-Linux-x86_64-384.98.run
+cudnn-9.1-linux-x64-v7.tgz    libcudnn7-dev_7.0.5.15-1+cuda9.1_amd64.deb  share
+oem@dl ~/Downloads $ cp -r /usr/src/cudnn_samples_v7/ /home/oem/projects/
+oem@dl ~/Downloads $ cd ../projects/
+oem@dl ~/projects $ ls
+cudnn_samples_v7
+oem@dl ~/projects $ cd cudnn_samples_v7/
+oem@dl ~/projects/cudnn_samples_v7 $ ls
+conv_sample  mnistCUDNN  RNN
+oem@dl ~/projects/cudnn_samples_v7 $ cd mnistCUDNN/
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ make clean &&make
+rm -rf *o
+rm -rf mnistCUDNN
+/usr/local/cuda/bin/nvcc -ccbin g++ -I/usr/local/cuda/include -IFreeImage/include  -m64    -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_53,code=sm_53 -gencode arch=compute_53,code=compute_53 -o fp16_dev.o -c fp16_dev.cu
+g++ -I/usr/local/cuda/include -IFreeImage/include   -o fp16_emu.o -c fp16_emu.cpp
+g++ -I/usr/local/cuda/include -IFreeImage/include   -o mnistCUDNN.o -c mnistCUDNN.cpp
+/usr/local/cuda/bin/nvcc -ccbin g++   -m64      -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_53,code=sm_53 -gencode arch=compute_53,code=compute_53 -o mnistCUDNN fp16_dev.o fp16_emu.o mnistCUDNN.o  -LFreeImage/lib/linux/x86_64 -LFreeImage/lib/linux -lcudart -lcublas -lcudnn -lfreeimage -lstdc++ -lm
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ ls
+data          fp16_dev.cu  fp16_dev.o    fp16_emu.h  FreeImage  Makefile    mnistCUDNN.cpp  readme.txt
+error_util.h  fp16_dev.h   fp16_emu.cpp  fp16_emu.o  gemv.h     mnistCUDNN  mnistCUDNN.o
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ ./mnistCUDNN
+./mnistCUDNN: error while loading shared libraries: libcudart.so.9.1: cannot open shared object file: No such file or directory
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ ls /usr/local/cuda/lib64 | grep libcudart
+libcudart.so
+libcudart.so.9.1
+libcudart.so.9.1.85
+libcudart_static.a
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ PATH="$PATH:/usr/local/cuda/bin";export PATH
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ LD_LIBRARY_PATH="/usr/local/cuda/lib64"; export LD_LIBRARY_PATH
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ exec "$SHELL"
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ LD_LIBRARY_PATH="/usr/local/cuda/lib64"
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ echo $LD_LIBRARY_PATH
+/usr/local/cuda/lib64
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+oem@dl ~/projects/cudnn_samples_v7/mnistCUDNN $ ./mnistCUDNN
+cudnnGetVersion() : 7005 , CUDNN_VERSION from cudnn.h : 7005 (7.0.5)
+Host compiler version : GCC 5.4.0
+There are 2 CUDA capable devices on your machine :
+device 0 : sms 28  Capabilities 6.1, SmClock 1582.0 Mhz, MemSize (Mb) 11172, MemClock 5505.0 Mhz, Ecc=0, boardGroupID=0
+device 1 : sms 28  Capabilities 6.1, SmClock 1582.0 Mhz, MemSize (Mb) 11169, MemClock 5505.0 Mhz, Ecc=0, boardGroupID=1
+Using device 0
+
+Testing single precision
+Loading image data/one_28x28.pgm
+Performing forward propagation ...
+Testing cudnnGetConvolutionForwardAlgorithm ...
+Fastest algorithm is Algo 1
+Testing cudnnFindConvolutionForwardAlgorithm ...
+^^^^ CUDNN_STATUS_SUCCESS for Algo 0: 0.031744 time requiring 0 memory
+^^^^ CUDNN_STATUS_SUCCESS for Algo 1: 0.038912 time requiring 3464 memory
+^^^^ CUDNN_STATUS_SUCCESS for Algo 2: 0.056320 time requiring 57600 memory
+^^^^ CUDNN_STATUS_SUCCESS for Algo 7: 0.083968 time requiring 2057744 memory
+^^^^ CUDNN_STATUS_SUCCESS for Algo 5: 0.108416 time requiring 203008 memory
+Resulting weights from Softmax:
+0.0000000 0.9999399 0.0000000 0.0000000 0.0000561 0.0000000 0.0000012 0.0000017 0.0000010 0.0000000
+Loading image data/three_28x28.pgm
+Performing forward propagation ...
+Resulting weights from Softmax:
+0.0000000 0.0000000 0.0000000 0.9999288 0.0000000 0.0000711 0.0000000 0.0000000 0.0000000 0.0000000
+Loading image data/five_28x28.pgm
+Performing forward propagation ...
+Resulting weights from Softmax:
+0.0000000 0.0000008 0.0000000 0.0000002 0.0000000 0.9999820 0.0000154 0.0000000 0.0000012 0.0000006
+
+Result of classification: 1 3 5
+
+Test passed!
+
+Testing half precision (math in single precision)
+Loading image data/one_28x28.pgm
+Performing forward propagation ...
+Testing cudnnGetConvolutionForwardAlgorithm ...
+Fastest algorithm is Algo 1
+Testing cudnnFindConvolutionForwardAlgorithm ...
+^^^^ CUDNN_STATUS_SUCCESS for Algo 0: 0.028512 time requiring 0 memory
+^^^^ CUDNN_STATUS_SUCCESS for Algo 1: 0.031744 time requiring 3464 memory
+^^^^ CUDNN_STATUS_SUCCESS for Algo 2: 0.052224 time requiring 28800 memory
+^^^^ CUDNN_STATUS_SUCCESS for Algo 7: 0.074752 time requiring 2057744 memory
+^^^^ CUDNN_STATUS_SUCCESS for Algo 5: 0.106496 time requiring 203008 memory
+Resulting weights from Softmax:
+0.0000001 1.0000000 0.0000001 0.0000000 0.0000563 0.0000001 0.0000012 0.0000017 0.0000010 0.0000001
+Loading image data/three_28x28.pgm
+Performing forward propagation ...
+Resulting weights from Softmax:
+0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000714 0.0000000 0.0000000 0.0000000 0.0000000
+Loading image data/five_28x28.pgm
+Performing forward propagation ...
+Resulting weights from Softmax:
+0.0000000 0.0000008 0.0000000 0.0000002 0.0000000 1.0000000 0.0000154 0.0000000 0.0000012 0.0000006
+
+Result of classification: 1 3 5
+
+Test passed!
+
+#+END_SRC
 ** SCRIPTING AND THE SHELL
 *** Shell basics
 - list all the files or folders in a directory
@@ -281,6 +520,10 @@ sudo find / -type f -executable -iname 'python*' -exec file -i '{}' \; | awk -F:
 
 # 2
 ls -ls /usr/bin/python*
+#+END_SRC
+- search all strings in a file:
+#+BEGIN_SRC bash
+grep "_" vocabulary > phrase_vocab
 #+END_SRC
 *** zsh
 #+BEGIN_SRC shell

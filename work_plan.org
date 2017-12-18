@@ -163,8 +163,11 @@ CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
 - [ ] configuring deep learning hardware, operation system, software.
+- [ ] test GPU server.
+- [ ] test sets simularity, A-B=C-D?, A+B=
 - [ ] visualize vocabulary embedding using t-SNE which project embedding vectors into 2-D surface from an proper perspective.
   need to batch words in frequency.
+- [ ] train function names based on wiki pages on functions, models, and python/matlab/sas/cppreference manuals, function names and function descriptions, excel formula, VBA, VB, guass, whatever software which has a function dictionary and manual.
 - [X] incremental training finance pages based via online training.
   online training can not continue missing frequency in pretrained google binary file.
 - [ ] cut/training Chinese osets words into files.
