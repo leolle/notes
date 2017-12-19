@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-05 Tue 14:31 -->
+<!-- 2017-12-19 Tue 10:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -223,13 +223,13 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline38">8.2. asset allocation strategies is a three-step process:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline61">9. Black litterman model step-by-step</a>
+<li><a href="#orgheadline64">9. Black litterman model step-by-step</a>
 <ul>
 <li><a href="#orgheadline40">9.1. Modern Portfolio Optimization</a></li>
 <li><a href="#orgheadline41">9.2. Problem of mean-variance optimization</a></li>
 <li><a href="#orgheadline43">9.3. Introduction</a>
 <ul>
-<li><a href="#orgheadline42">9.3.1. reverse optimization to mitigate this problem for unconstrainted solution</a></li>
+<li><a href="#orgheadline42">9.3.1. reverse optimization to mitigate this problem for unconstrained solution</a></li>
 </ul>
 </li>
 <li><a href="#orgheadline54">9.4. Black-Litterman model and the process of building the required inputs.</a>
@@ -245,12 +245,18 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline56">9.5.2. An intuitive approach</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline58">9.6. Select asset classes</a></li>
-<li><a href="#orgheadline59">9.7. Deployment on GS:</a></li>
-<li><a href="#orgheadline60">9.8. Shortfall of BLM</a></li>
+<li><a href="#orgheadline60">9.6. The constrained portfolio</a>
+<ul>
+<li><a href="#orgheadline58">9.6.1. Risk constraint:</a></li>
+<li><a href="#orgheadline59">9.6.2. Budget constraint:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline62">10. NLP</a></li>
+<li><a href="#orgheadline61">9.7. Select asset classes</a></li>
+<li><a href="#orgheadline62">9.8. Deployment on GS:</a></li>
+<li><a href="#orgheadline63">9.9. Shortfall of BLM</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline65">10. NLP</a></li>
 </ul>
 </div>
 </div>
@@ -723,8 +729,8 @@ The variation in asset allocation around that target is called tactical asset al
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline61" class="outline-2">
-<h2 id="orgheadline61"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
+<div id="outline-container-orgheadline64" class="outline-2">
+<h2 id="orgheadline64"><span class="section-number-2">9</span> Black litterman model step-by-step</h2>
 <div class="outline-text-2" id="text-9">
 </div><div id="outline-container-orgheadline40" class="outline-3">
 <h3 id="orgheadline40"><span class="section-number-3">9.1</span> Modern Portfolio Optimization</h3>
@@ -811,7 +817,7 @@ In general, when there are portfolio constraints - for example, when short sales
 </div>
 
 <div id="outline-container-orgheadline42" class="outline-4">
-<h4 id="orgheadline42"><span class="section-number-4">9.3.1</span> reverse optimization to mitigate this problem for unconstrainted solution</h4>
+<h4 id="orgheadline42"><span class="section-number-4">9.3.1</span> reverse optimization to mitigate this problem for unconstrained solution</h4>
 <div class="outline-text-4" id="text-9-3-1">
 <p>
 \[\Pi = \lambda\Sigma\omega_{mkt}\]
@@ -1192,9 +1198,30 @@ how to specify a probability density function for each view?
 </div>
 </div>
 
-<div id="outline-container-orgheadline58" class="outline-3">
-<h3 id="orgheadline58"><span class="section-number-3">9.6</span> Select asset classes</h3>
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="section-number-3">9.6</span> The constrained portfolio</h3>
 <div class="outline-text-3" id="text-9-6">
+</div><div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58"><span class="section-number-4">9.6.1</span> Risk constraint:</h4>
+<div class="outline-text-4" id="text-9-6-1">
+<p>
+If the investor is targeting a risk level of 20% per annum, one can calculate the constrainted optimal portfolio weights by taking the unconstrained optimal portfolio weights by taking the unconstrained optimal weights, multiplying it by the raio of the targeted risk level of 20% and the volatility of the unconstrained optimal portfolio.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59"><span class="section-number-4">9.6.2</span> Budget constraint:</h4>
+<div class="outline-text-4" id="text-9-6-2">
+<p>
+a linear combination of the unconstrained optimal portfolio and the global minimum variance portfolio.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">9.7</span> Select asset classes</h3>
+<div class="outline-text-3" id="text-9-7">
 <p>
 criteria for specifying asset classes are:
 </p>
@@ -1220,14 +1247,14 @@ criteria for specifying asset classes are:
 </div>
 </div>
 
-<div id="outline-container-orgheadline59" class="outline-3">
-<h3 id="orgheadline59"><span class="section-number-3">9.7</span> Deployment on GS:</h3>
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62"><span class="section-number-3">9.8</span> Deployment on GS:</h3>
 </div>
 
 
-<div id="outline-container-orgheadline60" class="outline-3">
-<h3 id="orgheadline60"><span class="section-number-3">9.8</span> Shortfall of BLM</h3>
-<div class="outline-text-3" id="text-9-8">
+<div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">9.9</span> Shortfall of BLM</h3>
+<div class="outline-text-3" id="text-9-9">
 <ul class="org-ul">
 <li>非正态分布市场</li>
 </ul>
@@ -1245,8 +1272,8 @@ criteria for specifying asset classes are:
 </div>
 </div>
 
-<div id="outline-container-orgheadline62" class="outline-2">
-<h2 id="orgheadline62"><span class="section-number-2">10</span> NLP</h2>
+<div id="outline-container-orgheadline65" class="outline-2">
+<h2 id="orgheadline65"><span class="section-number-2">10</span> NLP</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Hidden factor model</li>

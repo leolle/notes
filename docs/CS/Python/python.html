@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-05 Tue 09:55 -->
+<!-- 2017-12-19 Tue 10:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -781,6 +781,16 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 <h4 id="orgheadline11"><span class="section-number-4">3.7.1</span> loop</h4>
 <div class="outline-text-4" id="text-3-7-1">
 <ul class="org-ul">
+<li>don't care the interator sequence:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> _ <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>_<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
 <li>fetch several pairs from a dictionary:</li>
 </ul>
 <div class="org-src-container">
@@ -939,6 +949,22 @@ int64
 </div><div id="outline-container-orgheadline27" class="outline-3">
 <h3 id="orgheadline27"><span class="section-number-3">5.1</span> string — Common string operations</h3>
 <div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>if string are digits.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">str</span>.isdigit<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>concatenate two strings</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #E6DB74;">" "</span>.join<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">(</span>str1, str2<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>移除字符串头尾指定的字符（默认为空格）</li>
 </ul>
@@ -1351,6 +1377,17 @@ it’s again replaced with a binary approximation, whose exact value is
 <div id="outline-container-orgheadline77" class="outline-3">
 <h3 id="orgheadline77"><span class="section-number-3">9.2</span> os.path — Common pathname manipulations</h3>
 <div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li>temperary folder:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">import</span> tempfile
+<span style="color: #FD971F;">TEMP_FOLDER</span> = tempfile.gettempdir<span style="color: #AE81FF;">()</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Folder "{}" will be used to save temporary dictionary and corpus.'</span>.<span style="color: #F92672;">format</span><span style="color: #66D9EF;">(</span>TEMP_FOLDER<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>walk all file from a directory and its sub-directory</li>
 </ul>
@@ -2227,6 +2264,101 @@ Python提供了__future__模块，把下一个新版本的特性导入到当前�
 <span style="color: #F92672;">from</span> __future__ <span style="color: #F92672;">import</span> absolute_import
 </pre>
 </div>
+<ul class="org-ul">
+<li>unicode vs utf-8 vs binary strings vs strings</li>
+</ul>
+<p>
+unicode 是编码,例如把一个汉字编成了一个码(计算机不可读).
+</p>
+
+<p>
+A chinese character:      汉
+</p>
+
+<p>
+it's unicode value:       U+6C49
+</p>
+
+<p>
+convert 6C49 to binary:   01101100 01001001
+</p>
+
+<p>
+UTF-8是把character转为binary code的规范, and vice versa.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">binary</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1st Byte</td>
+<td class="org-right">2nd Byte</td>
+<td class="org-left">3rd Byte</td>
+<td class="org-left">4th Byte</td>
+<td class="org-left">Number of Free Bits</td>
+<td class="org-left">Maximum Expressible Unicode Value</td>
+</tr>
+
+<tr>
+<td class="org-right">0xxxxxxx</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">7</td>
+<td class="org-left">007F hex (127)</td>
+</tr>
+
+<tr>
+<td class="org-right">110xxxxx</td>
+<td class="org-right">10xxxxxx</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(5+6)=11</td>
+<td class="org-left">07FF hex (2047)</td>
+</tr>
+
+<tr>
+<td class="org-right">1110xxxx</td>
+<td class="org-right">10xxxxxx</td>
+<td class="org-left">10xxxxxx</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">(4+6+6)=16</td>
+<td class="org-left">FFFF hex (65535)</td>
+</tr>
+
+<tr>
+<td class="org-right">11110xxx</td>
+<td class="org-right">10xxxxxx</td>
+<td class="org-left">10xxxxxx</td>
+<td class="org-left">10xxxxxx</td>
+<td class="org-left">(3+6+6+6)=21</td>
+<td class="org-left">10FFFF hex (1,114,111)</td>
+</tr>
+</tbody>
+</table>
+
 <ul class="org-ul">
 <li>division</li>
 </ul>

@@ -34,7 +34,7 @@ shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 *** Other sources of information
 *** Ways to find and install software
 *** System administration under duress
-*** After installing a new operation system:
+*** Configuring a deep learning machine after installing a new operation system:
 *very important:*
 Can't use the recommended graphical driver from the system.
 1. change software update sauce to Chinese local sauce.
@@ -42,8 +42,8 @@ Can't use the recommended graphical driver from the system.
 sudo apt-get update
 # sudo apt-get upgrade
 #+END_SRC
-2. install required libraries
-- create example.list:
+1. install required libraries
+create example.list:
 touch example.list
 #+BEGIN_SRC txt
 g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
@@ -60,9 +60,13 @@ linux-source linux-headers-generic
 libglu1-mesa libxi-dev libxmu-dev libglu1-mesa-dev
 freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev libglfw3-dev libgles2-mesa-dev
 #+END_SRC
+run this line to install above libraries:
+#+BEGIN_SRC bash
 cat example.list | xargs sudo apt-get -y install
 
-- additional software:
+#+END_SRC
+
+1. additional software:
 #+BEGIN_SRC bash
 # sudo apt-get install python-tk python3-tk python-imaging-tk
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -73,88 +77,62 @@ sudo pip install --upgrade virtualenv
 
 #+END_SRC
 
-2. enable remote control
+1. enable remote control
 #+BEGIN_SRC bash
 sudo apt-get install vinagre
 #+END_SRC
-4. install nvidia driver
-- check nvidia driver
+1. install nvidia driver
+check nvidia driver:
 #+BEGIN_SRC bash
 cat /proc/driver/nvidia/version
 lspci | grep -i nvidia
 lsmod | grep nvidia
 #+END_SRC
-- check & install linux headers
+1. check & install linux headers
 #+BEGIN_SRC bash
 sudo apt-get install linux-headers-$(uname -r)
 #+END_SRC
-- download cuda
-https://developer.nvidia.com/cuda-downloads
+1. Perform the following steps to install CUDA and verify the installation.
+2. download cuda
+[[https://developer.nvidia.com/cuda-downloads][cuda_downloads]]
 
-https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/
+[[https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/][tutorial of installing cuda gpu for deep learning with python]]
 
 https://wiki.zthxxx.me/wiki/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Linux/Ubuntu/Ubuntu-16-%E5%BC%80%E6%9C%BA%E9%BB%98%E8%AE%A4%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2/
 
-- Perform the following steps to install CUDA and verify the installation.
-
-- Disable the Nouveau drivers:
+1. Disable the Nouveau drivers:
 Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
 blacklist nouveau
 options nouveau modeset=0
-- Regenerate the kernel initramfs:
+1. Regenerate the kernel initramfs:
 sudo update-initramfs -u
-- Reboot into runlevel 3 by temporarily adding the number "3" and the word "nomodeset" to the end of the system's kernel boot parameters.
+1. Reboot into runlevel 3 by temporarily adding the number "3" and the word "nomodeset" to the end of the system's kernel boot parameters.
 #+BEGIN_SRC bash
 sudo systemctl isolate multi-user.target
 sudo systemctl enable multi-user.target
 sudo systemctl set-default multi-user.target
 sudo reboot
 #+END_SRC
-- Run the installer silently to install with the default selections (implies acceptance of the EULA):
+1. install nvidia graph card driver first.
+cuda 9 need nvidia driver above 384.00.
+1. Run the installer to install with the default selections (implies acceptance of the EULA):
+#+BEGIN_SRC bash
 sudo init 3
+# carefully choosing options when you have multiple cards installed.
 sudo sh cuda_9.1.85_387.26_linux.run
+
+#+END_SRC
+
 #+BEGIN_SRC txt
 ***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least 384.00 is required for CUDA 9.1 functionality to work.
 #+END_SRC
-- Create an xorg.conf file to use the NVIDIA GPU for display:
+1. Create an xorg.conf file to use the NVIDIA GPU for display:
 #+BEGIN_SRC bash
 sudo nvidia-xconfig
 #+END_SRC
-- Reboot the system to load the graphical interface.
+1. Reboot the system to load the graphical interface.
 Set up the development environment by modifying the PATH and LD_LIBRARY_PATH variables:
 #+BEGIN_SRC bash
-export PATH=/usr/local/cuda-9.1/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-source ~/.bashrc
-#+END_SRC
-- Install a writable copy of the samples then build and run the nbody sample:
-#+BEGIN_SRC bash
-cuda-install-samples-9.1.sh ~
-cd ~/NVIDIA_CUDA-9.1_Samples/5_Simulations/nbody
-GLPATH=/usr/lib make
-./nbody
-#+END_SRC
-- If you have an NVIDIA .run file:
-#+BEGIN_SRC bash
-sudo nano /etc/modprobe.d/blacklist-nouveau.conf
-blacklist nouveau
-options nouveau modeset=0
-
-sudo update-initramfs -u
-#+END_SRC
-
-- Reboot into runlevel 3 by temporarily adding the number "3" and the word "nomodeset" to the end of the system's kernel boot parameters.
-
-#+BEGIN_SRC bash
-# stop x-server
-sudo systemctl isolate multi-user.target
-sudo systemctl enable multi-user.target
-sudo systemctl set-default multi-user.target
-sudo reboot
-sudo init 3
-# chmod +x cuda_9.1.85_387.26_linux.run
-mkdir cuda_installer && cd cuda_installer
-# sudo ../NVIDIA-Linux-x86_64-384.98.run
 # Please make sure that
 # -   PATH includes /usr/local/cuda-9.1/bin
 # -   LD_LIBRARY_PATH includes /usr/local/cuda-9.1/lib64, or, add /usr/local/cuda-9.1/lib64 to /etc/ld.so.conf and run ldconfig as root
@@ -163,9 +141,17 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 LD_LIBRARY_PATH="/usr/local/cuda/lib64"; export LD_LIBRARY_PATH
 PATH="$PATH:/usr/local/cuda/bin";export PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+source ~/.bashrc
 exec "$SHELL"
-# update bash
-# or
+#+END_SRC
+- Install a writable copy of the samples then build and run the nbody sample:
+#+BEGIN_SRC bash
+cuda-install-samples-9.1.sh ~
+cd ~/NVIDIA_CUDA-9.1_Samples/5_Simulations/nbody
+GLPATH=/usr/lib make
+./nbody
+#+END_SRC
+1. *in case* you need to kill x service manually:
 # ps ax | grep X
 # sudo kill -9 PID
 # set graphical as default
@@ -173,10 +159,7 @@ sudo systemctl isolate graphical.target
 sudo systemctl enable graphical.target
 sudo systemctl set-default graphical.target
 sudo reboot
-
-#+END_SRC
-
-- remove nvidia
+1. remove nvidia
 #+BEGIN_SRC bash
 To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-9.1/bin
 To uninstall the NVIDIA Driver, run nvidia-uninstall
@@ -187,23 +170,22 @@ sudo apt-get remove --purge nvidia*
 sudo apt-get update
 sudo apt-get install dkms build-essential linux-headers-generic
 #+END_SRC
-5. install cudnn:
-- mount share folder:
+1. install cudnn:
+2. mount share folder:
 #+BEGIN_SRC bash
 sudo mount -t cifs -o username="gft" //192.168.1.126/share ~/Downloads/share
 #+END_SRC
-- unzip the cuDNN package
+1. unzip the cuDNN package
 #+BEGIN_SRC bash
 tar -xzvf cudnn-9.1-linux-x64-v7.tgz
 #+END_SRC
-- Copy the following files into the CUDA Toolkit directory.
+1. Copy the following files into the CUDA Toolkit directory.
 #+BEGIN_SRC bash
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 #+END_SRC
-5. replace content of .zshrc with bashrc
-6. install CUDA Toolkit
+1. install CUDA Toolkit
 #+BEGIN_SRC bash
 # best way
 sudo apt install nvidia-cuda-toolkit
@@ -214,7 +196,7 @@ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/
 sudo apt-get update
 sudo apt-get install cuda
 #+END_SRC
-7. check nvidia driver installation
+1. check nvidia driver installation
 #+BEGIN_SRC bash
 nvidia-smi
 #+END_SRC
@@ -239,7 +221,7 @@ Fri Dec 15 14:07:04 2017
 |=============================================================================|
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
-8. install cuDNN
+1. install cuDNN source code:
 #+BEGIN_SRC bash
 oem@dl ~/Downloads $ sudo dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb
 Selecting previously unselected package libcudnn7.
@@ -357,6 +339,11 @@ Result of classification: 1 3 5
 Test passed!
 
 #+END_SRC
+1. install tensorflow with GPU support
+#+BEGIN_SRC bash
+sudo apt-get install libcupti-dev
+#+END_SRC
+
 ** SCRIPTING AND THE SHELL
 *** Shell basics
 - list all the files or folders in a directory

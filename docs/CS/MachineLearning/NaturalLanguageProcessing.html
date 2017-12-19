@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-30 Thu 18:23 -->
+<!-- 2017-12-19 Tue 10:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -149,42 +149,36 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline5">1. Overview</a>
+<li><a href="#orgheadline6">1. Overview</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Sentiment Lexicon and Its Issues</a></li>
 <li><a href="#orgheadline2">1.2. Neural Network Architectures</a></li>
 <li><a href="#orgheadline3">1.3. Feature Representation</a></li>
-<li><a href="#orgheadline4">1.4. Word Embedding</a></li>
+<li><a href="#orgheadline5">1.4. Word Embedding</a>
+<ul>
+<li><a href="#orgheadline4">1.4.1. Increamental training with Gensim.</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline12">2. Neo4j</a>
-<ul>
-<li><a href="#orgheadline6">2.1. Graph Fundamentals</a></li>
-<li><a href="#orgheadline7">2.2. A Graph Database</a></li>
-<li><a href="#orgheadline8">2.3. Labels</a></li>
-<li><a href="#orgheadline9">2.4. More Nodes</a></li>
-<li><a href="#orgheadline10">2.5. Consider Relationships</a></li>
-<li><a href="#orgheadline11">2.6. Relationship properties</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">3. Definition of Sentiment Analysis</a>
+<li><a href="#orgheadline9">2. Definition of Sentiment Analysis</a>
 <ul>
-<li><a href="#orgheadline13">3.1. Structure</a></li>
-<li><a href="#orgheadline14">3.2. Opinion Defintion</a></li>
+<li><a href="#orgheadline7">2.1. Structure</a></li>
+<li><a href="#orgheadline8">2.2. Opinion Defintion</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">4. Language Technology Processing</a>
+<li><a href="#orgheadline11">3. Language Technology Processing</a>
 <ul>
-<li><a href="#orgheadline16">4.1. features:</a></li>
+<li><a href="#orgheadline10">3.1. features:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline24">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<li><a href="#orgheadline18">4. Building the Wikipedia Knowledge Graph in Neo4j</a>
 <ul>
-<li><a href="#orgheadline18">5.1. Login</a></li>
-<li><a href="#orgheadline19">5.2. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
-<li><a href="#orgheadline23">5.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<li><a href="#orgheadline12">4.1. Login</a></li>
+<li><a href="#orgheadline13">4.2. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
+<li><a href="#orgheadline17">4.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
 <ul>
-<li><a href="#orgheadline22">5.3.1. Data dumps/Import</a></li>
+<li><a href="#orgheadline16">4.3.1. Data dumps/Import</a></li>
 </ul>
 </li>
 </ul>
@@ -193,8 +187,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="./nlp/NLP.html">Stanford NLP CS224n notes</a>
@@ -246,9 +240,15 @@ opinions, positive and negative.
 <p>
 spam review
 </p>
+<ul class="org-ul">
+<li>language structure:</li>
+</ul>
+<p>
+words -&gt; sentences -&gt; paragraphs -&gt; documents.
+is your input a string text, or a list of strings, or a list of lists composing by string.
+</p>
 </div>
 </div>
-
 <div id="outline-container-orgheadline2" class="outline-3">
 <h3 id="orgheadline2"><span class="section-number-3">1.2</span> Neural Network Architectures</h3>
 <div class="outline-text-3" id="text-1-2">
@@ -280,8 +280,8 @@ Probabilities: Dog(10 times) vs Cat(several times), almost no connection from pr
 </div>
 
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Word Embedding</h3>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.4</span> Word Embedding</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Similarity:</li>
@@ -290,146 +290,34 @@ Probabilities: Dog(10 times) vs Cat(several times), almost no connection from pr
 We represent word meaning similarity using the meaning of the context words.
 </p>
 </div>
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">1.4.1</span> Increamental training with Gensim.</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">model</span> = gensim.models.Word2Vec.load<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'/tmp/model/path'</span><span style="color: #AE81FF;">)</span>
+model.train<span style="color: #AE81FF;">(</span>more_sentences<span style="color: #AE81FF;">)</span>
+</pre>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">2</span> Neo4j</h2>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">2</span> Definition of Sentiment Analysis</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-An open-source NoSQL graph database.
-</p>
-
-<p>
-<a href="http://192.168.1.155:7474/browser/">http://192.168.1.155:7474/browser/</a>
-</p>
-</div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.1</span> Graph Fundamentals</h3>
+</div><div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.1</span> Structure</h3>
 <div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
-<li>Nodes - graph data records</li>
-<li>Relationships - connect nodes</li>
-<li>Properties - named data values</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.2</span> A Graph Database</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-Neo4j stores data in a Graph, with records called Nodes.
-</p>
-
-<p>
-The simplest graph has just a single node with some named values called Properties. Let's draw a social graph of our friends on the Neo4j team:
-</p>
-
-<p>
-1.Start by drawing a circle for the node
-2.Add the name Emil
-3.Note that he is from Sweden
-</p>
-<ul class="org-ul">
-<li>Nodes are the name for data records in a graph</li>
-<li>Data is stored as Properties</li>
-<li>Properties are simple name/value pairs</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.3</span> Labels</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-Associate a set of nodes.
-</p>
-
-<p>
-Nodes can be grouped together by applying a Label to each member. In our social graph, we'll label each node that represents a Person.
-</p>
-
-<ol class="org-ol">
-<li>Apply the label "Person" to the node we created for Emil</li>
-<li>Color "Person" nodes red</li>
-<li>A node can have zero or more labels</li>
-<li>Labels do not have any properties</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">2.4</span> More Nodes</h3>
-<div class="outline-text-3" id="text-2-4">
-<p>
-Schema-free, nodes can have a mix of common and unique properties.
-</p>
-
-<ul class="org-ul">
-<li>Similar nodes can have different properties</li>
-<li>Properties can be strings, numbers, or booleans</li>
-<li>Neo4j can store billions of nodes</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">2.5</span> Consider Relationships</h3>
-<div class="outline-text-3" id="text-2-5">
-<p>
-Connect nodes in the graph
-</p>
-
-<p>
-The real power of Neo4j is in connected data. To associate any two nodes, add a Relationship which describes how the records are related.
-</p>
-
-<p>
-In our social graph, we simply say who KNOWS whom:
-</p>
-
-<p>
-1.Emil KNOWS Johan and Ian
-2.Johan KNOWS Ian and Rik
-3.Rik and Ian KNOWS Allison
-</p>
-<ul class="org-ul">
-<li>Relationships always have direction</li>
-<li>Relationships always have a type</li>
-<li>Relationships form patterns of data</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.6</span> Relationship properties</h3>
-<div class="outline-text-3" id="text-2-6">
-<p>
-Store information shared by two nodes.
-</p>
-
-<p>
-In a property graph, relationships are data records that can also contain properties. Looking more closely at Emil's relationships, note that:
-</p>
-
-<ul class="org-ul">
-<li>Emil has known Johan since 2001</li>
-<li>Emil rates Ian 5 (out of 5)</li>
-<li>Everyone else can have similar relationship properties</li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">3</span> Definition of Sentiment Analysis</h2>
-<div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">3.1</span> Structure</h3>
-<div class="outline-text-3" id="text-3-1">
 <p>
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">3.2</span> Opinion Defintion</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">2.2</span> Opinion Defintion</h3>
+<div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Observation: An opinion consists of two key components: a target g and a sentiment s on the target.</li>
 
@@ -442,16 +330,16 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">4</span> Language Technology Processing</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">3</span> Language Technology Processing</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 [<a href="http://ltp.ai/docs/index.html">http://ltp.ai/docs/index.html</a>]
 </p>
 </div>
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">4.1</span> features:</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">3.1</span> features:</h3>
+<div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>针对单一自然语言处理任务，生成统计机器学习模型的工具</li>
 <li>针对单一自然语言处理任务，调用模型进行分析的编程接口</li>
@@ -462,9 +350,9 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline24" class="outline-2">
-<h2 id="orgheadline24"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">4</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>guide:</li>
 </ul>
@@ -479,9 +367,9 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 <a href="https://en.wikipedia.org/wiki/Category:Main_topic_classifications">https://en.wikipedia.org/wiki/Category:Main_topic_classifications</a>
 </p>
 </div>
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">5.1</span> Login</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">4.1</span> Login</h3>
+<div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 
 <pre class="src src-neo4j">:server connect
@@ -502,9 +390,9 @@ darts-quota-alternation
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">5.2</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">4.2</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
+<div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>wiki dumps:</li>
 </ul>
@@ -645,9 +533,9 @@ return value
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">5.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">4.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
+<div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>basics</li>
 <li>wiki page structure example:</li>
@@ -819,10 +707,10 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </div>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-4">
-<h4 id="orgheadline22"><span class="section-number-4">5.3.1</span> Data dumps/Import</h4>
-<div class="outline-text-4" id="text-5-3-1">
-</div><ol class="org-ol"><li><a id="orgheadline20"></a>structure:<br  /><div class="outline-text-5" id="text-5-3-1-1">
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">4.3.1</span> Data dumps/Import</h4>
+<div class="outline-text-4" id="text-4-3-1">
+</div><ol class="org-ol"><li><a id="orgheadline14"></a>structure:<br  /><div class="outline-text-5" id="text-4-3-1-1">
 <ul class="org-ul">
 <li>category:</li>
 </ul>
@@ -1008,7 +896,7 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </table>
 </div></li>
 
-<li><a id="orgheadline21"></a>methods<br  /><div class="outline-text-5" id="text-5-3-1-2">
+<li><a id="orgheadline15"></a>methods<br  /><div class="outline-text-5" id="text-4-3-1-2">
 <p>
 <a href="https://meta.wikimedia.org/wiki/Data_dumps">https://meta.wikimedia.org/wiki/Data_dumps</a>
 </p>

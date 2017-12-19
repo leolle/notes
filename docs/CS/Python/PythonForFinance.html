@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-19 Thu 17:30 -->
+<!-- 2017-12-19 Tue 10:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -363,17 +363,14 @@ for the JavaScript code in this tag.
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> 算法与数据结构</li>
-<li class="off"><code>[&#xa0;]</code> 机器学习</li>
-<li class="off"><code>[&#xa0;]</code> Hadoop</li>
-<li class="off"><code>[&#xa0;]</code> Hbase</li>
-<li class="off"><code>[&#xa0;]</code> 图形数据库, Tableau</li>
-<li class="off"><code>[&#xa0;]</code> HANA</li>
-<li class="off"><code>[&#xa0;]</code> Message Queue</li>
-<li class="off"><code>[&#xa0;]</code> Tomcat</li>
+<li class="off"><code>[&#xa0;]</code> 机器学习
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> DeepLearning</li>
+</ul></li>
+<li class="on"><code>[X]</code> 图形数据库, Tableau, Neo4j</li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-orgheadline5" class="outline-2">
 <h2 id="orgheadline5"><span class="section-number-2">2</span> Introductory Examples</h2>
 <div class="outline-text-2" id="text-2">
@@ -472,7 +469,10 @@ for the JavaScript code in this tag.
 <h4 id="orgheadline28"><span class="section-number-4">6.1.1</span> Regression</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <p>
-\[standard error = \d{standard deviation}{\sqrt{N}}\]
+The residual, \({\displaystyle e_{i}=y_{i}-{\widehat {y}}_{i}}\), is the difference between the value of the dependent variable predicted by the model, \({\displaystyle {\widehat {y}}_{i}}\), and the true value of the dependent variable, \(y_{i}\).
+The standard errors of the parameter estimates are given by
+\[{\displaystyle {\hat {\sigma }}_{\beta _{1}}={\hat {\sigma }}_{\varepsilon }{\sqrt {\frac {1}{\sum (x_{i}-{\bar {x}})^{2}}}}}\]
+\[{\displaystyle {\hat {\sigma }}_{\beta _{0}}={\hat {\sigma }}_{\varepsilon }{\sqrt {{\frac {1}{n}}+{\frac {{\bar {x}}^{2}}{\sum (x_{i}-{\bar {x}})^{2}}}}}={\hat {\sigma }}_{\beta _{1}}{\sqrt {\frac {\sum x_{i}^{2}}{n}}}}\]
 </p>
 <ul class="org-ul">
 <li>The standard error is a measure of sample variability.</li>
