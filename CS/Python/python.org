@@ -755,6 +755,14 @@ $ snakeviz profile.stats
 ** tracemalloc — Trace memory allocations
 * Software Packaging and Distribution
 ** pip
+- install with a wheel .whl file:
+#+BEGIN_SRC bash
+pip install *.whl
+#+END_SRC
+- Upgrading pip
+#+BEGIN_SRC bash
+pip install -U pip
+#+END_SRC
 - add below setup to ~/.pip/pip.conf
 #+begin_src txt
 [global]
@@ -766,9 +774,11 @@ index-url=http://mirrors.aliyun.com/pypi/simple/
 [install]
 trusted-host=mirrors.aliyun.com
 #trusted-host=mirrors.ustc.edu.cn
-#trusted-host=http://mirrors.aliyun.com/pypi/simple/
 #+end_src
-
+- generate a requirements file:
+#+BEGIN_SRC bash
+pip freeze > requirements.txt
+#+END_SRC
 - pip install directly:
 requirements.txt
 #+begin_src txt
@@ -1695,3 +1705,13 @@ array([ 120.,  210.])
 220L
 #+END_SRC
 [https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html]
+* Deep Learning
+** Tensorflow
+- install tensorflow:
+#+BEGIN_SRC bash
+pip install tensorflow-gpu
+#+END_SRC
+- test drive:
+#+BEGIN_SRC bash
+python -m tensorflow.models.image.mnist.convolutional
+#+END_SRC

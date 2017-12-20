@@ -47,7 +47,7 @@ create example.list:
 touch example.list
 #+BEGIN_SRC txt
 g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
-build-essential cmake git unzip pkg-config python-pip
+build-essential cmake git unzip pkg-config python-pip openssh-server
 libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
 libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 libxvidcore-dev libx264-dev
@@ -124,7 +124,8 @@ sudo sh cuda_9.1.85_387.26_linux.run
 #+END_SRC
 
 #+BEGIN_SRC txt
-***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least 384.00 is required for CUDA 9.1 functionality to work.
+***WARNING: Incomplete installation! This installation did not install the CUDA Driver.
+A driver of version at least 384.00 is required for CUDA 9.1 functionality to work.
 #+END_SRC
 1. Create an xorg.conf file to use the NVIDIA GPU for display:
 #+BEGIN_SRC bash
@@ -135,7 +136,8 @@ Set up the development environment by modifying the PATH and LD_LIBRARY_PATH var
 #+BEGIN_SRC bash
 # Please make sure that
 # -   PATH includes /usr/local/cuda-9.1/bin
-# -   LD_LIBRARY_PATH includes /usr/local/cuda-9.1/lib64, or, add /usr/local/cuda-9.1/lib64 to /etc/ld.so.conf and run ldconfig as root
+# -   LD_LIBRARY_PATH includes /usr/local/cuda-9.1/lib64, or,
+# add /usr/local/cuda-9.1/lib64 to /etc/ld.so.conf and run ldconfig as root
 export PATH=/usr/local/cuda-9.1/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-9.1/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 LD_LIBRARY_PATH="/usr/local/cuda/lib64"; export LD_LIBRARY_PATH
@@ -343,9 +345,23 @@ Test passed!
 #+BEGIN_SRC bash
 sudo apt-get install libcupti-dev
 #+END_SRC
-
+tensorflow-gpu is not supported installed from pip, you should try building wheel from the source code from [[https://pypi.python.org/pypi/tensorflow-gpu]].
+#+BEGIN_SRC bash
+pip --no-cache-dir install https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl
+Collecting tensorflow==1.4.1 from https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl
+pip install --upgrade https://pypi.python.org/packages/55/68/d99d2a93e5ea22eb410e5e173d014d926ce30aa10a3d2ed7e9033deeb563/tensorflow_gpu-1.4.1-cp35-cp35m-manylinux1_x86_64.whl#md5=1cda67643cfca3feef0fea9968864bf3
+#+END_SRC
+- verifying tensorflow-gpu library:
+#+BEGIN_SRC bash
+python -m tensorflow.models.image.mnist.convolutional
+#+END_SRC
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- Make bash act as if it had been invoked as a login shell
+#+BEGIN_SRC bash
+exec "$SHELL"
+
+#+END_SRC
 - list all the files or folders in a directory
 #+BEGIN_SRC bash
 alias lf="ls -l | egrep -v '^d'"
