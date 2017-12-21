@@ -357,10 +357,13 @@ python -m tensorflow.models.image.mnist.convolutional
 #+END_SRC
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- check md5
+#+BEGIN_SRC bash
+md5sum filename
+#+END_SRC
 - Make bash act as if it had been invoked as a login shell
 #+BEGIN_SRC bash
 exec "$SHELL"
-
 #+END_SRC
 - list all the files or folders in a directory
 #+BEGIN_SRC bash
