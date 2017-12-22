@@ -842,6 +842,16 @@ df -sh *
 *** Networking road map
 *** Packet addressing
 *** IP addresses: the gory details
+- change dynamic ip to static ip:
+#+BEGIN_SRC bash
+sudo nano /etc/network/interfaces
+auto eno1
+iface eno1 inet static
+address 192.168.1.73
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 8.8.8.8
+#+END_SRC
 *** Routing
 *** ARP: the Address Resolution Protocol
 *** DHCP: the Dynamic Host Configuration Protocol
