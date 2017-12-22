@@ -717,6 +717,10 @@ ps aux | grep -ie amarok | awk '{print $2}' | xargs kill -9
 
 ** THE FILESYSTEM
 *** Pathnames
+- get file's absolute path
+#+BEGIN_SRC bash
+readlink -f file.txt
+#+END_SRC
 *** Filesystem mounting and unmounting
 *** The organization of the file tree
 *** File types
@@ -1049,6 +1053,10 @@ dns-nameservers 8.8.8.8
 ** COOPERATING WITH WINDOWS
 *** Logging in to a UNIX system from Windows
 *** Accessing remote desktops
+- VNC
+#+BEGIN_SRC bash
+sudo apt-get install vinagre -y
+#+END_SRC
 *** Running Windows and Windows-like applications
 *** Using command-line tools with Windows
 *** Windows compliance with email and web standards

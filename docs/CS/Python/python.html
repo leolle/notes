@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-19 Tue 10:32 -->
+<!-- 2017-12-22 Fri 11:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -548,6 +548,11 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline289">30.4. scipy</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline292">31. Deep Learning</a>
+<ul>
+<li><a href="#orgheadline291">31.1. Tensorflow</a></li>
 </ul>
 </li>
 </ul>
@@ -2055,6 +2060,22 @@ STEPS:
 <h3 id="orgheadline198"><span class="section-number-3">20.1</span> pip</h3>
 <div class="outline-text-3" id="text-20-1">
 <ul class="org-ul">
+<li>install with a wheel .whl file:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">pip install *.whl
+</pre>
+</div>
+<ul class="org-ul">
+<li>Upgrading pip</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">pip install -U pip
+</pre>
+</div>
+<ul class="org-ul">
 <li>add below setup to ~/.pip/pip.conf</li>
 </ul>
 <div class="org-src-container">
@@ -2068,10 +2089,16 @@ index-url=http://mirrors.aliyun.com/pypi/simple/
 [install]
 trusted-host=mirrors.aliyun.com
 #trusted-host=mirrors.ustc.edu.cn
-#trusted-host=http://mirrors.aliyun.com/pypi/simple/
 </pre>
 </div>
+<ul class="org-ul">
+<li>generate a requirements file:</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-bash">pip freeze &gt; requirements.txt
+</pre>
+</div>
 <ul class="org-ul">
 <li>pip install directly:</li>
 </ul>
@@ -3688,6 +3715,31 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 <p>
 [<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html</a>]
 </p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline292" class="outline-2">
+<h2 id="orgheadline292"><span class="section-number-2">31</span> Deep Learning</h2>
+<div class="outline-text-2" id="text-31">
+</div><div id="outline-container-orgheadline291" class="outline-3">
+<h3 id="orgheadline291"><span class="section-number-3">31.1</span> Tensorflow</h3>
+<div class="outline-text-3" id="text-31-1">
+<ul class="org-ul">
+<li>install tensorflow:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">pip install tensorflow-gpu
+</pre>
+</div>
+<ul class="org-ul">
+<li>test drive:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">python -m tensorflow.models.image.mnist.convolutional
+</pre>
+</div>
 </div>
 </div>
 </div>

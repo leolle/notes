@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-16 Thu 09:56 -->
+<!-- 2017-12-22 Fri 11:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -158,6 +158,12 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline6">3. Docker commands</a></li>
+<li><a href="#orgheadline9">4. Docker install mongodb</a>
+<ul>
+<li><a href="#orgheadline7">4.1. create a container:</a></li>
+<li><a href="#orgheadline8">4.2. 使用mongo镜像执行mongo 命令连接到刚启动的容器,主机IP为172.17.0.1</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -233,6 +239,104 @@ sudo systemctl restart docker
 </div>
 <div id="outline-container-orgheadline6" class="outline-2">
 <h2 id="orgheadline6"><span class="section-number-2">3</span> Docker commands</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>list all images</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">docker images
+</pre>
+</div>
+<ul class="org-ul">
+<li>rm an image</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">docker rmi image_name
+</pre>
+</div>
+<ul class="org-ul">
+<li>list the last created container</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">docker ps -l
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">4</span> Docker install mongodb</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">4.1</span> create a container:</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+
+<pre class="src src-bash">docker run --name wiki -p <span style="color: #AE81FF;">27017:27017</span> -v $<span style="color: #FD971F;">PWD</span>/mongodb:/data/db -d mongo:3.2
+</pre>
+</div>
+<p>
+-p 27017:27017 :将容器的27017 端口映射到主机的27017 端口
+</p>
+
+<p>
+-v $PWD/db:/data/db :将主机中当前目录下的db挂载到容器的/data/db，作为mongo数据存储目录
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">4.2</span> 使用mongo镜像执行mongo 命令连接到刚启动的容器,主机IP为172.17.0.1</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+
+<pre class="src src-bash">&#10140;  ~ docker run -it mongo:3.2 mongo --host <span style="color: #AE81FF;">172.17.0.1</span>
+MongoDB shell version: <span style="color: #AE81FF;">3.2.9</span>
+connecting to: <span style="color: #AE81FF;">172.17.0.1:27017/test</span>
+Welcome to the MongoDB shell.
+For interactive help, type <span style="color: #E6DB74;">"help"</span>.
+For more comprehensive documentation, see
+  http://docs.mongodb.org/
+Questions? Try the support group
+  http://groups.google.com/group/mongodb-user
+Server has startup warnings:
+<span style="color: #AE81FF;">2017-12-22T02:00:13.170+0000</span> I CONTROL  <span style="color: #AE81FF;">[</span>initandlisten<span style="color: #AE81FF;">]</span>
+<span style="color: #AE81FF;">2017-12-22T02:00:13.170+0000</span> I CONTROL  <span style="color: #AE81FF;">[</span>initandlisten<span style="color: #AE81FF;">]</span> ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is <span style="color: #E6DB74;">'always'</span>.
+<span style="color: #AE81FF;">2017-12-22T02:00:13.170+0000</span> I CONTROL  <span style="color: #AE81FF;">[</span>initandlisten<span style="color: #AE81FF;">]</span> **        We suggest setting it to <span style="color: #E6DB74;">'never'</span>
+<span style="color: #AE81FF;">2017-12-22T02:00:13.170+0000</span> I CONTROL  <span style="color: #AE81FF;">[</span>initandlisten<span style="color: #AE81FF;">]</span>
+<span style="color: #AE81FF;">2017-12-22T02:00:13.170+0000</span> I CONTROL  <span style="color: #AE81FF;">[</span>initandlisten<span style="color: #AE81FF;">]</span> ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is <span style="color: #E6DB74;">'always'</span>.
+<span style="color: #AE81FF;">2017-12-22T02:00:13.170+0000</span> I CONTROL  <span style="color: #AE81FF;">[</span>initandlisten<span style="color: #AE81FF;">]</span> **        We suggest setting it to <span style="color: #E6DB74;">'never'</span>
+<span style="color: #AE81FF;">2017-12-22T02:00:13.170+0000</span> I CONTROL  <span style="color: #AE81FF;">[</span>initandlisten<span style="color: #AE81FF;">]</span>
+&gt;
+</pre>
+</div>
+<ul class="org-ul">
+<li>add an user</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongo">&gt; db.createUser(
+...     {
+...       user: "root",
+...       pwd: "root",
+...       roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+...     }
+... )
+Successfully added user: {
+  "user" : "root",
+  "roles" : [
+    {
+      "role" : "userAdminAnyDatabase",
+      "db" : "admin"
+    }
+  ]
+}
+</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </body>

@@ -139,3 +139,7 @@ Successfully added user: {
 }
 
 #+END_SRC
+- delete content of a collection
+#+BEGIN_SRC nosql:mongodb
+db.collection_name.remove({})
+#+END_SRC

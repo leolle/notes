@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-19 Tue 10:32 -->
+<!-- 2017-12-22 Fri 11:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -667,7 +667,7 @@ touch example.list
 <div class="org-src-container">
 
 <pre class="src src-txt">g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
-build-essential cmake git unzip pkg-config python-pip
+build-essential cmake git unzip pkg-config python-pip openssh-server
 libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
 libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 libxvidcore-dev libx264-dev
@@ -793,7 +793,8 @@ sudo sh cuda_9.1.85_387.26_linux.run
 
 <div class="org-src-container">
 
-<pre class="src src-txt">***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least 384.00 is required for CUDA 9.1 functionality to work.
+<pre class="src src-txt">***WARNING: Incomplete installation! This installation did not install the CUDA Driver.
+A driver of version at least 384.00 is required for CUDA 9.1 functionality to work.
 </pre>
 </div>
 <ol class="org-ol">
@@ -814,7 +815,8 @@ Set up the development environment by modifying the PATH and LD_LIBRARY_PATH var
 
 <pre class="src src-bash"><span style="color: #75715E;"># </span><span style="color: #75715E;">Please make sure that</span>
 <span style="color: #75715E;"># </span><span style="color: #75715E;">-   PATH includes /usr/local/cuda-9.1/bin</span>
-<span style="color: #75715E;"># </span><span style="color: #75715E;">-   LD_LIBRARY_PATH includes /usr/local/cuda-9.1/lib64, or, add /usr/local/cuda-9.1/lib64 to /etc/ld.so.conf and run ldconfig as root</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">-   LD_LIBRARY_PATH includes /usr/local/cuda-9.1/lib64, or,</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">add /usr/local/cuda-9.1/lib64 to /etc/ld.so.conf and run ldconfig as root</span>
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">PATH</span>=/usr/local/cuda-9.1/bin$<span style="color: #AE81FF;">{</span><span style="color: #FD971F;">PATH</span>:+:$<span style="color: #66D9EF;">{</span><span style="color: #FD971F;">PATH</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">}</span>
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">LD_LIBRARY_PATH</span>=/usr/local/cuda-9.1/lib64$<span style="color: #AE81FF;">{</span><span style="color: #FD971F;">LD_LIBRARY_PATH</span>:+:$<span style="color: #66D9EF;">{</span><span style="color: #FD971F;">LD_LIBRARY_PATH</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">}</span>
 <span style="color: #FD971F;">LD_LIBRARY_PATH</span>=<span style="color: #E6DB74;">"/usr/local/cuda/lib64"</span>; <span style="color: #F92672;">export</span> LD_LIBRARY_PATH
@@ -1063,16 +1065,49 @@ Test passed!
 <pre class="src src-bash">sudo apt-get install libcupti-dev
 </pre>
 </div>
-</div>
-</div>
-</div>
+<p>
+tensorflow-gpu is not supported installed from pip, you should try building wheel from the source code from <a href="https://pypi.python.org/pypi/tensorflow-gpu">https://pypi.python.org/pypi/tensorflow-gpu</a>.
+</p>
+<div class="org-src-container">
 
+<pre class="src src-bash">pip --no-cache-dir install https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl
+Collecting <span style="color: #FD971F;">tensorflow</span>==<span style="color: #AE81FF;">1.4.1</span> from https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl
+pip install --upgrade https://pypi.python.org/packages/55/68/d99d2a93e5ea22eb410e5e173d014d926ce30aa10a3d2ed7e9033deeb563/tensorflow_gpu-1.4.1-cp35-cp35m-manylinux1_x86_64.whl#<span style="color: #FD971F;">md5</span>=<span style="color: #AE81FF;">1cda67643cfca3feef0fea9968864bf3</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>verifying tensorflow-gpu library:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">python -m tensorflow.models.image.mnist.convolutional
+</pre>
+</div>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline25" class="outline-3">
 <h3 id="orgheadline25"><span class="section-number-3">1.2</span> SCRIPTING AND THE SHELL</h3>
 <div class="outline-text-3" id="text-1-2">
 </div><div id="outline-container-orgheadline16" class="outline-4">
 <h4 id="orgheadline16"><span class="section-number-4">1.2.1</span> Shell basics</h4>
 <div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>check md5</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">md5sum filename
+</pre>
+</div>
+<ul class="org-ul">
+<li>Make bash act as if it had been invoked as a login shell</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #F92672;">exec</span> <span style="color: #E6DB74;">"$SHELL"</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>list all the files or folders in a directory</li>
 </ul>
@@ -1601,6 +1636,16 @@ ps aux | grep -ie amarok | awk <span style="color: #E6DB74;">'{print $2}'</span>
 <div class="outline-text-3" id="text-1-6">
 </div><div id="outline-container-orgheadline51" class="outline-4">
 <h4 id="orgheadline51"><span class="section-number-4">1.6.1</span> Pathnames</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li>get file's absolute path</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">readlink -f file.txt
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline52" class="outline-4">
 <h4 id="orgheadline52"><span class="section-number-4">1.6.2</span> Filesystem mounting and unmounting</h4>
@@ -1970,6 +2015,22 @@ sudo fdisk -l
 </div>
 <div id="outline-container-orgheadline134" class="outline-4">
 <h4 id="orgheadline134"><span class="section-number-4">2.1.4</span> IP addresses: the gory details</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<ul class="org-ul">
+<li>change dynamic ip to static ip:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo nano /etc/network/interfaces
+auto eno1
+iface eno1 inet static
+address <span style="color: #AE81FF;">192.168.1.73</span>
+netmask <span style="color: #AE81FF;">255.255.255.0</span>
+gateway <span style="color: #AE81FF;">192.168.1.1</span>
+dns-nameservers <span style="color: #AE81FF;">8.8.8.8</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline135" class="outline-4">
 <h4 id="orgheadline135"><span class="section-number-4">2.1.5</span> Routing</h4>
@@ -2518,6 +2579,16 @@ sudo fdisk -l
 </div>
 <div id="outline-container-orgheadline301" class="outline-4">
 <h4 id="orgheadline301"><span class="section-number-4">3.7.2</span> Accessing remote desktops</h4>
+<div class="outline-text-4" id="text-3-7-2">
+<ul class="org-ul">
+<li>VNC</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo apt-get install vinagre -y
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline302" class="outline-4">
 <h4 id="orgheadline302"><span class="section-number-4">3.7.3</span> Running Windows and Windows-like applications</h4>
