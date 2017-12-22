@@ -76,3 +76,66 @@ docker run \
 
 #+END_SRC
 * Docker commands
+- list all images
+#+BEGIN_SRC bash
+docker images
+#+END_SRC
+- rm an image
+#+BEGIN_SRC bash
+docker rmi image_name
+#+END_SRC
+- list the last created container
+#+BEGIN_SRC bash
+docker ps -l
+#+END_SRC
+
+* Docker install mongodb
+** create a container:
+#+BEGIN_SRC bash
+docker run --name wiki -p 27017:27017 -v $PWD/mongodb:/data/db -d mongo:3.2
+#+END_SRC
+-p 27017:27017 :将容器的27017 端口映射到主机的27017 端口
+
+-v $PWD/db:/data/db :将主机中当前目录下的db挂载到容器的/data/db，作为mongo数据存储目录
+** 使用mongo镜像执行mongo 命令连接到刚启动的容器,主机IP为172.17.0.1
+#+BEGIN_SRC bash
+➜  ~ docker run -it mongo:3.2 mongo --host 172.17.0.1
+MongoDB shell version: 3.2.9
+connecting to: 172.17.0.1:27017/test
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	http://docs.mongodb.org/
+Questions? Try the support group
+	http://groups.google.com/group/mongodb-user
+Server has startup warnings:
+2017-12-22T02:00:13.170+0000 I CONTROL  [initandlisten]
+2017-12-22T02:00:13.170+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2017-12-22T02:00:13.170+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2017-12-22T02:00:13.170+0000 I CONTROL  [initandlisten]
+2017-12-22T02:00:13.170+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2017-12-22T02:00:13.170+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2017-12-22T02:00:13.170+0000 I CONTROL  [initandlisten]
+>
+
+#+END_SRC
+- add an user
+#+BEGIN_SRC mongo
+> db.createUser(
+...     {
+...       user: "root",
+...       pwd: "root",
+...       roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+...     }
+... )
+Successfully added user: {
+	"user" : "root",
+	"roles" : [
+		{
+			"role" : "userAdminAnyDatabase",
+			"db" : "admin"
+		}
+	]
+}
+
+#+END_SRC
