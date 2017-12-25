@@ -531,6 +531,10 @@ ls -ls /usr/bin/python*
 #+BEGIN_SRC bash
 grep "_" vocabulary > phrase_vocab
 #+END_SRC
+- search under a subfolder
+#+BEGIN_SRC bash
+find . -name "name*"
+#+END_SRC
 *** zsh
 #+BEGIN_SRC shell
 # If you come from bash you might have to change your $PATH.
@@ -848,7 +852,7 @@ df -sh *
 *** IP addresses: the gory details
 - change dynamic ip to static ip:
 #+BEGIN_SRC bash
-sudo nano /etc/network/interfaces
+sudo gedit /etc/network/interfaces
 auto eno1
 iface eno1 inet static
 address 192.168.1.73
@@ -856,6 +860,8 @@ netmask 255.255.255.0
 gateway 192.168.1.1
 dns-nameservers 8.8.8.8
 #+END_SRC
+- restart network service
+sudo ifdown eth0 && sudo ifup eth0
 *** Routing
 *** ARP: the Address Resolution Protocol
 *** DHCP: the Dynamic Host Configuration Protocol

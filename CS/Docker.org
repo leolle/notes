@@ -119,15 +119,17 @@ Server has startup warnings:
 >
 
 #+END_SRC
-- add an user
+- Create the system user administrator
+*you are not allowed to create user under the local dabase.*
 #+BEGIN_SRC mongo
+> use admin
 > db.createUser(
-...     {
-...       user: "root",
-...       pwd: "root",
-...       roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
-...     }
-... )
+     {
+       user: "root",
+       pwd: "root",
+       roles: [ { role: "userAdminAnyDatabase", db: "wiki" } ]
+     }
+ )
 Successfully added user: {
 	"user" : "root",
 	"roles" : [
@@ -139,7 +141,42 @@ Successfully added user: {
 }
 
 #+END_SRC
+- Create a user administrator for a single database
+#+BEGIN_SRC mongo
+use records
+db.createUser(
+  {
+    user: "wiki",
+    pwd: "root",
+    roles: [ { role: "readWrite", db: "local" } ]
+  }
+)
+db.createUser(
+  {
+    user: "wiki",
+    pwd: "root",
+    roles: [ { role: "userAdmin", db: "wiki" } ]
+  }
+)
+db.createUser(
+     {
+       user:"wiki",
+       pwd:"root",
+       roles:[{role:"root",db:"wiki"}]
+     }
+  )
+db.createUser(
+  {
+    user: "wiki",
+    pwd: "root",
+    roles: [ { role: "userAdmin", db: "wiki" } ]
+  }
+)
+#+END_SRC
 - delete content of a collection
 #+BEGIN_SRC nosql:mongodb
 db.collection_name.remove({})
 #+END_SRC
+- 验证用户
+>use local
+>db.auth('myadmin', 'secret')

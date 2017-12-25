@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-22 Fri 11:27 -->
+<!-- 2017-12-25 Mon 19:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -313,17 +313,21 @@ Server has startup warnings:
 </pre>
 </div>
 <ul class="org-ul">
-<li>add an user</li>
+<li>Create the system user administrator</li>
 </ul>
+<p>
+<b>you are not allowed to create user under the local dabase.</b>
+</p>
 <div class="org-src-container">
 
-<pre class="src src-mongo">&gt; db.createUser(
-...     {
-...       user: "root",
-...       pwd: "root",
-...       roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
-...     }
-... )
+<pre class="src src-mongo">&gt; use admin
+&gt; db.createUser(
+     {
+       user: "root",
+       pwd: "root",
+       roles: [ { role: "userAdminAnyDatabase", db: "wiki" } ]
+     }
+ )
 Successfully added user: {
   "user" : "root",
   "roles" : [
@@ -335,6 +339,57 @@ Successfully added user: {
 }
 </pre>
 </div>
+<ul class="org-ul">
+<li>Create a user administrator for a single database</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongo">use records
+db.createUser(
+  {
+    user: "wiki",
+    pwd: "root",
+    roles: [ { role: "readWrite", db: "local" } ]
+  }
+)
+db.createUser(
+  {
+    user: "wiki",
+    pwd: "root",
+    roles: [ { role: "userAdmin", db: "wiki" } ]
+  }
+)
+db.createUser(
+     {
+       user:"wiki",
+       pwd:"root",
+       roles:[{role:"root",db:"wiki"}]
+     }
+  )
+db.createUser(
+  {
+    user: "wiki",
+    pwd: "root",
+    roles: [ { role: "userAdmin", db: "wiki" } ]
+  }
+)
+</pre>
+</div>
+<ul class="org-ul">
+<li>delete content of a collection</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-nosql:mongodb">db.collection_name.remove({})
+</pre>
+</div>
+<ul class="org-ul">
+<li>验证用户</li>
+</ul>
+<p>
+&gt;use local
+&gt;db.auth('myadmin', 'secret')
+</p>
 </div>
 </div>
 </div>

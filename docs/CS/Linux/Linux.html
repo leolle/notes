@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-22 Fri 11:27 -->
+<!-- 2017-12-25 Mon 19:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1380,6 +1380,14 @@ ls -ls /usr/bin/python*
 <pre class="src src-bash">grep <span style="color: #E6DB74;">"_"</span> vocabulary &gt; phrase_vocab
 </pre>
 </div>
+<ul class="org-ul">
+<li>search under a subfolder</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">find . -name <span style="color: #E6DB74;">"name*"</span>
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline24" class="outline-4">
@@ -2021,7 +2029,7 @@ sudo fdisk -l
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-bash">sudo nano /etc/network/interfaces
+<pre class="src src-bash">sudo gedit /etc/network/interfaces
 auto eno1
 iface eno1 inet static
 address <span style="color: #AE81FF;">192.168.1.73</span>
@@ -2030,6 +2038,12 @@ gateway <span style="color: #AE81FF;">192.168.1.1</span>
 dns-nameservers <span style="color: #AE81FF;">8.8.8.8</span>
 </pre>
 </div>
+<ul class="org-ul">
+<li>restart network service</li>
+</ul>
+<p>
+sudo ifdown eth0 &amp;&amp; sudo ifup eth0
+</p>
 </div>
 </div>
 <div id="outline-container-orgheadline135" class="outline-4">
