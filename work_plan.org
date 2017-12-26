@@ -166,7 +166,8 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - [X] provide xarray data to Zhou.
 - [X] provide Sun Chinese wiki.
 - [X] network Bloomberg about tensorflow.
-- [ ] retrieving speed test from mongodb.
+- [X] retrieving speed test from mongodb.
+- [ ] retrieve pages title and id under categories from mysql.
 - [ ] test case on finance domain word embedding prediction.
 - [ ] LSA or LDA analysis, which will give a clustering of words on every topic.
 - [ ] visualize vocabulary embedding using t-SNE which project embedding vectors into 2-D surface from an proper perspective.

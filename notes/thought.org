@@ -96,6 +96,13 @@ Machine learning is for ungifted people. Feeding the model big trunk of data, le
 Learning new technology or knowledge is the same principle, connect your previous knowledge or understanding or experience, predict the unknown field. If the prediction is right, then you have the optimized understanding of that thing, if not, you correct or re-calibrate it.
 
 Three key points should be minded in Machine learning: objective function, optimization process, prediction.
+** Objective, Obstacle, Solution<2017-12-26 Tue>
+The challenge financial analysts facing is how to extract useful information from big data, which includes news articles, financial statements, tables, graphs etc. Our objective is to provide them a tool to analyze these information with an understandable workflow in order to increase the efficiency to solve selecting strategy and portfolio, making investment decision.
+
+One of the tools that can be utilized for increasing workflow decision is to tell machines to understand human needs, which is referred as NaturalLanguageProcessing(NLP) pipline.
+** Neural Networks on stock valuation<2017-12-26 Tue>
+用一个LSTM model，加一个valuation model的方法，如[[https://en.wikipedia.org/wiki/Discounted_cash_flow][discounted cashflow model]]，输出再用另一个valuation model，如[[https://en.wikipedia.org/wiki/Dividend_discount_model][Dividend discount model]]，来做某个industry 的return prediction.
+
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
