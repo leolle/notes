@@ -346,8 +346,11 @@ Test passed!
 sudo apt-get install libcupti-dev
 #+END_SRC
 tensorflow-gpu is not supported installed from pip, you should try building wheel from the source code from [[https://pypi.python.org/pypi/tensorflow-gpu]].
+https://github.com/mind/wheels/releases/tag/tf1.4.1-gpu-cuda91
+
+These wheels contain MKL support. If you don't have it, install MKL by following the instructions here.
 #+BEGIN_SRC bash
-pip --no-cache-dir install https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl
+pip --no-cache-dir install https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl --upgrade
 Collecting tensorflow==1.4.1 from https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl
 pip install --upgrade https://pypi.python.org/packages/55/68/d99d2a93e5ea22eb410e5e173d014d926ce30aa10a3d2ed7e9033deeb563/tensorflow_gpu-1.4.1-cp35-cp35m-manylinux1_x86_64.whl#md5=1cda67643cfca3feef0fea9968864bf3
 #+END_SRC
@@ -355,6 +358,47 @@ pip install --upgrade https://pypi.python.org/packages/55/68/d99d2a93e5ea22eb410
 #+BEGIN_SRC bash
 python -m tensorflow.models.image.mnist.convolutional
 #+END_SRC
+or
+#+BEGIN_SRC bash
+git clone https://github.com/tensorflow/models.git
+workon dl4_w2v_p3
+python models/tutorials/image/mnist/convolutional.py
+#+END_SRC
+#+RESULT:
+# Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.
+# Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.
+# Successfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.
+# Successfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.
+# Extracting data/train-images-idx3-ubyte.gz
+# Extracting data/train-labels-idx1-ubyte.gz
+# Extracting data/t10k-images-idx3-ubyte.gz
+# Extracting data/t10k-labels-idx1-ubyte.gz
+# 2017-12-27 09:49:37.782681: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties:
+# name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+# pciBusID: 0000:03:00.0
+# totalMemory: 10.91GiB freeMemory: 10.75GiB
+# 2017-12-27 09:49:38.016990: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 1 with properties:
+# name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+# pciBusID: 0000:04:00.0
+# totalMemory: 10.91GiB freeMemory: 10.65GiB
+# 2017-12-27 09:49:38.017581: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Device peer to peer matrix
+# 2017-12-27 09:49:38.017607: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1051] DMA: 0 1
+# 2017-12-27 09:49:38.017613: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 0:   Y Y
+# 2017-12-27 09:49:38.017617: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 1:   Y Y
+# 2017-12-27 09:49:38.017629: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:03:00.0, compute capability: 6.1)
+# 2017-12-27 09:49:38.017650: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:1) -> (device: 1, name: GeForce GTX 1080 Ti, pci bus id: 0000:04:00.0, compute capability: 6.1)
+# Initialized!
+# Step 0 (epoch 0.00), 26.8 ms
+# Minibatch loss: 8.334, learning rate: 0.010000
+# Minibatch error: 85.9%
+# Validation error: 84.6%
+# Step 100 (epoch 0.12), 4.6 ms
+# Minibatch loss: 3.241, learning rate: 0.010000
+# Minibatch error: 7.8%
+# Validation error: 7.7%
+# Step 200 (epoch 0.23), 4.1 ms
+# Minibatch loss: 3.351, learning rate: 0.010000
+
 ** SCRIPTING AND THE SHELL
 *** Shell basics
 - check md5

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-25 Mon 19:46 -->
+<!-- 2017-12-27 Wed 09:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1067,10 +1067,15 @@ Test passed!
 </div>
 <p>
 tensorflow-gpu is not supported installed from pip, you should try building wheel from the source code from <a href="https://pypi.python.org/pypi/tensorflow-gpu">https://pypi.python.org/pypi/tensorflow-gpu</a>.
+<a href="https://github.com/mind/wheels/releases/tag/tf1.4.1-gpu-cuda91">https://github.com/mind/wheels/releases/tag/tf1.4.1-gpu-cuda91</a>
+</p>
+
+<p>
+These wheels contain MKL support. If you don't have it, install MKL by following the instructions here.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-bash">pip --no-cache-dir install https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl
+<pre class="src src-bash">pip --no-cache-dir install https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl --upgrade
 Collecting <span style="color: #FD971F;">tensorflow</span>==<span style="color: #AE81FF;">1.4.1</span> from https://github.com/mind/wheels/releases/download/tf1.4.1-gpu-cuda91/tensorflow-1.4.1-cp27-cp27mu-linux_x86_64.whl
 pip install --upgrade https://pypi.python.org/packages/55/68/d99d2a93e5ea22eb410e5e173d014d926ce30aa10a3d2ed7e9033deeb563/tensorflow_gpu-1.4.1-cp35-cp35m-manylinux1_x86_64.whl#<span style="color: #FD971F;">md5</span>=<span style="color: #AE81FF;">1cda67643cfca3feef0fea9968864bf3</span>
 </pre>
@@ -1083,9 +1088,20 @@ pip install --upgrade https://pypi.python.org/packages/55/68/d99d2a93e5ea22eb410
 <pre class="src src-bash">python -m tensorflow.models.image.mnist.convolutional
 </pre>
 </div>
+<p>
+or
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">git clone https://github.com/tensorflow/models.git
+workon dl4_w2v_p3
+python models/tutorials/image/mnist/convolutional.py
+</pre>
 </div>
 </div>
 </div>
+</div>
+
 <div id="outline-container-orgheadline25" class="outline-3">
 <h3 id="orgheadline25"><span class="section-number-3">1.2</span> SCRIPTING AND THE SHELL</h3>
 <div class="outline-text-3" id="text-1-2">
