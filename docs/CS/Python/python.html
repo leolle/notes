@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-22 Fri 11:27 -->
+<!-- 2017-12-28 Thu 09:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -872,6 +872,18 @@ int64
 </div>
 <div id="outline-container-orgheadline16" class="outline-3">
 <h3 id="orgheadline16"><span class="section-number-3">3.11</span> Mapping Types — dict</h3>
+<div class="outline-text-3" id="text-3-11">
+<ul class="org-ul">
+<li>get some keys value according to a list in a dictionary:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">value</span> = <span style="color: #AE81FF;">{}</span>
+<span style="color: #F92672;">for</span> key <span style="color: #F92672;">in</span> finance_vocab:
+    <span style="color: #FD971F;">value</span><span style="color: #AE81FF;">[</span>key<span style="color: #AE81FF;">]</span> = dict_vocab.get<span style="color: #AE81FF;">(</span>key<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline17" class="outline-3">
 <h3 id="orgheadline17"><span class="section-number-3">3.12</span> Context Manager Types</h3>

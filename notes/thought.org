@@ -102,7 +102,24 @@ The challenge financial analysts facing is how to extract useful information fro
 One of the tools that can be utilized for increasing workflow decision is to tell machines to understand human needs, which is referred as NaturalLanguageProcessing(NLP) pipline.
 ** Neural Networks on stock valuation<2017-12-26 Tue>
 用一个LSTM model，加一个valuation model的方法，如[[https://en.wikipedia.org/wiki/Discounted_cash_flow][discounted cashflow model]][2]，输出再用另一个valuation model，如[[https://en.wikipedia.org/wiki/Dividend_discount_model][Dividend discount model]]，来做某个industry 的return prediction.
-
+** Research methods<2017-12-28 Thu>
+*** Feasibility study: Know paper details
+- Is this case possible? For example, applying Variational Auto Encoder to the mean and variance from the Gausian Mixed model result, is it possible? Can graph cnn be applied a graph with directions on the signal? Can neural networks physical methods be applied on multi-variable time series data?
+- Is it efficient to solve the problem?
+  - Setup building productivity: is it worthy to spend time on building the wheel? Ask the question if it is a one time application or multiple time application. Using interceptor language can save a lot of time on coding. OOP is more suitable for product running efficiency.
+- Know the data well(structure, type, statistics, number, size, length) before how a model is applied to a specific problem.
+- Proof by construction
+build a prototype with sample data, then meaningful small sample data.
+- Conclusion:
+Lessions learned from such study. Explain the axis and legend when showing a figure.
+*** Comparative study: pros and cons
+- Be sensitive to the difference between the models applied in the same field, their data, *context*, algorithm, results, advantage and drawback, etc.
+- Which is better? Main contribution.
+*** Literature study: what is known/unknown
+- Do we have such data?
+- What is the data like, its properties?
+*** Limit test: what if
+- Think about the limits of each model. When data changes, is it still appropriate to use such method to process data, to use the model, to get the same conclusion?
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own

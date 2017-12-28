@@ -202,7 +202,7 @@ sudo apt-get install cuda
 #+BEGIN_SRC bash
 nvidia-smi
 #+END_SRC
-#+RESULTS
+#+RESULTS:
 : Fri Dec 15 14:07:04 2017
 : +-----------------------------------------------------------------------------+
 : | NVIDIA-SMI 387.26                 Driver Version: 387.26                    |
@@ -398,6 +398,13 @@ python models/tutorials/image/mnist/convolutional.py
 : Validation error: 7.7%
 : Step 200 (epoch 0.23), 4.1 ms
 : Minibatch loss: 3.351, learning rate: 0.010000
+- tensorlfow cpu only:
+#+RESULTS:
+: I tensorflow/models/embedding/word2vec_kernels.cc:200] Data file: data/text8 contains 100000000 bytes, 17005207 words, 253854 unique words, 71290 unique frequent words.
+: Data file:  data/text8
+: Vocab size:  71290  + UNK
+: Words per epoch:  17005207
+: mu_scale = 0.2449489742783178 var_scale = 0.05
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics

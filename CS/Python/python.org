@@ -190,6 +190,13 @@ int64
 ** Binary Sequence Types — bytes, bytearray, memoryview
 ** Set Types — set, frozenset
 ** Mapping Types — dict
+- get some keys value according to a list in a dictionary:
+#+BEGIN_SRC python
+value = {}
+for key in finance_vocab:
+    value[key] = dict_vocab.get(key)
+
+#+END_SRC
 ** Context Manager Types
 ** Other Built-in Types
 ** Special Attributes -- magic method:

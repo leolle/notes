@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-27 Wed 10:12 -->
+<!-- 2017-12-28 Thu 09:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -912,34 +912,6 @@ sudo apt-get install cuda
 <pre class="src src-bash">nvidia-smi
 </pre>
 </div>
-<p>
-#+RESULTS
-</p>
-<pre class="example">
-Fri Dec 15 14:07:04 2017
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 387.26                 Driver Version: 387.26                    |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  GeForce GTX 108...  Off  | 00000000:03:00.0 Off |                  N/A |
-| 21%   26C    P0    52W / 250W |      0MiB / 11172MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-|   1  GeForce GTX 108...  Off  | 00000000:04:00.0 Off |                  N/A |
-| 21%   30C    P0    54W / 250W |      0MiB / 11170MiB |      3%      Default |
-+-------------------------------+----------------------+----------------------+
-
-+-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|  No running processes found                                                 |
-+-----------------------------------------------------------------------------+
-</pre>
-<ol class="org-ol">
-<li>install cuDNN source code:</li>
-</ol>
 <div class="org-src-container">
 
 <pre class="src src-bash">oem@dl ~/Downloads $ sudo dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb
@@ -1136,6 +1108,16 @@ Minibatch error: 7.8%
 Validation error: 7.7%
 Step 200 (epoch 0.23), 4.1 ms
 Minibatch loss: 3.351, learning rate: 0.010000
+</pre>
+<ul class="org-ul">
+<li>tensorlfow cpu only:</li>
+</ul>
+<pre class="example">
+I tensorflow/models/embedding/word2vec_kernels.cc:200] Data file: data/text8 contains 100000000 bytes, 17005207 words, 253854 unique words, 71290 unique frequent words.
+Data file:  data/text8
+Vocab size:  71290  + UNK
+Words per epoch:  17005207
+mu_scale = 0.2449489742783178 var_scale = 0.05
 </pre>
 </div>
 </div>

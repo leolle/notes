@@ -221,11 +221,52 @@ A lot of our customers’ workflows are being automated, entirely or partially. 
 建一个想法，根据这个想法找到匹配的FI, or FD. 例如，建一个optimize需求，自动推荐black litterman model, or markowitz mean/variance model.
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
 当前FI,查找相关的下一步FI.
+*** Knowledge Graph
+**** Part 1: Knowledge Graph Primer
+- What is a Knowledge Graph?
+- Why are Knowledge Graphs Important?
+- Where do Knowledge Graphs come from?
+- Knowledge Representation Choices
+- Problem Overview
+**** Part 2: Knowledge Extraction from Text
+***** NLP Fundamentals
+- Tokenization, chunking
+- Part-of-speech tagging
+- Named entity recognition
+- Dependency parsing
+- Entity resolution, coreference, and linking
+***** Information Extraction
+- Defining knowledge domains
+- Learning knowledge extractors
+- Scoring extracted knowledge
+- Categories of IE techniques
+- Compositional models: Knowledge fusion
+- IE systems in practice
+**** Part 3: Knowledge Graph Construction
+***** Graph construction overview
+***** Probabilistic Models
+- Motivation
+- Graphical models
+- Random walk approaches
+***** Embedding Techniques
+****** Relation extraction techniques
+- Matrix factorization
+- Embedding entity pairs
+****** Graph completion techniques
+- Tensor factorization
+- Entity and relation embeddings
+- Compositional models
+**** Part 4: Critical Overview and Conclusion
+- Summary
+- Success stories
+- Datasets, tasks, softwares
+- Exciting active research
+- Future research directions
 *** Personalized Intelligent Agents(PIA)
 **** Objective:
 ***** Short Term
-- make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter
-- incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process
+- make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.
+- incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
 - train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
 - ensemble model using mean value.
 ***** Long Term
@@ -306,12 +347,14 @@ CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 - [X] try Neo4j sandbox
 [[https://neo4j.com/sandbox-v2/]]
 - [X] create Neo4j docker.
-*** Setup
+
+*** Google NLP
+**** Setup
 - [X] 配置好GOOGLE GCLOUD PLATORM的代理
 - [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
 - [ ] deep learning of bank stress in the news
 - [ ] detect events based on text, obtain descriptions of events.
-*** configuration:
+**** configuration:
 - reports-174211
 - proxy:
 127.0.0.1:1080
@@ -376,7 +419,7 @@ methon 1:
 curl https://sdk.cloud.google.com | bash
 sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
 sudo `which pip` install --upgrade google-cloud-language
-*** SDK
+**** SDK
 - GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
 - https://cloud.google.com/sdk/docs/quickstart-linux
 - key:
@@ -495,7 +538,7 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 - [ ] 查看Google Trende API.
 ** GPU server hardware comparison
 - [X] server vs desktop vs cloud
-- [ ] hardware purchase.
+- [X] hardware purchase.
 Case	美商海盗船 AIR540 USB3.0 中塔侧透 钢铝混合 游戏散热机箱 支持36CM水冷 黑色	AIR540+AX1500i电源	1000
 CPU	i7 7700k		2500
 RAM	美商海盗船32G频率3000		3300
@@ -524,15 +567,16 @@ Mother board	微星X99A SLI Plus	只支持2路SLI
 ** Machine Learning Basics
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.org][Deep Learning]]
 ** Other's recommendation
-- [ ] stuff from Zhupengjia, Liguofu
-- [ ] Yoshua paper Deep Learning.
+- [ ] pytorch.
+- [ ] stuff from Zhupengjia, Liguofu.
+- [X] Yoshua paper Deep Learning.
 - [X] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
 Tensorflow is a mathmatical library including neural network, Keras is a framework based on Tensorflow.
  - Lower Level: This is where frameworks like Tensorflow, MXNet, Theano, and PyTorch sit. This is the level where mathematical operations like Generalized Matrix-Matrix multiplication and Neural Network primitives like Convolutional operations are implemented.
  - Higher Level: This is where frameworks like Keras sit. At this Level, the lower level primitives are used to implement Neural Network abstraction like Layers and models. Generally, at this level other helpful APIs like model saving and model training are also implemented.
 - [X] Deep Learning book, author Ian Goodfellow.
 - [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
-- [ ] Neural Language Processing(NLP), 结巴分词.
+- [X] Neural Language Processing(NLP), 结巴分词.
 ** Basics
 *** ANN
 *** CNN

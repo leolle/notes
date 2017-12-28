@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-27 Wed 09:58 -->
+<!-- 2017-12-28 Thu 09:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -179,12 +179,20 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline21">4. December 2017</a>
+<li><a href="#orgheadline26">4. December 2017</a>
 <ul>
 <li><a href="#orgheadline17">4.1. Use model assumption to increase the productivity<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-05 Tue&gt;</span></span></a></li>
 <li><a href="#orgheadline18">4.2. How to learn things fast<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-11 Mon&gt;</span></span></a></li>
 <li><a href="#orgheadline19">4.3. Objective, Obstacle, Solution<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-26 Tue&gt;</span></span></a></li>
 <li><a href="#orgheadline20">4.4. Neural Networks on stock valuation<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-26 Tue&gt;</span></span></a></li>
+<li><a href="#orgheadline25">4.5. Research methods<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-28 Thu&gt;</span></span></a>
+<ul>
+<li><a href="#orgheadline21">4.5.1. Feasibility study: Know paper details</a></li>
+<li><a href="#orgheadline22">4.5.2. Comparative study: pros and cons</a></li>
+<li><a href="#orgheadline23">4.5.3. Literature study: what is known/unknown</a></li>
+<li><a href="#orgheadline24">4.5.4. Limit test: what if</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -347,8 +355,8 @@ If you're trying to learn math, programming, or anything closely related, try no
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">4</span> December 2017</h2>
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">4</span> December 2017</h2>
 <div class="outline-text-2" id="text-4">
 </div><div id="outline-container-orgheadline17" class="outline-3">
 <h3 id="orgheadline17"><span class="section-number-3">4.1</span> Use model assumption to increase the productivity<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-05 Tue&gt;</span></span></h3>
@@ -421,6 +429,59 @@ One of the tools that can be utilized for increasing workflow decision is to tel
 <p>
 用一个LSTM model，加一个valuation model的方法，如<a href="https://en.wikipedia.org/wiki/Discounted_cash_flow">discounted cashflow model</a><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>，输出再用另一个valuation model，如<a href="https://en.wikipedia.org/wiki/Dividend_discount_model">Dividend discount model</a>，来做某个industry 的return prediction.
 </p>
+</div>
+</div>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">4.5</span> Research methods<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-28 Thu&gt;</span></span></h3>
+<div class="outline-text-3" id="text-4-5">
+</div><div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">4.5.1</span> Feasibility study: Know paper details</h4>
+<div class="outline-text-4" id="text-4-5-1">
+<ul class="org-ul">
+<li>Is this case possible? For example, applying Variational Auto Encoder to the mean and variance from the Gausian Mixed model result, is it possible? Can graph cnn be applied a graph with directions on the signal? Can neural networks physical methods be applied on multi-variable time series data?</li>
+<li>Is it efficient to solve the problem?
+<ul class="org-ul">
+<li>Setup building productivity: is it worthy to spend time on building the wheel? Ask the question if it is a one time application or multiple time application. Using interceptor language can save a lot of time on coding. OOP is more suitable for product running efficiency.</li>
+</ul></li>
+<li>Know the data well(structure, type, statistics, number, size, length) before how a model is applied to a specific problem.</li>
+<li>Proof by construction</li>
+</ul>
+<p>
+build a prototype with sample data, then meaningful small sample data.
+</p>
+<ul class="org-ul">
+<li>Conclusion:</li>
+</ul>
+<p>
+Lessions learned from such study. Explain the axis and legend when showing a figure.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">4.5.2</span> Comparative study: pros and cons</h4>
+<div class="outline-text-4" id="text-4-5-2">
+<ul class="org-ul">
+<li>Be sensitive to the difference between the models applied in the same field, their data, <b>context</b>, algorithm, results, advantage and drawback, etc.</li>
+<li>Which is better? Main contribution.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">4.5.3</span> Literature study: what is known/unknown</h4>
+<div class="outline-text-4" id="text-4-5-3">
+<ul class="org-ul">
+<li>Do we have such data?</li>
+<li>What is the data like, its properties?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">4.5.4</span> Limit test: what if</h4>
+<div class="outline-text-4" id="text-4-5-4">
+<ul class="org-ul">
+<li>Think about the limits of each model. When data changes, is it still appropriate to use such method to process data, to use the model, to get the same conclusion?</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
