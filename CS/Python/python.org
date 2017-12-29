@@ -592,6 +592,44 @@ with open(r'config.yaml', 'rb') as f:
 ** io — Core tools for working with streams
 ** time — Time access and conversions
 ** argparse — Parser for command-line options, arguments and sub-commands
+#+BEGIN_SRC python
+import argparse
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+handler.setFormatter(formatter)
+if not logger.handlers:
+    logger.addHandler(handler)
+    logger.setLevel(logging.DEBUG)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-i", "--input", required=False, help="Input word2vec model")
+    parser.add_argument(
+        "-o", "--output", required=False, help="Output tensor file name prefix")
+    parser.add_argument(
+        "-b",
+        "--binary",
+        required=False,
+        help="If word2vec model in binary format, set True, else False")
+    parser.add_argument(
+        "-l",
+        "--logdir",
+        required=False,
+        help="periodically save model variables in a checkpoint")
+    parser.add_argument(
+        "--host",
+        required=False,
+        help="host where holding the tensorboard projector service")
+    parser.add_argument("-p", "--port", required=False, help="browser port")
+    args = parser.parse_args()
+
+    word2vec2tensor(args.input, args.output, args.binary)
+
+#+END_SRC
 ** getopt — C-style parser for command line options
 ** logging — Logging facility for Python
 #+BEGIN_SRC python
