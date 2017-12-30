@@ -61,7 +61,7 @@ Layers that have been used in deep learning include hidden layers of an artifici
 - Step 4: 建立项目
 * NLP
 [[file:./NaturalLanguageProcessing.org][NLP]]
-** Application: Where can Dl be applied for NLP tasks? DL Algorithms NLP Usage Neural Network (NN)
+** Application: Where can DL be applied for NLP tasks? DL Algorithms NLP Usage Neural Network (NN)
 *** Feed-forward propagation
 - POS, NER, Chunking
 - Entity and Intent Extraction

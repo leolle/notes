@@ -1,0 +1,146 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: Tensorflow
+#+DATE: <2017-12-30 Sat>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Basic
+- tensor:
+a generalization of the concept of a vector
+
+
+* Structure
+** The Computational Graph
+A TensorFlow program is typically split into two parts: the first part builds a computation graph (this is called the construction phase), and the second part runs it (this is the execution phase). The construction phase typically builds a computation graph representing the ML model and the computations required to train it.
+#+BEGIN_SRC python
+node1 = tf.constant(3.0, dtype=tf.float32)
+node2 = tf.constant(4.0) # also tf.float32 implicitly
+print(node1, node2)
+
+#+END_SRC
+#+RESULTS:
+: Tensor("Const:0", shape=(), dtype=float32) Tensor("Const_1:0", shape=(), dtype=float32)
+Notice that printing the nodes does not output the values 3.0 and 4.0 as you might expect. Instead, they are nodes that, when evaluated, would produce 3.0 and 4.0, respectively. To actually evaluate the nodes, we must run the computational graph within a session. A session encapsulates the control and state of the TensorFlow runtime.
+#+BEGIN_SRC python
+sess = tf.Session()
+print(sess.run([node1, node2]))
+#+END_SRC
+#+RESULTS:
+: [3.0, 4.0]
+A graph can be parameterized to accept external inputs, known as placeholders. A placeholder is a promise to provide a value later.
+#+BEGIN_SRC python
+a = tf.placeholder(tf.float32)
+b = tf.placeholder(tf.float32)
+adder_node = a + b  # + provides a shortcut for tf.add(a, b)
+#+END_SRC
+To make the model trainable, we need to be able to modify the graph to get new outputs with the same input. Variables allow us to add trainable parameters to a graph. They are constructed with a type and initial value:
+#+BEGIN_SRC python
+W = tf.Variable([.3], dtype=tf.float32)
+b = tf.Variable([-.3], dtype=tf.float32)
+x = tf.placeholder(tf.float32)
+linear_model = W*x + b
+#+END_SRC
+Constants are initialized when you call tf.constant, and their value can never change. By contrast, variables are not initialized when you call tf.Variable. To initialize all the variables in a TensorFlow program, you must explicitly call a special operation as follows:
+#+BEGIN_SRC python
+init = tf.global_variables_initializer()
+sess.run(init)
+y = tf.placeholder(tf.float32)
+squared_deltas = tf.square(linear_model - y)
+loss = tf.reduce_sum(squared_deltas)
+print(sess.run(loss, {x: [1, 2, 3, 4], y: [0, -1, -2, -3]}))
+
+#+END_SRC
+A variable is initialized to the value provided to tf.Variable but can be changed using operations like tf.assign.
+#+BEGIN_SRC python
+fixW = tf.assign(W, [-1.])
+fixb = tf.assign(b, [1.])
+sess.run([fixW, fixb])
+print(sess.run(loss, {x: [1, 2, 3, 4], y: [0, -1, -2, -3]}))
+
+#+END_SRC
+** tf.train API
+#+BEGIN_SRC python
+import tensorflow as tf
+
+# Model parameters
+W = tf.Variable([.3], dtype=tf.float32)
+b = tf.Variable([-.3], dtype=tf.float32)
+# Model input and output
+x = tf.placeholder(tf.float32)
+linear_model = W*x + b
+y = tf.placeholder(tf.float32)
+
+# loss
+loss = tf.reduce_sum(tf.square(linear_model - y)) # sum of the squares
+# optimizer
+optimizer = tf.train.GradientDescentOptimizer(0.01)
+train = optimizer.minimize(loss)
+
+# training data
+x_train = [1, 2, 3, 4]
+y_train = [0, -1, -2, -3]
+# training loop
+init = tf.global_variables_initializer()
+sess = tf.Session()
+sess.run(init) # reset values to wrong
+for i in range(1000):
+  sess.run(train, {x: x_train, y: y_train})
+
+# evaluate training accuracy
+curr_W, curr_b, curr_loss = sess.run([W, b, loss], {x: x_train, y: y_train})
+print("W: %s b: %s loss: %s"%(curr_W, curr_b, curr_loss))
+
+#+END_SRC
+
+** Implementing Gradient Descent
+When using Gradient Descent, remember that it is important to
+first normalize the input feature vectors, or else training may be
+much slower.
+** Saving and Restoring Models
+Once you have trained your model, you should save its parameters to disk so you can
+come back to it whenever you want, use it in another program, compare it to other
+models, and so on. Moreover, you probably want to save checkpoints at regular inter‐
+vals during training so that if your computer crashes during training you can con‐
+tinue from the last checkpoint rather than start over from scratch.
+TensorFlow makes saving and restoring a model very easy. Just create a Saver node at
+the end of the construction phase (after all variable nodes are created); then, in the
+execution phase, just call its save() method whenever you want to save the model,
+passing it the session and path of the checkpoint file.
+* Visualizing the Graph and Training Curves Using TensorBoard
+The first step is to tweak your program a bit so it writes the graph definition and
+some training stats—for example, the training error (MSE)—to a log directory that
+TensorBoard will read from. You need to use a different log directory every time you
+run your program, or else TensorBoard will merge stats from different runs, which
+will mess up the visualizations. The simplest solution for this is to include a time‐
+stamp in the log directory name. Add the following code at the beginning of the pro‐
+gram:
+#+BEGIN_SRC python
+from datetime import datetime
+now = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+root_logdir = "tf_logs"
+logdir = "{}/run-{}/".format(root_logdir, now)
+mse_summary = tf.summary.scalar('MSE', mse)
+file_writer = tf.summary.FileWriter(logdir, tf.get_default_graph())
+#+END_SRC
+
+Next you need to update the execution phase to evaluate the mse_summary node regularly during training (e.g., every 10 mini-batches). This will output a summary that
+you can then write to the events file using the file_writer. Here is the updated code:
+
+#+BEGIN_SRC python
+for batch_index in range(n_batches):
+    X_batch, y_batch = fetch_batch(epoch, batch_index, batch_size)
+    if batch_index % 10 == 0:
+        summary_str = mse_summary.eval(feed_dict={X: X_batch, y: y_batch})
+        step = epoch * n_batches + batch_index
+        file_writer.add_summary(summary_str, step)
+    sess.run(training_op, feed_dict={X: X_batch, y: y_batch})
+[...]
+file_writer.close()
+#+END_SRC

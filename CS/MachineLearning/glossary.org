@@ -4,6 +4,15 @@ An activation, or activation function, for a neural network is defined as the ma
 
 Activation algorithms are the gates that determine, at each node in the net, whether and to what extent to transmit the signal the node has received from the previous layer. A combination of weights (coefficients) and biases work on the input data from the previous layer to determine whether that signal surpasses a given treshhold and is deemed significant. Those weights and biases are slowly updated as the neural net minimizes its error; i.e. the level of nodes’ activation change in the course of learning. Deeplearning4j includes activation functions such as sigmoid, relu, tanh and ELU. These activation functions allow neural networks to make complex boundary decisions for features at various levels of abstraction.
 
+The hyperbolic tangent function tanh (z) = 2σ(2z) – 1:
+
+hyperbolic tangent function is just like the logistic function it is S-shaped, continuous, and differentiable, but its
+output value ranges from –1 to 1 (instead of 0 to 1 in the case of the logistic function), which tends to make each layer’s output more or less normalized (i.e., centered around 0) at the beginning of training. This often helps speed up convergence.
+
+The ReLU function ReLU (z) = max (0, z).
+
+It is continuous but unfortunately not differentiable at z = 0 (the slope changes abruptly, which can make Gradient Descent bounce around). However, in practice it works very well and has the advantage of being fast to compute. Most importantly, the fact that it does not have a maximum output value also helps reduce some issues during Gradient Descent.
+
 - Adadelta
 
 Adadelta is an updater, or learning algorithm, related to gradient descent. Unlike SGD, which applies the same learning rate to all parameters of the network, Adadelta adapts the learning rate per parameter.

@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 
+
 def regression(data, alpha, lamda):
     n = len(data[0]) - 1
     theta = np.zeros(n)
@@ -13,3 +14,5 @@ def regression(data, alpha, lamda):
             theta = theta - alpha * g * x + lamda * theta
         print times, theta
     return theta
+
+
