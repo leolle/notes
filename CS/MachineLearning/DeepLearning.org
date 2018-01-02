@@ -48,7 +48,12 @@ Deep learning is a class of machine learning algorithms that:
 - learn multiple levels of representations that correspond to different levels of abstraction; the levels form a hierarchy of concepts.
 - use some form of gradient descent for training via backpropagation.
 Layers that have been used in deep learning include hidden layers of an artificial neural network and sets of propositional formulas.
+** why deep?
+There are functions you can compute with a small L-layer deep neural network that shallower networks require exponentially more hidden units to compute.
 
+For example,
+$$y=X_1 XOR X_2 XOR X_3 XOR ... XOR X_n$$
+for deep neural networks with less hidden units, the computation is O(log(n)). But for shallower neural networks, the computation is O(2^n).
 * 学习方法
 - Step 1: 学习机器学习基础
 - Step 2: 深入学习

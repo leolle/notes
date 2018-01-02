@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-01-02 Tue 15:17 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Basic</a></li>
+<li><a href="#orgheadline6">2. Structure</a>
+<ul>
+<li><a href="#orgheadline2">2.1. The Computational Graph</a></li>
+<li><a href="#orgheadline3">2.2. tf.train API</a></li>
+<li><a href="#orgheadline4">2.3. Implementing Gradient Descent</a></li>
+<li><a href="#orgheadline5">2.4. Saving and Restoring Models</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline7">3. Visualizing the Graph and Training Curves Using TensorBoard</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Basic</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>tensor:</li>
+</ul>
+<p>
+a generalization of the concept of a vector
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> Structure</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> The Computational Graph</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+A TensorFlow program is typically split into two parts: the first part builds a computation graph (this is called the construction phase), and the second part runs it (this is the execution phase). The construction phase typically builds a computation graph representing the ML model and the computations required to train it.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">node1</span> = tf.constant<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span>.<span style="color: #AE81FF;">0</span>, dtype=tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">node2</span> = tf.constant<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">4</span>.<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">also tf.float32 implicitly</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>node1, node2<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">sess</span> = tf.Session<span style="color: #AE81FF;">()</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>sess.run<span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">[</span>node1, node2<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">a</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">b</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">adder_node</span> = a + b  <span style="color: #75715E;"># </span><span style="color: #75715E;">+ provides a shortcut for tf.add(a, b)</span>
+</pre>
+</div>
+<p>
+To make the model trainable, we need to be able to modify the graph to get new outputs with the same input. Variables allow us to add trainable parameters to a graph. They are constructed with a type and initial value:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">W</span> = tf.Variable<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>.<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">]</span>, dtype=tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">b</span> = tf.Variable<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>-.<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">]</span>, dtype=tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">x</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">linear_model</span> = W*x + b
+</pre>
+</div>
+<p>
+Constants are initialized when you call tf.constant, and their value can never change. By contrast, variables are not initialized when you call tf.Variable. To initialize all the variables in a TensorFlow program, you must explicitly call a special operation as follows:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">init</span> = tf.global_variables_initializer<span style="color: #AE81FF;">()</span>
+sess.run<span style="color: #AE81FF;">(</span>init<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">y</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">squared_deltas</span> = tf.square<span style="color: #AE81FF;">(</span>linear_model - y<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">loss</span> = tf.reduce_sum<span style="color: #AE81FF;">(</span>squared_deltas<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>sess.run<span style="color: #66D9EF;">(</span>loss, <span style="color: #A6E22E;">{</span>x: <span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span><span style="color: #E6DB74;">]</span>, y: <span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">0</span>, -<span style="color: #AE81FF;">1</span>, -<span style="color: #AE81FF;">2</span>, -<span style="color: #AE81FF;">3</span><span style="color: #E6DB74;">]</span><span style="color: #A6E22E;">}</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+A variable is initialized to the value provided to tf.Variable but can be changed using operations like tf.assign.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">fixW</span> = tf.assign<span style="color: #AE81FF;">(</span>W, <span style="color: #66D9EF;">[</span>-<span style="color: #AE81FF;">1</span>.<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">fixb</span> = tf.assign<span style="color: #AE81FF;">(</span>b, <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>.<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+sess.run<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>fixW, fixb<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>sess.run<span style="color: #66D9EF;">(</span>loss, <span style="color: #A6E22E;">{</span>x: <span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span><span style="color: #E6DB74;">]</span>, y: <span style="color: #E6DB74;">[</span><span style="color: #AE81FF;">0</span>, -<span style="color: #AE81FF;">1</span>, -<span style="color: #AE81FF;">2</span>, -<span style="color: #AE81FF;">3</span><span style="color: #E6DB74;">]</span><span style="color: #A6E22E;">}</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.2</span> tf.train API</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> tensorflow <span style="color: #F92672;">as</span> tf
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Model parameters</span>
+<span style="color: #FD971F;">W</span> = tf.Variable<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>.<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">]</span>, dtype=tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">b</span> = tf.Variable<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>-.<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">]</span>, dtype=tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Model input and output</span>
+<span style="color: #FD971F;">x</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">linear_model</span> = W*x + b
+<span style="color: #FD971F;">y</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32<span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">loss</span>
+<span style="color: #FD971F;">loss</span> = tf.reduce_sum<span style="color: #AE81FF;">(</span>tf.square<span style="color: #66D9EF;">(</span>linear_model - y<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">sum of the squares</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">optimizer</span>
+<span style="color: #FD971F;">optimizer</span> = tf.train.GradientDescentOptimizer<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">01</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">train</span> = optimizer.minimize<span style="color: #AE81FF;">(</span>loss<span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">training data</span>
+<span style="color: #FD971F;">x_train</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">y_train</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span>, -<span style="color: #AE81FF;">1</span>, -<span style="color: #AE81FF;">2</span>, -<span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">training loop</span>
+<span style="color: #FD971F;">init</span> = tf.global_variables_initializer<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">sess</span> = tf.Session<span style="color: #AE81FF;">()</span>
+sess.run<span style="color: #AE81FF;">(</span>init<span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">reset values to wrong</span>
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1000</span><span style="color: #AE81FF;">)</span>:
+  sess.run<span style="color: #AE81FF;">(</span>train, <span style="color: #66D9EF;">{</span>x: x_train, y: y_train<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">evaluate training accuracy</span>
+<span style="color: #FD971F;">curr_W</span>, <span style="color: #FD971F;">curr_b</span>, <span style="color: #FD971F;">curr_loss</span> = sess.run<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>W, b, loss<span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">{</span>x: x_train, y: y_train<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"W: %s b: %s loss: %s"</span>%<span style="color: #66D9EF;">(</span>curr_W, curr_b, curr_loss<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.3</span> Implementing Gradient Descent</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+When using Gradient Descent, remember that it is important to
+first normalize the input feature vectors, or else training may be
+much slower.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.4</span> Saving and Restoring Models</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Once you have trained your model, you should save its parameters to disk so you can
+come back to it whenever you want, use it in another program, compare it to other
+models, and so on. Moreover, you probably want to save checkpoints at regular inter‐
+vals during training so that if your computer crashes during training you can con‐
+tinue from the last checkpoint rather than start over from scratch.
+TensorFlow makes saving and restoring a model very easy. Just create a Saver node at
+the end of the construction phase (after all variable nodes are created); then, in the
+execution phase, just call its save() method whenever you want to save the model,
+passing it the session and path of the checkpoint file.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">3</span> Visualizing the Graph and Training Curves Using TensorBoard</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The first step is to tweak your program a bit so it writes the graph definition and
+some training stats—for example, the training error (MSE)—to a log directory that
+TensorBoard will read from. You need to use a different log directory every time you
+run your program, or else TensorBoard will merge stats from different runs, which
+will mess up the visualizations. The simplest solution for this is to include a time‐
+stamp in the log directory name. Add the following code at the beginning of the pro‐
+gram:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> datetime <span style="color: #F92672;">import</span> datetime
+<span style="color: #FD971F;">now</span> = datetime.utcnow<span style="color: #AE81FF;">()</span>.strftime<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%Y%m%d%H%M%S"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">root_logdir</span> = <span style="color: #E6DB74;">"tf_logs"</span>
+<span style="color: #FD971F;">logdir</span> = <span style="color: #E6DB74;">"{}/run-{}/"</span>.<span style="color: #F92672;">format</span><span style="color: #AE81FF;">(</span>root_logdir, now<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">mse_summary</span> = tf.summary.scalar<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'MSE'</span>, mse<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">file_writer</span> = tf.summary.FileWriter<span style="color: #AE81FF;">(</span>logdir, tf.get_default_graph<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+Next you need to update the execution phase to evaluate the mse<sub>summary</sub> node regularly during training (e.g., every 10 mini-batches). This will output a summary that
+you can then write to the events file using the file<sub>writer</sub>. Here is the updated code:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> batch_index <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>n_batches<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">X_batch</span>, <span style="color: #FD971F;">y_batch</span> = fetch_batch<span style="color: #AE81FF;">(</span>epoch, batch_index, batch_size<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">if</span> batch_index % <span style="color: #AE81FF;">10</span> == <span style="color: #AE81FF;">0</span>:
+        <span style="color: #FD971F;">summary_str</span> = mse_summary.<span style="color: #F92672;">eval</span><span style="color: #AE81FF;">(</span>feed_dict=<span style="color: #66D9EF;">{</span>X: X_batch, y: y_batch<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+        <span style="color: #FD971F;">step</span> = epoch * n_batches + batch_index
+        file_writer.add_summary<span style="color: #AE81FF;">(</span>summary_str, step<span style="color: #AE81FF;">)</span>
+    sess.run<span style="color: #AE81FF;">(</span>training_op, feed_dict=<span style="color: #66D9EF;">{</span>X: X_batch, y: y_batch<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">[</span>...<span style="color: #AE81FF;">]</span>
+file_writer.close<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

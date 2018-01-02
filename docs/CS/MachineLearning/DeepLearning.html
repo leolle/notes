@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-28 Thu 09:55 -->
+<!-- 2018-01-02 Tue 15:17 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -177,31 +177,32 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline2">1.2. terminology/jargon:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline5">2. 深度学习</a>
+<li><a href="#orgheadline6">2. 深度学习</a>
 <ul>
 <li><a href="#orgheadline4">2.1. Definitions</a></li>
+<li><a href="#orgheadline5">2.2. why deep?</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline6">3. 学习方法</a></li>
-<li><a href="#orgheadline12">4. NLP</a>
+<li><a href="#orgheadline7">3. 学习方法</a></li>
+<li><a href="#orgheadline13">4. NLP</a>
 <ul>
-<li><a href="#orgheadline11">4.1. Application: Where can Dl be applied for NLP tasks? DL Algorithms NLP Usage Neural Network (NN)</a>
+<li><a href="#orgheadline12">4.1. Application: Where can DL be applied for NLP tasks? DL Algorithms NLP Usage Neural Network (NN)</a>
 <ul>
-<li><a href="#orgheadline7">4.1.1. Feed-forward propagation</a></li>
-<li><a href="#orgheadline8">4.1.2. Recurrent Neural Networks (RNN)</a></li>
-<li><a href="#orgheadline9">4.1.3. Recursive Neural Networks</a></li>
-<li><a href="#orgheadline10">4.1.4. Convolutional Neural Network (CNN)</a></li>
+<li><a href="#orgheadline8">4.1.1. Feed-forward propagation</a></li>
+<li><a href="#orgheadline9">4.1.2. Recurrent Neural Networks (RNN)</a></li>
+<li><a href="#orgheadline10">4.1.3. Recursive Neural Networks</a></li>
+<li><a href="#orgheadline11">4.1.4. Convolutional Neural Network (CNN)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline16">5. Critical questions</a>
+<li><a href="#orgheadline17">5. Critical questions</a>
 <ul>
 <li>
 <ul>
-<li><a href="#orgheadline13">5.0.1. 传统机器学习考察点：</a></li>
-<li><a href="#orgheadline14">5.0.2. 深度学习考察点：</a></li>
-<li><a href="#orgheadline15">5.0.3. 最优化考察点：</a></li>
+<li><a href="#orgheadline14">5.0.1. 传统机器学习考察点：</a></li>
+<li><a href="#orgheadline15">5.0.2. 深度学习考察点：</a></li>
+<li><a href="#orgheadline16">5.0.3. 最优化考察点：</a></li>
 </ul>
 </li>
 </ul>
@@ -226,7 +227,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2017-12-28 09:55:53</td>
+<td class="org-left">2018-01-02 15:17:10</td>
 </tr>
 
 <tr>
@@ -281,6 +282,23 @@ An activation, or activation function, for a neural network is defined as the ma
 
 <p>
 Activation algorithms are the gates that determine, at each node in the net, whether and to what extent to transmit the signal the node has received from the previous layer. A combination of weights (coefficients) and biases work on the input data from the previous layer to determine whether that signal surpasses a given treshhold and is deemed significant. Those weights and biases are slowly updated as the neural net minimizes its error; i.e. the level of nodes’ activation change in the course of learning. Deeplearning4j includes activation functions such as sigmoid, relu, tanh and ELU. These activation functions allow neural networks to make complex boundary decisions for features at various levels of abstraction.
+</p>
+
+<p>
+The hyperbolic tangent function tanh (z) = 2σ(2z) – 1:
+</p>
+
+<p>
+hyperbolic tangent function is just like the logistic function it is S-shaped, continuous, and differentiable, but its
+output value ranges from –1 to 1 (instead of 0 to 1 in the case of the logistic function), which tends to make each layer’s output more or less normalized (i.e., centered around 0) at the beginning of training. This often helps speed up convergence.
+</p>
+
+<p>
+The ReLU function ReLU (z) = max (0, z).
+</p>
+
+<p>
+It is continuous but unfortunately not differentiable at z = 0 (the slope changes abruptly, which can make Gradient Descent bounce around). However, in practice it works very well and has the advantage of being fast to compute. Most importantly, the fact that it does not have a maximum output value also helps reduce some issues during Gradient Descent.
 </p>
 
 <ul class="org-ul">
@@ -364,12 +382,18 @@ Semi-supervised Sequence Learning
 </p>
 
 <ul class="org-ul">
-<li>Backpropagation</li>
+<li>Backpropagation<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></li>
 </ul>
 
 <p>
-To calculate the gradient the relate weights to error, we use a technique known as backpropagation, which is also referred to as the backward pass of the network. Backpropagation is a repeated application of chain rule of calculus for partial derivatives. The first step is to calculate the derivatives of the objective function with respect to the output units, then the derivatives of the output of the last hidden layer to the input of the last hidden layer; then the input of the last hidden layer to the weights between it and the penultimate hidden layer, etc. Here’s a derivation of backpropagation. And here’s Yann LeCun’s important paper on the subject.
+To calculate the gradient the relate weights to error, to calculate the error contribution of each neuron after a batch of data (in image recognition, multiple images) is processed. we use a technique known as backpropagation, which is also referred to as the backward pass of the network, by the gradient descent optimization algorithm to adjust the weight of neurons by calculating the gradient of the loss function. Backpropagation is a repeated application of chain rule of calculus for partial derivatives. The first step is to calculate the derivatives of the objective function with respect to the output units, then the derivatives of the output of the last hidden layer to the input of the last hidden layer; then the input of the last hidden layer to the weights between it and the penultimate hidden layer, etc.
 </p>
+
+<p>
+Assumptions:
+Two assumptions must be made about the form of the error function. The first is that it can be written as an average \({\textstyle E={\frac {1}{n}}\sum _{x}E_{x}}\) over error functions \({\textstyle E_{x}}\), for \({\textstyle n}\) individual training examples, \({\textstyle x}\). The reason for this assumption is that the backpropagation algorithm calculates the gradient of the error function for a single training example, which needs to be generalized to the overall error function. The second assumption is that it can be written as a function of the outputs from the neural network.
+</p>
+
 
 
 <ul class="org-ul">
@@ -621,6 +645,17 @@ DropConnect is a generalization of Dropout for regularizing large fully-connecte
 
 <p>
 Regularization of Neural Networks using DropConnect
+</p>
+
+<ul class="org-ul">
+<li>Euclidean space</li>
+</ul>
+<p>
+In geometry, Euclidean space encompasses the two-dimensional Euclidean plane, the three-dimensional space of Euclidean geometry, and certain other spaces.
+</p>
+
+<p>
+One way to think of the Euclidean plane is as a set of points satisfying certain relationships, expressible in terms of distance and angle.
 </p>
 
 <ul class="org-ul">
@@ -1330,25 +1365,12 @@ Tomas Mikolov’s neural networks, known as Word2vec, have become widely used be
 
 <p>
 The Xavier initialization is based on the work of Xavier Glorot and Yoshua Bengio in their paper “Understanding the difficulty of training deep feedforward neural networks.” An explanation can be found here. Weights should be initialized in a way that promotes “learning”. The wrong weight initialization will make gradients too large or too small, and make it difficult to update the weights. Small weights lead to small activations, and large weights lead to large ones. Xavier weight initialization considers the distribution of output activations with regard to input activations. Its purpose is to maintain same distribution of activations, so they aren’t too small (mean zero but with small variance) or too large (mean zero but with large variance). DL4J’s implementation of Xavier weight initialization aligns with the Glorot Bengio paper, Nd4j.randn(order, shape).muli(FastMath.sqrt(2.0 / (fanIn + fanOut))). Where fanIn(k) would be the number of units sending input to k, and fanOut(k) would be the number of units recieving output from k.
-<a href="glossary.html">glossary.html</a>
-</p>
-<ul class="org-ul">
-<li>tensor</li>
-</ul>
-<p>
-a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
-</p>
-<ul class="org-ul">
-<li>synapse</li>
-</ul>
-<p>
-突触,activation/link layer.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">2</span> 深度学习</h2>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> 深度学习</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 深度学习（英语：deep learning）是机器学习拉出的分支，*它试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法*.
@@ -1373,10 +1395,24 @@ Layers that have been used in deep learning include hidden layers of an artifici
 </p>
 </div>
 </div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.2</span> why deep?</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+There are functions you can compute with a small L-layer deep neural network that shallower networks require exponentially more hidden units to compute.
+</p>
+
+<p>
+For example,
+\[y=X_1 XOR X_2 XOR X_3 XOR ... XOR X_n\]
+for deep neural networks with less hidden units, the computation is O(log(n)). But for shallower neural networks, the computation is O(2<sup>n</sup>).
+</p>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> 学习方法</h2>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">3</span> 学习方法</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Step 1: 学习机器学习基础</li>
@@ -1393,18 +1429,18 @@ Layers that have been used in deep learning include hidden layers of an artifici
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">4</span> NLP</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">4</span> NLP</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="./NaturalLanguageProcessing.html">NLP</a>
 </p>
 </div>
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">4.1</span> Application: Where can Dl be applied for NLP tasks? DL Algorithms NLP Usage Neural Network (NN)</h3>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">4.1</span> Application: Where can DL be applied for NLP tasks? DL Algorithms NLP Usage Neural Network (NN)</h3>
 <div class="outline-text-3" id="text-4-1">
-</div><div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">4.1.1</span> Feed-forward propagation</h4>
+</div><div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">4.1.1</span> Feed-forward propagation</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <ul class="org-ul">
 <li>POS, NER, Chunking</li>
@@ -1412,8 +1448,8 @@ Layers that have been used in deep learning include hidden layers of an artifici
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">4.1.2</span> Recurrent Neural Networks (RNN)</h4>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">4.1.2</span> Recurrent Neural Networks (RNN)</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <ul class="org-ul">
 <li>Language Modeling and Generating Text</li>
@@ -1424,8 +1460,8 @@ Layers that have been used in deep learning include hidden layers of an artifici
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">4.1.3</span> Recursive Neural Networks</h4>
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">4.1.3</span> Recursive Neural Networks</h4>
 <div class="outline-text-4" id="text-4-1-3">
 <ul class="org-ul">
 <li>Parsing Sentences</li>
@@ -1436,8 +1472,8 @@ Layers that have been used in deep learning include hidden layers of an artifici
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline10" class="outline-4">
-<h4 id="orgheadline10"><span class="section-number-4">4.1.4</span> Convolutional Neural Network (CNN)</h4>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">4.1.4</span> Convolutional Neural Network (CNN)</h4>
 <div class="outline-text-4" id="text-4-1-4">
 <ul class="org-ul">
 <li>Sentence / Text Classification</li>
@@ -1451,8 +1487,8 @@ Layers that have been used in deep learning include hidden layers of an artifici
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">5</span> Critical questions</h2>
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">5</span> Critical questions</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 how - overview picture
@@ -1463,8 +1499,8 @@ results
 conclusion
 </p>
 </div>
-<div id="outline-container-orgheadline13" class="outline-4">
-<h4 id="orgheadline13"><span class="section-number-4">5.0.1</span> 传统机器学习考察点：</h4>
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">5.0.1</span> 传统机器学习考察点：</h4>
 <div class="outline-text-4" id="text-5-0-1">
 <p>
 1、bias与variance的含义，并结合ensemble method问哪种方法降低bias，哪种方法降低variance
@@ -1507,8 +1543,8 @@ LR：Logistic regression measures the relationship between the categorical depen
 </div>
 </div>
 
-<div id="outline-container-orgheadline14" class="outline-4">
-<h4 id="orgheadline14"><span class="section-number-4">5.0.2</span> 深度学习考察点：</h4>
+<div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15"><span class="section-number-4">5.0.2</span> 深度学习考察点：</h4>
 <div class="outline-text-4" id="text-5-0-2">
 <ul class="org-ul">
 <li>Nodes of output layer depend on the number of categories?</li>
@@ -1551,7 +1587,7 @@ Hinton利用预训练方法缓解了局部最优解问题，为了克服梯度�
 <p>
 3、bn的原理，与白化的联系
 <a href="http://blog.csdn.net/fate_fjh/article/details/53375881">http://blog.csdn.net/fate_fjh/article/details/53375881</a>
-Batch Normalization是由google提出的一种训练优化方法。参考论文：Batch Normalization Accelerating Deep Network Training by Reducing Internal Covariate Shift<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+Batch Normalization是由google提出的一种训练优化方法。参考论文：Batch Normalization Accelerating Deep Network Training by Reducing Internal Covariate Shift<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
 个人觉得BN层的作用是加快网络学习速率，论文中提及其它的优点都是这个优点的副产品。
 网上对BN解释详细的不多，大多从原理上解释，没有说出实际使用的过程，这里从what, why, how三个角度去解释BN。
 </p>
@@ -1656,8 +1692,8 @@ DNN是一个大类，CNN是一个典型的空间上深度的神经网络，RNN�
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-4">
-<h4 id="orgheadline15"><span class="section-number-4">5.0.3</span> 最优化考察点：</h4>
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">5.0.3</span> 最优化考察点：</h4>
 <div class="outline-text-4" id="text-5-0-3">
 <p>
 1、sgd、momentum、rmsprop、adam区别与联系
@@ -1738,6 +1774,23 @@ Theano及其生态系统, TensorFlow, Caffe, Caffe2, CNTK, Chainer, DSSTNE, DyNe
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://en.wikipedia.org/wiki/Backpropagation#cite_note-:0-4">https://en.wikipedia.org/wiki/Backpropagation#cite_note-:0-4</a>
+<a href="glossary.html">glossary.html</a>
+</p>
+<ul class="org-ul">
+<li>tensor</li>
+</ul>
+<p class="footpara">
+a mathematical object analogous to but more general than a vector, represented by an array of components that are functions of the coordinates of a space.
+</p>
+<ul class="org-ul">
+<li>synapse</li>
+</ul>
+<p class="footpara">
+突触,activation/link layer.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
 <a href="https://arxiv.org/pdf/1502.03167v3.pdf">https://arxiv.org/pdf/1502.03167v3.pdf</a>
 </p></div></div>
 

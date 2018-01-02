@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-22 Fri 11:27 -->
+<!-- 2018-01-02 Tue 15:17 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -142,6 +142,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -181,6 +203,12 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline16">4.3.1. Data dumps/Import</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#orgheadline21">5. TensorBoard: Embedding Visualization</a>
+<ul>
+<li><a href="#orgheadline19">5.1. Load data</a></li>
+<li><a href="#orgheadline20">5.2. Projections</a></li>
 </ul>
 </li>
 </ul>
@@ -998,6 +1026,57 @@ I set up the interwiki cache cdb file, by using fixup-interwikis.py via the comm
 That was it. This was enough to let me view (most) pages without errors.
 </p>
 </div></li></ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-2">
+<h2 id="orgheadline21"><span class="section-number-2">5</span> TensorBoard: Embedding Visualization</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">5.1</span> Load data</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Step 1: Load a TSV file of vectors.
+Example of 3 vectors with dimension 4:
+0.1\t0.2\t0.5\t0.9
+0.2\t0.1\t5.0\t0.2
+0.4\t0.1\t7.0\t0.8
+</p>
+
+
+<p>
+Step 2 (optional): Load a TSV file of metadata.
+Example of 3 data points and 2 columns.
+Note: If there is more than one column, the first row will be parsed as column labels.
+Pokémon\tSpecies
+Wartortle\tTurtle
+Venusaur\tSeed
+Charmeleon\tFlame
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">5.2</span> Projections</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+The Embedding Projector has three methods of reducing the dimensionality of a data set: two linear and one nonlinear. Each method can be used to create either a two- or three-dimensional view.
+</p>
+
+<ul class="org-ul">
+<li><a href="http://setosa.io/ev/principal-component-analysis/">Principal Component Analysis</a></li>
+</ul>
+<p>
+A straightforward technique for reducing dimensions is Principal Component Analysis (PCA). The Embedding Projector computes the top 10 principal components. The menu lets you project those components onto any combination of two or three. PCA is a linear projection, often effective at examining global geometry.
+</p>
+
+<ul class="org-ul">
+<li><a href="https://distill.pub/2016/misread-tsne/">t-SNE</a></li>
+</ul>
+<p>
+A popular non-linear dimensionality reduction technique is t-SNE. The Embedding Projector offers both two- and three-dimensional t-SNE views. Layout is performed client-side animating every step of the algorithm. Because t-SNE often preserves some local structure, it is useful for exploring local neighborhoods and finding clusters. Although extremely useful for visualizing high-dimensional data, t-SNE plots can sometimes be mysterious or misleading. See this great article for how to use t-SNE effectively.
+</p>
 </div>
 </div>
 </div>

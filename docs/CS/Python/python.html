@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-28 Thu 09:55 -->
+<!-- 2018-01-02 Tue 15:17 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1680,6 +1680,47 @@ True
 </div>
 <div id="outline-container-orgheadline118" class="outline-3">
 <h3 id="orgheadline118"><span class="section-number-3">14.4</span> argparse — Parser for command-line options, arguments and sub-commands</h3>
+<div class="outline-text-3" id="text-14-4">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> argparse
+
+<span style="color: #FD971F;">logger</span> = logging.getLogger<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">handler</span> = logging.StreamHandler<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">formatter</span> = logging.Formatter<span style="color: #AE81FF;">(</span>
+    <span style="color: #E6DB74;">'%(asctime)s %(name)-12s %(levelname)-8s %(message)s'</span><span style="color: #AE81FF;">)</span>
+handler.setFormatter<span style="color: #AE81FF;">(</span>formatter<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> logger.handlers:
+    logger.addHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
+    logger.setLevel<span style="color: #AE81FF;">(</span>logging.DEBUG<span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+    <span style="color: #FD971F;">parser</span> = argparse.ArgumentParser<span style="color: #AE81FF;">()</span>
+    parser.add_argument<span style="color: #AE81FF;">(</span>
+        <span style="color: #E6DB74;">"-i"</span>, <span style="color: #E6DB74;">"--input"</span>, required=<span style="color: #AE81FF;">False</span>, <span style="color: #F92672;">help</span>=<span style="color: #E6DB74;">"Input word2vec model"</span><span style="color: #AE81FF;">)</span>
+    parser.add_argument<span style="color: #AE81FF;">(</span>
+        <span style="color: #E6DB74;">"-o"</span>, <span style="color: #E6DB74;">"--output"</span>, required=<span style="color: #AE81FF;">False</span>, <span style="color: #F92672;">help</span>=<span style="color: #E6DB74;">"Output tensor file name prefix"</span><span style="color: #AE81FF;">)</span>
+    parser.add_argument<span style="color: #AE81FF;">(</span>
+        <span style="color: #E6DB74;">"-b"</span>,
+        <span style="color: #E6DB74;">"--binary"</span>,
+        required=<span style="color: #AE81FF;">False</span>,
+        <span style="color: #F92672;">help</span>=<span style="color: #E6DB74;">"If word2vec model in binary format, set True, else False"</span><span style="color: #AE81FF;">)</span>
+    parser.add_argument<span style="color: #AE81FF;">(</span>
+        <span style="color: #E6DB74;">"-l"</span>,
+        <span style="color: #E6DB74;">"--logdir"</span>,
+        required=<span style="color: #AE81FF;">False</span>,
+        <span style="color: #F92672;">help</span>=<span style="color: #E6DB74;">"periodically save model variables in a checkpoint"</span><span style="color: #AE81FF;">)</span>
+    parser.add_argument<span style="color: #AE81FF;">(</span>
+        <span style="color: #E6DB74;">"--host"</span>,
+        required=<span style="color: #AE81FF;">False</span>,
+        <span style="color: #F92672;">help</span>=<span style="color: #E6DB74;">"host where holding the tensorboard projector service"</span><span style="color: #AE81FF;">)</span>
+    parser.add_argument<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"-p"</span>, <span style="color: #E6DB74;">"--port"</span>, required=<span style="color: #AE81FF;">False</span>, <span style="color: #F92672;">help</span>=<span style="color: #E6DB74;">"browser port"</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #FD971F;">args</span> = parser.parse_args<span style="color: #AE81FF;">()</span>
+
+    word2vec2tensor<span style="color: #AE81FF;">(</span>args.<span style="color: #F92672;">input</span>, args.output, args.binary<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline119" class="outline-3">
 <h3 id="orgheadline119"><span class="section-number-3">14.5</span> getopt — C-style parser for command line options</h3>
