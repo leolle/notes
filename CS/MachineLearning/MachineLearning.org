@@ -404,8 +404,7 @@ eight main steps:
 2. How will your solution be used?
 3. What are the current solutions/workarounds (if any)?
    Markowitz Modern Portfolio Theory, Blacklitterman Model.
-4. How should you frame this problem (supervised/unsupervised, online/offline,
-etc.)?
+4. How should you frame this problem (supervised/unsupervised, online/offline,etc.)?
    unsupervised, offline.
 5. How should performance be measured?
    jkdf
