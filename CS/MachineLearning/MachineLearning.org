@@ -403,15 +403,14 @@ eight main steps:
 1. Define the objective in business terms.
 2. How will your solution be used?
 3. What are the current solutions/workarounds (if any)?
-Markowitz Modern Portfolio Theory, Blacklitterman Model.
+   Markowitz Modern Portfolio Theory, Blacklitterman Model.
 4. How should you frame this problem (supervised/unsupervised, online/offline,
 etc.)?
-unsupervised, offline.
+   unsupervised, offline.
 5. How should performance be measured?
-
+   jkdf
 6. Is the performance measure aligned with the business objective?
-4977. What would be the minimum performance needed to reach the business objec‐
-tive?
+7. What would be the minimum performance needed to reach the business objective?
 8. What are comparable problems? Can you reuse experience or tools?
 9. Is human expertise available?
 10. How would you solve the problem manually?
@@ -438,8 +437,7 @@ if necessary).
 2. Create a Jupyter notebook to keep a record of your data exploration.
 3. Study each attribute and its characteristics:
 • Name
-• Type (categorical, int/float, bounded/unbounded, text, structured, etc.)
-498 | Appendix B: Machine Learning Project Checklist• % of missing values
+• Type (categorical, int/float, bounded/unbounded, text, structured, etc.)of missing values
 • Noisiness and type of noise (stochastic, outliers, rounding errors, etc.)
 • Possibly useful for the task?
 • Type of distribution (Gaussian, uniform, logarithmic, etc.)
@@ -467,7 +465,7 @@ columns).
 • Drop the attributes that provide no useful information for the task.
 3. Feature engineering, where appropriate:
 • Discretize continuous features.
-Machine Learning Project Checklist | 499• Decompose features (e.g., categorical, date/time, etc.).
+  Decompose features (e.g., categorical, date/time, etc.).
 • Add promising transformations of features (e.g., log(x), sqrt(x), x^2, etc.).
 • Aggregate features into promising new features.
 4. Feature scaling: standardize or normalize features.
@@ -494,7 +492,7 @@ Notes:
 • You will want to use as much data as possible for this step, especially as you move
 toward the end of fine-tuning.
 • As always automate what you can.
-500 | Appendix B: Machine Learning Project Checklist1 “Practical Bayesian Optimization of Machine Learning Algorithms,” J. Snoek, H. Larochelle, R. Adams (2012).
+  “Practical Bayesian Optimization of Machine Learning Algorithms,” J. Snoek, H. Larochelle, R. Adams (2012).
 1. Fine-tune the hyperparameters using cross-validation.
 • Treat your data transformation choices as hyperparameters, especially when
 you are not sure about them (e.g., should I replace missing values with zero or
@@ -518,21 +516,16 @@ you would just start overfitting the test set.
 • Describe what worked and what did not.
 • List your assumptions and your system’s limitations.
 5. Ensure your key findings are communicated through beautiful visualizations or
-easy-to-remember statements (e.g., “the median income is the number-one pre‐
-dictor of housing prices”).
+easy-to-remember statements (e.g., “the median income is the number-one predictor of housing prices”).
 ** Launch!
 1. Get your solution ready for production (plug into production data inputs, write
 unit tests, etc.).
-2. Write monitoring code to check your system’s live performance at regular inter‐
-vals and trigger alerts when it drops.
+2. Write monitoring code to check your system’s live performance at regular intervals and trigger alerts when it drops.
 • Beware of slow degradation too: models tend to “rot” as data evolves.
-• Measuring performance may require a human pipeline (e.g., via a crowdsourc‐
-ing service).
-• Also monitor your inputs’ quality (e.g., a malfunctioning sensor sending ran‐
-dom values, or another team’s output becoming stale). This is particularly
+• Measuring performance may require a human pipeline (e.g., via a crowdsourcing service).
+• Also monitor your inputs’ quality (e.g., a malfunctioning sensor sending random values, or another team’s output becoming stale). This is particularly
 important for online learning systems.
-3. Retrain your models on a regular basis on fresh data (automate as much as possi‐
-ble)
+3. Retrain your models on a regular basis on fresh data (automate as much as possible)
 
 * Machine Learning Project Checklist for Natural Language Processing
 Machine Learning Project Checklist for portfolio optimization
