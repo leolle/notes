@@ -585,7 +585,14 @@ Very Deep Convolutional Networks for Large-Scale Image Recognition
 
 Tomas Mikolov’s neural networks, known as Word2vec, have become widely used because they help produce state-of-the-art word embeddings. Word2vec is a two-layer neural net that processes text. Its input is a text corpus and its output is a set of vectors: feature vectors for words in that corpus. While Word2vec is not a deep neural network, it turns text into a numerical form that deep nets can understand. Word2vec’s applications extend beyond parsing sentences in the wild. It can be applied just as well to genes, code, playlists, social media graphs and other verbal or symbolic series in which patterns may be discerned. Deeplearning4j implements a distributed form of Word2vec for Java and Scala, which works on Spark with GPUs.
 
+- Weight decay
+When training neural networks, it is common to use "weight decay," where after each update, the weights are multiplied by a factor slightly less than 1. This prevents the weights from growing too large, and can be seen as gradient descent on a quadratic regularization term.
 
+Weight decay is an example of a regularization method.
+- The $L_2$ norm of the weights isn't necessarily a good regularizer for neural nets. Some more principled alternatives include:
+- Tikhonov regularization, which rewards invariance to noise in the inputs (go to concept)
+- Tangent propagation, which rewards invariance to irrelevant transformations of the inputs such as translation and scalling (go to concept)
+Early stopping is another strategy to prevent overfitting in neural nets.
 
 - Xavier Initialization
 

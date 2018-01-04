@@ -164,6 +164,9 @@ CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
 - [ ] train function names based on wiki pages on functions, models, and python/matlab/sas/cpp-reference manuals, function names and function descriptions, excel formula, VBA, VB, guass, whatever software which has a function dictionary and manual.
+- [ ] fix zhwiki to mongodb words count.
+- [ ] word2vec fast text comparison.
+- [ ] compare the training results with or without stopwords.
 - [ ] extract data from financial documents — usually PDFs — in an automated way, and to produce “better-than-human” analyses. extract data from tables and text.
 - [ ] train Chinese wiki model.
   assign wiki pages extraction task.
@@ -607,6 +610,8 @@ Spend at most 1 week to learn all those, then pick one to go deeper.
 *** LDA
 *** HMM
 *** Neural Network
+** Studying method:
+1. model assumption, input data, application, detail.
 * Risk model
 DEADLINE: <2017-11-14 Tue>
 :LOGBOOK:

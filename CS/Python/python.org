@@ -51,6 +51,114 @@ eval the value of a variable name from string.
 ** Comparisons
 ** Numeric Types — int, float, complex
 ** Iterator Types
+- magic method __iter__:
+Iterators are everywhere in Python. They are elegantly implemented within for loops, comprehensions, generators etc. but hidden in plain sight.
+
+Iterator in Python is simply an object that can be iterated upon. An object which will return data, one element at a time.
+
+Technically speaking, Python iterator object must implement two special methods, __iter__() and __next__(), collectively called the iterator protocol.
+
+An object is called iterable if we can get an iterator from it. Most of built-in containers in Python like: list, tuple, string etc. are iterables.
+
+The iter() function (which in turn calls the __iter__() method) returns an iterator from them.
+- Iterating Through an Iterator in Python
+use the $next()$ function to manually iterate through all the items of an iterator.
+#+BEGIN_SRC python
+# define a list
+my_list = [4, 7, 0, 3]
+
+# get an iterator using iter()
+my_iter = iter(my_list)
+
+## iterate through it using next()
+
+#prints 4
+print(next(my_iter))
+
+#prints 7
+print(next(my_iter))
+
+## next(obj) is same as obj.__next__()
+
+#prints 0
+print(my_iter.__next__())
+
+#prints 3
+print(my_iter.__next__())
+
+## This will raise error, no items left
+next(my_iter)
+#+END_SRC
+A more elegant way of automatically iterating is by using the for loop. Using this, we can iterate over any object that can return an iterator, for example list, string, file etc.
+#+BEGIN_SRC python
+for element in my_list:
+    print(element)
+#+END_SRC
+- How for loop actually works?
+#+BEGIN_SRC python
+for element in iterable:
+    # do something with element
+# Is actually implemented as.
+
+# create an iterator object from that iterable
+iter_obj = iter(iterable)
+
+# infinite loop
+while True:
+    try:
+        # get the next item
+        element = next(iter_obj)
+        # do something with element
+    except StopIteration:
+        # if StopIteration is raised, break from loop
+        break
+
+#+END_SRC
+- example:
+#+BEGIN_SRC python
+class PowTwo:
+    """Class to implement an iterator
+    of powers of two"""
+
+    def __init__(self, max = 0):
+        self.max = max
+
+    def __iter__(self):
+        self.n = 0
+        return self
+
+    def __next__(self):
+        if self.n <= self.max:
+            result = 2 ** self.n
+            self.n += 1
+            return result
+        else:
+            raise StopIteration
+
+# create an iterator and iterate through it as follows.
+
+>>> a = PowTwo(4)
+>>> i = iter(a)
+>>> next(i)
+1
+>>> next(i)
+2
+>>> next(i)
+4
+>>> next(i)
+8
+>>> next(i)
+16
+>>> next(i)
+Traceback (most recent call last):
+...
+StopIteration
+
+# use a for loop to iterate over our iterator class.
+
+>>> for i in PowTwo(5):
+...     print(i)
+#+END_SRC
 ** Sequence Types — list, tuple, range
 - find difference of two lists:
 #+begin_src python
@@ -242,6 +350,39 @@ except Networkerror,e:
 #+END_SRC
 * Text Processing Services
 ** string — Common string operations
+- if the string is an English word.
+#+BEGIN_SRC python
+from nltk.corpus import wordnet
+if not wordnet.synsets(word) and not word.isdigit()
+#+END_SRC
+- jieba cut, remove signs.
+#+BEGIN_SRC python
+punct = set(u''':!),.:;?]}¢'"、。〉》」』】〕〗〞︰︱︳﹐､﹒
+﹔﹕﹖﹗﹚﹜﹞！），．：；？｜｝︴︶︸︺︼︾﹀﹂﹄﹏､～￠
+々‖•·ˇˉ―--′’”([{£¥'"‵〈《「『【〔〖（［｛￡￥〝︵︷︹︻
+︽︿﹁﹃﹙﹛﹝（｛“‘-—_…''')
+
+str_in = u"小明硕士毕业于中国科学院计算所，\
+后在日本京都大学深造，凭借过人天赋，旁人若在另一方面爱他，他每即躲开。"
+
+# 对str/unicode
+filterpunt = lambda s: ''.join(filter(lambda x: x not in punct, s))
+# 对list
+filterpuntl = lambda l: list(filter(lambda x: x not in punct, l))
+seg_list = jieba.cut(str_in, cut_all=False)
+sent_list = filterpuntl(seg_list)
+#+END_SRC
+
+- tokenize unicode or string to sentence list.
+#+BEGIN_SRC python
+from nltk import tokenize as n_tokenize
+sent= n_tokenize.sent_tokenize(page)
+# or
+sent_list = page.split()
+#+END_SRC
+- list comprehension
+[x for x in t if x not in s if x.isdigit()]
+
 - if string are digits.
 #+BEGIN_SRC python
 str.isdigit()
@@ -939,7 +1080,7 @@ from __future__ import unicode_literals
 from __future__ import absolute_import
 #+END_SRC
 - unicode vs utf-8 vs binary strings vs strings
-unicode 是编码,例如把一个汉字编成了一个码(计算机不可读).
+unicode 是编码unique code,例如把一个汉字编成了一个码(计算机不可读).
 
 A chinese character:      汉
 
@@ -947,7 +1088,7 @@ it's unicode value:       U+6C49
 
 convert 6C49 to binary:   01101100 01001001
 
-UTF-8是把character转为binary code的规范, and vice versa.
+UTF-8是把character转为binary code的规范, and vice versa. 方便存储。
 |   binary |          |          |          |                     |                                   |
 | 1st Byte | 2nd Byte | 3rd Byte | 4th Byte | Number of Free Bits | Maximum Expressible Unicode Value |
 | 0xxxxxxx |          |          |          | 7                   | 007F hex (127)                    |

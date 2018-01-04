@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-02 Tue 15:29 -->
+<!-- 2018-01-04 Thu 09:08 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -369,7 +369,18 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline120">18.8. Launch!</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline122">19. Machine Learning Project Checklist for Natural Language Processing</a></li>
+<li><a href="#orgheadline130">19. Machine Learning Project Checklist for Natural Language Processing on Knowledge Graph recommendation agent.</a>
+<ul>
+<li><a href="#orgheadline122">19.1. Frame the Problem and Look at the Big Picture</a></li>
+<li><a href="#orgheadline123">19.2. Get the Data</a></li>
+<li><a href="#orgheadline124">19.3. Explore the Data</a></li>
+<li><a href="#orgheadline125">19.4. Prepare the Data</a></li>
+<li><a href="#orgheadline126">19.5. Short-List Promising Models</a></li>
+<li><a href="#orgheadline127">19.6. Fine-Tune the System</a></li>
+<li><a href="#orgheadline128">19.7. Present Your Solution</a></li>
+<li><a href="#orgheadline129">19.8. Launch!</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1228,22 +1239,40 @@ Portfolio optimization is the process of choosing the proportions of various ass
 
 <ol class="org-ol">
 <li>How will your solution be used?</li>
+</ol>
+<p>
+Often, portfolio optimization takes place in two stages: optimizing weights of asset classes to hold, and optimizing weights of assets within the same asset class. An example of the former would be choosing the proportions placed in equities versus bonds, while an example of the latter would be choosing the proportions of the stock sub-portfolio placed in stocks X, Y, and Z. Equities and bonds have fundamentally different financial characteristics and have different systematic risk and hence can be viewed as separate asset classes; holding some of the portfolio in each class provides some diversification, and holding various specific assets within each class affords further diversification. By using such a two-step procedure one eliminates non-systematic risks both on the individual asset and the asset class level.
+</p>
 
-<li>What are the current solutions/workarounds (if any)?
-Markowitz Modern Portfolio Theory, Blacklitterman Model.</li>
+<ol class="org-ol">
+<li>What are the current solutions/workarounds (if any)?</li>
+</ol>
+<p>
+Markowitz Modern Portfolio Theory, Blacklitterman Model, Risk Parity.
+</p>
+
+<ol class="org-ol">
 <li>How should you frame this problem (supervised/unsupervised, online/offline,etc.)?</li>
 </ol>
 <p>
-unsupervised, offline.
+reinforcement learning, offline.
 </p>
+
 <ol class="org-ol">
 <li>How should performance be measured?</li>
 </ol>
 <p>
-jkdf
+Return(percentage change) and Risk(standard deviation or the return). In addition to the traditional measure, standard deviation, or its square (variance), which are not robust risk measures, other measures include the Sortino ratio and the CVaR (Conditional Value at Risk).
 </p>
+
 <ol class="org-ol">
 <li>Is the performance measure aligned with the business objective?</li>
+</ol>
+<p>
+Often portfolio optimization is done subject to constraints.
+</p>
+
+<ol class="org-ol">
 <li>What would be the minimum performance needed to reach the business objective?</li>
 <li>What are comparable problems? Can you reuse experience or tools?</li>
 <li>Is human expertise available?</li>
@@ -1360,17 +1389,11 @@ models such as large neural nets or Random Forests).
 • Once again, try to automate these steps as much as possible.
 </p>
 <ol class="org-ol">
-<li>Train many quick and dirty models from different categories (e.g., linear, naive</li>
-</ol>
-<p>
-Bayes, SVM, Random Forests, neural net, etc.) using standard parameters.
-</p>
-<ol class="org-ol">
+<li>Train many quick and dirty models from different categories (e.g., linear, naive Bayes, SVM, Random Forests, neural net, etc.) using standard parameters.</li>
 <li>Measure and compare their performance.</li>
 </ol>
 <p>
-• For each model, use N-fold cross-validation and compute the mean and stan‐
-dard deviation of the performance measure on the N folds.
+• For each model, use N-fold cross-validation and compute the mean and standard deviation of the performance measure on the N folds.
 </p>
 <ol class="org-ol">
 <li>Analyze the most significant variables for each algorithm.</li>
@@ -1382,11 +1405,8 @@ dard deviation of the performance measure on the N folds.
 <ol class="org-ol">
 <li>Have a quick round of feature selection and engineering.</li>
 <li>Have one or two more quick iterations of the five previous steps.</li>
-<li>Short-list the top three to five most promising models, preferring models that</li>
+<li>Short-list the top three to five most promising models, preferring models that make different types of errors.</li>
 </ol>
-<p>
-make different types of errors.
-</p>
 </div>
 </div>
 <div id="outline-container-orgheadline118" class="outline-3">
@@ -1394,8 +1414,7 @@ make different types of errors.
 <div class="outline-text-3" id="text-18-6">
 <p>
 Notes:
-• You will want to use as much data as possible for this step, especially as you move
-toward the end of fine-tuning.
+• You will want to use as much data as possible for this step, especially as you move toward the end of fine-tuning.
 • As always automate what you can.
   “Practical Bayesian Optimization of Machine Learning Algorithms,” J. Snoek, H. Larochelle, R. Adams (2012).
 </p>
@@ -1403,27 +1422,16 @@ toward the end of fine-tuning.
 <li>Fine-tune the hyperparameters using cross-validation.</li>
 </ol>
 <p>
-• Treat your data transformation choices as hyperparameters, especially when
-you are not sure about them (e.g., should I replace missing values with zero or
+• Treat your data transformation choices as hyperparameters, especially when you are not sure about them (e.g., should I replace missing values with zero or
 with the median value? Or just drop the rows?).
-• Unless there are very few hyperparameter values to explore, prefer random
-search over grid search. If training is very long, you may prefer a Bayesian
-optimization approach (e.g., using Gaussian process priors, as described by
-Jasper Snoek, Hugo Larochelle, and Ryan Adams).1
+• Unless there are very few hyperparameter values to explore, prefer random search over grid search. If training is very long, you may prefer a Bayesian optimization approach (e.g., using Gaussian process priors, as described by Jasper Snoek, Hugo Larochelle, and Ryan Adams).
 </p>
 <ol class="org-ol">
-<li>Try Ensemble methods. Combining your best models will often perform better</li>
+<li>Try Ensemble methods. Combining your best models will often perform better than running them individually.</li>
+<li>Once you are confident about your final model, measure its performance on the test set to estimate the generalization error.</li>
 </ol>
 <p>
-than running them individually.
-</p>
-<ol class="org-ol">
-<li>Once you are confident about your final model, measure its performance on the</li>
-</ol>
-<p>
-test set to estimate the generalization error.
-Don’t tweak your model after measuring the generalization error:
-you would just start overfitting the test set.
+Don’t tweak your model after measuring the generalization error: you would just start overfitting the test set.
 </p>
 </div>
 </div>
@@ -1457,12 +1465,7 @@ easy-to-remember statements (e.g., “the median income is the number-one predic
 <h3 id="orgheadline120"><span class="section-number-3">18.8</span> Launch!</h3>
 <div class="outline-text-3" id="text-18-8">
 <ol class="org-ol">
-<li>Get your solution ready for production (plug into production data inputs, write</li>
-</ol>
-<p>
-unit tests, etc.).
-</p>
-<ol class="org-ol">
+<li>Get your solution ready for production (plug into production data inputs, write unit tests, etc.).</li>
 <li>Write monitoring code to check your system’s live performance at regular intervals and trigger alerts when it drops.</li>
 </ol>
 <p>
@@ -1478,11 +1481,10 @@ important for online learning systems.
 </div>
 </div>
 
-<div id="outline-container-orgheadline122" class="outline-2">
-<h2 id="orgheadline122"><span class="section-number-2">19</span> Machine Learning Project Checklist for Natural Language Processing</h2>
+<div id="outline-container-orgheadline130" class="outline-2">
+<h2 id="orgheadline130"><span class="section-number-2">19</span> Machine Learning Project Checklist for Natural Language Processing on Knowledge Graph recommendation agent.</h2>
 <div class="outline-text-2" id="text-19">
 <p>
-Machine Learning Project Checklist for portfolio optimization
 This checklist can guide you through your Machine Learning projects. There are
 eight main steps:
 </p>
@@ -1490,69 +1492,170 @@ eight main steps:
 <li>Frame the problem and look at the big picture.</li>
 <li>Get the data.</li>
 <li>Explore the data to gain insights.</li>
-<li>Prepare the data to better expose the underlying data patterns to Machine Learn‐</li>
-</ol>
-<p>
-ing algorithms.
-</p>
-<ol class="org-ol">
+<li>Prepare the data to better expose the underlying data patterns to Machine Learning algorithms.</li>
 <li>Explore many different models and short-list the best ones.</li>
 <li>Fine-tune your models and combine them into a great solution.</li>
 <li>Present your solution.</li>
 <li>Launch, monitor, and maintain your system.</li>
 </ol>
-<p>
-Obviously, you should feel free to adapt this checklist to your needs.
-Frame the Problem and Look at the Big Picture
-</p>
+</div>
+<div id="outline-container-orgheadline122" class="outline-3">
+<h3 id="orgheadline122"><span class="section-number-3">19.1</span> Frame the Problem and Look at the Big Picture</h3>
+<div class="outline-text-3" id="text-19-1">
 <ol class="org-ol">
-<li>Define the objective in business terms.</li>
-<li>How will your solution be used?</li>
-<li>What are the current solutions/workarounds (if any)?</li>
-<li>How should you frame this problem (supervised/unsupervised, online/offline,</li>
+<li>Define the objective in business terms and solution.</li>
 </ol>
 <p>
-etc.)?
+The challenge financial analysts facing is how to extract useful information from big data, which includes news articles, financial statements, tables, graphs etc. Our objective is to provide them a tool to analyze these information with an understandable workflow in order to increase the efficiency to solve selecting strategy and portfolio, making investment decision.
 </p>
+
+<p>
+One of the tools that can be utilized for increasing workflow decision is to tell machines to understand human needs, which is referred as NaturalLanguageProcessing(NLP) pipline.
+</p>
+
+<ul class="org-ul">
+<li>Short Term
+<ul class="org-ul">
+<li>make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.</li>
+<li>incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.</li>
+<li>train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.</li>
+<li>ensemble model using mean value.</li>
+</ul></li>
+<li>Long Term
+<ul class="org-ul">
+<li>context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.</li>
+<li>research platform pipeline.</li>
+</ul></li>
+
+<li>What are the current solutions/workarounds (if any)?</li>
+</ul>
+<p>
+Based on Knowledge Graph workflow, recommend similar or often used keywords hints next steps using word embedding, providing answers for user questions using entity recognition and database querying technology.
+</p>
+
+<ol class="org-ol">
+<li>How should you frame this problem (supervised/unsupervised, online/offline,etc.)?</li>
+</ol>
+<p>
+NLP unsupervised training.
+</p>
+
 <ol class="org-ol">
 <li>How should performance be measured?</li>
-<li>Is the performance measure aligned with the business objective?</li>
-<li>What would be the minimum performance needed to reach the business objec‐</li>
 </ol>
 <p>
-tive?
+Measure the recommendation by eyes, next step will be cross comparing with the writen scripts automatically.
 </p>
+
+<p>
+Strategy backtest statistics running on similar factor inputs recommended from word embedding similar words.
+</p>
+
+<ol class="org-ol">
+<li>Is the performance measure aligned with the business objective?</li>
+</ol>
+<p>
+Whether the recommendation system can help customer find useful hints/factors can directly affect the strategy backtest statistics.
+</p>
+
+<ol class="org-ol">
+<li>What would be the minimum performance needed to reach the business objective?</li>
+</ol>
+<p>
+It can recommend reasonable hints which to fit in a workflow at least.
+</p>
+
 <ol class="org-ol">
 <li>What are comparable problems? Can you reuse experience or tools?</li>
 <li>Is human expertise available?</li>
 <li>How would you solve the problem manually?</li>
 <li>List the assumptions you (or others) have made so far.</li>
-<li>Verify assumptions if possible.</li>
 </ol>
 <p>
-Get the Data
+Customer don't know/remember next steps when operating on the GS workflow.
+</p>
+
+
+<ol class="org-ol">
+<li>Verify assumptions if possible.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgheadline123" class="outline-3">
+<h3 id="orgheadline123"><span class="section-number-3">19.2</span> Get the Data</h3>
+<div class="outline-text-3" id="text-19-2">
+<p>
 Note: automate as much as possible so you can easily get fresh data.
 </p>
 <ol class="org-ol">
 <li>List the data you need and how much you need.</li>
+<li>company filings text, filing classification, event time series data (attributes manually extracted).</li>
+<li>finance conference scripts.</li>
+<li>corporate telephone comference notes, memo.</li>
+<li>company filings text, company industry classification.</li>
+<li>analyst research reports, report classification, analyst ranking.</li>
+<li>wiki page titles and page text, wiki category.</li>
+<li>textbook or CFA chapter name, chapter exercise questions, multiple choice questions.</li>
+<li>SSRN paper keyword, category, title, abstract, data, model and conclusion.</li>
+
 <li>Find and document where you can get that data.</li>
-<li>Check how much space it will take.</li>
-<li>Check legal obligations, and get authorization if necessary.</li>
-<li>Get access authorizations.</li>
-<li>Create a workspace (with enough storage space).</li>
-<li>Get the data.</li>
-<li>Convert the data to a format you can easily manipulate (without changing the</li>
 </ol>
 <p>
-data itself).
+Already found Wiki dump, programming manuals.
 </p>
+
+<ol class="org-ol">
+<li>Check how much space it will take.</li>
+</ol>
+<p>
+enwiki: 8.15 GBytes, zhwiki: 855 MByes.
+</p>
+
+<ol class="org-ol">
+<li>Check legal obligations, and get authorization if necessary.</li>
+
+<li>Get access authorizations.</li>
+
+<li>Create a workspace (with enough storage space).</li>
+</ol>
+<p>
+Configuring deep learning machine with Ubuntu operation system.
+</p>
+
+<ol class="org-ol">
+<li>Get the data.</li>
+</ol>
+<p>
+get the following data already:
+</p>
+
+<p>
+enwiki-20170820-pages-articles.xml.bz2
+</p>
+
+<p>
+zhwiki-latest-pages-articles.xml.bz2
+</p>
+
+<ol class="org-ol">
+<li>Convert the data to a format you can easily manipulate (without changing the data itself).</li>
+</ol>
+<p>
+dump the wiki pages to mongodb.
+</p>
+
 <ol class="org-ol">
 <li>Ensure sensitive information is deleted or protected (e.g., anonymized).</li>
 <li>Check the size and type of data (time series, sample, geographical, etc.).</li>
 <li>Sample a test set, put it aside, and never look at it (no data snooping!).</li>
 </ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline124" class="outline-3">
+<h3 id="orgheadline124"><span class="section-number-3">19.3</span> Explore the Data</h3>
+<div class="outline-text-3" id="text-19-3">
 <p>
-Explore the Data
 Note: try to get insights from a field expert for these steps.
 </p>
 <ol class="org-ol">
@@ -1567,8 +1670,7 @@ if necessary).
 </ol>
 <p>
 • Name
-• Type (categorical, int/float, bounded/unbounded, text, structured, etc.)
-498 | Appendix B: Machine Learning Project Checklist• % of missing values
+• Type (categorical, int/float, bounded/unbounded, text, structured, etc.)of missing values
 • Noisiness and type of noise (stochastic, outliers, rounding errors, etc.)
 • Possibly useful for the task?
 • Type of distribution (Gaussian, uniform, logarithmic, etc.)
@@ -1582,8 +1684,12 @@ if necessary).
 <li>Identify extra data that would be useful (go back to “Get the Data” on page 498).</li>
 <li>Document what you have learned.</li>
 </ol>
+</div>
+</div>
+<div id="outline-container-orgheadline125" class="outline-3">
+<h3 id="orgheadline125"><span class="section-number-3">19.4</span> Prepare the Data</h3>
+<div class="outline-text-3" id="text-19-4">
 <p>
-Prepare the Data
 Notes:
 • Work on copies of the data (keep the original dataset intact).
 • Write functions for all data transformations you apply, for five reasons:
@@ -1612,15 +1718,19 @@ columns).
 </ol>
 <p>
 • Discretize continuous features.
-Machine Learning Project Checklist | 499• Decompose features (e.g., categorical, date/time, etc.).
+  Decompose features (e.g., categorical, date/time, etc.).
 • Add promising transformations of features (e.g., log(x), sqrt(x), x<sup>2</sup>, etc.).
 • Aggregate features into promising new features.
 </p>
 <ol class="org-ol">
 <li>Feature scaling: standardize or normalize features.</li>
 </ol>
+</div>
+</div>
+<div id="outline-container-orgheadline126" class="outline-3">
+<h3 id="orgheadline126"><span class="section-number-3">19.5</span> Short-List Promising Models</h3>
+<div class="outline-text-3" id="text-19-5">
 <p>
-Short-List Promising Models
 Notes:
 • If the data is huge, you may want to sample smaller training sets so you can train
 many different models in a reasonable time (be aware that this penalizes complex
@@ -1628,17 +1738,11 @@ models such as large neural nets or Random Forests).
 • Once again, try to automate these steps as much as possible.
 </p>
 <ol class="org-ol">
-<li>Train many quick and dirty models from different categories (e.g., linear, naive</li>
-</ol>
-<p>
-Bayes, SVM, Random Forests, neural net, etc.) using standard parameters.
-</p>
-<ol class="org-ol">
+<li>Train many quick and dirty models from different categories (e.g., linear, naive Bayes, SVM, Random Forests, neural net, etc.) using standard parameters.</li>
 <li>Measure and compare their performance.</li>
 </ol>
 <p>
-• For each model, use N-fold cross-validation and compute the mean and stan‐
-dard deviation of the performance measure on the N folds.
+• For each model, use N-fold cross-validation and compute the mean and standard deviation of the performance measure on the N folds.
 </p>
 <ol class="org-ol">
 <li>Analyze the most significant variables for each algorithm.</li>
@@ -1650,44 +1754,39 @@ dard deviation of the performance measure on the N folds.
 <ol class="org-ol">
 <li>Have a quick round of feature selection and engineering.</li>
 <li>Have one or two more quick iterations of the five previous steps.</li>
-<li>Short-list the top three to five most promising models, preferring models that</li>
+<li>Short-list the top three to five most promising models, preferring models that make different types of errors.</li>
 </ol>
+</div>
+</div>
+<div id="outline-container-orgheadline127" class="outline-3">
+<h3 id="orgheadline127"><span class="section-number-3">19.6</span> Fine-Tune the System</h3>
+<div class="outline-text-3" id="text-19-6">
 <p>
-make different types of errors.
-Fine-Tune the System
 Notes:
-• You will want to use as much data as possible for this step, especially as you move
-toward the end of fine-tuning.
+• You will want to use as much data as possible for this step, especially as you move toward the end of fine-tuning.
 • As always automate what you can.
-500 | Appendix B: Machine Learning Project Checklist1 “Practical Bayesian Optimization of Machine Learning Algorithms,” J. Snoek, H. Larochelle, R. Adams (2012).
+  “Practical Bayesian Optimization of Machine Learning Algorithms,” J. Snoek, H. Larochelle, R. Adams (2012).
 </p>
 <ol class="org-ol">
 <li>Fine-tune the hyperparameters using cross-validation.</li>
 </ol>
 <p>
-• Treat your data transformation choices as hyperparameters, especially when
-you are not sure about them (e.g., should I replace missing values with zero or
+• Treat your data transformation choices as hyperparameters, especially when you are not sure about them (e.g., should I replace missing values with zero or
 with the median value? Or just drop the rows?).
-• Unless there are very few hyperparameter values to explore, prefer random
-search over grid search. If training is very long, you may prefer a Bayesian
-optimization approach (e.g., using Gaussian process priors, as described by
-Jasper Snoek, Hugo Larochelle, and Ryan Adams).1
+• Unless there are very few hyperparameter values to explore, prefer random search over grid search. If training is very long, you may prefer a Bayesian optimization approach (e.g., using Gaussian process priors, as described by Jasper Snoek, Hugo Larochelle, and Ryan Adams).
 </p>
 <ol class="org-ol">
-<li>Try Ensemble methods. Combining your best models will often perform better</li>
+<li>Try Ensemble methods. Combining your best models will often perform better than running them individually.</li>
+<li>Once you are confident about your final model, measure its performance on the test set to estimate the generalization error.</li>
 </ol>
 <p>
-than running them individually.
+Don’t tweak your model after measuring the generalization error: you would just start overfitting the test set.
 </p>
-<ol class="org-ol">
-<li>Once you are confident about your final model, measure its performance on the</li>
-</ol>
-<p>
-test set to estimate the generalization error.
-Don’t tweak your model after measuring the generalization error:
-you would just start overfitting the test set.
-Present Your Solution
-</p>
+</div>
+</div>
+<div id="outline-container-orgheadline128" class="outline-3">
+<h3 id="orgheadline128"><span class="section-number-3">19.7</span> Present Your Solution</h3>
+<div class="outline-text-3" id="text-19-7">
 <ol class="org-ol">
 <li>Document what you have done.</li>
 <li>Create a nice presentation.</li>
@@ -1707,34 +1806,27 @@ Present Your Solution
 <li>Ensure your key findings are communicated through beautiful visualizations or</li>
 </ol>
 <p>
-easy-to-remember statements (e.g., “the median income is the number-one pre‐
-dictor of housing prices”).
-Machine Learning Project Checklist | 501Launch!
+easy-to-remember statements (e.g., “the median income is the number-one predictor of housing prices”).
 </p>
+</div>
+</div>
+<div id="outline-container-orgheadline129" class="outline-3">
+<h3 id="orgheadline129"><span class="section-number-3">19.8</span> Launch!</h3>
+<div class="outline-text-3" id="text-19-8">
 <ol class="org-ol">
-<li>Get your solution ready for production (plug into production data inputs, write</li>
+<li>Get your solution ready for production (plug into production data inputs, write unit tests, etc.).</li>
+<li>Write monitoring code to check your system’s live performance at regular intervals and trigger alerts when it drops.</li>
 </ol>
 <p>
-unit tests, etc.).
-</p>
-<ol class="org-ol">
-<li>Write monitoring code to check your system’s live performance at regular inter‐</li>
-</ol>
-<p>
-vals and trigger alerts when it drops.
 • Beware of slow degradation too: models tend to “rot” as data evolves.
-• Measuring performance may require a human pipeline (e.g., via a crowdsourc‐
-ing service).
-• Also monitor your inputs’ quality (e.g., a malfunctioning sensor sending ran‐
-dom values, or another team’s output becoming stale). This is particularly
+• Measuring performance may require a human pipeline (e.g., via a crowdsourcing service).
+• Also monitor your inputs’ quality (e.g., a malfunctioning sensor sending random values, or another team’s output becoming stale). This is particularly
 important for online learning systems.
 </p>
 <ol class="org-ol">
-<li>Retrain your models on a regular basis on fresh data (automate as much as possi‐</li>
+<li>Retrain your models on a regular basis on fresh data (automate as much as possible)</li>
 </ol>
-<p>
-ble)
-</p>
+</div>
 </div>
 </div>
 </div>

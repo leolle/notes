@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-02 Tue 15:17 -->
+<!-- 2018-01-04 Thu 09:08 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -653,6 +653,145 @@ eval the value of a variable name from string.
 </div>
 <div id="outline-container-orgheadline9" class="outline-3">
 <h3 id="orgheadline9"><span class="section-number-3">3.5</span> Iterator Types</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>magic method <span class="underline"><span class="underline">iter</span></span>:</li>
+</ul>
+<p>
+Iterators are everywhere in Python. They are elegantly implemented within for loops, comprehensions, generators etc. but hidden in plain sight.
+</p>
+
+<p>
+Iterator in Python is simply an object that can be iterated upon. An object which will return data, one element at a time.
+</p>
+
+<p>
+Technically speaking, Python iterator object must implement two special methods, __iter__() and __next__(), collectively called the iterator protocol.
+</p>
+
+<p>
+An object is called iterable if we can get an iterator from it. Most of built-in containers in Python like: list, tuple, string etc. are iterables.
+</p>
+
+<p>
+The iter() function (which in turn calls the __iter__() method) returns an iterator from them.
+</p>
+<ul class="org-ul">
+<li>Iterating Through an Iterator in Python</li>
+</ul>
+<p>
+use the \(next()\) function to manually iterate through all the items of an iterator.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">define a list</span>
+<span style="color: #FD971F;">my_list</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">7</span>, <span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">get an iterator using iter()</span>
+<span style="color: #FD971F;">my_iter</span> = <span style="color: #F92672;">iter</span><span style="color: #AE81FF;">(</span>my_list<span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;">## </span><span style="color: #75715E;">iterate through it using next()</span>
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">prints 4</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">next</span><span style="color: #66D9EF;">(</span>my_iter<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">prints 7</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">next</span><span style="color: #66D9EF;">(</span>my_iter<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;">## </span><span style="color: #75715E;">next(obj) is same as obj.__next__()</span>
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">prints 0</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>my_iter.__next__<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;">#</span><span style="color: #75715E;">prints 3</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>my_iter.__next__<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;">## </span><span style="color: #75715E;">This will raise error, no items left</span>
+<span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>my_iter<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+A more elegant way of automatically iterating is by using the for loop. Using this, we can iterate over any object that can return an iterator, for example list, string, file etc.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> element <span style="color: #F92672;">in</span> my_list:
+    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>element<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>How for loop actually works?</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">for</span> element <span style="color: #F92672;">in</span> iterable:
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">do something with element</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Is actually implemented as.</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">create an iterator object from that iterable</span>
+<span style="color: #FD971F;">iter_obj</span> = <span style="color: #F92672;">iter</span><span style="color: #AE81FF;">(</span>iterable<span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">infinite loop</span>
+<span style="color: #F92672;">while</span> <span style="color: #AE81FF;">True</span>:
+    <span style="color: #F92672;">try</span>:
+        <span style="color: #75715E;"># </span><span style="color: #75715E;">get the next item</span>
+        <span style="color: #FD971F;">element</span> = <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>iter_obj<span style="color: #AE81FF;">)</span>
+        <span style="color: #75715E;"># </span><span style="color: #75715E;">do something with element</span>
+    <span style="color: #F92672;">except</span> <span style="color: #66D9EF;">StopIteration</span>:
+        <span style="color: #75715E;"># </span><span style="color: #75715E;">if StopIteration is raised, break from loop</span>
+        <span style="color: #F92672;">break</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>example:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">PowTwo</span>:
+    <span style="color: #E6DB74;">"""Class to implement an iterator</span>
+<span style="color: #E6DB74;">    of powers of two"""</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__init__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, <span style="color: #F92672;">max</span> = <span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.<span style="color: #F92672;">max</span> = <span style="color: #F92672;">max</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__iter__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">self</span>.n = <span style="color: #AE81FF;">0</span>
+        <span style="color: #F92672;">return</span> <span style="color: #F92672;">self</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__next__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">if</span> <span style="color: #F92672;">self</span>.n &lt;= <span style="color: #F92672;">self</span>.<span style="color: #F92672;">max</span>:
+            <span style="color: #FD971F;">result</span> = <span style="color: #AE81FF;">2</span> ** <span style="color: #F92672;">self</span>.n
+            <span style="color: #F92672;">self</span>.n += <span style="color: #AE81FF;">1</span>
+            <span style="color: #F92672;">return</span> result
+        <span style="color: #F92672;">else</span>:
+            <span style="color: #F92672;">raise</span> <span style="color: #66D9EF;">StopIteration</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">create an iterator and iterate through it as follows.</span>
+
+&gt;&gt;&gt; <span style="color: #FD971F;">a</span> = PowTwo<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #FD971F;">i</span> = <span style="color: #F92672;">iter</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">1</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">2</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">4</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">8</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">16</span>
+&gt;&gt;&gt; <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style="color: #AE81FF;">)</span>:
+...
+<span style="color: #66D9EF;">StopIteration</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">use a for loop to iterate over our iterator class.</span>
+
+&gt;&gt;&gt; <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> PowTwo<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">)</span>:
+...     <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>i<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline10" class="outline-3">
 <h3 id="orgheadline10"><span class="section-number-3">3.6</span> Sequence Types — list, tuple, range</h3>
@@ -966,6 +1105,45 @@ int64
 </div><div id="outline-container-orgheadline27" class="outline-3">
 <h3 id="orgheadline27"><span class="section-number-3">5.1</span> string — Common string operations</h3>
 <div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>jieba cut</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">punct</span> = <span style="color: #F92672;">set</span><span style="color: #AE81FF;">(</span>u<span style="color: #E6DB74;">''':!),.:;?]}&#162;'"&#12289;&#12290;&#12297;&#12299;&#12301;&#12303;&#12305;&#12309;&#12311;&#12318;&#65072;&#65073;&#65075;&#65104;&#65380;&#65106;</span>
+<span style="color: #E6DB74;">&#65108;&#65109;&#65110;&#65111;&#65114;&#65116;&#65118;&#65281;&#65289;&#65292;&#65294;&#65306;&#65307;&#65311;&#65372;&#65373;&#65076;&#65078;&#65080;&#65082;&#65084;&#65086;&#65088;&#65090;&#65092;&#65103;&#65380;&#65374;&#65504;</span>
+<span style="color: #E6DB74;">&#12293;&#8214;&#8226;&#183;&#711;&#713;&#8213;--&#8242;&#8217;&#8221;([{&#163;&#165;'"&#8245;&#12296;&#12298;&#12300;&#12302;&#12304;&#12308;&#12310;&#65288;&#65339;&#65371;&#65505;&#65509;&#12317;&#65077;&#65079;&#65081;&#65083;</span>
+<span style="color: #E6DB74;">&#65085;&#65087;&#65089;&#65091;&#65113;&#65115;&#65117;&#65288;&#65371;&#8220;&#8216;-&#8212;_&#8230;'''</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">str_in</span> = u<span style="color: #E6DB74;">"&#23567;&#26126;&#30805;&#22763;&#27605;&#19994;&#20110;&#20013;&#22269;&#31185;&#23398;&#38498;&#35745;&#31639;&#25152;&#65292;\</span>
+<span style="color: #E6DB74;">&#21518;&#22312;&#26085;&#26412;&#20140;&#37117;&#22823;&#23398;&#28145;&#36896;&#65292;&#20973;&#20511;&#36807;&#20154;&#22825;&#36171;&#65292;&#26049;&#20154;&#33509;&#22312;&#21478;&#19968;&#26041;&#38754;&#29233;&#20182;&#65292;&#20182;&#27599;&#21363;&#36530;&#24320;&#12290;"</span>
+
+<span style="color: #FD971F;">filterpunt</span> = <span style="color: #F92672;">lambda</span> s: <span style="color: #E6DB74;">''</span>.join<span style="color: #AE81FF;">(</span><span style="color: #F92672;">filter</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">lambda</span> x: x <span style="color: #F92672;">not</span> <span style="color: #F92672;">in</span> punct, s<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">filterpuntl</span> = <span style="color: #F92672;">lambda</span> l: <span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">filter</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">lambda</span> x: x <span style="color: #F92672;">not</span> <span style="color: #F92672;">in</span> punct, l<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">seg_list</span> = jieba.cut<span style="color: #AE81FF;">(</span>str_in, cut_all=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">sent_list</span> = filterpuntl<span style="color: #AE81FF;">(</span>seg_list<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>tokenize unicode or string to sentence list.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> nltk <span style="color: #F92672;">import</span> tokenize <span style="color: #F92672;">as</span> n_tokenize
+<span style="color: #FD971F;">sent</span>= n_tokenize.sent_tokenize<span style="color: #AE81FF;">(</span>page<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #FD971F;">sent_list</span> = page.split<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>list comprehension</li>
+</ul>
+<p>
+[x for x in t if x not in s if x.isdigit()]
+</p>
+
 <ul class="org-ul">
 <li>if string are digits.</li>
 </ul>
@@ -2348,7 +2526,7 @@ Python提供了__future__模块，把下一个新版本的特性导入到当前�
 <li>unicode vs utf-8 vs binary strings vs strings</li>
 </ul>
 <p>
-unicode 是编码,例如把一个汉字编成了一个码(计算机不可读).
+unicode 是编码unique code,例如把一个汉字编成了一个码(计算机不可读).
 </p>
 
 <p>
@@ -2364,7 +2542,7 @@ convert 6C49 to binary:   01101100 01001001
 </p>
 
 <p>
-UTF-8是把character转为binary code的规范, and vice versa.
+UTF-8是把character转为binary code的规范, and vice versa. 方便存储。
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 

@@ -120,6 +120,38 @@ Lessions learned from such study. Explain the axis and legend when showing a fig
 - What is the data like, its properties?
 *** Limit test: what if
 - Think about the limits of each model. When data changes, is it still appropriate to use such method to process data, to use the model, to get the same conclusion?
+* January 2018
+** about learning on your own.<2018-01-04 Thu>
+*** obstacles to motivation:
+
+- Students set aside a decade or two of their lives to learn (or at least pretend to learn) things long before they have any idea why they'd need to know them.
+- Students have little or no control over their course of studies, since the educational system processes far too many students to be able to personalize the curriculum.
+- Even at the college level, course bulletins provide almost no guidance about what a class covers or why it's useful (lest too many trees be killed).
+- The choice of topics favors things which can be easily tested, such as rote manipulations.
+- Since the whole class must progress through the curriculum at the same rate, it's impossible to go back to repair gaps in students' knowledge. This means the only workable strategy is to rehearse each topic endlessly before moving on to the next one.
+
+these compromises mean there's often *little intrinsic motivation* to learn the material, hence the need for external motivators like mandatory homeworks and exams.
+
+But notice that all the items in the above list are *responses to various constraints which don't apply when you are teaching yoruself.*
+
+The main way to stay motivated is to learn topics you're interested in learning.
+
+*** Metacognition
+Learning without a teacher presents many challenges, but in my experience the biggest is that you don't get any feedback. (That is, unless you're using a service with interactive exercises, such as Khan Academy.) Without feedback, you need to monitor your own understanding to decide if you're done or which gaps still need to be filled. The ability to introspect on and manage your own thought processes is known as metacognition.
+
+You need to find ways to test your understanding, for instance:
+
+- try to write out the definitions, theorems, proofs, etc. from memory
+- do some exercises
+- try to explain the ideas in your own words
+
+You might have had the experience while reading that your mind wandered and you completely missed everything in the last few paragraphs. It's hard to notice your lack of attention. One trick I've found to make it more obvious is parallel reading: read two different (possibly unrelated) things in parallel. Read a few paragraphs of one, then a few paragraphs of the other, and so on. Each time you switch, try to recall what the previous stretch of text was about. Switching forces it out of your working memory (the kind that stores words and images for short times). Therefore, you find out whether the material actually made it into your long-term memory.
+
+If you're studying on your own using multiple resources, the clashes of notation might be confusing. But I often find that confusion about notation reflects an underlying confusion about ideas, and that having to confront multiple notations ultimately helps my understanding.
+
+
+
+
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
