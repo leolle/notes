@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-04 Thu 09:08 -->
+<!-- 2018-01-04 Thu 20:40 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -186,7 +186,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline8">3.4. Numeric Types — int, float, complex</a></li>
 <li><a href="#orgheadline9">3.5. Iterator Types</a></li>
 <li><a href="#orgheadline10">3.6. Sequence Types — list, tuple, range</a></li>
-<li><a href="#orgheadline12">3.7. 生成器</a>
+<li><a href="#orgheadline12">3.7. 生成器generator</a>
 <ul>
 <li><a href="#orgheadline11">3.7.1. loop</a></li>
 </ul>
@@ -880,7 +880,7 @@ choose extend mode: replace ',' as \r\n
 </div>
 
 <div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">3.7</span> 生成器</h3>
+<h3 id="orgheadline12"><span class="section-number-3">3.7</span> 生成器generator</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
@@ -919,6 +919,40 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 <span style="color: #66D9EF;">StopIteration</span>
 </pre>
 </div>
+<p>
+A Generator is an Iterator
+</p>
+
+<p>
+A function with yield in it is still a function, that, when called, returns an instance of a generator object:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">a_function</span><span style="color: #AE81FF;">()</span>:
+    <span style="color: #E6DB74;">"when called, returns generator object"</span>
+    <span style="color: #F92672;">yield</span>
+</pre>
+</div>
+<p>
+A generator expression also <b>returns a generator</b>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">a_generator</span> = <span style="color: #AE81FF;">(</span>i <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+A Generator is an Iterator
+</p>
+
+<p>
+An Iterator is an Iterable
+</p>
+
+<p>
+Iterators require a next or <span class="underline"><span class="underline">next</span></span> method
+</p>
 </div>
 
 <div id="outline-container-orgheadline11" class="outline-4">
@@ -1106,7 +1140,16 @@ int64
 <h3 id="orgheadline27"><span class="section-number-3">5.1</span> string — Common string operations</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
-<li>jieba cut</li>
+<li>if the string is an English word.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> nltk.corpus <span style="color: #F92672;">import</span> wordnet
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> wordnet.synsets<span style="color: #AE81FF;">(</span>word<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">and</span> <span style="color: #F92672;">not</span> word.isdigit<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>jieba cut, remove signs.</li>
 </ul>
 <div class="org-src-container">
 
@@ -1118,9 +1161,10 @@ int64
 <span style="color: #FD971F;">str_in</span> = u<span style="color: #E6DB74;">"&#23567;&#26126;&#30805;&#22763;&#27605;&#19994;&#20110;&#20013;&#22269;&#31185;&#23398;&#38498;&#35745;&#31639;&#25152;&#65292;\</span>
 <span style="color: #E6DB74;">&#21518;&#22312;&#26085;&#26412;&#20140;&#37117;&#22823;&#23398;&#28145;&#36896;&#65292;&#20973;&#20511;&#36807;&#20154;&#22825;&#36171;&#65292;&#26049;&#20154;&#33509;&#22312;&#21478;&#19968;&#26041;&#38754;&#29233;&#20182;&#65292;&#20182;&#27599;&#21363;&#36530;&#24320;&#12290;"</span>
 
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#23545;str/unicode</span>
 <span style="color: #FD971F;">filterpunt</span> = <span style="color: #F92672;">lambda</span> s: <span style="color: #E6DB74;">''</span>.join<span style="color: #AE81FF;">(</span><span style="color: #F92672;">filter</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">lambda</span> x: x <span style="color: #F92672;">not</span> <span style="color: #F92672;">in</span> punct, s<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#23545;list</span>
 <span style="color: #FD971F;">filterpuntl</span> = <span style="color: #F92672;">lambda</span> l: <span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">filter</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">lambda</span> x: x <span style="color: #F92672;">not</span> <span style="color: #F92672;">in</span> punct, l<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-
 <span style="color: #FD971F;">seg_list</span> = jieba.cut<span style="color: #AE81FF;">(</span>str_in, cut_all=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
 <span style="color: #FD971F;">sent_list</span> = filterpuntl<span style="color: #AE81FF;">(</span>seg_list<span style="color: #AE81FF;">)</span>
 </pre>

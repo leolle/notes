@@ -323,6 +323,14 @@ The ImageNet Large Scale Visual Recognition Challenge is the formal name for Ima
 
 An iteration is an update of weights after analysing a batch of input records. See Epoch for clarification.
 
+- Learning rate
+Neural networks are often trained by gradient descent on the weights. This means at each iteration we use backpropagation to calculate the derivative of the loss function with respect to each weight and subtract it from that weight.
+However, if you actually try that, the weights will change far too much each iteration, which will make them “overcorrect” and the loss will actually increase/diverge. So in practice, people usually multiply each derivative by a small value called the “learning rate” before they subtract it from its corresponding weight.
+
+$$W:=W−η∇LW:=W−η∇L$$
+
+This η here is called the learning rate.
+
 
 - LeNet
 

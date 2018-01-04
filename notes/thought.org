@@ -149,6 +149,12 @@ You might have had the experience while reading that your mind wandered and you 
 
 If you're studying on your own using multiple resources, the clashes of notation might be confusing. But I often find that confusion about notation reflects an underlying confusion about ideas, and that having to confront multiple notations ultimately helps my understanding.
 
+** coding review<2018-01-04 Thu>
+- using open-source model sequence
+  1. reading paper, understanding paper, input data structure, algorithm, limitation, drawback, efficiency, comparison with other model/algorithm.
+  2. reading open-source code documentation, demo code, data preparation process.
+  3. take a Q&A on decision making.
+  4. don't take high confidence on wild guess, dig into deepth and don't let the doubt stand in your way.
 
 
 

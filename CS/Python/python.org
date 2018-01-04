@@ -209,7 +209,7 @@ text.split(' ', 1)[0]
 现在是rsplit函数，从右边第一个'.'分界，分成两个字符串，组成一个list
 #+end_src
 
-** 生成器
+** 生成器generator
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
 要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator：
@@ -243,6 +243,26 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 StopIteration
 #+end_src
+A Generator is an Iterator
+
+A function with yield in it is still a function, that, when called, returns an instance of a generator object:
+#+BEGIN_SRC python
+def a_function():
+    "when called, returns generator object"
+    yield
+
+#+END_SRC
+A generator expression also *returns a generator*:
+#+BEGIN_SRC python
+a_generator = (i for i in range(0))
+
+#+END_SRC
+
+A Generator is an Iterator
+
+An Iterator is an Iterable
+
+Iterators require a next or __next__ method
 
 *** loop
 - don't care the interator sequence:

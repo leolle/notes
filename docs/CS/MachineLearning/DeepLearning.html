@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-04 Thu 09:08 -->
+<!-- 2018-01-04 Thu 20:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -227,7 +227,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-01-04 09:08:05</td>
+<td class="org-left">2018-01-04 20:41:01</td>
 </tr>
 
 <tr>
@@ -871,6 +871,22 @@ The ImageNet Large Scale Visual Recognition Challenge is the formal name for Ima
 An iteration is an update of weights after analysing a batch of input records. See Epoch for clarification.
 </p>
 
+<ul class="org-ul">
+<li>Learning rate</li>
+</ul>
+<p>
+Neural networks are often trained by gradient descent on the weights. This means at each iteration we use backpropagation to calculate the derivative of the loss function with respect to each weight and subtract it from that weight.
+However, if you actually try that, the weights will change far too much each iteration, which will make them “overcorrect” and the loss will actually increase/diverge. So in practice, people usually multiply each derivative by a small value called the “learning rate” before they subtract it from its corresponding weight.
+</p>
+
+<p>
+\[W:=W−η∇LW:=W−η∇L\]
+</p>
+
+<p>
+This η here is called the learning rate.
+</p>
+
 
 <ul class="org-ul">
 <li>LeNet</li>
@@ -1357,7 +1373,24 @@ Very Deep Convolutional Networks for Large-Scale Image Recognition
 Tomas Mikolov’s neural networks, known as Word2vec, have become widely used because they help produce state-of-the-art word embeddings. Word2vec is a two-layer neural net that processes text. Its input is a text corpus and its output is a set of vectors: feature vectors for words in that corpus. While Word2vec is not a deep neural network, it turns text into a numerical form that deep nets can understand. Word2vec’s applications extend beyond parsing sentences in the wild. It can be applied just as well to genes, code, playlists, social media graphs and other verbal or symbolic series in which patterns may be discerned. Deeplearning4j implements a distributed form of Word2vec for Java and Scala, which works on Spark with GPUs.
 </p>
 
+<ul class="org-ul">
+<li>Weight decay</li>
+</ul>
+<p>
+When training neural networks, it is common to use "weight decay," where after each update, the weights are multiplied by a factor slightly less than 1. This prevents the weights from growing too large, and can be seen as gradient descent on a quadratic regularization term.
+</p>
 
+<p>
+Weight decay is an example of a regularization method.
+</p>
+<ul class="org-ul">
+<li>The \(L_2\) norm of the weights isn't necessarily a good regularizer for neural nets. Some more principled alternatives include:</li>
+<li>Tikhonov regularization, which rewards invariance to noise in the inputs (go to concept)</li>
+<li>Tangent propagation, which rewards invariance to irrelevant transformations of the inputs such as translation and scalling (go to concept)</li>
+</ul>
+<p>
+Early stopping is another strategy to prevent overfitting in neural nets.
+</p>
 
 <ul class="org-ul">
 <li>Xavier Initialization</li>
