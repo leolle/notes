@@ -160,6 +160,12 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- combine list of lists into one list, join list of lists
+#+BEGIN_SRC python
+import itertools
+a = [["a","b"], ["c"]]
+print list(itertools.chain.from_iterable(a))
+#+END_SRC
 - find difference of two lists:
 #+begin_src python
 a = [1,2,3,2,1,5,6,5,5,5]

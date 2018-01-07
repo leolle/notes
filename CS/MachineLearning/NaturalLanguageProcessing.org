@@ -56,7 +56,10 @@ We represent word meaning similarity using the meaning of the context words.
 model = gensim.models.Word2Vec.load('/tmp/model/path')
 model.train(more_sentences)
 #+END_SRC
-
+*** Several factors influence the quality of the word vectors:
+**** amount and quality of the training data
+**** size of the vectors
+**** training algorithm
 * Definition of Sentiment Analysis
 ** Structure
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
@@ -408,6 +411,22 @@ I set up the interwiki cache cdb file, by using fixup-interwikis.py via the comm
 That was it. This was enough to let me view (most) pages without errors.
 
 * TensorBoard: Embedding Visualization
+** Load data
+Step 1: Load a TSV file of vectors.
+Example of 3 vectors with dimension 4:
+0.1\t0.2\t0.5\t0.9
+0.2\t0.1\t5.0\t0.2
+0.4\t0.1\t7.0\t0.8
+
+
+Step 2 (optional): Load a TSV file of metadata.
+Example of 3 data points and 2 columns.
+Note: If there is more than one column, the first row will be parsed as column labels.
+Pokémon\tSpecies
+Wartortle\tTurtle
+Venusaur\tSeed
+Charmeleon\tFlame
+
 ** Projections
 The Embedding Projector has three methods of reducing the dimensionality of a data set: two linear and one nonlinear. Each method can be used to create either a two- or three-dimensional view.
 
