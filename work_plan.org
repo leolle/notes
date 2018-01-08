@@ -154,15 +154,19 @@ ICA
 * Errand
 * Deep Learning
 ** NaturalLanguageProcessing
-*** train Chinese wiki model.
+*** Chinese wiki model.
+- [ ] visualize & compare results.
+- [ ] preprocessing workflow.
+- [ ] word2vec fast text comparison.
+- [ ] fix zhwiki to mongodb words count.
+- [ ] compare the training results with or without stopwords.
 - [X] assign wiki pages extraction task.
 - [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
 - [X] get rid of the stopwords.
 - [X] retrie Chinese financial wiki pages from mongo and train.
-- [ ] visualize & compare results.
-- [ ] fix zhwiki to mongodb words count.
-- [ ] word2vec fast text comparison.
-- [ ] compare the training results with or without stopwords.
+*** entity relation extraction
+- [ ] company relation
+- [ ] analyst relation
 *** Word Embedding(Word2Vec)
 :LOGBOOK:
 CLOCK: [2017-12-22 Fri 15:44]--[2017-12-22 Fri 19:21] =>  3:37
@@ -173,6 +177,7 @@ CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
 - [ ] pack pages into a corpus.
+- [ ] compare cutting on paragraph and document.
 - [ ] train few files to see if there's repeat training on word2vec.
 - [ ] extract data from financial documents — usually PDFs — in an automated way, and to produce “better-than-human” analyses. extract data from tables and text.
 - [ ] train function names based on wiki pages on functions, models, and python/matlab/sas/cpp-reference manuals, function names and function descriptions, excel formula, VBA, VB, guass, whatever software which has a function dictionary and manual.
