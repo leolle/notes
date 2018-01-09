@@ -157,9 +157,23 @@ ICA
 *** Chinese wiki model.
 - [ ] visualize & compare results.
 - [ ] preprocessing workflow.
+  英文text preprocessing需要的注意一些点，及应提供的选择
+  1. cut段落或文章
+  2. phrase是否进行转换
+  3. 停词(a, the, of, that, this, he, I...)是否保留
+  4. 数字是否转为英文单词, 中间有数字的单词是否保留(th8)
+  5. 提取词干（时态转换，单复数单词转换）
+  6. 标点（撇号'，所有格,缩写如don’t），符号（%,#,&,?,@,\,/,",是否保留）
+  7. 大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）
+
+  中文分词（主要利用结巴分词）
+  1. cut段落或文章
+  2. 数字是否转换为字
 - [ ] word2vec fast text comparison.
 - [ ] fix zhwiki to mongodb words count.
 - [ ] compare the training results with or without stopwords.
+- [X] create index for zhwiki.
+- [X] test model.
 - [X] assign wiki pages extraction task.
 - [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
 - [X] get rid of the stopwords.

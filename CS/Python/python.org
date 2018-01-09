@@ -51,6 +51,47 @@ eval the value of a variable name from string.
 ** Comparisons
 ** Numeric Types — int, float, complex
 ** Iterator Types
+- iterable vs iterator vs generator:
+The difference between iterables and generators: once you’ve burned through a generator once, you’re done, no more data.
+#+BEGIN_SRC python
+generator = (word + '!' for word in 'baby let me iterate ya'.split())
+# The generator object is now created, ready to be iterated over.
+# No exclamation marks added yet at this point.
+
+for val in generator: # real processing happens here, during iteration
+    print val,
+baby! let! me! iterate! ya!
+
+for val in generator:
+    print val,
+# Nothing printed! No more data, generator stream already exhausted above.
+#+END_SRC
+an iterable creates a new iterator every time it’s looped over (technically, every time iterable.__iter__() is called, such as when Python hits a “for” loop):
+#+BEGIN_SRC python
+class BeyonceIterable(object):
+    def __iter__(self):
+        """
+        The iterable interface: return an iterator from __iter__().
+
+        Every generator is an iterator implicitly (but not vice versa!),
+        so implementing `__iter__` as a generator is the easiest way
+        to create streamed iterables.
+
+        """
+        for word in 'baby let me iterate ya'.split():
+            yield word + '!'  # uses yield => __iter__ is a generator
+
+iterable = BeyonceIterable()
+
+for val in iterable:  # iterator created here
+    print val,
+baby! let! me! iterate! ya!
+
+for val in iterable:  # another iterator created here
+    print val,
+baby! let! me! iterate! ya!
+#+END_SRC
+
 - magic method __iter__:
 Iterators are everywhere in Python. They are elegantly implemented within for loops, comprehensions, generators etc. but hidden in plain sight.
 
@@ -61,6 +102,7 @@ Technically speaking, Python iterator object must implement two special methods,
 An object is called iterable if we can get an iterator from it. Most of built-in containers in Python like: list, tuple, string etc. are iterables.
 
 The iter() function (which in turn calls the __iter__() method) returns an iterator from them.
+
 - Iterating Through an Iterator in Python
 use the $next()$ function to manually iterate through all the items of an iterator.
 #+BEGIN_SRC python
@@ -165,6 +207,8 @@ StopIteration
 import itertools
 a = [["a","b"], ["c"]]
 print list(itertools.chain.from_iterable(a))
+# or
+lambda: (lambda b: map(b.extend, big_list))([])
 #+END_SRC
 - find difference of two lists:
 #+begin_src python
@@ -399,6 +443,8 @@ seg_list = jieba.cut(str_in, cut_all=False)
 sent_list = filterpuntl(seg_list)
 #+END_SRC
 
+ - create a list from jieba generator:
+   sentence = [x for x in seg_list]
 - tokenize unicode or string to sentence list.
 #+BEGIN_SRC python
 from nltk import tokenize as n_tokenize
@@ -502,6 +548,7 @@ re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
 ** difflib — Helpers for computing deltas
 ** textwrap — Text wrapping and filling
 ** unicodedata — Unicode Database
+https://docs.python.org/2.7/howto/unicode.html#
 ** stringprep — Internet String Preparation
 ** readline — GNU readline interface
 

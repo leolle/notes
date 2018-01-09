@@ -180,3 +180,8 @@ db.collection_name.remove({})
 - 验证用户
 >use local
 >db.auth('myadmin', 'secret')
+
+- create index
+#+BEGIN_SRC mongodb
+db.collection.createIndex( { orderDate: 1 } )
+#+END_SRC
