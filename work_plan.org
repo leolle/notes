@@ -154,8 +154,9 @@ ICA
 * Errand
 * Deep Learning
 ** NaturalLanguageProcessing
+*** POS, NER with spacy, stanfordNLP.
+- [ ] read documentation.
 *** Chinese wiki model.
-- [ ] visualize & compare results.
 - [ ] preprocessing workflow.
   英文text preprocessing需要的注意一些点，及应提供的选择
   1. cut段落或文章
@@ -170,8 +171,10 @@ ICA
   1. cut段落或文章
   2. 数字是否转换为字
 - [ ] word2vec fast text comparison.
-- [ ] fix zhwiki to mongodb words count.
 - [ ] compare the training results with or without stopwords.
+- [ ] fix zhwiki to mongodb words count.
+- [X] demo code.
+- [X] visualize & compare results.
 - [X] create index for zhwiki.
 - [X] test model.
 - [X] assign wiki pages extraction task.
