@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-04 Thu 20:40 -->
+<!-- 2018-01-10 Wed 14:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -655,6 +655,57 @@ eval the value of a variable name from string.
 <h3 id="orgheadline9"><span class="section-number-3">3.5</span> Iterator Types</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
+<li>iterable vs iterator vs generator:</li>
+</ul>
+<p>
+The difference between iterables and generators: once you’ve burned through a generator once, you’re done, no more data.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">generator</span> = <span style="color: #AE81FF;">(</span>word + <span style="color: #E6DB74;">'!'</span> <span style="color: #F92672;">for</span> word <span style="color: #F92672;">in</span> <span style="color: #E6DB74;">'baby let me iterate ya'</span>.split<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">The generator object is now created, ready to be iterated over.</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">No exclamation marks added yet at this point.</span>
+
+<span style="color: #F92672;">for</span> val <span style="color: #F92672;">in</span> generator: <span style="color: #75715E;"># </span><span style="color: #75715E;">real processing happens here, during iteration</span>
+    <span style="color: #F92672;">print</span> val,
+baby! let! me! iterate! ya!
+
+<span style="color: #F92672;">for</span> val <span style="color: #F92672;">in</span> generator:
+    <span style="color: #F92672;">print</span> val,
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Nothing printed! No more data, generator stream already exhausted above.</span>
+</pre>
+</div>
+<p>
+an iterable creates a new iterator every time it’s looped over (technically, every time iterable.__iter__() is called, such as when Python hits a “for” loop):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">BeyonceIterable</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">object</span><span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">__iter__</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #E6DB74;">"""</span>
+<span style="color: #E6DB74;">        The iterable interface: return an iterator from __iter__().</span>
+
+<span style="color: #E6DB74;">        Every generator is an iterator implicitly (but not vice versa!),</span>
+<span style="color: #E6DB74;">        so implementing `__iter__` as a generator is the easiest way</span>
+<span style="color: #E6DB74;">        to create streamed iterables.</span>
+
+<span style="color: #E6DB74;">        """</span>
+        <span style="color: #F92672;">for</span> word <span style="color: #F92672;">in</span> <span style="color: #E6DB74;">'baby let me iterate ya'</span>.split<span style="color: #AE81FF;">()</span>:
+            <span style="color: #F92672;">yield</span> word + <span style="color: #E6DB74;">'!'</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">uses yield =&gt; __iter__ is a generator</span>
+
+<span style="color: #FD971F;">iterable</span> = BeyonceIterable<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">for</span> val <span style="color: #F92672;">in</span> iterable:  <span style="color: #75715E;"># </span><span style="color: #75715E;">iterator created here</span>
+    <span style="color: #F92672;">print</span> val,
+baby! let! me! iterate! ya!
+
+<span style="color: #F92672;">for</span> val <span style="color: #F92672;">in</span> iterable:  <span style="color: #75715E;"># </span><span style="color: #75715E;">another iterator created here</span>
+    <span style="color: #F92672;">print</span> val,
+baby! let! me! iterate! ya!
+</pre>
+</div>
+
+<ul class="org-ul">
 <li>magic method <span class="underline"><span class="underline">iter</span></span>:</li>
 </ul>
 <p>
@@ -676,6 +727,7 @@ An object is called iterable if we can get an iterator from it. Most of built-in
 <p>
 The iter() function (which in turn calls the __iter__() method) returns an iterator from them.
 </p>
+
 <ul class="org-ul">
 <li>Iterating Through an Iterator in Python</li>
 </ul>
@@ -797,6 +849,18 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 <h3 id="orgheadline10"><span class="section-number-3">3.6</span> Sequence Types — list, tuple, range</h3>
 <div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
+<li>combine list of lists into one list, join list of lists</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> itertools
+<span style="color: #FD971F;">a</span> = <span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">"a"</span>,<span style="color: #E6DB74;">"b"</span><span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">"c"</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">print</span> <span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span>itertools.chain.from_iterable<span style="color: #66D9EF;">(</span>a<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #F92672;">lambda</span>: <span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> b: <span style="color: #F92672;">map</span><span style="color: #66D9EF;">(</span>b.extend, big_list<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)(</span><span style="color: #66D9EF;">[]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>find difference of two lists:</li>
 </ul>
 <div class="org-src-container">
@@ -838,7 +902,7 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 </div>
 
 <ul class="org-ul">
-<li>for item in thelist:</li>
+<li>for item in the list:</li>
 </ul>
 <div class="org-src-container">
 
@@ -1171,6 +1235,10 @@ int64
 </div>
 
 <ul class="org-ul">
+<li>create a list from jieba generator:
+sentence = [x for x in seg_list]</li>
+</ul>
+<ul class="org-ul">
 <li>tokenize unicode or string to sentence list.</li>
 </ul>
 <div class="org-src-container">
@@ -1357,6 +1425,11 @@ re.search<span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'[
 </div>
 <div id="outline-container-orgheadline44" class="outline-3">
 <h3 id="orgheadline44"><span class="section-number-3">5.5</span> unicodedata — Unicode Database</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+<a href="https://docs.python.org/2.7/howto/unicode.html">https://docs.python.org/2.7/howto/unicode.html</a>
+</p>
+</div>
 </div>
 <div id="outline-container-orgheadline45" class="outline-3">
 <h3 id="orgheadline45"><span class="section-number-3">5.6</span> stringprep — Internet String Preparation</h3>

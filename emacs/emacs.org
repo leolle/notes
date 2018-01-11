@@ -414,7 +414,6 @@ digraph G {
 #+RESULTS:
 [[file:some_filename.png]]
 
-
 * emacs python workflow.
 
 ** install elpy, jedi
@@ -505,6 +504,13 @@ $ sudo make uninstall
 [[./image.png]]
 C-c C-x C-v (org-toggle-inline-mages)
 #+end_src
-
+** anaconda mode bug:
+#+BEGIN_SRC python
+pyenv global anaconda3-4.4.0
+# then
+emacs
+# then change global python to 5
+pyenv global anaconda3-5.0.1
+#+END_SRC
 * layers
 =M-x= configuration-layer/create-layer

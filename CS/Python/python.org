@@ -235,7 +235,7 @@ etf_list = [x.strip() for x in etf_list]
 thefile = open('test.txt', 'w')
 #+end_src
 
-- for item in thelist:
+- for item in the list:
 #+begin_src python
 thefile.write("%s\n" % item)
 #+end_src
@@ -548,7 +548,7 @@ re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
 ** difflib — Helpers for computing deltas
 ** textwrap — Text wrapping and filling
 ** unicodedata — Unicode Database
-https://docs.python.org/2.7/howto/unicode.html#
+https://docs.python.org/2.7/howto/unicode.html
 ** stringprep — Internet String Preparation
 ** readline — GNU readline interface
 

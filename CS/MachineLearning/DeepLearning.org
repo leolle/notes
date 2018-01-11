@@ -54,6 +54,7 @@ There are functions you can compute with a small L-layer deep neural network tha
 For example,
 $$y=X_1 XOR X_2 XOR X_3 XOR ... XOR X_n$$
 for deep neural networks with less hidden units, the computation is O(log(n)). But for shallower neural networks, the computation is O(2^n).
+
 * 学习方法
 - Step 1: 学习机器学习基础
 - Step 2: 深入学习

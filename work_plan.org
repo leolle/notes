@@ -157,7 +157,7 @@ ICA
 *** POS, NER with spacy, stanfordNLP.
 - [ ] read documentation.
 *** Chinese wiki model.
-- [ ] preprocessing workflow.
+- [X] preprocessing workflow.
   英文text preprocessing需要的注意一些点，及应提供的选择
   1. cut段落或文章
   2. phrase是否进行转换
@@ -168,8 +168,10 @@ ICA
   7. 大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）
 
   中文分词（主要利用结巴分词）
-  1. cut段落或文章
-  2. 数字是否转换为字
+  - [ ] 1. cut段落或文章
+  - [X] 2. 去停词
+  - [X] 去标点符号
+  - [X] 去数字
 - [ ] word2vec fast text comparison.
 - [ ] compare the training results with or without stopwords.
 - [ ] fix zhwiki to mongodb words count.
