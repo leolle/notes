@@ -698,6 +698,12 @@ from tempfile import gettempdir
 tmp_dir = gettempdir()
 #+END_SRC
 ** fileinput — Iterate over lines from multiple input streams
+- write text at the end of a file without overwrite that file:
+#+BEGIN_SRC python
+f = open('filename.txt', 'a')
+f.write("stuff")
+f.close()
+#+END_SRC
 ** stat — Interpreting stat() results
 ** filecmp — File and Directory Comparisons
 ** tempfile — Generate temporary files and directories

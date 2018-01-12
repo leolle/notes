@@ -144,3 +144,28 @@ for batch_index in range(n_batches):
 [...]
 file_writer.close()
 #+END_SRC
+* TensorBoard: Embedding Visualization
+** Load data
+Step 1: Load a TSV file of vectors.
+Example of 3 vectors with dimension 4:
+0.1\t0.2\t0.5\t0.9
+0.2\t0.1\t5.0\t0.2
+0.4\t0.1\t7.0\t0.8
+
+
+Step 2 (optional): Load a TSV file of metadata.
+Example of 3 data points and 2 columns.
+Note: If there is more than one column, the first row will be parsed as column labels.
+Pokémon\tSpecies
+Wartortle\tTurtle
+Venusaur\tSeed
+Charmeleon\tFlame
+
+** Projections
+The Embedding Projector has three methods of reducing the dimensionality of a data set: two linear and one nonlinear. Each method can be used to create either a two- or three-dimensional view.
+
+- [[http://setosa.io/ev/principal-component-analysis/][Principal Component Analysis]]
+A straightforward technique for reducing dimensions is Principal Component Analysis (PCA). The Embedding Projector computes the top 10 principal components. The menu lets you project those components onto any combination of two or three. PCA is a linear projection, often effective at examining global geometry.
+
+- [[https://distill.pub/2016/misread-tsne/][t-SNE]]
+A popular non-linear dimensionality reduction technique is t-SNE. The Embedding Projector offers both two- and three-dimensional t-SNE views. Layout is performed client-side animating every step of the algorithm. Because t-SNE often preserves some local structure, it is useful for exploring local neighborhoods and finding clusters. Although extremely useful for visualizing high-dimensional data, t-SNE plots can sometimes be mysterious or misleading. See this great article for how to use t-SNE effectively.

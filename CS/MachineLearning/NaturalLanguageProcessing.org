@@ -60,6 +60,19 @@ model.train(more_sentences)
 **** amount and quality of the training data
 **** size of the vectors
 **** training algorithm
+
+* Knowledge-based Q&A
+** Introduction
+#+CAPTION: introduction
+[[./nlp/kbqa_intro.jpg]]
+** 基于意图的结构化问答系统
+银江股份的市盈率
+
+首先识别出其中的实体是银江股份（300020），意图是查询财务指标，目标参数是市盈率，隐藏时间是当前日期，然后只需要把这个问题对应到财务的微服务API就可以了，拿到API的返回结果，调用响应模板做填充。
+** 基于检索的问答系统
+对于像新闻、研究报告类的文档内容的搜索和观点挖掘，是一种精细化的搜索方式，不是直接对文档的全文进行检索，而是首先提取分析出文档的重要成分，比如：公司事件、摘要、情感、评级、作者正负面观点等，建立到搜索引擎中，基于启发式方法根据输入的内容进行匹配回复。比如：“航天信息可以买吗？”，不一定能准确的告诉用户可以或不可以，但是可以告诉他航天信息在当前的技术指标（金叉、死叉等），资金流量，研究员的正负面观点以及年报对2017年的管理层意见摘要等等。
+** 基于知识图谱的问答系统
+比如：“和苹果手机有关系的股票有哪些？”，“治理雾霾对哪些上市公司会产生影响？”，“钴价上升对哪些股票产生影响最大？”等，当然这些问题通过搜索的方式也能得到答案，但它们有一些共同点，问题的本身都描述着实体和实体之间的关系或者相关性，而这正是知识图谱能够解决的问题，知识图谱将搜索引擎从字符串匹配推进到实体关系查询推理层面.
 * Definition of Sentiment Analysis
 ** Structure
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
@@ -409,29 +422,3 @@ The namespace for the project and for project discussion are typically special l
 I installed tidy and added the following lines to LocalSettings.php to reflect that: $wgUseTidy = true; and $wgTidyBin = '/usr/bin/tidy';. No configuration file was necessary; one is provided as part of MediaWiki and used by default.
 I set up the interwiki cache cdb file, by using fixup-interwikis.py via the command python fixup-interwikis.py --localsettings /var/www/html/elwikt/LocalSettings.php --sitetype wiktionary and then added $wgInterwikiCache = "$IP/cache/interwiki.cdb" to the LocalSettings.php file. (See mw:Interwiki_cache/Setup_for_your_own_wiki for info.)
 That was it. This was enough to let me view (most) pages without errors.
-
-* TensorBoard: Embedding Visualization
-** Load data
-Step 1: Load a TSV file of vectors.
-Example of 3 vectors with dimension 4:
-0.1\t0.2\t0.5\t0.9
-0.2\t0.1\t5.0\t0.2
-0.4\t0.1\t7.0\t0.8
-
-
-Step 2 (optional): Load a TSV file of metadata.
-Example of 3 data points and 2 columns.
-Note: If there is more than one column, the first row will be parsed as column labels.
-Pokémon\tSpecies
-Wartortle\tTurtle
-Venusaur\tSeed
-Charmeleon\tFlame
-
-** Projections
-The Embedding Projector has three methods of reducing the dimensionality of a data set: two linear and one nonlinear. Each method can be used to create either a two- or three-dimensional view.
-
-- [[http://setosa.io/ev/principal-component-analysis/][Principal Component Analysis]]
-A straightforward technique for reducing dimensions is Principal Component Analysis (PCA). The Embedding Projector computes the top 10 principal components. The menu lets you project those components onto any combination of two or three. PCA is a linear projection, often effective at examining global geometry.
-
-- [[https://distill.pub/2016/misread-tsne/][t-SNE]]
-A popular non-linear dimensionality reduction technique is t-SNE. The Embedding Projector offers both two- and three-dimensional t-SNE views. Layout is performed client-side animating every step of the algorithm. Because t-SNE often preserves some local structure, it is useful for exploring local neighborhoods and finding clusters. Although extremely useful for visualizing high-dimensional data, t-SNE plots can sometimes be mysterious or misleading. See this great article for how to use t-SNE effectively.
