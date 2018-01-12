@@ -154,9 +154,53 @@ ICA
 * Errand
 * Deep Learning
 ** NaturalLanguageProcessing
-*** POS, NER with spacy, stanfordNLP.
+
+*** Knowledge Graph
+- [ ] read Q&A knowledge graph paper.
+**** Part 1: Knowledge Graph Primer
+- What is a Knowledge Graph?
+- Why are Knowledge Graphs Important?
+- Where do Knowledge Graphs come from?
+- Knowledge Representation Choices
+- Problem Overview
+**** Part 2: Knowledge Extraction from Text
+***** NLP Fundamentals
+- Tokenization, chunking
+- Part-of-speech tagging
+- Named entity recognition
+- Dependency parsing
+- Entity resolution, coreference, and linking
+***** Information Extraction
+- Defining knowledge domains
+- Learning knowledge extractors
+- Scoring extracted knowledge
+- Categories of IE techniques
+- Compositional models: Knowledge fusion
+- IE systems in practice
+**** Part 3: Knowledge Graph Construction
+***** Graph construction overview
+***** Probabilistic Models
+- Motivation
+- Graphical models
+- Random walk approaches
+***** Embedding Techniques
+****** Relation extraction techniques
+- Matrix factorization
+- Embedding entity pairs
+****** Graph completion techniques
+- Tensor factorization
+- Entity and relation embeddings
+- Compositional models
+**** Part 4: Critical Overview and Conclusion
+- Summary
+- Success stories
+- Datasets, tasks, softwares
+- Exciting active research
+- Future research directions
+*** POS, NER with spacy, stanford coreNLP.
 - [ ] read documentation.
 *** Chinese wiki model.
+- [X] 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。
 - [X] preprocessing workflow.
   英文text preprocessing需要的注意一些点，及应提供的选择
   1. cut段落或文章
@@ -168,7 +212,7 @@ ICA
   7. 大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）
 
   中文分词（主要利用结巴分词）
-  - [ ] 1. cut段落或文章
+  - [X] 1. cut段落或文章
   - [X] 2. 去停词
   - [X] 去标点符号
   - [X] 去数字
@@ -256,48 +300,6 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 建一个想法，根据这个想法找到匹配的FI, or FD. 例如，建一个optimize需求，自动推荐black litterman model, or markowitz mean/variance model.
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
 当前FI,查找相关的下一步FI.
-
-*** Knowledge Graph
-**** Part 1: Knowledge Graph Primer
-- What is a Knowledge Graph?
-- Why are Knowledge Graphs Important?
-- Where do Knowledge Graphs come from?
-- Knowledge Representation Choices
-- Problem Overview
-**** Part 2: Knowledge Extraction from Text
-***** NLP Fundamentals
-- Tokenization, chunking
-- Part-of-speech tagging
-- Named entity recognition
-- Dependency parsing
-- Entity resolution, coreference, and linking
-***** Information Extraction
-- Defining knowledge domains
-- Learning knowledge extractors
-- Scoring extracted knowledge
-- Categories of IE techniques
-- Compositional models: Knowledge fusion
-- IE systems in practice
-**** Part 3: Knowledge Graph Construction
-***** Graph construction overview
-***** Probabilistic Models
-- Motivation
-- Graphical models
-- Random walk approaches
-***** Embedding Techniques
-****** Relation extraction techniques
-- Matrix factorization
-- Embedding entity pairs
-****** Graph completion techniques
-- Tensor factorization
-- Entity and relation embeddings
-- Compositional models
-**** Part 4: Critical Overview and Conclusion
-- Summary
-- Success stories
-- Datasets, tasks, softwares
-- Exciting active research
-- Future research directions
 *** Personalized Intelligent Agents(PIA)
 **** Objective:
 ***** Short Term
