@@ -200,7 +200,9 @@ ICA
 *** Part-Of-Speech Tagger (POS Tagger), Named-entity recognition (NER), SEMPRE: Semantic Parsing with Execution with spacy, stanford coreNLP.
 - [ ] read documentation.
 *** Chinese wiki model.
-- [ ] add all pages title to jieba dict.
+- [ ] train financial fields model(58+ categories).
+- [ ] use similarity distance to find the nearest category of target words.
+- [X] add all pages title to jieba dict.
 - [X] 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。
 - [X] preprocessing workflow.
   英文text preprocessing需要的注意一些点，及应提供的选择
