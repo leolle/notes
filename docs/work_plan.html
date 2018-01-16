@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2018-01-10 Wed 14:55 -->
+<!-- 2018-01-16 Tue 10:17 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
@@ -161,7 +161,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-01-10 14:55:25</td>
+<td class="org-left">2018-01-16 10:17:52</td>
 </tr>
 </tbody>
 </table>
@@ -655,17 +655,103 @@ ICA
 <h3 id="orgheadline54">NaturalLanguageProcessing</h3>
 <div class="outline-text-3" id="text-orgheadline54">
 </div><div id="outline-container-orgheadline14" class="outline-4">
-<h4 id="orgheadline14">POS, NER with spacy, stanfordNLP.</h4>
+<h4 id="orgheadline14">Knowledge Graph</h4>
 <div class="outline-text-4" id="text-orgheadline14">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> import wiki nodes and relation to Neo4j.</li>
+<li class="off"><code>[&#xa0;]</code> read Q&amp;A knowledge graph paper.</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline15" class="outline-5">
+<h5 id="orgheadline15">Part 1: Knowledge Graph Primer</h5>
+<div class="outline-text-5" id="text-orgheadline15">
+<ul class="org-ul">
+<li>What is a Knowledge Graph?</li>
+<li>Why are Knowledge Graphs Important?</li>
+<li>Where do Knowledge Graphs come from?</li>
+<li>Knowledge Representation Choices</li>
+<li>Problem Overview</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-5">
+<h5 id="orgheadline18">Part 2: Knowledge Extraction from Text</h5>
+<div class="outline-text-5" id="text-orgheadline18">
+</div><ul class="org-ul"><li><a id="orgheadline16"></a>NLP Fundamentals<br ><div class="outline-text-6" id="text-orgheadline16">
+<ul class="org-ul">
+<li>Tokenization, chunking</li>
+<li>Part-of-speech tagging</li>
+<li>Named entity recognition</li>
+<li>Dependency parsing</li>
+<li>Entity resolution, coreference, and linking</li>
+</ul>
+</div></li>
+<li><a id="orgheadline17"></a>Information Extraction<br ><div class="outline-text-6" id="text-orgheadline17">
+<ul class="org-ul">
+<li>Defining knowledge domains</li>
+<li>Learning knowledge extractors</li>
+<li>Scoring extracted knowledge</li>
+<li>Categories of IE techniques</li>
+<li>Compositional models: Knowledge fusion</li>
+<li>IE systems in practice</li>
+</ul>
+</div></li></ul>
+</div>
+<div id="outline-container-orgheadline24" class="outline-5">
+<h5 id="orgheadline24">Part 3: Knowledge Graph Construction</h5>
+<div class="outline-text-5" id="text-orgheadline24">
+</div><ul class="org-ul"><li><a id="orgheadline19"></a>Graph construction overview<br ></li>
+<li><a id="orgheadline20"></a>Probabilistic Models<br ><div class="outline-text-6" id="text-orgheadline20">
+<ul class="org-ul">
+<li>Motivation</li>
+<li>Graphical models</li>
+<li>Random walk approaches</li>
+</ul>
+</div></li>
+<li><a id="orgheadline23"></a>Embedding Techniques<br ><ul class="org-ul"><li><a id="orgheadline21"></a>Relation extraction techniques<br ><div class="outline-text-7" id="text-orgheadline21">
+<ul class="org-ul">
+<li>Matrix factorization</li>
+<li>Embedding entity pairs</li>
+</ul>
+</div></li>
+<li><a id="orgheadline22"></a>Graph completion techniques<br ><div class="outline-text-7" id="text-orgheadline22">
+<ul class="org-ul">
+<li>Tensor factorization</li>
+<li>Entity and relation embeddings</li>
+<li>Compositional models</li>
+</ul>
+</div></li></ul></li></ul>
+</div>
+<div id="outline-container-orgheadline25" class="outline-5">
+<h5 id="orgheadline25">Part 4: Critical Overview and Conclusion</h5>
+<div class="outline-text-5" id="text-orgheadline25">
+<ul class="org-ul">
+<li>Summary</li>
+<li>Success stories</li>
+<li>Datasets, tasks, softwares</li>
+<li>Exciting active research</li>
+<li>Future research directions</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26">Part-Of-Speech Tagger (POS Tagger), Named-entity recognition (NER), SEMPRE: Semantic Parsing with Execution with spacy, stanford coreNLP.</h4>
+<div class="outline-text-4" id="text-orgheadline26">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> read documentation.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline15" class="outline-4">
-<h4 id="orgheadline15">Chinese wiki model.</h4>
-<div class="outline-text-4" id="text-orgheadline15">
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27">Chinese wiki model.</h4>
+<div class="outline-text-4" id="text-orgheadline27">
 <ul class="org-ul">
+<li class="on"><code>[X]</code> train financial fields model(58+ categories).</li>
+<li class="on"><code>[X]</code> use similarity distance to find the nearest category of target words.</li>
+<li class="on"><code>[X]</code> similarity test on specific model.</li>
+<li class="on"><code>[X]</code> add all pages title to jieba dict.</li>
+<li class="on"><code>[X]</code> 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。</li>
 <li class="on"><code>[X]</code> <p>
 preprocessing workflow.
 英文text preprocessing需要的注意一些点，及应提供的选择
@@ -683,13 +769,13 @@ preprocessing workflow.
 中文分词（主要利用结巴分词）
 </p>
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> 1. cut段落或文章</li>
+<li class="on"><code>[X]</code> 1. cut段落或文章</li>
 <li class="on"><code>[X]</code> 2. 去停词</li>
 <li class="on"><code>[X]</code> 去标点符号</li>
 <li class="on"><code>[X]</code> 去数字</li>
 </ul></li>
 <li class="off"><code>[&#xa0;]</code> word2vec fast text comparison.</li>
-<li class="off"><code>[&#xa0;]</code> compare the training results with or without stopwords.</li>
+<li class="on"><code>[X]</code> compare the training results with or without stopwords.</li>
 <li class="off"><code>[&#xa0;]</code> fix zhwiki to mongodb words count.</li>
 <li class="on"><code>[X]</code> demo code.</li>
 <li class="on"><code>[X]</code> visualize &amp; compare results.</li>
@@ -702,18 +788,18 @@ preprocessing workflow.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-4">
-<h4 id="orgheadline16">entity relation extraction</h4>
-<div class="outline-text-4" id="text-orgheadline16">
+<div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28">entity relation extraction</h4>
+<div class="outline-text-4" id="text-orgheadline28">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> company relation</li>
 <li class="off"><code>[&#xa0;]</code> analyst relation</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline17" class="outline-4">
-<h4 id="orgheadline17">Word Embedding(Word2Vec)</h4>
-<div class="outline-text-4" id="text-orgheadline17">
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29">Word Embedding(Word2Vec)</h4>
+<div class="outline-text-4" id="text-orgheadline29">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> pack pages into a corpus.</li>
 <li class="off"><code>[&#xa0;]</code> compare cutting on paragraph and document.</li>
@@ -783,83 +869,6 @@ better phrasing results.</li>
 <p>
 当前FI,查找相关的下一步FI.
 </p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline29" class="outline-4">
-<h4 id="orgheadline29">Knowledge Graph</h4>
-<div class="outline-text-4" id="text-orgheadline29">
-</div><div id="outline-container-orgheadline18" class="outline-5">
-<h5 id="orgheadline18">Part 1: Knowledge Graph Primer</h5>
-<div class="outline-text-5" id="text-orgheadline18">
-<ul class="org-ul">
-<li>What is a Knowledge Graph?</li>
-<li>Why are Knowledge Graphs Important?</li>
-<li>Where do Knowledge Graphs come from?</li>
-<li>Knowledge Representation Choices</li>
-<li>Problem Overview</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgheadline21" class="outline-5">
-<h5 id="orgheadline21">Part 2: Knowledge Extraction from Text</h5>
-<div class="outline-text-5" id="text-orgheadline21">
-</div><ul class="org-ul"><li><a id="orgheadline19"></a>NLP Fundamentals<br ><div class="outline-text-6" id="text-orgheadline19">
-<ul class="org-ul">
-<li>Tokenization, chunking</li>
-<li>Part-of-speech tagging</li>
-<li>Named entity recognition</li>
-<li>Dependency parsing</li>
-<li>Entity resolution, coreference, and linking</li>
-</ul>
-</div></li>
-<li><a id="orgheadline20"></a>Information Extraction<br ><div class="outline-text-6" id="text-orgheadline20">
-<ul class="org-ul">
-<li>Defining knowledge domains</li>
-<li>Learning knowledge extractors</li>
-<li>Scoring extracted knowledge</li>
-<li>Categories of IE techniques</li>
-<li>Compositional models: Knowledge fusion</li>
-<li>IE systems in practice</li>
-</ul>
-</div></li></ul>
-</div>
-<div id="outline-container-orgheadline27" class="outline-5">
-<h5 id="orgheadline27">Part 3: Knowledge Graph Construction</h5>
-<div class="outline-text-5" id="text-orgheadline27">
-</div><ul class="org-ul"><li><a id="orgheadline22"></a>Graph construction overview<br ></li>
-<li><a id="orgheadline23"></a>Probabilistic Models<br ><div class="outline-text-6" id="text-orgheadline23">
-<ul class="org-ul">
-<li>Motivation</li>
-<li>Graphical models</li>
-<li>Random walk approaches</li>
-</ul>
-</div></li>
-<li><a id="orgheadline26"></a>Embedding Techniques<br ><ul class="org-ul"><li><a id="orgheadline24"></a>Relation extraction techniques<br ><div class="outline-text-7" id="text-orgheadline24">
-<ul class="org-ul">
-<li>Matrix factorization</li>
-<li>Embedding entity pairs</li>
-</ul>
-</div></li>
-<li><a id="orgheadline25"></a>Graph completion techniques<br ><div class="outline-text-7" id="text-orgheadline25">
-<ul class="org-ul">
-<li>Tensor factorization</li>
-<li>Entity and relation embeddings</li>
-<li>Compositional models</li>
-</ul>
-</div></li></ul></li></ul>
-</div>
-<div id="outline-container-orgheadline28" class="outline-5">
-<h5 id="orgheadline28">Part 4: Critical Overview and Conclusion</h5>
-<div class="outline-text-5" id="text-orgheadline28">
-<ul class="org-ul">
-<li>Summary</li>
-<li>Success stories</li>
-<li>Datasets, tasks, softwares</li>
-<li>Exciting active research</li>
-<li>Future research directions</li>
-</ul>
-</div>
 </div>
 </div>
 <div id="outline-container-orgheadline38" class="outline-4">

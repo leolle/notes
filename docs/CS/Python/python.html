@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-10 Wed 14:55 -->
+<!-- 2018-01-16 Tue 10:18 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1756,6 +1756,18 @@ dirpath, dirnames, filenames
 </div>
 <div id="outline-container-orgheadline78" class="outline-3">
 <h3 id="orgheadline78"><span class="section-number-3">9.3</span> fileinput — Iterate over lines from multiple input streams</h3>
+<div class="outline-text-3" id="text-9-3">
+<ul class="org-ul">
+<li>write text at the end of a file without overwrite that file:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">f</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'filename.txt'</span>, <span style="color: #E6DB74;">'a'</span><span style="color: #AE81FF;">)</span>
+f.write<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"stuff"</span><span style="color: #AE81FF;">)</span>
+f.close<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline79" class="outline-3">
 <h3 id="orgheadline79"><span class="section-number-3">9.4</span> stat — Interpreting stat() results</h3>
@@ -3065,6 +3077,14 @@ $ conda-env remove --name env_name
 <p>
 <a href="./pandas.html">advanced pandas</a>
 </p>
+<ul class="org-ul">
+<li>read csv without header, delimiter is space:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">vocab</span> = pd.read_csv<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/home/weiwu/share/deep_learning/data/model/phrase/zhwiki/categories/&#19977;&#26495;.vocab"</span>,delim_whitespace=<span style="color: #AE81FF;">True</span>,header=<span style="color: #AE81FF;">None</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>parse text in csv</li>
 </ul>

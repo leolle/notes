@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-10 Wed 14:55 -->
+<!-- 2018-01-16 Tue 10:18 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -142,28 +142,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "left",
-        displayIndent: "5em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "left",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -184,32 +162,34 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline13">2. Definition of Sentiment Analysis</a>
+<li><a href="#orgheadline15">2. Knowledge-based Q&amp;A</a>
 <ul>
-<li><a href="#orgheadline11">2.1. Structure</a></li>
-<li><a href="#orgheadline12">2.2. Opinion Defintion</a></li>
+<li><a href="#orgheadline11">2.1. Introduction</a></li>
+<li><a href="#orgheadline12">2.2. 基于意图的结构化问答系统</a></li>
+<li><a href="#orgheadline13">2.3. 基于检索的问答系统</a></li>
+<li><a href="#orgheadline14">2.4. 基于知识图谱的问答系统</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">3. Language Technology Processing</a>
+<li><a href="#orgheadline18">3. Definition of Sentiment Analysis</a>
 <ul>
-<li><a href="#orgheadline14">3.1. features:</a></li>
+<li><a href="#orgheadline16">3.1. Structure</a></li>
+<li><a href="#orgheadline17">3.2. Opinion Defintion</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline22">4. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<li><a href="#orgheadline20">4. Language Technology Processing</a>
 <ul>
-<li><a href="#orgheadline16">4.1. Login</a></li>
-<li><a href="#orgheadline17">4.2. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
-<li><a href="#orgheadline21">4.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
-<ul>
-<li><a href="#orgheadline20">4.3.1. Data dumps/Import</a></li>
+<li><a href="#orgheadline19">4.1. features:</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline27">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<ul>
+<li><a href="#orgheadline21">5.1. Login</a></li>
+<li><a href="#orgheadline22">5.2. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
+<li><a href="#orgheadline26">5.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<ul>
+<li><a href="#orgheadline25">5.3.1. Data dumps/Import</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline25">5. TensorBoard: Embedding Visualization</a>
-<ul>
-<li><a href="#orgheadline23">5.1. Load data</a></li>
-<li><a href="#orgheadline24">5.2. Projections</a></li>
 </ul>
 </li>
 </ul>
@@ -339,20 +319,65 @@ model.train<span style="color: #AE81FF;">(</span>more_sentences<span style="colo
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">2</span> Definition of Sentiment Analysis</h2>
+
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">2</span> Knowledge-based Q&amp;A</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">2.1</span> Structure</h3>
+<h3 id="orgheadline11"><span class="section-number-3">2.1</span> Introduction</h3>
 <div class="outline-text-3" id="text-2-1">
+
+<div class="figure">
+<p><img src="./nlp/kbqa_intro.jpg" alt="kbqa_intro.jpg" />
+</p>
+<p><span class="figure-number">Figure 1:</span> introduction</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">2.2</span> 基于意图的结构化问答系统</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+银江股份的市盈率
+</p>
+
+<p>
+首先识别出其中的实体是银江股份（300020），意图是查询财务指标，目标参数是市盈率，隐藏时间是当前日期，然后只需要把这个问题对应到财务的微服务API就可以了，拿到API的返回结果，调用响应模板做填充。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">2.3</span> 基于检索的问答系统</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+对于像新闻、研究报告类的文档内容的搜索和观点挖掘，是一种精细化的搜索方式，不是直接对文档的全文进行检索，而是首先提取分析出文档的重要成分，比如：公司事件、摘要、情感、评级、作者正负面观点等，建立到搜索引擎中，基于启发式方法根据输入的内容进行匹配回复。比如：“航天信息可以买吗？”，不一定能准确的告诉用户可以或不可以，但是可以告诉他航天信息在当前的技术指标（金叉、死叉等），资金流量，研究员的正负面观点以及年报对2017年的管理层意见摘要等等。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">2.4</span> 基于知识图谱的问答系统</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+比如：“和苹果手机有关系的股票有哪些？”，“治理雾霾对哪些上市公司会产生影响？”，“钴价上升对哪些股票产生影响最大？”等，当然这些问题通过搜索的方式也能得到答案，但它们有一些共同点，问题的本身都描述着实体和实体之间的关系或者相关性，而这正是知识图谱能够解决的问题，知识图谱将搜索引擎从字符串匹配推进到实体关系查询推理层面.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">3</span> Definition of Sentiment Analysis</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.1</span> Structure</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.2</span> Opinion Defintion</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.2</span> Opinion Defintion</h3>
+<div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Observation: An opinion consists of two key components: a target g and a sentiment s on the target.</li>
 
@@ -365,16 +390,16 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">3</span> Language Technology Processing</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgheadline20" class="outline-2">
+<h2 id="orgheadline20"><span class="section-number-2">4</span> Language Technology Processing</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 [<a href="http://ltp.ai/docs/index.html">http://ltp.ai/docs/index.html</a>]
 </p>
 </div>
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">3.1</span> features:</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">4.1</span> features:</h3>
+<div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>针对单一自然语言处理任务，生成统计机器学习模型的工具</li>
 <li>针对单一自然语言处理任务，调用模型进行分析的编程接口</li>
@@ -385,9 +410,9 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22"><span class="section-number-2">4</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgheadline27" class="outline-2">
+<h2 id="orgheadline27"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
+<div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>guide:</li>
 </ul>
@@ -402,9 +427,9 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 <a href="https://en.wikipedia.org/wiki/Category:Main_topic_classifications">https://en.wikipedia.org/wiki/Category:Main_topic_classifications</a>
 </p>
 </div>
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">4.1</span> Login</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">5.1</span> Login</h3>
+<div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 
 <pre class="src src-neo4j">:server connect
@@ -425,9 +450,9 @@ darts-quota-alternation
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">4.2</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">5.2</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
+<div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>wiki dumps:</li>
 </ul>
@@ -568,9 +593,9 @@ return value
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">4.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">5.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
+<div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>basics</li>
 <li>wiki page structure example:</li>
@@ -742,10 +767,10 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </div>
 </div>
 
-<div id="outline-container-orgheadline20" class="outline-4">
-<h4 id="orgheadline20"><span class="section-number-4">4.3.1</span> Data dumps/Import</h4>
-<div class="outline-text-4" id="text-4-3-1">
-</div><ol class="org-ol"><li><a id="orgheadline18"></a>structure:<br  /><div class="outline-text-5" id="text-4-3-1-1">
+<div id="outline-container-orgheadline25" class="outline-4">
+<h4 id="orgheadline25"><span class="section-number-4">5.3.1</span> Data dumps/Import</h4>
+<div class="outline-text-4" id="text-5-3-1">
+</div><ol class="org-ol"><li><a id="orgheadline23"></a>structure:<br  /><div class="outline-text-5" id="text-5-3-1-1">
 <ul class="org-ul">
 <li>category:</li>
 </ul>
@@ -931,7 +956,7 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </table>
 </div></li>
 
-<li><a id="orgheadline19"></a>methods<br  /><div class="outline-text-5" id="text-4-3-1-2">
+<li><a id="orgheadline24"></a>methods<br  /><div class="outline-text-5" id="text-5-3-1-2">
 <p>
 <a href="https://meta.wikimedia.org/wiki/Data_dumps">https://meta.wikimedia.org/wiki/Data_dumps</a>
 </p>
@@ -1033,57 +1058,6 @@ I set up the interwiki cache cdb file, by using fixup-interwikis.py via the comm
 That was it. This was enough to let me view (most) pages without errors.
 </p>
 </div></li></ol>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline25" class="outline-2">
-<h2 id="orgheadline25"><span class="section-number-2">5</span> TensorBoard: Embedding Visualization</h2>
-<div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">5.1</span> Load data</h3>
-<div class="outline-text-3" id="text-5-1">
-<p>
-Step 1: Load a TSV file of vectors.
-Example of 3 vectors with dimension 4:
-0.1\t0.2\t0.5\t0.9
-0.2\t0.1\t5.0\t0.2
-0.4\t0.1\t7.0\t0.8
-</p>
-
-
-<p>
-Step 2 (optional): Load a TSV file of metadata.
-Example of 3 data points and 2 columns.
-Note: If there is more than one column, the first row will be parsed as column labels.
-Pokémon\tSpecies
-Wartortle\tTurtle
-Venusaur\tSeed
-Charmeleon\tFlame
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">5.2</span> Projections</h3>
-<div class="outline-text-3" id="text-5-2">
-<p>
-The Embedding Projector has three methods of reducing the dimensionality of a data set: two linear and one nonlinear. Each method can be used to create either a two- or three-dimensional view.
-</p>
-
-<ul class="org-ul">
-<li><a href="http://setosa.io/ev/principal-component-analysis/">Principal Component Analysis</a></li>
-</ul>
-<p>
-A straightforward technique for reducing dimensions is Principal Component Analysis (PCA). The Embedding Projector computes the top 10 principal components. The menu lets you project those components onto any combination of two or three. PCA is a linear projection, often effective at examining global geometry.
-</p>
-
-<ul class="org-ul">
-<li><a href="https://distill.pub/2016/misread-tsne/">t-SNE</a></li>
-</ul>
-<p>
-A popular non-linear dimensionality reduction technique is t-SNE. The Embedding Projector offers both two- and three-dimensional t-SNE views. Layout is performed client-side animating every step of the algorithm. Because t-SNE often preserves some local structure, it is useful for exploring local neighborhoods and finding clusters. Although extremely useful for visualizing high-dimensional data, t-SNE plots can sometimes be mysterious or misleading. See this great article for how to use t-SNE effectively.
-</p>
 </div>
 </div>
 </div>
