@@ -156,6 +156,7 @@ ICA
 ** NaturalLanguageProcessing
 
 *** Knowledge Graph
+- [ ] import wiki nodes and relation to Neo4j.
 - [ ] read Q&A knowledge graph paper.
 **** Part 1: Knowledge Graph Primer
 - What is a Knowledge Graph?
@@ -200,8 +201,9 @@ ICA
 *** Part-Of-Speech Tagger (POS Tagger), Named-entity recognition (NER), SEMPRE: Semantic Parsing with Execution with spacy, stanford coreNLP.
 - [ ] read documentation.
 *** Chinese wiki model.
-- [ ] train financial fields model(58+ categories).
-- [ ] use similarity distance to find the nearest category of target words.
+- [X] train financial fields model(58+ categories).
+- [X] use similarity distance to find the nearest category of target words.
+- [X] similarity test on specific model.
 - [X] add all pages title to jieba dict.
 - [X] 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。
 - [X] preprocessing workflow.
@@ -220,7 +222,7 @@ ICA
   - [X] 去标点符号
   - [X] 去数字
 - [ ] word2vec fast text comparison.
-- [ ] compare the training results with or without stopwords.
+- [X] compare the training results with or without stopwords.
 - [ ] fix zhwiki to mongodb words count.
 - [X] demo code.
 - [X] visualize & compare results.

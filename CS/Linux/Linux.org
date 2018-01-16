@@ -467,6 +467,10 @@ rename 's/\.bak$//' *.bak
 *** Scripting best practices
 
 *** Shell commands:
+- copy folder:
+#+BEGIN_SRC bash
+cp folder /destination/path -a
+#+END_SRC
 - check operation system information:
 #+BEGIN_SRC bash
 uname -m && cat /etc/*release

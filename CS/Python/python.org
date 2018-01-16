@@ -1334,6 +1334,10 @@ print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- read csv without header, delimiter is space:
+#+BEGIN_SRC python
+vocab = pd.read_csv("/home/weiwu/share/deep_learning/data/model/phrase/zhwiki/categories/三板.vocab",delim_whitespace=True,header=None)
+#+END_SRC
 - parse text in csv
 #+BEGIN_SRC python
 reddit_news = pd.read_csv('/home/weiwu/share/deep_learning/data/RedditNews.csv')
