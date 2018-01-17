@@ -131,6 +131,7 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 |                  | C482A7C8AAA93082803F78F03D37F51B | ROE_daily（PIT）     % change                     |
 |                  | CCA1D8B93BE90E135FFBBCA59723146A | 盈利ROE_daily_PIT_L                               |
 |                  | B8EA49740ACCF83BABAE7168BAA895CC | ROE（daily）                                      |
+| <2018-01-16 Tue> | 392482970E904D11190D208B7C22874A | skill instance example                            |
 |                  |                                  |                                                   |
 
 * other projects
@@ -156,8 +157,9 @@ ICA
 ** NaturalLanguageProcessing
 
 *** Knowledge Graph
-- [ ] import wiki nodes and relation to Neo4j.
+- [ ] import wiki categories nodes and edge relation to Neo4j.
 - [ ] read Q&A knowledge graph paper.
+- [X] test importing wiki categories nodes.
 **** Part 1: Knowledge Graph Primer
 - What is a Knowledge Graph?
 - Why are Knowledge Graphs Important?
@@ -200,6 +202,7 @@ ICA
 - Future research directions
 *** Part-Of-Speech Tagger (POS Tagger), Named-entity recognition (NER), SEMPRE: Semantic Parsing with Execution with spacy, stanford coreNLP.
 - [ ] read documentation.
+- [ ] IEPY
 *** Chinese wiki model.
 - [X] train financial fields model(58+ categories).
 - [X] use similarity distance to find the nearest category of target words.
