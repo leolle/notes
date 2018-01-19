@@ -321,12 +321,13 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
 - train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
 - ensemble model using mean value.
-- Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc.
+- Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
 ***** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
 - Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
 - 关系挖掘.
 - Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.
+https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pdf
 
 | 百科类问句     | 什么是ST股票 什么是向后复权                                           |
 | 数据类问句     | 2010年6月26日钢铁报价是多少 三一重工2009年收益是多少                  |

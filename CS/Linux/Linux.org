@@ -487,6 +487,8 @@ soffice filename
 - transfer files
 #+BEGIN_SRC bash
 scp file usr_name@ip:/absolute/path/
+# copy folder
+scp -r ./path/from/destination username@hostname:/path/to/destination
 #+END_SRC
 - linux folder tree output to clipboard.
 #+BEGIN_SRC shell
