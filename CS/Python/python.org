@@ -321,6 +321,16 @@ An Iterator is an Iterable
 Iterators require a next or __next__ method
 
 *** loop
+- loop with batches:
+#+BEGIN_SRC python
+for i in tqdm(range(0, len(category), batch_size)):
+    re_batch = {}
+    for j in range(batch_size):
+        re_batch[j] = wiki_category_re.search(category, last_span)
+        if re_batch[j] is not None:
+            last_span = re_batch[j].span()[1]
+    upload_cat_node(re_batch)
+#+END_SRC
 - don't care the interator sequence:
 #+BEGIN_SRC python
 for _ in range(10):
@@ -344,8 +354,11 @@ list(islice(dictionary.items(), 3))
 
 - iterate key and value in a dictionary:
 #+begin_src python
+# python 2
 for index, value in dict.iteritems():
-print index, value
+# python 3
+for index, value in dict.items():
+    print index, value
 #+end_src
 - iterate keys in a dictionary:
 #+begin_src python
@@ -974,6 +987,17 @@ zip() in conjunction with the * operator can be used to unzip a list:
 >>> x2, y2 = zip(*zipped)
 >>> x == list(x2) and y == list(y2)
 True
+#+END_SRC
+- create a dictionary with two iterables
+#+BEGIN_SRC python
+>>> x = [1, 2, 3]
+>>> y = [4, 5, 6]
+>>> zipped = zip(x, y)
+>>> zipped
+[(1, 4), (2, 5), (3, 6)]
+In [172]: dict(zipped)
+Out[179]: {1: 4, 2: 5, 3: 6}
+
 #+END_SRC
 ** zlib — Compression compatible with gzip
 ** gzip — Support for gzip files

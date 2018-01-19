@@ -157,9 +157,15 @@ ICA
 ** NaturalLanguageProcessing
 
 *** Knowledge Graph
-- [ ] import wiki categories nodes and edge relation to Neo4j.
-- [ ] read Q&A knowledge graph paper.
+**** create wiki knowledge graph
+DEADLINE: <2018-01-19 Fri>
+- [ ] read external sql file into pandas.
+- [ ] find page title from page id.
+- [ ] importing wiki categories and page edge relation to Neo4j.
+- [X] importing wiki categories nodes and page nodes to Neo4j.
 - [X] test importing wiki categories nodes.
+**** entity relationship
+- [ ] read Q&A knowledge graph paper.
 **** Part 1: Knowledge Graph Primer
 - What is a Knowledge Graph?
 - Why are Knowledge Graphs Important?
@@ -225,8 +231,8 @@ ICA
   - [X] 去标点符号
   - [X] 去数字
 - [ ] word2vec fast text comparison.
-- [X] compare the training results with or without stopwords.
 - [ ] fix zhwiki to mongodb words count.
+- [X] compare the training results with or without stopwords.
 - [X] demo code.
 - [X] visualize & compare results.
 - [X] create index for zhwiki.
@@ -315,10 +321,12 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
 - train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
 - ensemble model using mean value.
+- Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc.
 ***** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
-- 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
-- 关系挖掘-哈工大论文.
+- Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
+- 关系挖掘.
+- Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.
 
 | 百科类问句     | 什么是ST股票 什么是向后复权                                           |
 | 数据类问句     | 2010年6月26日钢铁报价是多少 三一重工2009年收益是多少                  |
@@ -328,10 +336,17 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - NLP workflow pipeline.
 **** Model
 - State of the Art NL models based on DNN
- - CBOW
- - Skip gram
- - Sequence to sequence
- - LSTM
+  - CBOW
+  - Skip gram
+  - Sequence to sequence
+  - LSTM
+  - Convolutional Network Sentence classification
+- Libraries
+  - Gensim
+  - SPACY
+  - IEPY
+  - Stanford coreNLP
+  - NLTK
 **** Data
 ***** Text Labeled with (semi) structured data
 - [ ] company filings text, filing classification, event time series data (attributes manually extracted)
@@ -346,8 +361,9 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - [ ] analyst research reports
 - [ ] textbooks
 **** Applications
-- recommendation of context sensitive synonyms
-- match search keyword, event, data with theory, model
+- recommendation of context sensitive synonyms.
+- match search keyword, event, data with theory, model.
+- event-driven stock prediction.
 *** Graph Convolutional Neural Network
 **** Objective:
 ***** Short Term
@@ -657,6 +673,8 @@ DEADLINE: <2017-11-14 Tue>
 :LOGBOOK:
 CLOCK: [2017-11-14 Tue 10:57]--[2017-11-14 Tue 19:30] =>  8:33
 :END:
+** removing risk model/portfolio optimization for loop
+- [ ] remove risk model for loop.
 - [X] calculate factor return and residual(specific risk).
   - [X] stock return should add one more column constraint.
   - [X] extract factor exposure and stock return as regression model input X and Y.

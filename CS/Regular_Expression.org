@@ -68,10 +68,12 @@ Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z
 
 - *
 The asterisk indicates zero or more occurrences of the preceding element.
-
+0 or more
 - +
 indicates one or more occurrences of the preceding element.
-
+1 or more
+- ?
+0 or 1
 - {m,n}
 Used to match between m and n occurences of the previous character. The example tries to match between three and five w's.
 

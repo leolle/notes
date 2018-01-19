@@ -73,6 +73,7 @@ model.train(more_sentences)
 对于像新闻、研究报告类的文档内容的搜索和观点挖掘，是一种精细化的搜索方式，不是直接对文档的全文进行检索，而是首先提取分析出文档的重要成分，比如：公司事件、摘要、情感、评级、作者正负面观点等，建立到搜索引擎中，基于启发式方法根据输入的内容进行匹配回复。比如：“航天信息可以买吗？”，不一定能准确的告诉用户可以或不可以，但是可以告诉他航天信息在当前的技术指标（金叉、死叉等），资金流量，研究员的正负面观点以及年报对2017年的管理层意见摘要等等。
 ** 基于知识图谱的问答系统
 比如：“和苹果手机有关系的股票有哪些？”，“治理雾霾对哪些上市公司会产生影响？”，“钴价上升对哪些股票产生影响最大？”等，当然这些问题通过搜索的方式也能得到答案，但它们有一些共同点，问题的本身都描述着实体和实体之间的关系或者相关性，而这正是知识图谱能够解决的问题，知识图谱将搜索引擎从字符串匹配推进到实体关系查询推理层面.
+
 * Definition of Sentiment Analysis
 ** Structure
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
@@ -331,6 +332,7 @@ and p2.page_namespace = 14
 
 *** Data dumps/Import
 **** structure:
+https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql
 - category:
 | cat_id | cat_title                  | cat_pages | cat_subcats | cat_files |
 |      3 | 'Computer_storage_devices' |        88 |          10 |         0 |

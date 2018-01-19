@@ -22,6 +22,11 @@
 #+BEGIN_SRC bash
 shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 #+END_SRC
+- install svn
+#+BEGIN_SRC bash
+sudo apt-get install subversion
+svn checkout http://192.168.1.30/svn/gftchina/Hanadev/trunk/WaveFront/
+#+END_SRC
 *** Suggested background
 *** Friction between UNIX and Linux
 *** Linux distributions
