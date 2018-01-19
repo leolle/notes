@@ -320,7 +320,7 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.
 - incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
 - train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
-- ensemble model using mean value.
+- ensemble model using mean value, use wiki category relation similarity to choose model.
 - Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
 ***** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
