@@ -38,6 +38,67 @@ try to use absolute path instead of relative path to read a file.
 - HDF5
 pip install tables
 
+** Decorator
+Decorator is way to dynamically add some new behavior to some objects. We achieve the same in Python by using closures.
+
+In the example we will create a simple example which will print some statement before and after the execution of a function.
+
+#+BEGIN_SRC python
+>>> def my_decorator(func):
+...     def wrapper(*args, **kwargs):
+...         print("Before call")
+...         result = func(*args, **kwargs)
+...         print("After call")
+...         return result
+...     return wrapper
+...
+>>> @my_decorator
+... def add(a, b):
+...     "Our add function"
+...     return a + b
+...
+>>> add(1, 3)
+Before call
+After call
+4
+
+#+END_SRC
+
+** Closures
+Closures are nothing but functions that are returned by another function. We use closures to remove code duplication. In the following example we create a simple closure for adding numbers.
+#+BEGIN_SRC python
+>>> def add_number(num):
+...     def adder(number):
+...         'adder is a closure'
+...         return num + number
+...     return adder
+...
+>>> a_10 = add_number(10)
+>>> a_10(21)
+31
+>>> a_10(34)
+44
+>>> a_5 = add_number(5)
+>>> a_5(3)
+8
+
+#+END_SRC
+** iterable
+An object capable of returning its members one at a time. Examples of iterables include all sequence types (such as list, str, and tuple) and some non-sequence types like dict and file and objects of any classes you define with an __iter__() or __getitem__() method. Iterables can be used in a for loop and in many other places where a sequence is needed (zip(), map(), …). When an iterable object is passed as an argument to the built-in function iter(), it returns an iterator for the object. This iterator is good for one pass over the set of values. When using iterables, it is usually not necessary to call iter() or deal with iterator objects yourself. The for statement does that automatically for you, creating a temporary unnamed variable to hold the iterator for the duration of the loop. See also iterator, sequence, and generator.
+** iterator
+An object representing a stream of data. Repeated calls to the iterator’s next() method return successive items in the stream. When no more data are available a StopIteration exception is raised instead. At this point, the iterator object is exhausted and any further calls to its next() method just raise StopIteration again. Iterators are required to have an __iter__() method that returns the iterator object itself so every iterator is also iterable and may be used in most places where other iterables are accepted. One notable exception is code which attempts multiple iteration passes. A container object (such as a list) produces a fresh new iterator each time you pass it to the iter() function or use it in a for loop. Attempting this with an iterator will just return the same exhausted iterator object used in the previous iteration pass, making it appear like an empty container.
+** generator
+A function which returns an iterator. It looks like a normal function except that it contains yield statements for producing a series of values usable in a for-loop or that can be retrieved one at a time with the next() function. Each yield temporarily suspends processing, remembering the location execution state (including local variables and pending try-statements). When the generator resumes, it picks-up where it left-off (in contrast to functions which start fresh on every invocation).
+** generator expression
+An expression that returns an iterator. It looks like a normal expression followed by a for expression defining a loop variable, range, and an optional if expression. The combined expression generates values for an enclosing function:
+#+BEGIN_SRC python
+>>> sum(i*i for i in range(10))         # sum of squares 0, 1, 4, ... 81
+285
+
+#+END_SRC
+
+
+
 * Built-in Types
 ** Truth Value Testing
 ** Boolean Operations — and, or, not

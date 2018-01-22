@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-16 Tue 10:18 -->
+<!-- 2018-01-22 Mon 09:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -601,6 +601,15 @@ for the JavaScript code in this tag.
 <div class="org-src-container">
 
 <pre class="src src-bash">shutdown -r +5 <span style="color: #E6DB74;">"Server will restart in 5 minutes. Please save your work."</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>install svn</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo apt-get install subversion
+svn checkout http://192.168.1.30/svn/gftchina/Hanadev/trunk/WaveFront/
 </pre>
 </div>
 </div>
@@ -1264,6 +1273,8 @@ rename <span style="color: #E6DB74;">'s/\.bak$//'</span> *.bak
 <div class="org-src-container">
 
 <pre class="src src-bash">scp file usr_name@ip:/absolute/path/
+<span style="color: #75715E;"># </span><span style="color: #75715E;">copy folder</span>
+scp -r ./path/from/destination username@hostname:/path/to/destination
 </pre>
 </div>
 <ul class="org-ul">
