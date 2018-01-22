@@ -159,6 +159,12 @@ ICA
 *** Knowledge Graph
 **** create wiki knowledge graph
 DEADLINE: <2018-01-19 Fri>
+:LOGBOOK:
+CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
+CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
+CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
+:END:
+- [ ] import edges.
 - [ ] read external sql file into pandas.
 - [ ] find page title from page id.
 - [ ] importing wiki categories and page edge relation to Neo4j.

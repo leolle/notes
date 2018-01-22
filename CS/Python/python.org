@@ -15,6 +15,7 @@
 [[http://www.pythondoc.com/pythontutorial3/][source]]
 * Introduction
 * Built-in Functions
+
 ** Function
 - function parameter
   - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
@@ -63,6 +64,40 @@ After call
 4
 
 #+END_SRC
+Common examples for decorators are classmethod() and staticmethod().
+*** classmethod(function)
+Return a class method for function.
+
+A class method receives the class as implicit first argument, just like an instance method receives the instance. To declare a class method, use this idiom:
+
+class C(object):
+    @classmethod
+    def f(cls, arg1, arg2, ...):
+        ...
+The @classmethod form is a function decorator – see the description of function definitions in Function definitions for details.
+
+It can be called either on the class (such as C.f()) or on an instance (such as C().f()). The instance is ignored except for its class. If a class method is called for a derived class, the derived class object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods. If you want those, see staticmethod() in this section.
+
+For more information on class methods, consult the documentation on the standard type hierarchy in The standard type hierarchy.
+*** staticmethod(function)
+Return a static method for function.
+
+A static method does not receive an implicit first argument. To declare a static method, use this idiom:
+
+class C(object):
+    @staticmethod
+    def f(arg1, arg2, ...):
+        ...
+The @staticmethod form is a function decorator – see the description of function definitions in Function definitions for details.
+
+It can be called either on the class (such as C.f()) or on an instance (such as C().f()). The instance is ignored except for its class.
+
+Static methods in Python are similar to those found in Java or C++. Also see classmethod() for a variant that is useful for creating alternate class constructors.
+
+For more information on static methods, consult the documentation on the standard type hierarchy in The standard type hierarchy.
+
 
 ** Closures
 Closures are nothing but functions that are returned by another function. We use closures to remove code duplication. In the following example we create a simple closure for adding numbers.
@@ -112,6 +147,8 @@ eval the value of a variable name from string.
 ** Comparisons
 ** Numeric Types — int, float, complex
 ** Iterator Types
+- xrange vs range:
+there's no xrange in python 3.
 - access index and value looping a list:
 #+BEGIN_SRC python
 for idx, val in enumerate(list):
@@ -476,6 +513,58 @@ print repr(a)
 ** Warnings
 ** Exception hierarchy
 ** exception
+- retry:
+#+BEGIN_SRC python
+response = None
+error = None
+while response is None:
+  try:
+    response = doing_something()
+    if response is not None:
+      if 'good' in response:
+        print("successfully uploaded")
+      else:
+        exit("reason %s"%response)
+  except HttpError as e:
+    if e.code in RETRIABLE_STATUS_CODES:
+      error = 'A retriable HTTP error %d occurred:\n%s' % (e.resp.status,
+                                                             e.content)
+    else:
+      raise
+  except RETRIABLE_EXCEPTIONS as e:
+    error = 'A retriable error occurred: %s' % e
+
+    if error is not None:
+      print error
+      retry += 1
+      if retry > MAX_RETRIES:
+        exit('No longer attempting to retry.')
+
+      max_sleep = 2 ** retry
+      sleep_seconds = random.random() * max_sleep
+      print 'Sleeping %f seconds and then retrying...' % sleep_seconds
+      time.sleep(sleep_seconds)
+#+END_SRC
+- capture urllib error:
+#+BEGIN_SRC python
+import urllib2
+
+req = urllib2.Request('http://www.python.org/fish.html')
+try:
+    resp = urllib2.urlopen(req)
+except urllib2.HTTPError as e:
+    if e.code == 404:
+        # do something...
+    else:
+        # ...
+except urllib2.URLError as e:
+    # Not an HTTP-specific error (e.g. connection refused)
+    # ...
+else:
+    # 200
+    body = resp.read()
+
+#+END_SRC
 - create an exception:
 #+BEGIN_SRC python
 class ConstraintError(Exception):

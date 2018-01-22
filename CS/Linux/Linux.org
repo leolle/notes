@@ -571,6 +571,16 @@ ln -s /home/weiwu/share/deep_learning/data/courses/dogscats/ /home/weiwu/project
 #+END_SRC
 
 *** find/search string
+- less filename:
+  - u - up half page
+  - d - down half page
+  - k - scroll single line up
+  - j - scroll single line down
+  - -i - case insensitive searching unless pattern contains capitals (as clo or in less)
+  - / /pattern/ - search (used with n)
+  - -p /pattern/ open file at /pattern/ (as clo)
+  - & /pattern/ show lines containing /pattern/ (like grep)
+
 - find string or regex in files
 #+begin_src shell
 # grep = global regular expression parser
