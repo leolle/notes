@@ -417,6 +417,14 @@ digraph G {
 * emacs python workflow.
 
 ** install elpy, jedi
+*** elpy (Emacs Lisp Python Environment)
+
+- Automatic Indentation,
+- Syntax Highlighting,
+- Auto-Completion,
+- Syntax Checking,
+- Python REPL Integration,
+- Virtual Environment Support, and
 #+BEGIN_SRC shell
 sudo pip install jedi epc pylint flake8 ipython==5.3 yaft
 #+END_SRC

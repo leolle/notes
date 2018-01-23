@@ -45,3 +45,76 @@ The benchmark may have a different weight decomposition that have a underweight 
 - 3、利用benchmark的weight数据得到每个行业所占的权重W(i)。结果即为行业中性下每只股票的权重。
 - 4、W(i)/N(i)等权重赋值到挑选出来的股票S(i,j)。
 - For example, let’s say you have $10,000 to invest, equally allocated to large and small cap stocks. Owning 40 stocks equally weighted means that you would hold $250 in each position ($10,000 divided by 40). If a sector's weight is 20% of the benchmark, then 20% of your portfolio, or $2,000, would be invested in that sector. Because you’re investing $500 in each stock, you would hold 4 stocks in this sector ($2,000 divided by $500). Since you have equally allocated your capital to large and small cap stocks, you would own 2 large and 2 small cap stocks.
+
+* Barra Portfolio Management
+:LOGBOOK:
+CLOCK: [2018-01-23 Tue 09:11]--[2018-01-23 Tue 09:41] =>  0:30
+:END:
+- 提供了一个可以构建组合，预测风险并进行对冲的分析框架
+- 能够识别出资产收益背后的共同的，基本面的驱动因素
+- 对收益和风险在系统性因素和个别因素两个方面进行切分
+- Barra 对每个资产计算出其对各因子的风险暴露度，能迅速捕捉
+- 上市公司的基本面情况以及市场趋势的变化
+| Model                           | how its used                                                                                                        |
+|---------------------------------+---------------------------------------------------------------------------------------------------------------------|
+| Brinson-Fachler Attribution     | To evaluate top-down sector allocation strategies in equity or balanced portfolios                                  |
+| Asset Selection Attribution     | To evaluate bottom-up stock picking strategies in equity or balanced portfolios                                     |
+| Barra Equity Factor Attribution | To identify granular sources of return in equity portfolios                                                         |
+| Fixed Income Attribution        | To identify sources of active return due to yield curve movements and credit/spread bets in fixed income portfolios |
+
+
+** Barra China Equity Model
+*** 国家因子
+*** 风格因子
+- Size: 捕捉大盘股和小盘股之间的收益差异
+- Non-linear Size：描述了无法由规模因子解释的但与规模有关的收益差异，通常代表中盘股
+- Earnings Yield：描述了由盈利收益导致的收益差异
+- Book-to-Price：描述了股票估值高低不同而产生的收益差异,即价值因子
+- Growth：描述了对销售或盈利增长预期不同而产生的收益差异
+- Leverage：描述了高杠杆股票与低杠杆股票之间的收益差异
+- Momentum (动量)：描述了过去半年到一年里相对强势的股票与弱势股票之间的差异
+- Beta：捕捉那些无法用国家因子解释的市场风险
+- Residual Volatility：解释了剥离了市场风险后的波动率高低产生的收益率差异
+- Liquidity：解释了由股票相对的交易活跃度不同而产生的收益率差异
+*** 行业因子
+1. Energy 能源
+2. Chemicals 化工
+3. Construction Materials 基建材料
+4. Diversified Metals 贵金属
+5. Materials 材料
+6. Aerospace and Defense 航空
+7. Building Products 建筑
+8. Construction and Engineering 基建工程
+9. Electrical Equipment 电子设备
+10. Industrial Conglomerates 工业集团
+11. Industrial Machinery 工业机械
+12. Trading Companies and Distributors 外贸
+13. Commercial and Professional Services 服务业
+14. Airlines 航空运输
+15. Marine 军工
+16. Road Rail and Transportation Infrastructure 铁路
+17. Automobiles and Components 汽车
+18. Household Durables (non-Homebuilding) 家庭耐用消费品
+19. Leisure Products Textiles Apparel and Luxury 休闲用品、纺织品、服装和奢侈品
+20. Consumer Services 消费服务
+21. Media 媒体
+22. Retail 铁路
+23. Food Staples Retail Household Personal Prod 零售业家用个人用品
+24. Beverages 饮料
+25. Food Products 食品
+26. Health 医疗
+27. Banks 银行
+28. Diversified Financial Services 非银行金融
+29. Real Estate 房地产
+30. Software 软件
+31. Hardware and Semiconductors 硬件和半导体
+32. Utilities 公用事业( A utility is an important service such as water, electricity, or gas that is provided for everyone, and that everyone pays for.)
+*** 股票收益的几个基本面来源
+资产收益率可以归因到几个不同的基本面因子上。如，投资期间中股票所有的风格，所在行业，或是所处国家：
+$$r_k = x_{k,1}*f_1 + x_{k,2}*f_2 + ... + x_{k,n}*f_n + u_{k,spacefic}$$
+$r_k$ asset k return, $x_{k,n}$ observed exposure of asset k to common factors, observed exposure or sensitivity of asset k to factor n. $f_n$ estimated return of factor n. $u_{k,spacefic}$ specific return of asset k.
+** 风格分析
+** 业绩归因
+** 预测风险
+** 多个基金的业绩和风险比较
+** 构建策略

@@ -413,6 +413,10 @@ python models/tutorials/image/mnist/convolutional.py
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- detect keyboard press
+#+BEGIN_SRC bash
+xev
+#+END_SRC
 - count file number under a directory
 #+BEGIN_SRC bash
 ls -1 | wc -l

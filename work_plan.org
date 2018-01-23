@@ -158,8 +158,9 @@ ICA
 
 *** Knowledge Graph
 **** create wiki knowledge graph
-DEADLINE: <2018-01-19 Fri>
+DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
+CLOCK: [2018-01-23 Tue 09:56]--[2018-01-23 Tue 12:05] =>  2:09
 CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
 CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29

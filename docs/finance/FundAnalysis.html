@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-09 Mon 09:57 -->
+<!-- 2018-01-23 Tue 09:40 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -189,6 +189,23 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
+<li><a href="#orgheadline24">2. Barra Portfolio Management</a>
+<ul>
+<li><a href="#orgheadline18">2.1. Barra China Equity Model</a>
+<ul>
+<li><a href="#orgheadline14">2.1.1. 国家因子</a></li>
+<li><a href="#orgheadline15">2.1.2. 风格因子</a></li>
+<li><a href="#orgheadline16">2.1.3. 行业因子</a></li>
+<li><a href="#orgheadline17">2.1.4. 股票收益的几个基本面来源</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline19">2.2. 风格分析</a></li>
+<li><a href="#orgheadline20">2.3. 业绩归因</a></li>
+<li><a href="#orgheadline21">2.4. 预测风险</a></li>
+<li><a href="#orgheadline22">2.5. 多个基金的业绩和风险比较</a></li>
+<li><a href="#orgheadline23">2.6. 构建策略</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -270,6 +287,145 @@ The benchmark may have a different weight decomposition that have a underweight 
 </ul>
 </div></li></ol>
 </div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">2</span> Barra Portfolio Management</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>提供了一个可以构建组合，预测风险并进行对冲的分析框架</li>
+<li>能够识别出资产收益背后的共同的，基本面的驱动因素</li>
+<li>对收益和风险在系统性因素和个别因素两个方面进行切分</li>
+<li>Barra 对每个资产计算出其对各因子的风险暴露度，能迅速捕捉</li>
+<li>上市公司的基本面情况以及市场趋势的变化</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Model</th>
+<th scope="col" class="org-left">how its used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Brinson-Fachler Attribution</td>
+<td class="org-left">To evaluate top-down sector allocation strategies in equity or balanced portfolios</td>
+</tr>
+
+<tr>
+<td class="org-left">Asset Selection Attribution</td>
+<td class="org-left">To evaluate bottom-up stock picking strategies in equity or balanced portfolios</td>
+</tr>
+
+<tr>
+<td class="org-left">Barra Equity Factor Attribution</td>
+<td class="org-left">To identify granular sources of return in equity portfolios</td>
+</tr>
+
+<tr>
+<td class="org-left">Fixed Income Attribution</td>
+<td class="org-left">To identify sources of active return due to yield curve movements and credit/spread bets in fixed income portfolios</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">2.1</span> Barra China Equity Model</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">2.1.1</span> 国家因子</h4>
+</div>
+<div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15"><span class="section-number-4">2.1.2</span> 风格因子</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li>Size: 捕捉大盘股和小盘股之间的收益差异</li>
+<li>Non-linear Size：描述了无法由规模因子解释的但与规模有关的收益差异，通常代表中盘股</li>
+<li>Earnings Yield：描述了由盈利收益导致的收益差异</li>
+<li>Book-to-Price：描述了股票估值高低不同而产生的收益差异,即价值因子</li>
+<li>Growth：描述了对销售或盈利增长预期不同而产生的收益差异</li>
+<li>Leverage：描述了高杠杆股票与低杠杆股票之间的收益差异</li>
+<li>Momentum (动量)：描述了过去半年到一年里相对强势的股票与弱势股票之间的差异</li>
+<li>Beta：捕捉那些无法用国家因子解释的市场风险</li>
+<li>Residual Volatility：解释了剥离了市场风险后的波动率高低产生的收益率差异</li>
+<li>Liquidity：解释了由股票相对的交易活跃度不同而产生的收益率差异</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">2.1.3</span> 行业因子</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ol class="org-ol">
+<li>Energy 能源</li>
+<li>Chemicals 化工</li>
+<li>Construction Materials 基建材料</li>
+<li>Diversified Metals 贵金属</li>
+<li>Materials 材料</li>
+<li>Aerospace and Defense 航空</li>
+<li>Building Products 建筑</li>
+<li>Construction and Engineering 基建工程</li>
+<li>Electrical Equipment 电子设备</li>
+<li>Industrial Conglomerates 工业集团</li>
+<li>Industrial Machinery 工业机械</li>
+<li>Trading Companies and Distributors 外贸</li>
+<li>Commercial and Professional Services 服务业</li>
+<li>Airlines 航空运输</li>
+<li>Marine 军工</li>
+<li>Road Rail and Transportation Infrastructure 铁路</li>
+<li>Automobiles and Components 汽车</li>
+<li>Household Durables (non-Homebuilding) 家庭耐用消费品</li>
+<li>Leisure Products Textiles Apparel and Luxury 休闲用品、纺织品、服装和奢侈品</li>
+<li>Consumer Services 消费服务</li>
+<li>Media 媒体</li>
+<li>Retail 铁路</li>
+<li>Food Staples Retail Household Personal Prod 零售业家用个人用品</li>
+<li>Beverages 饮料</li>
+<li>Food Products 食品</li>
+<li>Health 医疗</li>
+<li>Banks 银行</li>
+<li>Diversified Financial Services 非银行金融</li>
+<li>Real Estate 房地产</li>
+<li>Software 软件</li>
+<li>Hardware and Semiconductors 硬件和半导体</li>
+<li>Utilities 公用事业( A utility is an important service such as water, electricity, or gas that is provided for everyone, and that everyone pays for.)</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">2.1.4</span> 股票收益的几个基本面来源</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<p>
+资产收益率可以归因到几个不同的基本面因子上。如，投资期间中股票所有的风格，所在行业，或是所处国家：
+\[r_k = x_{k,1}*f_1 + x_{k,2}*f_2 + ... + x_{k,n}*f_n + u_{k,spacefic}\]
+\(r_k\) asset k return, \(x_{k,n}\) observed exposure of asset k to common factors, observed exposure or sensitivity of asset k to factor n. \(f_n\) estimated return of factor n. \(u_{k,spacefic}\) specific return of asset k.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">2.2</span> 风格分析</h3>
+</div>
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">2.3</span> 业绩归因</h3>
+</div>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">2.4</span> 预测风险</h3>
+</div>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">2.5</span> 多个基金的业绩和风险比较</h3>
+</div>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">2.6</span> 构建策略</h3>
 </div>
 </div>
 </div>
