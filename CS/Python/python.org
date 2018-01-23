@@ -1565,6 +1565,19 @@ UTF-8是把character转为binary code的规范, and vice versa. 方便存储。
 ** codeop — Compile Python code
 * Importing Modules
 ** Module
+- reload a module/lib in ipython without killing it.
+#+BEGIN_SRC python
+# For Python 2 use built-in function reload():
+
+reload(module)
+# For Python 2 and 3.2–3.3 use reload from module imp:
+
+import imp
+imp.reload(module)
+# or
+import importlib
+importlib.reload(module)
+#+END_SRC
 - 当你运行一个Python模块 python fibo.py <arguments>
   Remember, everything in python is an object.
 
