@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-23 Tue 09:40 -->
+<!-- 2018-01-24 Wed 09:39 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -189,7 +189,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline24">2. Barra Portfolio Management</a>
+<li><a href="#orgheadline31">2. Barra Portfolio Management</a>
 <ul>
 <li><a href="#orgheadline18">2.1. Barra China Equity Model</a>
 <ul>
@@ -199,11 +199,24 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline17">2.1.4. 股票收益的几个基本面来源</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline19">2.2. 风格分析</a></li>
-<li><a href="#orgheadline20">2.3. 业绩归因</a></li>
-<li><a href="#orgheadline21">2.4. 预测风险</a></li>
-<li><a href="#orgheadline22">2.5. 多个基金的业绩和风险比较</a></li>
-<li><a href="#orgheadline23">2.6. 构建策略</a></li>
+<li><a href="#orgheadline25">2.2. 风格分析</a>
+<ul>
+<li><a href="#orgheadline19">2.2.1. Factor exposure</a></li>
+<li><a href="#orgheadline20">2.2.2. A股成长性最高的和最低的10只股票</a></li>
+<li><a href="#orgheadline21">2.2.3. A股最贵的和最便宜的10只股票</a></li>
+<li><a href="#orgheadline22">2.2.4. A股最强势的和最弱势的10只股票</a></li>
+<li><a href="#orgheadline23">2.2.5. A股规模最大和最小的10只股票</a></li>
+<li><a href="#orgheadline24">2.2.6. 华夏成长小组合相对于沪深300指数的风格分析 – 表格</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline27">2.3. 业绩归因</a>
+<ul>
+<li><a href="#orgheadline26">2.3.1. 华夏成长小组合业绩表现 – 累积收益率</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline28">2.4. 预测风险</a></li>
+<li><a href="#orgheadline29">2.5. 多个基金的业绩和风险比较</a></li>
+<li><a href="#orgheadline30">2.6. 构建策略</a></li>
 </ul>
 </li>
 </ul>
@@ -290,8 +303,8 @@ The benchmark may have a different weight decomposition that have a underweight 
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-2">
-<h2 id="orgheadline24"><span class="section-number-2">2</span> Barra Portfolio Management</h2>
+<div id="outline-container-orgheadline31" class="outline-2">
+<h2 id="orgheadline31"><span class="section-number-2">2</span> Barra Portfolio Management</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>提供了一个可以构建组合，预测风险并进行对冲的分析框架</li>
@@ -412,20 +425,415 @@ The benchmark may have a different weight decomposition that have a underweight 
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">2.2</span> 风格分析</h3>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">2.2</span> 风格分析</h3>
+<div class="outline-text-3" id="text-2-2">
+</div><div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">2.2.1</span> Factor exposure</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li>风格因子背后通常是各种财务指标或是市场价格指标.</li>
+<li>风格因子的暴露度是经过标准化的(Normalization).
+<ul class="org-ul">
+<li>标准化的目的是使不同的数据和时间之间可以在同一量纲上进行比较。 Barra会先对各项指标先做标准化，然后构建成风格因子的暴露度，最后再对暴露度进行标准化.</li>
+</ul></li>
+<li>风格因子暴露度的单位是标准差.</li>
+<li>行业因子是虚拟变量.</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Sector<sub>1</sub></td>
+<td class="org-left">Sector<sub>2</sub></td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">Sector<sub>n</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">0/1</td>
+<td class="org-left">0/1</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">0/1</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">2.3</span> 业绩归因</h3>
 </div>
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">2.4</span> 预测风险</h3>
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">2.2.2</span> A股成长性最高的和最低的10只股票</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<ul class="org-ul">
+<li>对模型样本空间各股按Growth因子暴露度进行排序.</li>
+<li>财务指标:</li>
+</ul>
+<p>
+\[Growth = Sales Growth(0.47) + Analystpredicted Earnings Growth (0.240) + Earnings Growth Rate Long Term(0.180) + Earnings Growth Rate Short Term(0.110)\]
+</p>
 </div>
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">2.5</span> 多个基金的业绩和风险比较</h3>
 </div>
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">2.6</span> 构建策略</h3>
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">2.2.3</span> A股最贵的和最便宜的10只股票</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<ul class="org-ul">
+<li>对模型样本空间各股按Book-to-Price因子暴露度进行排序.</li>
+<li>财务指标</li>
+</ul>
+<p>
+\[ Value = Book-to-price(1.00)\]
+Value因子暴露度越高，说明股票越便宜.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">2.2.4</span> A股最强势的和最弱势的10只股票</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<ul class="org-ul">
+<li>对模型样本空间各股按Momentum因子暴露度进行排序.</li>
+<li>技术指标</li>
+</ul>
+<p>
+\[Momentum = Relative strength(1.00)\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">2.2.5</span> A股规模最大和最小的10只股票</h4>
+<div class="outline-text-4" id="text-2-2-5">
+<ul class="org-ul">
+<li>对模型样本空间各股按Size因子暴露度进行排序.</li>
+<li>财务指标</li>
+</ul>
+<p>
+\[Size = Log of Market Capitalization(1.00)\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">2.2.6</span> 华夏成长小组合相对于沪深300指数的风格分析 – 表格</h4>
+<div class="outline-text-4" id="text-2-2-6">
+<ul class="org-ul">
+<li>用市值加权求得组合层面的暴露度</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Asset Name</th>
+<th scope="col" class="org-right">Weight (%)</th>
+<th scope="col" class="org-right">Growth Exp</th>
+<th scope="col" class="org-right">Size Exp</th>
+<th scope="col" class="org-right">Momentum Exp</th>
+<th scope="col" class="org-right">Book-to-Price Exp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">广联达</td>
+<td class="org-right">8.25%</td>
+<td class="org-right">0.98</td>
+<td class="org-right">-0.22</td>
+<td class="org-right">1.54</td>
+<td class="org-right">-1.75</td>
+</tr>
+
+<tr>
+<td class="org-left">许继电气</td>
+<td class="org-right">6.15%</td>
+<td class="org-right">0.65</td>
+<td class="org-right">-0.16</td>
+<td class="org-right">1.31</td>
+<td class="org-right">-1.48</td>
+</tr>
+
+<tr>
+<td class="org-left">伊利股份</td>
+<td class="org-right">19.75%</td>
+<td class="org-right">0.61</td>
+<td class="org-right">1.15</td>
+<td class="org-right">2.74</td>
+<td class="org-right">-1.51</td>
+</tr>
+
+<tr>
+<td class="org-left">天士力</td>
+<td class="org-right">6.75%</td>
+<td class="org-right">0.54</td>
+<td class="org-right">0.89</td>
+<td class="org-right">1.81</td>
+<td class="org-right">-1.87</td>
+</tr>
+
+<tr>
+<td class="org-left">云南白药</td>
+<td class="org-right">7.70%</td>
+<td class="org-right">0.36</td>
+<td class="org-right">1.15</td>
+<td class="org-right">1.97</td>
+<td class="org-right">-1.77</td>
+</tr>
+
+<tr>
+<td class="org-left">大北农</td>
+<td class="org-right">7.11%</td>
+<td class="org-right">0.3</td>
+<td class="org-right">0.29</td>
+<td class="org-right">0.69</td>
+<td class="org-right">-1.51</td>
+</tr>
+
+<tr>
+<td class="org-left">兴业银行</td>
+<td class="org-right">12.43%</td>
+<td class="org-right">0.18</td>
+<td class="org-right">1.15</td>
+<td class="org-right">0.28</td>
+<td class="org-right">0.95</td>
+</tr>
+
+<tr>
+<td class="org-left">长城汽车</td>
+<td class="org-right">11.69%</td>
+<td class="org-right">-0.15</td>
+<td class="org-right">1.15</td>
+<td class="org-right">2.77</td>
+<td class="org-right">-1.47</td>
+</tr>
+
+<tr>
+<td class="org-left">烟台万润</td>
+<td class="org-right">7.79%</td>
+<td class="org-right">-0.38</td>
+<td class="org-right">-1.79</td>
+<td class="org-right">0.8</td>
+<td class="org-right">-0.84</td>
+</tr>
+
+<tr>
+<td class="org-left">海通证券</td>
+<td class="org-right">12.36%</td>
+<td class="org-right">-0.9</td>
+<td class="org-right">1.15</td>
+<td class="org-right">0.63</td>
+<td class="org-right">-0.13</td>
+</tr>
+
+<tr>
+<td class="org-left">组合层面</td>
+<td class="org-right">100.00%</td>
+<td class="org-right">0.19</td>
+<td class="org-right">0.65</td>
+<td class="org-right">1.57</td>
+<td class="org-right">-1.04</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>与沪深300的风格进行比较</li>
+</ul>
+<p>
+用市值加权求得组合层面每个因子的暴露度，得到Portfolio Exposure,与Benchmark Exposure比较。
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Factor</th>
+<th scope="col" class="org-right">Portfolio Exposure</th>
+<th scope="col" class="org-right">Benchmark Exposure</th>
+<th scope="col" class="org-right">Active Exposure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Beta</td>
+<td class="org-right">0.57</td>
+<td class="org-right">0.37</td>
+<td class="org-right">0.20</td>
+</tr>
+
+<tr>
+<td class="org-left">Book-to-Price</td>
+<td class="org-right">-1.04</td>
+<td class="org-right">0.14</td>
+<td class="org-right">-1.18</td>
+</tr>
+
+<tr>
+<td class="org-left">Earnings Yield</td>
+<td class="org-right">-0.71</td>
+<td class="org-right">0.34</td>
+<td class="org-right">-1.05</td>
+</tr>
+
+<tr>
+<td class="org-left">Growth</td>
+<td class="org-right">0.19</td>
+<td class="org-right">0.08</td>
+<td class="org-right">0.11</td>
+</tr>
+
+<tr>
+<td class="org-left">Leverage</td>
+<td class="org-right">-0.79</td>
+<td class="org-right">0.18</td>
+<td class="org-right">-0.97</td>
+</tr>
+
+<tr>
+<td class="org-left">Liquidity</td>
+<td class="org-right">0.60</td>
+<td class="org-right">0.54</td>
+<td class="org-right">0.06</td>
+</tr>
+
+<tr>
+<td class="org-left">Momentum</td>
+<td class="org-right">1.57</td>
+<td class="org-right">-0.06</td>
+<td class="org-right">1.63</td>
+</tr>
+
+<tr>
+<td class="org-left">Non-linear Size</td>
+<td class="org-right">-0.27</td>
+<td class="org-right">-0.28</td>
+<td class="org-right">0.01</td>
+</tr>
+
+<tr>
+<td class="org-left">Residual Volatility</td>
+<td class="org-right">0.84</td>
+<td class="org-right">-0.04</td>
+<td class="org-right">0.88</td>
+</tr>
+
+<tr>
+<td class="org-left">Size</td>
+<td class="org-right">0.65</td>
+<td class="org-right">0.72</td>
+<td class="org-right">-0.07</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">2.3</span> 业绩归因</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+用市值加权求得组合层面每个因子不同日期暴露度，再计算暴露度的Daily/Weekly/Monthly Return.
+</p>
+<ul class="org-ul">
+<li>风格因子收益率 – 与上市公司基本面相关的因子
+<ul class="org-ul">
+<li>Size: 捕捉大盘股和小盘股之间的收益差异</li>
+<li>Non-linear Size：描述了无法由规模因子解释的但与规模有关的收益差异，通常代表中盘股</li>
+<li>Earnings Yield：描述了由盈利收益导致的收益差异</li>
+<li>Book-to-Price：描述了股票估值高低不同而产生的收益差异,即价值因子</li>
+<li>Growth：描述了对销售或盈利增长预期不同而产生的收益差异</li>
+<li>Leverage：描述了高杠杆股票与低杠杆股票之间的收益差异</li>
+</ul></li>
+<li>风格因子收益率 – 与市场表现相关的因子
+<ul class="org-ul">
+<li>Momentum (动量)：描述了过去半年到一年里相对强势的股票与弱势股票之间的差异</li>
+<li>Beta：捕捉那些无法用国家因子解释的市场风险</li>
+<li>Residual Volatility：解释了剥离了市场风险后的波动率高低产生的收益率差异</li>
+<li>Liquidity：解释了由股票相对的交易活跃度不同而产生的收益率差异</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">2.3.1</span> 华夏成长小组合业绩表现 – 累积收益率</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">起始日</th>
+<th scope="col" class="org-right">2012/09/28</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">结束日</th>
+<th scope="col" class="org-right">2013/10/31</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">小组合收益率</th>
+<th scope="col" class="org-right">31.36%</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">基准收益率</th>
+<th scope="col" class="org-right">-6.17%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">=主动收益</td>
+<td class="org-right">=25.18%</td>
+</tr>
+
+<tr>
+<td class="org-left">主动风险</td>
+<td class="org-right">11.29%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">2.4</span> 预测风险</h3>
+</div>
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">2.5</span> 多个基金的业绩和风险比较</h3>
+</div>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">2.6</span> 构建策略</h3>
 </div>
 </div>
 </div>

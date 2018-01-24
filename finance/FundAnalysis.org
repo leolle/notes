@@ -48,6 +48,7 @@ The benchmark may have a different weight decomposition that have a underweight 
 
 * Barra Portfolio Management
 :LOGBOOK:
+CLOCK: [2018-01-24 Wed 08:47]--[2018-01-24 Wed 09:39] =>  0:52
 CLOCK: [2018-01-23 Tue 09:11]--[2018-01-23 Tue 09:41] =>  0:30
 :END:
 - 提供了一个可以构建组合，预测风险并进行对冲的分析框架
@@ -114,7 +115,83 @@ CLOCK: [2018-01-23 Tue 09:11]--[2018-01-23 Tue 09:41] =>  0:30
 $$r_k = x_{k,1}*f_1 + x_{k,2}*f_2 + ... + x_{k,n}*f_n + u_{k,spacefic}$$
 $r_k$ asset k return, $x_{k,n}$ observed exposure of asset k to common factors, observed exposure or sensitivity of asset k to factor n. $f_n$ estimated return of factor n. $u_{k,spacefic}$ specific return of asset k.
 ** 风格分析
+*** Factor exposure
+- 风格因子背后通常是各种财务指标或是市场价格指标.
+- 风格因子的暴露度是经过标准化的(Normalization).
+  - 标准化的目的是使不同的数据和时间之间可以在同一量纲上进行比较。 Barra会先对各项指标先做标准化，然后构建成风格因子的暴露度，最后再对暴露度进行标准化.
+- 风格因子暴露度的单位是标准差.
+- 行业因子是虚拟变量.
+| Sector_1 | Sector_2 | ... | Sector_n |
+| 0/1      | 0/1      | ... | 0/1      |
+*** A股成长性最高的和最低的10只股票
+- 对模型样本空间各股按Growth因子暴露度进行排序.
+- 财务指标:
+$$Growth = Sales Growth(0.47) + Analystpredicted Earnings Growth (0.240) + Earnings Growth Rate Long Term(0.180) + Earnings Growth Rate Short Term(0.110)$$
+*** A股最贵的和最便宜的10只股票
+- 对模型样本空间各股按Book-to-Price因子暴露度进行排序.
+- 财务指标
+$$ Value = Book-to-price(1.00)$$
+Value因子暴露度越高，说明股票越便宜.
+*** A股最强势的和最弱势的10只股票
+- 对模型样本空间各股按Momentum因子暴露度进行排序.
+- 技术指标
+$$Momentum = Relative strength(1.00)$$
+*** A股规模最大和最小的10只股票
+- 对模型样本空间各股按Size因子暴露度进行排序.
+- 财务指标
+$$Size = Log of Market Capitalization(1.00)$$
+*** 华夏成长小组合相对于沪深300指数的风格分析 – 表格
+- 用市值加权求得组合层面的暴露度
+| Asset Name | 	Weight (%) | 	Growth Exp | 	Size Exp | 	Momentum Exp | 	Book-to-Price Exp |
+|------------+--------------+--------------+------------+----------------+---------------------|
+| 广联达     | 	8.25%      | 	0.98       | 	-0.22    | 	1.54         | 	-1.75             |
+| 许继电气   | 	6.15%      | 	0.65       | 	-0.16    | 	1.31         | 	-1.48             |
+| 伊利股份   | 	19.75%     | 	0.61       | 	1.15     | 	2.74         | 	-1.51             |
+| 天士力     | 	6.75%      | 	0.54       | 	0.89     | 	1.81         | 	-1.87             |
+| 云南白药   | 	7.70%      | 	0.36       | 	1.15     | 	1.97         | 	-1.77             |
+| 大北农     | 	7.11%      | 	0.3        | 	0.29     | 	0.69         | 	-1.51             |
+| 兴业银行   | 	12.43%     | 	0.18       | 	1.15     | 	0.28         | 	0.95              |
+| 长城汽车   | 	11.69%     | 	-0.15      | 	1.15     | 	2.77         | 	-1.47             |
+| 烟台万润   | 	7.79%      | 	-0.38      | 	-1.79    | 	0.8          | 	-0.84             |
+| 海通证券   | 	12.36%     | 	-0.9       | 	1.15     | 	0.63         | 	-0.13             |
+| 组合层面   | 	100.00%	  | 0.19	       | 0.65	     | 1.57	         | -1.04               |
+- 与沪深300的风格进行比较
+用市值加权求得组合层面每个因子的暴露度，得到Portfolio Exposure,与Benchmark Exposure比较。
+| Factor              | Portfolio Exposure | Benchmark Exposure | Active Exposure |
+|---------------------+--------------------+--------------------+-----------------|
+| Beta                |               0.57 |               0.37 |            0.20 |
+| Book-to-Price       |              -1.04 |               0.14 |           -1.18 |
+| Earnings Yield      |              -0.71 |               0.34 |           -1.05 |
+| Growth              |               0.19 |               0.08 |            0.11 |
+| Leverage            |              -0.79 |               0.18 |           -0.97 |
+| Liquidity           |               0.60 |               0.54 |            0.06 |
+| Momentum            |               1.57 |              -0.06 |            1.63 |
+| Non-linear Size     |              -0.27 |              -0.28 |            0.01 |
+| Residual Volatility |               0.84 |              -0.04 |            0.88 |
+| Size                |               0.65 |               0.72 |           -0.07 |
+
 ** 业绩归因
+用市值加权求得组合层面每个因子不同日期暴露度，再计算暴露度的Daily/Weekly/Monthly Return.
+- 风格因子收益率 – 与上市公司基本面相关的因子
+  - Size: 捕捉大盘股和小盘股之间的收益差异
+  - Non-linear Size：描述了无法由规模因子解释的但与规模有关的收益差异，通常代表中盘股
+  - Earnings Yield：描述了由盈利收益导致的收益差异
+  - Book-to-Price：描述了股票估值高低不同而产生的收益差异,即价值因子
+  - Growth：描述了对销售或盈利增长预期不同而产生的收益差异
+  - Leverage：描述了高杠杆股票与低杠杆股票之间的收益差异
+- 风格因子收益率 – 与市场表现相关的因子
+  - Momentum (动量)：描述了过去半年到一年里相对强势的股票与弱势股票之间的差异
+  - Beta：捕捉那些无法用国家因子解释的市场风险
+  - Residual Volatility：解释了剥离了市场风险后的波动率高低产生的收益率差异
+  - Liquidity：解释了由股票相对的交易活跃度不同而产生的收益率差异
+*** 华夏成长小组合业绩表现 – 累积收益率
+| 起始日       | 2012/09/28 |
+| 结束日       | 2013/10/31 |
+| 小组合收益率 |     31.36% |
+| 基准收益率   |     -6.17% |
+|--------------+------------|
+| =主动收益    |    =25.18% |
+| 主动风险     |     11.29% |
 ** 预测风险
 ** 多个基金的业绩和风险比较
 ** 构建策略

@@ -908,6 +908,29 @@ f = open('filename.txt', 'a')
 f.write("stuff")
 f.close()
 #+END_SRC
+- read specific lines
+#+BEGIN_SRC python
+fp = open("file")
+for i, line in enumerate(fp):
+    if i == 25:
+        # 26th line
+    elif i == 29:
+        # 30th line
+    elif i > 29:
+        break
+fp.close()
+# Note that i == n-1 for the nth line.
+
+# In Python 2.6 or later:
+with open("file") as fp:
+    for i, line in enumerate(fp):
+        if i == 25:
+            # 26th line
+        elif i == 29:
+            # 30th line
+        elif i > 29:
+            break
+#+END_SRC
 ** stat — Interpreting stat() results
 ** filecmp — File and Directory Comparisons
 ** tempfile — Generate temporary files and directories

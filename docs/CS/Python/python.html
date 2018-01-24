@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-23 Tue 09:41 -->
+<!-- 2018-01-24 Wed 09:39 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -3333,6 +3333,23 @@ UTF-8是把character转为binary code的规范, and vice versa. 方便存储。
 </div><div id="outline-container-orgheadline234" class="outline-3">
 <h3 id="orgheadline234"><span class="section-number-3">23.1</span> Module</h3>
 <div class="outline-text-3" id="text-23-1">
+<ul class="org-ul">
+<li>reload a module/lib in ipython without killing it.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">For Python 2 use built-in function reload():</span>
+
+<span style="color: #F92672;">reload</span><span style="color: #AE81FF;">(</span>module<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">For Python 2 and 3.2&#8211;3.3 use reload from module imp:</span>
+
+<span style="color: #F92672;">import</span> imp
+imp.<span style="color: #F92672;">reload</span><span style="color: #AE81FF;">(</span>module<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #F92672;">import</span> importlib
+importlib.<span style="color: #F92672;">reload</span><span style="color: #AE81FF;">(</span>module<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>当你运行一个Python模块 python fibo.py &lt;arguments&gt;
 Remember, everything in python is an object.</li>
