@@ -18,6 +18,8 @@
 * BASIC ADMINISTRATION
 ** WHERE TO START
 *** Essential duties of the system administrator
+- terminate ssh connection
+ctrl + d
 - restart system
 #+BEGIN_SRC bash
 shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
