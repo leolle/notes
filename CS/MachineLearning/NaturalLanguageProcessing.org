@@ -60,6 +60,66 @@ model.train(more_sentences)
 **** amount and quality of the training data
 **** size of the vectors
 **** training algorithm
+**** glossary:
+- Lemmatization is the process of identifying the base, non-inflected form of a word.
+词干化是确定一个单词的固定的基本部分的过程。
+- Sentence Tokenize Test or Sentence Segmentation Test.
+断句。
+- Pos Tagging Test:
+#+BEGIN_SRC python
+In [40]: doc4 = nlp(u"This is pos tagger test for spacy pos tagger")
+
+In [41]: for token in doc4:
+print token, token.pos, token.pos_
+....:
+This 87 DET
+is 97 VERB
+pos 82 ADJ
+tagger 89 NOUN
+test 89 NOUN
+for 83 ADP
+spacy 89 NOUN
+pos 89 NOUN
+tagger 89 NOUN
+#+END_SRC
+- Named Entity Recognizer (NER) Test:
+#+BEGIN_SRC python
+In [51]: doc5 = nlp(u"Rami Eid is studying at Stony Brook University in New York")
+
+In [52]: for ent in doc5.ents:
+print ent, ent.label, ent.label_
+....:
+Rami Eid 346 PERSON
+Stony Brook University 349 ORG
+New York 350 GPE
+#+END_SRC
+- Keyword Extraction
+#+BEGIN_SRC python
+import jieba
+import jieba.analyse
+from optparse import OptionParser
+
+topK = 10
+
+content = open(file_name, 'rb').read()
+
+tags = jieba.analyse.extract_tags(content, topK=topK)
+
+print(",".join(tags))
+
+#+END_SRC
+- Part of Speech Tagging
+#+BEGIN_SRC python
+>>> import jieba.posseg as pseg
+>>> words = pseg.cut("我爱北京天安门")
+>>> for w in words:
+...    print('%s %s' % (w.word, w.flag))
+...
+我 r
+爱 v
+北京 ns
+天安门 ns
+#+END_SRC
 
 * Knowledge-based Q&A
 ** Introduction
@@ -424,3 +484,7 @@ The namespace for the project and for project discussion are typically special l
 I installed tidy and added the following lines to LocalSettings.php to reflect that: $wgUseTidy = true; and $wgTidyBin = '/usr/bin/tidy';. No configuration file was necessary; one is provided as part of MediaWiki and used by default.
 I set up the interwiki cache cdb file, by using fixup-interwikis.py via the command python fixup-interwikis.py --localsettings /var/www/html/elwikt/LocalSettings.php --sitetype wiktionary and then added $wgInterwikiCache = "$IP/cache/interwiki.cdb" to the LocalSettings.php file. (See mw:Interwiki_cache/Setup_for_your_own_wiki for info.)
 That was it. This was enough to let me view (most) pages without errors.
+
+* NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim
+|      | jieba | THULAC | SnowNLP | pynlpir | CoreNLP | pyLTP | spaCy | gensim |
+| star | 11859 |    487 |    2159 |     941 |    4262 |   398 |  7985 |   6092 |

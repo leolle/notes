@@ -272,6 +272,15 @@ opposite operation:
 git remote add origin git@github.git
 #+end_src
 
+** rename remote
+#+BEGIN_SRC bash
+git remote rename old_name new_name
+#+END_SRC
+
+** push which remote
+#+BEGIN_SRC bash
+git push --set-upstream origin dev
+#+END_SRC
 ** sub modules
 #+BEGIN_SRC shell
 # 1.

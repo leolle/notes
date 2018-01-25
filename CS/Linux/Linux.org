@@ -20,6 +20,10 @@
 *** Essential duties of the system administrator
 - terminate ssh connection
 ctrl + d
+- edit&run python code at shell
+#+BEGIN_SRC bash
+python -c "import spacy; spacy.load('en'); print('OK')"
+#+END_SRC
 - restart system
 #+BEGIN_SRC bash
 shutdown -r +5 "Server will restart in 5 minutes. Please save your work."

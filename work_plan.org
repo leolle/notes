@@ -160,15 +160,16 @@ ICA
 **** create wiki knowledge graph
 DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
-CLOCK: [2018-01-24 Wed 13:58]
-CLOCK: [2018-01-23 Tue 17:52]--[2018-01-24 Wed 08:47] => 14:55
+CLOCK: [2018-01-25 Thu 10:32]--[2018-01-25 Thu 15:59] =>  5:27
+CLOCK: [2018-01-24 Wed 13:58]--[2018-01-24 Wed 19:40] =>  5:42
 CLOCK: [2018-01-23 Tue 13:47]--[2018-01-23 Tue 15:47] =>  2:00
 CLOCK: [2018-01-23 Tue 09:56]--[2018-01-23 Tue 12:05] =>  2:09
 CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
 CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
-- [ ] delete edges.
+- [X] delete edges.
+- [ ] import page from mongo to neo4j.
 - [ ] import edges.
 - [ ] read external sql file into pandas.
 - [ ] find page title from page id.
@@ -333,7 +334,7 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
 - ensemble model using mean value, use wiki category relation similarity to choose model.
 - Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
-- Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis.
+- Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
 ***** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
 - Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
