@@ -160,6 +160,7 @@ ICA
 **** create wiki knowledge graph
 DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
+CLOCK: [2018-01-26 Fri 09:49]--[2018-01-26 Fri 11:16] =>  1:27
 CLOCK: [2018-01-25 Thu 10:32]--[2018-01-25 Thu 15:59] =>  5:27
 CLOCK: [2018-01-24 Wed 13:58]--[2018-01-24 Wed 19:40] =>  5:42
 CLOCK: [2018-01-23 Tue 13:47]--[2018-01-23 Tue 15:47] =>  2:00
@@ -168,12 +169,13 @@ CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
 CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
-- [X] delete edges.
 - [ ] import page from mongo to neo4j.
+- [ ] backup neo4j after importing categories and page.
 - [ ] import edges.
+- [ ] importing wiki categories and page edge relation to Neo4j.
 - [ ] read external sql file into pandas.
 - [ ] find page title from page id.
-- [ ] importing wiki categories and page edge relation to Neo4j.
+- [X] delete edges.
 - [X] importing wiki categories nodes and page nodes to Neo4j.
 - [X] test importing wiki categories nodes.
 **** entity relationship
@@ -219,7 +221,21 @@ CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 - Exciting active research
 - Future research directions
 *** Part-Of-Speech Tagger (POS Tagger), Named-entity recognition (NER), SEMPRE: Semantic Parsing with Execution with spacy, stanford coreNLP.
+:LOGBOOK:
+CLOCK: [2018-01-26 Fri 11:16]--[2018-01-26 Fri 13:18] =>  2:02
+:END:
 - [ ] read documentation.
+- [-] Pipeline:
+  - [X] choose category and depth in GS skill ->
+  - [X] return pages GID ->
+  - [ ] fetch paper via GID in python ->
+  - [ ] parsing, tokenization -> jieba.py, preprocessing.utils.py
+    - [ ] tagger(Assign part-of-speech tags), spaCy, jieba.py, coreNLP,
+    - [ ] parser(Assign dependency labels), spaCy, coreNLP, snowNLP
+    - [ ] NER(Detect and label named entities),spaCy, coreNLP, snowNLP
+    - [ ] keywords extraction, snowNLP.py,
+    - [ ] topic classification, extraction, gensim.py(LDA),
+    - [ ] sentiment analysis, snowNLP.py, coreNLP,
 - [ ] IEPY
 *** Chinese wiki model.
 - [X] train financial fields model(58+ categories).
