@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-24 Wed 09:39 -->
+<!-- 2018-01-26 Fri 13:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1472,6 +1472,35 @@ int64
     <span style="color: #F92672;">print</span> e.message
 </pre>
 </div>
+<ul class="org-ul">
+<li>clean-up actions</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">divide</span><span style="color: #AE81FF;">(</span>x, y<span style="color: #AE81FF;">)</span>:
+...     <span style="color: #F92672;">try</span>:
+...         <span style="color: #FD971F;">result</span> = x / y
+...     <span style="color: #F92672;">except</span> <span style="color: #66D9EF;">ZeroDivisionError</span>:
+...         <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"division by zero!"</span>
+...     <span style="color: #F92672;">else</span>:
+...         <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"result is"</span>, result
+...     <span style="color: #F92672;">finally</span>:
+...         <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">"executing finally clause"</span>
+...
+&gt;&gt;&gt; divide<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+result <span style="color: #F92672;">is</span> <span style="color: #AE81FF;">2</span>
+executing <span style="color: #F92672;">finally</span> clause
+&gt;&gt;&gt; divide<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+division by zero!
+executing <span style="color: #F92672;">finally</span> clause
+&gt;&gt;&gt; divide<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"2"</span>, <span style="color: #E6DB74;">"1"</span><span style="color: #AE81FF;">)</span>
+executing <span style="color: #F92672;">finally</span> clause
+Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style="color: #AE81FF;">)</span>:
+  File <span style="color: #E6DB74;">"&lt;stdin&gt;"</span>, line <span style="color: #AE81FF;">1</span>, <span style="color: #F92672;">in</span> &lt;module&gt;
+  File <span style="color: #E6DB74;">"&lt;stdin&gt;"</span>, line <span style="color: #AE81FF;">3</span>, <span style="color: #F92672;">in</span> divide
+<span style="color: #66D9EF;">TypeError</span>: unsupported operand <span style="color: #F92672;">type</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">for</span> /: <span style="color: #E6DB74;">'str'</span> <span style="color: #F92672;">and</span> <span style="color: #E6DB74;">'str'</span>
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1783,6 +1812,10 @@ textfile.close<span style="color: #AE81FF;">()</span>
 <span style="color: #F92672;">from</span> time <span style="color: #F92672;">import</span> sleep
 <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> tqdm<span style="color: #AE81FF;">(</span><span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">10</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>:
     sleep<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">enumerate</span>
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">enumerate</span><span style="color: #AE81FF;">(</span>tqdm<span style="color: #66D9EF;">(</span><span style="color: #F92672;">list</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>:
+    do things<span style="color: #AE81FF;">()</span>
 </pre>
 </div>
 
@@ -2099,6 +2132,33 @@ On Windows, 'b' appended to the mode opens the file in binary mode, so there are
 <pre class="src src-python"><span style="color: #FD971F;">f</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'filename.txt'</span>, <span style="color: #E6DB74;">'a'</span><span style="color: #AE81FF;">)</span>
 f.write<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"stuff"</span><span style="color: #AE81FF;">)</span>
 f.close<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>read specific lines</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">fp</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"file"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">for</span> i, line <span style="color: #F92672;">in</span> <span style="color: #F92672;">enumerate</span><span style="color: #AE81FF;">(</span>fp<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">if</span> i == <span style="color: #AE81FF;">25</span>:
+        <span style="color: #75715E;"># </span><span style="color: #75715E;">26th line</span>
+    <span style="color: #F92672;">elif</span> i == <span style="color: #AE81FF;">29</span>:
+        <span style="color: #75715E;"># </span><span style="color: #75715E;">30th line</span>
+    <span style="color: #F92672;">elif</span> i &gt; <span style="color: #AE81FF;">29</span>:
+        <span style="color: #F92672;">break</span>
+fp.close<span style="color: #AE81FF;">()</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Note that i == n-1 for the nth line.</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">In Python 2.6 or later:</span>
+<span style="color: #F92672;">with</span> <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"file"</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> fp:
+    <span style="color: #F92672;">for</span> i, line <span style="color: #F92672;">in</span> <span style="color: #F92672;">enumerate</span><span style="color: #AE81FF;">(</span>fp<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">if</span> i == <span style="color: #AE81FF;">25</span>:
+            <span style="color: #75715E;"># </span><span style="color: #75715E;">26th line</span>
+        <span style="color: #F92672;">elif</span> i == <span style="color: #AE81FF;">29</span>:
+            <span style="color: #75715E;"># </span><span style="color: #75715E;">30th line</span>
+        <span style="color: #F92672;">elif</span> i &gt; <span style="color: #AE81FF;">29</span>:
+            <span style="color: #F92672;">break</span>
 </pre>
 </div>
 </div>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-25 Thu 17:04 -->
+<!-- 2018-01-26 Fri 13:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -331,7 +331,13 @@ model.train<span style="color: #AE81FF;">(</span>more_sentences<span style="colo
 断句。
 </p>
 <ul class="org-ul">
-<li>Pos Tagging Test:</li>
+<li>Semantic Role Labeling:</li>
+</ul>
+<p>
+assigns labels to words or phrases in a sentence that indicate their semantic role in the sentence, such as that of an agent, goal, or result.
+</p>
+<ul class="org-ul">
+<li>Pos Tagging Test, Part of speech tagging,Tagging(词性标注):</li>
 </ul>
 <div class="org-src-container">
 
@@ -1159,8 +1165,6 @@ That was it. This was enough to let me view (most) pages without errors.
 <colgroup>
 <col  class="org-left" />
 
-<col  class="org-left" />
-
 <col  class="org-right" />
 
 <col  class="org-right" />
@@ -1169,47 +1173,37 @@ That was it. This was enough to let me view (most) pages without errors.
 
 <col  class="org-right" />
 
-<col  class="org-left" />
+<col  class="org-right" />
 
-<col  class="org-left" />
+<col  class="org-right" />
 
-<col  class="org-left" />
+<col  class="org-right" />
+
+<col  class="org-right" />
 </colgroup>
 <tbody>
 <tr>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">jieba</td>
+<td class="org-right">jieba</td>
 <td class="org-right">THULAC</td>
 <td class="org-right">SnowNLP</td>
 <td class="org-right">pynlpir</td>
 <td class="org-right">CoreNLP</td>
-<td class="org-left">pyLTP</td>
-<td class="org-left">spaCy</td>
-<td class="org-left">gensim</td>
+<td class="org-right">pyLTP</td>
+<td class="org-right">spaCy</td>
+<td class="org-right">gensim</td>
 </tr>
 
 <tr>
 <td class="org-left">star</td>
-<td class="org-left">11859</td>
+<td class="org-right">11859</td>
 <td class="org-right">487</td>
 <td class="org-right">2159</td>
 <td class="org-right">941</td>
 <td class="org-right">4262</td>
-<td class="org-left">398</td>
-<td class="org-left">7985</td>
-<td class="org-left">6092</td>
-</tr>
-
-<tr>
-<td class="org-left">分词</td>
-<td class="org-left">精确模式，试图将句子最精确地切开，适合文本分析；全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</td>
-<td class="org-right">1</td>
-<td class="org-right">2</td>
-<td class="org-right">3</td>
-<td class="org-right">4</td>
-<td class="org-left">df</td>
-<td class="org-left">jdkf</td>
-<td class="org-left">dkjf</td>
+<td class="org-right">398</td>
+<td class="org-right">7985</td>
+<td class="org-right">6092</td>
 </tr>
 </tbody>
 </table>

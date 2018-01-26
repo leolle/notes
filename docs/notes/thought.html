@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-04 Thu 20:40 -->
+<!-- 2018-01-26 Fri 16:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -195,7 +195,7 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline31">5. January 2018</a>
+<li><a href="#orgheadline32">5. January 2018</a>
 <ul>
 <li><a href="#orgheadline29">5.1. about learning on your own.<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-04 Thu&gt;</span></span></a>
 <ul>
@@ -204,6 +204,7 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline30">5.2. coding review<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-04 Thu&gt;</span></span></a></li>
+<li><a href="#orgheadline31">5.3. Integrating NLP with GS<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-26 Fri&gt;</span></span></a></li>
 </ul>
 </li>
 </ul>
@@ -496,8 +497,8 @@ Lessions learned from such study. Explain the axis and legend when showing a fig
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline31" class="outline-2">
-<h2 id="orgheadline31"><span class="section-number-2">5</span> January 2018</h2>
+<div id="outline-container-orgheadline32" class="outline-2">
+<h2 id="orgheadline32"><span class="section-number-2">5</span> January 2018</h2>
 <div class="outline-text-2" id="text-5">
 </div><div id="outline-container-orgheadline29" class="outline-3">
 <h3 id="orgheadline29"><span class="section-number-3">5.1</span> about learning on your own.<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-04 Thu&gt;</span></span></h3>
@@ -567,6 +568,39 @@ If you're studying on your own using multiple resources, the clashes of notation
 <li>don't take high confidence on wild guess, dig into deepth and don't let the doubt stand in your way.</li>
 </ol></li>
 </ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">5.3</span> Integrating NLP with GS<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-26 Fri&gt;</span></span></h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+The overview picture of GS is to help analysts searching strategy ideas, adaptively constructing data input(X,y), and incrementally backtesting strategies.
+</p>
+
+<p>
+First of all, strategy research idea comes from various sort of unstructured data like research paper/reports, news events. Where does an analyst start from when we facing a tons of structured and unstructured data?
+</p>
+
+<p>
+NLP can transfer unstructured documentations into structured graph data, therefore extracting multi perspective understanding of entities, views, concepts, ideas, events from research paper/reports, announcement, news, books, etc. Then it provides users more adaptive next steps research recommendation, helping them to finish the strategy construction and backtesting based on different context. For example, what data they use, the brief ideas behind the paper, what models/algorithms they can use, how the results look like(positive or negative).
+</p>
+
+<p>
+A more detailed example is the Black-litterman model research. The Black-Litterman model uses a Bayesian approach to combine the subjective views of an investor regarding the expected returns of one or more assets with the market equilibrium vector of expected returns (the prior distribution) to form a new, mixed estimate of expected returns.
+</p>
+
+<p>
+The model starts with the equilibrium assumption that the asset allocation of a representative agent should be proportional to the market values of the available assets, and then modifies that to take into account the 'views' (i.e., the specific opinions about asset returns) of the investor in question to arrive at a bespoke asset allocation. Such views can be extracted using NLP tools like Named Entity Recognition from various documents under the most recent sector condition.
+</p>
+
+<p>
+Another useful NLP tool is information sentiment analysis. Web crawling can extract hot and the most user concerned events/results from different web sources using a keyword. Such a keyword can also be highly adaptive to user and associated with its relevance. NLP can process web crawling information, extracting entities, relationship, plugging such unique financial knowledge graph into the overall database, thus continuously tracking the subjects.
+</p>
+
+<p>
+Based on hot events or keywords, documents classification help can extract topics and incrementally searching information from previous results, thus recommending plentiful relevant results from one context to another. This technology gives more possibilities to understand the most cared user question and attempts.
+</p>
 </div>
 </div>
 </div>

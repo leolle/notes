@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2018-01-24 Wed 09:39 -->
+<!-- 2018-01-26 Fri 13:23 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
@@ -161,7 +161,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-01-24 09:39:24</td>
+<td class="org-left">2018-01-26 13:23:18</td>
 </tr>
 </tbody>
 </table>
@@ -667,11 +667,13 @@ ICA
 <h5 id="orgheadline14">create wiki knowledge graph</h5>
 <div class="outline-text-5" id="text-orgheadline14">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> delete edges.</li>
+<li class="off"><code>[&#xa0;]</code> import page from mongo to neo4j.</li>
+<li class="off"><code>[&#xa0;]</code> backup neo4j after importing categories and page.</li>
 <li class="off"><code>[&#xa0;]</code> import edges.</li>
+<li class="off"><code>[&#xa0;]</code> importing wiki categories and page edge relation to Neo4j.</li>
 <li class="off"><code>[&#xa0;]</code> read external sql file into pandas.</li>
 <li class="off"><code>[&#xa0;]</code> find page title from page id.</li>
-<li class="off"><code>[&#xa0;]</code> importing wiki categories and page edge relation to Neo4j.</li>
+<li class="on"><code>[X]</code> delete edges.</li>
 <li class="on"><code>[X]</code> importing wiki categories nodes and page nodes to Neo4j.</li>
 <li class="on"><code>[X]</code> test importing wiki categories nodes.</li>
 </ul>
@@ -763,6 +765,21 @@ ICA
 <div class="outline-text-4" id="text-orgheadline28">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> read documentation.</li>
+<li class="trans"><code>[-]</code> Pipeline:
+<ul class="org-ul">
+<li class="on"><code>[X]</code> choose category and depth in GS skill -&gt;</li>
+<li class="on"><code>[X]</code> return pages GID -&gt;</li>
+<li class="off"><code>[&#xa0;]</code> fetch paper via GID in python -&gt;</li>
+<li class="off"><code>[&#xa0;]</code> parsing, tokenization -&gt; jieba.py, preprocessing.utils.py
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> tagger(Assign part-of-speech tags), spaCy, jieba.py, coreNLP,</li>
+<li class="off"><code>[&#xa0;]</code> parser(Assign dependency labels), spaCy, coreNLP, snowNLP</li>
+<li class="off"><code>[&#xa0;]</code> NER(Detect and label named entities),spaCy, coreNLP, snowNLP</li>
+<li class="off"><code>[&#xa0;]</code> keywords extraction, snowNLP.py,</li>
+<li class="off"><code>[&#xa0;]</code> topic classification, extraction, gensim.py(LDA),</li>
+<li class="off"><code>[&#xa0;]</code> sentiment analysis, snowNLP.py, coreNLP,</li>
+</ul></li>
+</ul></li>
 <li class="off"><code>[&#xa0;]</code> IEPY</li>
 </ul>
 </div>
@@ -908,7 +925,7 @@ better phrasing results.</li>
 <li>train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.</li>
 <li>ensemble model using mean value, use wiki category relation similarity to choose model.</li>
 <li>Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.</li>
-<li>Pipeline: choose category and depth in GS skill -&gt; return pages GID -&gt; fetch paper via GID in python -&gt; text processing -&gt; entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis.</li>
+<li>Pipeline: choose category and depth in GS skill -&gt; return pages GID -&gt; fetch paper via GID in python -&gt; text processing -&gt; word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -&gt; help users to select X,y.</li>
 </ul>
 </div></li>
 <li><a id="orgheadline33"></a>Long Term<br ><div class="outline-text-6" id="text-orgheadline33">

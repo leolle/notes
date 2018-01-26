@@ -225,6 +225,7 @@ CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 CLOCK: [2018-01-26 Fri 11:16]--[2018-01-26 Fri 13:18] =>  2:02
 :END:
 - [ ] read documentation.
+- [ ] how to integrate NLP with gs.
 - [-] Pipeline:
   - [X] choose category and depth in GS skill ->
   - [X] return pages GID ->
