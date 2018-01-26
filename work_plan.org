@@ -222,6 +222,7 @@ CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 - Future research directions
 *** Part-Of-Speech Tagger (POS Tagger), Named-entity recognition (NER), SEMPRE: Semantic Parsing with Execution with spacy, stanford coreNLP.
 :LOGBOOK:
+CLOCK: [2018-01-26 Fri 15:04]--[2018-01-26 Fri 17:11] =>  2:07
 CLOCK: [2018-01-26 Fri 11:16]--[2018-01-26 Fri 13:18] =>  2:02
 :END:
 - [ ] read documentation.

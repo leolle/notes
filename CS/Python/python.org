@@ -506,6 +506,12 @@ for key in finance_vocab:
 print `a`
 print repr(a)
 #+end_src
+- find out where module is installed
+#+BEGIN_SRC python
+import os
+import spacy
+print(os.path.dirname(spacy.__file__))
+#+END_SRC
 
 * Built-in Exceptions
 ** Base classes
