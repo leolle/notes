@@ -596,7 +596,7 @@ ln -s /home/weiwu/share/deep_learning/data/courses/dogscats/ /home/weiwu/project
 # grep = global regular expression parser
 grep -inR "Regular Expression" .
 grep -inR "Regular Expression" . | less
-
+如果有符号{},要在前面加\, \{2,5\}
 # find specific formats
 grep -inR "Regular Expression" . --include \*.org
 #+end_src
