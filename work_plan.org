@@ -160,7 +160,9 @@ ICA
 **** create wiki knowledge graph
 DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
-CLOCK: [2018-01-29 Mon 10:36]
+CLOCK: [2018-01-30 Tue 13:11]
+CLOCK: [2018-01-30 Tue 10:58]--[2018-01-30 Tue 12:39] =>  1:41
+CLOCK: [2018-01-29 Mon 10:36]--[2018-01-29 Mon 20:18] =>  9:42
 CLOCK: [2018-01-26 Fri 09:49]--[2018-01-26 Fri 11:16] =>  1:27
 CLOCK: [2018-01-25 Thu 10:32]--[2018-01-25 Thu 15:59] =>  5:27
 CLOCK: [2018-01-24 Wed 13:58]--[2018-01-24 Wed 19:40] =>  5:42
@@ -170,18 +172,21 @@ CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
 CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
-- [ ] extract xml page to neo4j,
+- [ ] test response GID, same with GID saved on Chrome.
+- [ ] test fetching binary text with GID.
+- [ ] extract page to neo4j from xml file.
 businessID.domain = https://zh.wikipedia.org/wiki/:
 businessID.pk = urlencode(traditional Chinese title).
 title = simple Chinese title
 node.names.chinese = simple Chinese title
+node.url = encoded_url
 - [ ] import category to neo4j from sql file.
 businessID.domain = https://zh.wikipedia.org/wiki/Category:
 businessID.pk = urlencode(traditional Chinese title).
 title = simple Chinese title
 node.names.chinese = simple Chinese title
-- [ ] import edge, loop detecting for linking categories nodes.
 - [ ] double check GID with Shenbing after importing a small set of page.
+- [ ] import edge, loop detecting for linking categories nodes.
 - [X] import page from mongo to neo4j.
 - [ ] backup neo4j after importing categories and page.
 - [ ] import edges.
