@@ -160,7 +160,8 @@ ICA
 **** create wiki knowledge graph
 DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
-CLOCK: [2018-01-30 Tue 13:11]
+CLOCK: [2018-01-30 Tue 19:24]--[2018-01-30 Tue 20:52] =>  1:28
+CLOCK: [2018-01-30 Tue 13:11]--[2018-01-30 Tue 17:45] =>  4:34
 CLOCK: [2018-01-30 Tue 10:58]--[2018-01-30 Tue 12:39] =>  1:41
 CLOCK: [2018-01-29 Mon 10:36]--[2018-01-29 Mon 20:18] =>  9:42
 CLOCK: [2018-01-26 Fri 09:49]--[2018-01-26 Fri 11:16] =>  1:27
@@ -172,24 +173,26 @@ CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
 CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
-- [ ] test response GID, same with GID saved on Chrome.
-- [ ] test fetching binary text with GID.
-- [ ] extract page to neo4j from xml file.
+- [ ] skill GID generating in Python.
+- [X] train word2vec model based on GID.
+- [X] import edge, loop detecting for linking categories nodes.
+- [X] fetching pages binary content via GID.
+- [X] test response GID, same with GID saved on Chrome.
+- [X] test fetching binary text with GID.
+- [X] extract page to neo4j from xml file.
 businessID.domain = https://zh.wikipedia.org/wiki/:
 businessID.pk = urlencode(traditional Chinese title).
 title = simple Chinese title
 node.names.chinese = simple Chinese title
 node.url = encoded_url
-- [ ] import category to neo4j from sql file.
+- [X] import category to neo4j from sql file.
 businessID.domain = https://zh.wikipedia.org/wiki/Category:
 businessID.pk = urlencode(traditional Chinese title).
 title = simple Chinese title
 node.names.chinese = simple Chinese title
-- [ ] double check GID with Shenbing after importing a small set of page.
-- [ ] import edge, loop detecting for linking categories nodes.
+- [X] double check GID with Shenbing after importing a small set of page.
 - [X] import page from mongo to neo4j.
 - [ ] backup neo4j after importing categories and page.
-- [ ] import edges.
 - [ ] importing wiki categories and page edge relation to Neo4j.
 - [ ] read external sql file into pandas.
 - [ ] find page title from page id.
@@ -197,6 +200,10 @@ node.names.chinese = simple Chinese title
 - [X] importing wiki categories nodes and page nodes to Neo4j.
 - [X] test importing wiki categories nodes.
 **** entity relationship
+:LOGBOOK:
+CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
+:END:
+- [ ] extract Named Entity Recognition.
 - [ ] read Q&A knowledge graph paper.
 **** Part 1: Knowledge Graph Primer
 - What is a Knowledge Graph?
