@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-26 Fri 13:23 -->
+<!-- 2018-01-31 Wed 10:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -193,6 +193,13 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline29">6. NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</a></li>
+<li><a href="#orgheadline33">7. Position Of Tagging</a>
+<ul>
+<li><a href="#orgheadline30">7.1. 词性解释</a></li>
+<li><a href="#orgheadline31">7.2. 句法分析（句法树）</a></li>
+<li><a href="#orgheadline32">7.3. 关系表示</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -331,13 +338,7 @@ model.train<span style="color: #AE81FF;">(</span>more_sentences<span style="colo
 断句。
 </p>
 <ul class="org-ul">
-<li>Semantic Role Labeling:</li>
-</ul>
-<p>
-assigns labels to words or phrases in a sentence that indicate their semantic role in the sentence, such as that of an agent, goal, or result.
-</p>
-<ul class="org-ul">
-<li>Pos Tagging Test, Part of speech tagging,Tagging(词性标注):</li>
+<li>Pos Tagging Test:</li>
 </ul>
 <div class="org-src-container">
 
@@ -1207,6 +1208,766 @@ That was it. This was enough to let me view (most) pages without errors.
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline33" class="outline-2">
+<h2 id="orgheadline33"><span class="section-number-2">7</span> Position Of Tagging</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">7.1</span> 词性解释</h3>
+<div class="outline-text-3" id="text-7-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">CC</td>
+<td class="org-left">conjunction, coordinatin 表示连词</td>
+</tr>
+
+<tr>
+<td class="org-left">CD</td>
+<td class="org-left">numeral, cardinal 表示基数词</td>
+</tr>
+
+<tr>
+<td class="org-left">DT</td>
+<td class="org-left">determiner 表示限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">EX</td>
+<td class="org-left">existential there 存在句</td>
+</tr>
+
+<tr>
+<td class="org-left">FW</td>
+<td class="org-left">foreign word 外来词</td>
+</tr>
+
+<tr>
+<td class="org-left">IN</td>
+<td class="org-left">preposition or conjunction, subordinating 介词或从属连词</td>
+</tr>
+
+<tr>
+<td class="org-left">JJ</td>
+<td class="org-left">adjective or numeral, ordinal 形容词或序数词</td>
+</tr>
+
+<tr>
+<td class="org-left">JJR</td>
+<td class="org-left">adjective, comparative 形容词比较级</td>
+</tr>
+
+<tr>
+<td class="org-left">JJS</td>
+<td class="org-left">adjective, superlative 形容词最高级</td>
+</tr>
+
+<tr>
+<td class="org-left">LS</td>
+<td class="org-left">list item marker 列表标识</td>
+</tr>
+
+<tr>
+<td class="org-left">MD</td>
+<td class="org-left">modal auxiliary 情态助动词</td>
+</tr>
+
+<tr>
+<td class="org-left">NN</td>
+<td class="org-left">noun, common, singular or mass</td>
+</tr>
+
+<tr>
+<td class="org-left">NNS</td>
+<td class="org-left">noun, common, plural</td>
+</tr>
+
+<tr>
+<td class="org-left">NNP</td>
+<td class="org-left">noun, proper, singular</td>
+</tr>
+
+<tr>
+<td class="org-left">NNPS</td>
+<td class="org-left">noun, proper, plural</td>
+</tr>
+
+<tr>
+<td class="org-left">PDT</td>
+<td class="org-left">pre-determiner 前位限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">POS</td>
+<td class="org-left">genitive marker 所有格标记</td>
+</tr>
+
+<tr>
+<td class="org-left">PRP</td>
+<td class="org-left">pronoun, personal 人称代词</td>
+</tr>
+
+<tr>
+<td class="org-left">PRP</td>
+<td class="org-left">pronoun,possessive所有格代词</td>
+</tr>
+
+<tr>
+<td class="org-left">RB</td>
+<td class="org-left">adverb副词</td>
+</tr>
+
+<tr>
+<td class="org-left">RBR</td>
+<td class="org-left">adverb,comparative副词比较级</td>
+</tr>
+
+<tr>
+<td class="org-left">RBS</td>
+<td class="org-left">adverb,superlative副词最高级</td>
+</tr>
+
+<tr>
+<td class="org-left">RP</td>
+<td class="org-left">particle小品词</td>
+</tr>
+
+<tr>
+<td class="org-left">SYM</td>
+<td class="org-left">symbol符号</td>
+</tr>
+
+<tr>
+<td class="org-left">TO</td>
+<td class="org-left">”to”asprepositionorinfinitivemarker作为介词或不定式标记</td>
+</tr>
+
+<tr>
+<td class="org-left">UH</td>
+<td class="org-left">interjection插入语</td>
+</tr>
+
+<tr>
+<td class="org-left">VB</td>
+<td class="org-left">verb,baseform</td>
+</tr>
+
+<tr>
+<td class="org-left">VBD</td>
+<td class="org-left">verb,pasttense</td>
+</tr>
+
+<tr>
+<td class="org-left">VBG</td>
+<td class="org-left">verb,presentparticipleorgerund</td>
+</tr>
+
+<tr>
+<td class="org-left">VBN</td>
+<td class="org-left">verb,pastparticiple</td>
+</tr>
+
+<tr>
+<td class="org-left">VBP</td>
+<td class="org-left">verb,presenttense,not3rdpersonsingular</td>
+</tr>
+
+<tr>
+<td class="org-left">VBZ</td>
+<td class="org-left">verb,presenttense,3rdpersonsingular</td>
+</tr>
+
+<tr>
+<td class="org-left">WDT</td>
+<td class="org-left">WH−determiner</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">WP</td>
+<td class="org-left">WH−pronoun</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">代词</td>
+</tr>
+
+<tr>
+<td class="org-left">WP</td>
+<td class="org-left">WH-pronoun, possessive</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">所有格代词</td>
+</tr>
+
+<tr>
+<td class="org-left">WRB</td>
+<td class="org-left">Wh-adverb</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">副词</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">7.2</span> 句法分析（句法树）</h3>
+<div class="outline-text-3" id="text-7-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">ROOT</td>
+<td class="org-left">要处理文本的语句</td>
+</tr>
+
+<tr>
+<td class="org-left">IP</td>
+<td class="org-left">简单从句</td>
+</tr>
+
+<tr>
+<td class="org-left">NP</td>
+<td class="org-left">名词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">VP</td>
+<td class="org-left">动词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">PU</td>
+<td class="org-left">断句符，通常是句号、问号、感叹号等标点符号</td>
+</tr>
+
+<tr>
+<td class="org-left">LCP</td>
+<td class="org-left">方位词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">PP</td>
+<td class="org-left">介词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">CP</td>
+<td class="org-left">由‘的’构成的表示修饰性关系的短语</td>
+</tr>
+
+<tr>
+<td class="org-left">DNP</td>
+<td class="org-left">由‘的’构成的表示所属关系的短语</td>
+</tr>
+
+<tr>
+<td class="org-left">ADVP</td>
+<td class="org-left">副词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">ADJP</td>
+<td class="org-left">形容词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">DP</td>
+<td class="org-left">限定词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">QP</td>
+<td class="org-left">量词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">NN</td>
+<td class="org-left">常用名词</td>
+</tr>
+
+<tr>
+<td class="org-left">NR</td>
+<td class="org-left">固有名词,表示仅适用于该项事物的名词，含地名，人名，国名，书名，团体名称以及一事件的名称等。</td>
+</tr>
+
+<tr>
+<td class="org-left">NT</td>
+<td class="org-left">时间名词</td>
+</tr>
+
+<tr>
+<td class="org-left">PN</td>
+<td class="org-left">代词</td>
+</tr>
+
+<tr>
+<td class="org-left">VV</td>
+<td class="org-left">动词</td>
+</tr>
+
+<tr>
+<td class="org-left">VC</td>
+<td class="org-left">是</td>
+</tr>
+
+<tr>
+<td class="org-left">CC</td>
+<td class="org-left">表示连词</td>
+</tr>
+
+<tr>
+<td class="org-left">VE</td>
+<td class="org-left">有</td>
+</tr>
+
+<tr>
+<td class="org-left">VA</td>
+<td class="org-left">表语形容词</td>
+</tr>
+
+<tr>
+<td class="org-left">AS</td>
+<td class="org-left">内容标记（如:了）</td>
+</tr>
+
+<tr>
+<td class="org-left">VRD</td>
+<td class="org-left">动补复合词</td>
+</tr>
+
+<tr>
+<td class="org-left">CD</td>
+<td class="org-left">表示基数词</td>
+</tr>
+
+<tr>
+<td class="org-left">DT</td>
+<td class="org-left">determiner 表示限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">EX</td>
+<td class="org-left">existential there 存在句</td>
+</tr>
+
+<tr>
+<td class="org-left">FW</td>
+<td class="org-left">foreign word 外来词</td>
+</tr>
+
+<tr>
+<td class="org-left">IN</td>
+<td class="org-left">preposition or conjunction, subordinating,介词或从属连词</td>
+</tr>
+
+<tr>
+<td class="org-left">JJ</td>
+<td class="org-left">adjective or numeral, ordinal 形容词或序数词</td>
+</tr>
+
+<tr>
+<td class="org-left">JJR</td>
+<td class="org-left">adjective, comparative 形容词比较级</td>
+</tr>
+
+<tr>
+<td class="org-left">JJS</td>
+<td class="org-left">adjective, superlative 形容词最高级</td>
+</tr>
+
+<tr>
+<td class="org-left">LS</td>
+<td class="org-left">list item marker 列表标识</td>
+</tr>
+
+<tr>
+<td class="org-left">MD</td>
+<td class="org-left">modal auxiliary 情态助动词</td>
+</tr>
+
+<tr>
+<td class="org-left">PDT</td>
+<td class="org-left">pre-determiner 前位限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">POS</td>
+<td class="org-left">genitive marker 所有格标记</td>
+</tr>
+
+<tr>
+<td class="org-left">PRP</td>
+<td class="org-left">pronoun, personal 人称代词</td>
+</tr>
+
+<tr>
+<td class="org-left">RB</td>
+<td class="org-left">adverb 副词</td>
+</tr>
+
+<tr>
+<td class="org-left">RBR</td>
+<td class="org-left">adverb, comparative 副词比较级</td>
+</tr>
+
+<tr>
+<td class="org-left">RBS</td>
+<td class="org-left">adverb, superlative 副词最高级</td>
+</tr>
+
+<tr>
+<td class="org-left">RP</td>
+<td class="org-left">particle 小品词</td>
+</tr>
+
+<tr>
+<td class="org-left">SYM</td>
+<td class="org-left">symbol 符号</td>
+</tr>
+
+<tr>
+<td class="org-left">TO</td>
+<td class="org-left">”to” as preposition or infinitive marker,作为介词或不定式标记</td>
+</tr>
+
+<tr>
+<td class="org-left">WDT</td>
+<td class="org-left">WH-determiner WH限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">WP</td>
+<td class="org-left">WH-pronoun</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">代词</td>
+</tr>
+
+<tr>
+<td class="org-left">WP$</td>
+<td class="org-left">WH-pronoun, possessive</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">所有格代词</td>
+</tr>
+
+<tr>
+<td class="org-left">WRB</td>
+<td class="org-left">Wh-adverb,WH副词</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">7.3</span> 关系表示</h3>
+<div class="outline-text-3" id="text-7-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">abbrev</td>
+<td class="org-left">abbreviation modifier，缩写</td>
+</tr>
+
+<tr>
+<td class="org-left">acomp</td>
+<td class="org-left">adjectival complement，形容词的补充</td>
+</tr>
+
+<tr>
+<td class="org-left">advcl</td>
+<td class="org-left">adverbial clause modifier，状语从句修饰词</td>
+</tr>
+
+<tr>
+<td class="org-left">advmod</td>
+<td class="org-left">adverbial modifier状语</td>
+</tr>
+
+<tr>
+<td class="org-left">agent</td>
+<td class="org-left">agent，代理，一般有by的时候会出现这个</td>
+</tr>
+
+<tr>
+<td class="org-left">amod</td>
+<td class="org-left">adjectival modifier形容词</td>
+</tr>
+
+<tr>
+<td class="org-left">appos</td>
+<td class="org-left">appositional modifier,同位词</td>
+</tr>
+
+<tr>
+<td class="org-left">attr</td>
+<td class="org-left">attributive，属性</td>
+</tr>
+
+<tr>
+<td class="org-left">aux</td>
+<td class="org-left">auxiliary，非主要动词和助词，如BE,HAVE SHOULD/COULD等到</td>
+</tr>
+
+<tr>
+<td class="org-left">auxpass</td>
+<td class="org-left">passive auxiliary 被动词</td>
+</tr>
+
+<tr>
+<td class="org-left">cc</td>
+<td class="org-left">coordination，并列关系，一般取第一个词</td>
+</tr>
+
+<tr>
+<td class="org-left">ccomp</td>
+<td class="org-left">clausal complement从句补充</td>
+</tr>
+
+<tr>
+<td class="org-left">complm</td>
+<td class="org-left">complementizer，引导从句的词好重聚中的主要动词</td>
+</tr>
+
+<tr>
+<td class="org-left">conj</td>
+<td class="org-left">conjunct，连接两个并列的词。</td>
+</tr>
+
+<tr>
+<td class="org-left">cop</td>
+<td class="org-left">copula。系动词（如be,seem,appear等），（命题主词与谓词间的）连系</td>
+</tr>
+
+<tr>
+<td class="org-left">csubj</td>
+<td class="org-left">clausal subject，从主关系</td>
+</tr>
+
+<tr>
+<td class="org-left">csubjpass</td>
+<td class="org-left">clausal passive subject 主从被动关系</td>
+</tr>
+
+<tr>
+<td class="org-left">dep</td>
+<td class="org-left">dependent依赖关系</td>
+</tr>
+
+<tr>
+<td class="org-left">det</td>
+<td class="org-left">determiner决定词，如冠词等</td>
+</tr>
+
+<tr>
+<td class="org-left">dobj</td>
+<td class="org-left">direct object直接宾语</td>
+</tr>
+
+<tr>
+<td class="org-left">expl</td>
+<td class="org-left">expletive，主要是抓取there</td>
+</tr>
+
+<tr>
+<td class="org-left">infmod</td>
+<td class="org-left">infinitival modifier，动词不定式</td>
+</tr>
+
+<tr>
+<td class="org-left">iobj</td>
+<td class="org-left">indirect object，非直接宾语，也就是所以的间接宾语；</td>
+</tr>
+
+<tr>
+<td class="org-left">mark</td>
+<td class="org-left">marker，主要出现在有“that” or “whether”“because”, “when”,</td>
+</tr>
+
+<tr>
+<td class="org-left">mwe</td>
+<td class="org-left">multi-word expression，多个词的表示</td>
+</tr>
+
+<tr>
+<td class="org-left">neg</td>
+<td class="org-left">negation modifier否定词</td>
+</tr>
+
+<tr>
+<td class="org-left">nn</td>
+<td class="org-left">noun compound modifier名词组合形式</td>
+</tr>
+
+<tr>
+<td class="org-left">npadvmod</td>
+<td class="org-left">noun phrase as adverbial modifier名词作状语</td>
+</tr>
+
+<tr>
+<td class="org-left">nsubj</td>
+<td class="org-left">nominal subject，名词主语</td>
+</tr>
+
+<tr>
+<td class="org-left">nsubjpass</td>
+<td class="org-left">passive nominal subject，被动的名词主语</td>
+</tr>
+
+<tr>
+<td class="org-left">num</td>
+<td class="org-left">numeric modifier，数值修饰</td>
+</tr>
+
+<tr>
+<td class="org-left">number</td>
+<td class="org-left">element of compound number，组合数字</td>
+</tr>
+
+<tr>
+<td class="org-left">parataxis</td>
+<td class="org-left">parataxis,parataxis，并列关系</td>
+</tr>
+
+<tr>
+<td class="org-left">partmod</td>
+<td class="org-left">participial modifier动词形式的修饰</td>
+</tr>
+
+<tr>
+<td class="org-left">pcomp</td>
+<td class="org-left">prepositional complement，介词补充</td>
+</tr>
+
+<tr>
+<td class="org-left">pobj</td>
+<td class="org-left">object of a preposition，介词的宾语</td>
+</tr>
+
+<tr>
+<td class="org-left">poss</td>
+<td class="org-left">possession modifier，所有形式，所有格，所属</td>
+</tr>
+
+<tr>
+<td class="org-left">possessive</td>
+<td class="org-left">possessive modifier，这个表示所有者和那个’S的关系</td>
+</tr>
+
+<tr>
+<td class="org-left">preconj</td>
+<td class="org-left">preconjunct，常常是出现在 “either”, “both”, “neither”的情况下</td>
+</tr>
+
+<tr>
+<td class="org-left">predet</td>
+<td class="org-left">predeterminer，前缀决定，常常是表示所有</td>
+</tr>
+
+<tr>
+<td class="org-left">prep</td>
+<td class="org-left">prepositional modifier</td>
+</tr>
+
+<tr>
+<td class="org-left">prepc</td>
+<td class="org-left">prepositional clausal modifier</td>
+</tr>
+
+<tr>
+<td class="org-left">prt</td>
+<td class="org-left">phrasal verb particle，动词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">punct</td>
+<td class="org-left">punctuation，这个很少见，但是保留下来了，结果当中不会出现这个</td>
+</tr>
+
+<tr>
+<td class="org-left">purpcl</td>
+<td class="org-left">purpose clause modifier，目的从句</td>
+</tr>
+
+<tr>
+<td class="org-left">quantmod</td>
+<td class="org-left">quantifier phrase modifier，数量短语</td>
+</tr>
+
+<tr>
+<td class="org-left">rcmod</td>
+<td class="org-left">relative clause modifier相关关系</td>
+</tr>
+
+<tr>
+<td class="org-left">ref</td>
+<td class="org-left">referent，指示物，指代</td>
+</tr>
+
+<tr>
+<td class="org-left">rel</td>
+<td class="org-left">relative</td>
+</tr>
+
+<tr>
+<td class="org-left">root</td>
+<td class="org-left">root，最重要的词，从它开始，根节点</td>
+</tr>
+
+<tr>
+<td class="org-left">tmod</td>
+<td class="org-left">temporal modifier</td>
+</tr>
+
+<tr>
+<td class="org-left">xcomp</td>
+<td class="org-left">open clausal complement</td>
+</tr>
+
+<tr>
+<td class="org-left">xsubj</td>
+<td class="org-left">controlling subject 掌控者</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>

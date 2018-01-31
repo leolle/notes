@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2018-01-26 Fri 13:23 -->
+<!-- 2018-01-31 Wed 10:41 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
@@ -161,7 +161,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-01-26 13:23:18</td>
+<td class="org-left">2018-01-31 10:41:52</td>
 </tr>
 </tbody>
 </table>
@@ -667,9 +667,34 @@ ICA
 <h5 id="orgheadline14">create wiki knowledge graph</h5>
 <div class="outline-text-5" id="text-orgheadline14">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> import page from mongo to neo4j.</li>
+<li class="off"><code>[&#xa0;]</code> skill GID generating in Python.</li>
+<li class="on"><code>[X]</code> train word2vec model based on GID.</li>
+<li class="on"><code>[X]</code> import edge, loop detecting for linking categories nodes.</li>
+<li class="on"><code>[X]</code> fetching pages binary content via GID.</li>
+<li class="on"><code>[X]</code> test response GID, same with GID saved on Chrome.</li>
+<li class="on"><code>[X]</code> test fetching binary text with GID.</li>
+<li class="on"><code>[X]</code> extract page to neo4j from xml file.</li>
+</ul>
+<p>
+businessID.domain = <a href="https://zh.wikipedia.org/wiki/">https://zh.wikipedia.org/wiki/</a>:
+businessID.pk = urlencode(traditional Chinese title).
+title = simple Chinese title
+node.names.chinese = simple Chinese title
+node.url = encoded<sub>url</sub>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> import category to neo4j from sql file.</li>
+</ul>
+<p>
+businessID.domain = <a href="https://zh.wikipedia.org/wiki/Category">https://zh.wikipedia.org/wiki/Category</a>:
+businessID.pk = urlencode(traditional Chinese title).
+title = simple Chinese title
+node.names.chinese = simple Chinese title
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> double check GID with Shenbing after importing a small set of page.</li>
+<li class="on"><code>[X]</code> import page from mongo to neo4j.</li>
 <li class="off"><code>[&#xa0;]</code> backup neo4j after importing categories and page.</li>
-<li class="off"><code>[&#xa0;]</code> import edges.</li>
 <li class="off"><code>[&#xa0;]</code> importing wiki categories and page edge relation to Neo4j.</li>
 <li class="off"><code>[&#xa0;]</code> read external sql file into pandas.</li>
 <li class="off"><code>[&#xa0;]</code> find page title from page id.</li>
@@ -683,6 +708,8 @@ ICA
 <h5 id="orgheadline15">entity relationship</h5>
 <div class="outline-text-5" id="text-orgheadline15">
 <ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> compare nlp libraries.</li>
+<li class="off"><code>[&#xa0;]</code> extract Named Entity Recognition.</li>
 <li class="off"><code>[&#xa0;]</code> read Q&amp;A knowledge graph paper.</li>
 </ul>
 </div>
@@ -765,6 +792,7 @@ ICA
 <div class="outline-text-4" id="text-orgheadline28">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> read documentation.</li>
+<li class="off"><code>[&#xa0;]</code> how to integrate NLP with gs.</li>
 <li class="trans"><code>[-]</code> Pipeline:
 <ul class="org-ul">
 <li class="on"><code>[X]</code> choose category and depth in GS skill -&gt;</li>

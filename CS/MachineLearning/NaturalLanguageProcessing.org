@@ -488,3 +488,150 @@ That was it. This was enough to let me view (most) pages without errors.
 * NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim
 |      | jieba | THULAC | SnowNLP | pynlpir | CoreNLP | pyLTP | spaCy | gensim |
 | star | 11859 |    487 |    2159 |     941 |    4262 |   398 |  7985 |   6092 |
+
+* Position Of Tagging
+** 词性解释
+| CC   | conjunction, coordinatin 表示连词                        |
+| CD   | numeral, cardinal 表示基数词                             |
+| DT   | determiner 表示限定词                                    |
+| EX   | existential there 存在句                                 |
+| FW   | foreign word 外来词                                      |
+| IN   | preposition or conjunction, subordinating 介词或从属连词 |
+| JJ   | adjective or numeral, ordinal 形容词或序数词             |
+| JJR  | adjective, comparative 形容词比较级                      |
+| JJS  | adjective, superlative 形容词最高级                      |
+| LS   | list item marker 列表标识                                |
+| MD   | modal auxiliary 情态助动词                               |
+| NN   | noun, common, singular or mass                           |
+| NNS  | noun, common, plural                                     |
+| NNP  | noun, proper, singular                                   |
+| NNPS | noun, proper, plural                                     |
+| PDT  | pre-determiner 前位限定词                                |
+| POS  | genitive marker 所有格标记                               |
+| PRP  | pronoun, personal 人称代词                               |
+| PRP  | pronoun,possessive所有格代词                             |
+| RB   | adverb副词                                               |
+| RBR  | adverb,comparative副词比较级                             |
+| RBS  | adverb,superlative副词最高级                             |
+| RP   | particle小品词                                           |
+| SYM  | symbol符号                                               |
+| TO   | ”to”asprepositionorinfinitivemarker作为介词或不定式标记  |
+| UH   | interjection插入语                                       |
+| VB   | verb,baseform                                            |
+| VBD  | verb,pasttense                                           |
+| VBG  | verb,presentparticipleorgerund                           |
+| VBN  | verb,pastparticiple                                      |
+| VBP  | verb,presenttense,not3rdpersonsingular                   |
+| VBZ  | verb,presenttense,3rdpersonsingular                      |
+| WDT  | WH−determiner                                            |
+| WH   | 限定词                                                   |
+| WP   | WH−pronoun                                               |
+| WH   | 代词                                                     |
+| WP   | WH-pronoun, possessive                                   |
+| WH   | 所有格代词                                               |
+| WRB  | Wh-adverb                                                |
+| WH   | 副词                                                     |
+** 句法分析（句法树）
+| ROOT | 要处理文本的语句                                                                            |
+| IP   | 简单从句                                                                                    |
+| NP   | 名词短语                                                                                    |
+| VP   | 动词短语                                                                                    |
+| PU   | 断句符，通常是句号、问号、感叹号等标点符号                                                  |
+| LCP  | 方位词短语                                                                                  |
+| PP   | 介词短语                                                                                    |
+| CP   | 由‘的’构成的表示修饰性关系的短语                                                            |
+| DNP  | 由‘的’构成的表示所属关系的短语                                                              |
+| ADVP | 副词短语                                                                                    |
+| ADJP | 形容词短语                                                                                  |
+| DP   | 限定词短语                                                                                  |
+| QP   | 量词短语                                                                                    |
+| NN   | 常用名词                                                                                    |
+| NR   | 固有名词,表示仅适用于该项事物的名词，含地名，人名，国名，书名，团体名称以及一事件的名称等。 |
+| NT   | 时间名词                                                                                    |
+| PN   | 代词                                                                                        |
+| VV   | 动词                                                                                        |
+| VC   | 是                                                                                          |
+| CC   | 表示连词                                                                                    |
+| VE   | 有                                                                                          |
+| VA   | 表语形容词                                                                                  |
+| AS   | 内容标记（如:了）                                                                           |
+| VRD  | 动补复合词                                                                                  |
+| CD   | 表示基数词                                                                                  |
+| DT   | determiner 表示限定词                                                                       |
+| EX   | existential there 存在句                                                                    |
+| FW   | foreign word 外来词                                                                         |
+| IN   | preposition or conjunction, subordinating,介词或从属连词                                    |
+| JJ   | adjective or numeral, ordinal 形容词或序数词                                                |
+| JJR  | adjective, comparative 形容词比较级                                                         |
+| JJS  | adjective, superlative 形容词最高级                                                         |
+| LS   | list item marker 列表标识                                                                   |
+| MD   | modal auxiliary 情态助动词                                                                  |
+| PDT  | pre-determiner 前位限定词                                                                   |
+| POS  | genitive marker 所有格标记                                                                  |
+| PRP  | pronoun, personal 人称代词                                                                  |
+| RB   | adverb 副词                                                                                 |
+| RBR  | adverb, comparative 副词比较级                                                              |
+| RBS  | adverb, superlative 副词最高级                                                              |
+| RP   | particle 小品词                                                                             |
+| SYM  | symbol 符号                                                                                 |
+| TO   | ”to” as preposition or infinitive marker,作为介词或不定式标记                               |
+| WDT  | WH-determiner WH限定词                                                                      |
+| WP   | WH-pronoun                                                                                  |
+| WH   | 代词                                                                                        |
+| WP$  | WH-pronoun, possessive                                                                      |
+| WH   | 所有格代词                                                                                  |
+| WRB  | Wh-adverb,WH副词                                                                            |
+** 关系表示
+| abbrev     | abbreviation modifier，缩写                                      |
+| acomp      | adjectival complement，形容词的补充                              |
+| advcl      | adverbial clause modifier，状语从句修饰词                        |
+| advmod     | adverbial modifier状语                                           |
+| agent      | agent，代理，一般有by的时候会出现这个                            |
+| amod       | adjectival modifier形容词                                        |
+| appos      | appositional modifier,同位词                                     |
+| attr       | attributive，属性                                                |
+| aux        | auxiliary，非主要动词和助词，如BE,HAVE SHOULD/COULD等到          |
+| auxpass    | passive auxiliary 被动词                                         |
+| cc         | coordination，并列关系，一般取第一个词                           |
+| ccomp      | clausal complement从句补充                                       |
+| complm     | complementizer，引导从句的词好重聚中的主要动词                   |
+| conj       | conjunct，连接两个并列的词。                                     |
+| cop        | copula。系动词（如be,seem,appear等），（命题主词与谓词间的）连系 |
+| csubj      | clausal subject，从主关系                                        |
+| csubjpass  | clausal passive subject 主从被动关系                             |
+| dep        | dependent依赖关系                                                |
+| det        | determiner决定词，如冠词等                                       |
+| dobj       | direct object直接宾语                                            |
+| expl       | expletive，主要是抓取there                                       |
+| infmod     | infinitival modifier，动词不定式                                 |
+| iobj       | indirect object，非直接宾语，也就是所以的间接宾语；              |
+| mark       | marker，主要出现在有“that” or “whether”“because”, “when”,        |
+| mwe        | multi-word expression，多个词的表示                              |
+| neg        | negation modifier否定词                                          |
+| nn         | noun compound modifier名词组合形式                               |
+| npadvmod   | noun phrase as adverbial modifier名词作状语                      |
+| nsubj      | nominal subject，名词主语                                        |
+| nsubjpass  | passive nominal subject，被动的名词主语                          |
+| num        | numeric modifier，数值修饰                                       |
+| number     | element of compound number，组合数字                             |
+| parataxis  | parataxis,parataxis，并列关系                                    |
+| partmod    | participial modifier动词形式的修饰                               |
+| pcomp      | prepositional complement，介词补充                               |
+| pobj       | object of a preposition，介词的宾语                              |
+| poss       | possession modifier，所有形式，所有格，所属                      |
+| possessive | possessive modifier，这个表示所有者和那个’S的关系                |
+| preconj    | preconjunct，常常是出现在 “either”, “both”, “neither”的情况下    |
+| predet     | predeterminer，前缀决定，常常是表示所有                          |
+| prep       | prepositional modifier                                           |
+| prepc      | prepositional clausal modifier                                   |
+| prt        | phrasal verb particle，动词短语                                  |
+| punct      | punctuation，这个很少见，但是保留下来了，结果当中不会出现这个    |
+| purpcl     | purpose clause modifier，目的从句                                |
+| quantmod   | quantifier phrase modifier，数量短语                             |
+| rcmod      | relative clause modifier相关关系                                 |
+| ref        | referent，指示物，指代                                           |
+| rel        | relative                                                         |
+| root       | root，最重要的词，从它开始，根节点                               |
+| tmod       | temporal modifier                                                |
+| xcomp      | open clausal complement                                          |
+| xsubj      | controlling subject 掌控者                                       |

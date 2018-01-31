@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-26 Fri 13:23 -->
+<!-- 2018-01-31 Wed 10:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1339,6 +1339,81 @@ int64
     <span style="color: #FD971F;">value</span><span style="color: #AE81FF;">[</span>key<span style="color: #AE81FF;">]</span> = dict_vocab.get<span style="color: #AE81FF;">(</span>key<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
+<ul class="org-ul">
+<li>set all values in a dict:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">visited</span> = <span style="color: #F92672;">dict</span>.fromkeys<span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>.graph, <span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>check if a value is in a dict:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #E6DB74;">'&#32418;&#40113;&#40060;&#25307;&#32929;&#20070;'</span> <span style="color: #F92672;">in</span> g.graph.values<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>check if a value is in a defaultdict collection list:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">any</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'&#27874;&#21160;&#24615;'</span> <span style="color: #F92672;">in</span> v <span style="color: #F92672;">for</span> v <span style="color: #F92672;">in</span> g.graph.values<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">in_values</span><span style="color: #AE81FF;">(</span>s, d<span style="color: #AE81FF;">)</span>:
+    <span style="color: #E6DB74;">"""Does `s` appear in any of the values in `d`?"""</span>
+    <span style="color: #F92672;">for</span> v <span style="color: #F92672;">in</span> d.values<span style="color: #AE81FF;">()</span>:
+        <span style="color: #F92672;">if</span> s <span style="color: #F92672;">in</span> v:
+            <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">True</span>
+    <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">False</span>
+
+in_values<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'cow'</span>, animals<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>count key values in a dict:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">d</span> = defaultdict<span style="color: #AE81FF;">(</span><span style="color: #F92672;">list</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">for</span> name <span style="color: #F92672;">in</span> g.graph.keys<span style="color: #AE81FF;">()</span>:
+  <span style="color: #FD971F;">key</span> = <span style="color: #F92672;">len</span><span style="color: #AE81FF;">(</span>g.graph<span style="color: #66D9EF;">[</span>name<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #FD971F;">d</span><span style="color: #AE81FF;">[</span>name<span style="color: #AE81FF;">]</span> = key
+</pre>
+</div>
+<ul class="org-ul">
+<li>add value in a dictionary:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">231</span><span style="color: #AE81FF;">]</span>: d
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">231</span><span style="color: #AE81FF;">]</span>:
+defaultdict<span style="color: #AE81FF;">(</span><span style="color: #F92672;">list</span>,
+            <span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'&#19978;&#28023;&#35777;&#21048;&#20132;&#26131;&#25152;&#19978;&#24066;&#20844;&#21496;'</span>: <span style="color: #AE81FF;">383</span>,
+             <span style="color: #E6DB74;">'&#21508;&#35777;&#21048;&#20132;&#26131;&#25152;&#19978;&#24066;&#20844;&#21496;'</span>: <span style="color: #AE81FF;">37</span>,
+             <span style="color: #E6DB74;">'&#28145;&#22323;&#35777;&#21048;&#20132;&#26131;&#25152;&#19978;&#24066;&#20844;&#21496;'</span>: <span style="color: #AE81FF;">511</span>,
+             <span style="color: #E6DB74;">'&#35777;&#21048;'</span>: <span style="color: #AE81FF;">64</span>,
+             <span style="color: #E6DB74;">'&#35777;&#21048;&#20132;&#26131;&#25152;'</span>: <span style="color: #AE81FF;">8</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">sum</span><span style="color: #AE81FF;">(</span>d.values<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>write defaultdict to a json file:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> json
+<span style="color: #75715E;"># </span><span style="color: #75715E;">writing</span>
+json.dump<span style="color: #AE81FF;">(</span>yourdict, <span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span>filename, <span style="color: #E6DB74;">'w'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">reading</span>
+<span style="color: #FD971F;">yourdict</span> = json.load<span style="color: #AE81FF;">(</span><span style="color: #F92672;">open</span><span style="color: #66D9EF;">(</span>filename<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline25" class="outline-3">
@@ -1363,6 +1438,16 @@ int64
 
 <pre class="src src-python"><span style="color: #F92672;">print</span> `a`
 <span style="color: #F92672;">print</span> <span style="color: #F92672;">repr</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>find out where module is installed</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+<span style="color: #F92672;">import</span> spacy
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>os.path.dirname<span style="color: #66D9EF;">(</span>spacy.__file__<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 </div>
@@ -3929,6 +4014,15 @@ pd.melt<span style="color: #AE81FF;">(</span>DataFrame, id_vars=<span style="col
 
 <pre class="src src-python"><span style="color: #FD971F;">z</span>=<span style="color: #AE81FF;">(</span>a!=b<span style="color: #AE81FF;">)</span>
 pd.concat<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>a.ix<span style="color: #A6E22E;">[</span>z<span style="color: #E6DB74;">[</span><span style="color: #F92672;">reduce</span><span style="color: #FD971F;">(</span><span style="color: #F92672;">lambda</span> x, y: x | z<span style="color: #F92672;">[</span>y<span style="color: #F92672;">]</span>, z, <span style="color: #AE81FF;">False</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">]</span>.index<span style="color: #A6E22E;">]</span>,b.ix<span style="color: #A6E22E;">[</span>z<span style="color: #E6DB74;">[</span><span style="color: #F92672;">reduce</span><span style="color: #FD971F;">(</span><span style="color: #F92672;">lambda</span> x, y: x | z<span style="color: #F92672;">[</span>y<span style="color: #F92672;">]</span>, z, <span style="color: #AE81FF;">False</span><span style="color: #FD971F;">)</span><span style="color: #E6DB74;">]</span>.index<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span>,axis=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>reduce</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> functools <span style="color: #F92672;">import</span> <span style="color: #F92672;">reduce</span>
+<span style="color: #F92672;">reduce</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span> x, y: x+y, <span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">101</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
