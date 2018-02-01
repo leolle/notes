@@ -174,7 +174,7 @@ CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
 - [ ] skill GID generating in Python.
-- [ ] 把节点上传. wiki 上传了1040229个page.
+- [ ] 把节点上传. wiki 上传了1040229 page, 381475 categories.
 - [ ] 上传完备份我再建边.
 - [ ] 加一个loop detection算法，现在只做了direct cycle detection algorithm.。
 - [X] train word2vec model based on GID.
@@ -395,7 +395,7 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.
 - incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
 - train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
-- ensemble model using most related model, use wiki category relation similarity to choose model.
+- choose model using most related model, use wiki category relation similarity to choose model.
 - Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
 - Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
 ***** Long Term

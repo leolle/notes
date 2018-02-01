@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-31 Wed 10:42 -->
+<!-- 2018-02-01 Thu 13:53 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -338,6 +338,38 @@ model.train<span style="color: #AE81FF;">(</span>more_sentences<span style="colo
 断句。
 </p>
 <ul class="org-ul">
+<li>Syntactic Parsing</li>
+</ul>
+<p>
+比如在opinion extraction中我们常常要抽取评价对象（aspect）：
+例：“知乎的内容质量很好”
+这里 “很好” 形容的是 “内容质量”。通过依存句法分析，就可以抽取出对应的搭配。
+</p>
+
+<p>
+再说说IR，以百度框计算为例。对于以下两个query：Query 1: 谢霆锋的儿子是谁？Query 2: 谢霆锋是谁的儿子？这两个Query的bag-of-words完全一致，如果不考虑其语法结构，很难直接给用户返回正确的结果。类似的例子还有很多。在这种情况下，通过句法分析，我们就能够知道用户询问的真正对象是什么。
+</p>
+
+<p>
+Tree-LSTM是基于句法结构之上的LSTM，Bi-LSTM则是简单的双向（left&lt;-&gt;right）LSTM。在很多任务上，Bi-LSTM都表现得比Tree-LSTM更好。
+</p>
+<ul class="org-ul">
+<li>Part of Speech Tagging</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">import</span> jieba.posseg <span style="color: #F92672;">as</span> pseg
+&gt;&gt;&gt; <span style="color: #FD971F;">words</span> = pseg.cut<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"&#25105;&#29233;&#21271;&#20140;&#22825;&#23433;&#38376;"</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #F92672;">for</span> w <span style="color: #F92672;">in</span> words:
+...    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%s %s'</span> % <span style="color: #66D9EF;">(</span>w.word, w.flag<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+...
+&#25105; r
+&#29233; v
+&#21271;&#20140; ns
+&#22825;&#23433;&#38376; ns
+</pre>
+</div>
+<ul class="org-ul">
 <li>Pos Tagging Test:</li>
 </ul>
 <div class="org-src-container">
@@ -374,7 +406,7 @@ New York <span style="color: #AE81FF;">350</span> GPE
 </pre>
 </div>
 <ul class="org-ul">
-<li>Keyword Extraction</li>
+<li>Keyword Extraction(Terms Frequency - Inverse Document Frequency)</li>
 </ul>
 <div class="org-src-container">
 
@@ -391,26 +423,11 @@ New York <span style="color: #AE81FF;">350</span> GPE
 <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">","</span>.join<span style="color: #66D9EF;">(</span>tags<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-<ul class="org-ul">
-<li>Part of Speech Tagging</li>
-</ul>
-<div class="org-src-container">
-
-<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">import</span> jieba.posseg <span style="color: #F92672;">as</span> pseg
-&gt;&gt;&gt; <span style="color: #FD971F;">words</span> = pseg.cut<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"&#25105;&#29233;&#21271;&#20140;&#22825;&#23433;&#38376;"</span><span style="color: #AE81FF;">)</span>
-&gt;&gt;&gt; <span style="color: #F92672;">for</span> w <span style="color: #F92672;">in</span> words:
-...    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%s %s'</span> % <span style="color: #66D9EF;">(</span>w.word, w.flag<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-...
-&#25105; r
-&#29233; v
-&#21271;&#20140; ns
-&#22825;&#23433;&#38376; ns
-</pre>
-</div>
 </div></li></ol>
 </div>
 </div>
 </div>
+
 
 <div id="outline-container-orgheadline16" class="outline-2">
 <h2 id="orgheadline16"><span class="section-number-2">2</span> Knowledge-based Q&amp;A</h2>
