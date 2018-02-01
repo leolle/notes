@@ -694,7 +694,10 @@ filterpuntl = lambda l: list(filter(lambda x: x not in punct, l))
 seg_list = jieba.cut(str_in, cut_all=False)
 sent_list = filterpuntl(seg_list)
 #+END_SRC
-
+- jieba cut on bash:
+#+BEGIN_SRC bash
+python -m jieba news.txt > cut_result.txt
+#+END_SRC
  - create a list from jieba generator:
    sentence = [x for x in seg_list]
 - tokenize unicode or string to sentence list.

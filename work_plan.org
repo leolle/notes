@@ -174,6 +174,9 @@ CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
 - [ ] skill GID generating in Python.
+- [ ] 把节点上传. wiki 上传了1040229个page.
+- [ ] 上传完备份我再建边.
+- [ ] 加一个loop detection算法，现在只做了direct cycle detection algorithm.。
 - [X] train word2vec model based on GID.
 - [X] import edge, loop detecting for linking categories nodes.
 - [X] fetching pages binary content via GID.
@@ -201,12 +204,27 @@ node.names.chinese = simple Chinese title
 - [X] test importing wiki categories nodes.
 **** entity relationship
 :LOGBOOK:
-CLOCK: [2018-01-31 Wed 10:09]
+CLOCK: [2018-02-01 Thu 10:00]--[2018-02-01 Thu 11:52] =>  1:52
+CLOCK: [2018-01-31 Wed 15:16]--[2018-01-31 Wed 19:29] =>  4:13
+CLOCK: [2018-01-31 Wed 10:53]--[2018-01-31 Wed 12:08] =>  1:15
+CLOCK: [2018-01-31 Wed 10:09]--[2018-01-31 Wed 10:52] =>  0:43
 CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 :END:
-- [ ] compare nlp libraries.
-- [ ] extract Named Entity Recognition.
+- [ ] what analyst care about: 有关内容包括：主要产品，产业链，竞争对手，合作伙伴，投资方，key person(如公司跟投资人关联), 上市交易所，sentiment, 分析师评级，评论，公司重大公告.
+- [ ] NER of all listed company pages(including organization name, 投资标的, .
+- [X] Chinese NER model is missing, searching. models are in the Chinese model jar file.
+- [X] test stanford-corenlp to extract keywords and NER en.
+- [X] compare nlp libraries.
+- [X] extract Named Entity Recognition.
 - [ ] read Q&A knowledge graph paper.
+**** News summary
+- [ ] get news summary from webs.
+**** syntactic parsing
+***** opinion extraction system
+sentiment analysis.
+***** information retrieval system
+Q&A.
+用了什么分析方法，数据。
 **** Part 1: Knowledge Graph Primer
 - What is a Knowledge Graph?
 - Why are Knowledge Graphs Important?
@@ -377,7 +395,7 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.
 - incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
 - train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
-- ensemble model using mean value, use wiki category relation similarity to choose model.
+- ensemble model using most related model, use wiki category relation similarity to choose model.
 - Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
 - Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
 ***** Long Term

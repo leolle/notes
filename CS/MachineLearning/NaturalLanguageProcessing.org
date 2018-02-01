@@ -93,7 +93,7 @@ Rami Eid 346 PERSON
 Stony Brook University 349 ORG
 New York 350 GPE
 #+END_SRC
-- Keyword Extraction
+- Keyword Extraction(Terms Frequency - Inverse Document Frequency)
 #+BEGIN_SRC python
 import jieba
 import jieba.analyse
