@@ -11,20 +11,21 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../configOrg/level1.org
-* September 2017
-** 线性与非线性思维 <2017-09-23 Sat>
+* 2017
+** September 2017
+*** 线性与非线性思维 <2017-09-23 Sat>
 世界是非线性的，人的大脑为了适应环境，会常选择用线性的思维来判断周围的环境，从而做出比较机械式的决定--《思维的快与慢》。例如人们以为成功是有秘诀的，所有的成功是有一套模式的，从而从成功人士身上提取一堆特质，并认为只要具有这些特质，自然而然就会成功了。这也是为什么畅销书一直火爆的秘密。但是人们忘记了，成功并没有范式，同样具有这样物征的人也许有很多很多，有这样特征的人失败的人并没有常被人们提起，而因为幸存者偏差被遗忘了。同样的道理，线性的模型认为经过了一些漏斗选择出来的股票，将来有大概率的机会会上涨或者反弹，但是这些alpha在现实世界上往往经不起考验，因为还有beta的因素在影响股票的价格。
 打破线性思维，用非线性模型来思考，就像Taleb在《黑天鹅》里面说的一样，当人们见到的大多数天鹅是白色的，就认为所有的天鹅是白色的，当黑天鹅出现的时候，人们才想起天鹅还有黑色的。逆向思维，当提出一个假设以后，通过反面的例子去否定他。
 
-** Anormalies <2017-09-27 Wed>
+*** Anormalies <2017-09-27 Wed>
 
 科学的产生是经验的总结，人的习惯性思维是去寻找一些规律，好利用这些规律来辅助生产。
 
 但是在投资领域里面并没有万金油的规律。这个跟黑天鹅现象很像，人们直到看到黑天鹅出现时，才知道原来天鹅不全都是白色的。一个规则运用的场景，次数很多，不代表这就是应用背后的规律。
 
 投资时避免选择拥护的交易，逆向思维，用排除法去除大众的想法，而应该选择去寻找Anormaly，风险小，收益高。
-* October 2017
-** Zero-sum game theory<2017-10-19 Thu>
+** October 2017
+*** Zero-sum game theory<2017-10-19 Thu>
 When applied specifically to economics there are multiple factors to consider when understanding a zero-sum game. Zero-sum game assumes a version of perfect competition and perfect information; that is, both opponents in the model have all the relevant information to make an informed decision. To take a step back, most transactions or trades are inherently non zero-sum games because when two parties agree to trade they do so with the understanding that the goods or services they are receiving are more valuable than the goods or services they are trading for it, after transaction costs. This is called positive-sum, and most transactions fall under this category.
 
 Accumenting information is a key element at trading so that a lot of economic resources are put on the research. Most of the time the institutional investors have more and depth information than the individual investors, this makes the game not a fair one. And the disposition effect makes the unbalance evern worse, frequent buying high and selling low bothers investors, which brings loss to them.
@@ -33,47 +34,47 @@ The increasement of the corporate value will bring more value to investors as lo
 
 However, this is different from the poker game, where winners' gain is losers' loss.
 
-** Survival in the financial technology industry<2017-10-23 Mon>
+*** Survival in the financial technology industry<2017-10-23 Mon>
 There are two competition factors that affect people's career expectation at the financial technology industry, one is industry advancing by the era, beginners/newbies bring more resource including new knowledge and more capital, you have to learn more knlowlege to compete with other peers. The other one is the threat of Artifical Intellegience, most of the nowadays jobs will be eliminated by AI because of their high efficiency in the next few decades. Imaging the competition from AI that will be more productive than average people by many times, it's not hard to get the conclusion that you need study much much harder to face the competition of AI in the future.
 
 The benefit of not being eliminated, or still having a job in the future is huge. It means you can still produce productivity and effort from a job, which is not token by robots or other competitors. This high payoff will bring those survivors enough resources to get people the most wanted dream since thousand years ago, longervity. In order to prove that you can still produce good for the society, you need a talent job making value. Otherwise, your future social function can not be approved by others, and the natural aging will be an end. Longervity can brought by the high curing level, which can cancel the aging or even better, modifying your body organs.
 
-** Why not follow a standard course schedule on studying after your graduation?<2017-10-23 Mon>
+*** Why not follow a standard course schedule on studying after your graduation?<2017-10-23 Mon>
 Standard course is designed for average people, or even worse the lowest level to save time and money in the society. Adapting learning progress and not following those old-fashion style studying skills, learninig the basic principles then choosing one topic to go deeper related to your work or project is a more talent way for people above avergae.
 
-** Follow the advice from the master<2017-10-24 Tue>
-*** Principle:
+*** Follow the advice from the master<2017-10-24 Tue>
+**** Principle:
 - Be perceptive, ask the reason why behind the facts.
 - Be more initiative, approach to people and present your ideas.
 - Be more efficient and work more focused than others.
-*** Bad habit:
+**** Bad habit:
 Laziness, taking shortcut, in-sample test on GS, not challenging other people.
 
-* November 2017
-** Learning techniques<2017-11-05 Sun>
+** November 2017
+*** Learning techniques<2017-11-05 Sun>
 The most efficient way of learning new things is to go deep understanding of the knowledge, therefore reading a good textbook is a great way for understanding the knowledge, other resources include MOOCs, course notes, research papers.
 
 
-*** Motivation[1]
+**** Motivation[1]
 Today's educational system up through college micromanages the learning process, thereby doing little to prepare you for independent study. How do you go about learning something on your own?
-**** The obstacles of motivation from the traditional education system
+***** The obstacles of motivation from the traditional education system
 1. isolated environment(they don't have any idea why they'd need to know them).
 2. no personalized curriculum.
 3. course bulletins provide almost no guidance about what a class covers or why it's useful(you only care a skill related with your interest, project or job after leaving from school.).
 4. impossible to go back to repair gaps in students' knowledge.
 5. school is the result of a series of compromises which allow an adequate amount of learning without overburdening society's resources. Unfortunately, these compromises mean there's often little intrinsic motivation to learn the material, hence the need for external motivators like mandatory homeworks and exams.
-*** Metacognition
+**** Metacognition
 When you read a textbook or listen to a lecture, it's easy to trick yourself into thinking you understand it. You can't directly observe your state of understanding. You need to find ways to test your understanding, for instance:
 - try to write out the definitions, theorems, proofs, etc. from memory
 - do some exercises
 - try to explain the ideas in your own words
 
 *One trick I've found to make it more obvious is parallel reading: read two different (possibly unrelated) things in parallel. Read a few paragraphs of one, then a few paragraphs of the other, and so on. Each time you switch, try to recall what the previous stretch of text was about. Switching forces it out of your working memory (the kind that stores words and images for short times). Therefore, you find out whether the material actually made it into your long-term memory.*
-*** Memory
+**** Memory
 If you're trying to learn math, programming, or anything closely related, try not to do much rote memorization(死记硬背). You get familiar with the concepts by using them.
 
-* December 2017
-** Use model assumption to increase the productivity<2017-12-05 Tue>
+** December 2017
+*** Use model assumption to increase the productivity<2017-12-05 Tue>
 Think about the reading as an investment. We need the cutting edge and be early.
 If we can't replicate the model, cut the loss.
 
@@ -84,7 +85,7 @@ What data they use, what do we have, what's the assumption, what's the conclusio
 Without backtesting, you have no idea if you can beat the market.
 
 If you want to at least beat average, find the benchmark. But if the benchmark is too high, forget it, or find another opportunity.
-** How to learn things fast<2017-12-11 Mon>
+*** How to learn things fast<2017-12-11 Mon>
 How to efficiently learn things from a meeting or presentation.
 
 If the presenten gives something I know, connect it with my objective. For example, Zhongwei and me all know mean reversion strategy, how is LSTM and PCA used on this subject.
@@ -96,14 +97,14 @@ Machine learning is for ungifted people. Feeding the model big trunk of data, le
 Learning new technology or knowledge is the same principle, connect your previous knowledge or understanding or experience, predict the unknown field. If the prediction is right, then you have the optimized understanding of that thing, if not, you correct or re-calibrate it.
 
 Three key points should be minded in Machine learning: objective function, optimization process, prediction.
-** Objective, Obstacle, Solution<2017-12-26 Tue>
+*** Objective, Obstacle, Solution<2017-12-26 Tue>
 The challenge financial analysts facing is how to extract useful information from big data, which includes news articles, financial statements, tables, graphs etc. Our objective is to provide them a tool to analyze these information with an understandable workflow in order to increase the efficiency to solve selecting strategy and portfolio, making investment decision.
 
 One of the tools that can be utilized for increasing workflow decision is to tell machines to understand human needs, which is referred as NaturalLanguageProcessing(NLP) pipline.
-** Neural Networks on stock valuation<2017-12-26 Tue>
+*** Neural Networks on stock valuation<2017-12-26 Tue>
 用一个LSTM model，加一个valuation model的方法，如[[https://en.wikipedia.org/wiki/Discounted_cash_flow][discounted cashflow model]][2]，输出再用另一个valuation model，如[[https://en.wikipedia.org/wiki/Dividend_discount_model][Dividend discount model]]，来做某个industry 的return prediction.
-** Research methods<2017-12-28 Thu>
-*** Feasibility study: Know paper details
+*** Research methods<2017-12-28 Thu>
+**** Feasibility study: Know paper details
 - Is this case possible? For example, applying Variational Auto Encoder to the mean and variance from the Gausian Mixed model result, is it possible? Can graph cnn be applied a graph with directions on the signal? Can neural networks physical methods be applied on multi-variable time series data?
 - Is it efficient to solve the problem?
   - Setup building productivity: is it worthy to spend time on building the wheel? Ask the question if it is a one time application or multiple time application. Using interceptor language can save a lot of time on coding. OOP is more suitable for product running efficiency.
@@ -112,13 +113,13 @@ One of the tools that can be utilized for increasing workflow decision is to tel
 build a prototype with sample data, then meaningful small sample data.
 - Conclusion:
 Lessions learned from such study. Explain the axis and legend when showing a figure.
-*** Comparative study: pros and cons
+**** Comparative study: pros and cons
 - Be sensitive to the difference between the models applied in the same field, their data, *context*, algorithm, results, advantage and drawback, etc.
 - Which is better? Main contribution.
-*** Literature study: what is known/unknown
+**** Literature study: what is known/unknown
 - Do we have such data?
 - What is the data like, its properties?
-*** Limit test: what if
+**** Limit test: what if
 - Think about the limits of each model. When data changes, is it still appropriate to use such method to process data, to use the model, to get the same conclusion?
 * January 2018
 ** about learning on your own.<2018-01-04 Thu>
@@ -178,10 +179,10 @@ Based on hot events or keywords, documents classification help can extract topic
 ** Reading habit<2018-02-02 Fri>
 First of all, I really need to realize that my understanding has serious problem.
 
-How to solve it:
+How to fix it:
 1. repeat everything and rephrase it.
 2. slow down, don't skip anything, do deep understanding of that problem.
-3. ask myself do I really understand it, do I miss any information? This can be done by reading repeatly.
+3. ask myself do I really understand it, do I miss any information? This can be done by repeat reading.
 4. speed reading is a bad habit, since we have NLP we don't have to do speed reading in order to scan information and find patterns in the future, the machine can do it.
 * Footnotes
 
