@@ -61,10 +61,33 @@ model.train(more_sentences)
 **** size of the vectors
 **** training algorithm
 **** glossary:
+- Resource Description Framework
+metadata data model. It has come to be used as a general method for conceptual description or modeling of information that is implemented in web resources, using a variety of syntax notations and data serialization formats. It is also used in knowledge management applications.
+
 - Lemmatization is the process of identifying the base, non-inflected form of a word.
 词干化是确定一个单词的固定的基本部分的过程。
 - Sentence Tokenize Test or Sentence Segmentation Test.
 断句。
+- Syntactic Parsing
+比如在opinion extraction中我们常常要抽取评价对象（aspect）：
+例：“知乎的内容质量很好”
+这里 “很好” 形容的是 “内容质量”。通过依存句法分析，就可以抽取出对应的搭配。
+
+再说说IR，以百度框计算为例。对于以下两个query：Query 1: 谢霆锋的儿子是谁？Query 2: 谢霆锋是谁的儿子？这两个Query的bag-of-words完全一致，如果不考虑其语法结构，很难直接给用户返回正确的结果。类似的例子还有很多。在这种情况下，通过句法分析，我们就能够知道用户询问的真正对象是什么。
+
+Tree-LSTM是基于句法结构之上的LSTM，Bi-LSTM则是简单的双向（left<->right）LSTM。在很多任务上，Bi-LSTM都表现得比Tree-LSTM更好。
+- Part of Speech Tagging
+#+BEGIN_SRC python
+>>> import jieba.posseg as pseg
+>>> words = pseg.cut("我爱北京天安门")
+>>> for w in words:
+...    print('%s %s' % (w.word, w.flag))
+...
+我 r
+爱 v
+北京 ns
+天安门 ns
+#+END_SRC
 - Pos Tagging Test:
 #+BEGIN_SRC python
 In [40]: doc4 = nlp(u"This is pos tagger test for spacy pos tagger")
@@ -108,18 +131,7 @@ tags = jieba.analyse.extract_tags(content, topK=topK)
 print(",".join(tags))
 
 #+END_SRC
-- Part of Speech Tagging
-#+BEGIN_SRC python
->>> import jieba.posseg as pseg
->>> words = pseg.cut("我爱北京天安门")
->>> for w in words:
-...    print('%s %s' % (w.word, w.flag))
-...
-我 r
-爱 v
-北京 ns
-天安门 ns
-#+END_SRC
+
 
 * Knowledge-based Q&A
 ** Introduction
@@ -159,6 +171,10 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 
 - main topic classification:
 [[https://en.wikipedia.org/wiki/Category:Main_topic_classifications]]
+
+- database reports/list of properties
+https://www.wikidata.org/wiki/Wikidata:Database_reports/List_of_properties/all
+
 ** Login
 #+BEGIN_SRC neo4j
 :server connect
@@ -174,6 +190,17 @@ pwd:
 darts-quota-alternation
 
 #+END_SRC
+
+** baike triples
+subjects, predicates, and objects
+
+|   Entity | Relationships | Semantic Descriptions |
+| 65001293 |        374311 |               9284910 |
+
+** SPARQL: RDF Query Language
+W3C standard that underlies the Web's knowledge representation formalism: the Web Ontology Language (OWL).
+** Visualization tool: Graphviz, networkx, Gephi
+** Graph database: GraphDB, Neo4j.
 
 ** Approach 1: Loading a reduced subset incrementally through the MediaWiki API
 - wiki dumps:
@@ -307,8 +334,8 @@ From Wikipedia, the free encyclopedia
 
 Subcategories
 This category has only the following subcategory.
-R
-► Resource Description Framework‎ (5 C, 24 P)
+
+► Resource Description Framework(RDF)
 
 Pages in category "Graph databases"
 The following 15 pages are in this category, out of 15 total. This list may not reflect recent changes (learn more).
