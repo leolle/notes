@@ -173,8 +173,16 @@ Another useful NLP tool is information sentiment analysis. Web crawling can extr
 
 Based on hot events or keywords, documents classification help can extract topics and incrementally searching information from previous results, thus recommending plentiful relevant results from one context to another. This technology gives more possibilities to understand the most cared user question and attempts.
 * February 2018
-** 产业链分析
+** 产业链分析<2018-02-01 Thu>
 通过联想到挖掘机销售提高，industrial sector, 上有挖掘机生产，三一重工，矿业里有紫金矿业，需求上有电子行业。
+** Reading habit<2018-02-02 Fri>
+First of all, I really need to realize that my understanding has serious problem.
+
+How to solve it:
+1. repeat everything and rephrase it.
+2. slow down, don't skip anything, do deep understanding of that problem.
+3. ask myself do I really understand it, do I miss any information? This can be done by reading repeatly.
+4. speed reading is a bad habit, since we have NLP we don't have to do speed reading in order to scan information and find patterns in the future, the machine can do it.
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own

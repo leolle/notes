@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-01 Thu 13:53 -->
+<!-- 2018-02-02 Fri 17:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -547,7 +547,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline279">29.1. Platform specific modules</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline301">30. Data Analysis:</a>
+<li><a href="#orgheadline302">30. Data Analysis:</a>
 <ul>
 <li><a href="#orgheadline293">30.1. pandas:</a>
 <ul>
@@ -556,20 +556,21 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline294">30.2. numpy</a></li>
-<li><a href="#orgheadline299">30.3. plot:</a>
+<li><a href="#orgheadline300">30.3. plot:</a>
 <ul>
 <li><a href="#orgheadline295">30.3.1. subplot with the same axis:</a></li>
 <li><a href="#orgheadline296">30.3.2. subplot with different axis</a></li>
 <li><a href="#orgheadline297">30.3.3. plot a secondary y scale</a></li>
 <li><a href="#orgheadline298">30.3.4. plot a 3d figure:</a></li>
+<li><a href="#orgheadline299">30.3.5. display Chinese:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline300">30.4. scipy</a></li>
+<li><a href="#orgheadline301">30.4. scipy</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline303">31. Deep Learning</a>
+<li><a href="#orgheadline304">31. Deep Learning</a>
 <ul>
-<li><a href="#orgheadline302">31.1. Tensorflow</a></li>
+<li><a href="#orgheadline303">31.1. Tensorflow</a></li>
 </ul>
 </li>
 </ul>
@@ -3774,8 +3775,8 @@ $ conda-env remove --name env_name
 <h3 id="orgheadline279"><span class="section-number-3">29.1</span> Platform specific modules</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline301" class="outline-2">
-<h2 id="orgheadline301"><span class="section-number-2">30</span> Data Analysis:</h2>
+<div id="outline-container-orgheadline302" class="outline-2">
+<h2 id="orgheadline302"><span class="section-number-2">30</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-30">
 </div><div id="outline-container-orgheadline293" class="outline-3">
 <h3 id="orgheadline293"><span class="section-number-3">30.1</span> pandas:</h3>
@@ -4635,8 +4636,8 @@ np.random.shuffle<span style="color: #AE81FF;">(</span>arr<span style="color: #A
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline299" class="outline-3">
-<h3 id="orgheadline299"><span class="section-number-3">30.3</span> plot:</h3>
+<div id="outline-container-orgheadline300" class="outline-3">
+<h3 id="orgheadline300"><span class="section-number-3">30.3</span> plot:</h3>
 <div class="outline-text-3" id="text-30-3">
 </div><div id="outline-container-orgheadline295" class="outline-4">
 <h4 id="orgheadline295"><span class="section-number-4">30.3.1</span> subplot with the same axis:</h4>
@@ -4766,10 +4767,33 @@ fig is the :class:matplotlib.figure.Figure object.
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline300" class="outline-3">
-<h3 id="orgheadline300"><span class="section-number-3">30.4</span> scipy</h3>
+<div id="outline-container-orgheadline299" class="outline-4">
+<h4 id="orgheadline299"><span class="section-number-4">30.3.5</span> display Chinese:</h4>
+<div class="outline-text-4" id="text-30-3-5">
+<div class="org-src-container">
+
+<pre class="src src-bash">&#10140;  log git:<span style="color: #AE81FF;">(</span>master<span style="color: #AE81FF;">)</span> &#10007; fc-list :<span style="color: #FD971F;">lang</span>=zh
+/usr/share/fonts/truetype/wqy/wqy-microhei.ttc: &#25991;&#27849;&#39551;&#24494;&#31859;&#40657;,&#25991;&#27849;&#39515;&#24494;&#31859;&#40657;,WenQuanYi Micro Hei:<span style="color: #FD971F;">style</span>=Regular
+/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf: Droid Sans Fallback:<span style="color: #FD971F;">style</span>=Regular
+/usr/share/fonts/truetype/wqy/wqy-microhei.ttc: &#25991;&#27849;&#39551;&#31561;&#23485;&#24494;&#31859;&#40657;,&#25991;&#27849;&#39515;&#31561;&#23532;&#24494;&#31859;&#40657;,WenQuanYi Micro Hei Mono:<span style="color: #FD971F;">style</span>=Regular
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> matplotlib.font_manager <span style="color: #F92672;">as</span> mfm
+<span style="color: #F92672;">import</span> matplotlib.pyplot <span style="color: #F92672;">as</span> plt
+<span style="color: #FD971F;">font_path</span> = <span style="color: #E6DB74;">"/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"</span>
+<span style="color: #FD971F;">prop</span> = mfm.FontProperties<span style="color: #AE81FF;">(</span>fname=font_path<span style="color: #AE81FF;">)</span>
+plt.text<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>, <span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">5</span>, s=u<span style="color: #E6DB74;">'&#27979;&#35797;'</span>, fontproperties=prop<span style="color: #AE81FF;">)</span>
+plt.show<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline301" class="outline-3">
+<h3 id="orgheadline301"><span class="section-number-3">30.4</span> scipy</h3>
 <div class="outline-text-3" id="text-30-4">
 <ul class="org-ul">
 <li>combination k from n.</li>
@@ -4801,11 +4825,11 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline303" class="outline-2">
-<h2 id="orgheadline303"><span class="section-number-2">31</span> Deep Learning</h2>
+<div id="outline-container-orgheadline304" class="outline-2">
+<h2 id="orgheadline304"><span class="section-number-2">31</span> Deep Learning</h2>
 <div class="outline-text-2" id="text-31">
-</div><div id="outline-container-orgheadline302" class="outline-3">
-<h3 id="orgheadline302"><span class="section-number-3">31.1</span> Tensorflow</h3>
+</div><div id="outline-container-orgheadline303" class="outline-3">
+<h3 id="orgheadline303"><span class="section-number-3">31.1</span> Tensorflow</h3>
 <div class="outline-text-3" id="text-31-1">
 <ul class="org-ul">
 <li>install tensorflow:</li>

@@ -2461,6 +2461,22 @@ fig is the :class:matplotlib.figure.Figure object.
 
 [https://docs.python.org/2/reference/simple_stmts.html?highlight=assert]
 
+*** display Chinese:
+#+BEGIN_SRC bash
+➜  log git:(master) ✗ fc-list :lang=zh
+/usr/share/fonts/truetype/wqy/wqy-microhei.ttc: 文泉驿微米黑,文泉驛微米黑,WenQuanYi Micro Hei:style=Regular
+/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf: Droid Sans Fallback:style=Regular
+/usr/share/fonts/truetype/wqy/wqy-microhei.ttc: 文泉驿等宽微米黑,文泉驛等寬微米黑,WenQuanYi Micro Hei Mono:style=Regular
+#+END_SRC
+#+BEGIN_SRC python
+import matplotlib.font_manager as mfm
+import matplotlib.pyplot as plt
+font_path = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
+prop = mfm.FontProperties(fname=font_path)
+plt.text(0.5, 0.5, s=u'测试', fontproperties=prop)
+plt.show()
+
+#+END_SRC
 ** scipy
 -  combination k from n.
 $$

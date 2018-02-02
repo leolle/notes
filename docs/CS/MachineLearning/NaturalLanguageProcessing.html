@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-01 Thu 13:53 -->
+<!-- 2018-02-02 Fri 17:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -181,23 +181,27 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline20">4.1. features:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline28">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<li><a href="#orgheadline32">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
 <ul>
 <li><a href="#orgheadline22">5.1. Login</a></li>
-<li><a href="#orgheadline23">5.2. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
-<li><a href="#orgheadline27">5.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<li><a href="#orgheadline23">5.2. baike triples</a></li>
+<li><a href="#orgheadline24">5.3. SPARQL: RDF Query Language</a></li>
+<li><a href="#orgheadline25">5.4. Visualization tool: Graphviz, networkx, Gephi</a></li>
+<li><a href="#orgheadline26">5.5. Graph database: GraphDB, Neo4j.</a></li>
+<li><a href="#orgheadline27">5.6. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
+<li><a href="#orgheadline31">5.7. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
 <ul>
-<li><a href="#orgheadline26">5.3.1. Data dumps/Import</a></li>
+<li><a href="#orgheadline30">5.7.1. Data dumps/Import</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline29">6. NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</a></li>
-<li><a href="#orgheadline33">7. Position Of Tagging</a>
+<li><a href="#orgheadline33">6. NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</a></li>
+<li><a href="#orgheadline37">7. Position Of Tagging</a>
 <ul>
-<li><a href="#orgheadline30">7.1. 词性解释</a></li>
-<li><a href="#orgheadline31">7.2. 句法分析（句法树）</a></li>
-<li><a href="#orgheadline32">7.3. 关系表示</a></li>
+<li><a href="#orgheadline34">7.1. 词性解释</a></li>
+<li><a href="#orgheadline35">7.2. 句法分析（句法树）</a></li>
+<li><a href="#orgheadline36">7.3. 关系表示</a></li>
 </ul>
 </li>
 </ul>
@@ -325,6 +329,13 @@ model.train<span style="color: #AE81FF;">(</span>more_sentences<span style="colo
 <li><a id="orgheadline6"></a>size of the vectors<br  /></li>
 <li><a id="orgheadline7"></a>training algorithm<br  /></li>
 <li><a id="orgheadline8"></a>glossary:<br  /><div class="outline-text-5" id="text-1-4-2-4">
+<ul class="org-ul">
+<li>Resource Description Framework</li>
+</ul>
+<p>
+metadata data model. It has come to be used as a general method for conceptual description or modeling of information that is implemented in web resources, using a variety of syntax notations and data serialization formats. It is also used in knowledge management applications.
+</p>
+
 <ul class="org-ul">
 <li>Lemmatization is the process of identifying the base, non-inflected form of a word.</li>
 </ul>
@@ -519,8 +530,8 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline28" class="outline-2">
-<h2 id="orgheadline28"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
+<div id="outline-container-orgheadline32" class="outline-2">
+<h2 id="orgheadline32"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>guide:</li>
@@ -535,7 +546,15 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 <p>
 <a href="https://en.wikipedia.org/wiki/Category:Main_topic_classifications">https://en.wikipedia.org/wiki/Category:Main_topic_classifications</a>
 </p>
+
+<ul class="org-ul">
+<li>database reports/list of properties</li>
+</ul>
+<p>
+<a href="https://www.wikidata.org/wiki/Wikidata:Database_reports/List_of_properties/all">https://www.wikidata.org/wiki/Wikidata:Database_reports/List_of_properties/all</a>
+</p>
 </div>
+
 <div id="outline-container-orgheadline22" class="outline-3">
 <h3 id="orgheadline22"><span class="section-number-3">5.1</span> Login</h3>
 <div class="outline-text-3" id="text-5-1">
@@ -560,8 +579,57 @@ darts-quota-alternation
 </div>
 
 <div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">5.2</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
+<h3 id="orgheadline23"><span class="section-number-3">5.2</span> baike triples</h3>
 <div class="outline-text-3" id="text-5-2">
+<p>
+subjects, predicates, and objects
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Entity</td>
+<td class="org-right">Relationships</td>
+<td class="org-right">Semantic Descriptions</td>
+</tr>
+
+<tr>
+<td class="org-right">65001293</td>
+<td class="org-right">374311</td>
+<td class="org-right">9284910</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">5.3</span> SPARQL: RDF Query Language</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+W3C standard that underlies the Web's knowledge representation formalism: the Web Ontology Language (OWL).
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">5.4</span> Visualization tool: Graphviz, networkx, Gephi</h3>
+</div>
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">5.5</span> Graph database: GraphDB, Neo4j.</h3>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">5.6</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
+<div class="outline-text-3" id="text-5-6">
 <ul class="org-ul">
 <li>wiki dumps:</li>
 </ul>
@@ -702,9 +770,9 @@ return value
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">5.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">5.7</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
+<div class="outline-text-3" id="text-5-7">
 <ul class="org-ul">
 <li>basics</li>
 <li>wiki page structure example:</li>
@@ -721,8 +789,10 @@ From Wikipedia, the free encyclopedia
 <p>
 Subcategories
 This category has only the following subcategory.
-R
-► Resource Description Framework‎ (5 C, 24 P)
+</p>
+
+<p>
+► Resource Description Framework(RDF)
 </p>
 
 <p>
@@ -876,10 +946,10 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-4">
-<h4 id="orgheadline26"><span class="section-number-4">5.3.1</span> Data dumps/Import</h4>
-<div class="outline-text-4" id="text-5-3-1">
-</div><ol class="org-ol"><li><a id="orgheadline24"></a>structure:<br  /><div class="outline-text-5" id="text-5-3-1-1">
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">5.7.1</span> Data dumps/Import</h4>
+<div class="outline-text-4" id="text-5-7-1">
+</div><ol class="org-ol"><li><a id="orgheadline28"></a>structure:<br  /><div class="outline-text-5" id="text-5-7-1-1">
 <p>
 <a href="https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql">https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql</a>
 </p>
@@ -1068,7 +1138,7 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </table>
 </div></li>
 
-<li><a id="orgheadline25"></a>methods<br  /><div class="outline-text-5" id="text-5-3-1-2">
+<li><a id="orgheadline29"></a>methods<br  /><div class="outline-text-5" id="text-5-7-1-2">
 <p>
 <a href="https://meta.wikimedia.org/wiki/Data_dumps">https://meta.wikimedia.org/wiki/Data_dumps</a>
 </p>
@@ -1174,8 +1244,8 @@ That was it. This was enough to let me view (most) pages without errors.
 </div>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-2">
-<h2 id="orgheadline29"><span class="section-number-2">6</span> NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</h2>
+<div id="outline-container-orgheadline33" class="outline-2">
+<h2 id="orgheadline33"><span class="section-number-2">6</span> NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</h2>
 <div class="outline-text-2" id="text-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1228,11 +1298,11 @@ That was it. This was enough to let me view (most) pages without errors.
 </div>
 </div>
 
-<div id="outline-container-orgheadline33" class="outline-2">
-<h2 id="orgheadline33"><span class="section-number-2">7</span> Position Of Tagging</h2>
+<div id="outline-container-orgheadline37" class="outline-2">
+<h2 id="orgheadline37"><span class="section-number-2">7</span> Position Of Tagging</h2>
 <div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">7.1</span> 词性解释</h3>
+</div><div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">7.1</span> 词性解释</h3>
 <div class="outline-text-3" id="text-7-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1446,8 +1516,8 @@ That was it. This was enough to let me view (most) pages without errors.
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">7.2</span> 句法分析（句法树）</h3>
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">7.2</span> 句法分析（句法树）</h3>
 <div class="outline-text-3" id="text-7-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1706,8 +1776,8 @@ That was it. This was enough to let me view (most) pages without errors.
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">7.3</span> 关系表示</h3>
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">7.3</span> 关系表示</h3>
 <div class="outline-text-3" id="text-7-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 

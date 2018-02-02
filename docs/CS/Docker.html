@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-10 Wed 14:55 -->
+<!-- 2018-02-02 Fri 17:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -230,6 +230,7 @@ sudo systemctl restart docker
 
 <pre class="src src-shell">docker run <span style="color: #E6DB74; font-weight: bold;">\</span>
     --publish=<span style="color: #AE81FF;">7474:7474</span> --publish=<span style="color: #AE81FF;">7687:7687</span> <span style="color: #E6DB74; font-weight: bold;">\</span>
+    --env=<span style="color: #FD971F;">NEO4J_AUTH</span>=none <span style="color: #E6DB74; font-weight: bold;">\</span>
     --volume=$<span style="color: #FD971F;">HOME</span>/neo4j/data:/data <span style="color: #E6DB74; font-weight: bold;">\</span>
     neo4j
 </pre>
