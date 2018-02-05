@@ -42,6 +42,7 @@
     + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
     + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
       + [[file:CS/MachineLearning/nlp/NLPLibraries.html][NLPLibraries]]
+      + [[file:CS/MachineLearning/nlp/NLP+libraries+comparison.html][NLPLibrariesCompareCode]]
     + [[file:CS/MachineLearning/DeepLearning.org][DeepLearning]]
     + [[file:./Boosting.org][Boosting]]
     + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]
