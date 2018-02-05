@@ -419,6 +419,10 @@ python models/tutorials/image/mnist/convolutional.py
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- show absolute path of file:
+#+BEGIN_SRC bash
+realpath filename
+#+END_SRC
 - detect keyboard press
 #+BEGIN_SRC bash
 xev

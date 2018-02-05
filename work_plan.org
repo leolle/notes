@@ -204,6 +204,8 @@ node.names.chinese = simple Chinese title
 - [X] test importing wiki categories nodes.
 **** entity relationship
 :LOGBOOK:
+CLOCK: [2018-02-05 Mon 09:54]
+CLOCK: [2018-02-02 Fri 10:23]--[2018-02-02 Fri 17:25] =>  7:02
 CLOCK: [2018-02-01 Thu 15:42]--[2018-02-01 Thu 20:26] =>  4:44
 CLOCK: [2018-02-01 Thu 10:00]--[2018-02-01 Thu 11:52] =>  1:52
 CLOCK: [2018-01-31 Wed 15:16]--[2018-01-31 Wed 19:29] =>  4:13
@@ -211,8 +213,14 @@ CLOCK: [2018-01-31 Wed 10:53]--[2018-01-31 Wed 12:08] =>  1:15
 CLOCK: [2018-01-31 Wed 10:09]--[2018-01-31 Wed 10:52] =>  0:43
 CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 :END:
+- [X] pseudo code of node, edge upload.
+- [ ] summerize nlp library extraction result comparison in jupyter notebook.
+- [ ] from survey paper -> book -> reference paper -> citation paper -> application -> open source library.
+- [ ] find the difference of attirbutes not in Juyuan database, searching for useful information.
+- [ ] entity extraction resolution detection like author, publisher.
 - [ ] listed companies triples importing to neo4j.
-- [ ] visualization of triples.
+- [X] extract the triple relation information.
+- [X] visualization of triples.
 - [ ] NER of all listed company pages content what analyst care about: 有关内容包括：主要产品，产业链，竞争对手，合作伙伴，投资方，key person(如公司跟投资人关联), 上市交易所，sentiment, 分析师评级，评论，公司重大公告.
 - [ ] extract RDF company triples.
 - [X] Chinese NER model is missing, searching. models are in the Chinese model jar file.
@@ -226,7 +234,7 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 ***** opinion extraction system
 sentiment analysis.
 ***** information retrieval system
-Q&A.
+Q&A。
 用了什么分析方法，数据。
 **** Part 1: Knowledge Graph Primer
 - What is a Knowledge Graph?
@@ -405,6 +413,12 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。
 ****** 金融新闻Bots
 实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。
+****** 知识数据分析
+通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
+
+在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
+[[./img/knowledge_graph_company.jpg]]
+
 ***** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
 - Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
