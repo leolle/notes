@@ -262,6 +262,12 @@ git@github.com:leolle/notes.git
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 #+end_src
 
+*** Adding a new SSH key to your GitHub account
+#+BEGIN_SRC bash
+clip < ~/.ssh/id_rsa.pub
+# Copies the contents of the id_rsa.pub file to your clipboard
+
+#+END_SRC
 ** remove remote
 #+begin_src emacs-lisp :tangle yes
 git remote rm xxx

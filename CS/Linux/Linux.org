@@ -486,6 +486,10 @@ rename 's/\.bak$//' *.bak
 *** Scripting best practices
 
 *** Shell commands:
+- copy a filepath to clipboard
+#+BEGIN_SRC bash
+pwd |  xclip -i -selection clipboard
+#+END_SRC
 - copy folder:
 #+BEGIN_SRC bash
 cp folder /destination/path -a

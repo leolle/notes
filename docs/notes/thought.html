@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-05 Mon 14:06 -->
+<!-- 2018-02-05 Mon 18:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -200,10 +200,12 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline40">3. February 2018</a>
+<li><a href="#orgheadline42">3. February 2018</a>
 <ul>
 <li><a href="#orgheadline38">3.1. 产业链分析<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-02-01 Thu&gt;</span></span></a></li>
 <li><a href="#orgheadline39">3.2. Reading habit<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-02-02 Fri&gt;</span></span></a></li>
+<li><a href="#orgheadline40">3.3. Financial knowledge graph<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-02-05 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline41">3.4. Management case study<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-02-05 Mon&gt;</span></span></a></li>
 </ul>
 </li>
 </ul>
@@ -589,8 +591,8 @@ Based on hot events or keywords, documents classification help can extract topic
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline40" class="outline-2">
-<h2 id="orgheadline40"><span class="section-number-2">3</span> February 2018</h2>
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="section-number-2">3</span> February 2018</h2>
 <div class="outline-text-2" id="text-3">
 </div><div id="outline-container-orgheadline38" class="outline-3">
 <h3 id="orgheadline38"><span class="section-number-3">3.1</span> 产业链分析<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-02-01 Thu&gt;</span></span></h3>
@@ -640,6 +642,144 @@ So, in short: Speed reading anything you need to truly comprehend is probably a 
 
 <p>
 <a href="https://www.wired.com/2017/01/make-resolution-read-speed-reading-wont-help/">https://www.wired.com/2017/01/make-resolution-read-speed-reading-wont-help/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">3.3</span> Financial knowledge graph<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-02-05 Mon&gt;</span></span></h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+具体到金融行业，建立知识图谱通常要经历三个主要步骤：
+</p>
+
+<p>
+-　从海量的结构化、非结构化数据中识别金融实体；
+</p>
+
+<p>
+-　根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱；
+</p>
+
+<p>
+-　定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。
+</p>
+
+<p>
+　　先来看第一个步骤：实体的识别是从文本中抽取出特定的实体信息，如时间、人物、地点、公司、产品等等，由此确定了知识图谱中的点。
+</p>
+
+<p>
+　　再来看第二个步骤：关系的识别则是指实体间的各种关系，如地理位置关系、雇佣关系、股权关系等等，这些关系确定了点与点之间的边。需要说明的是，常用的抽取关系的方法有基于专家知识库和基于机器学习等类型。其中，基于专家知识库的方法是由行业专家构筑大规模的领域知识库，需要专家参与，一般耗时费力，但是质量相对比较可靠；机器学习的方法需要构造特征向量形式的训练数据，使用机器学习算法自动构造。需要特别指出的是，对于非结构化文本，实体识别和关系抽取需要基于自然语言处理算法，以及深度学习算法（例如，用词向量的方式寻找近义词，提高实体模糊识别的准确度），这是一个反复迭代、不断精进的过程。
+</p>
+
+<p>
+　　最后来看第三个步骤：推理能力是人类智能的重要特征，是由一个或几个已知的前提推出结论的过程，也可以从已有的知识中发现隐含的知识。在推理的过程中，往往需要一些规则的支持，例如：从“某人甲”既是“企业A”的法人也是“企业B”的法人，可以推测出“企业A”和“企业B”之间的关联关系。当然，这里会涉及到概率的问题。当信息量特别多的时候，如何把这些信息有效地与推理算法结合在一起是最关键、最有挑战性的工作。常用的推理算法包括基于逻辑和基于分布式表示的方法。随着深度学习在人工智能领域取得的突破，基于分布式表示的方法已成为目前研究的热点。
+</p>
+
+<p>
+策略的生成。现有阶段，机器在业务场景中还无法完全替代人类的作用，而是辅助人类作出价值判断、风险判断，通过过往的案例或者既定的逻辑，为人类推荐可行的策略。在此，涉及到人工智能的方方面面：对用户交互而言，有意图理解、语言生成、用户画像匹配等；在业务层面，有逻辑生成、投资模型、风险模型等；涉及的数据处理有规则提取、知识库建设，语义检索、逻辑推理等。
+</p>
+
+<p>
+其中需要的主要技术为：文档篇章分割、中文分词、实体提取及消歧、关系提取、规则库建设等。金融领域中的征信、融资、资管、二级市场交易等都有具体的业务场景，都需要业务逻辑，这些逻辑在数据之上表现为模型，需要在基础数据和领域知识的基础上实现。
+</p>
+
+<p>
+　　此外，金融知识图谱还包含了很多其他的形式，例如：A股的公司、港股和美股的公司，各种基本面的数据、行情的数据都在逐渐的知识图谱化，还有公告数据、研报数据、以及工商数据等都是金融知识图谱的分支。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">3.4</span> Management case study<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-02-05 Mon&gt;</span></span></h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+在公司工作的半年多时间内，发现了很多因为工作方法不正确，而导致在某些工作项目上效率低下的问题。现把一些现象背后的原因进行分析，得出经验，总结出一套规则，以及将来怎么样贯彻这些规则做一些说明。
+</p>
+
+<ul class="org-ul">
+<li>别老是担心面子上是否过得去，要担心是否能达成目标。</li>
+<li>高效、创新的思考者会犯错并从错误中汲取教训，因为这是创新过程的自然组成部分。</li>
+<li>把自己和他人的缺点说出来或者写下来，有助于记住和认识这些缺点。</li>
+<li>努力获取正确方案。</li>
+<li>诊断并了解问题的症结。</li>
+</ul>
+
+<p>
+拥有规则极其重要，不仅对个人是这样，对于公司团体来说亦是如此。个人处事时能选择自己喜欢的价值观和原则，同样，在团体中工作时，我们必须认同团体的价值观和原则。如果一个团体对其价值观和规则不够清晰，就会产生混乱，最终流于平庸。一个团体的价值观和原则一旦清晰明了，团体的行事方式（也就是他们的文化）将渗透于他们所做的每一件事情，包括如何制定目标、发现问题、诊断问题、制定计划、实施计划。
+</p>
+
+<ul class="org-ul">
+<li>别老是担心面子上是否过得去，要担心是否能达成目标。</li>
+</ul>
+<p>
+抛开你的不安全感，去努力实现你的目标。当你发现你犯了错误或者不知道一些事情的时，体会一下自己的感受，这可以检验你是否过于担心看起来是否很好。如果你发现你感觉不好受，反思一下——提醒一下自己，最有价值的评论是精准的批评意见。
+</p>
+
+<p>
+Case: Martin与我商量wiki导入Neo4j的项目事项，具体在时间上的估计时，他预估了一周时间，最后给他一天时间去做校验。因为面子原因，我以为我可以在一周时间内完成任务，但是一开始的工作并没有我想像中的顺利，提取有效实体，实体之间的关系，特别是怎么样把提取出来的数据导入Neo4j，都碰到了困难，以致于在星期五结束工作时，只导入了节点，而边还没有开始导入。这时我本应该告诉Martin我碰到了困难，时间上来不及，但是因为面子的原因没有及时公布项目的进展，而影响了他的工作安排。
+</p>
+
+<p>
+这时如果我积极公布项目进展，主动寻求帮助，可以让问题更快的暴露出来，使工作更快的完成。
+</p>
+
+<ul class="org-ul">
+<li>高效、创新的思考者会犯错并从错误中汲取教训，因为这是创新过程的自然组成部分。</li>
+</ul>
+<p>
+你从一个错误中汲取教训，会让你在未来避免犯成千上万个类似错误。因此，如果你把错误当做是产生快速改善的学习机会，那么你应该为错误而兴奋。但是，如果你把错误当做是坏事情，那么你和其他人都会觉得很悲哀，你就无法成长。你的工作环境将会充斥背后说坏话和恶语中伤等现象，缺乏对真相的健康、诚实的探寻；对真相的健康、诚实的探寻会带来进化和改善。正因为如此，你犯的错误越多，你进行有质量的、诚实的诊断分析越多，你的进步就越快。
+</p>
+
+<ul class="org-ul">
+<li>把自己和他人的缺点说出来或者写下来，有助于记住和认识这些缺点。</li>
+</ul>
+<p>
+隐藏缺点是不健康的，因为你隐藏它们，就会延缓你解决问题的进程。反之，如果你直接面对、不容忍这些缺点，那么你将不可避免地在进化过程中克服它们。
+</p>
+
+<p>
+Case: 中伟经常会对我进行一些工作上的指正，指出我的一些缺点，例如读文章不够仔细，提的问题不够深入。我感谢他提出我的这些问题，因为可以帮我改正我的不良习惯，从而提高自己的水平。
+</p>
+
+<ul class="org-ul">
+<li>努力获取正确方案。</li>
+</ul>
+<p>
+本着开放的心态，找合适的相关方一起讨论或辩论重要议题，直至确定最佳方案。这一过程最有利于学习和互相了解。努力研究，直到获得最佳方案。
+</p>
+
+<p>
+Case: 怎么样确定自然语言实体导入Neo4j时的hash，刚开始的设计方案得到GID的方式与GS能够从网页上通过url获取得到的GID不一致，通过与赖根，段奡和Martin商讨以后得到了一个最好的二选一方案。
+</p>
+
+<ul class="org-ul">
+<li>诊断并了解问题的症结。</li>
+</ul>
+<p>
+要认识到，所有问题都只是其根本原因的表现，所以要通过诊断分析来理解问题症结所在。不要把问题解决了就不深究了。问题是机器的产物，而机器由其设计和人构成。如果设计和人都非常好，那结果肯定也不错（尽管不完美）。所以，当你遇到问题时，应该分析设计和人，确定哪一项导致了失败及其原因。
+</p>
+
+<p>
+Case: 编程时的风格：函数，变量，类的命名规则经常不一致，没有统一的风格，缺乏可读性，这是因为大家受过的培训和教育不一样所导致。
+</p>
+
+<p>
+提出改进的方案：制定统一的编程风格规范文本，严格参照该规范文本进行工作。
+</p>
+
+<ul class="org-ul">
+<li>项目时应该有计划</li>
+</ul>
+<p>
+制定有效的计划需要把事情想透，并图示事情的来龙去脉。关键是要形象化描述你来自何处（或你做过什么）、你现在的情况如何以及未来如何发展直至实现目标。你应该按照时间维度来图示整个计划，就像看一部讲述你过去、现在和未来的电影一样。然后把计划写下来，保证自己能随时看到。计划要包括谁做什么，什么时候做。具体任务清单源自故事（即计划），但它们是不一样的。故事或者计划是把你的目标和任务关联起来的东西。
+</p>
+
+<p>
+设计你的计划时，要考虑各种相互关联的任务的时间顺序。先草拟大概，再用具体任务补充完善。
+</p>
+
+<p>
+Case: 在做Word Embedding时，做出的计划应该包括一开始找什么资料，读什么书，什么paper，用什么技术，能够找到什么数据，最后怎么测试这些数据，比较各个技术之间的优势和不足，了解每项技术的瓶颈，解决方案有哪些，运用这些技术能够解决哪些问题，有哪些跟实际工作相关的应用，自己这样做的优势在哪里。
 </p>
 </div>
 </div>

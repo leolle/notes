@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-26 Fri 13:23 -->
+<!-- 2018-02-05 Mon 18:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -165,7 +165,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline12">1.12. svn up -r version name + file name:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline35">2. GIT</a>
+<li><a href="#orgheadline36">2. GIT</a>
 <ul>
 <li><a href="#orgheadline14">2.1. update git version:</a></li>
 <li><a href="#orgheadline16">2.2. 创建版本库</a>
@@ -188,15 +188,16 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline26">2.9. 分支管理策略</a></li>
 <li><a href="#orgheadline27">2.10. Bug分支</a></li>
 <li><a href="#orgheadline28">2.11. 多人协作</a></li>
-<li><a href="#orgheadline30">2.12. Switching remote URLs from HTTPS to SSH</a>
+<li><a href="#orgheadline31">2.12. Switching remote URLs from HTTPS to SSH</a>
 <ul>
 <li><a href="#orgheadline29">2.12.1. Change your remote's URL from HTTPS to SSH with the git remote set-url command.</a></li>
+<li><a href="#orgheadline30">2.12.2. Adding a new SSH key to your GitHub account</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline31">2.13. remove remote</a></li>
-<li><a href="#orgheadline32">2.14. rename remote</a></li>
-<li><a href="#orgheadline33">2.15. push which remote</a></li>
-<li><a href="#orgheadline34">2.16. sub modules</a></li>
+<li><a href="#orgheadline32">2.13. remove remote</a></li>
+<li><a href="#orgheadline33">2.14. rename remote</a></li>
+<li><a href="#orgheadline34">2.15. push which remote</a></li>
+<li><a href="#orgheadline35">2.16. sub modules</a></li>
 </ul>
 </li>
 </ul>
@@ -339,8 +340,8 @@ reverse file back to a version.
 </div>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-2">
-<h2 id="orgheadline35"><span class="section-number-2">2</span> GIT</h2>
+<div id="outline-container-orgheadline36" class="outline-2">
+<h2 id="orgheadline36"><span class="section-number-2">2</span> GIT</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline14" class="outline-3">
 <h3 id="orgheadline14"><span class="section-number-3">2.1</span> update git version:</h3>
@@ -632,8 +633,8 @@ stash@{0}: WIP on dev: <span style="color: #AE81FF;">6224937</span> add merge
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline30" class="outline-3">
-<h3 id="orgheadline30"><span class="section-number-3">2.12</span> Switching remote URLs from HTTPS to SSH</h3>
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">2.12</span> Switching remote URLs from HTTPS to SSH</h3>
 <div class="outline-text-3" id="text-2-12">
 <div class="org-src-container">
 
@@ -658,10 +659,21 @@ git@github.com:leolle/notes.git
 </div>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">2.13</span> remove remote</h3>
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">2.12.2</span> Adding a new SSH key to your GitHub account</h4>
+<div class="outline-text-4" id="text-2-12-2">
+<div class="org-src-container">
+
+<pre class="src src-bash">clip &lt; ~/.ssh/id_rsa.pub
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Copies the contents of the id_rsa.pub file to your clipboard</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">2.13</span> remove remote</h3>
 <div class="outline-text-3" id="text-2-13">
 <div class="org-src-container">
 
@@ -680,8 +692,8 @@ opposite operation:
 </div>
 </div>
 
-<div id="outline-container-orgheadline32" class="outline-3">
-<h3 id="orgheadline32"><span class="section-number-3">2.14</span> rename remote</h3>
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">2.14</span> rename remote</h3>
 <div class="outline-text-3" id="text-2-14">
 <div class="org-src-container">
 
@@ -691,8 +703,8 @@ opposite operation:
 </div>
 </div>
 
-<div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">2.15</span> push which remote</h3>
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">2.15</span> push which remote</h3>
 <div class="outline-text-3" id="text-2-15">
 <div class="org-src-container">
 
@@ -701,8 +713,8 @@ opposite operation:
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34"><span class="section-number-3">2.16</span> sub modules</h3>
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">2.16</span> sub modules</h3>
 <div class="outline-text-3" id="text-2-16">
 <div class="org-src-container">
 
