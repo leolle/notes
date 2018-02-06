@@ -25,9 +25,9 @@
 
 我们要熟悉的概念和工具有
 
-**  正则表达式
+** [[file:CS/Regular_Expression.org][正则表达式]]
 
-**  中文分词和词性标注
+** [[file:CS/MachineLearning/nlp/NLP+libraries+comparison.html][中文分词和词性标注]]
 
 **  命名实体识别
 

@@ -19,7 +19,6 @@
   + Database
     + [[file:Database/DBMS.org][DBMS]]
     + [[file:CS/DB.org][DB]]
-  + [[file:CS/Regular_Expression.org][RegularExpression]]
   + [[file:CS/VersionControl.org][VersionControl]]
   + Emacs
     + [[file:emacs/emacs.org][Emacs]]
@@ -42,6 +41,7 @@
     + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
     + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
       + [[file:CS/MachineLearning/KnowledgeGraph.org][KnowledgeGraph]]
+        + [[file:CS/Regular_Expression.org][RegularExpression]]
         + [[file:CS/MachineLearning/nlp/NLPLibraries.html][NLPLibraries]]
         + [[file:CS/MachineLearning/nlp/NLP+libraries+comparison.html][NLPLibrariesCompareCode]]
     + [[file:CS/MachineLearning/DeepLearning.org][DeepLearning]]
