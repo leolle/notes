@@ -163,6 +163,7 @@ ICA
 **** create wiki knowledge graph
 DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
+CLOCK: [2018-02-06 Tue 11:32]
 CLOCK: [2018-01-30 Tue 19:24]--[2018-01-30 Tue 20:52] =>  1:28
 CLOCK: [2018-01-30 Tue 13:11]--[2018-01-30 Tue 17:45] =>  4:34
 CLOCK: [2018-01-30 Tue 10:58]--[2018-01-30 Tue 12:39] =>  1:41
@@ -176,6 +177,8 @@ CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
 CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
+- [ ] skill_2_graph
+=C-M-r= in gs, create 查路径, drag GID: 81F49335AC9C4D84A5F27F7A02AAABBA into the input box, input Parent GID in the parent box.
 - [ ] importing wiki categories and page edge relation to Neo4j.
 - [ ] skill GID generating in Python.
 - [X] 把节点上传. wiki 上传了1040229 page, 381475 categories.
@@ -206,6 +209,7 @@ node.names.chinese = simple Chinese title
 - [X] test importing wiki categories nodes.
 **** TODO entity relationship
 :LOGBOOK:
+CLOCK: [2018-02-06 Tue 10:07]--[2018-02-06 Tue 11:32] =>  1:25
 CLOCK: [2018-02-05 Mon 15:38]--[2018-02-05 Mon 16:21] =>  0:43
 CLOCK: [2018-02-05 Mon 09:54]--[2018-02-05 Mon 15:34] =>  5:40
 CLOCK: [2018-02-02 Fri 10:23]--[2018-02-02 Fri 17:25] =>  7:02

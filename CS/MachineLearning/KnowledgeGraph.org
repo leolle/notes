@@ -1,0 +1,88 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: KnowledgeGraph
+#+DATE: <2018-02-06 Tue>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
+
+| *Author* | {{{authors}}} ({{{email}}})   |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+| *Title*  |           {{{titles}}}        |
+
+* 第一周：知识提取
+
+
+知识提取是要解决结构化数据生成的问题。但是广义上讲，知识提取是数据质量提升中的一环，各种提升数据质量的方法，都可以视为某种知识提取。学术上一般是用自然语言处理的方法，但在实践中通常是利用规则。
+
+
+
+我们要熟悉的概念和工具有
+
+**  正则表达式
+
+**  中文分词和词性标注
+
+**  命名实体识别
+
+综合分词工具和正则表达式提取邮件签名档
+
+
+
+* 知识表示
+
+
+
+知识表示是如何组织数据的结构，以方便推导出新的结构的方法。传统上属于逻辑的分支，但在实践中我们会用很简单、可读、可维持的数据结构。
+
+**  JSON和YAML
+
+**  RDF和OWL
+
+**  JSON-LD
+
+自己设计电子邮件的结构化表示
+
+
+
+* 知识存储
+
+
+
+知识存储解决如何管理大量的结构化数据。我们可以用不同的数据库工具。现代的关系数据库可能可以解决大多数需要知识图谱的场合。某些特殊场合，我们需要图数据库。
+
+
+
+**  知识链接的方式：字符串、外键、URI
+
+**  PostgreSQL及其JSON扩展
+
+**  图数据库 Neo4j和OrientDB
+
+**  RDF数据库Stardog
+
+选择一种数据库存储自己的电子邮件
+
+
+* 知识检索
+
+
+
+知识检索提供对用户友好的交互。知识检索从简单到复杂可分为六级：关键词、词联想、词本体、短程关系、长程关系、自由问答。我们会实践前两个层次的技术，并了解后面四个层次。
+
+
+
+**  Gensim实现主题模型
+
+**  ElasticSearch
+
+**  SearchKit构造分面浏览器
+
+**  IBM Watson的架构
+浏览和检索自己的电子邮件
