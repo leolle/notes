@@ -1423,6 +1423,16 @@ data = data.dropna()
 
 ** email — An email and MIME handling package
 ** json — JSON encoder and decoder
+** Graph
+*** networkx
+- add node to a graph
+- add edges to a graph
+- find a loop/cycle in a graph
+#+BEGIN_SRC python
+nx.find_cycle(G)
+list(nx.simple_cycles(G))
+#+END_SRC
+
 
 * Internet Protocols and Support
 ** webbrowser — Convenient Web-browser controller

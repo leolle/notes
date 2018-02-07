@@ -12,6 +12,136 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../configOrg/level1.org
 
+* Finding Patterns in Text
+The most common use for re is to search for patterns in text. This example looks for two literal strings, 'this' and 'that', in a text string.
+#+BEGIN_SRC python
+#!/home/weiwu/.pyenv/shims/python2
+import re
+
+patterns = [ 'this', 'that' ]
+text = 'Does this text match the pattern?'
+
+for pattern in patterns:
+    print 'Looking for "%s" in "%s" ->' % (pattern, text)
+
+    if re.search(pattern,  text):
+        print 'found a match!'
+    else:
+        print 'no match'
+#+END_SRC
+
+*search()* takes the pattern and text to scan, and returns a *Match* object when the pattern is found. If the pattern is not found, search() returns None.
+
+The Match object returned by search() holds information about the nature of the match, including the original input string, the regular expression used, and the location within the original string where the pattern occurs.
+#+BEGIN_SRC python
+import re
+
+pattern = 'this'
+text = 'Does this text match the pattern?'
+
+match = re.search(pattern, text)
+
+s = match.start()
+e = match.end()
+
+print 'Found "%s" in "%s" from %d to %d ("%s")' % \
+    (match.re.pattern, match.string, s, e, text[s:e])
+#+END_SRC
+
+* Compiling Expressions
+The compile() function converts an expression string into a RegexObject.
+#+BEGIN_SRC python
+import re
+
+# Pre-compile the patterns
+regexes = [ re.compile(p) for p in [ 'this',
+                                     'that',
+                                     ]
+            ]
+text = 'Does this text match the pattern?'
+
+for regex in regexes:
+    print 'Looking for "%s" in "%s" ->' % (regex.pattern, text),
+
+    if regex.search(text):
+        print 'found a match!'
+    else:
+        print 'no match'
+#+END_SRC
+* Multiple Matches
+
+So far the example patterns have all used search() to look for single instances of literal text strings.
+** The findall() function returns all of the substrings of the input that match the pattern without overlapping.
+
+#+BEGIN_SRC python
+import re
+
+text = 'abbaaabbbbaaaaa'
+
+pattern = 'ab'
+
+for match in re.findall(pattern, text):
+    print 'Found "%s"' % match
+
+#+END_SRC
+There are two instances of ab in the input string.
+
+#+BEGIN_SRC bash
+python re_findall.py
+
+Found "ab"
+Found "ab"
+
+#+END_SRC
+** finditer() returns an iterator that produces Match instances instead of the strings returned by findall().
+
+#+BEGIN_SRC python
+import re
+
+text = 'abbaaabbbbaaaaa'
+
+pattern = 'ab'
+
+for match in re.finditer(pattern, text):
+    s = match.start()
+    e = match.end()
+    print 'Found "%s" at %d:%d' % (text[s:e], s, e)
+
+#+END_SRC
+This example finds the same two occurrences of ab, and the Match instance shows where they are in the original input.
+* Character Sets
+A character set is a group of characters, any one of which can match at that point in the pattern. For example, [ab] would match either a or b.
+#+BEGIN_SRC python
+from re_test_patterns import test_patterns
+
+test_patterns('abbaaabbbbaaaaa',
+              [ '[ab]',    # either a or b
+                'a[ab]+',  # a followed by one or more a or b
+                'a[ab]+?', # a followed by one or more a or b, not greedy
+                ])
+
+
+test_patterns('This is some text -- with punctuation.',
+              [ '[^-. ]+',  # sequences without -, ., or space
+                ])
+#+END_SRC
+
+* Repetition
+
+** *.
+ * doesn’t match the literal character *; instead, it specifies that the previous character can be matched zero or more times, instead of exactly once.
+For example, ca*t will match ct (0 a characters), cat (1 a), caaat (3 a characters), and so forth.
+#+BEGIN_SRC python
+from re_test_patterns import test_patterns
+
+test_patterns('abbaaabbbbaaaaa',
+              [ 'ab*',     # a followed by zero or more b
+                'ab+',     # a followed by one or more b
+                'ab?',     # a followed by zero or one b
+                'ab{3}',   # a followed by three b
+                'ab{2,3}', # a followed by two to three b
+                ])
+#+END_SRC
 
 * Matching characters
 
@@ -92,9 +222,4 @@ SECTION\s\w+: -> *
 #+END_SRC
 
 
-* Repeating Things
-
-** *.
- * doesn’t match the literal character *; instead, it specifies that the previous character can be matched zero or more times, instead of exactly once.
-For example, ca*t will match ct (0 a characters), cat (1 a), caaat (3 a characters), and so forth.
 * replace content to org mode strings

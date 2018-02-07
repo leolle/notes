@@ -163,6 +163,7 @@ ICA
 **** create wiki knowledge graph
 DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
+CLOCK: [2018-02-07 Wed 10:09]--[2018-02-07 Wed 11:12] =>  1:03
 CLOCK: [2018-02-06 Tue 11:32]--[2018-02-06 Tue 17:22] =>  5:50
 CLOCK: [2018-01-30 Tue 19:24]--[2018-01-30 Tue 20:52] =>  1:28
 CLOCK: [2018-01-30 Tue 13:11]--[2018-01-30 Tue 17:45] =>  4:34
@@ -179,8 +180,8 @@ CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
 - [ ] importing wiki categories and page edge relation to Neo4j.
 - [ ] 上传完备份我再建边.
-- [ ] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
-  - [ ] use networkx to detect loop.
+- [X] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
+  - [X] use networkx to detect loop.
 - [X] skill GID generating in Python.
 - [X] 把节点上传. wiki 上传了1040229 page, 381475 categories.
 - [X] train word2vec model based on GID.
@@ -210,6 +211,7 @@ node.names.chinese = simple Chinese title
 
 **** TODO entity relationship
 :LOGBOOK:
+CLOCK: [2018-02-07 Wed 11:13]
 CLOCK: [2018-02-06 Tue 10:07]--[2018-02-06 Tue 11:32] =>  1:25
 CLOCK: [2018-02-05 Mon 15:38]--[2018-02-05 Mon 16:21] =>  0:43
 CLOCK: [2018-02-05 Mon 09:54]--[2018-02-05 Mon 15:34] =>  5:40
@@ -221,6 +223,11 @@ CLOCK: [2018-01-31 Wed 10:53]--[2018-01-31 Wed 12:08] =>  1:15
 CLOCK: [2018-01-31 Wed 10:09]--[2018-01-31 Wed 10:52] =>  0:43
 CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 :END:
+- 处理思想：
+辅以字典法，利用已有的种子实体
+将人名、地名、公司名放在不同的阶段处理
+辅以其他句法分析层次的词性标注
+当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
 - [ ] from survey paper -> book -> reference paper -> citation paper -> application -> open source library.
 - [ ] entity extraction resolution detection like author, publisher.
 - [X] pseudo code of node, edge upload.

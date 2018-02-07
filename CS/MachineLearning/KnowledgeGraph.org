@@ -41,8 +41,27 @@
 
 知识表示是如何组织数据的结构，以方便推导出新的结构的方法。传统上属于逻辑的分支，但在实践中我们会用很简单、可读、可维持的数据结构。
 
+实体抽取，实体链接，对齐，消歧，关系抽取
 **  JSON和YAML
+在Python中使用JSON超级简单，JSON和Python的字典很像，可以转换。看官方文档即可
 
+- json库 https://docs.python.org/2/library/json.html
+掌握下面这些库会让你处理json和字典的时候更开心
+
+- attrdict https://github.com/bcj/AttrDict a['foo']['bar']可以写做a.foo.bar 或a['foo'].bar。可读/写属性，可递归访问属性，继承dict的各种方法
+- marisa-trie https://github.com/kmike/marisa-trie 超级节约内存的字典
+- DAWG http://dawg.readthedocs.org/en/latest/ 另一个超级节约内存的字典
+- orderedmultidict https://github.com/gruns/orderedmultidict 多值有序字典
+- jsonpickle http://jsonpickle.github.io/ JSON持久化。支持更复杂数据的存储
+- jq http://stedolan.github.io/jq/tutorial/ 命令行上的json处理和查询
+- pjson https://github.com/igorgue/pjson 在命令行上彩色打印json
+- jsonlint https://github.com/zaach/jsonlint 格式化json
+- jsawk https://github.com/micha/jsawk json的awk，一个快速的命令上的查询工具
+- json-diff https://www.npmjs.org/package/json-diff 比较两个json
+- YAML：JSON的超集，有更简洁的语法 http://yaml.org/
+YAML在我看来比JSON的可读性更好，更加Pythonic（因为其语法接近Python）。当然有人可能会不喜欢缩进，不过Python社区的智力一般比较高，不会有这种偏见。YAML里可以有节点之间的链接，因此可以表示图。此外yaml里可以写!注!释！我认为YAML是天然的最好的知识图谱表示语法。
+
+- PyYAML是Python里的Yaml处理库 http://pyyaml.org/wiki/PyYAML
 **  RDF和OWL
 
 **  JSON-LD
