@@ -959,9 +959,17 @@ dns-nameservers 8.8.8.8
 #+END_SRC
 - restart network service
 sudo ifdown eth0 && sudo ifup eth0
+- monitor ping from others
+#+BEGIN_SRC bash
+tcpdump ip proto \\icmp
+#+END_SRC
 *** Routing
 *** ARP: the Address Resolution Protocol
 *** DHCP: the Dynamic Host Configuration Protocol
+#+BEGIN_SRC bash
+sudo ifdown eth0 && sudo ifup eth0
+sudo service networking restart
+#+END_SRC
 *** Security issues
 *** PPP: the Point-to-Point Protocol
 *** Basic network configuration

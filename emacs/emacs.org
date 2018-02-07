@@ -520,5 +520,7 @@ emacs
 # then change global python to 5
 pyenv global anaconda3-5.0.1
 #+END_SRC
+py-autopep8
+py-autopep8-enable-on-save
 * layers
 =M-x= configuration-layer/create-layer

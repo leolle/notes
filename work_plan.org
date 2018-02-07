@@ -163,6 +163,7 @@ ICA
 **** create wiki knowledge graph
 DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
+CLOCK: [2018-02-07 Wed 15:36]
 CLOCK: [2018-02-07 Wed 10:09]--[2018-02-07 Wed 11:12] =>  1:03
 CLOCK: [2018-02-06 Tue 11:32]--[2018-02-06 Tue 17:22] =>  5:50
 CLOCK: [2018-01-30 Tue 19:24]--[2018-01-30 Tue 20:52] =>  1:28
@@ -180,8 +181,12 @@ CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
 - [ ] importing wiki categories and page edge relation to Neo4j.
 - [ ] 上传完备份我再建边.
-- [X] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
+- [-] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
   - [X] use networkx to detect loop.
+  - [ ] it's too hard to detect cycles in the whole graph. Starting in a small categories.
+  - [ ] don't add direct loop edges to a graph, find_cycles will only show such direct loop. save this graph.
+  - [X] remove direct cycle edge.
+  - [ ] remove full cycle.
 - [X] skill GID generating in Python.
 - [X] 把节点上传. wiki 上传了1040229 page, 381475 categories.
 - [X] train word2vec model based on GID.
@@ -211,7 +216,7 @@ node.names.chinese = simple Chinese title
 
 **** TODO entity relationship
 :LOGBOOK:
-CLOCK: [2018-02-07 Wed 11:13]
+CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
 CLOCK: [2018-02-06 Tue 10:07]--[2018-02-06 Tue 11:32] =>  1:25
 CLOCK: [2018-02-05 Mon 15:38]--[2018-02-05 Mon 16:21] =>  0:43
 CLOCK: [2018-02-05 Mon 09:54]--[2018-02-05 Mon 15:34] =>  5:40
