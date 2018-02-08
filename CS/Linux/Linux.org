@@ -966,7 +966,28 @@ tcpdump ip proto \\icmp
 *** Routing
 *** ARP: the Address Resolution Protocol
 *** DHCP: the Dynamic Host Configuration Protocol
+virtualbox 网络添加localhost，virtual machine 网络添加
 #+BEGIN_SRC bash
+sudo gedit /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+
+auto eth0
+iface eth0 inet static
+address 192.168.1.199
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 8.8.8.8
+
+auto eth1
+iface eth1 inet static
+address 192.168.1.128
+netmask 255.255.255.0
+network 192.168.1.1
+dns-nameservers 8.8.8.8
+
 sudo ifdown eth0 && sudo ifup eth0
 sudo service networking restart
 #+END_SRC
