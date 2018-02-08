@@ -28,6 +28,13 @@ python -c "import spacy; spacy.load('en'); print('OK')"
 #+BEGIN_SRC bash
 shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
 #+END_SRC
+- ssh server
+sudo service ssh start
+unrecognized service when starting ssh
+
+#+BEGIN_SRC bash
+sudo apt-get install openssh-server
+#+END_SRC
 - install svn
 #+BEGIN_SRC bash
 sudo apt-get install subversion
@@ -959,10 +966,6 @@ dns-nameservers 8.8.8.8
 #+END_SRC
 - restart network service
 sudo ifdown eth0 && sudo ifup eth0
-- monitor ping from others
-#+BEGIN_SRC bash
-tcpdump ip proto \\icmp
-#+END_SRC
 *** Routing
 *** ARP: the Address Resolution Protocol
 *** DHCP: the Dynamic Host Configuration Protocol
@@ -1093,6 +1096,10 @@ sudo service networking restart
 *** The NET-SNMP agent
 *** Network management applications
 *** NetFlow: connection-oriented monitoring
+- monitor ping from others
+#+BEGIN_SRC bash
+tcpdump ip proto \\icmp
+#+END_SRC
 
 
 ** SECURITY
@@ -1120,8 +1127,7 @@ sudo service networking restart
 *** HTTP server installation
 *** Virtual interfaces
 *** The Secure Sockets Layer (SSL)
-*** Caching and proxy servers
-*** Scaling beyond your limits
+*** Caching
 
 * BUNCH O' STUFF
 ** VIRTUALIZATION
