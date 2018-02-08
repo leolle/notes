@@ -180,7 +180,13 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 * ORG Mode
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4][Example]]
 ** Structure editing
-=C-c C-x C-i=
+- =C-s C-w=
+emacs searches the next occurrence of the word.
+- =M-s .=
+isearch-forward-symbol-at-point
+- =C-h k=
+describe key combination
+- =C-c C-x C-i=
 Clock in
 =C-c C-x C-o=
 Clock out

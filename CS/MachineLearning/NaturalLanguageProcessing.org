@@ -61,6 +61,8 @@ model.train(more_sentences)
 **** size of the vectors
 **** training algorithm
 **** glossary:
+- Uniform Resource Identifier (URI)
+- Web Ontology Language (OWL)
 - Resource Description Framework
 metadata data model. It has come to be used as a general method for conceptual description or modeling of information that is implemented in web resources, using a variety of syntax notations and data serialization formats. It is also used in knowledge management applications.
 
@@ -132,7 +134,9 @@ print(",".join(tags))
 
 #+END_SRC
 
-
+* Knowledge Graph
+** architecture
+[[./Images/knowledge_graph_architecture.png]]
 * Knowledge-based Q&A
 ** Introduction
 #+CAPTION: introduction
@@ -196,6 +200,9 @@ subjects, predicates, and objects
 
 |   Entity | Relationships | Semantic Descriptions |
 | 65001293 |        374311 |               9284910 |
+subject, attribute, value
+
+subject, relation, subject
 
 ** SPARQL: RDF Query Language
 W3C standard that underlies the Web's knowledge representation formalism: the Web Ontology Language (OWL).
