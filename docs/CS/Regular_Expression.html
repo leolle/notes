@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-22 Mon 09:47 -->
+<!-- 2018-02-09 Fri 13:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -171,38 +171,237 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline6">1. Matching characters</a>
+<li><a href="#orgheadline1">1. Finding Patterns in Text</a></li>
+<li><a href="#orgheadline2">2. Compiling Expressions</a></li>
+<li><a href="#orgheadline5">3. Multiple Matches</a>
 <ul>
-<li><a href="#orgheadline4">1.1. metacharacters</a>
-<ul>
-<li><a href="#orgheadline1">1.1.1. Anchors</a></li>
-<li><a href="#orgheadline2">1.1.2. Pattern Matching</a></li>
-<li><a href="#orgheadline3">1.1.3. Quantification</a></li>
+<li><a href="#orgheadline3">3.1. The findall() function returns all of the substrings of the input that match the pattern without overlapping.</a></li>
+<li><a href="#orgheadline4">3.2. finditer() returns an iterator that produces Match instances instead of the strings returned by findall().</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline5">1.2. cases:</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline8">2. Repeating Things</a>
+<li><a href="#orgheadline6">4. Character Sets</a></li>
+<li><a href="#orgheadline8">5. Repetition</a>
 <ul>
-<li><a href="#orgheadline7">2.1. *.</a></li>
+<li><a href="#orgheadline7">5.1. *.</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline9">3. replace content to org mode strings</a></li>
+<li><a href="#orgheadline14">6. Matching characters</a>
+<ul>
+<li><a href="#orgheadline12">6.1. metacharacters</a>
+<ul>
+<li><a href="#orgheadline9">6.1.1. Anchors</a></li>
+<li><a href="#orgheadline10">6.1.2. Pattern Matching</a></li>
+<li><a href="#orgheadline11">6.1.3. Quantification</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline13">6.2. cases:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline15">7. replace content to org mode strings</a></li>
 </ul>
 </div>
 </div>
 
-
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">1</span> Matching characters</h2>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Finding Patterns in Text</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">1.1</span> metacharacters</h3>
-<div class="outline-text-3" id="text-1-1">
-</div><div id="outline-container-orgheadline1" class="outline-4">
-<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> Anchors</h4>
-<div class="outline-text-4" id="text-1-1-1">
+<p>
+The most common use for re is to search for patterns in text. This example looks for two literal strings, 'this' and 'that', in a text string.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/home/weiwu/.pyenv/shims/python2</span>
+<span style="color: #F92672;">import</span> re
+
+<span style="color: #FD971F;">patterns</span> = <span style="color: #AE81FF;">[</span> <span style="color: #E6DB74;">'this'</span>, <span style="color: #E6DB74;">'that'</span> <span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">text</span> = <span style="color: #E6DB74;">'Does this text match the pattern?'</span>
+
+<span style="color: #F92672;">for</span> pattern <span style="color: #F92672;">in</span> patterns:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'Looking for "%s" in "%s" -&gt;'</span> % <span style="color: #AE81FF;">(</span>pattern, text<span style="color: #AE81FF;">)</span>
+
+    <span style="color: #F92672;">if</span> re.search<span style="color: #AE81FF;">(</span>pattern,  text<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'found a match!'</span>
+    <span style="color: #F92672;">else</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'no match'</span>
+</pre>
+</div>
+
+<p>
+<b>search()</b> takes the pattern and text to scan, and returns a <b>Match</b> object when the pattern is found. If the pattern is not found, search() returns None.
+</p>
+
+<p>
+The Match object returned by search() holds information about the nature of the match, including the original input string, the regular expression used, and the location within the original string where the pattern occurs.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> re
+
+<span style="color: #FD971F;">pattern</span> = <span style="color: #E6DB74;">'this'</span>
+<span style="color: #FD971F;">text</span> = <span style="color: #E6DB74;">'Does this text match the pattern?'</span>
+
+<span style="color: #FD971F;">match</span> = re.search<span style="color: #AE81FF;">(</span>pattern, text<span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">s</span> = match.start<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">e</span> = match.end<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'Found "%s" in "%s" from %d to %d ("%s")'</span> % \
+    <span style="color: #AE81FF;">(</span>match.re.pattern, match.string, s, e, text<span style="color: #66D9EF;">[</span>s:e<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> Compiling Expressions</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The compile() function converts an expression string into a RegexObject.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> re
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Pre-compile the patterns</span>
+<span style="color: #FD971F;">regexes</span> = <span style="color: #AE81FF;">[</span> re.<span style="color: #F92672;">compile</span><span style="color: #66D9EF;">(</span>p<span style="color: #66D9EF;">)</span> <span style="color: #F92672;">for</span> p <span style="color: #F92672;">in</span> <span style="color: #66D9EF;">[</span> <span style="color: #E6DB74;">'this'</span>,
+                                     <span style="color: #E6DB74;">'that'</span>,
+                                     <span style="color: #66D9EF;">]</span>
+            <span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">text</span> = <span style="color: #E6DB74;">'Does this text match the pattern?'</span>
+
+<span style="color: #F92672;">for</span> regex <span style="color: #F92672;">in</span> regexes:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'Looking for "%s" in "%s" -&gt;'</span> % <span style="color: #AE81FF;">(</span>regex.pattern, text<span style="color: #AE81FF;">)</span>,
+
+    <span style="color: #F92672;">if</span> regex.search<span style="color: #AE81FF;">(</span>text<span style="color: #AE81FF;">)</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'found a match!'</span>
+    <span style="color: #F92672;">else</span>:
+        <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'no match'</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">3</span> Multiple Matches</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+So far the example patterns have all used search() to look for single instances of literal text strings.
+</p>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">3.1</span> The findall() function returns all of the substrings of the input that match the pattern without overlapping.</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> re
+
+<span style="color: #FD971F;">text</span> = <span style="color: #E6DB74;">'abbaaabbbbaaaaa'</span>
+
+<span style="color: #FD971F;">pattern</span> = <span style="color: #E6DB74;">'ab'</span>
+
+<span style="color: #F92672;">for</span> match <span style="color: #F92672;">in</span> re.findall<span style="color: #AE81FF;">(</span>pattern, text<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'Found "%s"'</span> % match
+</pre>
+</div>
+<p>
+There are two instances of ab in the input string.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">python re_findall.py
+
+Found <span style="color: #E6DB74;">"ab"</span>
+Found <span style="color: #E6DB74;">"ab"</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">3.2</span> finditer() returns an iterator that produces Match instances instead of the strings returned by findall().</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> re
+
+<span style="color: #FD971F;">text</span> = <span style="color: #E6DB74;">'abbaaabbbbaaaaa'</span>
+
+<span style="color: #FD971F;">pattern</span> = <span style="color: #E6DB74;">'ab'</span>
+
+<span style="color: #F92672;">for</span> match <span style="color: #F92672;">in</span> re.finditer<span style="color: #AE81FF;">(</span>pattern, text<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">s</span> = match.start<span style="color: #AE81FF;">()</span>
+    <span style="color: #FD971F;">e</span> = match.end<span style="color: #AE81FF;">()</span>
+    <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'Found "%s" at %d:%d'</span> % <span style="color: #AE81FF;">(</span>text<span style="color: #66D9EF;">[</span>s:e<span style="color: #66D9EF;">]</span>, s, e<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+This example finds the same two occurrences of ab, and the Match instance shows where they are in the original input.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">4</span> Character Sets</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A character set is a group of characters, any one of which can match at that point in the pattern. For example, [ab] would match either a or b.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> re_test_patterns <span style="color: #F92672;">import</span> test_patterns
+
+test_patterns<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'abbaaabbbbaaaaa'</span>,
+              <span style="color: #66D9EF;">[</span> <span style="color: #E6DB74;">'[ab]'</span>,    <span style="color: #75715E;"># </span><span style="color: #75715E;">either a or b</span>
+                <span style="color: #E6DB74;">'a[ab]+'</span>,  <span style="color: #75715E;"># </span><span style="color: #75715E;">a followed by one or more a or b</span>
+                <span style="color: #E6DB74;">'a[ab]+?'</span>, <span style="color: #75715E;"># </span><span style="color: #75715E;">a followed by one or more a or b, not greedy</span>
+                <span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+
+
+test_patterns<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'This is some text -- with punctuation.'</span>,
+              <span style="color: #66D9EF;">[</span> <span style="color: #E6DB74;">'[^-. ]+'</span>,  <span style="color: #75715E;"># </span><span style="color: #75715E;">sequences without -, ., or space</span>
+                <span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">5</span> Repetition</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">5.1</span> *.</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>doesn’t match the literal character *; instead, it specifies that the previous character can be matched zero or more times, instead of exactly once.</li>
+</ul>
+<p>
+For example, ca*t will match ct (0 a characters), cat (1 a), caaat (3 a characters), and so forth.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> re_test_patterns <span style="color: #F92672;">import</span> test_patterns
+
+test_patterns<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'abbaaabbbbaaaaa'</span>,
+              <span style="color: #66D9EF;">[</span> <span style="color: #E6DB74;">'ab*'</span>,     <span style="color: #75715E;"># </span><span style="color: #75715E;">a followed by zero or more b</span>
+                <span style="color: #E6DB74;">'ab+'</span>,     <span style="color: #75715E;"># </span><span style="color: #75715E;">a followed by one or more b</span>
+                <span style="color: #E6DB74;">'ab?'</span>,     <span style="color: #75715E;"># </span><span style="color: #75715E;">a followed by zero or one b</span>
+                <span style="color: #E6DB74;">'ab{3}'</span>,   <span style="color: #75715E;"># </span><span style="color: #75715E;">a followed by three b</span>
+                <span style="color: #E6DB74;">'ab{2,3}'</span>, <span style="color: #75715E;"># </span><span style="color: #75715E;">a followed by two to three b</span>
+                <span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">6</span> Matching characters</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">6.1</span> metacharacters</h3>
+<div class="outline-text-3" id="text-6-1">
+</div><div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">6.1.1</span> Anchors</h4>
+<div class="outline-text-4" id="text-6-1-1">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">. ^ $ * + ? { } <span style="color: #AE81FF;">[</span> <span style="color: #AE81FF;">]</span> \ | <span style="color: #AE81FF;">(</span> <span style="color: #AE81FF;">)</span>
@@ -254,9 +453,9 @@ Defines the boundary for the word.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-4">
-<h4 id="orgheadline2"><span class="section-number-4">1.1.2</span> Pattern Matching</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">6.1.2</span> Pattern Matching</h4>
+<div class="outline-text-4" id="text-6-1-2">
 <ul class="org-ul">
 <li>?</li>
 </ul>
@@ -311,9 +510,9 @@ Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-4">
-<h4 id="orgheadline3"><span class="section-number-4">1.1.3</span> Quantification</h4>
-<div class="outline-text-4" id="text-1-1-3">
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">6.1.3</span> Quantification</h4>
+<div class="outline-text-4" id="text-6-1-3">
 <ul class="org-ul">
 <li>*</li>
 </ul>
@@ -344,9 +543,9 @@ Used to match between m and n occurences of the previous character. The example 
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.2</span> cases:</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">6.2</span> cases:</h3>
+<div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>machine space and numbers:</li>
 </ul>
@@ -372,23 +571,8 @@ Used to match between m and n occurences of the previous character. The example 
 </div>
 
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">2</span> Repeating Things</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.1</span> *.</h3>
-<div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
-<li>doesn’t match the literal character *; instead, it specifies that the previous character can be matched zero or more times, instead of exactly once.</li>
-</ul>
-<p>
-For example, ca*t will match ct (0 a characters), cat (1 a), caaat (3 a characters), and so forth.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">3</span> replace content to org mode strings</h2>
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">7</span> replace content to org mode strings</h2>
 </div>
 </div>
 </body>

@@ -12,11 +12,11 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../../configOrg/level2.org
 
-| *Author* | {{{authors}}} ({{{email}}})   |
+| *Author* | {{{author}}} ({{{email}}})    |
 | *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
-| *Title*  |           {{{titles}}}        |
+| *Title*  |           {{{title}}}         |
 
-* 第一周：知识提取
+* 知识提取
 
 
 知识提取是要解决结构化数据生成的问题。但是广义上讲，知识提取是数据质量提升中的一环，各种提升数据质量的方法，都可以视为某种知识提取。学术上一般是用自然语言处理的方法，但在实践中通常是利用规则。

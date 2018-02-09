@@ -1,12 +1,12 @@
 #+SETUPFILE: ./configOrg/level0.org
 #+OPTIONS: ^:nil
-+ CS
++ ComputerScience
+  + ProgramicStyle
+    + [[file:CS/ProgramicStyle/PragmaticProgrammer.org][PragmaticProgrammer]]
   + C++
     + [[file:CS/C++/C++.org][C++]]
   + Linux
     + [[file:CS/Linux/Linux.org][Linux]]
-  + ProgramicStyle
-    + [[file:CS/ProgramicStyle/PragmaticProgrammer.org][PragmaticProgrammer]]
   + Python
     + [[file:CS/Python/python.org][Python]]
     + [[file:CS/Python/pandas.org][pandas]]
@@ -25,28 +25,6 @@
     + [[file:emacs/markdown.org][Markdown]]
     + [[file:emacs/tutorial.org][Tutorial]]
     + [[file:emacs/tutorial_backup.org][Backup]]
-+ Project
-  + [[file:Calendar/sentiment.org][Sentiment]]
-+ GS
-  + Introduction
-    + [[file:GS/Introduction/functions.org][Functions]]
-  + Research
-    + [[file:GS/OSet/oset.org][ObjectSets]]
-      + [[file:GS/OSet/anomalies.org][The Handbook of Equity Market Anomalies]]
-+ Math
-  + [[file:./Math/knowledge_tree.html/index.html][KnowledgeTree]]
-  + MachineLearning
-    + [[file:CS/MachineLearning/BasicModule.org][BasicModule]]
-    + [[file:CS/MachineLearning/BasicModule2.org][BasicModule2]]
-    + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
-    + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
-      + [[file:CS/MachineLearning/KnowledgeGraph.org][KnowledgeGraph]]
-        + [[file:CS/Regular_Expression.org][RegularExpression]]
-        + [[file:CS/MachineLearning/nlp/NLPLibraries.html][NLPLibraries]]
-        + [[file:CS/MachineLearning/nlp/NLP+libraries+comparison.html][NLPLibrariesCompareCode]]
-    + [[file:CS/MachineLearning/DeepLearning.org][DeepLearning]]
-    + [[file:./Boosting.org][Boosting]]
-    + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]
 + Finance
   + [[file:finance/Backtest.org][Backtest]]
   + [[file:finance/ComputationalInvestment.org][ComputationalInvestment]]
@@ -63,6 +41,28 @@
   + [[file:finance/QuantitativeInvestment.org][QuantitativeInvestment]]
   + [[file:finance/future.org][Future]]
   + [[file:finance/option.org][Option]]
++ Math
+  + [[file:./Math/knowledge_tree.html/index.html][KnowledgeTree]]
+  + MachineLearning
+    + [[file:CS/MachineLearning/BasicModule.org][BasicModule]]
+    + [[file:CS/MachineLearning/BasicModule2.org][BasicModule2]]
+    + [[file:CS/MachineLearning/MachineLearning.org][MachineLearning]]
+    + [[file:CS/MachineLearning/NaturalLanguageProcessing.org][NaturalLanguageProcessing]]
+      + [[file:CS/MachineLearning/KnowledgeGraph.org][KnowledgeGraph]]
+        + [[file:CS/Regular_Expression.org][RegularExpression]]
+        + [[file:CS/MachineLearning/nlp/NLPLibraries.html][NLPLibraries]]
+        + [[file:CS/MachineLearning/nlp/NLP+libraries+comparison.html][NLPLibrariesCompareCode]]
+    + [[file:CS/MachineLearning/DeepLearning.org][DeepLearning]]
+    + [[file:./Boosting.org][Boosting]]
+    + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]
++ Project
+  + [[file:Calendar/sentiment.org][Sentiment]]
++ GS
+  + Introduction
+    + [[file:GS/Introduction/functions.org][Functions]]
+  + Research
+    + [[file:GS/OSet/oset.org][ObjectSets]]
+      + [[file:GS/OSet/anomalies.org][The Handbook of Equity Market Anomalies]]
 + Notes
   + [[file:notes/thought.org][Thought]]
 + [[file:work_plan.org][WorkPlan]]

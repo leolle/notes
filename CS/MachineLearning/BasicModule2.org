@@ -27,4 +27,3 @@ The non-zero singular values of M (found on the diagonal entries of Σ) are the 
 Applications that employ the SVD include computing the pseudoinverse, least squares fitting of data, multivariable control, Matrix Approximation, and determining the rank, range and null space of a matrix.
 
 * Convolve Networks(CNN)
-.

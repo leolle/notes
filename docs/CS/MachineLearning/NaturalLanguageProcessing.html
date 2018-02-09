@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-05 Mon 14:06 -->
+<!-- 2018-02-09 Fri 13:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -162,46 +162,51 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline16">2. Knowledge-based Q&amp;A</a>
+<li><a href="#orgheadline13">2. Knowledge Graph</a>
 <ul>
-<li><a href="#orgheadline12">2.1. Introduction</a></li>
-<li><a href="#orgheadline13">2.2. 基于意图的结构化问答系统</a></li>
-<li><a href="#orgheadline14">2.3. 基于检索的问答系统</a></li>
-<li><a href="#orgheadline15">2.4. 基于知识图谱的问答系统</a></li>
+<li><a href="#orgheadline12">2.1. architecture</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline19">3. Definition of Sentiment Analysis</a>
+<li><a href="#orgheadline18">3. Knowledge-based Q&amp;A</a>
 <ul>
-<li><a href="#orgheadline17">3.1. Structure</a></li>
-<li><a href="#orgheadline18">3.2. Opinion Defintion</a></li>
+<li><a href="#orgheadline14">3.1. Introduction</a></li>
+<li><a href="#orgheadline15">3.2. 基于意图的结构化问答系统</a></li>
+<li><a href="#orgheadline16">3.3. 基于检索的问答系统</a></li>
+<li><a href="#orgheadline17">3.4. 基于知识图谱的问答系统</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">4. Language Technology Processing</a>
+<li><a href="#orgheadline21">4. Definition of Sentiment Analysis</a>
 <ul>
-<li><a href="#orgheadline20">4.1. features:</a></li>
+<li><a href="#orgheadline19">4.1. Structure</a></li>
+<li><a href="#orgheadline20">4.2. Opinion Defintion</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline32">5. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<li><a href="#orgheadline23">5. Language Technology Processing</a>
 <ul>
-<li><a href="#orgheadline22">5.1. Login</a></li>
-<li><a href="#orgheadline23">5.2. baike triples</a></li>
-<li><a href="#orgheadline24">5.3. SPARQL: RDF Query Language</a></li>
-<li><a href="#orgheadline25">5.4. Visualization tool: Graphviz, networkx, Gephi</a></li>
-<li><a href="#orgheadline26">5.5. Graph database: GraphDB, Neo4j.</a></li>
-<li><a href="#orgheadline27">5.6. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
-<li><a href="#orgheadline31">5.7. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<li><a href="#orgheadline22">5.1. features:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline34">6. Building the Wikipedia Knowledge Graph in Neo4j</a>
 <ul>
-<li><a href="#orgheadline30">5.7.1. Data dumps/Import</a></li>
+<li><a href="#orgheadline24">6.1. Login</a></li>
+<li><a href="#orgheadline25">6.2. baike triples</a></li>
+<li><a href="#orgheadline26">6.3. SPARQL: RDF Query Language</a></li>
+<li><a href="#orgheadline27">6.4. Visualization tool: Graphviz, networkx, Gephi</a></li>
+<li><a href="#orgheadline28">6.5. Graph database: GraphDB, Neo4j.</a></li>
+<li><a href="#orgheadline29">6.6. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
+<li><a href="#orgheadline33">6.7. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<ul>
+<li><a href="#orgheadline32">6.7.1. Data dumps/Import</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline33">6. NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</a></li>
-<li><a href="#orgheadline37">7. Position Of Tagging</a>
+<li><a href="#orgheadline35">7. NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</a></li>
+<li><a href="#orgheadline39">8. Position Of Tagging</a>
 <ul>
-<li><a href="#orgheadline34">7.1. 词性解释</a></li>
-<li><a href="#orgheadline35">7.2. 句法分析（句法树）</a></li>
-<li><a href="#orgheadline36">7.3. 关系表示</a></li>
+<li><a href="#orgheadline36">8.1. 词性解释</a></li>
+<li><a href="#orgheadline37">8.2. 句法分析（句法树）</a></li>
+<li><a href="#orgheadline38">8.3. 关系表示</a></li>
 </ul>
 </li>
 </ul>
@@ -330,6 +335,8 @@ model.train<span style="color: #AE81FF;">(</span>more_sentences<span style="colo
 <li><a id="orgheadline7"></a>training algorithm<br  /></li>
 <li><a id="orgheadline8"></a>glossary:<br  /><div class="outline-text-5" id="text-1-4-2-4">
 <ul class="org-ul">
+<li>Uniform Resource Identifier (URI)</li>
+<li>Web Ontology Language (OWL)</li>
 <li>Resource Description Framework</li>
 </ul>
 <p>
@@ -439,13 +446,258 @@ New York <span style="color: #AE81FF;">350</span> GPE
 </div>
 </div>
 
-
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">2</span> Knowledge-based Q&amp;A</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">2</span> Knowledge Graph</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.1</span> Introduction</h3>
+<h3 id="orgheadline12"><span class="section-number-3">2.1</span> architecture</h3>
 <div class="outline-text-3" id="text-2-1">
+<p>
+<img src="./Images/knowledge_graph_architecture.png" alt="knowledge_graph_architecture.png" />
+<a href="https://ilewseu.github.io/2017/11/11/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/">https://ilewseu.github.io/2017/11/11/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/</a>
+知识图谱的定义与架构
+知识图谱的定义
+知识图谱是Google用于增强其搜索引擎功能的知识库。本质上，知识图谱是一种揭示实体之间关系的语义网络，可以对现实世界的事物及其相互关系进行形式化地描述。现在知识图谱以被用来泛指各种大规模的知识库。三元组是知识图谱的一种通用表示方式，即G=(E,R,S)，其中：
+</p>
+
+<p>
+G：表示知识库
+E：表示知识库中的所有实际的集合
+R：表示知识库中的关系集合
+S：表示知识库中的三元组集合，S⊆E×R×S
+三元组的基本形式主要包括实体1、关系、实体2和概念、属性、属性值等，实体是知识库中最基本的元素，不同的实体之间存在不同的关系。概念主要指集合、类别、对象类型、事物的种类，例如人物、地理等；属性主要指对象可能具有的属性、特征、特性、特点及参数，例如国籍、生日等；属性值主要指对象指定属性的值，例如中国、1988-09-08等。每个实体可以用一个全局唯一确定的ID来标识，每个属性-属性值对（atrribute-value pair，AVP）可用来刻画实体的内在特性，而关系可用来连接两个实体，刻画它们之间的关联。
+</p>
+
+<p>
+从覆盖范围而言，知识图谱可以分为通用知识图谱和行业知识图谱。通用知识图谱注重广度，强调融合更多的实体，较行业知识图谱而言，其准确度不够高，并且受概念范围的影响，很难借助本体库对公理、规则以及约束条件的支持能力规范其实体、属性、实体间的关系等。通用的知识库主要用于智能搜索等领域。行业知识图谱通常需要依靠特定的行业的数据来构建，具有特定的行业意义。行业知识图谱中，实体的属性与数据模式往往比较丰富，需要考虑到不同的业务场景与使用人员。
+</p>
+
+<p>
+知识图谱的架构
+知识图谱的架构主要包括自身的逻辑结构以及体系架构。
+</p>
+
+<p>
+1）知识图谱的逻辑结构
+知识图谱在逻辑上可以分为模式层与数据层两个层次。数据层主要是由一系列的事实组成，而知识将以事实为单位进行存储。可选择图数据库作为存储介质，例如开源的Neo4j、Twitter的FlockDB、seones的GraphDB。模式层构建在数据层之上，主要是通过本体库来规范数据层的一系列事实表达。本体是结构化知识库的概念模板，通过本体库而形成的知识库不仅层次结构较强，并且冗余程度叫较小。
+</p>
+
+<p>
+2）知识图谱的体系架构
+知识图谱的体系架构是指构建模式结构，如下图所示（图引自该论文）
+</p>
+
+
+<p>
+mark
+</p>
+
+<p>
+知识图谱主要有自顶向下(top-down)与自底向上(bottom-up)两种构建方式。自顶向下指是先为知识图谱定义好本体与数据模式，再将实体加入到知识库。该构建方式需要利用一些现有的结构化知识库作为其基础的知识库，例如Freebase就是采用这种方式，它的绝大部分数据是从维基百科中得到的。自底向上指的是从一些开放链接数据中提取出实体，选择其中置信度较高的加入到知识库，再构建顶层的本体模式。目前，大多数知识图谱都采用自底向上的方式进行构建，其中最典型的就是Google的Knowledge Vault。
+大规模知识库案例
+随着语义web资源数量激增、大量的RDF数据被发布和共享、LOD(linked open data)等项目的全面展开，学术界和工业界的研究人员花费了大量的精力构建各种结构化知识库。主要包括开放链接知识库、行业知识库两类。
+</p>
+
+<p>
+开放链接知识库
+在LOD项目的云图中FreeBase、Wikidata、DBpedia、YAGO这4个是比较重要的大规模知识库。它们中不仅包含大量的半结构化、非结构化数据，是知识图谱数据的重要来源。而且具有较高的领域覆盖面，与领域知识库存在大量的关系。
+</p>
+
+<p>
+垂直行业知识库
+行业知识库也可以称为垂直型知识库，这类知识库的描述目标是特定的行业领域，通常需要依靠特定行业的数据才能构建，因此其描述范围极为有限。下面几个就是比较典型的垂直行业知识库。
+</p>
+
+<p>
+IMDB，是一个关于电影演员、电影、电视节目、电视明星以及电影制作的治疗库。
+MusicBrainz,是一个结构化的音乐维基百科，致力于收藏所有的音乐元数据，并向大众用户开放。
+ConceptNet,是一个语义知识网络，主要由一系列代表概念的结点构成，这些概念将主要采用自然语言单词或短语的表达形式，通过相互连接建立语义联系。
+知识图谱的关键技术
+大规模知识库的构建与应用需要多种智能信息处理技术的支持。主要包括以下技术：
+</p>
+
+<p>
+知识抽取：从一些公开的半结构化、非结构化的数据中提取出实体、关系、属性等知识要素。
+知识融合：消除实体、关系、属性等指称项与事实对象之间的奇异，形成高质量的知识库。
+知识推理：在已有的知识库的基础上，进一步挖掘隐含的知识，从而丰富、扩展知识库。
+知识表示：以某种方式表示知识
+下面就分别介绍相关的技术。
+</p>
+
+<p>
+知识抽取
+知识抽取主要是面向开放的链接数据，通过自动化的技术抽取出可用的知识单元，知识单元主要包括实体、关系以及属性3个知识要素，并以此为基础，形成一系列高质量的事实表达，为上层模式层的构建奠定基础。
+</p>
+
+<p>
+(1) 实体抽取
+实体抽取，也称为命名实体识别，指的是从原始预料自动识别出命名实体。实体抽取主要分为3种方法：
+</p>
+
+<p>
+基于规则与词典的方法
+基于统计机器学习的方法
+面向开放域的抽取方法
+(2) 关系抽取
+关系抽取的目标是解决实体间的语义链接问题，早期的关系抽取主要是通过人工构造语义规则以及模板的方法识别实体关系。随后，实体间的关系模型逐渐代替了人工预定义的语法与规则。但是，仍需要提前定义实体间的关系类型。后来出现面向开放域的信息抽取框架(open information extraction,OIE),这是抽取模式上一个巨大进步。但OIE方法在对实体的隐含关系抽取方面性能低下，因此，部分研究者提出基于马尔科夫逻辑网、基于本体推理的深层隐含关系抽取方法。
+</p>
+
+<p>
+(3) 属性抽取
+属性抽取主要是针对实体而言的，通过属性可形成对实体的完整描述。由于实体的属性可以看成是实体与属性值之间的一种名称关系，因此可以将实体属性的抽取问题转换为关系抽取问题。大量的属性数据主要存在于半结构化、非结构化的大规模开放域数据集中。抽取这些属性的方法，一种是将上述从百科网站上抽取的结构化数据作为可用于属性抽取的训练集，然后再将该模型应用于开放域中的实体属性抽取；另一种，根据实体属性与属性之间的关系模式，直接从开放域数据集上抽取属性。但是，由于属性值附近普遍存在一些限定属性值定义的属性名等，所以该抽取方法的准确率并不高。
+</p>
+
+<p>
+知识表示
+虽然，基于三元组的知识表示形式比较直观，但是其在计算效率、数据稀疏性等方面面临着诸多问题。以Deep Learning为代表的表示学习技术可以将实体的语义信息表示为稠密低维实值向量，进而在低维空间中高效计算实体、关系及其之间的复杂语义关联，对知识库的构建、推理、融合及应用均具有重要的意义。
+</p>
+
+<p>
+(1) 应用场景
+分布式表示旨在用一个综合向量表示实体对象的语义信息，是一种模仿人脑工作的表示机制，通过知识表示而得到的分布式表示形式在知识图谱的计算、补全、推理等方面将起到重要作用：
+</p>
+
+<p>
+1）语义相似度计算。由于实体通过分布式表示而形成的是一个个低维的实值向量，所以，可使用熵权系数法、余弦相似性等方法计算它们之间的相似性。这种相似性刻画了实体之间的语义关联程度，为自然语言处理等提供了极大的便利。
+</p>
+
+<p>
+2）链接预测。通过分布式表示模型，可以预测图谱中任意两个实体之间的关系，以及实体间存在的关系的正确性。尤其是在大规模知识图谱上下文中，需要不断补充其中的实体关系，所以链接预测又被称为知识图谱的不全。
+</p>
+
+<p>
+(2) 代表模型
+知识表示学习的代表模型主要包括距离模型、双线性模型、神经张量模型、矩阵分解模型、翻译模型(TransE模型)等。
+</p>
+
+<p>
+(3) 复杂关系模型
+知识库中的实体关系类型也可以分为1-to-1、1-to-N、N-to-1、N-to-N四种类型，复杂的关系主要指的是1-to-N、N-to-1、N-to-N的3种关系类型。由于TransE模型不能用在处理复杂关系上，一系列基于它的扩展模型纷纷被提出，主要包括：TransH模型、TransR模型、TransD模型、TransG模型和KG2E模型。
+</p>
+
+<p>
+(4) 多源信息融合
+三元组作为知识库的一种通用的表示形式，通过表示学习，能够以较为直接的方式表说实体、关系及其之间的复杂语义关联。然而，互联网中仍蕴含着大量与知识库实体、关系有关的信息未被考虑或有效利用，如何充分融合、利用这些多源异质的相关信息，将有利于进一步提升现有知识表示模型的区分能力以及性能。目前，多源异质信息融合模型方面的研究尚处于起步阶段，涉及的信息来源也极为有限。
+</p>
+
+<p>
+知识融合
+由于知识图谱中的知识来源广泛，存在知识质量良莠不齐、来自不同数据源的知识重复、知识间的关联不够明确等问题，所以需要进行知识的融合。知识融合是高层次的知识组织，使来自不同的知识源的知识在同一框架规范下进行异构数据整合、消歧、加工、推理验证、更新等步骤，达到数据、信息、方法、经验以及人的思想的融合，形成高质量的知识库。
+</p>
+
+<p>
+实体对齐
+实体对齐(entity alignment)，也称为实体匹配或实体解析，主要用于消除异构数据中实体冲突、指向不明等不一致性问题，可以从顶层创建一个大规模的统一知识库，从而帮助机器理解多源异质的数据，形成高质量的知识。
+</p>
+
+<p>
+在大数据环境下，受知识库规模的影响，在进行知识库实体对齐时，主要会面临以下3个方面的挑战：（1）计算复杂度；（2）数据质量，不同知识库的构建目的与方式不同，可能存在知识质量良莠不齐、相似重复数据、孤立数据、数据时间粒度不一致等等问题。（3）先验训练数据，在大规模知识库中想要获得这种先验数据却非常困难。通常情况下，需要手工构造训练数据。
+</p>
+
+<p>
+基于上述，知识库实体对齐的主要流程包括：
+</p>
+
+<p>
+将待对齐数据分区索引，以降低计算的复杂度；
+利用相似度函数或相似性计算算法查找匹配实例；
+使用实体对齐算法进行实例融合；
+将步骤2和3的结果结合起来，形成最终的对齐结果。
+对齐算法可以分为成对实体对齐和集体实体对齐两大类，而集体实体对齐又可分为局部集体对齐和全局集体对齐。
+</p>
+
+<p>
+（1）成对实体对齐
+基于传统概率模型的实体对齐方法，主要是考虑两个实体各自属性的相似性，而不考虑实体之间的关系。基于机器学习的实体对齐方法，主要是将实体对齐问题转化为二分类问题。根据是否使用标注数据可分为有监督学习与无监督学习两类。
+</p>
+
+<p>
+（2）局部集体实体对齐方法
+局部集体实体对齐方法为实体本身的属性以及与它有关联的实体的属性分别设置不同的权重，并通过加权求和计算总体的相似度，还可使用向量空间模型以及余弦相似度来判别大规模知识库中的实体的相似程度。
+</p>
+
+<p>
+（3）全局集体实体对齐方法
+</p>
+
+<p>
+知识加工
+通过实体对齐，可以得到一系列的基本事实表达或初步的本体雏形，然而事实并不等于知识，它只是知识的基本单位。要形成高质量的知识，还需要经过知识加工的过程，从层次上形成一个大规模的知识体系，统一对知识进行管理。知识加工主要包括本体构建与质量评估两方面的内容。
+</p>
+
+<p>
+（1）本体构建
+本体是同一领域内不同主体之间进行交流、连通的语义基础，其主要呈现树状结构，相邻的层次结点或概念之间具有严格的”IsA”关系，有利于进行约束、推理等，却不利于表达概念的多样性。本体在知识图谱中的地位相当于知识库的模具，通过本体库而形成的知识库不仅层次结构较强，并且冗余程度较小。
+</p>
+
+<p>
+本体可以通过人工编辑的方式手动构建，也可以通过数据驱动自动构建，然后再经质量评估方法与人工审核相结合的方式加以修正和确认。数据驱动的本体自动构建过程主要可以分为以下3个阶段：
+</p>
+
+<p>
+纵向概念间的并列关系计算。通过计算任意两个实体间并列关系的相似度，可辨析它们在语义层面是否属于同一个概念。计算方法主要包括模式匹配和分布相似度两种。
+实体上下位关系抽取。上下位关系抽取方法包括基本语法的抽取与基本语义的抽取两种方式。
+本体生成。对各个层次得到的概念进行聚类，并为每一类的实体指定1个或多个公共上位词。
+（2）质量评估
+对知识库的质量评估任务通常是与实体对齐任务一起进行的，其意义在于，可以对知识的可信度进行量化，保留置信度较高的，舍弃置信度较低的，有效确保知识的质量。
+</p>
+
+<p>
+知识更新
+人类的认知能力、知识储备以及企业需求都会随着时间而不断递增。因此，知识图谱的内容也需要与时俱进，不论是通用的知识图谱，还是行业知识图谱，它们都需要不断地迭代更新，扩展现有的知识，增加新的知识。
+</p>
+
+<p>
+根据知识图谱的逻辑结构，其更新主要包括模式层的更新和数据层的更新。模式层的更新是指本体中元素的更新，包括概念的增加、修改、删除，概念属性的更新以及概念间上下位关系的更新。通常来说，模式层的增量更新方式消耗资源较少，但是多数情况下是在人工干预的情况下完成的。例如，需要人工定义规则，人工处理冲突等。数据层的更新指的是实体元素的更新，包括实体的增加、修改、删除，以及实体的基本信息和属性值。由于数据层的更新一般影响面较小，因此，通常以自动的方式完成。
+</p>
+
+<p>
+知识推理
+知识推理则是在已有的知识库基础上进一步挖掘隐含的知识，从而丰富、扩展知识库。在推理的过程中，往往需要关联规则的支持。对于推理规则的挖掘，主要还是依赖于实体以及关系间的丰富同现情况。知识推理的对象可以是实体、实体的属性、实体间的关系、本体库中的概念的层次结构等。知识推理方法主要可以分为基于逻辑的推理和基于图的推理两种类别。
+</p>
+
+<p>
+知识图谱的典型应用
+智能搜索
+基于知识图谱的智能搜索是一种基于长尾的搜索，搜索引擎以知识卡片的形式将搜索结果展现出来。用户的查询请求将经过查询式语义理解与知识检索两个阶段。
+</p>
+
+<p>
+查询式语义理解。知识图谱对查询式的语义分析主要包括：（1）对查询请求文本进行分词、词性标注以及纠错；（2）描述归一化，使其与知识库中的相关知识进行匹配；（3）语境分析，在不同的语境下，用户查询式中的对象会有所差别，因此，知识图谱需要结合用户当时的情感，将用户此时需要的答案及时反馈给用户；（4）查询扩展，明确了用户的查询意图以及相关概念后，需要加入当前语境下的相关概念进行扩展。
+知识检索。经过查询式语义分析后，标准查询语境进行知识库检索引擎，引擎会在知识库中检索相应的实体以及与其在类别、关系、相关性等方面匹配度较高的实体。通过对知识库的深层挖掘与提炼后，引擎将给出具有重要性排序的完整知识体系。
+智能搜索引擎主要以3种形式展现知识：
+</p>
+
+<p>
+集成的语义数据。例如，搜索梵高，搜索引擎将以知识卡片的形式给出梵高的生平，并配合图片等信息。
+直接给出用户查询问题的答案。例如，用户搜索“姚明的身高是多少？”，搜索引擎的结果是“226cm”。
+根据用户的查询给出推荐的列表等。
+深度问答
+问答系统是信息检索系统的一种高级形式，能够以准确简洁的自然语言为用户提供问题的解答。多数问答系统更倾向于将给定的问题分解为多个小的问题，然后逐一去知识库中抽取匹配的答案，并自动检测其在时间与空间上的吻合度等，最后将答案进行合并，以直观的方式展现给用户。
+</p>
+
+<p>
+社交网络
+知识图谱的挑战
+(1)知识获取
+(2)知识表示
+复制关系中的知识表示
+多源信息融合中的知识表示
+(3)知识融合
+并行与分布式算法
+众包算法
+跨语言知识对齐
+(4)知识应用
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">3</span> Knowledge-based Q&amp;A</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">3.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-3-1">
 
 <div class="figure">
 <p><img src="./nlp/kbqa_intro.jpg" alt="kbqa_intro.jpg" />
@@ -454,9 +706,9 @@ New York <span style="color: #AE81FF;">350</span> GPE
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">2.2</span> 基于意图的结构化问答系统</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.2</span> 基于意图的结构化问答系统</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 银江股份的市盈率
 </p>
@@ -466,17 +718,17 @@ New York <span style="color: #AE81FF;">350</span> GPE
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">2.3</span> 基于检索的问答系统</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.3</span> 基于检索的问答系统</h3>
+<div class="outline-text-3" id="text-3-3">
 <p>
 对于像新闻、研究报告类的文档内容的搜索和观点挖掘，是一种精细化的搜索方式，不是直接对文档的全文进行检索，而是首先提取分析出文档的重要成分，比如：公司事件、摘要、情感、评级、作者正负面观点等，建立到搜索引擎中，基于启发式方法根据输入的内容进行匹配回复。比如：“航天信息可以买吗？”，不一定能准确的告诉用户可以或不可以，但是可以告诉他航天信息在当前的技术指标（金叉、死叉等），资金流量，研究员的正负面观点以及年报对2017年的管理层意见摘要等等。
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">2.4</span> 基于知识图谱的问答系统</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.4</span> 基于知识图谱的问答系统</h3>
+<div class="outline-text-3" id="text-3-4">
 <p>
 比如：“和苹果手机有关系的股票有哪些？”，“治理雾霾对哪些上市公司会产生影响？”，“钴价上升对哪些股票产生影响最大？”等，当然这些问题通过搜索的方式也能得到答案，但它们有一些共同点，问题的本身都描述着实体和实体之间的关系或者相关性，而这正是知识图谱能够解决的问题，知识图谱将搜索引擎从字符串匹配推进到实体关系查询推理层面.
 </p>
@@ -484,20 +736,20 @@ New York <span style="color: #AE81FF;">350</span> GPE
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">3</span> Definition of Sentiment Analysis</h2>
-<div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">3.1</span> Structure</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orgheadline21" class="outline-2">
+<h2 id="orgheadline21"><span class="section-number-2">4</span> Definition of Sentiment Analysis</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">4.1</span> Structure</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">3.2</span> Opinion Defintion</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">4.2</span> Opinion Defintion</h3>
+<div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Observation: An opinion consists of two key components: a target g and a sentiment s on the target.</li>
 
@@ -510,16 +762,16 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">4</span> Language Technology Processing</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">5</span> Language Technology Processing</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 [<a href="http://ltp.ai/docs/index.html">http://ltp.ai/docs/index.html</a>]
 </p>
 </div>
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">4.1</span> features:</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">5.1</span> features:</h3>
+<div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>针对单一自然语言处理任务，生成统计机器学习模型的工具</li>
 <li>针对单一自然语言处理任务，调用模型进行分析的编程接口</li>
@@ -530,9 +782,9 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline32" class="outline-2">
-<h2 id="orgheadline32"><span class="section-number-2">5</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgheadline34" class="outline-2">
+<h2 id="orgheadline34"><span class="section-number-2">6</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
+<div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>guide:</li>
 </ul>
@@ -555,9 +807,9 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </p>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">5.1</span> Login</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">6.1</span> Login</h3>
+<div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 
 <pre class="src src-neo4j">:server connect
@@ -578,9 +830,9 @@ darts-quota-alternation
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">5.2</span> baike triples</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">6.2</span> baike triples</h3>
+<div class="outline-text-3" id="text-6-2">
 <p>
 subjects, predicates, and objects
 </p>
@@ -609,27 +861,34 @@ subjects, predicates, and objects
 </tr>
 </tbody>
 </table>
+<p>
+subject, attribute, value
+</p>
+
+<p>
+subject, relation, subject
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">5.3</span> SPARQL: RDF Query Language</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">6.3</span> SPARQL: RDF Query Language</h3>
+<div class="outline-text-3" id="text-6-3">
 <p>
 W3C standard that underlies the Web's knowledge representation formalism: the Web Ontology Language (OWL).
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">5.4</span> Visualization tool: Graphviz, networkx, Gephi</h3>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">6.4</span> Visualization tool: Graphviz, networkx, Gephi</h3>
 </div>
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">5.5</span> Graph database: GraphDB, Neo4j.</h3>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">6.5</span> Graph database: GraphDB, Neo4j.</h3>
 </div>
 
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">5.6</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
-<div class="outline-text-3" id="text-5-6">
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">6.6</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
+<div class="outline-text-3" id="text-6-6">
 <ul class="org-ul">
 <li>wiki dumps:</li>
 </ul>
@@ -770,9 +1029,9 @@ return value
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline31" class="outline-3">
-<h3 id="orgheadline31"><span class="section-number-3">5.7</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
-<div class="outline-text-3" id="text-5-7">
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">6.7</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
+<div class="outline-text-3" id="text-6-7">
 <ul class="org-ul">
 <li>basics</li>
 <li>wiki page structure example:</li>
@@ -946,10 +1205,10 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </div>
 </div>
 
-<div id="outline-container-orgheadline30" class="outline-4">
-<h4 id="orgheadline30"><span class="section-number-4">5.7.1</span> Data dumps/Import</h4>
-<div class="outline-text-4" id="text-5-7-1">
-</div><ol class="org-ol"><li><a id="orgheadline28"></a>structure:<br  /><div class="outline-text-5" id="text-5-7-1-1">
+<div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32"><span class="section-number-4">6.7.1</span> Data dumps/Import</h4>
+<div class="outline-text-4" id="text-6-7-1">
+</div><ol class="org-ol"><li><a id="orgheadline30"></a>structure:<br  /><div class="outline-text-5" id="text-6-7-1-1">
 <p>
 <a href="https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql">https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql</a>
 </p>
@@ -1138,7 +1397,7 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </table>
 </div></li>
 
-<li><a id="orgheadline29"></a>methods<br  /><div class="outline-text-5" id="text-5-7-1-2">
+<li><a id="orgheadline31"></a>methods<br  /><div class="outline-text-5" id="text-6-7-1-2">
 <p>
 <a href="https://meta.wikimedia.org/wiki/Data_dumps">https://meta.wikimedia.org/wiki/Data_dumps</a>
 </p>
@@ -1244,9 +1503,9 @@ That was it. This was enough to let me view (most) pages without errors.
 </div>
 </div>
 
-<div id="outline-container-orgheadline33" class="outline-2">
-<h2 id="orgheadline33"><span class="section-number-2">6</span> NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgheadline35" class="outline-2">
+<h2 id="orgheadline35"><span class="section-number-2">7</span> NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</h2>
+<div class="outline-text-2" id="text-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1298,12 +1557,12 @@ That was it. This was enough to let me view (most) pages without errors.
 </div>
 </div>
 
-<div id="outline-container-orgheadline37" class="outline-2">
-<h2 id="orgheadline37"><span class="section-number-2">7</span> Position Of Tagging</h2>
-<div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34"><span class="section-number-3">7.1</span> 词性解释</h3>
-<div class="outline-text-3" id="text-7-1">
+<div id="outline-container-orgheadline39" class="outline-2">
+<h2 id="orgheadline39"><span class="section-number-2">8</span> Position Of Tagging</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">8.1</span> 词性解释</h3>
+<div class="outline-text-3" id="text-8-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1516,9 +1775,9 @@ That was it. This was enough to let me view (most) pages without errors.
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">7.2</span> 句法分析（句法树）</h3>
-<div class="outline-text-3" id="text-7-2">
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">8.2</span> 句法分析（句法树）</h3>
+<div class="outline-text-3" id="text-8-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1776,9 +2035,9 @@ That was it. This was enough to let me view (most) pages without errors.
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">7.3</span> 关系表示</h3>
-<div class="outline-text-3" id="text-7-3">
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">8.3</span> 关系表示</h3>
+<div class="outline-text-3" id="text-8-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 

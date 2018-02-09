@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 2018-02-05 Mon 18:30 -->
+<!-- 2018-02-09 Fri 13:47 -->
 <meta  charset="utf-8">
 <meta  name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
@@ -161,7 +161,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-02-05 18:30:07</td>
+<td class="org-left">2018-02-09 13:47:00</td>
 </tr>
 </tbody>
 </table>
@@ -639,7 +639,7 @@ ICA
 <h3 id="orgheadline11">Studying</h3>
 <div class="outline-text-3" id="text-orgheadline11">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> make studying plan on deep learning and NLP course.</li>
+<li class="on"><code>[X]</code> make studying plan on deep learning and NLP course.</li>
 </ul>
 </div>
 </div>
@@ -676,14 +676,18 @@ ICA
 <h5 id="orgheadline15">create wiki knowledge graph</h5>
 <div class="outline-text-5" id="text-orgheadline15">
 <ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> extract gid from get skill to graph.</li>
 <li class="off"><code>[&#xa0;]</code> importing wiki categories and page edge relation to Neo4j.</li>
-<li class="off"><code>[&#xa0;]</code> skill GID generating in Python.</li>
-<li class="on"><code>[X]</code> 把节点上传. wiki 上传了1040229 page, 381475 categories.</li>
 <li class="off"><code>[&#xa0;]</code> 上传完备份我再建边.</li>
-<li class="off"><code>[&#xa0;]</code> 加一个loop detection算法，现在只做了direct cycle detection algorithm.
+<li class="trans"><code>[-]</code> 加一个loop detection算法，现在只做了direct cycle detection algorithm.
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> use networkx to detect loop.</li>
+<li class="on"><code>[X]</code> use networkx to detect loop.</li>
+<li class="off"><code>[&#xa0;]</code> it's too hard to detect cycles in the whole graph. Starting in a small categories.</li>
+<li class="off"><code>[&#xa0;]</code> don't add direct loop edges to a graph, find<sub>cycles</sub> will only show such direct loop. save this graph.</li>
+<li class="off"><code>[&#xa0;]</code> remove direct cycle and full cycle at a node completely.</li>
 </ul></li>
+<li class="on"><code>[X]</code> skill GID generating in Python.</li>
+<li class="on"><code>[X]</code> 把节点上传. wiki 上传了1040229 page, 381475 categories.</li>
 <li class="on"><code>[X]</code> train word2vec model based on GID.</li>
 <li class="on"><code>[X]</code> import edge, loop detecting for linking categories nodes.</li>
 <li class="on"><code>[X]</code> fetching pages binary content via GID.</li>
@@ -714,12 +718,26 @@ node.names.chinese = simple Chinese title
 <li class="on"><code>[X]</code> delete edges.</li>
 <li class="on"><code>[X]</code> importing wiki categories nodes and page nodes to Neo4j.</li>
 <li class="on"><code>[X]</code> test importing wiki categories nodes.</li>
+<li class="on"><code>[X]</code> skill<sub>2</sub><sub>graph</sub></li>
 </ul>
+<p>
+<code>C-M-r</code> in gs, create 查路径, drag GID: 81F49335AC9C4D84A5F27F7A02AAABBA into the input box, input Parent GID in the parent box.
+</p>
 </div>
 </div>
+
 <div id="outline-container-orgheadline16" class="outline-5">
 <h5 id="orgheadline16"><span class="todo TODO">TODO</span> entity relationship</h5>
 <div class="outline-text-5" id="text-orgheadline16">
+<ul class="org-ul">
+<li>处理思想：</li>
+</ul>
+<p>
+辅以字典法，利用已有的种子实体
+将人名、地名、公司名放在不同的阶段处理
+辅以其他句法分析层次的词性标注
+当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
+</p>
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> from survey paper -&gt; book -&gt; reference paper -&gt; citation paper -&gt; application -&gt; open source library.</li>
 <li class="off"><code>[&#xa0;]</code> entity extraction resolution detection like author, publisher.</li>
