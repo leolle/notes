@@ -321,7 +321,7 @@ import collections
 print [item for item, count in collections.Counter(a).items() if count > 1]
 #+end_src
 
-- 列表生成式
+- 列表生成式list comprehension
 #+begin_src python
 [a.lower() for a in x=['Hello', 'World', 18, 'Apple', None] if isinstance(a,str)]
 #+end_src
@@ -337,6 +337,14 @@ etf_list = [x.strip() for x in etf_list]
 - save a list to a file:
 #+begin_src python
 thefile = open('test.txt', 'w')
+import pickle
+
+with open('outfile', 'wb') as fp:
+    pickle.dump(itemlist, fp)
+# To read it back:
+
+with open ('outfile', 'rb') as fp:
+    itemlist = pickle.load(fp)
 #+end_src
 
 - for item in the list:

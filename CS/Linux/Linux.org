@@ -843,8 +843,13 @@ readlink -f file.txt
 *** The organization of the file tree
 *** File types
 *** File attributes
-*** Access control lists
 
+*** Access control lists
+- compress a file:
+#+BEGIN_SRC bash
+zip -r filename.zip target_dir
+tar -cvjSf folder.tar.bz2 folder
+#+END_SRC
 ** ADDING NEW USERS
 *** The /etc/passwd file
 *** The /etc/shadow and /etc/security/passwd files

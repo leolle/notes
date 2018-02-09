@@ -273,6 +273,36 @@ Case: 编程时的风格：函数，变量，类的命名规则经常不一致�
 设计你的计划时，要考虑各种相互关联的任务的时间顺序。先草拟大概，再用具体任务补充完善。
 
 Case: 在做Word Embedding时，做出的计划应该包括一开始找什么资料，读什么书，什么paper，用什么技术，能够找到什么数据，最后怎么测试这些数据，比较各个技术之间的优势和不足，了解每项技术的瓶颈，解决方案有哪些，运用这些技术能够解决哪些问题，有哪些跟实际工作相关的应用，自己这样做的优势在哪里。
+** Social Science Paper Structure
+*** Introduction
+State the contribution.
+- Problem
+Benefits to be gained by the research or why the problem has not been solved yet.
+- Purpose
+What you are trying to achieve.
+- Own position
+Overall view of the paper. A quick summary of the form that the parts of the research paper is going to take.
+*** Literature Review
+- Previous research
+- Contribution in more detail
+Differences from what has been done before: Is it new data? A new model? A
+new identication strategy? Are you answering a question more broadly/specially? Specifically
+comparing how you are improving on a previous paper is useful.
+- Method/Model
+Exact design and methodology used to perform the research.
+- Data
+Describe the name and source of the data you are using and the period it covers.
+
+Present (relevant) descriptive statistics of the data.
+- Formulate
+A specific question problem, or conjecture, and to describe the approach you will take to answer, solve, or test it. Often, this will take the form of an empirical hypothesis: social security depresses personal savings;
+*** Results
+Numerical results and data, tables or graphs of data.
+*** Discussion
+Elaborate on your findings, and explain what you found, adding your own personal interpretations.
+*** Conclusion
+Emphasizes the importance of the results in the field, and ties it in with the previous research.
+
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own

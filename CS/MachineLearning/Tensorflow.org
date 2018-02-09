@@ -169,3 +169,7 @@ A straightforward technique for reducing dimensions is Principal Component Analy
 
 - [[https://distill.pub/2016/misread-tsne/][t-SNE]]
 A popular non-linear dimensionality reduction technique is t-SNE. The Embedding Projector offers both two- and three-dimensional t-SNE views. Layout is performed client-side animating every step of the algorithm. Because t-SNE often preserves some local structure, it is useful for exploring local neighborhoods and finding clusters. Although extremely useful for visualizing high-dimensional data, t-SNE plots can sometimes be mysterious or misleading. See this great article for how to use t-SNE effectively.
+* Deep learning architecture
+Tensorflow is a mathmatical library including neural network, Keras is a framework based on Tensorflow.
+ - Lower Level: This is where frameworks like Tensorflow, MXNet, Theano, and PyTorch sit. This is the level where mathematical operations like Generalized Matrix-Matrix multiplication and Neural Network primitives like Convolutional operations are implemented.
+ - Higher Level: This is where frameworks like Keras sit. At this Level, the lower level primitives are used to implement Neural Network abstraction like Layers and models. Generally, at this level other helpful APIs like model saving and model training are also implemented.

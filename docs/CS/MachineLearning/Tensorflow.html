@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-01-16 Tue 10:18 -->
+<!-- 2018-02-09 Fri 19:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -185,6 +185,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline9">4.2. Projections</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline11">5. Deep learning architecture</a></li>
 </ul>
 </div>
 </div>
@@ -425,6 +426,18 @@ A straightforward technique for reducing dimensions is Principal Component Analy
 A popular non-linear dimensionality reduction technique is t-SNE. The Embedding Projector offers both two- and three-dimensional t-SNE views. Layout is performed client-side animating every step of the algorithm. Because t-SNE often preserves some local structure, it is useful for exploring local neighborhoods and finding clusters. Although extremely useful for visualizing high-dimensional data, t-SNE plots can sometimes be mysterious or misleading. See this great article for how to use t-SNE effectively.
 </p>
 </div>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">5</span> Deep learning architecture</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Tensorflow is a mathmatical library including neural network, Keras is a framework based on Tensorflow.
+</p>
+<ul class="org-ul">
+<li>Lower Level: This is where frameworks like Tensorflow, MXNet, Theano, and PyTorch sit. This is the level where mathematical operations like Generalized Matrix-Matrix multiplication and Neural Network primitives like Convolutional operations are implemented.</li>
+<li>Higher Level: This is where frameworks like Keras sit. At this Level, the lower level primitives are used to implement Neural Network abstraction like Layers and models. Generally, at this level other helpful APIs like model saving and model training are also implemented.</li>
+</ul>
 </div>
 </div>
 </div>

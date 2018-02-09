@@ -12,42 +12,7 @@
 | *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
 #+HTML: </div>
 
-* Instruction on how to use emacs org mode to orginize calendar.
 
-- insert current date
-=C-c .= <2017-08-11 Fri>
-
-- insert current date and time
-=C-u C-c .= <2017-08-11 Fri 16:06>
-
-- set deadline for an item
-=C-c C-d=
-
-- clock log in
-=C-c C-x C-i=
-
-- clock log out
-=C-c C-x C-o=
-
-- clock cancle
-=C-c C-x C-q=
-- org-mode
-#+BEGIN_SRC text
-#+TOC: headlines 3
-#+INCLUDE: "./CS/Python/python2.org" :minlevel 1
-#+BEGIN_COMMENT
-Each major section of this document is defined in its own file.
-
-You can jump to each file by moving the cursor on an "#+include" line
-and typing =C-c '= Note: There is *no requirement* to split, but large
-org-mode files can become quite slow to edit, so separate sections help
-keeping things fluid...
-#+END_COMMENT
-#+LINK: gh    https://github.com/
-#+LINK: rfc   https://tools.ietf.org/html/
-#+LINK: thing https://github.com/thi-ng/
-#+LINK: wiki  https://en.wikipedia.org/wiki/
-#+END_SRC
 * Workflow
 1. search.
 2. read pdf/code, take notes.
@@ -59,108 +24,87 @@ keeping things fluid...
 8. prepare presentation of all previous steps.
 9. present and get feedback.
 10. deploy function definition, function sampling.
-
-* Social Science Paper Structure
-** Introduction
-State the contribution.
-- Problem
-Benefits to be gained by the research or why the problem has not been solved yet.
-- Purpose
-What you are trying to achieve.
-- Own position
-Overall view of the paper. A quick summary of the form that the parts of the research paper is going to take.
-** Literature Review
-- Previous research
-- Contribution in more detail
-Differences from what has been done before: Is it new data? A new model? A
-new identication strategy? Are you answering a question more broadly/specially? Specifically
-comparing how you are improving on a previous paper is useful.
-- Method/Model
-Exact design and methodology used to perform the research.
-- Data
-Describe the name and source of the data you are using and the period it covers.
-
-Present (relevant) descriptive statistics of the data.
-- Formulate
-A specific question problem, or conjecture, and to describe the approach you will take to answer, solve, or test it. Often, this will take the form of an empirical hypothesis: social security depresses personal savings;
-** Results
-Numerical results and data, tables or graphs of data.
-** Discussion
-Elaborate on your findings, and explain what you found, adding your own personal interpretations.
-** Conclusion
-Emphasizes the importance of the results in the field, and ties it in with the previous research.
-
-
-* GID table
-| date             | GID                              | descriptions                                      |
-| 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                              |
-|                  | 69C3DC21A8E1440AA9C54442AB8A1BD3 | activeX                                           |
-|                  | 528FC2E4CC73469496D330AC39E4AE50 | GROUP WEIGHT                                      |
-|                  | 05E0CAE034244B75BB8CD5580CEF3F5C | 搭函数                                            |
-|                  | 047D8ECFE75E44689D1D10EDF06620BF | FD, portfolio optimization                        |
-|                  | 171A21059C62E84D330A4D7B53D72DDC | set target risk and target return                 |
-|                  | 3A29CB69BD7879553AAF2EDDD23810F0 | 基准风格因子暴露_python                           |
-|                  | E647EFFF80C540A58A2BFC7719658756 | 组合优化FR                                        |
-|                  | F7960FEA8B534BE8885639B36C3816A8 | 风格因子暴露 刘鑫                                 |
-|                  | A5A7240AE18DC1D9C84A3D7629EC1B63 | STYLE风格因子暴露 刘鑫                            |
-|                  | 363F23CF55484C6BB57291A6543385BC | function of generate factors                      |
-|                  | 0D5E7E6A76524DC8A6DA5F5AF0BFB3C3 | function of getting factor exposure               |
-|                  | B58B375C952C486C80CC94F041B0EF63 | j of getting factor exposure                      |
-| <2017-08-11 Fri> | B04D8EC4FC14CBDCCD9FD61B9C831955 | FI optimization                                   |
-| <2017-08-11 Fri> | DB7575569F231472384F462E9A0E69AF | j stock portfolio optimization                    |
-|                  | 6224F5BAEF1D4BC9BAC9FFE0244357D8 | multiple period optimization                      |
-| <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
-| <2017-10-17 Tue> | 2D7FFE3045D945B9A84D7CE26329C0D6 | 分类搜索（旧） (吴伟;函数定义;)                   |
-|                  | 44DE982C48224407BF421AA865E9D0C0 | 搜索指标  分类搜索（旧） (吴伟;指标;)             |
-|                  | A894DF1EA89F4229B04ADECB5D1A0661 | 搭函数                                            |
-|                  | E9FA85212E6D4A9C879E36CD7261D84A | 添加Element (吴伟;股票因子（OTV&O是A股股票）;)    |
-|                  | BA205C0589AB4F6CA1FCAF885763B927 | 分类搜索（旧）                                    |
-|                  | FE1171DA00604BF797EE8D6A2AD63924 | 添加Element (吴伟;函数定义;)                      |
-| <2017-10-27 Fri> | 39B85F94CA20442D99C118A6306984F7 | map homepage                                      |
-| <2017-10-31 Tue> | 7D13DEA9E6C405B8176961A15D0D4860 | 总市值L                                           |
-|                  | 83F882F5CB3AF07D00ADA79F77A7C4DD | A股日涨跌幅_L                                     |
-|                  | DAA28C9560375A07DE91319BA0946298 | 资产收益率_TTM_PIT_L                              |
-|                  | 08CFD0E436A442E5B48894CFCBACAB2D | factor return covariance                          |
-|                  | 22503DED4E434CF09DE6DBAAD8BA717C | factor return specific risk                       |
-| <2017-11-13 Mon> | 44CE41A497504EA2A158AC868EDFB48C | risk model compatible                             |
-|                  | 1084AEFAC31C8780344A53F281B1D2EF | risk model data preprocess                        |
-|                  | 58F613096423BCD84783F165C8918368 | regression                                        |
-| <2017-11-14 Tue> | 566186C314C7A760C626249E168D3362 | risk model(extract result)                        |
-| <2017-11-16 Thu> | 8C01AABF99EB43F28A10D2FB9E3F9F8C | black litterman function F                        |
-| <2017-11-17 Fri> | 46F5B372BFEC95833468B698AF7A8120 | black litterman j                                 |
-|                  | C482A7C8AAA93082803F78F03D37F51B | ROE_daily（PIT）     % change                     |
-|                  | CCA1D8B93BE90E135FFBBCA59723146A | 盈利ROE_daily_PIT_L                               |
-|                  | B8EA49740ACCF83BABAE7168BAA895CC | ROE（daily）                                      |
-| <2018-01-16 Tue> | 392482970E904D11190D208B7C22874A | skill instance example                            |
-|                  |                                  |                                                   |
-
-* other projects
-- [X] 搭建基金策略
-- [X] 对基金策略进行组合优化
-- [X] 分析优化后结果，把组合优化加入流程
-- Hidden factor model
-ICA
-- portfolio optimization based on factor model
-- non linear constrain on factor model
-
-- [X] 公司帮忙照看搬家。
-8 hours.
-
-* Personal stuff
-** Studying
-- [X] make studying plan on deep learning and NLP course.
-** knowledge database website
-- [X] modify python content aligned with python library index.
-[[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
-- [ ] publish org files to gitbook.
-- [ ] Machine Learning
-
-* Errand
 * Deep Learning
 ** NaturalLanguageProcessing
 
+*** TODO Personalized Intelligent Agents(PIA)
+**** Objective:
+***** Short Term
+- make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.
+- incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
+- train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
+- choose model using most related model, use wiki category relation similarity to choose model.
+- Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
+- Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
+- [X] 公告、研报摘要.
+- 可计算的知识服务引擎, like WolframAlpha.
+****** 智能投顾
+基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。
+****** 金融新闻Bots
+实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。
+******* 金融搜索
+****** 知识数据分析
+通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
+关系可以是企业的上下游、合作、竞争对手、子母公司、投资、对标等关系，可以是高管与企业间的任职等关系，也可以是行业间的逻辑关系，实体则是投资机构、投资人、企业等等，把它们用知识图谱表示出来，从而进行更深入的知识推理。
+在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
+[[./img/knowledge_graph_company.jpg]]
+
+***** Long Term
+- context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
+- Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
+- 关系挖掘.
+- Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.
+https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pdf
+
+| 百科类问句     | 什么是ST股票 什么是向后复权                                           |
+| 数据类问句     | 2010年6月26日钢铁报价是多少 三一重工2009年收益是多少                  |
+| 事件类问句     | 江苏宏宝什么时候复牌 苏宁电器是哪年上市的                             |
+| 逻辑推理类问句 | 预测上海能源本月底的走势 长电科技配股是利好还是利坏                   |
+| 选股类问句     | 每股收益在0.2-0.3之间\且市盈率小于30的股票 浙江省市盈率小于20倍的公司 |
+- NLP workflow pipeline.
+
+**** Steps:
+数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
+
+- 命名实体识别
+现在常用的方法有「条件随机场（CRF）」、「最大熵隐马尔科夫」、「隐马尔科夫」等序列标注模型。 主要的处理思想有:
+
+辅以字典法，利用已有的种子实体
+将人名、地名、公司名放在不同的阶段处理
+辅以其他句法分析层次的词性标注
+当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
+**** Model
+- State of the Art NL models based on DNN
+  - CBOW
+  - Skip gram
+  - Sequence to sequence
+  - LSTM
+  - Convolutional Network Sentence classification
+- Libraries
+  - Gensim
+  - SPACY
+  - IEPY
+  - Stanford coreNLP
+  - NLTK
+**** Data
+***** Text Labeled with (semi) structured data
+- [ ] company filings text, filing classification, event time series data (attributes manually extracted)
+- [ ] finance conference scripts.
+- [ ] corporate telephone comference notes, memo.
+- [ ] company filings text, company industry classification
+- [ ] analyst research reports, report classification, analyst ranking
+- [X] wiki page titles and page text, wiki category
+- [ ] textbook or CFA chapter name, chapter exercise questions, multiple choice questions
+- [ ] SSRN paper keyword, category, title, abstract, data, model and conclusion
+***** Text Unlabeled
+- [ ] analyst research reports
+- [ ] textbooks
+**** Applications
+- recommendation of context sensitive synonyms.
+- match search keyword, event, data with theory, model.
+- event-driven stock prediction.
 *** Knowledge Graph
-**** create wiki knowledge graph
+**** TODO create wiki knowledge graph
 DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
 CLOCK: [2018-02-07 Wed 15:36]--[2018-02-07 Wed 18:56] =>  3:20
@@ -316,7 +260,8 @@ CLOCK: [2018-01-26 Fri 11:16]--[2018-01-26 Fri 13:18] =>  2:02
     - [ ] topic classification, extraction, gensim.py(LDA),
     - [ ] sentiment analysis, snowNLP.py, coreNLP,
 - [ ] IEPY
-*** Chinese wiki model.
+*** DONE Chinese wiki model.
+CLOSED: [2018-02-09 Fri 18:57]
 - [X] train financial fields model(58+ categories).
 - [X] use similarity distance to find the nearest category of target words.
 - [X] similarity test on specific model.
@@ -348,10 +293,11 @@ CLOCK: [2018-01-26 Fri 11:16]--[2018-01-26 Fri 13:18] =>  2:02
 - [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
 - [X] get rid of the stopwords.
 - [X] retrie Chinese financial wiki pages from mongo and train.
-*** entity relation extraction
+*** TODO entity relation extraction
 - [ ] company relation
 - [ ] analyst relation
-*** Word Embedding(Word2Vec)
+*** DONE Word Embedding(Word2Vec)
+CLOSED: [2018-02-09 Fri 18:57]
 :LOGBOOK:
 CLOCK: [2017-12-22 Fri 15:44]--[2017-12-22 Fri 19:21] =>  3:37
 CLOCK: [2017-12-14 Thu 10:04]--[2017-12-14 Thu 12:01] =>  1:57
@@ -421,82 +367,6 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 建一个想法，根据这个想法找到匹配的FI, or FD. 例如，建一个optimize需求，自动推荐black litterman model, or markowitz mean/variance model.
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
 当前FI,查找相关的下一步FI.
-*** Personalized Intelligent Agents(PIA)
-**** Objective:
-***** Short Term
-- make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.
-- incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
-- train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
-- choose model using most related model, use wiki category relation similarity to choose model.
-- Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
-- Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
-- [X] 公告、研报摘要.
-- 可计算的知识服务引擎, like WolframAlpha.
-****** 智能投顾
-基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。
-****** 金融新闻Bots
-实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。
-******* 金融搜索
-****** 知识数据分析
-通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
-关系可以是企业的上下游、合作、竞争对手、子母公司、投资、对标等关系，可以是高管与企业间的任职等关系，也可以是行业间的逻辑关系，实体则是投资机构、投资人、企业等等，把它们用知识图谱表示出来，从而进行更深入的知识推理。
-在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
-[[./img/knowledge_graph_company.jpg]]
-
-***** Long Term
-- context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
-- Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
-- 关系挖掘.
-- Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.
-https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pdf
-
-| 百科类问句     | 什么是ST股票 什么是向后复权                                           |
-| 数据类问句     | 2010年6月26日钢铁报价是多少 三一重工2009年收益是多少                  |
-| 事件类问句     | 江苏宏宝什么时候复牌 苏宁电器是哪年上市的                             |
-| 逻辑推理类问句 | 预测上海能源本月底的走势 长电科技配股是利好还是利坏                   |
-| 选股类问句     | 每股收益在0.2-0.3之间\且市盈率小于30的股票 浙江省市盈率小于20倍的公司 |
-- NLP workflow pipeline.
-
-**** Steps:
-数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
-
-- 命名实体识别
-现在常用的方法有「条件随机场（CRF）」、「最大熵隐马尔科夫」、「隐马尔科夫」等序列标注模型。 主要的处理思想有:
-
-辅以字典法，利用已有的种子实体
-将人名、地名、公司名放在不同的阶段处理
-辅以其他句法分析层次的词性标注
-当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
-**** Model
-- State of the Art NL models based on DNN
-  - CBOW
-  - Skip gram
-  - Sequence to sequence
-  - LSTM
-  - Convolutional Network Sentence classification
-- Libraries
-  - Gensim
-  - SPACY
-  - IEPY
-  - Stanford coreNLP
-  - NLTK
-**** Data
-***** Text Labeled with (semi) structured data
-- [ ] company filings text, filing classification, event time series data (attributes manually extracted)
-- [ ] finance conference scripts.
-- [ ] corporate telephone comference notes, memo.
-- [ ] company filings text, company industry classification
-- [ ] analyst research reports, report classification, analyst ranking
-- [X] wiki page titles and page text, wiki category
-- [ ] textbook or CFA chapter name, chapter exercise questions, multiple choice questions
-- [ ] SSRN paper keyword, category, title, abstract, data, model and conclusion
-***** Text Unlabeled
-- [ ] analyst research reports
-- [ ] textbooks
-**** Applications
-- recommendation of context sensitive synonyms.
-- match search keyword, event, data with theory, model.
-- event-driven stock prediction.
 *** Graph Convolutional Neural Network
 **** Objective:
 ***** Short Term
@@ -519,7 +389,8 @@ https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pd
 - Graph Classification and Identification
 - Graph Simplification and Simulation
 
-*** TODO Building the Wikipedia Knowledge Graph in Neo4j
+*** DONE Building the Wikipedia Knowledge Graph in Neo4j
+CLOSED: [2018-02-09 Fri 18:58]
 :LOGBOOK:
 CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 :END:
@@ -687,7 +558,8 @@ Word2Vec
 https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
 https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 - 目标学习：信息抽取
-*** 如何在NLP领域快速学会第一个技能？
+*** DONE 如何在NLP领域快速学会第一个技能？
+CLOSED: [2018-02-09 Fri 19:00]
 - 找到一个开源项目，比如机器翻译或者深度学习的项目。
 - 理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。
 - 然后再深入理解开源项目示范程序的算法。
@@ -724,17 +596,18 @@ https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
 | wp	  | punctuation	         | ，。！       |    |
 | ws	  | foreign words	       | CPU          |    |
 | x	   | non-lexeme	          | 萄, 翱       |    |
-- [ ] 命名实体识别
+- [X] 命名实体识别
 命名实体识别 (Named Entity Recognition, NER) 是在句子的词序列中定位并识别人名、地名、机构名等实体的任务。 如之前的例子，命名实体识别的结果是：
 
 国务院 (机构名) 总理李克强 (人名) 调研上海外高桥 (地名) 时提出，支持上海 (地名) 积极探索新机制。
 命名实体识别对于挖掘文本中的实体进而对其进行分析有很重要的作用。
-- [ ] 依存句法分析
+- [X] 依存句法分析
 依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
-- [ ] 语义角色标注
+- [X] 语义角色标注
 语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
-- [ ] 查看Google Trende API.
-** GPU server hardware comparison
+- [X] 查看Google Trende API.
+** DONE GPU server hardware comparison
+CLOSED: [2018-02-09 Fri 19:00]
 - [X] server vs desktop vs cloud
 - [X] hardware purchase.
 Case	美商海盗船 AIR540 USB3.0 中塔侧透 钢铝混合 游戏散热机箱 支持36CM水冷 黑色	AIR540+AX1500i电源	1000
@@ -764,14 +637,13 @@ Mother board	微星X99A SLI Plus	只支持2路SLI
 
 ** Machine Learning Basics
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.org][Deep Learning]]
-** Other's recommendation
-- [ ] pytorch.
-- [ ] stuff from Zhupengjia, Liguofu.
+** DONE Other's recommendation
+CLOSED: [2018-02-09 Fri 19:01]
+- [X] pytorch.
+- [X] stuff from Zhupengjia, Liguofu.
 - [X] Yoshua paper Deep Learning.
 - [X] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
-Tensorflow is a mathmatical library including neural network, Keras is a framework based on Tensorflow.
- - Lower Level: This is where frameworks like Tensorflow, MXNet, Theano, and PyTorch sit. This is the level where mathematical operations like Generalized Matrix-Matrix multiplication and Neural Network primitives like Convolutional operations are implemented.
- - Higher Level: This is where frameworks like Keras sit. At this Level, the lower level primitives are used to implement Neural Network abstraction like Layers and models. Generally, at this level other helpful APIs like model saving and model training are also implemented.
+
 - [X] Deep Learning book, author Ian Goodfellow.
 - [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
 - [X] Neural Language Processing(NLP), 结巴分词.
@@ -779,6 +651,73 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 *** ANN
 *** CNN
 *** RNN
+
+* GID table
+| date             | GID                              | descriptions                                      |
+| 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                              |
+|                  | 69C3DC21A8E1440AA9C54442AB8A1BD3 | activeX                                           |
+|                  | 528FC2E4CC73469496D330AC39E4AE50 | GROUP WEIGHT                                      |
+|                  | 05E0CAE034244B75BB8CD5580CEF3F5C | 搭函数                                            |
+|                  | 047D8ECFE75E44689D1D10EDF06620BF | FD, portfolio optimization                        |
+|                  | 171A21059C62E84D330A4D7B53D72DDC | set target risk and target return                 |
+|                  | 3A29CB69BD7879553AAF2EDDD23810F0 | 基准风格因子暴露_python                           |
+|                  | E647EFFF80C540A58A2BFC7719658756 | 组合优化FR                                        |
+|                  | F7960FEA8B534BE8885639B36C3816A8 | 风格因子暴露 刘鑫                                 |
+|                  | A5A7240AE18DC1D9C84A3D7629EC1B63 | STYLE风格因子暴露 刘鑫                            |
+|                  | 363F23CF55484C6BB57291A6543385BC | function of generate factors                      |
+|                  | 0D5E7E6A76524DC8A6DA5F5AF0BFB3C3 | function of getting factor exposure               |
+|                  | B58B375C952C486C80CC94F041B0EF63 | j of getting factor exposure                      |
+| <2017-08-11 Fri> | B04D8EC4FC14CBDCCD9FD61B9C831955 | FI optimization                                   |
+| <2017-08-11 Fri> | DB7575569F231472384F462E9A0E69AF | j stock portfolio optimization                    |
+|                  | 6224F5BAEF1D4BC9BAC9FFE0244357D8 | multiple period optimization                      |
+| <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
+| <2017-10-17 Tue> | 2D7FFE3045D945B9A84D7CE26329C0D6 | 分类搜索（旧） (吴伟;函数定义;)                   |
+|                  | 44DE982C48224407BF421AA865E9D0C0 | 搜索指标  分类搜索（旧） (吴伟;指标;)             |
+|                  | A894DF1EA89F4229B04ADECB5D1A0661 | 搭函数                                            |
+|                  | E9FA85212E6D4A9C879E36CD7261D84A | 添加Element (吴伟;股票因子（OTV&O是A股股票）;)    |
+|                  | BA205C0589AB4F6CA1FCAF885763B927 | 分类搜索（旧）                                    |
+|                  | FE1171DA00604BF797EE8D6A2AD63924 | 添加Element (吴伟;函数定义;)                      |
+| <2017-10-27 Fri> | 39B85F94CA20442D99C118A6306984F7 | map homepage                                      |
+| <2017-10-31 Tue> | 7D13DEA9E6C405B8176961A15D0D4860 | 总市值L                                           |
+|                  | 83F882F5CB3AF07D00ADA79F77A7C4DD | A股日涨跌幅_L                                     |
+|                  | DAA28C9560375A07DE91319BA0946298 | 资产收益率_TTM_PIT_L                              |
+|                  | 08CFD0E436A442E5B48894CFCBACAB2D | factor return covariance                          |
+|                  | 22503DED4E434CF09DE6DBAAD8BA717C | factor return specific risk                       |
+| <2017-11-13 Mon> | 44CE41A497504EA2A158AC868EDFB48C | risk model compatible                             |
+|                  | 1084AEFAC31C8780344A53F281B1D2EF | risk model data preprocess                        |
+|                  | 58F613096423BCD84783F165C8918368 | regression                                        |
+| <2017-11-14 Tue> | 566186C314C7A760C626249E168D3362 | risk model(extract result)                        |
+| <2017-11-16 Thu> | 8C01AABF99EB43F28A10D2FB9E3F9F8C | black litterman function F                        |
+| <2017-11-17 Fri> | 46F5B372BFEC95833468B698AF7A8120 | black litterman j                                 |
+|                  | C482A7C8AAA93082803F78F03D37F51B | ROE_daily（PIT）     % change                     |
+|                  | CCA1D8B93BE90E135FFBBCA59723146A | 盈利ROE_daily_PIT_L                               |
+|                  | B8EA49740ACCF83BABAE7168BAA895CC | ROE（daily）                                      |
+| <2018-01-16 Tue> | 4CF56BE55CB641DEA428D1C0BBF6BD17 | skill instance example                            |
+|                  |                                  |                                                   |
+
+* other projects
+- [X] 搭建基金策略
+- [X] 对基金策略进行组合优化
+- [X] 分析优化后结果，把组合优化加入流程
+- Hidden factor model
+ICA
+- portfolio optimization based on factor model
+- non linear constrain on factor model
+
+- [X] 公司帮忙照看搬家。
+8 hours.
+
+* Personal stuff
+** Studying
+- [X] make studying plan on deep learning and NLP course.
+** knowledge database website
+- [X] modify python content aligned with python library index.
+[[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
+- [ ] publish org files to gitbook.
+- [ ] Machine Learning
+
+* Errand
+
 * Machine Learning
 Principle: research and project oriented, adjusting speed based on progress.
 
@@ -868,7 +807,7 @@ DEADLINE: <2017-10-23 Mon>
 - [X] abnormal factors
 ** follow GS workflow
 
-* TODO optimization
+* optimization
 
 ** black-litterman model
 DEADLINE: <2017-11-01 Wed>
@@ -1113,3 +1052,39 @@ moving average crossing over on the continous contract.
 - [ ] simple mode test with real data.
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
+* Instruction on how to use emacs org mode to orginize calendar.
+
+- insert current date
+=C-c .= <2017-08-11 Fri>
+
+- insert current date and time
+=C-u C-c .= <2017-08-11 Fri 16:06>
+
+- set deadline for an item
+=C-c C-d=
+
+- clock log in
+=C-c C-x C-i=
+
+- clock log out
+=C-c C-x C-o=
+
+- clock cancle
+=C-c C-x C-q=
+- org-mode
+#+BEGIN_SRC text
+#+TOC: headlines 3
+#+INCLUDE: "./CS/Python/python2.org" :minlevel 1
+#+BEGIN_COMMENT
+Each major section of this document is defined in its own file.
+
+You can jump to each file by moving the cursor on an "#+include" line
+and typing =C-c '= Note: There is *no requirement* to split, but large
+org-mode files can become quite slow to edit, so separate sections help
+keeping things fluid...
+#+END_COMMENT
+#+LINK: gh    https://github.com/
+#+LINK: rfc   https://tools.ietf.org/html/
+#+LINK: thing https://github.com/thi-ng/
+#+LINK: wiki  https://en.wikipedia.org/wiki/
+#+END_SRC
