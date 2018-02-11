@@ -926,8 +926,44 @@ df -sh *
 *** Software localization and configuration
 *** Using configuration management tools
 *** Sharing software over NFS
+1. install packages
+NFSv4 client
+#+BEGIN_SRC bash
+sudo apt-get install nfs-common
 
-
+#+END_SRC
+NFSv4 server
+#+BEGIN_SRC bash
+sudo apt-get install nfs-kernel-server
+#+END_SRC
+2. isolate all NFS exports in single directory, where the real directories will be mounted with the --bind option
+#+BEGIN_SRC bash
+mkdir -p /export/users
+#+END_SRC
+or
+#+BEGIN_SRC bash
+sudo gedit /etc/fstab
+/home/users    /export/users   none    bind  0  0
+#+END_SRC
+3. edit export configuration on server
+#+BEGIN_SRC bash
+gksu gedit /etc/exports
+/home/weiwu/Documents/projects           192.168.1.73(rw,sync,no_root_squash,no_subtree_check)
+#+END_SRC
+4. restart nfs service
+#+BEGIN_SRC bash
+sudo service nfs-kernel-server restart
+#+END_SRC
+5. export all
+#+BEGIN_SRC bash
+sudo exportfs -a
+# verify
+sudo exportfs -v
+#+END_SRC
+6. mount on client
+#+BEGIN_SRC bash
+sudo mount -t nfs4 -o proto=tcp,port=2049 192.168.1.199:/home/weiwu/Documents/projects /home/oem/projects/share
+#+END_SRC
 ** DRIVERS AND THE KERNEL
 *** Kernel adaptation
 *** Drivers and device files
@@ -1067,7 +1103,11 @@ sudo service networking restart
 *** nfsstat: dump NFS statistics
 *** Dedicated NFS file servers
 *** Automatic mounting
+#+BEGIN_SRC bash
+# mount a windows shared folder
+sudo mount -t cifs -o username="gft" //192.168.1.126/share ~/share
 
+#+END_SRC
 
 ** SHARING SYSTEM FILES
 *** What to share
