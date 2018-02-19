@@ -302,7 +302,10 @@ Numerical results and data, tables or graphs of data.
 Elaborate on your findings, and explain what you found, adding your own personal interpretations.
 *** Conclusion
 Emphasizes the importance of the results in the field, and ties it in with the previous research.
+** 春节经验
+打工不能打一辈子, 要有目标, 最终是要学好本事自己独挡一面.
 
+工作前期不要浮躁, 老老实实搞技术, 同时搞好人际关系(从请吃喝开始入圈, 积累人脉以后再找机会).
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
