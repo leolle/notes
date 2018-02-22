@@ -175,7 +175,7 @@ Another useful NLP tool is information sentiment analysis. Web crawling can extr
 Based on hot events or keywords, documents classification help can extract topics and incrementally searching information from previous results, thus recommending plentiful relevant results from one context to another. This technology gives more possibilities to understand the most cared user question and attempts.
 * February 2018
 ** 产业链分析<2018-02-01 Thu>
-通过联想到挖掘机销售提高，industrial sector, 上有挖掘机生产，三一重工，矿业里有紫金矿业，需求上有电子行业。
+- 通过联想到挖掘机销售提高，industrial sector, 上有挖掘机生产，三一重工，矿业里有紫金矿业，需求上有电子行业。
 - 山东疫苗案—实杰生物与沃森生物。2016年2月份疫苗案开始被媒体逐渐报道；3月7日，实杰生物总经理辞职；同月18日，山东药监局开始报道破案线索；21日晚上药监局公布实杰生物涉及此案；22日，实杰生物与其母公司沃森生物(创业板)同时停牌。通过实杰生物的股转说明书，我们可以知道它是从事疫苗代理销售，冷链管理的；它的主要疫苗包括此次案件涉及的产品；它的第二大客户便是山东省疾病预防控制中心。之后，从事同类业务的中小板上市公司鹭燕医药也涉及此案，24日刚开盘便跌了5.80%。通过这一系列信息，即使不能建立直接联系，但至少也可以警惕相应股票发生重大风险。
 
 - 金蛋理财借壳南京软智挂牌新三板。2015年6月3日，南京软智同意向邓巍等两名外者以1块钱的价格发行2000万股，同时辞去董事职位，并提名这三位为新进董事。1块钱的定增往往是对内部员工的激励措施；邓巍所拥有的公司钱得乐和南京软智的经营范围类似；南京软智的净资产很低，在13年年底只有300万。有这三个基本数据后，股东决议定增的公告一出来我们就应当能判断出借壳上市，而真正的收购公告在6月18日才公布出来。
@@ -302,10 +302,6 @@ Numerical results and data, tables or graphs of data.
 Elaborate on your findings, and explain what you found, adding your own personal interpretations.
 *** Conclusion
 Emphasizes the importance of the results in the field, and ties it in with the previous research.
-** 春节经验
-打工不能打一辈子, 要有目标, 最终是要学好本事自己独挡一面.
-
-工作前期不要浮躁, 老老实实搞技术, 同时搞好人际关系(从请吃喝开始入圈, 积累人脉以后再找机会).
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
