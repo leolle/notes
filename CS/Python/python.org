@@ -370,7 +370,10 @@ text.split(' ', 1)[0]
 ['alvy.test','txt']
 现在是rsplit函数，从右边第一个'.'分界，分成两个字符串，组成一个list
 #+end_src
-
+- split by comma:
+#+BEGIN_SRC python
+string.split(",")
+#+END_SRC
 ** 生成器generator
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
@@ -1495,6 +1498,34 @@ list(nx.simple_cycles(G))
 ** bdb — Debugger framework
 ** faulthandler — Dump the Python traceback
 ** pdb — The Python Debugger
+- s(tep):
+
+Execute the current line, stop at the first possible occasion (either in a function that is called or in the current function).
+
+- n(ext):
+
+Continue execution until the next line in the current function is reached or it returns.
+
+- unt(il):
+
+Continue execution until the line with a number greater than the current one is reached or until the current frame returns.
+
+- r(eturn):
+- c(ont(inue)):
+
+Continue execution, only stop when a breakpoint is encountered.
+
+- l(ist): [first [,last]]
+
+List source code for the current file. Without arguments, list 11 lines around the current line or continue the previous listing. With one argument, list 11 lines starting at that line. With two arguments, list the given range; if the second argument is less than the first, it is a count.
+
+- a(rgs):
+
+Print the argument list of the current function.
+
+- p expression:
+
+Print the value of the expression.
 ** The Python Profilers
 STEPS:
 1). install snakeviz using pip from cmd.

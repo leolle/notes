@@ -1,0 +1,28 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: investment_analysis
+#+DATE: <2018-02-22 Thu>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../configOrg/level1.org
+
+* January 2018
+Commodities Favored With Mean Reversion.
+- Commodities hitting stride with weak greenback, inflation & economic growth
+- Energy is a bit too hot, agriculture too cold, metals the steady bull
+- Commodities set to shine when volatility returns to financial markets
+- Strong precious vs. industrial metals may be anticipating a bit of stock market normalization
+
+Similar to the late 1990s, the Federal Reserve is tightening again. Higher rates coincident with a weaker dollar portend a longer-term peak, which supports commodities. So does inflation, expanding global economic growth and the substantial discount from historical price peaks. Stock and bond conditions appear less favorable.
+
+WTI crude oil near $65 a barrel appears too extended, *absent deeper supply cuts from major producers or some supportive geopolitical issues. Although index total returns are supported by the futures curve, the steepest backwardation in four years indicates the best of the price rally is over.* It's the trend away from contango that's price-supportive. The world's largest liquid-fuel producer -- the U.S. -- should continue to exceed most estimates, based on solid evidence delivered by the parabolic increase in commercial short hedging. Record speculator longs indicate liquidation risks similar to a year ago, prior to the 22% drop. Inventory declines also appear to have run their course. Natural gas is another story, as its recovery appears in early days, sparked by a bit of normalization in North American winter weather.
+
+ WTI crude oil should have a date with support at close to $56 a barrel. Corrections of almost $10 have been common in this bull market.
+
+The Bull Shows Divergence Copper to Gold, Metals on Bull Path But Showing Divergence. Metals are poised to continue leading commodities in 2018, but strong gold vs. weak copper has broader, less favorable implications. Supported by multiyear lows in the U.S. dollar, copper and aluminum diverged from this trend, showing weakness in January. Indications are the primary industrial metals have reentered the pause, retrace and refresh part of the stairstep rally. Gold up vs. copper down also suggests these often leading indicators anticipate some inevitable mean reversion in historically low stock market volatility.
