@@ -149,6 +149,11 @@ eval the value of a variable name from string.
 ** Iterator Types
 - xrange vs range:
 there's no xrange in python 3.
+- Finding the index of an item given a list:
+#+BEGIN_SRC python
+>>> ["foo", "bar", "baz"].index("bar")
+1
+#+END_SRC
 - access index and value looping a list:
 #+BEGIN_SRC python
 for idx, val in enumerate(list):

@@ -194,6 +194,10 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] listed companies triples importing to neo4j.
 - [ ] read Q&A knowledge graph paper.
 **** News summary
+- [ ] classify 1 year of analyst research articles.
+- [ ] convert PDFs to text files.
+- [ ] summerize articles
+- [ ] send summary to baidu api article classification.
 - [ ] get news summary from webs.
 **** syntactic parsing
 ***** opinion extraction system
@@ -693,6 +697,7 @@ CLOSED: [2018-02-09 Fri 19:01]
 |                  | CCA1D8B93BE90E135FFBBCA59723146A | 盈利ROE_daily_PIT_L                               |
 |                  | B8EA49740ACCF83BABAE7168BAA895CC | ROE（daily）                                      |
 | <2018-01-16 Tue> | 4CF56BE55CB641DEA428D1C0BBF6BD17 | skill instance example                            |
+| <2018-02-23 Fri> | 2F773D63314DD8C30C2C212E0AAA88C7 | join(PIT)                                         |
 |                  |                                  |                                                   |
 
 * other projects
@@ -805,7 +810,7 @@ DEADLINE: <2017-10-23 Mon>
 - [X] stocks
 - [X] f def
 - [X] abnormal factors
-** follow GS workflow
+** GS workflow
 
 * optimization
 
