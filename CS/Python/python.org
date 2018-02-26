@@ -1089,6 +1089,12 @@ pkl_file.close()
 ** marshal — Internal Python object serialization
 ** dbm — Interfaces to Unix “databases”
 ** sqlite3 — DB-API interface for SQLite databases
+- install mysql connector
+python ModuleNotFoundError: No module named 'mysql'
+#+BEGIN_SRC bash
+pip search mysql-connector | grep --color mysql-connector-python
+pip install mysql-connector-python-rf
+#+END_SRC
 ** protobuf
 *** tutorial
 - need a .proto file for the structure:

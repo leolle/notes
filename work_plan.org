@@ -123,14 +123,15 @@ CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
 CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
-- [ ] extract gid from get skill to graph.
-- [ ] importing wiki categories and page edge relation to Neo4j.
-- [ ] 上传完备份我再建边.
-- [-] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
+- [ ] news articles sentiment analysis.
+- [X] extract gid from get skill to graph.
+- [X] importing wiki categories and page edge relation to Neo4j.
+- [X] 上传完备份我再建边.
+- [X] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
   - [X] use networkx to detect loop.
-  - [ ] it's too hard to detect cycles in the whole graph. Starting in a small categories.
-  - [ ] don't add direct loop edges to a graph, find_cycles will only show such direct loop. save this graph.
-  - [ ] remove direct cycle and full cycle at a node completely.
+  - [X] it's too hard to detect cycles in the whole graph. Starting in a small categories.
+  - [X] don't add direct loop edges to a graph, find_cycles will only show such direct loop. save this graph.
+  - [X] remove direct cycle and full cycle at a node completely.
 - [X] skill GID generating in Python.
 - [X] 把节点上传. wiki 上传了1040229 page, 381475 categories.
 - [X] train word2vec model based on GID.
@@ -157,7 +158,10 @@ node.names.chinese = simple Chinese title
 - [X] test importing wiki categories nodes.
 - [X] skill_2_graph
 =C-M-r= in gs, create 查路径, drag GID: 81F49335AC9C4D84A5F27F7A02AAABBA into the input box, input Parent GID in the parent box.
-
+***** Thomson Reuters Knowledge graph perim
+- [ ] read how to use the RFM dataset.
+***** relation extraction from training data
+- [ ] search paper and public code.
 **** TODO entity relationship
 :LOGBOOK:
 CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
