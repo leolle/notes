@@ -49,6 +49,8 @@
 在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
 [[./img/knowledge_graph_company.jpg]]
 
+[[./img/knowledge_graph_organization.png]]
+
 ***** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
 - Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
@@ -123,7 +125,6 @@ CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
 CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
 CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
 :END:
-- [ ] news articles sentiment analysis.
 - [X] extract gid from get skill to graph.
 - [X] importing wiki categories and page edge relation to Neo4j.
 - [X] 上传完备份我再建边.
@@ -162,6 +163,8 @@ node.names.chinese = simple Chinese title
 - [ ] read how to use the RFM dataset.
 ***** relation extraction from training data
 - [ ] search paper and public code.
+- [ ] Stanford NLP relation extraction video.
+- [ ]
 **** TODO entity relationship
 :LOGBOOK:
 CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
@@ -205,7 +208,16 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] get news summary from webs.
 **** syntactic parsing
 ***** opinion extraction system
-sentiment analysis.
+****** sentiment analysis.
+:LOGBOOK:
+CLOCK: [2018-03-01 Thu 13:18]
+CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
+:END:
+- [X] news, market-view articles sentiment analysis.
+- [ ] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
+能否用这个指数来预警，今天可以扩大一下样本空间，看看上证在1%下跌的情况下前一日的情感指数值是如何变化。
+- [ ] search paper and books how to use sentiment analysis.
+
 ***** information retrieval system
 Q&A。
 用了什么分析方法，数据。
@@ -291,7 +303,6 @@ CLOSED: [2018-02-09 Fri 18:57]
   - [X] 去标点符号
   - [X] 去数字
 - [ ] word2vec fast text comparison.
-- [ ] fix zhwiki to mongodb words count.
 - [X] compare the training results with or without stopwords.
 - [X] demo code.
 - [X] visualize & compare results.
@@ -301,6 +312,7 @@ CLOSED: [2018-02-09 Fri 18:57]
 - [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
 - [X] get rid of the stopwords.
 - [X] retrie Chinese financial wiki pages from mongo and train.
+- [ ] fix zhwiki to mongodb words count.
 *** TODO entity relation extraction
 - [ ] company relation
 - [ ] analyst relation
@@ -405,6 +417,10 @@ CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
 - [X] wiki SQL database links graph.
 - [X] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
+**** TODO manual import unsaved categories and edges into Neo4j.
+- [ ] find unsaved categories under 金融 category.
+- [ ] save those to a sql file.
+- [ ] upload sql file and edge.
 **** Data dumps/Import
 - methods
 [[https://meta.wikimedia.org/wiki/Data_dumps]]

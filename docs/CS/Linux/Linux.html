@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-09 Fri 19:10 -->
+<!-- 2018-03-01 Thu 14:07 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -2036,10 +2036,81 @@ sudo fdisk -l
 </div>
 <div id="outline-container-orgheadline118" class="outline-4">
 <h4 id="orgheadline118"><span class="section-number-4">1.12.12</span> Sharing software over NFS</h4>
+<div class="outline-text-4" id="text-1-12-12">
+<ol class="org-ol">
+<li>install packages</li>
+</ol>
+<p>
+NFSv4 client
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo apt-get install nfs-common rpcbind
+</pre>
+</div>
+<p>
+NFSv4 server
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo apt-get install nfs-kernel-server rpcbind
+</pre>
+</div>
+<ol class="org-ol">
+<li>isolate all NFS exports in single directory, where the real directories will be mounted with the &#x2013;bind option</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-bash">mkdir -p /export/users
+</pre>
+</div>
+<p>
+or
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo gedit /etc/fstab
+/home/users    /export/users   none    bind  <span style="color: #AE81FF;">0</span>  <span style="color: #AE81FF;">0</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li>edit export configuration on server</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-bash">gksu gedit /etc/exports
+/home/weiwu/Documents/projects           <span style="color: #AE81FF;">192.168.1.73</span><span style="color: #AE81FF;">(</span>rw,sync,no_root_squash,no_subtree_check<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li>restart nfs service</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo service nfs-kernel-server restart
+</pre>
+</div>
+<ol class="org-ol">
+<li>export all</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo exportfs -a
+<span style="color: #75715E;"># </span><span style="color: #75715E;">verify</span>
+sudo exportfs -v
+</pre>
+</div>
+<ol class="org-ol">
+<li>mount on client</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo mount -t nfs4 -o <span style="color: #FD971F;">proto</span>=tcp,<span style="color: #FD971F;">port</span>=<span style="color: #AE81FF;">2049</span> <span style="color: #AE81FF;">192.168.1.199:/home/weiwu/Documents/projects</span> /home/oem/projects/share
+</pre>
 </div>
 </div>
-
-
+</div>
+</div>
 <div id="outline-container-orgheadline128" class="outline-3">
 <h3 id="orgheadline128"><span class="section-number-3">1.13</span> DRIVERS AND THE KERNEL</h3>
 <div class="outline-text-3" id="text-1-13">
@@ -2401,9 +2472,16 @@ sudo service networking restart
 </div>
 <div id="outline-container-orgheadline189" class="outline-4">
 <h4 id="orgheadline189"><span class="section-number-4">2.5.8</span> Automatic mounting</h4>
-</div>
-</div>
+<div class="outline-text-4" id="text-2-5-8">
+<div class="org-src-container">
 
+<pre class="src src-bash"><span style="color: #75715E;"># </span><span style="color: #75715E;">mount a windows shared folder</span>
+sudo mount -t cifs -o <span style="color: #FD971F;">username</span>=<span style="color: #E6DB74;">"gft"</span> //192.168.1.126/share ~/share
+</pre>
+</div>
+</div>
+</div>
+</div>
 
 <div id="outline-container-orgheadline196" class="outline-3">
 <h3 id="orgheadline196"><span class="section-number-3">2.6</span> SHARING SYSTEM FILES</h3>

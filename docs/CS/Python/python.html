@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-09 Fri 19:10 -->
+<!-- 2018-03-01 Thu 14:07 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -854,6 +854,15 @@ eval the value of a variable name from string.
 there's no xrange in python 3.
 </p>
 <ul class="org-ul">
+<li>Finding the index of an item given a list:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">"foo"</span>, <span style="color: #E6DB74;">"bar"</span>, <span style="color: #E6DB74;">"baz"</span><span style="color: #AE81FF;">]</span>.index<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"bar"</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">1</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>access index and value looping a list:</li>
 </ul>
 <div class="org-src-container">
@@ -1156,9 +1165,16 @@ choose extend mode: replace ',' as \r\n
 &#29616;&#22312;&#26159;rsplit&#20989;&#25968;&#65292;&#20174;&#21491;&#36793;&#31532;&#19968;&#20010;<span style="color: #E6DB74;">'.'</span>&#20998;&#30028;&#65292;&#20998;&#25104;&#20004;&#20010;&#23383;&#31526;&#20018;&#65292;&#32452;&#25104;&#19968;&#20010;list
 </pre>
 </div>
-</div>
-</div>
+<ul class="org-ul">
+<li>split by comma:</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-python">string.split<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">","</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline20" class="outline-3">
 <h3 id="orgheadline20"><span class="section-number-3">3.7</span> 生成器generator</h3>
 <div class="outline-text-3" id="text-3-7">
@@ -1609,6 +1625,15 @@ Traceback <span style="color: #AE81FF;">(</span>most recent call last<span style
 </div><div id="outline-container-orgheadline35" class="outline-3">
 <h3 id="orgheadline35"><span class="section-number-3">5.1</span> string — Common string operations</h3>
 <div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>check if string is empty:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">if</span> <span style="color: #F92672;">not</span> text:
+  <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'text is empty'</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>if the string is an English word.</li>
 </ul>
@@ -2364,6 +2389,20 @@ pkl_file.close<span style="color: #AE81FF;">()</span>
 </div>
 <div id="outline-container-orgheadline104" class="outline-3">
 <h3 id="orgheadline104"><span class="section-number-3">10.6</span> sqlite3 — DB-API interface for SQLite databases</h3>
+<div class="outline-text-3" id="text-10-6">
+<ul class="org-ul">
+<li>install mysql connector</li>
+</ul>
+<p>
+python ModuleNotFoundError: No module named 'mysql'
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">pip search mysql-connector | grep --color mysql-connector-python
+pip install mysql-connector-python-rf
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline106" class="outline-3">
 <h3 id="orgheadline106"><span class="section-number-3">10.7</span> protobuf</h3>
@@ -2749,6 +2788,9 @@ handler.setFormatter<span style="color: #AE81FF;">(</span>formatter<span style="
     logger.addHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
 logger.setLevel<span style="color: #AE81FF;">(</span>logging.DEBUG<span style="color: #AE81FF;">)</span>
 logger
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+logging.basicConfig<span style="color: #AE81FF;">(</span>
+    <span style="color: #F92672;">format</span>=<span style="color: #E6DB74;">'%(asctime)s : %(levelname)s : %(message)s'</span>, level=logging.DEBUG<span style="color: #AE81FF;">)</span>
 
 <span style="color: #75715E;"># </span><span style="color: #75715E;">at the end of the program</span>
 handler.close<span style="color: #AE81FF;">()</span>
@@ -3084,6 +3126,64 @@ install pandas-datareader first.
 </div>
 <div id="outline-container-orgheadline205" class="outline-3">
 <h3 id="orgheadline205"><span class="section-number-3">19.3</span> pdb — The Python Debugger</h3>
+<div class="outline-text-3" id="text-19-3">
+<ul class="org-ul">
+<li>s(tep):</li>
+</ul>
+
+<p>
+Execute the current line, stop at the first possible occasion (either in a function that is called or in the current function).
+</p>
+
+<ul class="org-ul">
+<li>n(ext):</li>
+</ul>
+
+<p>
+Continue execution until the next line in the current function is reached or it returns.
+</p>
+
+<ul class="org-ul">
+<li>unt(il):</li>
+</ul>
+
+<p>
+Continue execution until the line with a number greater than the current one is reached or until the current frame returns.
+</p>
+
+<ul class="org-ul">
+<li>r(eturn):</li>
+<li>c(ont(inue)):</li>
+</ul>
+
+<p>
+Continue execution, only stop when a breakpoint is encountered.
+</p>
+
+<ul class="org-ul">
+<li>l(ist): [first [,last]]</li>
+</ul>
+
+<p>
+List source code for the current file. Without arguments, list 11 lines around the current line or continue the previous listing. With one argument, list 11 lines starting at that line. With two arguments, list the given range; if the second argument is less than the first, it is a count.
+</p>
+
+<ul class="org-ul">
+<li>a(rgs):</li>
+</ul>
+
+<p>
+Print the argument list of the current function.
+</p>
+
+<ul class="org-ul">
+<li>p expression:</li>
+</ul>
+
+<p>
+Print the value of the expression.
+</p>
+</div>
 </div>
 <div id="outline-container-orgheadline206" class="outline-3">
 <h3 id="orgheadline206"><span class="section-number-3">19.4</span> The Python Profilers</h3>
@@ -3469,6 +3569,10 @@ UTF-8是把character转为binary code的规范, and vice versa. 方便存储。
 </tr>
 </tbody>
 </table>
+
+<p>
+已知“严”的unicode是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800-0000 FFFF），因此“严”的UTF-8编码需要三个字节，即格式是“1110xxxx 10xxxxxx 10xxxxxx”。然后，从“严”的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，“严”的UTF-8编码是“11100100 10111000 10100101”，转换成十六进制就是E4B8A5。
+</p>
 
 <ul class="org-ul">
 <li>division</li>
@@ -4020,6 +4124,7 @@ pd.melt<span style="color: #AE81FF;">(</span>DataFrame, id_vars=<span style="col
 <div class="org-src-container">
 
 <pre class="src src-python">DataFrame.replace<span style="color: #AE81FF;">(</span>to_replace=<span style="color: #AE81FF;">None</span>, value=<span style="color: #AE81FF;">None</span>, inplace=<span style="color: #AE81FF;">False</span>, limit=<span style="color: #AE81FF;">None</span>, regex=<span style="color: #AE81FF;">False</span>, method=<span style="color: #E6DB74;">'pad'</span>, axis=<span style="color: #AE81FF;">None</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">df</span> = df<span style="color: #AE81FF;">[</span>df.line_race != <span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -4342,7 +4447,8 @@ b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #FD971F;">df</span> = df.set_index<span style="color: #AE81FF;">(</span>pd.DatetimeIndex<span style="color: #66D9EF;">(</span>df<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'Date'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-python"><span style="color: #FD971F;">index</span> = index.set_index<span style="color: #AE81FF;">(</span>pd.DatetimeIndex<span style="color: #66D9EF;">(</span>index<span style="color: #A6E22E;">[</span><span style="color: #E6DB74;">'tradeDate'</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>.drop<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'tradeDate'</span>, axis=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">df = df.set_index(pd.DatetimeIndex(df['Date']))</span>
 </pre>
 </div>
 

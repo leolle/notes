@@ -62,6 +62,14 @@ model.train(more_sentences)
 **** training algorithm
 **** glossary:
 - Uniform Resource Identifier (URI)
+- N-gram
+an n-gram is a contiguous sequence of n items from a given sample of text or speech.
+
+An n-gram model is a type of probabilistic language model for predicting the next item in such a sequence in the form of a (n − 1)–order Markov model.
+
+Two benefits of n-gram models (and algorithms that use them) are simplicity and scalability – with larger n, a model can store more context with a well-understood space–time tradeoff, enabling small experiments to scale up efficiently.
+
+
 - Web Ontology Language (OWL)
 - Resource Description Framework
 metadata data model. It has come to be used as a general method for conceptual description or modeling of information that is implemented in web resources, using a variety of syntax notations and data serialization formats. It is also used in knowledge management applications.
@@ -360,7 +368,10 @@ subject, relation, subject
 W3C standard that underlies the Web's knowledge representation formalism: the Web Ontology Language (OWL).
 ** Visualization tool: Graphviz, networkx, Gephi
 ** Graph database: GraphDB, Neo4j.
-
+- node
+property
+- relationship
+- directional
 ** Approach 1: Loading a reduced subset incrementally through the MediaWiki API
 - wiki dumps:
 
