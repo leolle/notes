@@ -893,10 +893,13 @@ str_timestamp = str_timestamp.strftime('%Y-%m-%d')
 #+END_SRC
 datetime, utc
 datetime64
-
+- get the location of a date in datetimeindex:
+#+BEGIN_SRC python
+pd.DatetimeIndex.get_loc(datetime)
+#+END_SRC
 - datetime off set, subtract
 #+BEGIN_SRC python
-pd.DateOffset(years=1)
+TimeStamp +/- pd.DateOffset(years=1)
 pd.Timedelta(days=365) #allowed keywords are [weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds]
 #+END_SRC
 ** calendar — General calendar-related functions
