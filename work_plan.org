@@ -65,6 +65,14 @@ https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pd
 | 选股类问句     | 每股收益在0.2-0.3之间\且市盈率小于30的股票 浙江省市盈率小于20倍的公司 |
 - NLP workflow pipeline.
 
+***** Event-Driven Strategies
+- Earnings Releases:
+Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
+- Mergers & Acquisitions:
+M&A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
+- Spin-Offs:
+Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
+
 **** Steps:
 数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
 
@@ -210,7 +218,7 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 ***** opinion extraction system
 ****** sentiment analysis.
 :LOGBOOK:
-CLOCK: [2018-03-02 Fri 09:56]
+CLOCK: [2018-03-02 Fri 09:56]--[2018-03-02 Fri 19:07] =>  9:11
 CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
 :END:
 - [X] news, market-view articles sentiment analysis.
