@@ -24,6 +24,48 @@
 8. prepare presentation of all previous steps.
 9. present and get feedback.
 10. deploy function definition, function sampling.
+
+* GS Definition:
+Graph Strategist is a intelligent research platform.
+
+User can start a research from extracting paper idea, to check what data, model the paper uses, to expect what result, modeling input, signal, python function, backtesting, fitness statistics.
+
+difference from DIY, change parameters, taking notes and communicate with peers, saving working sessions, changing models, data.
+
+自然语言处理嵌入gs：
+简单描述说明一下如何把自然语言处理提供的一些功能应用到GS产品，与GS提供的功能结合，目前能够做到的自然语言处理功能包括情感分析，命名实体识别，Word Embedding, 知识网络， 网络爬虫。
+
+使用需求：
+1. 产生事件驱动策略信号：
+根据数据库analyst report, market view, news, company annoucement 的文本所描述的事件，产生文本所描述指数，产业或者股票的买卖交易信号。
+Event-Driven Strategies
+- Earnings Releases:
+Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
+- Mergers & Acquisitions:
+M&A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
+- Spin-Offs:
+Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
+
+2. gs选择函数时产生相关推荐：
+当用户在选择gs函数时，以及将来Reinforcement Learning功能使用时可能需要更多的类似函数或者联想出更多相关的函数。例如：当用户选择函数时打入去极值函数时，gs自动推荐去极值的几种函数，如分位数去极值，标准差去极值，中位数去极值，Median Absolute Deviation(MAD)去极值。
+
+以及当进行函数的输入数据选择时，联想出更多的相关数据选项。例如当选择股票池时，打入上证50，gs自动推荐出其它的几个相关的数据选项，如沪深300，上证100，中证500；再如当进行因子回测时，打入市盈率因子，gs自动推荐出其它因子像PB, ROE 等数据名字。
+
+3. 探索跟某一公司，产业，技术在业务上相关联的公司，产业或者技术：
+
+
+
+设计方案：
+1. gs编写Python函数，进行情感分析，命名实体识别，关键字分析，产生事件驱动策略信号：
+
+
+2. Word Embedding：
+
+
+3. 知识网络，网络爬虫：
+框架：
+
+
 * Deep Learning
 ** NaturalLanguageProcessing
 
@@ -218,11 +260,15 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 ***** opinion extraction system
 ****** sentiment analysis.
 :LOGBOOK:
+CLOCK: [2018-03-07 Wed 10:05]--[2018-03-07 Wed 17:57] =>  7:52
 CLOCK: [2018-03-02 Fri 09:56]--[2018-03-02 Fri 19:07] =>  9:11
 CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
 :END:
+- [ ] sentiment score做为单因子测试
+- [X] read_RMDB_table -> NLP_sentiment_analysis -> generate_sentiment_signal.
+- [X] 情感分析指标的设计在GS上实现。
 - [X] news, market-view articles sentiment analysis.
-- [ ] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
+- [X] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
 能否用这个指数来预警，今天可以扩大一下样本空间，看看上证在1%下跌的情况下前一日的情感指数值是如何变化。
 - [ ] search paper and books how to use sentiment analysis.
 
@@ -324,8 +370,7 @@ CLOSED: [2018-02-09 Fri 18:57]
 *** TODO entity relation extraction
 - [ ] company relation
 - [ ] analyst relation
-*** DONE Word Embedding(Word2Vec)
-CLOSED: [2018-02-09 Fri 18:57]
+*** TODO Word Embedding(Word2Vec)
 :LOGBOOK:
 CLOCK: [2017-12-22 Fri 15:44]--[2017-12-22 Fri 19:21] =>  3:37
 CLOCK: [2017-12-14 Thu 10:04]--[2017-12-14 Thu 12:01] =>  1:57
@@ -334,6 +379,7 @@ CLOCK: [2017-12-05 Tue 11:46]--[2017-12-05 Tue 12:04] =>  0:18
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
+- [ ] word embedding的设计文档修改.
 - [ ] pack pages into a corpus.
 - [ ] compare cutting on paragraph and document.
 - [ ] train few files to see if there's repeat training on word2vec.
@@ -726,6 +772,8 @@ CLOSED: [2018-02-09 Fri 19:01]
 |                  | B8EA49740ACCF83BABAE7168BAA895CC | ROE（daily）                                      |
 | <2018-01-16 Tue> | 4CF56BE55CB641DEA428D1C0BBF6BD17 | skill instance example                            |
 | <2018-02-23 Fri> | 2F773D63314DD8C30C2C212E0AAA88C7 | join(PIT)                                         |
+| <2018-03-05 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 | 搭函数                                            |
+| <2018-03-08 Thu> | 2ABBAB65792E46DD9DFAA734A4A6B575 | workspace                                         |
 |                  |                                  |                                                   |
 
 * other projects
@@ -1083,6 +1131,25 @@ moving average crossing over on the continous contract.
 - [X] range osets.
 - [X] parse future continious contract data.
 - [ ] simple mode test with real data.
+* Issues:
+- 数据预览错误
+#+BEGIN_SRC txt
+
+Func[1EA1E9396E574AF4B6D39EC5BCCD1B61.py] Seq:3in[3CEA6605E3F63191F225D45C21395C41#1],error:Python error:
+TypeError: a bytes-like object is required, not 'str'
+Traceback (recent call last):
+File "<string>", line 1, in <module>
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 823, in transformOutputWithTypeGiven
+return transformOutput(obj)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 861, in transformOutput
+return _wideFrameToTuple(obj.matrix)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 980, in _wideFrameToTuple
+ls_index = transformOFromPandas2Output(objT.index.values)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 332, in transformOFromPandas2Output
+ret = ndOutput.astype(oDataType)
+
+#+END_SRC
+输出数字类型只能是float, 结构为TV时column name必须为GID，否则需要reset index.
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
 * Instruction on how to use emacs org mode to orginize calendar.
