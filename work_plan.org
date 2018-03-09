@@ -235,6 +235,8 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 辅以其他句法分析层次的词性标注
 当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
 - [ ] from survey paper -> book -> reference paper -> citation paper -> application -> open source library.
+- [ ] company relation
+- [ ] analyst relation
 - [ ] entity extraction resolution detection like author, publisher.
 - [X] pseudo code of node, edge upload.
 - [X] summerize nlp library extraction result comparison in jupyter notebook.
@@ -367,9 +369,6 @@ CLOSED: [2018-02-09 Fri 18:57]
 - [X] get rid of the stopwords.
 - [X] retrie Chinese financial wiki pages from mongo and train.
 - [ ] fix zhwiki to mongodb words count.
-*** TODO entity relation extraction
-- [ ] company relation
-- [ ] analyst relation
 *** TODO Word Embedding(Word2Vec)
 :LOGBOOK:
 CLOCK: [2017-12-22 Fri 15:44]--[2017-12-22 Fri 19:21] =>  3:37
@@ -379,8 +378,9 @@ CLOCK: [2017-12-05 Tue 11:46]--[2017-12-05 Tue 12:04] =>  0:18
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
-- [ ] word embedding的设计文档修改.
-- [ ] pack pages into a corpus.
+- [X] return word embedding model to next step in GS.
+- [X] word embedding的设计文档修改.
+- [X] pack pages into a corpus file.
 - [ ] compare cutting on paragraph and document.
 - [ ] train few files to see if there's repeat training on word2vec.
 - [ ] extract data from financial documents — usually PDFs — in an automated way, and to produce “better-than-human” analyses. extract data from tables and text.
@@ -471,10 +471,11 @@ CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
 - [X] wiki SQL database links graph.
 - [X] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
-**** TODO manual import unsaved categories and edges into Neo4j.
-- [ ] find unsaved categories under 金融 category.
-- [ ] save those to a sql file.
-- [ ] upload sql file and edge.
+**** DONE manual import unsaved categories and edges into Neo4j.
+CLOSED: [2018-03-09 Fri 15:15]
+- [X] find unsaved categories under 金融 category.
+- [X] save those to a sql file.
+- [X] upload sql file and edge.
 **** Data dumps/Import
 - methods
 [[https://meta.wikimedia.org/wiki/Data_dumps]]
@@ -1060,7 +1061,7 @@ BUG: asColumnTab will get wrong data if the content in the GftTable is a datafra
 - [ ] follow up correction.
 - [ ] pack functions to modules.
 - [ ] follow up correction.
-* TODO future simulation                                :future:optimization:
+* future simulation                                     :future:optimization:
 
  <2017-09-19 Tue> - <2017-10-01 Sun>
 - [X] buy and hold mode on future backtesting.

@@ -122,6 +122,12 @@ where not exists (select * from College C2
 where C2.enrollment > C1.enrollment);
 #+END_SRC
 
+- count
+#+BEGIN_SRC sql
+SELECT COUNT(aggregate_expression)
+FROM tables
+[WHERE conditions];
+#+END_SRC
 ***** all, any, exists, not exists.
 - Students not from the smallest high school.
 #+BEGIN_SRC sql

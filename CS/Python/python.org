@@ -1736,6 +1736,11 @@ UTF-8是把character转为binary code的规范, and vice versa. 方便存储。
 
 已知“严”的unicode是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800-0000 FFFF），因此“严”的UTF-8编码需要三个字节，即格式是“1110xxxx 10xxxxxx 10xxxxxx”。然后，从“严”的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，“严”的UTF-8编码是“11100100 10111000 10100101”，转换成十六进制就是E4B8A5。
 
+You can use a different encoding from UTF-8 by putting a specially-formatted comment as the first or second line of the source code:
+
+# -*- coding: <encoding name> -*-
+
+*是为了让解释器在执行该文件的时候知道该文件是何种编码方式，从而顺利读取指令去执行计算。*
 - division
 新的除法特性，本来的除号`/`对于分子分母是整数的情况会取整，但新特性中在此情况下的除法不会取整，取整的使用`//`。如下可见，只有分子分母都是整数时结果不同。
 - print_function
