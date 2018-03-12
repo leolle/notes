@@ -85,6 +85,8 @@ Spin-offs tend to see an initial decline in share price as institutional investo
 ****** 金融新闻Bots
 实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。
 ******* 金融搜索
+****** 智能选股
+爬取Google news, 雪球， 虎嗅， 微信上所有500支股票的文档，再进行sentiment analysis, 结果再排序，选最好的5只。
 ****** 知识数据分析
 通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
 关系可以是企业的上下游、合作、竞争对手、子母公司、投资、对标等关系，可以是高管与企业间的任职等关系，也可以是行业间的逻辑关系，实体则是投资机构、投资人、企业等等，把它们用知识图谱表示出来，从而进行更深入的知识推理。
@@ -260,13 +262,13 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] get news summary from webs.
 **** syntactic parsing
 ***** opinion extraction system
-****** sentiment analysis.
+****** TODO sentiment analysis.
 :LOGBOOK:
 CLOCK: [2018-03-07 Wed 10:05]--[2018-03-07 Wed 17:57] =>  7:52
 CLOCK: [2018-03-02 Fri 09:56]--[2018-03-02 Fri 19:07] =>  9:11
 CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
 :END:
-- [ ] sentiment score做为单因子测试
+- [ ] sentiment score做为单因子测试, upload sentiment data to hadoop and test factor in FS.
 - [X] read_RMDB_table -> NLP_sentiment_analysis -> generate_sentiment_signal.
 - [X] 情感分析指标的设计在GS上实现。
 - [X] news, market-view articles sentiment analysis.
@@ -378,6 +380,9 @@ CLOCK: [2017-12-05 Tue 11:46]--[2017-12-05 Tue 12:04] =>  0:18
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
+- [X] upload all vocabulary in word2vec model to Neo4j.
+- [X] create a function: word_rec(model, keywords, topn)
+- [ ] manually add categories and page links in sql file.
 - [X] return word embedding model to next step in GS.
 - [X] word embedding的设计文档修改.
 - [X] pack pages into a corpus file.
@@ -1151,6 +1156,9 @@ ret = ndOutput.astype(oDataType)
 
 #+END_SRC
 输出数字类型只能是float, 结构为TV时column name必须为GID，否则需要reset index.
+- 输出string
+必须是binary,不能是string
+使用gftIO.gidStrArray2CharArray
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
 * Instruction on how to use emacs org mode to orginize calendar.

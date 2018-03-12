@@ -193,6 +193,10 @@ Matches any non-whitespace character; this is equivalent to the class [^ \t\n\r\
 Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_].
 - \W
 Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].
+- \(
+open braket
+- [\u4e00-\u9fa5]+
+汉字
 
 *** Quantification
 

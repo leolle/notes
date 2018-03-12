@@ -436,6 +436,10 @@ python models/tutorials/image/mnist/convolutional.py
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- show running log:
+#+BEGIN_SRC bash
+tail -f -n 100 wiki_upload.log
+#+END_SRC
 - show absolute path of file:
 #+BEGIN_SRC bash
 realpath filename
@@ -929,12 +933,12 @@ df -sh *
 1. install packages
 NFSv4 client
 #+BEGIN_SRC bash
-sudo apt-get install nfs-common
+sudo apt-get install nfs-common rpcbind
 
 #+END_SRC
 NFSv4 server
 #+BEGIN_SRC bash
-sudo apt-get install nfs-kernel-server
+sudo apt-get install nfs-kernel-server rpcbind
 #+END_SRC
 2. isolate all NFS exports in single directory, where the real directories will be mounted with the --bind option
 #+BEGIN_SRC bash
