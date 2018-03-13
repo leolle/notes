@@ -264,11 +264,14 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 ***** opinion extraction system
 ****** TODO sentiment analysis.
 :LOGBOOK:
+CLOCK: [2018-03-13 Tue 10:02]
 CLOCK: [2018-03-07 Wed 10:05]--[2018-03-07 Wed 17:57] =>  7:52
 CLOCK: [2018-03-02 Fri 09:56]--[2018-03-02 Fri 19:07] =>  9:11
 CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
 :END:
 - [ ] sentiment score做为单因子测试, upload sentiment data to hadoop and test factor in FS.
+- [ ] read paper *joint extraction of entities and relations*.
+- [ ] read paper *Anomalies and Investor Sentiment*.
 - [X] read_RMDB_table -> NLP_sentiment_analysis -> generate_sentiment_signal.
 - [X] 情感分析指标的设计在GS上实现。
 - [X] news, market-view articles sentiment analysis.
