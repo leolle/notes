@@ -855,6 +855,16 @@ https://docs.python.org/2.7/howto/unicode.html
 
 * Data Types
 ** datetime — Basic date and time types
+- Converting unix timestamp string to readable date in Python
+#+BEGIN_SRC python
+import datetime
+print(
+    datetime.datetime.fromtimestamp(
+        int("1284101485")
+    ).strftime('%Y-%m-%d %H:%M:%S')
+)
+
+#+END_SRC
 ** Time
 - get specific timezone datetime
 #+begin_src python
@@ -1971,6 +1981,8 @@ dtype: float64
 #+begin_src python
 dates = pd.date_range('1/1/2000', periods=8)
 df = pd.DataFrame(np.random.randn(8, 4), index=dates, columns=['A', 'B', 'C', 'D'])
+# or
+df = pd.DataFrame(data={'a':[1,2],'b':[3,3]})
 #+end_src
 
 - create diagonal matrix/dataframe using a series:

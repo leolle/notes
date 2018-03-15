@@ -436,6 +436,19 @@ python models/tutorials/image/mnist/convolutional.py
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- list all files by:
+#+BEGIN_SRC bash
+-r, --reverse
+reverse order while sorting
+
+-S     sort by file size
+
+--sort=WORD
+sort by WORD instead of name: none -U, extension -X, size -S, time -t, version -v
+
+-t     sort by modification time, newest first
+
+#+END_SRC
 - show running log:
 #+BEGIN_SRC bash
 tail -f -n 100 wiki_upload.log
