@@ -866,6 +866,11 @@ print(
 
 #+END_SRC
 ** Time
+- create timestamp:
+#+BEGIN_SRC python
+>>> pd.to_datetime('13000101', format='%Y%m%d', errors='ignore')
+datetime.datetime(1300, 1, 1, 0, 0)
+#+END_SRC
 - get specific timezone datetime
 #+begin_src python
 tz = pytz.timezone('America/Los_Angeles')
@@ -1654,6 +1659,16 @@ pyenv versions
 * Python Runtime Services
 ** sysconfig — Provide access to Python’s configuration information
 ** os, sys — System-specific parameters and functions
+- get environment variables
+#+BEGIN_SRC python
+import os
+
+env_dist = os.environ # environ是在os.py中定义的一个dict environ = {}
+
+print(env_dist.get('JAVA_HOME'))
+print(env_dist['JAVA_HOME'])
+
+#+END_SRC
 - check if file or directory exists, if not then make directory:
 #+BEGIN_SRC python
 import os
