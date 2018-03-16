@@ -983,6 +983,15 @@ it’s again replaced with a binary approximation, whose exact value is
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
 ** os.path — Common pathname manipulations
+- find current working dir:
+#+BEGIN_SRC python
+import sys, os
+# run python file.py
+ROOTDIR = os.path.join(os.path.dirname(__file__), os.pardir)
+sys.path.append(os.path.join(ROOTDIR, "lib"))
+# run in python
+ROOTDIR = os.path.join(os.path.dirname("__file__"), os.pardir)
+#+END_SRC
 - temperary folder:
 #+BEGIN_SRC python
 import os
@@ -1941,6 +1950,12 @@ print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 - change datatypes
 #+BEGIN_SRC python
 df.a.astype(float)
+drinks['beer_servings'] = drinks.beer_servings.astype(float)
+#+END_SRC
+- change date type to string:
+#+BEGIN_SRC python
+drinks['beer_servings'] = drinks.beer_servings.astype('str)
+
 #+END_SRC
 - read csv without header, delimiter is space:
 #+BEGIN_SRC python
