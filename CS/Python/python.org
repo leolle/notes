@@ -1947,6 +1947,15 @@ print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- filter not null, filter not NaT rows:
+since strings data types have variable length, it is by default stored as object dtype. If you want to store them as string type, you can do something like this.
+#+BEGIN_SRC python
+df_text.ix[df_text.Conclusion.values.nonzero()[0]]
+df['column'] = df['column'].astype('|S80') #where the max length is set at 80 bytes,
+# or alternatively
+
+df['column'] = df['column'].astype('|S') # which will by default set the length to the max len it encounters
+#+END_SRC
 - change datatypes
 #+BEGIN_SRC python
 df.a.astype(float)

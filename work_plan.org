@@ -786,7 +786,7 @@ CLOSED: [2018-02-09 Fri 19:01]
 | <2018-01-16 Tue> | 4CF56BE55CB641DEA428D1C0BBF6BD17 | skill instance example                            |
 | <2018-02-23 Fri> | 2F773D63314DD8C30C2C212E0AAA88C7 | join(PIT)                                         |
 | <2018-03-05 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 | 搭函数                                            |
-| <2018-03-08 Thu> | 2ABBAB65792E46DD9DFAA734A4A6B575 | workspace                                         |
+| <2018-03-19 Mon> | 2ABBAB65792E46DD9DFAA734A4A6B575 | Ctrl+Shift+s                                      |
 |                  |                                  |                                                   |
 
 * other projects

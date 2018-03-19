@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-01 Thu 14:07 -->
+<!-- 2018-03-19 Mon 17:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1918,10 +1918,34 @@ textfile.close<span style="color: #AE81FF;">()</span>
 <div class="outline-text-2" id="text-6">
 </div><div id="outline-container-orgheadline57" class="outline-3">
 <h3 id="orgheadline57"><span class="section-number-3">6.1</span> datetime — Basic date and time types</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>Converting unix timestamp string to readable date in Python</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> datetime
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>
+    datetime.datetime.fromtimestamp<span style="color: #66D9EF;">(</span>
+        <span style="color: #F92672;">int</span><span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"1284101485"</span><span style="color: #A6E22E;">)</span>
+    <span style="color: #66D9EF;">)</span>.strftime<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'%Y-%m-%d %H:%M:%S'</span><span style="color: #66D9EF;">)</span>
+<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline58" class="outline-3">
 <h3 id="orgheadline58"><span class="section-number-3">6.2</span> Time</h3>
 <div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>create timestamp:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; pd.to_datetime<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'13000101'</span>, <span style="color: #F92672;">format</span>=<span style="color: #E6DB74;">'%Y%m%d'</span>, errors=<span style="color: #E6DB74;">'ignore'</span><span style="color: #AE81FF;">)</span>
+datetime.datetime<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1300</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>get specific timezone datetime</li>
 </ul>
@@ -1981,13 +2005,20 @@ np.dtype('&lt;M8[ns]')
 datetime, utc
 datetime64
 </p>
+<ul class="org-ul">
+<li>get the location of a date in datetimeindex:</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-python">pd.DatetimeIndex.get_loc<span style="color: #AE81FF;">(</span>datetime<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>datetime off set, subtract</li>
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-python">pd.DateOffset<span style="color: #AE81FF;">(</span>years=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-python">TimeStamp +/- pd.DateOffset<span style="color: #AE81FF;">(</span>years=<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
 pd.Timedelta<span style="color: #AE81FF;">(</span>days=<span style="color: #AE81FF;">365</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;">#</span><span style="color: #75715E;">allowed keywords are [weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds]</span>
 </pre>
 </div>
@@ -2167,6 +2198,19 @@ it’s again replaced with a binary approximation, whose exact value is
 <div id="outline-container-orgheadline86" class="outline-3">
 <h3 id="orgheadline86"><span class="section-number-3">9.2</span> os.path — Common pathname manipulations</h3>
 <div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li>find current working dir:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> sys, os
+<span style="color: #75715E;"># </span><span style="color: #75715E;">run python file.py</span>
+<span style="color: #FD971F;">ROOTDIR</span> = os.path.join<span style="color: #AE81FF;">(</span>os.path.dirname<span style="color: #66D9EF;">(</span>__file__<span style="color: #66D9EF;">)</span>, os.pardir<span style="color: #AE81FF;">)</span>
+sys.path.append<span style="color: #AE81FF;">(</span>os.path.join<span style="color: #66D9EF;">(</span>ROOTDIR, <span style="color: #E6DB74;">"lib"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">run in python</span>
+<span style="color: #FD971F;">ROOTDIR</span> = os.path.join<span style="color: #AE81FF;">(</span>os.path.dirname<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"__file__"</span><span style="color: #66D9EF;">)</span>, os.pardir<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 <ul class="org-ul">
 <li>temperary folder:</li>
 </ul>
@@ -3357,6 +3401,19 @@ nose
 <h3 id="orgheadline219"><span class="section-number-3">21.2</span> os, sys — System-specific parameters and functions</h3>
 <div class="outline-text-3" id="text-21-2">
 <ul class="org-ul">
+<li>get environment variables</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> os
+
+<span style="color: #FD971F;">env_dist</span> = os.environ <span style="color: #75715E;"># </span><span style="color: #75715E;">environ&#26159;&#22312;os.py&#20013;&#23450;&#20041;&#30340;&#19968;&#20010;dict environ = {}</span>
+
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>env_dist.get<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'JAVA_HOME'</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>env_dist<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'JAVA_HOME'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>check if file or directory exists, if not then make directory:</li>
 </ul>
 <div class="org-src-container">
@@ -3574,6 +3631,13 @@ UTF-8是把character转为binary code的规范, and vice versa. 方便存储。
 已知“严”的unicode是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800-0000 FFFF），因此“严”的UTF-8编码需要三个字节，即格式是“1110xxxx 10xxxxxx 10xxxxxx”。然后，从“严”的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，“严”的UTF-8编码是“11100100 10111000 10100101”，转换成十六进制就是E4B8A5。
 </p>
 
+<p>
+You can use a different encoding from UTF-8 by putting a specially-formatted comment as the first or second line of the source code:
+</p>
+
+<p>
+<b>是为了让解释器在执行该文件的时候知道该文件是何种编码方式，从而顺利读取指令去执行计算。</b>
+</p>
 <ul class="org-ul">
 <li>division</li>
 </ul>
@@ -3923,6 +3987,38 @@ $ conda-env remove --name env_name
 <a href="./pandas.html">advanced pandas</a>
 </p>
 <ul class="org-ul">
+<li>filter not null, filter not NaT rows:</li>
+</ul>
+<p>
+since strings data types have variable length, it is by default stored as object dtype. If you want to store them as string type, you can do something like this.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">df_text.ix<span style="color: #AE81FF;">[</span>df_text.Conclusion.values.nonzero<span style="color: #66D9EF;">()[</span><span style="color: #AE81FF;">0</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">df</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'column'</span><span style="color: #AE81FF;">]</span> = df<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'column'</span><span style="color: #AE81FF;">]</span>.astype<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'|S80'</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;">#</span><span style="color: #75715E;">where the max length is set at 80 bytes,</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or alternatively</span>
+
+<span style="color: #FD971F;">df</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'column'</span><span style="color: #AE81FF;">]</span> = df<span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'column'</span><span style="color: #AE81FF;">]</span>.astype<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'|S'</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">which will by default set the length to the max len it encounters</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>change datatypes</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">df.a.astype<span style="color: #AE81FF;">(</span><span style="color: #F92672;">float</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">drinks</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'beer_servings'</span><span style="color: #AE81FF;">]</span> = drinks.beer_servings.astype<span style="color: #AE81FF;">(</span><span style="color: #F92672;">float</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>change date type to string:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">drinks</span><span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'beer_servings'</span><span style="color: #AE81FF;">]</span> = drinks.beer_servings.astype<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'str)</span>
+</pre>
+</div>
+<ul class="org-ul">
 <li>read csv without header, delimiter is space:</li>
 </ul>
 <div class="org-src-container">
@@ -4002,6 +4098,8 @@ dtype: float64
 
 <pre class="src src-python"><span style="color: #FD971F;">dates</span> = pd.date_range<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'1/1/2000'</span>, periods=<span style="color: #AE81FF;">8</span><span style="color: #AE81FF;">)</span>
 <span style="color: #FD971F;">df</span> = pd.DataFrame<span style="color: #AE81FF;">(</span>np.random.randn<span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">8</span>, <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">)</span>, index=dates, columns=<span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">'A'</span>, <span style="color: #E6DB74;">'B'</span>, <span style="color: #E6DB74;">'C'</span>, <span style="color: #E6DB74;">'D'</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">or</span>
+<span style="color: #FD971F;">df</span> = pd.DataFrame<span style="color: #AE81FF;">(</span>data=<span style="color: #66D9EF;">{</span><span style="color: #E6DB74;">'a'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span>,<span style="color: #E6DB74;">'b'</span>:<span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">3</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 

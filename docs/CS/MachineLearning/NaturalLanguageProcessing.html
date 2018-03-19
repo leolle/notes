@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-01 Thu 14:07 -->
+<!-- 2018-03-19 Mon 17:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -774,10 +774,84 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 <li>Definition (entity): An entity e is a product, service, topic, issue, person, organization, or event. It is described with a pair, e: (T, W), where T is a hierarchy of parts, sub-parts, and so on, and W is a set of attributes of e.</li>
 
 <li>Definition (opinion): An opinion is a quintuple, (ei, aij, sijkl, hk, tl), where ei is the name of an entity, aij is an aspect of ei, sijkl is the sentiment on aspect aij of entity ei, hk is the opinion holder, and tl is the time when the opinion is expressed by hk. The sentiment sijkl is positive, negative, or neutral, or expressed with different strength/intensity levels, e.g., 1 to 5 stars as used by most review sits on the Web.</li>
+
+<li>基于词典</li>
 </ul>
+<p>
+准确率：准确率较高（80%以上），随着人工工作量的增加，准确率增加
+</p>
+
+<p>
+优点：易于理解
+</p>
+
+<p>
+缺点：人工工作量大
+</p>
+
+<ul class="org-ul">
+<li>基于k_NN</li>
+</ul>
+<p>
+准确率：很低（60% - 70%）
+</p>
+
+<p>
+优点：思想简单、算法简单
+</p>
+
+<p>
+缺点：准确率低；耗内存；耗时间
+</p>
+
+<ul class="org-ul">
+<li>基于Bayes</li>
+</ul>
+<p>
+准确率：还可以（70% - 80%）
+</p>
+
+<p>
+优点：简单，高效，运算速度快，扩展性好
+</p>
+
+<p>
+缺点：准确率不高，达不到实用
+</p>
+
+<ul class="org-ul">
+<li>基于最大熵</li>
+</ul>
+<p>
+准确率：比较高（83%以上）
+</p>
+
+<p>
+优点：准确率高
+</p>
+
+<p>
+缺点：训练时间久
+</p>
+
+<ul class="org-ul">
+<li>基于SVM</li>
+</ul>
+<p>
+准确率：最高（85%以上）
+</p>
+
+<p>
+优点：准确率高
+</p>
+
+<p>
+缺点：训练耗时
+</p>
 </div>
 </div>
 </div>
+
 <div id="outline-container-orgheadline23" class="outline-2">
 <h2 id="orgheadline23"><span class="section-number-2">5</span> Language Technology Processing</h2>
 <div class="outline-text-2" id="text-5">

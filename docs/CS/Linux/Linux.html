@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-01 Thu 14:07 -->
+<!-- 2018-03-19 Mon 17:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1179,6 +1179,30 @@ mu_scale = 0.2449489742783178 var_scale = 0.05
 <h4 id="orgheadline18"><span class="section-number-4">1.2.1</span> Shell basics</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
+<li>list all files by:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">-r, --reverse
+reverse order while sorting
+
+-S     sort by file size
+
+--sort=WORD
+sort by WORD instead of name: none -U, extension -X, size -S, time -t, version -v
+
+-t     sort by modification time, newest first
+</pre>
+</div>
+<ul class="org-ul">
+<li>show running log:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">tail -f -n <span style="color: #AE81FF;">100</span> wiki_upload.log
+</pre>
+</div>
+<ul class="org-ul">
 <li>show absolute path of file:</li>
 </ul>
 <div class="org-src-container">
@@ -1631,7 +1655,15 @@ ls -ls /usr/bin/python*
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">GTK_IM_MODULE</span>=xim
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">QT_IM_MODULE</span>=xim
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">LC_CTYPE</span>=zh_CN.UTF-8
-
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">lf</span>=<span style="color: #E6DB74;">"ls -l | egrep -v '^d'"</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">ldir</span>=<span style="color: #E6DB74;">"ls -l | egrep '^d'"</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">lwc</span>=<span style="color: #E6DB74;">"ls -1 | wc -l"</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">alias got="ps awx | grep"</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">alias got="realpath "$1" |  xclip -i -selection clipboard"</span>
+<span style="color: #F92672;">function</span> <span style="color: #A6E22E;">got</span><span style="color: #AE81FF;">()</span>
+<span style="color: #AE81FF;">{</span>
+    readlink -f $<span style="color: #AE81FF;">1</span> | xclip -i -selection clipboard
+<span style="color: #AE81FF;">}</span>
 <span style="color: #75715E;"># </span><span style="color: #75715E;">path</span>
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">PATH</span>=$<span style="color: #FD971F;">HOME</span>/Tools/google_appengine:$<span style="color: #FD971F;">PATH</span>
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">LD_LIBRARY_PATH</span>=/usr/local/lib:$<span style="color: #FD971F;">LD_LIBRARY_PATH</span>
@@ -1652,12 +1684,20 @@ ls -ls /usr/bin/python*
 <span style="color: #75715E;">#</span><span style="color: #75715E;">export PYENV_ROOT="$HOME/.pyenv"</span>
 
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=/usr/local/lib/python2.7/:$<span style="color: #FD971F;">PYTHONPATH</span>
-<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/projects/tradehub/src/py/:$<span style="color: #FD971F;">PYTHONPATH</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export PYTHONPATH=$HOME/projects/tradehub/src/py/:$PYTHONPATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/projects/deep_learning/:$<span style="color: #FD971F;">PYTHONPATH</span>
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/projects/simulate/:$<span style="color: #FD971F;">PYTHONPATH</span>
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/tools/WaveFront/PythonScripts/:$<span style="color: #FD971F;">PYTHONPATH</span>
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/projects/ylib-py/:$<span style="color: #FD971F;">PYTHONPATH</span>
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYTHONPATH</span>=$<span style="color: #FD971F;">HOME</span>/projects/:$<span style="color: #FD971F;">PYTHONPATH</span>
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV</span>=<span style="color: #E6DB74;">"true"</span>
 
+<span style="color: #75715E;"># </span><span style="color: #75715E;">for file in `find /home/weiwu/tools/stanford-corenlp-full-2017-06-09/ -name "*.jar"`; do export</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">CLASSPATH="$CLASSPATH:`realpath $file`"; done</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export STANFORD_SEGMENTER_PATH="$HOME/tools/segmenter"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">#export CLASSPATH="$CLASSPATH:$STANFORD_SEGMENTER_PATH/stanford-segmenter.jar"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export STANFORD_NER_PATH="$HOME/tools/tools/stanford-ner-2017-06-09"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">export CLASSPATH="$CLASSPATH:$STANFORD_NER_PATH/stanford-ner.jar"</span>
 <span style="color: #75715E;">#</span><span style="color: #75715E;">export PATH="$PYENV_ROOT/bin:$PATH"</span>
 
 <span style="color: #75715E;">#</span><span style="color: #75715E;">pyenv virtualenvwrapper</span>

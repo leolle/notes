@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-10 Tue 09:32 -->
+<!-- 2018-03-19 Mon 16:59 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -448,8 +448,18 @@ Remember: union will remove duplicates for us.
 <span style="color: #F92672;">where</span> C2.enrollment &gt; C1.enrollment<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
-</div>
 
+<ul class="org-ul">
+<li>count</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sql"><span style="color: #F92672;">SELECT</span> <span style="color: #F92672;">COUNT</span><span style="color: #AE81FF;">(</span>aggregate_expression<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">FROM</span> tables
+<span style="color: #AE81FF;">[</span><span style="color: #F92672;">WHERE</span> conditions<span style="color: #AE81FF;">]</span>;
+</pre>
+</div>
+</div>
 <ol class="org-ol"><li><a id="orgheadline19"></a>all, any, exists, not exists.<br  /><div class="outline-text-6" id="text-4-2-2-2-1">
 <ul class="org-ul">
 <li>Students not from the smallest high school.</li>
