@@ -566,7 +566,11 @@ du -sh *
 
 #+RESULTS:
 : | 24K | Linux.org |
-
+- show directory size
+#+BEGIN_SRC bash
+# du only for directories
+du -sh ./*/
+#+END_SRC
 - unzip a compressed file:
 #+BEGIN_SRC shell
 unzip filename.zip
