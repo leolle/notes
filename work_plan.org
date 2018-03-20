@@ -222,6 +222,7 @@ node.names.chinese = simple Chinese title
 - [ ]
 **** TODO entity relationship
 :LOGBOOK:
+CLOCK: [2018-03-20 Tue 09:52]
 CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
 CLOCK: [2018-02-06 Tue 10:07]--[2018-02-06 Tue 11:32] =>  1:25
 CLOCK: [2018-02-05 Mon 15:38]--[2018-02-05 Mon 16:21] =>  0:43
@@ -239,6 +240,8 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 将人名、地名、公司名放在不同的阶段处理
 辅以其他句法分析层次的词性标注
 当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
+- [ ] finish join learning entity extraction paper.<2018-03-20 Tue>
+- [ ] find source code and scheme for this paper.
 - [ ] from survey paper -> book -> reference paper -> citation paper -> application -> open source library.
 - [ ] company relation
 - [ ] analyst relation
