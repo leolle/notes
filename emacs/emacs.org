@@ -117,6 +117,9 @@ Press [[, file: file link, ], backspace, [, [alias, ], ].
 enter,
 |
 #+END_SRC
+- Creation and conversion
+=C-c |=     (org-table-create-or-convert-from-region)
+Convert the active region to a table. If every line contains at least one TAB character, the function assumes that the material is tab separated. If every line contains a comma, comma-separated values (CSV) are assumed. If not, lines are split at whitespace into fields. You can use a prefix argument to force a specific separator: C-u forces CSV, C-u C-u forces TAB, C-u C-u C-u will prompt for a regular expression to match the separator, and a numeric argument N indicates that at least N consecutive spaces, or alternatively a TAB will be the separator.
 
 - Initial visibility
 Show all shortcut: C-u C-u <TAB>, shirt+<TAB>

@@ -222,7 +222,7 @@ node.names.chinese = simple Chinese title
 - [ ]
 **** TODO entity relationship
 :LOGBOOK:
-CLOCK: [2018-03-20 Tue 09:52]
+CLOCK: [2018-03-21 Wed 11:10]
 CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
 CLOCK: [2018-02-06 Tue 10:07]--[2018-02-06 Tue 11:32] =>  1:25
 CLOCK: [2018-02-05 Mon 15:38]--[2018-02-05 Mon 16:21] =>  0:43
@@ -240,8 +240,28 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 将人名、地名、公司名放在不同的阶段处理
 辅以其他句法分析层次的词性标注
 当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
-- [ ] finish join learning entity extraction paper.<2018-03-20 Tue>
-- [ ] find source code and scheme for this paper.
+- [X] finish Att BLSTM paper.<2018-03-21 Wed>
+- [ ] 先完成“投资”这一类语料的收集。
+- [ ] 目标：按实体 实体 关系 语料内容的格式放入训练文件，以供模型训练。
+- [ ] 思路：先通过网络爬虫从雪球，google news抓取“实体 投资”的内容，把抓取的内容（包括title, summary）通过NER识别出的结果。
+- [ ] 丰富语料的思路：通过word2vec 相似词找到“投资”的相似词，如设立，增资，入股，收购，并购，换股;再找以上6个词的相似词。
+下表为投资这一大类所包含的相似关系。
+| 设立     | 增资     | 入股     | 收购     | 并购     | 换股 |
+|----------+----------+----------+----------+----------+------|
+| 成立     | 受让     | 现金出资 | 要约收购 | 海外并购 | 转股 |
+| 发起设立 | 扩股     | 携手     | 拟收购   | 重组     | 交换 |
+| 组建     | 扩股     | 间接持有 | 并表     | 整合     | 配股 |
+| 新设     | 占股     | 所持     | 过户     | 兼并     |      |
+| 出资     | 转让给   | 联手     | 收购了   | 业务整合 |      |
+| 共同出资 | 认缴     | 正式成为 | 资产收购 | 借壳上市 |      |
+| 全资     | 定向增发 | 转让给   | 通过收购 |          |      |
+| 参股     |          | 参股     |          |          |      |
+| 入驻     |          |          |          |          |      |
+| 创投     |          |          |          |          |      |
+把中国平安当作一个实验实体
+- [X] finish join learning entity extraction paper.<2018-03-20 Tue>
+- [ ] summerize text first, then event extraction?
+- [X] find source code and scheme for this paper.
 - [ ] from survey paper -> book -> reference paper -> citation paper -> application -> open source library.
 - [ ] company relation
 - [ ] analyst relation

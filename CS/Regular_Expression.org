@@ -227,3 +227,13 @@ SECTION\s\w+: -> *
 
 
 * replace content to org mode strings
+
+* Linux
+- grep: Invalid range end
+This is because you are using the hyphen within other characters, so that grep understands it as a range, which happens to be invalid.
+
+You are basically doing
+#+BEGIN_SRC bash
+grep "[\-']" file
+
+#+END_SRC
