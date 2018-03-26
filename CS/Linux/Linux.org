@@ -627,6 +627,13 @@ ln -s /home/weiwu/share/deep_learning/data/courses/dogscats/ /home/weiwu/project
 #+END_SRC
 
 *** find/search string
+- Go to a specific line number using Less in Unix
+go to line number 320123, you would type 320123g in less.
+or use:
+#+BEGIN_SRC bash
+less +320123 filename
+#+END_SRC
+
 - less filename:
   - u - up half page
   - d - down half page

@@ -53,14 +53,10 @@ Spin-offs tend to see an initial decline in share price as institutional investo
 
 3. 探索跟某一公司，产业，技术在业务上相关联的公司，产业或者技术：
 
-
-
 设计方案：
 1. gs编写Python函数，进行情感分析，命名实体识别，关键字分析，产生事件驱动策略信号：
 
-
 2. Word Embedding：
-
 
 3. 知识网络，网络爬虫：
 框架：
@@ -110,18 +106,21 @@ https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pd
 - NLP workflow pipeline.
 
 ***** Event-Driven Strategies
+
+****** Goal:
+Detect event from announcement, predict stock price.
+****** events:
 - Earnings Releases:
 Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
 - Mergers & Acquisitions:
 M&A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
 - Spin-Offs:
 Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
-
-**** Steps:
+****** Tool:
+Named Entity Recognization, Entity Relation Extraction.
+**** Overview Steps:
 数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
 
-- 命名实体识别
-现在常用的方法有「条件随机场（CRF）」、「最大熵隐马尔科夫」、「隐马尔科夫」等序列标注模型。 主要的处理思想有:
 
 - Sentiment analysis
 SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
@@ -222,7 +221,7 @@ node.names.chinese = simple Chinese title
 - [ ]
 **** TODO entity relationship
 :LOGBOOK:
-CLOCK: [2018-03-21 Wed 11:10]
+CLOCK: [2018-03-21 Wed 11:10]--[2018-03-21 Wed 18:56] =>  7:46
 CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
 CLOCK: [2018-02-06 Tue 10:07]--[2018-02-06 Tue 11:32] =>  1:25
 CLOCK: [2018-02-05 Mon 15:38]--[2018-02-05 Mon 16:21] =>  0:43
@@ -235,30 +234,9 @@ CLOCK: [2018-01-31 Wed 10:53]--[2018-01-31 Wed 12:08] =>  1:15
 CLOCK: [2018-01-31 Wed 10:09]--[2018-01-31 Wed 10:52] =>  0:43
 CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 :END:
-- 处理思想：
-辅以字典法，利用已有的种子实体
-将人名、地名、公司名放在不同的阶段处理
-辅以其他句法分析层次的词性标注
-当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
-- [X] finish Att BLSTM paper.<2018-03-21 Wed>
-- [ ] 先完成“投资”这一类语料的收集。
-- [ ] 目标：按实体 实体 关系 语料内容的格式放入训练文件，以供模型训练。
-- [ ] 思路：先通过网络爬虫从雪球，google news抓取“实体 投资”的内容，把抓取的内容（包括title, summary）通过NER识别出的结果。
-- [ ] 丰富语料的思路：通过word2vec 相似词找到“投资”的相似词，如设立，增资，入股，收购，并购，换股;再找以上6个词的相似词。
-下表为投资这一大类所包含的相似关系。
-| 设立     | 增资     | 入股     | 收购     | 并购     | 换股 |
-|----------+----------+----------+----------+----------+------|
-| 成立     | 受让     | 现金出资 | 要约收购 | 海外并购 | 转股 |
-| 发起设立 | 扩股     | 携手     | 拟收购   | 重组     | 交换 |
-| 组建     | 扩股     | 间接持有 | 并表     | 整合     | 配股 |
-| 新设     | 占股     | 所持     | 过户     | 兼并     |      |
-| 出资     | 转让给   | 联手     | 收购了   | 业务整合 |      |
-| 共同出资 | 认缴     | 正式成为 | 资产收购 | 借壳上市 |      |
-| 全资     | 定向增发 | 转让给   | 通过收购 |          |      |
-| 参股     |          | 参股     |          |          |      |
-| 入驻     |          |          |          |          |      |
-| 创投     |          |          |          |          |      |
-把中国平安当作一个实验实体
+- 命名实体识别
+现在常用的方法有「条件随机场（CRF）」、「最大熵隐马尔科夫」、「隐马尔科夫」等序列标注模型。 主要的处理思想有:
+
 - [X] finish join learning entity extraction paper.<2018-03-20 Tue>
 - [ ] summerize text first, then event extraction?
 - [X] find source code and scheme for this paper.
@@ -280,6 +258,42 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] extract RDF company triples.
 - [ ] listed companies triples importing to neo4j.
 - [ ] read Q&A knowledge graph paper.
+**** 语料收集:
+:LOGBOOK:
+CLOCK: [2018-03-23 Fri 15:32]
+:END:
+- 目标语料格式：
+实体1  实体2  关系  包括实体1，实体2和他们之间关系的语句。
+- 加快语料收集的想法：
+  1. 自定义字典法，利用已有的种子实体。
+  2. 在SSE上搜索已经有的投资，收购等种子实体关系，得到语料。
+  3. 利用NER_IDCNN_CRF的实体识别得到语料里面的实体，现有模型支持人名，组织机构和位置。
+  4. 从distant supervision的方法中获取灵感，可以首先找到具有确定关系的实体对，然后再去爬取该实体对共同出现的语句作为正样本。负样本则从实体库中随机产生没有关系的实体对，最后去爬取这样实体对共同出现的语句，这样的语句可以通过网络爬虫从雪球，google news抓取。*这样保证了语料收集的快速性和关系数量的扩展性*。
+  5. 对于具有确定关系的实体对，从百度百科Triples得到。
+
+- [X] finish Att BLSTM paper.<2018-03-21 Wed>
+- [X] 先完成“投资”这一类语料的收集。
+- [X] 目标：按实体 实体 关系 语料内容的格式放入训练文件，以供模型训练。
+- [X] 丰富语料的思路：通过word2vec 相似词找到“投资”的相似词，如设立，增资，入股，收购，并购，换股;再找以上6个词的相似词。
+下表为投资这一大类所包含的相似关系。
+
+| 设立     | 增资     | 入股     | 收购     | 并购     | 换股 |
+|----------+----------+----------+----------+----------+------|
+| 成立     | 受让     | 现金出资 | 要约收购 | 海外并购 | 转股 |
+| 发起设立 | 扩股     | 携手     | 拟收购   | 重组     | 交换 |
+| 组建     | 扩股     | 间接持有 | 并表     | 整合     | 配股 |
+| 新设     | 占股     | 所持     | 过户     | 兼并     |      |
+| 出资     | 转让给   | 联手     | 收购了   | 业务整合 |      |
+| 共同出资 | 认缴     | 正式成为 | 资产收购 | 借壳上市 |      |
+| 全资     | 定向增发 | 转让给   | 通过收购 |          |      |
+| 参股     |          | 参股     |          |          |      |
+| 入驻     |          |          |          |          |      |
+| 创投     |          |          |          |          |      |
+**** 实体和关系的联合抽取处理思想：
+1. 利用NER_IDCNN_CRF的实体识别得到语料里面的实体，现有模型支持人名，组织机构和位置。
+2. RE_BGRU_2ATT关系识别。
+
+
 **** News summary
 - [ ] classify 1 year of analyst research articles.
 - [ ] convert PDFs to text files.
@@ -299,6 +313,7 @@ CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
 - [ ] read paper *Anomalies and Investor Sentiment*.
 - [X] read_RMDB_table -> NLP_sentiment_analysis -> generate_sentiment_signal.
 - [X] 情感分析指标的设计在GS上实现。
+- [X] 公告、研报摘要.
 - [X] news, market-view articles sentiment analysis.
 - [X] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
 能否用这个指数来预警，今天可以扩大一下样本空间，看看上证在1%下跌的情况下前一日的情感指数值是如何变化。
@@ -476,27 +491,6 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 建一个想法，根据这个想法找到匹配的FI, or FD. 例如，建一个optimize需求，自动推荐black litterman model, or markowitz mean/variance model.
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
 当前FI,查找相关的下一步FI.
-*** Graph Convolutional Neural Network
-**** Objective:
-***** Short Term
-- Apply CNN's efficient compositional knowledge extraction ability to graph data, more structured than natural language, image and sound
-***** Long Term
-- Apply RL on top of graph CNN to automatically ACTIVELY build models, workflows, contracts, investment, instead of just passive prediction without market impact
-**** Model
-- Spectral Graph Theory based CNN on graph data
-**** Data
-- Text Like Graph Data, where nodes are discretely different
- - function network in GS, model architecture
- - task network in GS, user behavior
- - supply demand product transaction network in real economy
- - buy sell financial instrument transaction network in financial market
-- Image Like Graph Data, where nodes are homogeneous with continuous attributes
- - network of portfolios of different gain and loss, alpha, beta, etc
- - (social) network of analysts, traders, reporters, officials, etc of different level of influences
- - network of NN nodes with different weights
-**** Applications
-- Graph Classification and Identification
-- Graph Simplification and Simulation
 
 *** DONE Building the Wikipedia Knowledge Graph in Neo4j
 CLOSED: [2018-02-09 Fri 18:58]
@@ -651,6 +645,27 @@ Your active configuration is: [nlp1]
 
 (C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
 #+END_SRC
+*** Graph Convolutional Neural Network
+**** Objective:
+***** Short Term
+- Apply CNN's efficient compositional knowledge extraction ability to graph data, more structured than natural language, image and sound
+***** Long Term
+- Apply RL on top of graph CNN to automatically ACTIVELY build models, workflows, contracts, investment, instead of just passive prediction without market impact
+**** Model
+- Spectral Graph Theory based CNN on graph data
+**** Data
+- Text Like Graph Data, where nodes are discretely different
+ - function network in GS, model architecture
+ - task network in GS, user behavior
+ - supply demand product transaction network in real economy
+ - buy sell financial instrument transaction network in financial market
+- Image Like Graph Data, where nodes are homogeneous with continuous attributes
+ - network of portfolios of different gain and loss, alpha, beta, etc
+ - (social) network of analysts, traders, reporters, officials, etc of different level of influences
+ - network of NN nodes with different weights
+**** Applications
+- Graph Classification and Identification
+- Graph Simplification and Simulation
 *** read the book 《自然语言处理综论》
 not easy to understand this book.
 - listen to the open course

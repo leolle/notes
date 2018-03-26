@@ -14,7 +14,7 @@
 #+HTML: <div class="outline-2" id="meta">
 | *Author* | {{{author}}} ({{{email}}})    |
 | *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
-| *Title*  | {{{TITLE}}                    |
+| *Title*  | {{{TITLE}}}                   |
 #+HTML: </div>
 
 * Basic prerequisites
