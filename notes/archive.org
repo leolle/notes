@@ -10,13 +10,13 @@
 - Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
 - 可计算的知识服务引擎, like WolframAlpha.
 ****** 智能投顾
-基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。
+- 基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。
+- 搜索相关主题的股票，及其新闻，公告，如“雄安题材”，“苹果主题”，“独角兽”等。
 ****** 金融新闻Bots
 - 实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。
 - Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.
-
 ******* 金融搜索
-搜索相关主题的股票，及其新闻，公告，如“雄安题材”，“苹果主题”，“独角兽”等。
+显示当前关键词所有的新闻消息，公告，根据消息数量得出的热度。
 ****** 智能选股
 | 百科类筛选 | ST股票， 非ST股票， 上证50股票                                         |
 | 数据类筛选 | 股价小于100块股票                                                      |
@@ -40,23 +40,23 @@
 - Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
 
 
-***** Event-Driven Strategies
-****** Goal:
+****** Event-Driven Strategies
+******* Goal:
 Detect event from announcement, predict stock price.
-****** events:
+******* events:
 - Earnings Releases:
 Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
 - Mergers & Acquisitions:
 M&A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
 - Spin-Offs:
 Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
-****** Tool:
+******* Tool:
 Named Entity Recognization, Entity Relation Extraction.
 **** Overview Steps:
 
-数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
+- 数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
 
-Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
+- Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
 
 
 **** Model
@@ -88,9 +88,10 @@ Pipeline: choose category and depth in GS skill -> return pages GID -> fetch pap
 - recommendation of context sensitive synonyms.
 - match search keyword, event, data with theory, model.
 - event-driven stock prediction.
-*** Knowledge Graph
+*** TODO Knowledge Graph
 
-**** TODO entity relationship
+**** DONE entity relationship<2018-03-19 Mon> - <2018-03-21 Wed>
+CLOSED: [2018-03-26 Mon 13:52]
 :LOGBOOK:
 CLOCK: [2018-03-21 Wed 11:10]--[2018-03-21 Wed 18:56] =>  7:46
 CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
@@ -129,7 +130,8 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] extract RDF company triples.
 - [ ] listed companies triples importing to neo4j.
 - [ ] read Q&A knowledge graph paper.
-**** 语料收集:
+
+**** TODO 语料收集:<2018-03-21 Wed>
 :LOGBOOK:
 CLOCK: [2018-03-23 Fri 15:32]
 :END:
@@ -160,24 +162,13 @@ CLOCK: [2018-03-23 Fri 15:32]
 | 参股     |          | 参股     |          |          |      |
 | 入驻     |          |          |          |          |      |
 | 创投     |          |          |          |          |      |
-**** 实体和关系的联合抽取处理思想：
+**** TODO 实体和关系的联合抽取处理思想：<2018-03-22 Thu> -
 1. 利用NER_IDCNN_CRF的实体识别得到语料里面的实体，现有模型支持人名，组织机构和位置。
 2. RE_BGRU_2ATT关系识别。
 
-**** News summary
-- [ ] classify 1 year of analyst research articles.
-- [ ] convert PDFs to text files.
-- [ ] summerize articles
-- [ ] send summary to baidu api article classification.
-- [ ] get news summary from webs.
-**** syntactic parsing
-
-***** information retrieval system
-Q&A。
-用了什么分析方法，数据。
 **** extract the structure of a document, represent as a graph
 
-*** DONE Word Embedding(Word2Vec)
+*** DONE Word Embedding(Word2Vec):<2017-12-01 Fri> - <2017-12-31 Sun>
 CLOSED: [2018-03-26 Mon 12:47]
 :LOGBOOK:
 CLOCK: [2017-12-22 Fri 15:44]--[2017-12-22 Fri 19:21] =>  3:37
@@ -187,6 +178,9 @@ CLOCK: [2017-12-05 Tue 11:46]--[2017-12-05 Tue 12:04] =>  0:18
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
+**** Goal/use case
+- use such word2vec to find similar keywords.
+**** jobs
 - [ ] train analyst report and save model on hdfs, load this model as a j node.
 - [ ] gs similar words function test use analyst report.
 - [X] upload all vocabulary in word2vec model to Neo4j.
@@ -256,7 +250,42 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
 当前FI,查找相关的下一步FI.
 
-*** DONE Building the Wikipedia Knowledge Graph in Neo4j
+*** DONE Chinese wiki model. <2018-01-01 Mon> - <2018-01-12 Fri>
+CLOSED: [2018-02-09 Fri 18:57]
+- [X] train financial fields model(58+ categories).
+- [X] use similarity distance to find the nearest category of target words.
+- [X] similarity test on specific model.
+- [X] add all pages title to jieba dict.
+- [X] 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。
+- [X] preprocessing workflow.
+  英文text preprocessing需要的注意一些点，及应提供的选择
+  1. cut段落或文章
+  2. phrase是否进行转换
+  3. 停词(a, the, of, that, this, he, I...)是否保留
+  4. 数字是否转为英文单词, 中间有数字的单词是否保留(th8)
+  5. 提取词干（时态转换，单复数单词转换）
+  6. 标点（撇号'，所有格,缩写如don’t），符号（%,#,&,?,@,\,/,",是否保留）
+  7. 大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）
+
+  中文分词（主要利用结巴分词）
+  - [X] 1. cut段落或文章
+  - [X] 2. 去停词
+  - [X] 去标点符号
+  - [X] 去数字
+- [ ] word2vec fast text comparison.
+- [X] compare the training results with or without stopwords.
+- [X] demo code.
+- [X] visualize & compare results.
+- [X] create index for zhwiki.
+- [X] test model.
+- [X] assign wiki pages extraction task.
+- [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
+- [X] get rid of the stopwords.
+- [X] retrie Chinese financial wiki pages from mongo and train.
+- [ ] fix zhwiki to mongodb words count.
+                                                                       :wait:
+
+*** DONE Building the Wikipedia Knowledge Graph in Neo4j <2018-01-13 Sat> - <2018-03-09 Fri>
 CLOSED: [2018-02-09 Fri 18:58]
 :LOGBOOK:
 CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
@@ -264,7 +293,8 @@ CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
 - [X] wiki SQL database links graph.
 - [X] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
-**** Data dumps/Import
+**** DONE Data dumps/Import -> create nodes
+CLOSED: [2018-03-26 Mon 13:54]
 - methods
 [[https://meta.wikimedia.org/wiki/Data_dumps]]
 
@@ -283,7 +313,7 @@ CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 - [X] try Neo4j sandbox
 [[https://neo4j.com/sandbox-v2/]]
 - [X] create Neo4j docker.
-**** DONE create wiki knowledge graph
+**** DONE create wiki knowledge graph -> create edges
 CLOSED: [2018-03-26 Mon 12:48] DEADLINE: <2018-01-23 Tue>
 :LOGBOOK:
 CLOCK: [2018-02-07 Wed 15:36]--[2018-02-07 Wed 18:56] =>  3:20
@@ -346,43 +376,8 @@ CLOSED: [2018-03-09 Fri 15:15]
 - [X] find unsaved categories under 金融 category.
 - [X] save those to a sql file.
 - [X] upload sql file and edge.
-
-*** DONE Chinese wiki model.
-CLOSED: [2018-02-09 Fri 18:57]
-- [X] train financial fields model(58+ categories).
-- [X] use similarity distance to find the nearest category of target words.
-- [X] similarity test on specific model.
-- [X] add all pages title to jieba dict.
-- [X] 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。
-- [X] preprocessing workflow.
-  英文text preprocessing需要的注意一些点，及应提供的选择
-  1. cut段落或文章
-  2. phrase是否进行转换
-  3. 停词(a, the, of, that, this, he, I...)是否保留
-  4. 数字是否转为英文单词, 中间有数字的单词是否保留(th8)
-  5. 提取词干（时态转换，单复数单词转换）
-  6. 标点（撇号'，所有格,缩写如don’t），符号（%,#,&,?,@,\,/,",是否保留）
-  7. 大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）
-
-  中文分词（主要利用结巴分词）
-  - [X] 1. cut段落或文章
-  - [X] 2. 去停词
-  - [X] 去标点符号
-  - [X] 去数字
-- [ ] word2vec fast text comparison.
-- [X] compare the training results with or without stopwords.
-- [X] demo code.
-- [X] visualize & compare results.
-- [X] create index for zhwiki.
-- [X] test model.
-- [X] assign wiki pages extraction task.
-- [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
-- [X] get rid of the stopwords.
-- [X] retrie Chinese financial wiki pages from mongo and train.
-- [ ] fix zhwiki to mongodb words count.
-
-*** opinion extraction system
-**** DONE sentiment analysis.
+*** information extraction system
+**** DONE opinion sentiment analysis. <2018-03-09 Fri> - <2018-03-16 Fri>
 CLOSED: [2018-03-26 Mon 12:49]
 :LOGBOOK:
 CLOCK: [2018-03-07 Wed 10:05]--[2018-03-07 Wed 17:57] =>  7:52
@@ -403,3 +398,16 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 - [X] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
 能否用这个指数来预警，今天可以扩大一下样本空间，看看上证在1%下跌的情况下前一日的情感指数值是如何变化。
 - [ ] search paper and books how to use sentiment analysis.
+**** information retrieval system
+***** goal
+****** question and answering from a document
+- what is tha data.
+- what is the algorithm.
+- what is the conclusion.
+****** News summary
+- [ ] classify 1 year of analyst research articles.
+- [ ] convert PDFs to text files.
+- [ ] summerize articles
+- [ ] send summary to baidu api article classification.
+- [ ] get news summary from webs.
+****** syntactic parsing
