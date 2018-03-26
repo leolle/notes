@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-19 Mon 17:01 -->
+<!-- 2018-03-26 Mon 18:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1406,7 +1406,15 @@ xclip -o
 <pre class="src src-bash">du -sh *
 </pre>
 </div>
+<ul class="org-ul">
+<li>show directory size</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-bash"><span style="color: #75715E;"># </span><span style="color: #75715E;">du only for directories</span>
+du -sh ./*/
+</pre>
+</div>
 <ul class="org-ul">
 <li>unzip a compressed file:</li>
 </ul>
@@ -1490,6 +1498,19 @@ ln -s /home/weiwu/share/deep_learning/data/courses/dogscats/ /home/weiwu/project
 <div id="outline-container-orgheadline25" class="outline-4">
 <h4 id="orgheadline25"><span class="section-number-4">1.2.8</span> find/search string</h4>
 <div class="outline-text-4" id="text-1-2-8">
+<ul class="org-ul">
+<li>Go to a specific line number using Less in Unix</li>
+</ul>
+<p>
+go to line number 320123, you would type 320123g in less.
+or use:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">less +320123 filename
+</pre>
+</div>
+
 <ul class="org-ul">
 <li>less filename:
 <ul class="org-ul">

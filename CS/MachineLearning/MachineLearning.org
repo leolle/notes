@@ -12,7 +12,13 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+STARTUP: latexpreview
 #+SETUPFILE: ../../configOrg/level2.org
+- Principle:
+research and project oriented, adjusting speed based on progress.
 
+- Goal:
+1. model assumption, input data(what kind of data does it fit), application, detail.
+2. algorithm pseudo code.
+3. model weakness and strength.
 * 机器学习与数据挖掘
 
 ** 问题
@@ -267,6 +273,23 @@ accuracy_score(y_true, predicts)
 - Image recognition
 - Optical character recognition
 - Speech recognition
+
+** Week 1/2
+*** Logistic Regression
+*** Regularization
+*** Classification
+**** Linear Discriminant Analysis
+
+**** Comparison
+*** Decision tree and random forest
+*** Boosting
+*** XGBoost
+*** SVM
+*** Clustering
+*** Bayesian Network
+*** LDA
+*** HMM
+*** Neural Network
 * Bayesian network
 [[file:./BayesianNetworkDescribingYourData.org][BayesianNetworkDescribingYourData]]
 

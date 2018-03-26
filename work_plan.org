@@ -63,77 +63,68 @@ Spin-offs tend to see an initial decline in share price as institutional investo
 
 
 * Deep Learning
-** NaturalLanguageProcessing
+** Natural Language Processing
 
 *** TODO Personalized Intelligent Agents(PIA)
 **** Objective:
 ***** Short Term
 - make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.
 - incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.
-- train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
-- choose model using most related model, use wiki category relation similarity to choose model.
+- recommendation of context sensitive synonyms.
 - Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.
-- Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
-- [X] 公告、研报摘要.
-- 可计算的知识服务引擎, like WolframAlpha.
-****** 智能投顾
-基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。
-****** 金融新闻Bots
-实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。
-******* 金融搜索
-****** 智能选股
-爬取Google news, 雪球， 虎嗅， 微信上所有500支股票的文档，再进行sentiment analysis, 结果再排序，选最好的5只。
-****** 知识数据分析
-通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
-关系可以是企业的上下游、合作、竞争对手、子母公司、投资、对标等关系，可以是高管与企业间的任职等关系，也可以是行业间的逻辑关系，实体则是投资机构、投资人、企业等等，把它们用知识图谱表示出来，从而进行更深入的知识推理。
-在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
-[[./img/knowledge_graph_company.jpg]]
-
-[[./img/knowledge_graph_organization.png]]
 
 ***** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
 - Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
-- 关系挖掘.
+- 可计算的知识服务引擎, like WolframAlpha.
+****** 智能投顾
+- 基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。
+- 搜索相关主题的股票，及其新闻，公告，如“雄安题材”，“苹果主题”，“独角兽”等。
+****** 金融新闻Bots
+- 实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。
 - Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.
-https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pdf
+******* 金融搜索
+显示当前关键词所有的新闻消息，公告，根据消息数量得出的热度。
+****** 智能选股
+| 百科类筛选 | ST股票， 非ST股票， 上证50股票                                         |
+| 数据类筛选 | 股价小于100块股票                                                      |
+| 事件类筛选 | 刚复牌股票，今年刚上市的股票                                           |
+| 选股类筛选 | 每股收益在0.2-0.3之间，且市盈率小于30的股票;浙江省市盈率小于20倍的公司 |
 
-| 百科类问句     | 什么是ST股票 什么是向后复权                                           |
-| 数据类问句     | 2010年6月26日钢铁报价是多少 三一重工2009年收益是多少                  |
-| 事件类问句     | 江苏宏宝什么时候复牌 苏宁电器是哪年上市的                             |
-| 逻辑推理类问句 | 预测上海能源本月底的走势 长电科技配股是利好还是利坏                   |
-| 选股类问句     | 每股收益在0.2-0.3之间\且市盈率小于30的股票 浙江省市盈率小于20倍的公司 |
-- NLP workflow pipeline.
+****** 知识图谱分析
+通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
 
-***** Event-Driven Strategies
+关系可以是企业的上下游、合作、竞争对手、子母公司、投资、对标等关系，可以是高管与企业间的任职等关系，也可以是行业间的逻辑关系，实体则是投资机构、投资人、企业等等，把它们用知识图谱表示出来，从而进行更深入的知识推理。
 
-****** Goal:
+在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
+
+某公司打算借壳上市，通过知识图谱相关技术寻找相关联的公司，找到有可能的潜在借壳对象。
+[[./img/knowledge_graph_company.jpg]]
+
+[[./img/knowledge_graph_organization.png]]
+****** Event-Driven Strategies
+******* Goal:
 Detect event from announcement, predict stock price.
-****** events:
+******* events:
 - Earnings Releases:
 Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
 - Mergers & Acquisitions:
 M&A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
 - Spin-Offs:
 Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
-****** Tool:
-Named Entity Recognization, Entity Relation Extraction.
+******* Tool:
+Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Networks, CNN.
 **** Overview Steps:
-数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
 
+- 数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
 
-- Sentiment analysis
-SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
+- Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
 
-辅以字典法，利用已有的种子实体
-将人名、地名、公司名放在不同的阶段处理
-辅以其他句法分析层次的词性标注
-当发现未登录词，即可向知识图谱中添加新的实体，通过知识图谱对自然语言处理的反馈为其他过程提高效率。
 **** Model
 - State of the Art NL models based on DNN
   - CBOW
   - Skip gram
-  - Sequence to sequence
+  - RNN(Sequence to sequence)
   - LSTM
   - Convolutional Network Sentence classification
 - Libraries
@@ -144,82 +135,20 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
   - NLTK
 **** Data
 ***** Text Labeled with (semi) structured data
+- [X] wiki page titles and page text, wiki category
 - [ ] company filings text, filing classification, event time series data (attributes manually extracted)
 - [ ] finance conference scripts.
 - [ ] corporate telephone comference notes, memo.
 - [ ] company filings text, company industry classification
-- [ ] analyst research reports, report classification, analyst ranking
-- [X] wiki page titles and page text, wiki category
 - [ ] textbook or CFA chapter name, chapter exercise questions, multiple choice questions
 - [ ] SSRN paper keyword, category, title, abstract, data, model and conclusion
 ***** Text Unlabeled
-- [ ] analyst research reports
+- [ ] analyst research reports, analyst research reports, report classification, analyst ranking
 - [ ] textbooks
-**** Applications
-- recommendation of context sensitive synonyms.
-- match search keyword, event, data with theory, model.
-- event-driven stock prediction.
-*** Knowledge Graph
-**** TODO create wiki knowledge graph
-DEADLINE: <2018-01-23 Tue>
-:LOGBOOK:
-CLOCK: [2018-02-07 Wed 15:36]--[2018-02-07 Wed 18:56] =>  3:20
-CLOCK: [2018-02-07 Wed 10:09]--[2018-02-07 Wed 11:12] =>  1:03
-CLOCK: [2018-02-06 Tue 11:32]--[2018-02-06 Tue 17:22] =>  5:50
-CLOCK: [2018-01-30 Tue 19:24]--[2018-01-30 Tue 20:52] =>  1:28
-CLOCK: [2018-01-30 Tue 13:11]--[2018-01-30 Tue 17:45] =>  4:34
-CLOCK: [2018-01-30 Tue 10:58]--[2018-01-30 Tue 12:39] =>  1:41
-CLOCK: [2018-01-29 Mon 10:36]--[2018-01-29 Mon 20:18] =>  9:42
-CLOCK: [2018-01-26 Fri 09:49]--[2018-01-26 Fri 11:16] =>  1:27
-CLOCK: [2018-01-25 Thu 10:32]--[2018-01-25 Thu 15:59] =>  5:27
-CLOCK: [2018-01-24 Wed 13:58]--[2018-01-24 Wed 19:40] =>  5:42
-CLOCK: [2018-01-23 Tue 13:47]--[2018-01-23 Tue 15:47] =>  2:00
-CLOCK: [2018-01-23 Tue 09:56]--[2018-01-23 Tue 12:05] =>  2:09
-CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
-CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
-CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
-:END:
-- [X] extract gid from get skill to graph.
-- [X] importing wiki categories and page edge relation to Neo4j.
-- [X] 上传完备份我再建边.
-- [X] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
-  - [X] use networkx to detect loop.
-  - [X] it's too hard to detect cycles in the whole graph. Starting in a small categories.
-  - [X] don't add direct loop edges to a graph, find_cycles will only show such direct loop. save this graph.
-  - [X] remove direct cycle and full cycle at a node completely.
-- [X] skill GID generating in Python.
-- [X] 把节点上传. wiki 上传了1040229 page, 381475 categories.
-- [X] train word2vec model based on GID.
-- [X] import edge, loop detecting for linking categories nodes.
-- [X] fetching pages binary content via GID.
-- [X] test response GID, same with GID saved on Chrome.
-- [X] test fetching binary text with GID.
-- [X] extract page to neo4j from xml file.
-businessID.domain = https://zh.wikipedia.org/wiki/:
-businessID.pk = urlencode(traditional Chinese title).
-title = simple Chinese title
-node.names.chinese = simple Chinese title
-node.url = encoded_url
-- [X] import category to neo4j from sql file.
-businessID.domain = https://zh.wikipedia.org/wiki/Category:
-businessID.pk = urlencode(traditional Chinese title).
-title = simple Chinese title
-node.names.chinese = simple Chinese title
-- [X] double check GID with Shenbing after importing a small set of page.
-- [X] import page from mongo to neo4j.
-- [X] backup neo4j after importing categories and page.
-- [X] delete edges.
-- [X] importing wiki categories nodes and page nodes to Neo4j.
-- [X] test importing wiki categories nodes.
-- [X] skill_2_graph
-=C-M-r= in gs, create 查路径, drag GID: 81F49335AC9C4D84A5F27F7A02AAABBA into the input box, input Parent GID in the parent box.
-***** Thomson Reuters Knowledge graph perim
-- [ ] read how to use the RFM dataset.
-***** relation extraction from training data
-- [ ] search paper and public code.
-- [X] Stanford NLP relation extraction video.
-- [ ]
-**** TODO entity relationship
+*** TODO Knowledge Graph
+
+**** DONE entity relationship<2018-03-19 Mon> - <2018-03-21 Wed>
+CLOSED: [2018-03-26 Mon 13:52]
 :LOGBOOK:
 CLOCK: [2018-03-21 Wed 11:10]--[2018-03-21 Wed 18:56] =>  7:46
 CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
@@ -258,7 +187,8 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] extract RDF company triples.
 - [ ] listed companies triples importing to neo4j.
 - [ ] read Q&A knowledge graph paper.
-**** 语料收集:
+
+**** TODO 语料收集:<2018-03-21 Wed>
 :LOGBOOK:
 CLOCK: [2018-03-23 Fri 15:32]
 :END:
@@ -289,132 +219,14 @@ CLOCK: [2018-03-23 Fri 15:32]
 | 参股     |          | 参股     |          |          |      |
 | 入驻     |          |          |          |          |      |
 | 创投     |          |          |          |          |      |
-**** 实体和关系的联合抽取处理思想：
+**** TODO 实体和关系的联合抽取处理思想：<2018-03-22 Thu> -
 1. 利用NER_IDCNN_CRF的实体识别得到语料里面的实体，现有模型支持人名，组织机构和位置。
 2. RE_BGRU_2ATT关系识别。
 
+**** extract the structure of a document, represent as a graph
 
-**** News summary
-- [ ] classify 1 year of analyst research articles.
-- [ ] convert PDFs to text files.
-- [ ] summerize articles
-- [ ] send summary to baidu api article classification.
-- [ ] get news summary from webs.
-**** syntactic parsing
-***** opinion extraction system
-****** TODO sentiment analysis.
-:LOGBOOK:
-CLOCK: [2018-03-07 Wed 10:05]--[2018-03-07 Wed 17:57] =>  7:52
-CLOCK: [2018-03-02 Fri 09:56]--[2018-03-02 Fri 19:07] =>  9:11
-CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
-:END:
-- [ ] sentiment score做为单因子测试, upload sentiment data to hadoop and test factor in FS.
-- [ ] read paper *joint extraction of entities and relations*.
-- [ ] read paper *Anomalies and Investor Sentiment*.
-- [X] read_RMDB_table -> NLP_sentiment_analysis -> generate_sentiment_signal.
-- [X] 情感分析指标的设计在GS上实现。
-- [X] 公告、研报摘要.
-- [X] news, market-view articles sentiment analysis.
-- [X] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
-能否用这个指数来预警，今天可以扩大一下样本空间，看看上证在1%下跌的情况下前一日的情感指数值是如何变化。
-- [ ] search paper and books how to use sentiment analysis.
-
-***** information retrieval system
-Q&A。
-用了什么分析方法，数据。
-**** Part 1: Knowledge Graph Primer
-- What is a Knowledge Graph?
-- Why are Knowledge Graphs Important?
-- Where do Knowledge Graphs come from?
-- Knowledge Representation Choices
-- Problem Overview
-**** Part 2: Knowledge Extraction from Text
-***** NLP Fundamentals
-- Tokenization, chunking
-- Part-of-speech tagging
-- Named entity recognition
-- Dependency parsing
-- Entity resolution, coreference, and linking
-***** Information Extraction
-- Defining knowledge domains
-- Learning knowledge extractors
-- Scoring extracted knowledge
-- Categories of IE techniques
-- Compositional models: Knowledge fusion
-- IE systems in practice
-**** Part 3: Knowledge Graph Construction
-***** Graph construction overview
-***** Probabilistic Models
-- Motivation
-- Graphical models
-- Random walk approaches
-***** Embedding Techniques
-****** Relation extraction techniques
-- Matrix factorization
-- Embedding entity pairs
-****** Graph completion techniques
-- Tensor factorization
-- Entity and relation embeddings
-- Compositional models
-**** Part 4: Critical Overview and Conclusion
-- Summary
-- Success stories
-- Datasets, tasks, softwares
-- Exciting active research
-- Future research directions
-*** Part-Of-Speech Tagger (POS Tagger), Named-entity recognition (NER), SEMPRE: Semantic Parsing with Execution with spacy, stanford coreNLP.
-:LOGBOOK:
-CLOCK: [2018-01-26 Fri 15:04]--[2018-01-26 Fri 17:11] =>  2:07
-CLOCK: [2018-01-26 Fri 11:16]--[2018-01-26 Fri 13:18] =>  2:02
-:END:
-- [ ] read documentation.
-- [ ] how to integrate NLP with gs.
-- [-] Pipeline:
-  - [X] choose category and depth in GS skill ->
-  - [X] return pages GID ->
-  - [ ] fetch paper via GID in python ->
-  - [ ] parsing, tokenization -> jieba.py, preprocessing.utils.py
-    - [ ] tagger(Assign part-of-speech tags), spaCy, jieba.py, coreNLP,
-    - [ ] parser(Assign dependency labels), spaCy, coreNLP, snowNLP
-    - [ ] NER(Detect and label named entities),spaCy, coreNLP, snowNLP
-    - [ ] keywords extraction, snowNLP.py,
-    - [ ] topic classification, extraction, gensim.py(LDA),
-    - [ ] sentiment analysis, snowNLP.py, coreNLP,
-- [ ] IEPY
-*** DONE Chinese wiki model.
-CLOSED: [2018-02-09 Fri 18:57]
-- [X] train financial fields model(58+ categories).
-- [X] use similarity distance to find the nearest category of target words.
-- [X] similarity test on specific model.
-- [X] add all pages title to jieba dict.
-- [X] 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。
-- [X] preprocessing workflow.
-  英文text preprocessing需要的注意一些点，及应提供的选择
-  1. cut段落或文章
-  2. phrase是否进行转换
-  3. 停词(a, the, of, that, this, he, I...)是否保留
-  4. 数字是否转为英文单词, 中间有数字的单词是否保留(th8)
-  5. 提取词干（时态转换，单复数单词转换）
-  6. 标点（撇号'，所有格,缩写如don’t），符号（%,#,&,?,@,\,/,",是否保留）
-  7. 大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）
-
-  中文分词（主要利用结巴分词）
-  - [X] 1. cut段落或文章
-  - [X] 2. 去停词
-  - [X] 去标点符号
-  - [X] 去数字
-- [ ] word2vec fast text comparison.
-- [X] compare the training results with or without stopwords.
-- [X] demo code.
-- [X] visualize & compare results.
-- [X] create index for zhwiki.
-- [X] test model.
-- [X] assign wiki pages extraction task.
-- [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
-- [X] get rid of the stopwords.
-- [X] retrie Chinese financial wiki pages from mongo and train.
-- [ ] fix zhwiki to mongodb words count.
-*** TODO Word Embedding(Word2Vec)
+*** DONE Word Embedding(Word2Vec):<2017-12-01 Fri> - <2017-12-31 Sun>
+CLOSED: [2018-03-26 Mon 12:47]
 :LOGBOOK:
 CLOCK: [2017-12-22 Fri 15:44]--[2017-12-22 Fri 19:21] =>  3:37
 CLOCK: [2017-12-14 Thu 10:04]--[2017-12-14 Thu 12:01] =>  1:57
@@ -423,6 +235,9 @@ CLOCK: [2017-12-05 Tue 11:46]--[2017-12-05 Tue 12:04] =>  0:18
 CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
 CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 :END:
+**** Goal/use case
+- use such word2vec to find similar keywords.
+**** jobs: 数据收集， 清洗
 - [ ] train analyst report and save model on hdfs, load this model as a j node.
 - [ ] gs similar words function test use analyst report.
 - [X] upload all vocabulary in word2vec model to Neo4j.
@@ -492,7 +307,44 @@ CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
 - [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
 当前FI,查找相关的下一步FI.
 
-*** DONE Building the Wikipedia Knowledge Graph in Neo4j
+*** DONE Chinese wiki model. <2018-01-01 Mon> - <2018-01-12 Fri>
+CLOSED: [2018-02-09 Fri 18:57]
+**** jobs: 训练中文维基数据，嵌入GS
+- choose model using most related model, use wiki category relation similarity to choose model, train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
+- [X] train financial fields model(58+ categories).
+- [X] use similarity distance to find the nearest category of target words.
+- [X] similarity test on specific model.
+- [X] add all pages title to jieba dict.
+- [X] 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。
+- [X] preprocessing workflow.
+  英文text preprocessing需要的注意一些点，及应提供的选择
+  1. cut段落或文章
+  2. phrase是否进行转换
+  3. 停词(a, the, of, that, this, he, I...)是否保留
+  4. 数字是否转为英文单词, 中间有数字的单词是否保留(th8)
+  5. 提取词干（时态转换，单复数单词转换）
+  6. 标点（撇号'，所有格,缩写如don’t），符号（%,#,&,?,@,\,/,",是否保留）
+  7. 大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）
+
+  中文分词（主要利用结巴分词）
+  - [X] 1. cut段落或文章
+  - [X] 2. 去停词
+  - [X] 去标点符号
+  - [X] 去数字
+- [ ] word2vec fast text comparison.
+- [X] compare the training results with or without stopwords.
+- [X] demo code.
+- [X] visualize & compare results.
+- [X] create index for zhwiki.
+- [X] test model.
+- [X] assign wiki pages extraction task.
+- [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
+- [X] get rid of the stopwords.
+- [X] retrie Chinese financial wiki pages from mongo and train.
+- [ ] fix zhwiki to mongodb words count.
+                                                                       :wait:
+
+*** DONE Building the Wikipedia Knowledge Graph in Neo4j <2018-01-13 Sat> - <2018-03-09 Fri>
 CLOSED: [2018-02-09 Fri 18:58]
 :LOGBOOK:
 CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
@@ -500,12 +352,8 @@ CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
 [[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
 - [X] wiki SQL database links graph.
 - [X] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
-**** DONE manual import unsaved categories and edges into Neo4j.
-CLOSED: [2018-03-09 Fri 15:15]
-- [X] find unsaved categories under 金融 category.
-- [X] save those to a sql file.
-- [X] upload sql file and edge.
-**** Data dumps/Import
+**** DONE Data dumps/Import -> create nodes
+CLOSED: [2018-03-26 Mon 13:54]
 - methods
 [[https://meta.wikimedia.org/wiki/Data_dumps]]
 
@@ -524,217 +372,105 @@ CLOSED: [2018-03-09 Fri 15:15]
 - [X] try Neo4j sandbox
 [[https://neo4j.com/sandbox-v2/]]
 - [X] create Neo4j docker.
+**** DONE create wiki knowledge graph -> create edges
+CLOSED: [2018-03-26 Mon 12:48] DEADLINE: <2018-01-23 Tue>
+:LOGBOOK:
+CLOCK: [2018-02-07 Wed 15:36]--[2018-02-07 Wed 18:56] =>  3:20
+CLOCK: [2018-02-07 Wed 10:09]--[2018-02-07 Wed 11:12] =>  1:03
+CLOCK: [2018-02-06 Tue 11:32]--[2018-02-06 Tue 17:22] =>  5:50
+CLOCK: [2018-01-30 Tue 19:24]--[2018-01-30 Tue 20:52] =>  1:28
+CLOCK: [2018-01-30 Tue 13:11]--[2018-01-30 Tue 17:45] =>  4:34
+CLOCK: [2018-01-30 Tue 10:58]--[2018-01-30 Tue 12:39] =>  1:41
+CLOCK: [2018-01-29 Mon 10:36]--[2018-01-29 Mon 20:18] =>  9:42
+CLOCK: [2018-01-26 Fri 09:49]--[2018-01-26 Fri 11:16] =>  1:27
+CLOCK: [2018-01-25 Thu 10:32]--[2018-01-25 Thu 15:59] =>  5:27
+CLOCK: [2018-01-24 Wed 13:58]--[2018-01-24 Wed 19:40] =>  5:42
+CLOCK: [2018-01-23 Tue 13:47]--[2018-01-23 Tue 15:47] =>  2:00
+CLOCK: [2018-01-23 Tue 09:56]--[2018-01-23 Tue 12:05] =>  2:09
+CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
+CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
+CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
+:END:
+- [X] extract gid from get skill to graph.
+- [X] importing wiki categories and page edge relation to Neo4j.
+- [X] 上传完备份我再建边.
+- [X] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
+  - [X] use networkx to detect loop.
+  - [X] it's too hard to detect cycles in the whole graph. Starting in a small categories.
+  - [X] don't add direct loop edges to a graph, find_cycles will only show such direct loop. save this graph.
+  - [X] remove direct cycle and full cycle at a node completely.
+- [X] skill GID generating in Python.
+- [X] 把节点上传. wiki 上传了1040229 page, 381475 categories.
+- [X] train word2vec model based on GID.
+- [X] import edge, loop detecting for linking categories nodes.
+- [X] fetching pages binary content via GID.
+- [X] test response GID, same with GID saved on Chrome.
+- [X] test fetching binary text with GID.
+- [X] extract page to neo4j from xml file.
+businessID.domain = https://zh.wikipedia.org/wiki/:
+businessID.pk = urlencode(traditional Chinese title).
+title = simple Chinese title
+node.names.chinese = simple Chinese title
+node.url = encoded_url
+- [X] import category to neo4j from sql file.
+businessID.domain = https://zh.wikipedia.org/wiki/Category:
+businessID.pk = urlencode(traditional Chinese title).
+title = simple Chinese title
+node.names.chinese = simple Chinese title
+- [X] double check GID with Shenbing after importing a small set of page.
+- [X] import page from mongo to neo4j.
+- [X] backup neo4j after importing categories and page.
+- [X] delete edges.
+- [X] importing wiki categories nodes and page nodes to Neo4j.
+- [X] test importing wiki categories nodes.
+- [X] skill_2_graph
+=C-M-r= in gs, create 查路径, drag GID: 81F49335AC9C4D84A5F27F7A02AAABBA into the input box, input Parent GID in the parent box.
+***** Thomson Reuters Knowledge graph perim
+- [ ] read how to use the RFM dataset.
+***** relation extraction from training data
+- [ ] search paper and public code.
+- [X] Stanford NLP relation extraction video.
+**** DONE manual import unsaved categories and edges into Neo4j.
+CLOSED: [2018-03-09 Fri 15:15]
+- [X] find unsaved categories under 金融 category.
+- [X] save those to a sql file.
+- [X] upload sql file and edge.
+*** information extraction system
+**** DONE opinion sentiment analysis. <2018-03-09 Fri> - <2018-03-16 Fri>
+CLOSED: [2018-03-26 Mon 12:49]
+:LOGBOOK:
+CLOCK: [2018-03-07 Wed 10:05]--[2018-03-07 Wed 17:57] =>  7:52
+CLOCK: [2018-03-02 Fri 09:56]--[2018-03-02 Fri 19:07] =>  9:11
+CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
+:END:
+***** DONE read_RMDB_table -> NLP_sentiment_analysis -> generate_sentiment_signal.
+CLOSED: [2018-03-26 Mon 13:37]
+[[https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pdf][sentiment prediction]]
+- Sentiment analysis 算法.
+SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
+- 爬取Google news, 雪球， 虎嗅， 微信上所有300支股票的文档，再进行sentiment analysis, 结果再排序，选最好的5只。
+- [ ] sentiment score做为单因子测试, upload sentiment data to hadoop and test factor in FS.
+- [X] read paper *joint extraction of entities and relations*.
+- [ ] read paper *Anomalies and Investor Sentiment*.
+- [X] 情感分析指标的设计在GS上实现。
+- [X] news, market-view articles sentiment analysis.
+- [X] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
+能否用这个指数来预警，今天可以扩大一下样本空间，看看上证在1%下跌的情况下前一日的情感指数值是如何变化。
+- [ ] search paper and books how to use sentiment analysis.
+**** information retrieval system
+***** goal
+****** question and answering from a document
+- what is tha data.
+- what is the algorithm.
+- what is the conclusion.
+****** News summary
+- [ ] classify 1 year of analyst research articles.
+- [ ] convert PDFs to text files.
+- [ ] summerize articles
+- [ ] send summary to baidu api article classification.
+- [ ] get news summary from webs.
+****** syntactic parsing
 
-*** Google NLP
-**** Setup
-- [X] 配置好GOOGLE GCLOUD PLATORM的代理
-- [ ] 利用本地PYTHON处理一下中文数据提取SENSITIVITY数据。
-- [ ] deep learning of bank stress in the news
-- [ ] detect events based on text, obtain descriptions of events.
-**** configuration:
-- reports-174211
-- proxy:
-127.0.0.1:1080
-
-- [X] Make sure that Python 2.7.9 or later is installed on your system.
-- [X] ./google-cloud-sdk/install.sh
-- [X] ./google-cloud-sdk/bin/gcloud init
-- [X] pip install --upgrade google-cloud-language
-- [X] export GOOGLE_APPLICATION_CREDENTIALS=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json
-- [X] gcloud auth activate-service-account --key-file=/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json
-- [X] example:
-#+BEGIN_SRC python
-# auth
-from google.oauth2 import service_account
-
-credentials = service_account.Credentials.from_service_account_file(
-    '/home/weiwu/projects/sentiment/reports-b56f3f2275a1.json')
-
-scoped_credentials = credentials.with_scopes(
-    ['https://www.googleapis.com/auth/cloud-platform'])
-
-#+END_SRC
-
-#+BEGIN_SRC python
-# -*- coding: utf-8 -*-
-# Imports the Google Cloud client library
-from google.cloud import language
-
-# Instantiates a client
-language_client = language.Client()
-
-# The text to analyze
-text = 'Hello, world!'
-#text = u'正在按照第一个网页流程走'
-document = language_client.document_from_text(text)
-
-# Detects the sentiment of the text
-sentiment = document.analyze_sentiment().sentiment
-
-print('Text: {}'.format(text))
-print('Sentiment: {}, {}'.format(sentiment.score, sentiment.magnitude))
-
-#+END_SRC
-
-- https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/language/movie_nl
-
-- GCLOUD example:
-#+BEGIN_SRC shell
-gcloud ml language analyze-entities --content="Michelangelo Caravaggio, Italian painter, is known for 'The Calling of Saint Matthew'."
-#+END_SRC
-- connect to Amazon AWS EW2:
-#+BEGIN_SRC shell
-# 1
-chmod 400 /path/my-key-pair.pem
-# 2
-ssh -i "amazon.pem" ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com
-# 3
-scp -i "/home/weiwu/Downloads/amazon.pem" ~/projects/sentiment/reports-b56f3f2275a1.json  ec2-user@ec2-54-200-133-176.us-west-2.compute.amazonaws.com:~/projects/sentiment
-#+END_SRC
-- install Google SDK on AWS EM2
-methon 1:
-curl https://sdk.cloud.google.com | bash
-sudo cp /usr/bin/python2.7 /usr/local/bin/python2.7
-sudo `which pip` install --upgrade google-cloud-language
-**** SDK
-- GOOGLE NLP SDK试用，只能用PYTHON2.7，而且内容是从本地传输到GOOGLE 云计算服务，在传输过程中遇到代理麻烦，无法返回结果。
-- https://cloud.google.com/sdk/docs/quickstart-linux
-- key:
-https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=reports-174211
-- 初始化SDK
-  - 配置网络代理
-  - 输入代理IP地址:127.0.0.1，代理端口：1080
-- 授权SDK
-  - gcloud auth application-default login
-
-- auth
-https://developers.google.com/identity/protocols/application-default-credentials
-#+BEGIN_SRC json
-{
-  "type": "service_account",
-  "project_id": "reports-174211",
-  "private_key_id": "54818469c5e32cb8f5d55b755945e6bd7f65c747",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0Lz4mVUr36Y7C\n+hxLunVLm3RfBMDsJ9RZ/jICmpCprYIjYebLql0+T2DnhU7eKH2hhbHKZdUfWOvA\nDxE/DUk04eG22vsvoPlIGjN88c3EkKqEddX0llOkKeVNMAB0lN+ESEmrMC6Ewhd2\n/51dIqekDjTV5wrmZxnT1SSuJsrgA0Wbey5TjVmYBTO3hsR37sJxf6yj0+lrVqUw\np2rgkIuDrQy97jP9AYdAF6Lt1eIZvLTIC8GBpo0VjVb+s8CRhZiKGxunUu8HFymS\nK/9Li8BRJ9q/ozp4OGJszk2RQiTbFoKI64pVqggTJxRVw4pdozpzPL4cDqqjYu7y\nCakFxFStAgMBAAECggEAAL36EaKDy3IYOa2Eh3umMdsbIgINFlvn+BKVMPq4fPkU\njQyWl1ZQCdU+BwNpn/4cMwRah1ofLtYeVcfqGwT1EnqaA/ddFfo3KfNxAgMlRQ7l\nzjkFr3sdWegnRDJd/3JBL78JeKLwlMY6M64D/1HIzXhBLPQFkOMx/B6dBvpCFyVC\niE/FTJHFpN5BJni+cBtKfdKbPYGkxtNN4XdPrGtS3pg+NX8hJwtyTc9CV63YSPxG\nY7Zat5IRR+nTkHNJj/jqTLb1YolzjTSGR1vbb1KTUe+KH4ZxiYd0MVCDEEgrhvli\nmEunzCGbrIgi3K8+h77FHq2UHbVL4epd6leswEpH6QKBgQDiz/bDGXIAKszc9GsS\na4mhU/06Cw79C99rc6iMMq9O5N6qaXDlExT5IS/1xBMv8M4lQ4Qp6OqzlXP/gci3\nVOm6TzoB92hwTja5IxIlhHuCxy3+LCjN2T95dTL5QbjKtYn9IQ/SX+ZVSXxHYUvQ\nxgwZud/FIS+YE2qChYFEaev7BQKBgQDLXy++mrOHm/Kwpkf2elrra6m/jPHdJe3m\nuv7lQf9QJAjSBNDJppHiryqOKQeSJyLX7WrPi/ngUM/wFSAi/llgmLApQwAla5Xs\nPLRntxaWDK2JDUonGDkdWeR5kwyns/oomnECiS22m1+oh+2uYQHgW8DpiG4fPpAt\nJ3K6KOUziQKBgAJ3sr6So0vfK1VoD1Ym91ta95FPF32nSGn52yaTUpbwJIAEH6dO\nWtcPBl+NH4xQ+V0sa96s2wjTImzwM4fTE6vkOsRUtb0rDKtc91CTLWjR0+1E+7ip\nmWgv3zsY/PKvoO2xE2P9iRr6brC0HUgLL4yEGiwh3UuxQmJjI3HkGR4lAoGALc16\nS0s8M8aDmhVZD8HuyCavTFzJ/CyWr+hdj/SVM89pzSMYgtHo+UzKIMpM0jXOOyNV\ncvjrhgGtUzzux/LQ3liFFEXquoLIeTQSzWkGxTSFwOAlWzixZFLiih78MqjuJkbi\nPNf4W7ASkzpJ5YQjkAwaHn6DjrXgcsr3o8WiGUECgYBBLnbZLyMSkjZ0n0wYG0a7\nB4b0piRlGbSfEcKWpxoS+EJDuEgvZgn92EOHGaE0xtZvmwbWuqTKKRHXYDGG0VkR\nTf1pMyBF7uxRXDXPslZU2rUTudKMxP8HxoV8WGwxH+ltZYwsMV1iKv3xqbU6CRy2\nu5i+YnEcmQl6HFH/H8tzQg==\n-----END PRIVATE KEY-----\n",
-  "client_email": "cloudnatruallanguageapi@reports-174211.iam.gserviceaccount.com",
-  "client_id": "108156446460648516099",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://accounts.google.com/o/oauth2/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloudnatruallanguageapi%40reports-174211.iam.gserviceaccount.com"
-}
-
-#+END_SRC
-
-- gcloud config list
-#+BEGIN_SRC shell
-(C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>gcloud
-config list
-[compute]
-region = us-east1
-zone = us-east1-d
-[core]
-account = victor.wuv@gmail.com
-disable_usage_reporting = False
-project = reports-174211
-[proxy]
-address = 192.168.1.164
-port = 1080
-type = http
-
-Your active configuration is: [nlp1]
-
-(C:\Users\gft\Anaconda2) C:\Users\gft\Documents\Python Scripts\sentiment>
-#+END_SRC
-*** Graph Convolutional Neural Network
-**** Objective:
-***** Short Term
-- Apply CNN's efficient compositional knowledge extraction ability to graph data, more structured than natural language, image and sound
-***** Long Term
-- Apply RL on top of graph CNN to automatically ACTIVELY build models, workflows, contracts, investment, instead of just passive prediction without market impact
-**** Model
-- Spectral Graph Theory based CNN on graph data
-**** Data
-- Text Like Graph Data, where nodes are discretely different
- - function network in GS, model architecture
- - task network in GS, user behavior
- - supply demand product transaction network in real economy
- - buy sell financial instrument transaction network in financial market
-- Image Like Graph Data, where nodes are homogeneous with continuous attributes
- - network of portfolios of different gain and loss, alpha, beta, etc
- - (social) network of analysts, traders, reporters, officials, etc of different level of influences
- - network of NN nodes with different weights
-**** Applications
-- Graph Classification and Identification
-- Graph Simplification and Simulation
-*** read the book 《自然语言处理综论》
-not easy to understand this book.
-- listen to the open course
-https://web.stanford.edu/class/cs224n/syllabus.html
-- 寻找中文分词开源项目
-LTP from Harbin Institute of Technology
-http://ltp.ai/
-http://ltp.readthedocs.io/zh_CN/latest/
-http://www.ltp-cloud.com/intro/
-- Strucuture:
-分词, 词性标注, Parser
-- Tools
-CRF++
-
-GIZA
-
-Word2Vec
-- Opinion Mining, Sentiment Analysis, and Opinion Spam Detection
-https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
-https://www.cs.uic.edu/~liub/FBS/SentimentAnalysis-and-OpinionMining.pdf
-- 目标学习：信息抽取
-*** DONE 如何在NLP领域快速学会第一个技能？
-CLOSED: [2018-02-09 Fri 19:00]
-- 找到一个开源项目，比如机器翻译或者深度学习的项目。
-- 理解开源项目的任务，编译通过该项目发布的示范程序，得到与项目示范程序一致的结果。
-- 然后再深入理解开源项目示范程序的算法。
-- 自己编程实现一下这个示范程序的算法。再按照项目提供的标准测试集测试自己实现的程序。如果输出的结果与项目中出现的结果不一致，就要仔细查验自己的程序，反复修改，直到结果与示范程序基本一致。如果还是不行，就大胆给项目的作者写信请教。
-- 在此基础上，再看看自己能否进一步完善算法或者实现，取得比示范程序更好的结果。
-- [ ] 词性标记集：LTP中采用863词性标注集，其各个词性含义如下表：
-
-| Tag	 | Description	         | Example	    |    |
-|-------+-----------------------+--------------+----|
-| a	   | adjective	           | 美丽	       |    |
-| b	   | other noun-modifier	 | 大型 ,西式	 |    |
-| c	   | conjunction	         | 和,虽然	    |    |
-| d	   | adverb	              | 很           | 	 |
-| e	   | exclamation	         | 哎	         |    |
-| g	   | morpheme	            | 茨, 甥	     |    |
-| h	   | prefix	              | 阿, 伪       | 	 |
-| i	   | idiom	               | 百花齐放	   |    |
-| j	   | abbreviation	        | 公检法	     |    |
-| k	   | suffix	              | 界, 率	     |    |
-| m	   | number	              | 一, 第一	   |    |
-| n	   | general noun	        | 苹果	       |    |
-| nd	  | direction noun	      | 右侧	       |    |
-| nh	  | person name	         | 杜甫, 汤姆   |    |
-| ni	  | organization name	   | 保险公司     |    |
-| nl	  | location noun	       | 城郊         |    |
-| ns	  | geographical name	   | 北京         |    |
-| nt	  | temporal noun	       | 近日, 明代   |    |
-| nz	  | other proper   noun	 | 诺贝尔奖     |    |
-| o	   | onomatopoeia	        | 哗啦         |    |
-| p	   | preposition	         | 在, 把       |    |
-| q	   | quantity	            | 个           |    |
-| u	   | auxiliary	           | 的, 地       |    |
-| v	   | verb	                | 跑, 学习     |    |
-| wp	  | punctuation	         | ，。！       |    |
-| ws	  | foreign words	       | CPU          |    |
-| x	   | non-lexeme	          | 萄, 翱       |    |
-- [X] 命名实体识别
-命名实体识别 (Named Entity Recognition, NER) 是在句子的词序列中定位并识别人名、地名、机构名等实体的任务。 如之前的例子，命名实体识别的结果是：
-
-国务院 (机构名) 总理李克强 (人名) 调研上海外高桥 (地名) 时提出，支持上海 (地名) 积极探索新机制。
-命名实体识别对于挖掘文本中的实体进而对其进行分析有很重要的作用。
-- [X] 依存句法分析
-依存语法 (Dependency Parsing, DP) 通过分析语言单位内成分之间的依存关系揭示其句法结构。 直观来讲，依存句法分析识别句子中的“主谓宾”、“定状补”这些语法成分，并分析各成分之间的关 系。
-- [X] 语义角色标注
-语义角色标注 (Semantic Role Labeling, SRL) 是一种浅层的语义分析技术，标注句子中某些短语为给定谓词的论元 (语义角色) ，如施事、受事、时间和地点等。其能够对问答系统、信息抽取和机器翻译等应用产生推动作用。
-- [X] 查看Google Trende API.
 ** DONE GPU server hardware comparison
 CLOSED: [2018-02-09 Fri 19:00]
 - [X] server vs desktop vs cloud
