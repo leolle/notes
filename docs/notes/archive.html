@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-26 Mon 18:01 -->
+<!-- 2018-03-28 Wed 14:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -227,7 +227,7 @@ for the JavaScript code in this tag.
 </div></li>
 <li><a id="orgheadline4"></a>金融新闻Bots<br  /><div class="outline-text-6" id="text-orgheadline4">
 <ul class="org-ul">
-<li>实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。</li>
+<li>实时监控各大金融新闻网站的数据，构建一个监控平台。根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。</li>
 <li>Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.</li>
 </ul>
 </div>
@@ -328,7 +328,7 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
 <h4 id="orgheadline13">Overview Steps:</h4>
 <div class="outline-text-4" id="text-orgheadline13">
 <ul class="org-ul">
-<li>数据爬虫 -&gt; 数据清洗(干净数据) -&gt; 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -&gt; 文档树/表 -&gt; 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -&gt; 本体，本体存储 -&gt; 语用分析 -&gt; 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)</li>
+<li>数据爬虫 -&gt; 数据清洗(干净数据) -&gt; 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -&gt; 文档树/表 -&gt; 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -&gt; 本体，本体存储 -&gt; entity extraction based on KB -&gt; 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)</li>
 
 <li>Pipeline: choose category and depth in GS skill -&gt; return pages GID -&gt; fetch paper via GID in python -&gt; text processing -&gt; word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -&gt; help users to select X,y.</li>
 </ul>
@@ -375,7 +375,7 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
 </div></li>
 <li><a id="orgheadline16"></a>Text Unlabeled<br  /><div class="outline-text-5" id="text-orgheadline16">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> analyst research reports, analyst research reports, report classification, analyst ranking</li>
+<li class="on"><code>[X]</code> analyst research reports, analyst research reports, report classification, analyst ranking</li>
 <li class="off"><code>[&#xa0;]</code> textbooks</li>
 </ul>
 </div></li></ul>
@@ -595,7 +595,7 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
 <h4 id="orgheadline25">Goal/use case</h4>
 <div class="outline-text-4" id="text-orgheadline25">
 <ul class="org-ul">
-<li>use such word2vec to find similar keywords.</li>
+<li class="on"><code>[X]</code> use word2vec to find similar keywords.</li>
 </ul>
 </div>
 </div>

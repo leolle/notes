@@ -1,4 +1,7 @@
-Wei Wu's notes
+* Resume
+https://www.linkedin.com/in/victorweiwu/
+
+* Wei Wu's notes
 #+BEGIN_EXAMPLE
 [[notes]]
 ├── books

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-02-09 Fri 19:10 -->
+<!-- 2018-03-28 Wed 14:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -186,6 +186,11 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline11">5. Deep learning architecture</a></li>
+<li><a href="#orgheadline13">6. Recurrent Neural Networks (RNN)</a>
+<ul>
+<li><a href="#orgheadline12">6.1. output formular</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -376,8 +381,22 @@ you can then write to the events file using the file<sub>writer</sub>. Here is t
 file_writer.close<span style="color: #AE81FF;">()</span>
 </pre>
 </div>
+
+<ol class="org-ol">
+<li>activate virtualenv.</li>
+<li>start tensorboard server.</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-bash">tensorboard --logdir tf_logs/ --host <span style="color: #AE81FF;">192.168.1.199</span> --port <span style="color: #AE81FF;">8008</span>
+</pre>
+</div>
+<ol class="org-ol">
+<li>open browser, go to <a href="http://192.168.1.199:8008/">http://192.168.1.199:8008/</a></li>
+</ol>
 </div>
 </div>
+
 <div id="outline-container-orgheadline10" class="outline-2">
 <h2 id="orgheadline10"><span class="section-number-2">4</span> TensorBoard: Embedding Visualization</h2>
 <div class="outline-text-2" id="text-4">
@@ -438,6 +457,18 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 <li>Lower Level: This is where frameworks like Tensorflow, MXNet, Theano, and PyTorch sit. This is the level where mathematical operations like Generalized Matrix-Matrix multiplication and Neural Network primitives like Convolutional operations are implemented.</li>
 <li>Higher Level: This is where frameworks like Keras sit. At this Level, the lower level primitives are used to implement Neural Network abstraction like Layers and models. Generally, at this level other helpful APIs like model saving and model training are also implemented.</li>
 </ul>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">6</span> Recurrent Neural Networks (RNN)</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">6.1</span> output formular</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+\[y_{(t)}=\psi(x_{(t)}^t * w_x + y_{(t-1)}^t * w_y + b)\]
+</p>
+</div>
 </div>
 </div>
 </div>

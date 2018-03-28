@@ -52,6 +52,7 @@
         + [[file:CS/Regular_Expression.org][RegularExpression]]
         + [[file:CS/MachineLearning/nlp/NLPLibraries.html][NLPLibraries]]
         + [[file:CS/MachineLearning/nlp/NLP+libraries+comparison.html][NLPLibrariesCompareCode]]
+    + [[file:CS/MachineLearning/Tensorflow.org][Tensorflow]]
     + [[file:CS/MachineLearning/DeepLearning.org][DeepLearning]]
     + [[file:./Boosting.org][Boosting]]
     + [[file:CS/MachineLearning/TextBasedIndustryClassification.org][TextBasedIndustryClassification]]

@@ -222,7 +222,8 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 2. RE_BGRU_2ATT关系识别。
 ***** TODO pseudo code
 :LOGBOOK:
-CLOCK: [2018-03-28 Wed 09:47]
+CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 18:58] =>  3:57
+CLOCK: [2018-03-28 Wed 09:47]--[2018-03-28 Wed 12:09] =>  2:22
 :END:
 ***** review
 - the limits of GRU, its memory performance without attention, find out the threshold.
@@ -910,6 +911,9 @@ ret = ndOutput.astype(oDataType)
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
 * Instruction on how to use emacs org mode to orginize calendar.
+:LOGBOOK:
+CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 15:01] =>  0:00
+:END:
 
 - insert current date
 =C-c .= <2017-08-11 Fri>

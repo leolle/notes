@@ -501,6 +501,18 @@ int64
 ** Binary Sequence Types — bytes, bytearray, memoryview
 ** Set Types — set, frozenset
 ** Mapping Types — dict
+- get key from value:
+#+BEGIN_SRC python
+for name, age in word2id.items():    # for name, age in list.items():  (for Python 3.x)
+    if age == 16116:
+        print(name)
+
+# or
+mydict = {'george':16,'amber':19}
+print(list(mydict.keys())[list(mydict.values()).index(16)]) # Prints george
+
+print(list(word2id.keys())[list(word2id.values()).index(16116)]) # Prints
+#+END_SRC
 - get some keys value according to a list in a dictionary:
 #+BEGIN_SRC python
 value = {}
