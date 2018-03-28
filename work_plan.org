@@ -120,6 +120,7 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
 
 - Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
 
+
 **** Model
 - State of the Art NL models based on DNN
   - CBOW
@@ -146,7 +147,6 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
 - [ ] analyst research reports, analyst research reports, report classification, analyst ranking
 - [ ] textbooks
 *** TODO Knowledge Graph
-
 **** DONE entity relationship<2018-03-19 Mon> - <2018-03-21 Wed>
 CLOSED: [2018-03-26 Mon 13:52]
 :LOGBOOK:
@@ -189,9 +189,6 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] read Q&A knowledge graph paper.
 
 **** TODO 语料收集:<2018-03-21 Wed>
-:LOGBOOK:
-CLOCK: [2018-03-23 Fri 15:32]
-:END:
 - 目标语料格式：
 实体1  实体2  关系  包括实体1，实体2和他们之间关系的语句。
 - 加快语料收集的想法：
@@ -220,11 +217,27 @@ CLOCK: [2018-03-23 Fri 15:32]
 | 入驻     |          |          |          |          |      |
 | 创投     |          |          |          |          |      |
 **** TODO 实体和关系的联合抽取处理思想：<2018-03-22 Thu> -
+***** goal
 1. 利用NER_IDCNN_CRF的实体识别得到语料里面的实体，现有模型支持人名，组织机构和位置。
 2. RE_BGRU_2ATT关系识别。
+***** TODO pseudo code
+:LOGBOOK:
+CLOCK: [2018-03-28 Wed 09:47]
+:END:
+***** review
+- the limits of GRU, its memory performance without attention, find out the threshold.
+- selecting GRU or LSTM Depends on length of input sentence.
+- using existing Knowledge graph and collected  training data.
+- use quantitative research, economic indicator formula, analyst report as training data.
 
+***** bugs:
+****** multiple white space in the entities.
 **** extract the structure of a document, represent as a graph
+https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topsearchbox&tid=report&w=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0
 
+[[./img/knowledge_graph_report.png]]
+**** extract the knowledge from company and products.
+[[./img/knowledge_graph_fruit.png]]
 *** DONE Word Embedding(Word2Vec):<2017-12-01 Fri> - <2017-12-31 Sun>
 CLOSED: [2018-03-26 Mon 12:47]
 :LOGBOOK:
@@ -470,52 +483,6 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 - [ ] send summary to baidu api article classification.
 - [ ] get news summary from webs.
 ****** syntactic parsing
-
-** DONE GPU server hardware comparison
-CLOSED: [2018-02-09 Fri 19:00]
-- [X] server vs desktop vs cloud
-- [X] hardware purchase.
-Case	美商海盗船 AIR540 USB3.0 中塔侧透 钢铝混合 游戏散热机箱 支持36CM水冷 黑色	AIR540+AX1500i电源	1000
-CPU	i7 7700k		2500
-RAM	美商海盗船32G频率3000		3300
-GPU	MSI/微星 GTX1080TI AERO 11G公版GPU渲染计算游戏显卡深度学习	X2	12800
-Power	以太坊1600W6卡6P供电静音ETH显卡矿机机箱电源		600
-Storage	Intel/英特尔 600P 512G M.2 PCI-E 3.0X4 NVME SSD固态硬盘		1250
-	Seagate/希捷 ST1000DM010 1T新酷鱼1tb台式机械电脑硬盘		300
-Mother board	Asus/华硕 X99-E WS/USB 3.1工作站主板 单路 2011针 4路全速交火		4000
-			25750
-
-
-Case	美商海盗船 AIR540 USB3.0 中塔侧透 钢铝混合 游戏散热机箱 支持36CM水冷 黑色
-CPU	i7 6800k
-RAM	16G 2400 DDR4
-GPU	GTX
-Power	1000W
-Storage	Intel/英特尔 600P 256G M.2 PCI-E 3.0X4 NVME SSD固态硬盘
-Mother board	微星X99A SLI Plus	只支持2路SLI
-		GTX 1080	14500
-		GTX 1080 Ti	16700
-		GTX Titan XP	21200
-		GTX 1080x2	19000
-		GTX 1080 Tix2	23600
-		GTX Titan XPx2	32800
-
-** Machine Learning Basics
-[[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/DeepLearning.org][Deep Learning]]
-** DONE Other's recommendation
-CLOSED: [2018-02-09 Fri 19:01]
-- [X] pytorch.
-- [X] stuff from Zhupengjia, Liguofu.
-- [X] Yoshua paper Deep Learning.
-- [X] Pytorch, Keras, tensorflow, cuda. [[https://keras.io/layers/convolutional/]], [[http://pytorch.org/]]
-
-- [X] Deep Learning book, author Ian Goodfellow.
-- [ ] Vational Autoencoder(VAE) all factor data, then feed the output to various ML models on GS.
-- [X] Neural Language Processing(NLP), 结巴分词.
-** Basics
-*** ANN
-*** CNN
-*** RNN
 
 * GID table
 | date             | GID                              | descriptions                                      |
