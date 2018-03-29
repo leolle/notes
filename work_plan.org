@@ -218,9 +218,18 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 | 创投     |          |          |          |          |      |
 **** TODO 实体和关系的联合抽取处理思想：<2018-03-22 Thu> -
 ***** goal
+:LOGBOOK:
+CLOCK: [2018-03-29 Thu 10:38]--[2018-03-29 Thu 16:08] =>  5:30
+:END:
 1. 利用NER_IDCNN_CRF的实体识别得到语料里面的实体，现有模型支持人名，组织机构和位置。
 2. RE_BGRU_2ATT关系识别。
-***** TODO pseudo code
+3. [ ] Joint extraction of events and entities within a document context.
+Conceptually the method can be applied to Chinese event extraction if you have a training corpus annotated with entities and events.
+
+However, it would require significant changes on the code for feature generation. The current code makes use of the outputs of Stanford CoreNLP (English) and features extracted from English resources like WordNet, FrameNet, and NELL.
+
+***** DONE pseudo code
+CLOSED: [2018-03-29 Thu 09:55]
 :LOGBOOK:
 CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 18:58] =>  3:57
 CLOCK: [2018-03-28 Wed 09:47]--[2018-03-28 Wed 12:09] =>  2:22
@@ -230,6 +239,11 @@ CLOCK: [2018-03-28 Wed 09:47]--[2018-03-28 Wed 12:09] =>  2:22
 - selecting GRU or LSTM Depends on length of input sentence.
 - using existing Knowledge graph and collected  training data.
 - use quantitative research, economic indicator formula, analyst report as training data.
+- [ ] what's gold-standard entity information.
+***** study book DL for RE.
+:LOGBOOK:
+CLOCK: [2018-03-29 Thu 16:08]--[2018-03-29 Thu 19:00] =>  2:52
+:END:
 
 ***** bugs:
 ****** multiple white space in the entities.
