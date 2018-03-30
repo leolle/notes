@@ -236,17 +236,28 @@ CLOCK: [2018-03-28 Wed 09:47]--[2018-03-28 Wed 12:09] =>  2:22
 :END:
 ***** review
 - the limits of GRU, its memory performance without attention, find out the threshold.
-- selecting GRU or LSTM Depends on length of input sentence.
-- using existing Knowledge graph and collected  training data.
-- use quantitative research, economic indicator formula, analyst report as training data.
+- [ ] selecting GRU or LSTM Depends on length of input sentence.
+- [ ] using existing Knowledge graph and collected  training data.
+- [ ] use quantitative research, economic indicator formula, analyst report as training data.
 - [ ] what's gold-standard entity information.
 ***** study book DL for RE.
 :LOGBOOK:
 CLOCK: [2018-03-29 Thu 16:08]--[2018-03-29 Thu 19:00] =>  2:52
 :END:
+- [X] GRU network, difference between LSTM. simpler.
+- [ ] entity mention detection的过程和处理结构.
+
 
 ***** bugs:
 ****** multiple white space in the entities.
+
+***** presentation
+- [X] RNN structure.
+- [X] how to use RNN to extract entity.
+- [X] GRU network, difference between LSTM.
+- [X] Bi-directional LSTM.
+- [ ] build RNN tensorflow code.
+- [ ] pseudo code for GRU attention Relation Extraction.
 **** extract the structure of a document, represent as a graph
 https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topsearchbox&tid=report&w=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0
 
