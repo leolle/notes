@@ -29,7 +29,7 @@ A regular opinion expresses a sentiment only on an particular entity or an aspec
 
 ** Sentiment Lexicon and Its Issues
 - lexicon
-opinions, positive and negative.
+专有词汇.
 - issue
 spam review
 - language structure:

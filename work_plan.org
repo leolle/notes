@@ -251,13 +251,26 @@ CLOCK: [2018-03-29 Thu 16:08]--[2018-03-29 Thu 19:00] =>  2:52
 ***** bugs:
 ****** multiple white space in the entities.
 
-***** presentation
+***** TODO presentation
+:LOGBOOK:
+CLOCK: [2018-04-02 Mon 09:42]--[2018-04-02 Mon 17:04] =>  7:22
+:END:
 - [X] RNN structure.
 - [X] how to use RNN to extract entity.
 - [X] GRU network, difference between LSTM.
 - [X] Bi-directional LSTM.
 - [ ] build RNN tensorflow code.
 - [ ] pseudo code for GRU attention Relation Extraction.
+- [ ] 看deep learning for information extraction书relation extraction和event extraction.
+- [ ] 写summary。
+
+***** TextRank
+- [ ] test text rank example.
+- [ ] paper - TextRank: Bringing Order into Texts.
+- [ ] pseudo code.
+- [ ] implementation on GS.
+- [ ] plot graph.
+
 **** extract the structure of a document, represent as a graph
 https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topsearchbox&tid=report&w=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0
 
