@@ -259,18 +259,26 @@ CLOCK: [2018-04-02 Mon 09:42]--[2018-04-02 Mon 17:04] =>  7:22
 - [X] how to use RNN to extract entity.
 - [X] GRU network, difference between LSTM.
 - [X] Bi-directional LSTM.
-- [ ] build RNN tensorflow code.
+- [X] build RNN tensorflow code.
 - [ ] pseudo code for GRU attention Relation Extraction.
 - [ ] 看deep learning for information extraction书relation extraction和event extraction.
 - [ ] 写summary。
 
 ***** TextRank
-- [ ] test text rank example.
-- [ ] paper - TextRank: Bringing Order into Texts.
-- [ ] pseudo code.
-- [ ] implementation on GS.
-- [ ] plot graph.
+:LOGBOOK:
+CLOCK: [2018-04-03 Tue 15:41]--[2018-04-03 Tue 19:23] =>  3:42
+:END:
 
+- [X] test text rank example.
+- [X] paper - TextRank: Bringing Order into Texts.
+- [X] plot graph.
+- [X] pseudo code.
+- [ ] implementation on GS.
+****** 问题
+- [X] 什么是textrank算法.
+It's a *graph-based ranking* algorithm that deciding on the importance of a vertex within a graph, by taking into account global information recursively computed from the entire graph, rather than relying only on local vertex-specific information.
+- [X] 它能解决什么问题。extractive summarization, keywords extraction.
+- [X] 对语言类型（中英文）是否有要求：对语言没有要求。
 **** extract the structure of a document, represent as a graph
 https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topsearchbox&tid=report&w=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0
 

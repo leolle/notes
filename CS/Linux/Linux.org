@@ -902,6 +902,10 @@ tar -cvjSf folder.tar.bz2 folder
 *** Adding users with useradd
 *** Adding users in bulk with newusers (Linux)
 *** Removing users
+- delete user
+#+BEGIN_SRC bash
+sudo userdel -r username
+#+END_SRC
 *** Disabling logins
 *** Managing users with system-specific tools
 *** Reducing risk with PAM

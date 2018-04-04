@@ -314,6 +314,7 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 要把目标分解成sub-goals.
 
 另外在presentation的时候要把原理性的讲述做为重点，详细展开，包括数据介绍，步骤，结果。
+**
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
