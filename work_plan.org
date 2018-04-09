@@ -251,7 +251,8 @@ CLOCK: [2018-03-29 Thu 16:08]--[2018-03-29 Thu 19:00] =>  2:52
 ***** bugs:
 ****** multiple white space in the entities.
 
-***** TODO presentation
+***** DONE presentation
+CLOSED: [2018-04-08 Sun 16:22]
 :LOGBOOK:
 CLOCK: [2018-04-02 Mon 09:42]--[2018-04-02 Mon 17:04] =>  7:22
 :END:
@@ -260,9 +261,9 @@ CLOCK: [2018-04-02 Mon 09:42]--[2018-04-02 Mon 17:04] =>  7:22
 - [X] GRU network, difference between LSTM.
 - [X] Bi-directional LSTM.
 - [X] build RNN tensorflow code.
-- [ ] pseudo code for GRU attention Relation Extraction.
-- [ ] 看deep learning for information extraction书relation extraction和event extraction.
-- [ ] 写summary。
+- [X] pseudo code for GRU attention Relation Extraction.
+- [X] 看deep learning for information extraction书relation extraction和event extraction.
+- [X] 写summary。
 
 ***** TextRank
 :LOGBOOK:
@@ -273,7 +274,15 @@ CLOCK: [2018-04-03 Tue 15:41]--[2018-04-03 Tue 19:23] =>  3:42
 - [X] paper - TextRank: Bringing Order into Texts.
 - [X] plot graph.
 - [X] pseudo code.
-- [ ] implementation on GS.
+****** TODO implementation usecase on GS.
+- [X] create a research article node of pdf format.
+- [ ] convert the pdf to text.
+- [ ] get the highlight of the text.
+- [ ] create highlight nodes on GS.
+- [ ] feed the highlight into next step.
+****** customize textrank to textrank4zh, change output keywords number.
+****** train model to recognize company, indicator, signal.
+****** deep learning Named Entity Recognization(NER) model on GS.
 ****** 问题
 - [X] 什么是textrank算法.
 It's a *graph-based ranking* algorithm that deciding on the importance of a vertex within a graph, by taking into account global information recursively computed from the entire graph, rather than relying only on local vertex-specific information.
@@ -575,7 +584,7 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 | <2018-02-23 Fri> | 2F773D63314DD8C30C2C212E0AAA88C7 | join(PIT)                                         |
 | <2018-03-05 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 | 搭函数                                            |
 | <2018-03-19 Mon> | 2ABBAB65792E46DD9DFAA734A4A6B575 | Ctrl+Shift+s                                      |
-|                  |                                  |                                                   |
+| <2018-04-08 Sun> | AB58600B83DE46EEB51EA925E9CCBAC0 | keywords_extraction                               |
 
 * other projects
 - [X] 搭建基金策略
