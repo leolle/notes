@@ -61,6 +61,8 @@ model.train(more_sentences)
 **** size of the vectors
 **** training algorithm
 **** glossary:
+- latent semantic
+潜在语义
 - Uniform Resource Identifier (URI)
 - N-gram
 an n-gram is a contiguous sequence of n items from a given sample of text or speech.
@@ -868,3 +870,5 @@ That was it. This was enough to let me view (most) pages without errors.
 | tmod       | temporal modifier                                                |
 | xcomp      | open clausal complement                                          |
 | xsubj      | controlling subject 掌控者                                       |
+** ICTCLAS词性标注
+#+INCLUDE: "./nlp/ictclas.org" :minlevel 1

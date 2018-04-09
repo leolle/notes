@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-28 Wed 14:44 -->
+<!-- 2018-04-09 Mon 13:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -186,9 +186,18 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline11">5. Deep learning architecture</a></li>
-<li><a href="#orgheadline13">6. Recurrent Neural Networks (RNN)</a>
+<li><a href="#orgheadline22">6. Recurrent Neural Networks (RNN)</a>
 <ul>
 <li><a href="#orgheadline12">6.1. output formular</a></li>
+<li><a href="#orgheadline13">6.2. hidden state</a></li>
+<li><a href="#orgheadline14">6.3. structure</a></li>
+<li><a href="#orgheadline15">6.4. basic RNNs</a></li>
+<li><a href="#orgheadline16">6.5. Static Unrolling Through Time</a></li>
+<li><a href="#orgheadline17">6.6. Dynamic Unrolling Through Time</a></li>
+<li><a href="#orgheadline18">6.7. Training RNNs</a></li>
+<li><a href="#orgheadline19">6.8. The difficulty of Training over Many Time Steps</a></li>
+<li><a href="#orgheadline20">6.9. Long Short Term Memory(LSTM)</a></li>
+<li><a href="#orgheadline21">6.10. Gated Recurrent Unit(GRU)</a></li>
 </ul>
 </li>
 </ul>
@@ -459,14 +468,209 @@ Tensorflow is a mathmatical library including neural network, Keras is a framewo
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">6</span> Recurrent Neural Networks (RNN)</h2>
+<div id="outline-container-orgheadline22" class="outline-2">
+<h2 id="orgheadline22"><span class="section-number-2">6</span> Recurrent Neural Networks (RNN)</h2>
 <div class="outline-text-2" id="text-6">
 </div><div id="outline-container-orgheadline12" class="outline-3">
 <h3 id="orgheadline12"><span class="section-number-3">6.1</span> output formular</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 \[y_{(t)}=\psi(x_{(t)}^t * w_x + y_{(t-1)}^t * w_y + b)\]
+</p>
+
+<p>
+For the whole layer:
+\[Y_{(t)}=\psi(X_{(t)}^t * W_x + Y_{(t-1)}^t * W_y + b)\]
+\[=\psi([X_{(t)} Y_{(t-1)}]W+b)\] with \(W=[W_x W_y]^t\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">6.2</span> hidden state</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+In general a cell’s state at time step t, denoted h(t) (the “h” stands for “hidden”), is a
+function of some inputs at that time step and its state at the previous time step: h(t) =
+f(h(t–1), x(t)). Its output at time step t, denoted y(t), is also a function of the previous
+state and the current inputs.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">6.3</span> structure</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li>seq to seq: stock price.</li>
+<li>seq to vector: sentiment.</li>
+<li>vector to seq: caption of image.</li>
+<li>delayed seq to seq: translation, Encoder-Decoder.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">6.4</span> basic RNNs</h3>
+<div class="outline-text-3" id="text-6-4">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">n_inputs</span> = <span style="color: #AE81FF;">3</span>
+<span style="color: #FD971F;">n_neurons</span> = <span style="color: #AE81FF;">5</span>
+<span style="color: #FD971F;">X0</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32, <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">None</span>, n_inputs<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">X1</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32, <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">None</span>, n_inputs<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">Wx</span> = tf.Variable<span style="color: #AE81FF;">(</span>tf.random_normal<span style="color: #66D9EF;">(</span>shape=<span style="color: #A6E22E;">[</span>n_inputs, n_neurons<span style="color: #A6E22E;">]</span>,dtype=tf.float32<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">Wy</span> = tf.Variable<span style="color: #AE81FF;">(</span>tf.random_normal<span style="color: #66D9EF;">(</span>shape=<span style="color: #A6E22E;">[</span>n_neurons,n_neurons<span style="color: #A6E22E;">]</span>,dtype=tf.float32<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">b</span> = tf.Variable<span style="color: #AE81FF;">(</span>tf.zeros<span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>, n_neurons<span style="color: #A6E22E;">]</span>, dtype=tf.float32<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">Y0</span> = tf.tanh<span style="color: #AE81FF;">(</span>tf.matmul<span style="color: #66D9EF;">(</span>X0, Wx<span style="color: #66D9EF;">)</span> + b<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">Y1</span> = tf.tanh<span style="color: #AE81FF;">(</span>tf.matmul<span style="color: #66D9EF;">(</span>Y0, Wy<span style="color: #66D9EF;">)</span> + tf.matmul<span style="color: #66D9EF;">(</span>X1, Wx<span style="color: #66D9EF;">)</span> + b<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">init</span> = tf.global_variables_initializer<span style="color: #AE81FF;">()</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">feed data</span>
+<span style="color: #F92672;">import</span> numpy <span style="color: #F92672;">as</span> np
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Mini-batch: instance 0,instance 1,instance 2,instance 3</span>
+<span style="color: #FD971F;">X0_batch</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span>, <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">5</span><span style="color: #A6E22E;">]</span>, <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">6</span>, <span style="color: #AE81FF;">7</span>, <span style="color: #AE81FF;">8</span><span style="color: #A6E22E;">]</span>, <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">9</span>, <span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">1</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">t = 0</span>
+<span style="color: #FD971F;">X1_batch</span> = np.array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">9</span>, <span style="color: #AE81FF;">8</span>, <span style="color: #AE81FF;">7</span><span style="color: #A6E22E;">]</span>, <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">0</span><span style="color: #A6E22E;">]</span>, <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">6</span>, <span style="color: #AE81FF;">5</span>, <span style="color: #AE81FF;">4</span><span style="color: #A6E22E;">]</span>, <span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">t = 1</span>
+<span style="color: #F92672;">with</span> tf.Session<span style="color: #AE81FF;">()</span> <span style="color: #F92672;">as</span> sess:
+  init.run<span style="color: #AE81FF;">()</span>
+  <span style="color: #FD971F;">Y0_val</span>, <span style="color: #FD971F;">Y1_val</span> = sess.run<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>Y0, Y1<span style="color: #66D9EF;">]</span>, feed_dict=<span style="color: #66D9EF;">{</span>X0: X0_batch, X1: X1_batch<span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">6.5</span> Static Unrolling Through Time</h3>
+<div class="outline-text-3" id="text-6-5">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">X0</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32, <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">None</span>, n_inputs<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">X1</span> = tf.placeholder<span style="color: #AE81FF;">(</span>tf.float32, <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">None</span>, n_inputs<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">basic_cell</span> = tf.contrib.rnn.BasicRNNCell<span style="color: #AE81FF;">(</span>num_units=n_neurons<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">output_seqs</span>, <span style="color: #FD971F;">states</span> = tf.contrib.rnn.static_rnn<span style="color: #AE81FF;">(</span>
+basic_cell, <span style="color: #66D9EF;">[</span>X0, X1<span style="color: #66D9EF;">]</span>, dtype=tf.float32<span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">Y0</span>, <span style="color: #FD971F;">Y1</span> = output_seqs
+</pre>
+</div>
+<p>
+The static<sub>rnn</sub>() function calls the cell factory’s _<sub>call</sub>_<sub>()</sub> function once per input, creating two copies of the cell (each containing a layer of five recurrent neurons), with shared weights and bias
+terms, and it chains them just like we did earlier.
+</p>
+
+<p>
+The static<sub>rnn</sub>() function returns two objects.
+</p>
+
+<p>
+The first is a Python list containing the output tensors for each time step.
+</p>
+
+<p>
+The second is a tensor containing the final states of the network. When you are using basic cells, the final state is simply equal to the last output.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">6.6</span> Dynamic Unrolling Through Time</h3>
+<div class="outline-text-3" id="text-6-6">
+<p>
+The dynamic<sub>rnn</sub>() function uses a while<sub>loop</sub>() operation to run over the cell the
+appropriate number of times, and you can set swap<sub>memory</sub>=True if you want it to
+swap the GPU’s memory to the CPU’s memory during backpropagation to avoid
+OOM errors. Conveniently, it also accepts a single tensor for all inputs at every time
+step (shape [None, n<sub>steps</sub>, n<sub>inputs</sub>]) and it outputs a single tensor for all out‐
+puts at every time step (shape [None, n<sub>steps</sub>, n<sub>neurons</sub>]); there is no need to
+stack, unstack, or transpose. The following code creates the same RNN as earlier
+using the dynamic<sub>rnn</sub>() function. It’s so much nicer!
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">6.7</span> Training RNNs</h3>
+<div class="outline-text-3" id="text-6-7">
+<p>
+To train an RNN, the trick is to unroll it through time (like we just did) and then
+simply use regular backpropagation. This strategy is called backpro‐
+pagation through time (BPTT).
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">6.8</span> The difficulty of Training over Many Time Steps</h3>
+<div class="outline-text-3" id="text-6-8">
+<ul class="org-ul">
+<li>good parameter initialization</li>
+<li>nonsaturating activation functions (e.g., ReLU),</li>
+<li>Batch Normalization,</li>
+<li>Gradient Clip‐</li>
+<li>ping, and faster optimizers.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">6.9</span> Long Short Term Memory(LSTM)</h3>
+<div class="outline-text-3" id="text-6-9">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">lstm_cell</span> = tf.contrib.rnn.BasicLSTMCell<span style="color: #AE81FF;">(</span>num_units=n_neurons<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+LSTM cells manage two state vectors, and for performance reasons they are kept
+separate by default.
+<img src="./Images/LSTM_cell.png" alt="LSTM_cell.png" />
+its state is split in two vectors: h(t) and c(t) (“c” stands for “cell”). You can think of h(t) as the short-term state and c(t) as the long-term state.
+</p>
+
+
+<p>
+As the long-term state
+c(t–1) traverses the network from left to right, you can see that it first goes through a
+forget gate, dropping some memories, and then it adds some new memories via the
+addition operation (which adds the memories that were selected by an input gate).
+The result c(t) is sent straight out, without any further transformation. So, at each time
+step, some memories are dropped and some memories are added. Moreover, after the
+addition operation, the long-term state is copied and passed through the tanh func‐
+tion, and then the result is filtered by the output gate. This produces the short-term
+state h(t) (which is equal to the cell’s output for this time step y(t)).
+</p>
+
+<p>
+The main layer is the one that outputs g(t). It has the usual role of analyzing the
+current inputs x(t) and the previous (short-term) state h(t–1). In a basic cell, there is
+nothing else than this layer, and its output goes straight out to y(t) and h(t). In con‐
+trast, in an LSTM cell this layer’s output does not go straight out, but instead it is
+partially stored in the long-term state.
+</p>
+
+<p>
+The three other layers are gate controllers. Since they use the logistic activation
+function, their outputs range from 0 to 1. As you can see, their outputs are fed to
+element-wise multiplication operations, so if they output 0s, they close the gate,
+and if they output 1s, they open it. Specifically:
+— The forget gate (controlled by f(t)) controls which parts of the long-term state
+should be erased.
+— The input gate (controlled by i(t)) controls which parts of g(t) should be added
+to the long-term state (this is why we said it was only “partially stored”).
+— Finally, the output gate (controlled by o(t)) controls which parts of the longterm state should be read and output at this time step (both to h(t)) and y(t).
+In short, an LSTM cell can learn to recognize an important input (that’s the role of the
+input gate), store it in the long-term state, learn to preserve it for as long as it is
+needed (that’s the role of the forget gate), and learn to extract it whenever it is needed.
+This explains why they have been amazingly successful at capturing long-term pat‐
+terns in time series, long texts, audio recordings, and more.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">6.10</span> Gated Recurrent Unit(GRU)</h3>
+<div class="outline-text-3" id="text-6-10">
+<p>
+The main simplifications are:
+• Both state vectors are merged into a single vector h(t).
+• A single gate controller controls both the forget gate and the input gate. If the
+gate controller outputs a 1, the input gate is open and the forget gate is closed. If it outputs a 0, the opposite happens. In other words, whenever a memory must
+be stored, the location where it will be stored is erased first. This is actually a fre‐
+quent variant to the LSTM cell in and of itself.
+• There is no output gate; the full state vector is output at every time step. How‐
+ever, there is a new gate controller that controls which part of the previous state
+will be shown to the main layer.
 </p>
 </div>
 </div>

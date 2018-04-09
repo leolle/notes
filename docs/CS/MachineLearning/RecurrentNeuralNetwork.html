@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-26 Mon 18:01 -->
+<!-- 2018-04-09 Mon 13:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -142,6 +142,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -156,9 +178,10 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline4">3. Goals</a></li>
-<li><a href="#orgheadline6">4. LSTM</a>
+<li><a href="#orgheadline7">4. LSTM</a>
 <ul>
 <li><a href="#orgheadline5">4.1. The Core Idea Behind LSTMs</a></li>
+<li><a href="#orgheadline6">4.2. Entity Mention Detection</a></li>
 </ul>
 </li>
 </ul>
@@ -181,7 +204,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-03-26 18:01:29</td>
+<td class="org-left">2018-04-09 13:42:43</td>
 </tr>
 
 <tr>
@@ -227,10 +250,13 @@ This concept has the prerequisites:
 <li>Know how to train an RNN using backpropagation through time.</li>
 <li>Be aware of why training RNNs with backpropagation is unstable.</li>
 </ul>
+<p>
+<a href="http://www.cs.toronto.edu/~rgrosse/courses/csc321_2017/readings/L15%20Exploding%20and%20Vanishing%20Gradients.pdf">ExplodingandVanishingGradients</a>
+</p>
 </div>
 </div>
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">4</span> LSTM</h2>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">4</span> LSTM</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 LSTMs also have this chain like structure, but the repeating module has a different structure. Instead of having a single neural network layer, there are four, interacting in a very special way.
@@ -241,117 +267,16 @@ LSTMs also have this chain like structure, but the repeating module has a differ
 <h3 id="orgheadline5"><span class="section-number-3">4.1</span> The Core Idea Behind LSTMs</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
-The key to LSTMs is the cell state, the horizontal line running through the top of the diagram.
+cell state.
 </p>
-
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">4.2</span> Entity Mention Detection</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
-The cell state is kind of like a conveyor belt. It runs straight down the entire chain, with only some minor linear interactions. It’s very easy for information to just flow along it unchanged.
-</p>
-
-<p>
-The LSTM does have the ability to remove or add information to the cell state, carefully regulated by structures called gates.
-</p>
-
-<p>
-Gates are a way to optionally let information through. They are composed out of a sigmoid neural net layer and a pointwise multiplication operation.
-</p>
-
-<p>
-The sigmoid layer outputs numbers between zero and one, describing how much of each component should be let through. A value of zero means “let nothing through,” while a value of one means “let everything through!”
-</p>
-
-<p>
-An LSTM has three of these gates, to protect and control the cell state.
-</p>
-
-<p>
-Step-by-Step LSTM Walk Through
-The first step in our LSTM is to decide what information we’re going to throw away from the cell state. This decision is made by a sigmoid layer called the “forget gate layer.” It looks at ht−1 and xt, and outputs a number between 0 and 1 for each number in the cell state Ct−1. A 1 represents “completely keep this” while a 0 represents “completely get rid of this.”
-</p>
-
-<p>
-Let’s go back to our example of a language model trying to predict the next word based on all the previous ones. In such a problem, the cell state might include the gender of the present subject, so that the correct pronouns can be used. When we see a new subject, we want to forget the gender of the old subject.
-</p>
-
-
-<p>
-The next step is to decide what new information we’re going to store in the cell state. This has two parts. First, a sigmoid layer called the “input gate layer” decides which values we’ll update. Next, a tanh layer creates a vector of new candidate values, C~t, that could be added to the state. In the next step, we’ll combine these two to create an update to the state.
-</p>
-
-<p>
-In the example of our language model, we’d want to add the gender of the new subject to the cell state, to replace the old one we’re forgetting.
-</p>
-
-
-<p>
-It’s now time to update the old cell state, Ct−1, into the new cell state Ct. The previous steps already decided what to do, we just need to actually do it.
-</p>
-
-<p>
-We multiply the old state by ft, forgetting the things we decided to forget earlier. Then we add it∗C~t. This is the new candidate values, scaled by how much we decided to update each state value.
-</p>
-
-<p>
-In the case of the language model, this is where we’d actually drop the information about the old subject’s gender and add the new information, as we decided in the previous steps.
-</p>
-
-
-<p>
-Finally, we need to decide what we’re going to output. This output will be based on our cell state, but will be a filtered version. First, we run a sigmoid layer which decides what parts of the cell state we’re going to output. Then, we put the cell state through tanh (to push the values to be between −1 and 1) and multiply it by the output of the sigmoid gate, so that we only output the parts we decided to.
-</p>
-
-<p>
-For the language model example, since it just saw a subject, it might want to output information relevant to a verb, in case that’s what is coming next. For example, it might output whether the subject is singular or plural, so that we know what form a verb should be conjugated into if that’s what follows next.
-</p>
-
-
-<p>
-Variants on Long Short Term Memory
-What I’ve described so far is a pretty normal LSTM. But not all LSTMs are the same as the above. In fact, it seems like almost every paper involving LSTMs uses a slightly different version. The differences are minor, but it’s worth mentioning some of them.
-</p>
-
-<p>
-One popular LSTM variant, introduced by Gers &amp; Schmidhuber (2000), is adding “peephole connections.” This means that we let the gate layers look at the cell state.
-</p>
-
-
-<p>
-The above diagram adds peepholes to all the gates, but many papers will give some peepholes and not others.
-</p>
-
-<p>
-Another variation is to use coupled forget and input gates. Instead of separately deciding what to forget and what we should add new information to, we make those decisions together. We only forget when we’re going to input something in its place. We only input new values to the state when we forget something older.
-</p>
-
-
-<p>
-A slightly more dramatic variation on the LSTM is the Gated Recurrent Unit, or GRU, introduced by Cho, et al. (2014). It combines the forget and input gates into a single “update gate.” It also merges the cell state and hidden state, and makes some other changes. The resulting model is simpler than standard LSTM models, and has been growing increasingly popular.
-</p>
-
-<p>
-A gated recurrent unit neural network.
-These are only a few of the most notable LSTM variants. There are lots of others, like Depth Gated RNNs by Yao, et al. (2015). There’s also some completely different approach to tackling long-term dependencies, like Clockwork RNNs by Koutnik, et al. (2014).
-</p>
-
-<p>
-Which of these variants is best? Do the differences matter? Greff, et al. (2015) do a nice comparison of popular variants, finding that they’re all about the same. Jozefowicz, et al. (2015) tested more than ten thousand RNN architectures, finding some that worked better than LSTMs on certain tasks.
-</p>
-
-<p>
-Conclusion
-Earlier, I mentioned the remarkable results people are achieving with RNNs. Essentially all of these are achieved using LSTMs. They really work a lot better for most tasks!
-</p>
-
-<p>
-Written down as a set of equations, LSTMs look pretty intimidating. Hopefully, walking through them step by step in this essay has made them a bit more approachable.
-</p>
-
-<p>
-LSTMs were a big step in what we can accomplish with RNNs. It’s natural to wonder: is there another big step? A common opinion among researchers is: “Yes! There is a next step and it’s attention!” The idea is to let every step of an RNN pick information to look at from some larger collection of information. For example, if you are using an RNN to create a caption describing an image, it might pick a part of the image to look at for every word it outputs. In fact, Xu, et al. (2015) do exactly this – it might be a fun starting point if you want to explore attention! There’s been a number of really exciting results using attention, and it seems like a lot more are around the corner…
-</p>
-
-<p>
-Attention isn’t the only exciting thread in RNN research. For example, Grid LSTMs by Kalchbrenner, et al. (2015) seem extremely promising. Work using RNNs in generative models – such as Gregor, et al. (2015), Chung, et al. (2015), or Bayer &amp; Osendorfer (2015) – also seems very interesting. The last few years have been an exciting time for recurrent neural networks, and the coming ones promise to only be more so!
+\[O_i=\phi(Oh_i)\]
+\(\phi\) is the softmax function.
 </p>
 </div>
 </div>
