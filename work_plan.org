@@ -278,8 +278,9 @@ CLOCK: [2018-04-03 Tue 15:41]--[2018-04-03 Tue 19:23] =>  3:42
 - [X] create a research article node of pdf format.
 - [X] convert the pdf to text.
 - [X] get the highlight of the text.
+- [X] change the number of highlights to a fraction of total words or certain number.
+- [X] feed the highlight into next step.
 - [ ] create highlight nodes on GS.
-- [ ] feed the highlight into next step.
 ****** customize textrank to textrank4zh, change output keywords number.
 ****** train model to recognize company, indicator, signal.
 ****** deep learning Named Entity Recognization(NER) model on GS.
@@ -584,7 +585,8 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 | <2018-02-23 Fri> | 2F773D63314DD8C30C2C212E0AAA88C7 | join(PIT)                                         |
 | <2018-03-05 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 | 搭函数                                            |
 | <2018-03-19 Mon> | 2ABBAB65792E46DD9DFAA734A4A6B575 | Ctrl+Shift+s                                      |
-| <2018-04-08 Sun> | AB58600B83DE46EEB51EA925E9CCBAC0 | keywords_extraction                               |
+| <2018-04-09 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 |                                                   |
+|                  | 38B86B2195CE9D035C19754BEB8EED08 | keywords_extraction                               |
 
 * other projects
 - [X] 搭建基金策略
@@ -697,6 +699,13 @@ DEADLINE: <2017-10-23 Mon>
 - [X] f def
 - [X] abnormal factors
 ** GS workflow
+** Tools
+- stopwords:
+/mnt/hdfs/cacheServer/aiData/pyltp/stopwords
+- jieba user dictionary:
+user_dict_path = '/mnt/hdfs/cacheServer/aiData/word2Vector/jieba.txt'
+import jieba
+jieba.load_userdict(user_dict_path)
 
 * optimization
 
