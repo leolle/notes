@@ -109,7 +109,14 @@ Out[52]:
 2    1    2    3    Alpha    Beta  Charlie
 3    3    2    1  Charlie    Beta    Alpha
 #+end_src
-
+- append a new row:
+#+BEGIN_SRC python
+df_analysis = df_analysis.append(
+        {
+            'datetime': datetime,
+            'score': score
+        }, ignore_index=True)
+#+END_SRC
 * MultiIndexing
 Creating a multi-index from a labeled frame
 #+begin_src emacs-lisp :tangle yes

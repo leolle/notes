@@ -18,9 +18,27 @@
 * BASIC ADMINISTRATION
 ** WHERE TO START
 *** Essential duties of the system administrator
+- terminate ssh connection
+=C-d=
+- edit&run python code at shell
+#+BEGIN_SRC bash
+python -c "import spacy; spacy.load('en'); print('OK')"
+#+END_SRC
 - restart system
 #+BEGIN_SRC bash
 shutdown -r +5 "Server will restart in 5 minutes. Please save your work."
+#+END_SRC
+- ssh server
+sudo service ssh start
+unrecognized service when starting ssh
+
+#+BEGIN_SRC bash
+sudo apt-get install openssh-server
+#+END_SRC
+- install svn
+#+BEGIN_SRC bash
+sudo apt-get install subversion
+svn checkout http://192.168.1.30/svn/gftchina/Hanadev/trunk/WaveFront/
 #+END_SRC
 *** Suggested background
 *** Friction between UNIX and Linux
@@ -42,9 +60,12 @@ Can't use the recommended graphical driver from the system.
 sudo apt-get update
 # sudo apt-get upgrade
 #+END_SRC
-1. install required libraries
+2. install required libraries
 create example.list:
+#+BEGIN_SRC bash
 touch example.list
+#+END_SRC
+
 #+BEGIN_SRC txt
 g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
 build-essential cmake git unzip pkg-config python-pip openssh-server
@@ -66,7 +87,7 @@ cat example.list | xargs sudo apt-get -y install
 
 #+END_SRC
 
-1. additional software:
+3. additional software:
 #+BEGIN_SRC bash
 # sudo apt-get install python-tk python3-tk python-imaging-tk
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -77,45 +98,52 @@ sudo pip install --upgrade virtualenv
 
 #+END_SRC
 
-1. enable remote control
+4. enable remote control
 #+BEGIN_SRC bash
 sudo apt-get install vinagre
 #+END_SRC
-1. install nvidia driver
+5. install nvidia driver
 check nvidia driver:
 #+BEGIN_SRC bash
 cat /proc/driver/nvidia/version
 lspci | grep -i nvidia
 lsmod | grep nvidia
 #+END_SRC
+**** Setup Linux Nvidia GPU
 1. check & install linux headers
 #+BEGIN_SRC bash
 sudo apt-get install linux-headers-$(uname -r)
 #+END_SRC
-1. Perform the following steps to install CUDA and verify the installation.
-2. download cuda
+2. Perform the following steps to install CUDA and verify the installation.
+3. download cuda
 [[https://developer.nvidia.com/cuda-downloads][cuda_downloads]]
 
 [[https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/][tutorial of installing cuda gpu for deep learning with python]]
 
 https://wiki.zthxxx.me/wiki/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Linux/Ubuntu/Ubuntu-16-%E5%BC%80%E6%9C%BA%E9%BB%98%E8%AE%A4%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2/
 
-1. Disable the Nouveau drivers:
+4. Disable the Nouveau drivers:
 Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
+#+BEGIN_SRC txt
 blacklist nouveau
 options nouveau modeset=0
-1. Regenerate the kernel initramfs:
+
+#+END_SRC
+5. Regenerate the kernel initramfs:
+#+BEGIN_SRC bash
 sudo update-initramfs -u
-1. Reboot into runlevel 3 by temporarily adding the number "3" and the word "nomodeset" to the end of the system's kernel boot parameters.
+
+#+END_SRC
+6. Reboot into runlevel 3 by temporarily adding the number "3" and the word "nomodeset" to the end of the system's kernel boot parameters.
 #+BEGIN_SRC bash
 sudo systemctl isolate multi-user.target
 sudo systemctl enable multi-user.target
 sudo systemctl set-default multi-user.target
 sudo reboot
 #+END_SRC
-1. install nvidia graph card driver first.
+7. install nvidia graph card driver first.
 cuda 9 need nvidia driver above 384.00.
-1. Run the installer to install with the default selections (implies acceptance of the EULA):
+8. Run the installer to install with the default selections (implies acceptance of the EULA):
 #+BEGIN_SRC bash
 sudo init 3
 # carefully choosing options when you have multiple cards installed.
@@ -127,11 +155,11 @@ sudo sh cuda_9.1.85_387.26_linux.run
 ***WARNING: Incomplete installation! This installation did not install the CUDA Driver.
 A driver of version at least 384.00 is required for CUDA 9.1 functionality to work.
 #+END_SRC
-1. Create an xorg.conf file to use the NVIDIA GPU for display:
+9. Create an xorg.conf file to use the NVIDIA GPU for display:
 #+BEGIN_SRC bash
 sudo nvidia-xconfig
 #+END_SRC
-1. Reboot the system to load the graphical interface.
+10. Reboot the system to load the graphical interface.
 Set up the development environment by modifying the PATH and LD_LIBRARY_PATH variables:
 #+BEGIN_SRC bash
 # Please make sure that
@@ -153,7 +181,7 @@ cd ~/NVIDIA_CUDA-9.1_Samples/5_Simulations/nbody
 GLPATH=/usr/lib make
 ./nbody
 #+END_SRC
-1. *in case* you need to kill x service manually:
+11. *in case* you need to kill x service manually:
 # ps ax | grep X
 # sudo kill -9 PID
 # set graphical as default
@@ -161,7 +189,7 @@ sudo systemctl isolate graphical.target
 sudo systemctl enable graphical.target
 sudo systemctl set-default graphical.target
 sudo reboot
-1. remove nvidia
+12. remove nvidia
 #+BEGIN_SRC bash
 To uninstall the CUDA Toolkit, run the uninstall script in /usr/local/cuda-9.1/bin
 To uninstall the NVIDIA Driver, run nvidia-uninstall
@@ -172,22 +200,22 @@ sudo apt-get remove --purge nvidia*
 sudo apt-get update
 sudo apt-get install dkms build-essential linux-headers-generic
 #+END_SRC
-1. install cudnn:
-2. mount share folder:
+***** install cudnn:
+1. mount share folder:
 #+BEGIN_SRC bash
 sudo mount -t cifs -o username="gft" //192.168.1.126/share ~/Downloads/share
 #+END_SRC
-1. unzip the cuDNN package
+2. unzip the cuDNN package
 #+BEGIN_SRC bash
 tar -xzvf cudnn-9.1-linux-x64-v7.tgz
 #+END_SRC
-1. Copy the following files into the CUDA Toolkit directory.
+3. Copy the following files into the CUDA Toolkit directory.
 #+BEGIN_SRC bash
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 #+END_SRC
-1. install CUDA Toolkit
+4. install CUDA Toolkit
 #+BEGIN_SRC bash
 # best way
 sudo apt install nvidia-cuda-toolkit
@@ -198,7 +226,7 @@ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/
 sudo apt-get update
 sudo apt-get install cuda
 #+END_SRC
-1. check nvidia driver installation
+5. check nvidia driver installation
 #+BEGIN_SRC bash
 nvidia-smi
 #+END_SRC
@@ -223,7 +251,7 @@ nvidia-smi
 : |=============================================================================|
 : |  No running processes found                                                 |
 : +-----------------------------------------------------------------------------+
-1. install cuDNN source code:
+6. install cuDNN source code:
 #+BEGIN_SRC bash
 oem@dl ~/Downloads $ sudo dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb
 #+END_SRC
@@ -341,7 +369,7 @@ oem@dl ~/Downloads $ sudo dpkg -i libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb
 :
 : Test passed!
 
-1. install tensorflow with GPU support
+7. install tensorflow with GPU support
 #+BEGIN_SRC bash
 sudo apt-get install libcupti-dev
 #+END_SRC
@@ -408,6 +436,35 @@ python models/tutorials/image/mnist/convolutional.py
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- list all files by:
+#+BEGIN_SRC bash
+-r, --reverse
+reverse order while sorting
+
+-S     sort by file size
+
+--sort=WORD
+sort by WORD instead of name: none -U, extension -X, size -S, time -t, version -v
+
+-t     sort by modification time, newest first
+
+#+END_SRC
+- show running log:
+#+BEGIN_SRC bash
+tail -f -n 100 wiki_upload.log
+#+END_SRC
+- show absolute path of file:
+#+BEGIN_SRC bash
+realpath filename
+#+END_SRC
+- detect keyboard press
+#+BEGIN_SRC bash
+xev
+#+END_SRC
+- count file number under a directory
+#+BEGIN_SRC bash
+ls -1 | wc -l
+#+END_SRC
 - check md5
 #+BEGIN_SRC bash
 md5sum filename
@@ -463,6 +520,14 @@ rename 's/\.bak$//' *.bak
 *** Scripting best practices
 
 *** Shell commands:
+- copy a filepath to clipboard
+#+BEGIN_SRC bash
+pwd |  xclip -i -selection clipboard
+#+END_SRC
+- copy folder:
+#+BEGIN_SRC bash
+cp folder /destination/path -a
+#+END_SRC
 - check operation system information:
 #+BEGIN_SRC bash
 uname -m && cat /etc/*release
@@ -474,6 +539,8 @@ soffice filename
 - transfer files
 #+BEGIN_SRC bash
 scp file usr_name@ip:/absolute/path/
+# copy folder
+scp -r ./path/from/destination username@hostname:/path/to/destination
 #+END_SRC
 - linux folder tree output to clipboard.
 #+BEGIN_SRC shell
@@ -499,7 +566,11 @@ du -sh *
 
 #+RESULTS:
 : | 24K | Linux.org |
-
+- show directory size
+#+BEGIN_SRC bash
+# du only for directories
+du -sh ./*/
+#+END_SRC
 - unzip a compressed file:
 #+BEGIN_SRC shell
 unzip filename.zip
@@ -556,14 +627,34 @@ ln -s /home/weiwu/share/deep_learning/data/courses/dogscats/ /home/weiwu/project
 #+END_SRC
 
 *** find/search string
+- Go to a specific line number using Less in Unix
+go to line number 320123, you would type 320123g in less.
+or use:
+#+BEGIN_SRC bash
+less +320123 filename
+#+END_SRC
+
+- less filename:
+  - u - up half page
+  - d - down half page
+  - k - scroll single line up
+  - j - scroll single line down
+  - -i - case insensitive searching unless pattern contains capitals (as clo or in less)
+  - / /pattern/ - search (used with n)
+  - -p /pattern/ open file at /pattern/ (as clo)
+  - & /pattern/ show lines containing /pattern/ (like grep)
+
 - find string or regex in files
 #+begin_src shell
 # grep = global regular expression parser
 grep -inR "Regular Expression" .
 grep -inR "Regular Expression" . | less
-
+如果有符号{},要在前面加\, \{2,5\}
 # find specific formats
 grep -inR "Regular Expression" . --include \*.org
+
+# search for gid
+grep '[0-9A-Z]\{32\}' wiki_upload.log > log.txt
 #+end_src
 
 - find process in the ps
@@ -681,7 +772,15 @@ export XMODIFIERS="@im=fcitx"
 export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
 export LC_CTYPE=zh_CN.UTF-8
-
+alias lf="ls -l | egrep -v '^d'"
+alias ldir="ls -l | egrep '^d'"
+alias lwc="ls -1 | wc -l"
+#alias got="ps awx | grep"
+#alias got="realpath "$1" |  xclip -i -selection clipboard"
+function got()
+{
+    readlink -f $1 | xclip -i -selection clipboard
+}
 # path
 export PATH=$HOME/Tools/google_appengine:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
@@ -702,12 +801,20 @@ alias npm='npm --registry=https://registry.npm.taobao.org'
 #export PYENV_ROOT="$HOME/.pyenv"
 
 export PYTHONPATH=/usr/local/lib/python2.7/:$PYTHONPATH
-export PYTHONPATH=$HOME/projects/tradehub/src/py/:$PYTHONPATH
+# export PYTHONPATH=$HOME/projects/tradehub/src/py/:$PYTHONPATH
+export PYTHONPATH=$HOME/projects/deep_learning/:$PYTHONPATH
 export PYTHONPATH=$HOME/projects/simulate/:$PYTHONPATH
 export PYTHONPATH=$HOME/tools/WaveFront/PythonScripts/:$PYTHONPATH
 export PYTHONPATH=$HOME/projects/ylib-py/:$PYTHONPATH
+export PYTHONPATH=$HOME/projects/:$PYTHONPATH
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
+# for file in `find /home/weiwu/tools/stanford-corenlp-full-2017-06-09/ -name "*.jar"`; do export
+# CLASSPATH="$CLASSPATH:`realpath $file`"; done
+# export STANFORD_SEGMENTER_PATH="$HOME/tools/segmenter"
+# #export CLASSPATH="$CLASSPATH:$STANFORD_SEGMENTER_PATH/stanford-segmenter.jar"
+# export STANFORD_NER_PATH="$HOME/tools/tools/stanford-ner-2017-06-09"
+# export CLASSPATH="$CLASSPATH:$STANFORD_NER_PATH/stanford-ner.jar"
 #export PATH="$PYENV_ROOT/bin:$PATH"
 
 #pyenv virtualenvwrapper
@@ -780,8 +887,13 @@ readlink -f file.txt
 *** The organization of the file tree
 *** File types
 *** File attributes
-*** Access control lists
 
+*** Access control lists
+- compress a file:
+#+BEGIN_SRC bash
+zip -r filename.zip target_dir
+tar -cvjSf folder.tar.bz2 folder
+#+END_SRC
 ** ADDING NEW USERS
 *** The /etc/passwd file
 *** The /etc/shadow and /etc/security/passwd files
@@ -790,6 +902,10 @@ readlink -f file.txt
 *** Adding users with useradd
 *** Adding users in bulk with newusers (Linux)
 *** Removing users
+- delete user
+#+BEGIN_SRC bash
+sudo userdel -r username
+#+END_SRC
 *** Disabling logins
 *** Managing users with system-specific tools
 *** Reducing risk with PAM
@@ -858,8 +974,44 @@ df -sh *
 *** Software localization and configuration
 *** Using configuration management tools
 *** Sharing software over NFS
+1. install packages
+NFSv4 client
+#+BEGIN_SRC bash
+sudo apt-get install nfs-common rpcbind
 
-
+#+END_SRC
+NFSv4 server
+#+BEGIN_SRC bash
+sudo apt-get install nfs-kernel-server rpcbind
+#+END_SRC
+2. isolate all NFS exports in single directory, where the real directories will be mounted with the --bind option
+#+BEGIN_SRC bash
+mkdir -p /export/users
+#+END_SRC
+or
+#+BEGIN_SRC bash
+sudo gedit /etc/fstab
+/home/users    /export/users   none    bind  0  0
+#+END_SRC
+3. edit export configuration on server
+#+BEGIN_SRC bash
+gksu gedit /etc/exports
+/home/weiwu/Documents/projects           192.168.1.73(rw,sync,no_root_squash,no_subtree_check)
+#+END_SRC
+4. restart nfs service
+#+BEGIN_SRC bash
+sudo service nfs-kernel-server restart
+#+END_SRC
+5. export all
+#+BEGIN_SRC bash
+sudo exportfs -a
+# verify
+sudo exportfs -v
+#+END_SRC
+6. mount on client
+#+BEGIN_SRC bash
+sudo mount -t nfs4 -o proto=tcp,port=2049 192.168.1.199:/home/weiwu/Documents/projects /home/oem/projects/share
+#+END_SRC
 ** DRIVERS AND THE KERNEL
 *** Kernel adaptation
 *** Drivers and device files
@@ -916,6 +1068,31 @@ sudo ifdown eth0 && sudo ifup eth0
 *** Routing
 *** ARP: the Address Resolution Protocol
 *** DHCP: the Dynamic Host Configuration Protocol
+virtualbox 网络添加localhost，virtual machine 网络添加
+#+BEGIN_SRC bash
+sudo gedit /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+
+auto eth0
+iface eth0 inet static
+address 192.168.1.199
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 8.8.8.8
+
+auto eth1
+iface eth1 inet static
+address 192.168.1.128
+netmask 255.255.255.0
+network 192.168.1.1
+dns-nameservers 8.8.8.8
+
+sudo ifdown eth0 && sudo ifup eth0
+sudo service networking restart
+#+END_SRC
 *** Security issues
 *** PPP: the Point-to-Point Protocol
 *** Basic network configuration
@@ -974,7 +1151,11 @@ sudo ifdown eth0 && sudo ifup eth0
 *** nfsstat: dump NFS statistics
 *** Dedicated NFS file servers
 *** Automatic mounting
+#+BEGIN_SRC bash
+# mount a windows shared folder
+sudo mount -t cifs -o username="gft" //192.168.1.126/share ~/share
 
+#+END_SRC
 
 ** SHARING SYSTEM FILES
 *** What to share
@@ -1018,6 +1199,10 @@ sudo ifdown eth0 && sudo ifup eth0
 *** The NET-SNMP agent
 *** Network management applications
 *** NetFlow: connection-oriented monitoring
+- monitor ping from others
+#+BEGIN_SRC bash
+tcpdump ip proto \\icmp
+#+END_SRC
 
 
 ** SECURITY
@@ -1045,8 +1230,7 @@ sudo ifdown eth0 && sudo ifup eth0
 *** HTTP server installation
 *** Virtual interfaces
 *** The Secure Sockets Layer (SSL)
-*** Caching and proxy servers
-*** Scaling beyond your limits
+*** Caching
 
 * BUNCH O' STUFF
 ** VIRTUALIZATION

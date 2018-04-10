@@ -88,18 +88,7 @@ https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=repor
 - auth
 https://developers.google.com/identity/protocols/application-default-credentials
 #+BEGIN_SRC json
-{
-  "type": "service_account",
-  "project_id": "reports-174211",
-  "private_key_id": "54818469c5e32cb8f5d55b755945e6bd7f65c747",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0Lz4mVUr36Y7C\n+hxLunVLm3RfBMDsJ9RZ/jICmpCprYIjYebLql0+T2DnhU7eKH2hhbHKZdUfWOvA\nDxE/DUk04eG22vsvoPlIGjN88c3EkKqEddX0llOkKeVNMAB0lN+ESEmrMC6Ewhd2\n/51dIqekDjTV5wrmZxnT1SSuJsrgA0Wbey5TjVmYBTO3hsR37sJxf6yj0+lrVqUw\np2rgkIuDrQy97jP9AYdAF6Lt1eIZvLTIC8GBpo0VjVb+s8CRhZiKGxunUu8HFymS\nK/9Li8BRJ9q/ozp4OGJszk2RQiTbFoKI64pVqggTJxRVw4pdozpzPL4cDqqjYu7y\nCakFxFStAgMBAAECggEAAL36EaKDy3IYOa2Eh3umMdsbIgINFlvn+BKVMPq4fPkU\njQyWl1ZQCdU+BwNpn/4cMwRah1ofLtYeVcfqGwT1EnqaA/ddFfo3KfNxAgMlRQ7l\nzjkFr3sdWegnRDJd/3JBL78JeKLwlMY6M64D/1HIzXhBLPQFkOMx/B6dBvpCFyVC\niE/FTJHFpN5BJni+cBtKfdKbPYGkxtNN4XdPrGtS3pg+NX8hJwtyTc9CV63YSPxG\nY7Zat5IRR+nTkHNJj/jqTLb1YolzjTSGR1vbb1KTUe+KH4ZxiYd0MVCDEEgrhvli\nmEunzCGbrIgi3K8+h77FHq2UHbVL4epd6leswEpH6QKBgQDiz/bDGXIAKszc9GsS\na4mhU/06Cw79C99rc6iMMq9O5N6qaXDlExT5IS/1xBMv8M4lQ4Qp6OqzlXP/gci3\nVOm6TzoB92hwTja5IxIlhHuCxy3+LCjN2T95dTL5QbjKtYn9IQ/SX+ZVSXxHYUvQ\nxgwZud/FIS+YE2qChYFEaev7BQKBgQDLXy++mrOHm/Kwpkf2elrra6m/jPHdJe3m\nuv7lQf9QJAjSBNDJppHiryqOKQeSJyLX7WrPi/ngUM/wFSAi/llgmLApQwAla5Xs\nPLRntxaWDK2JDUonGDkdWeR5kwyns/oomnECiS22m1+oh+2uYQHgW8DpiG4fPpAt\nJ3K6KOUziQKBgAJ3sr6So0vfK1VoD1Ym91ta95FPF32nSGn52yaTUpbwJIAEH6dO\nWtcPBl+NH4xQ+V0sa96s2wjTImzwM4fTE6vkOsRUtb0rDKtc91CTLWjR0+1E+7ip\nmWgv3zsY/PKvoO2xE2P9iRr6brC0HUgLL4yEGiwh3UuxQmJjI3HkGR4lAoGALc16\nS0s8M8aDmhVZD8HuyCavTFzJ/CyWr+hdj/SVM89pzSMYgtHo+UzKIMpM0jXOOyNV\ncvjrhgGtUzzux/LQ3liFFEXquoLIeTQSzWkGxTSFwOAlWzixZFLiih78MqjuJkbi\nPNf4W7ASkzpJ5YQjkAwaHn6DjrXgcsr3o8WiGUECgYBBLnbZLyMSkjZ0n0wYG0a7\nB4b0piRlGbSfEcKWpxoS+EJDuEgvZgn92EOHGaE0xtZvmwbWuqTKKRHXYDGG0VkR\nTf1pMyBF7uxRXDXPslZU2rUTudKMxP8HxoV8WGwxH+ltZYwsMV1iKv3xqbU6CRy2\nu5i+YnEcmQl6HFH/H8tzQg==\n-----END PRIVATE KEY-----\n",
-  "client_email": "cloudnatruallanguageapi@reports-174211.iam.gserviceaccount.com",
-  "client_id": "108156446460648516099",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://accounts.google.com/o/oauth2/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloudnatruallanguageapi%40reports-174211.iam.gserviceaccount.com"
-}
+
 
 #+END_SRC
 

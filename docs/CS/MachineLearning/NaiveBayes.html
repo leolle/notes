@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-17 Fri 10:59 -->
+<!-- 2018-03-26 Mon 18:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -142,12 +142,111 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Summary</a></li>
+<li><a href="#orgheadline2">2. Probabilistic model</a></li>
+</ul>
+</div>
+</div>
 <p>
-Naive Bayes Classifcation
+Naive Bayes Classification
 </p>
+
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Summary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Naive Bayes is a modeling assumption used in classification, where we assume the observed data are conditionally independent given their class assignments. Despite its name, the standard naive Bayes model does not use Bayesian inference, but rather, a maximum likelihood estimation.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> Probabilistic model</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Abstractly, naive Bayes is a conditional probability model: given a problem instance to be classified, represented by a vector \[{\displaystyle \mathbf {x} =(x_{1},\dots ,x_{n})}\] representing some n features (independent variables), it assigns to this instance probabilities
+</p>
+
+<p>
+\[{\displaystyle p(C_{k}\mid x_{1},\dots ,x_{n})\,}\]
+for each of K possible outcomes or classes \[{\displaystyle C_{k}} C_{k}\].
+</p>
+
+<p>
+The problem with the above formulation is that if the number of features n is large or if a feature can take on a large number of values, then basing such a model on probability tables is infeasible. We therefore reformulate the model to make it more tractable. Using Bayes' theorem, the conditional probability can be decomposed as
+</p>
+
+<p>
+\[{\displaystyle p(C_{k}\mid \mathbf {x} )={\frac {p(C_{k})\ p(\mathbf {x} \mid C_{k})}{p(\mathbf {x} )}}\,}\]
+In plain English, using Bayesian probability terminology, the above equation can be written as
+</p>
+
+<p>
+\[{\displaystyle {\mbox{posterior}}={\frac {{\mbox{prior}}\times {\mbox{likelihood}}}{\mbox{evidence}}}\,}\]
+In practice, there is interest only in the numerator of that fraction, because the denominator does not depend on {\displaystyle C} C and the values of the features {\displaystyle x<sub>i</sub>} x<sub>i</sub> are given, so that the denominator is effectively constant. The numerator is equivalent to the joint probability model
+</p>
+
+<p>
+\[{\displaystyle p(C_{k},x_{1},\dots ,x_{n})\,}\] ,
+which can be rewritten as follows, using the chain rule for repeated applications of the definition of conditional probability:
+</p>
+
+<p>
+\[{\displaystyle {\begin{aligned}p(C_{k},x_{1},\dots ,x_{n})&=p(x_{1},\dots ,x_{n},C_{k})\\&=p(x_{1}\mid x_{2},\dots ,x_{n},C_{k})p(x_{2},\dots ,x_{n},C_{k})\\&=p(x_{1}\mid x_{2},\dots ,x_{n},C_{k})p(x_{2}\mid x_{3},\dots ,x_{n},C_{k})p(x_{3},\dots ,x_{n},C_{k})\\&=\dots \\&=p(x_{1}\mid x_{2},\dots ,x_{n},C_{k})p(x_{2}\mid x_{3},\dots ,x_{n},C_{k})\dots p(x_{n-1}\mid x_{n},C_{k})p(x_{n}\mid C_{k})p(C_{k})\\\end{aligned}}}\]
+Now the "naive" conditional independence assumptions come into play: assume that each feature {\displaystyle x<sub>i</sub>} x<sub>i</sub> is conditionally independent of every other feature {\displaystyle x<sub>j</sub>} x<sub>j</sub> for {\displaystyle j&ne; i} j&ne; i, given the category {\displaystyle C<sub>k</sub>} C<sub>k</sub>. This means that
+</p>
+
+<p>
+\[{\displaystyle p(x_{i}\mid x_{i+1},\dots ,x_{n},C_{k})=p(x_{i}\mid C_{k})\,}\].
+Thus, the joint model can be expressed as
+</p>
+
+<p>
+\[{\displaystyle {\begin{aligned}p(C_{k}\mid x_{1},\dots ,x_{n})&\varpropto p(C_{k},x_{1},\dots ,x_{n})\\&\varpropto p(C_{k})\ p(x_{1}\mid C_{k})\ p(x_{2}\mid C_{k})\ p(x_{3}\mid C_{k})\ \cdots \\&\varpropto p(C_{k})\prod _{i=1}^{n}p(x_{i}\mid C_{k})\,.\end{aligned}}}\]
+Where \[{\displaystyle \varpropto }\] denotes proportionality.
+</p>
+
+
+<p>
+This means that under the above independence assumptions, the conditional distribution over the class variable {\displaystyle C} C is:
+</p>
+
+<p>
+\[{\displaystyle p(C_{k}\mid x_{1},\dots ,x_{n})={\frac {1}{Z}}p(C_{k})\prod _{i=1}^{n}p(x_{i}\mid C_{k})}\]
+where the evidence \[{\displaystyle Z=p(\mathbf {x} )=\sum _{k}p(C_{k})\ p(\mathbf {x} \mid C_{k})}\] is a scaling factor dependent only on \[{\displaystyle x_{1},\dots ,x_{n}}\], that is, a constant if the values of the feature variables are known.
+</p>
+</div>
+</div>
 </div>
 </body>
 </html>

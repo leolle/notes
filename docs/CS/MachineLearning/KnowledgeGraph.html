@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-02-09 Fri 13:48 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline4">1. 知识提取</a>
+<ul>
+<li><a href="#orgheadline1">1.1. 正则表达式</a></li>
+<li><a href="#orgheadline2">1.2. 中文分词和词性标注</a></li>
+<li><a href="#orgheadline3">1.3. 命名实体识别</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline8">2. 知识表示</a>
+<ul>
+<li><a href="#orgheadline5">2.1. JSON和YAML</a></li>
+<li><a href="#orgheadline6">2.2. RDF和OWL</a></li>
+<li><a href="#orgheadline7">2.3. JSON-LD</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline13">3. 知识存储</a>
+<ul>
+<li><a href="#orgheadline9">3.1. 知识链接的方式：字符串、外键、URI</a></li>
+<li><a href="#orgheadline10">3.2. PostgreSQL及其JSON扩展</a></li>
+<li><a href="#orgheadline11">3.3. 图数据库 Neo4j和OrientDB</a></li>
+<li><a href="#orgheadline12">3.4. RDF数据库Stardog</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline18">4. 知识检索</a>
+<ul>
+<li><a href="#orgheadline14">4.1. Gensim实现主题模型</a></li>
+<li><a href="#orgheadline15">4.2. ElasticSearch</a></li>
+<li><a href="#orgheadline16">4.3. SearchKit构造分面浏览器</a></li>
+<li><a href="#orgheadline17">4.4. IBM Watson的架构</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Author</b></td>
+<td class="org-left">weiwu (victor.wuv@gmail.com)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Date</b></td>
+<td class="org-left">2018-02-09 13:48:42</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Title</b></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> 知识提取</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+知识提取是要解决结构化数据生成的问题。但是广义上讲，知识提取是数据质量提升中的一环，各种提升数据质量的方法，都可以视为某种知识提取。学术上一般是用自然语言处理的方法，但在实践中通常是利用规则。
+</p>
+
+
+
+<p>
+我们要熟悉的概念和工具有
+</p>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> <a href="CS/Regular_Expression.html">正则表达式</a></h3>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> <a href="CS/MachineLearning/nlp/NLP+libraries+comparison.html">中文分词和词性标注</a></h3>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 命名实体识别</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+综合分词工具和正则表达式提取邮件签名档
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">2</span> 知识表示</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+知识表示是如何组织数据的结构，以方便推导出新的结构的方法。传统上属于逻辑的分支，但在实践中我们会用很简单、可读、可维持的数据结构。
+</p>
+
+<p>
+实体抽取，实体链接，对齐，消歧，关系抽取
+</p>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.1</span> JSON和YAML</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+在Python中使用JSON超级简单，JSON和Python的字典很像，可以转换。看官方文档即可
+</p>
+
+<ul class="org-ul">
+<li>json库 <a href="https://docs.python.org/2/library/json.html">https://docs.python.org/2/library/json.html</a></li>
+</ul>
+<p>
+掌握下面这些库会让你处理json和字典的时候更开心
+</p>
+
+<ul class="org-ul">
+<li>attrdict <a href="https://github.com/bcj/AttrDict">https://github.com/bcj/AttrDict</a> a['foo']['bar']可以写做a.foo.bar 或a['foo'].bar。可读/写属性，可递归访问属性，继承dict的各种方法</li>
+<li>marisa-trie <a href="https://github.com/kmike/marisa-trie">https://github.com/kmike/marisa-trie</a> 超级节约内存的字典</li>
+<li>DAWG <a href="http://dawg.readthedocs.org/en/latest/">http://dawg.readthedocs.org/en/latest/</a> 另一个超级节约内存的字典</li>
+<li>orderedmultidict <a href="https://github.com/gruns/orderedmultidict">https://github.com/gruns/orderedmultidict</a> 多值有序字典</li>
+<li>jsonpickle <a href="http://jsonpickle.github.io/">http://jsonpickle.github.io/</a> JSON持久化。支持更复杂数据的存储</li>
+<li>jq <a href="http://stedolan.github.io/jq/tutorial/">http://stedolan.github.io/jq/tutorial/</a> 命令行上的json处理和查询</li>
+<li>pjson <a href="https://github.com/igorgue/pjson">https://github.com/igorgue/pjson</a> 在命令行上彩色打印json</li>
+<li>jsonlint <a href="https://github.com/zaach/jsonlint">https://github.com/zaach/jsonlint</a> 格式化json</li>
+<li>jsawk <a href="https://github.com/micha/jsawk">https://github.com/micha/jsawk</a> json的awk，一个快速的命令上的查询工具</li>
+<li>json-diff <a href="https://www.npmjs.org/package/json-diff">https://www.npmjs.org/package/json-diff</a> 比较两个json</li>
+<li>YAML：JSON的超集，有更简洁的语法 <a href="http://yaml.org/">http://yaml.org/</a></li>
+</ul>
+<p>
+YAML在我看来比JSON的可读性更好，更加Pythonic（因为其语法接近Python）。当然有人可能会不喜欢缩进，不过Python社区的智力一般比较高，不会有这种偏见。YAML里可以有节点之间的链接，因此可以表示图。此外yaml里可以写!注!释！我认为YAML是天然的最好的知识图谱表示语法。
+</p>
+
+<ul class="org-ul">
+<li>PyYAML是Python里的Yaml处理库 <a href="http://pyyaml.org/wiki/PyYAML">http://pyyaml.org/wiki/PyYAML</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.2</span> RDF和OWL</h3>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">2.3</span> JSON-LD</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+自己设计电子邮件的结构化表示
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">3</span> 知识存储</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+知识存储解决如何管理大量的结构化数据。我们可以用不同的数据库工具。现代的关系数据库可能可以解决大多数需要知识图谱的场合。某些特殊场合，我们需要图数据库。
+</p>
+</div>
+
+
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">3.1</span> 知识链接的方式：字符串、外键、URI</h3>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">3.2</span> PostgreSQL及其JSON扩展</h3>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">3.3</span> 图数据库 Neo4j和OrientDB</h3>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">3.4</span> RDF数据库Stardog</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+选择一种数据库存储自己的电子邮件
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">4</span> 知识检索</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+知识检索提供对用户友好的交互。知识检索从简单到复杂可分为六级：关键词、词联想、词本体、短程关系、长程关系、自由问答。我们会实践前两个层次的技术，并了解后面四个层次。
+</p>
+</div>
+
+
+
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">4.1</span> Gensim实现主题模型</h3>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">4.2</span> ElasticSearch</h3>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">4.3</span> SearchKit构造分面浏览器</h3>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">4.4</span> IBM Watson的架构</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+浏览和检索自己的电子邮件
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -15,6 +15,7 @@
 [[http://www.pythondoc.com/pythontutorial3/][source]]
 * Introduction
 * Built-in Functions
+
 ** Function
 - function parameter
   - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
@@ -38,6 +39,101 @@ try to use absolute path instead of relative path to read a file.
 - HDF5
 pip install tables
 
+** Decorator
+Decorator is way to dynamically add some new behavior to some objects. We achieve the same in Python by using closures.
+
+In the example we will create a simple example which will print some statement before and after the execution of a function.
+
+#+BEGIN_SRC python
+>>> def my_decorator(func):
+...     def wrapper(*args, **kwargs):
+...         print("Before call")
+...         result = func(*args, **kwargs)
+...         print("After call")
+...         return result
+...     return wrapper
+...
+>>> @my_decorator
+... def add(a, b):
+...     "Our add function"
+...     return a + b
+...
+>>> add(1, 3)
+Before call
+After call
+4
+
+#+END_SRC
+Common examples for decorators are classmethod() and staticmethod().
+*** classmethod(function)
+Return a class method for function.
+
+A class method receives the class as implicit first argument, just like an instance method receives the instance. To declare a class method, use this idiom:
+
+class C(object):
+    @classmethod
+    def f(cls, arg1, arg2, ...):
+        ...
+The @classmethod form is a function decorator – see the description of function definitions in Function definitions for details.
+
+It can be called either on the class (such as C.f()) or on an instance (such as C().f()). The instance is ignored except for its class. If a class method is called for a derived class, the derived class object is passed as the implied first argument.
+
+Class methods are different than C++ or Java static methods. If you want those, see staticmethod() in this section.
+
+For more information on class methods, consult the documentation on the standard type hierarchy in The standard type hierarchy.
+*** staticmethod(function)
+Return a static method for function.
+
+A static method does not receive an implicit first argument. To declare a static method, use this idiom:
+
+class C(object):
+    @staticmethod
+    def f(arg1, arg2, ...):
+        ...
+The @staticmethod form is a function decorator – see the description of function definitions in Function definitions for details.
+
+It can be called either on the class (such as C.f()) or on an instance (such as C().f()). The instance is ignored except for its class.
+
+Static methods in Python are similar to those found in Java or C++. Also see classmethod() for a variant that is useful for creating alternate class constructors.
+
+For more information on static methods, consult the documentation on the standard type hierarchy in The standard type hierarchy.
+
+
+** Closures
+Closures are nothing but functions that are returned by another function. We use closures to remove code duplication. In the following example we create a simple closure for adding numbers.
+#+BEGIN_SRC python
+>>> def add_number(num):
+...     def adder(number):
+...         'adder is a closure'
+...         return num + number
+...     return adder
+...
+>>> a_10 = add_number(10)
+>>> a_10(21)
+31
+>>> a_10(34)
+44
+>>> a_5 = add_number(5)
+>>> a_5(3)
+8
+
+#+END_SRC
+** iterable
+An object capable of returning its members one at a time. Examples of iterables include all sequence types (such as list, str, and tuple) and some non-sequence types like dict and file and objects of any classes you define with an __iter__() or __getitem__() method. Iterables can be used in a for loop and in many other places where a sequence is needed (zip(), map(), …). When an iterable object is passed as an argument to the built-in function iter(), it returns an iterator for the object. This iterator is good for one pass over the set of values. When using iterables, it is usually not necessary to call iter() or deal with iterator objects yourself. The for statement does that automatically for you, creating a temporary unnamed variable to hold the iterator for the duration of the loop. See also iterator, sequence, and generator.
+** iterator
+An object representing a stream of data. Repeated calls to the iterator’s next() method return successive items in the stream. When no more data are available a StopIteration exception is raised instead. At this point, the iterator object is exhausted and any further calls to its next() method just raise StopIteration again. Iterators are required to have an __iter__() method that returns the iterator object itself so every iterator is also iterable and may be used in most places where other iterables are accepted. One notable exception is code which attempts multiple iteration passes. A container object (such as a list) produces a fresh new iterator each time you pass it to the iter() function or use it in a for loop. Attempting this with an iterator will just return the same exhausted iterator object used in the previous iteration pass, making it appear like an empty container.
+** generator
+A function which returns an iterator. It looks like a normal function except that it contains yield statements for producing a series of values usable in a for-loop or that can be retrieved one at a time with the next() function. Each yield temporarily suspends processing, remembering the location execution state (including local variables and pending try-statements). When the generator resumes, it picks-up where it left-off (in contrast to functions which start fresh on every invocation).
+** generator expression
+An expression that returns an iterator. It looks like a normal expression followed by a for expression defining a loop variable, range, and an optional if expression. The combined expression generates values for an enclosing function:
+#+BEGIN_SRC python
+>>> sum(i*i for i in range(10))         # sum of squares 0, 1, 4, ... 81
+285
+
+#+END_SRC
+
+
+
 * Built-in Types
 ** Truth Value Testing
 ** Boolean Operations — and, or, not
@@ -51,7 +147,178 @@ eval the value of a variable name from string.
 ** Comparisons
 ** Numeric Types — int, float, complex
 ** Iterator Types
+- xrange vs range:
+there's no xrange in python 3.
+- Finding the index of an item given a list:
+#+BEGIN_SRC python
+>>> ["foo", "bar", "baz"].index("bar")
+1
+#+END_SRC
+- access index and value looping a list:
+#+BEGIN_SRC python
+for idx, val in enumerate(list):
+    print(idx, val)
+
+#+END_SRC
+- iterable vs iterator vs generator:
+The difference between iterables and generators: once you’ve burned through a generator once, you’re done, no more data.
+#+BEGIN_SRC python
+generator = (word + '!' for word in 'baby let me iterate ya'.split())
+# The generator object is now created, ready to be iterated over.
+# No exclamation marks added yet at this point.
+
+for val in generator: # real processing happens here, during iteration
+    print val,
+baby! let! me! iterate! ya!
+
+for val in generator:
+    print val,
+# Nothing printed! No more data, generator stream already exhausted above.
+#+END_SRC
+an iterable creates a new iterator every time it’s looped over (technically, every time iterable.__iter__() is called, such as when Python hits a “for” loop):
+#+BEGIN_SRC python
+class BeyonceIterable(object):
+    def __iter__(self):
+        """
+        The iterable interface: return an iterator from __iter__().
+
+        Every generator is an iterator implicitly (but not vice versa!),
+        so implementing `__iter__` as a generator is the easiest way
+        to create streamed iterables.
+
+        """
+        for word in 'baby let me iterate ya'.split():
+            yield word + '!'  # uses yield => __iter__ is a generator
+
+iterable = BeyonceIterable()
+
+for val in iterable:  # iterator created here
+    print val,
+baby! let! me! iterate! ya!
+
+for val in iterable:  # another iterator created here
+    print val,
+baby! let! me! iterate! ya!
+#+END_SRC
+
+- magic method __iter__:
+Iterators are everywhere in Python. They are elegantly implemented within for loops, comprehensions, generators etc. but hidden in plain sight.
+
+Iterator in Python is simply an object that can be iterated upon. An object which will return data, one element at a time.
+
+Technically speaking, Python iterator object must implement two special methods, __iter__() and __next__(), collectively called the iterator protocol.
+
+An object is called iterable if we can get an iterator from it. Most of built-in containers in Python like: list, tuple, string etc. are iterables.
+
+The iter() function (which in turn calls the __iter__() method) returns an iterator from them.
+
+- Iterating Through an Iterator in Python
+use the $next()$ function to manually iterate through all the items of an iterator.
+#+BEGIN_SRC python
+# define a list
+my_list = [4, 7, 0, 3]
+
+# get an iterator using iter()
+my_iter = iter(my_list)
+
+## iterate through it using next()
+
+#prints 4
+print(next(my_iter))
+
+#prints 7
+print(next(my_iter))
+
+## next(obj) is same as obj.__next__()
+
+#prints 0
+print(my_iter.__next__())
+
+#prints 3
+print(my_iter.__next__())
+
+## This will raise error, no items left
+next(my_iter)
+#+END_SRC
+A more elegant way of automatically iterating is by using the for loop. Using this, we can iterate over any object that can return an iterator, for example list, string, file etc.
+#+BEGIN_SRC python
+for element in my_list:
+    print(element)
+#+END_SRC
+- How for loop actually works?
+#+BEGIN_SRC python
+for element in iterable:
+    # do something with element
+# Is actually implemented as.
+
+# create an iterator object from that iterable
+iter_obj = iter(iterable)
+
+# infinite loop
+while True:
+    try:
+        # get the next item
+        element = next(iter_obj)
+        # do something with element
+    except StopIteration:
+        # if StopIteration is raised, break from loop
+        break
+
+#+END_SRC
+- example:
+#+BEGIN_SRC python
+class PowTwo:
+    """Class to implement an iterator
+    of powers of two"""
+
+    def __init__(self, max = 0):
+        self.max = max
+
+    def __iter__(self):
+        self.n = 0
+        return self
+
+    def __next__(self):
+        if self.n <= self.max:
+            result = 2 ** self.n
+            self.n += 1
+            return result
+        else:
+            raise StopIteration
+
+# create an iterator and iterate through it as follows.
+
+>>> a = PowTwo(4)
+>>> i = iter(a)
+>>> next(i)
+1
+>>> next(i)
+2
+>>> next(i)
+4
+>>> next(i)
+8
+>>> next(i)
+16
+>>> next(i)
+Traceback (most recent call last):
+...
+StopIteration
+
+# use a for loop to iterate over our iterator class.
+
+>>> for i in PowTwo(5):
+...     print(i)
+#+END_SRC
 ** Sequence Types — list, tuple, range
+- combine list of lists into one list, join list of lists
+#+BEGIN_SRC python
+import itertools
+a = [["a","b"], ["c"]]
+print list(itertools.chain.from_iterable(a))
+# or
+lambda: (lambda b: map(b.extend, big_list))([])
+#+END_SRC
 - find difference of two lists:
 #+begin_src python
 a = [1,2,3,2,1,5,6,5,5,5]
@@ -59,7 +326,7 @@ import collections
 print [item for item, count in collections.Counter(a).items() if count > 1]
 #+end_src
 
-- 列表生成式
+- 列表生成式list comprehension
 #+begin_src python
 [a.lower() for a in x=['Hello', 'World', 18, 'Apple', None] if isinstance(a,str)]
 #+end_src
@@ -75,9 +342,17 @@ etf_list = [x.strip() for x in etf_list]
 - save a list to a file:
 #+begin_src python
 thefile = open('test.txt', 'w')
+import pickle
+
+with open('outfile', 'wb') as fp:
+    pickle.dump(itemlist, fp)
+# To read it back:
+
+with open ('outfile', 'rb') as fp:
+    itemlist = pickle.load(fp)
 #+end_src
 
-- for item in thelist:
+- for item in the list:
 #+begin_src python
 thefile.write("%s\n" % item)
 #+end_src
@@ -100,8 +375,11 @@ text.split(' ', 1)[0]
 ['alvy.test','txt']
 现在是rsplit函数，从右边第一个'.'分界，分成两个字符串，组成一个list
 #+end_src
-
-** 生成器
+- split by comma:
+#+BEGIN_SRC python
+string.split(",")
+#+END_SRC
+** 生成器generator
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
 要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator：
@@ -135,8 +413,38 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 StopIteration
 #+end_src
+A Generator is an Iterator
+
+A function with yield in it is still a function, that, when called, returns an instance of a generator object:
+#+BEGIN_SRC python
+def a_function():
+    "when called, returns generator object"
+    yield
+
+#+END_SRC
+A generator expression also *returns a generator*:
+#+BEGIN_SRC python
+a_generator = (i for i in range(0))
+
+#+END_SRC
+
+A Generator is an Iterator
+
+An Iterator is an Iterable
+
+Iterators require a next or __next__ method
 
 *** loop
+- loop with batches:
+#+BEGIN_SRC python
+for i in tqdm(range(0, len(category), batch_size)):
+    re_batch = {}
+    for j in range(batch_size):
+        re_batch[j] = wiki_category_re.search(category, last_span)
+        if re_batch[j] is not None:
+            last_span = re_batch[j].span()[1]
+    upload_cat_node(re_batch)
+#+END_SRC
 - don't care the interator sequence:
 #+BEGIN_SRC python
 for _ in range(10):
@@ -160,8 +468,11 @@ list(islice(dictionary.items(), 3))
 
 - iterate key and value in a dictionary:
 #+begin_src python
+# python 2
 for index, value in dict.iteritems():
-print index, value
+# python 3
+for index, value in dict.items():
+    print index, value
 #+end_src
 - iterate keys in a dictionary:
 #+begin_src python
@@ -190,12 +501,75 @@ int64
 ** Binary Sequence Types — bytes, bytearray, memoryview
 ** Set Types — set, frozenset
 ** Mapping Types — dict
+- get key from value:
+#+BEGIN_SRC python
+for name, age in word2id.items():    # for name, age in list.items():  (for Python 3.x)
+    if age == 16116:
+        print(name)
+
+# or
+mydict = {'george':16,'amber':19}
+print(list(mydict.keys())[list(mydict.values()).index(16)]) # Prints george
+
+print(list(word2id.keys())[list(word2id.values()).index(16116)]) # Prints
+#+END_SRC
 - get some keys value according to a list in a dictionary:
 #+BEGIN_SRC python
 value = {}
 for key in finance_vocab:
     value[key] = dict_vocab.get(key)
 
+#+END_SRC
+- set all values in a dict:
+#+BEGIN_SRC python
+visited = dict.fromkeys(self.graph, False)
+#+END_SRC
+- check if a value is in a dict:
+#+BEGIN_SRC python
+'红鲱鱼招股书' in g.graph.values()
+#+END_SRC
+- check if a value is in a defaultdict collection list:
+#+BEGIN_SRC python
+any('波动性' in v for v in g.graph.values())
+# or
+def in_values(s, d):
+    """Does `s` appear in any of the values in `d`?"""
+    for v in d.values():
+        if s in v:
+            return True
+    return False
+
+in_values('cow', animals)
+#+END_SRC
+
+- count key values in a dict:
+#+BEGIN_SRC python
+d = defaultdict(list)
+for name in g.graph.keys():
+	key = len(g.graph[name])
+	d[name] = key
+#+END_SRC
+- add value in a dictionary:
+#+BEGIN_SRC python
+In [231]: d
+Out[231]:
+defaultdict(list,
+            {'上海证券交易所上市公司': 383,
+             '各证券交易所上市公司': 37,
+             '深圳证券交易所上市公司': 511,
+             '证券': 64,
+             '证券交易所': 8})
+
+sum(d.values())
+#+END_SRC
+
+- write defaultdict to a json file:
+#+BEGIN_SRC python
+import json
+# writing
+json.dump(yourdict, open(filename, 'w'))
+# reading
+yourdict = json.load(open(filename))
 #+END_SRC
 ** Context Manager Types
 ** Other Built-in Types
@@ -206,11 +580,17 @@ for key in finance_vocab:
 - getattr overrides Python’s default mechanism for member access.
 - getattr magic method only gets invoked for attributes that are not in the dict magic attribute. Implementing getattr causes the hasattr built-in function to always return True, unless an exception is raised from within getattr.
 - setattr allows you to override Python’s default mechanism for member assignment.
-- The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards).
+- The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards). But it will convert unambitiously the object. For example, repr(datetime.datetime.now) = datetime.datetime(2018, 1, 20, 13, 32, 51, 483232).
 #+begin_src python :tangle yes
 print `a`
 print repr(a)
 #+end_src
+- find out where module is installed
+#+BEGIN_SRC python
+import os
+import spacy
+print(os.path.dirname(spacy.__file__))
+#+END_SRC
 
 * Built-in Exceptions
 ** Base classes
@@ -218,6 +598,58 @@ print repr(a)
 ** Warnings
 ** Exception hierarchy
 ** exception
+- retry:
+#+BEGIN_SRC python
+response = None
+error = None
+while response is None:
+  try:
+    response = doing_something()
+    if response is not None:
+      if 'good' in response:
+        print("successfully uploaded")
+      else:
+        exit("reason %s"%response)
+  except HttpError as e:
+    if e.code in RETRIABLE_STATUS_CODES:
+      error = 'A retriable HTTP error %d occurred:\n%s' % (e.resp.status,
+                                                             e.content)
+    else:
+      raise
+  except RETRIABLE_EXCEPTIONS as e:
+    error = 'A retriable error occurred: %s' % e
+
+    if error is not None:
+      print error
+      retry += 1
+      if retry > MAX_RETRIES:
+        exit('No longer attempting to retry.')
+
+      max_sleep = 2 ** retry
+      sleep_seconds = random.random() * max_sleep
+      print 'Sleeping %f seconds and then retrying...' % sleep_seconds
+      time.sleep(sleep_seconds)
+#+END_SRC
+- capture urllib error:
+#+BEGIN_SRC python
+import urllib2
+
+req = urllib2.Request('http://www.python.org/fish.html')
+try:
+    resp = urllib2.urlopen(req)
+except urllib2.HTTPError as e:
+    if e.code == 404:
+        # do something...
+    else:
+        # ...
+except urllib2.URLError as e:
+    # Not an HTTP-specific error (e.g. connection refused)
+    # ...
+else:
+    # 200
+    body = resp.read()
+
+#+END_SRC
 - create an exception:
 #+BEGIN_SRC python
 class ConstraintError(Exception):
@@ -240,8 +672,77 @@ except Networkerror,e:
     print e.args
     print e.message
 #+END_SRC
+- clean-up actions
+#+BEGIN_SRC python
+>>> def divide(x, y):
+...     try:
+...         result = x / y
+...     except ZeroDivisionError:
+...         print "division by zero!"
+...     else:
+...         print "result is", result
+...     finally:
+...         print "executing finally clause"
+...
+>>> divide(2, 1)
+result is 2
+executing finally clause
+>>> divide(2, 0)
+division by zero!
+executing finally clause
+>>> divide("2", "1")
+executing finally clause
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in divide
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+
+#+END_SRC
 * Text Processing Services
 ** string — Common string operations
+- check if string is empty:
+#+BEGIN_SRC python
+if not text:
+  print('text is empty')
+#+END_SRC
+- if the string is an English word.
+#+BEGIN_SRC python
+from nltk.corpus import wordnet
+if not wordnet.synsets(word) and not word.isdigit()
+#+END_SRC
+- jieba cut, remove signs.
+#+BEGIN_SRC python
+punct = set(u''':!),.:;?]}¢'"、。〉》」』】〕〗〞︰︱︳﹐､﹒
+﹔﹕﹖﹗﹚﹜﹞！），．：；？｜｝︴︶︸︺︼︾﹀﹂﹄﹏､～￠
+々‖•·ˇˉ―--′’”([{£¥'"‵〈《「『【〔〖（［｛￡￥〝︵︷︹︻
+︽︿﹁﹃﹙﹛﹝（｛“‘-—_…''')
+
+str_in = u"小明硕士毕业于中国科学院计算所，\
+后在日本京都大学深造，凭借过人天赋，旁人若在另一方面爱他，他每即躲开。"
+
+# 对str/unicode
+filterpunt = lambda s: ''.join(filter(lambda x: x not in punct, s))
+# 对list
+filterpuntl = lambda l: list(filter(lambda x: x not in punct, l))
+seg_list = jieba.cut(str_in, cut_all=False)
+sent_list = filterpuntl(seg_list)
+#+END_SRC
+- jieba cut on bash:
+#+BEGIN_SRC bash
+python -m jieba news.txt > cut_result.txt
+#+END_SRC
+ - create a list from jieba generator:
+   sentence = [x for x in seg_list]
+- tokenize unicode or string to sentence list.
+#+BEGIN_SRC python
+from nltk import tokenize as n_tokenize
+sent= n_tokenize.sent_tokenize(page)
+# or
+sent_list = page.split()
+#+END_SRC
+- list comprehension
+[x for x in t if x not in s if x.isdigit()]
+
 - if string are digits.
 #+BEGIN_SRC python
 str.isdigit()
@@ -332,15 +833,56 @@ re.search(r'[\d]{3}-[\d]{4}', '867-5309 /Jenny')
 **** speed selection
 - +: {1,}
 - *: {0,}
+
+*** search for a pattern within a text file
+- bulk read:
+#+BEGIN_SRC python
+import re
+
+textfile = open(filename, 'r')
+filetext = textfile.read()
+textfile.close()
+matches = re.findall("(<(\d{4,5})>)?", filetext)
+
+#+END_SRC
+
+- read line by line:
+#+BEGIN_SRC python
+import re
+
+textfile = open(filename, 'r')
+matches = []
+reg = re.compile("(<(\d{4,5})>)?")
+for line in textfile:
+    matches += reg.findall(line)
+textfile.close()
+#+END_SRC
+
 ** difflib — Helpers for computing deltas
 ** textwrap — Text wrapping and filling
 ** unicodedata — Unicode Database
+https://docs.python.org/2.7/howto/unicode.html
 ** stringprep — Internet String Preparation
 ** readline — GNU readline interface
 
 * Data Types
 ** datetime — Basic date and time types
+- Converting unix timestamp string to readable date in Python
+#+BEGIN_SRC python
+import datetime
+print(
+    datetime.datetime.fromtimestamp(
+        int("1284101485")
+    ).strftime('%Y-%m-%d %H:%M:%S')
+)
+
+#+END_SRC
 ** Time
+- create timestamp:
+#+BEGIN_SRC python
+>>> pd.to_datetime('13000101', format='%Y%m%d', errors='ignore')
+datetime.datetime(1300, 1, 1, 0, 0)
+#+END_SRC
 - get specific timezone datetime
 #+begin_src python
 tz = pytz.timezone('America/Los_Angeles')
@@ -355,6 +897,10 @@ from tqdm import tqdm
 from time import sleep
 for i in tqdm(range(10)):
     sleep(0.1)
+
+# enumerate
+for i in enumerate(tqdm(list)):
+    do things()
 #+end_src
 
 - string to datetime:
@@ -374,10 +920,13 @@ str_timestamp = str_timestamp.strftime('%Y-%m-%d')
 #+END_SRC
 datetime, utc
 datetime64
-
+- get the location of a date in datetimeindex:
+#+BEGIN_SRC python
+pd.DatetimeIndex.get_loc(datetime)
+#+END_SRC
 - datetime off set, subtract
 #+BEGIN_SRC python
-pd.DateOffset(years=1)
+TimeStamp +/- pd.DateOffset(years=1)
 pd.Timedelta(days=365) #allowed keywords are [weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds]
 #+END_SRC
 ** calendar — General calendar-related functions
@@ -446,6 +995,15 @@ it’s again replaced with a binary approximation, whose exact value is
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
 ** os.path — Common pathname manipulations
+- find current working dir:
+#+BEGIN_SRC python
+import sys, os
+# run python file.py
+ROOTDIR = os.path.join(os.path.dirname(__file__), os.pardir)
+sys.path.append(os.path.join(ROOTDIR, "lib"))
+# run in python
+ROOTDIR = os.path.join(os.path.dirname("__file__"), os.pardir)
+#+END_SRC
 - temperary folder:
 #+BEGIN_SRC python
 import os
@@ -484,6 +1042,45 @@ from tempfile import gettempdir
 tmp_dir = gettempdir()
 #+END_SRC
 ** fileinput — Iterate over lines from multiple input streams
+- open
+open() returns a file object, and is most commonly used with two arguments: open(filename, mode).
+#+BEGIN_SRC python
+>>> f = open('workfile', 'w')
+>>> print f
+<open file 'workfile', mode 'w' at 80a0960>
+#+END_SRC
+The first argument is a string containing the filename. The second argument is another string containing a few characters describing the way in which the file will be used. mode can be 'r' when the file will only be read, 'w' for only writing (an existing file with the same name will be erased), and 'a' opens the file for appending; any data written to the file is automatically added to the end. 'r+' opens the file for both reading and writing. The mode argument is optional; *r* will be assumed if it’s omitted.
+
+On Windows, 'b' appended to the mode opens the file in binary mode, so there are also modes like 'rb', 'wb', and 'r+b'.
+- write text at the end of a file without overwrite that file:
+#+BEGIN_SRC python
+f = open('filename.txt', 'a')
+f.write("stuff")
+f.close()
+#+END_SRC
+- read specific lines
+#+BEGIN_SRC python
+fp = open("file")
+for i, line in enumerate(fp):
+    if i == 25:
+        # 26th line
+    elif i == 29:
+        # 30th line
+    elif i > 29:
+        break
+fp.close()
+# Note that i == n-1 for the nth line.
+
+# In Python 2.6 or later:
+with open("file") as fp:
+    for i, line in enumerate(fp):
+        if i == 25:
+            # 26th line
+        elif i == 29:
+            # 30th line
+        elif i > 29:
+            break
+#+END_SRC
 ** stat — Interpreting stat() results
 ** filecmp — File and Directory Comparisons
 ** tempfile — Generate temporary files and directories
@@ -535,7 +1132,172 @@ pkl_file.close()
 ** shelve — Python object persistence
 ** marshal — Internal Python object serialization
 ** dbm — Interfaces to Unix “databases”
-** sqlite3 — DB-API *0 interface for SQLite databases
+** sqlite3 — DB-API interface for SQLite databases
+- install mysql connector
+python ModuleNotFoundError: No module named 'mysql'
+#+BEGIN_SRC bash
+pip search mysql-connector | grep --color mysql-connector-python
+pip install mysql-connector-python-rf
+#+END_SRC
+** protobuf
+*** tutorial
+- need a .proto file for the structure:
+#+BEGIN_SRC proto
+syntax = "proto3"; // or proto2
+package tutorial;
+
+import "google/protobuf/timestamp.proto";
+// [END declaration]
+
+// [START java_declaration]
+option java_package = "com.example.tutorial";
+option java_outer_classname = "AddressBookProtos";
+// [END java_declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "Google.Protobuf.Examples.AddressBook";
+// [END csharp_declaration]
+
+// [START messages]
+message Person {
+  string name = 1;
+  int32 id = 2;  // Unique ID number for this person.
+  string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    string number = 1;
+    PhoneType type = 2;
+  }
+
+  repeated PhoneNumber phones = 4;
+
+  google.protobuf.Timestamp last_updated = 5;
+}
+
+// Our address book file is just one of these.
+message AddressBook {
+  repeated Person people = 1;
+}
+
+#+END_SRC
+- Compiling Your Protocol Buffers in shell to generate a class:
+#+BEGIN_SRC bash
+protoc -I=$SRC_DIR --python_out=$DST_DIR $SRC_DIR/addressbook.proto
+protoc --proto_path=src --python_out=build/gen src/foo.proto src/bar/baz.proto
+# The compiler will read the files src/foo.proto and src/bar/baz.proto and produce two output files: build/gen/foo_pb2.py and build/gen/bar/baz_pb2.py. The compiler will automatically create the directory build/gen/bar if necessary, but it will not create build or build/gen; they must already exist.
+#+END_SRC
+- add_person.py
+#+BEGIN_SRC python
+#! /usr/bin/python
+
+import addressbook_pb2
+import sys
+
+# This function fills in a Person message based on user input.
+def PromptForAddress(person):
+  person.id = int(raw_input("Enter person ID number: "))
+  person.name = raw_input("Enter name: ")
+
+  email = raw_input("Enter email address (blank for none): ")
+  if email != "":
+    person.email = email
+
+  while True:
+    number = raw_input("Enter a phone number (or leave blank to finish): ")
+    if number == "":
+      break
+
+    phone_number = person.phones.add()
+    phone_number.number = number
+
+    type = raw_input("Is this a mobile, home, or work phone? ")
+    if type == "mobile":
+      phone_number.type = addressbook_pb2.Person.MOBILE
+    elif type == "home":
+      phone_number.type = addressbook_pb2.Person.HOME
+    elif type == "work":
+      phone_number.type = addressbook_pb2.Person.WORK
+    else:
+      print "Unknown phone type; leaving as default value."
+
+# Main procedure:  Reads the entire address book from a file,
+#   adds one person based on user input, then writes it back out to the same
+#   file.
+if len(sys.argv) != 2:
+  print "Usage:", sys.argv[0], "ADDRESS_BOOK_FILE"
+  sys.exit(-1)
+
+address_book = addressbook_pb2.AddressBook()
+
+# Read the existing address book.
+try:
+  f = open(sys.argv[1], "rb")
+  address_book.ParseFromString(f.read())
+  f.close()
+except IOError:
+  print sys.argv[1] + ": Could not open file.  Creating a new one."
+
+# Add an address.
+PromptForAddress(address_book.people.add())
+
+# Write the new address book back to disk.
+f = open(sys.argv[1], "wb")
+f.write(address_book.SerializeToString())
+f.close()
+#+END_SRC
+- try to run above python code in shell:
+#+BEGIN_SRC bash
+python add_person.py ADDRESS_BOOK_FILE
+#+END_SRC
+- list_person.py
+#+BEGIN_SRC python
+#! /usr/bin/python
+
+import addressbook_pb2
+import sys
+
+# Iterates though all people in the AddressBook and prints info about them.
+def ListPeople(address_book):
+  for person in address_book.people:
+    print "Person ID:", person.id
+    print "  Name:", person.name
+    if person.HasField('email'):
+      print "  E-mail address:", person.email
+
+    for phone_number in person.phones:
+      if phone_number.type == addressbook_pb2.Person.MOBILE:
+        print "  Mobile phone #: ",
+      elif phone_number.type == addressbook_pb2.Person.HOME:
+        print "  Home phone #: ",
+      elif phone_number.type == addressbook_pb2.Person.WORK:
+        print "  Work phone #: ",
+      print phone_number.number
+
+# Main procedure:  Reads the entire address book from a file and prints all
+#   the information inside.
+if len(sys.argv) != 2:
+  print "Usage:", sys.argv[0], "ADDRESS_BOOK_FILE"
+  sys.exit(-1)
+
+address_book = addressbook_pb2.AddressBook()
+
+# Read the existing address book.
+f = open(sys.argv[1], "rb")
+address_book.ParseFromString(f.read())
+f.close()
+
+ListPeople(address_book)
+#+END_SRC
+- read a message:
+#+BEGIN_SRC bash
+python list_person.py ADDRESS_BOOK_FILE
+#+END_SRC
 * Data Compression and Archiving
 ** zip
 zip([iterable, ...])
@@ -554,6 +1316,17 @@ zip() in conjunction with the * operator can be used to unzip a list:
 >>> x2, y2 = zip(*zipped)
 >>> x == list(x2) and y == list(y2)
 True
+#+END_SRC
+- create a dictionary with two iterables
+#+BEGIN_SRC python
+>>> x = [1, 2, 3]
+>>> y = [4, 5, 6]
+>>> zipped = zip(x, y)
+>>> zipped
+[(1, 4), (2, 5), (3, 6)]
+In [172]: dict(zipped)
+Out[179]: {1: 4, 2: 5, 3: 6}
+
 #+END_SRC
 ** zlib — Compression compatible with gzip
 ** gzip — Support for gzip files
@@ -592,6 +1365,33 @@ with open(r'config.yaml', 'rb') as f:
 ** io — Core tools for working with streams
 ** time — Time access and conversions
 ** argparse — Parser for command-line options, arguments and sub-commands
+*** 16.4.2. ArgumentParser objects
+class argparse.ArgumentParser(prog=None, usage=None, description=None, epilog=None, parents=[], formatter_class=argparse.HelpFormatter, prefix_chars='-', fromfile_prefix_chars=None, argument_default=None, conflict_handler='error', add_help=True, allow_abbrev=True)
+Create a new ArgumentParser object. All parameters should be passed as keyword arguments. Each parameter has its own more detailed description below, but in short they are:
+
+prog - The name of the program (default: sys.argv[ 0])
+usage - The string describing the program usage (default: generated from arguments added to parser)
+description - Text to display before the argument help (default: none)
+epilog - Text to display after the argument help (default: none)
+parents - A list of ArgumentParser objects whose arguments should also be included
+formatter_class - A class for customizing the help output
+prefix_chars - The set of characters that prefix optional arguments (default: ‘-‘)
+fromfile_prefix_chars - The set of characters that prefix files from which additional arguments should be read (default: None)
+argument_default - The global default value for arguments (default: None)
+conflict_handler - The strategy for resolving conflicting optionals (usually unnecessary)
+add_help - Add a -h/--help option to the parser (default: True)
+allow_abbrev - Allows long options to be abbreviated if the abbreviation is unambiguous. (default: True)
+*** argument_default
+#+BEGIN_SRC python
+>>> parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
+>>> parser.add_argument('--foo')
+>>> parser.add_argument('bar', nargs='?')
+>>> parser.parse_args(['--foo', '1', 'BAR'])
+Namespace(bar='BAR', foo='1')
+>>> parser.parse_args([])
+Namespace()
+#+END_SRC
+*** example
 #+BEGIN_SRC python
 import argparse
 
@@ -633,6 +1433,7 @@ if __name__ == '__main__':
 ** getopt — C-style parser for command line options
 ** logging — Logging facility for Python
 #+BEGIN_SRC python
+
 import logging
 logger = logging.getLogger()
 handler = logging.StreamHandler()
@@ -642,6 +1443,9 @@ if not logger.handler:
     logger.addHandler(handler)
 logger.setLevel(logging.DEBUG)
 logger
+# or
+logging.basicConfig(
+    format='%(asctime)s : %(levelname)s : %(message)s', level=logging.DEBUG)
 
 # at the end of the program
 handler.close()
@@ -716,6 +1520,16 @@ data = data.dropna()
 
 ** email — An email and MIME handling package
 ** json — JSON encoder and decoder
+** Graph
+*** networkx
+- add node to a graph
+- add edges to a graph
+- find a loop/cycle in a graph
+#+BEGIN_SRC python
+nx.find_cycle(G)
+list(nx.simple_cycles(G))
+#+END_SRC
+
 
 * Internet Protocols and Support
 ** webbrowser — Convenient Web-browser controller
@@ -770,6 +1584,34 @@ data = data.dropna()
 ** bdb — Debugger framework
 ** faulthandler — Dump the Python traceback
 ** pdb — The Python Debugger
+- s(tep):
+
+Execute the current line, stop at the first possible occasion (either in a function that is called or in the current function).
+
+- n(ext):
+
+Continue execution until the next line in the current function is reached or it returns.
+
+- unt(il):
+
+Continue execution until the line with a number greater than the current one is reached or until the current frame returns.
+
+- r(eturn):
+- c(ont(inue)):
+
+Continue execution, only stop when a breakpoint is encountered.
+
+- l(ist): [first [,last]]
+
+List source code for the current file. Without arguments, list 11 lines around the current line or continue the previous listing. With one argument, list 11 lines starting at that line. With two arguments, list the given range; if the second argument is less than the first, it is a count.
+
+- a(rgs):
+
+Print the argument list of the current function.
+
+- p expression:
+
+Print the value of the expression.
 ** The Python Profilers
 STEPS:
 1). install snakeviz using pip from cmd.
@@ -865,6 +1707,16 @@ pyenv versions
 * Python Runtime Services
 ** sysconfig — Provide access to Python’s configuration information
 ** os, sys — System-specific parameters and functions
+- get environment variables
+#+BEGIN_SRC python
+import os
+
+env_dist = os.environ # environ是在os.py中定义的一个dict environ = {}
+
+print(env_dist.get('JAVA_HOME'))
+print(env_dist['JAVA_HOME'])
+
+#+END_SRC
 - check if file or directory exists, if not then make directory:
 #+BEGIN_SRC python
 import os
@@ -939,7 +1791,7 @@ from __future__ import unicode_literals
 from __future__ import absolute_import
 #+END_SRC
 - unicode vs utf-8 vs binary strings vs strings
-unicode 是编码,例如把一个汉字编成了一个码(计算机不可读).
+unicode 是编码unique code,例如把一个汉字编成了一个码(计算机不可读).
 
 A chinese character:      汉
 
@@ -947,7 +1799,7 @@ it's unicode value:       U+6C49
 
 convert 6C49 to binary:   01101100 01001001
 
-UTF-8是把character转为binary code的规范, and vice versa.
+UTF-8是把character转为binary code的规范, and vice versa. 方便存储。
 |   binary |          |          |          |                     |                                   |
 | 1st Byte | 2nd Byte | 3rd Byte | 4th Byte | Number of Free Bits | Maximum Expressible Unicode Value |
 | 0xxxxxxx |          |          |          | 7                   | 007F hex (127)                    |
@@ -955,6 +1807,13 @@ UTF-8是把character转为binary code的规范, and vice versa.
 | 1110xxxx | 10xxxxxx | 10xxxxxx |          | (4+6+6)=16          | FFFF hex (65535)                  |
 | 11110xxx | 10xxxxxx | 10xxxxxx | 10xxxxxx | (3+6+6+6)=21        | 10FFFF hex (1,114,111)            |
 
+已知“严”的unicode是4E25（100111000100101），根据上表，可以发现4E25处在第三行的范围内（0000 0800-0000 FFFF），因此“严”的UTF-8编码需要三个字节，即格式是“1110xxxx 10xxxxxx 10xxxxxx”。然后，从“严”的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补0。这样就得到了，“严”的UTF-8编码是“11100100 10111000 10100101”，转换成十六进制就是E4B8A5。
+
+You can use a different encoding from UTF-8 by putting a specially-formatted comment as the first or second line of the source code:
+
+# -*- coding: <encoding name> -*-
+
+*是为了让解释器在执行该文件的时候知道该文件是何种编码方式，从而顺利读取指令去执行计算。*
 - division
 新的除法特性，本来的除号`/`对于分子分母是整数的情况会取整，但新特性中在此情况下的除法不会取整，取整的使用`//`。如下可见，只有分子分母都是整数时结果不同。
 - print_function
@@ -971,6 +1830,19 @@ UTF-8是把character转为binary code的规范, and vice versa.
 ** codeop — Compile Python code
 * Importing Modules
 ** Module
+- reload a module/lib in ipython without killing it.
+#+BEGIN_SRC python
+# For Python 2 use built-in function reload():
+
+reload(module)
+# For Python 2 and 3.2–3.3 use reload from module imp:
+
+import imp
+imp.reload(module)
+# or
+import importlib
+importlib.reload(module)
+#+END_SRC
 - 当你运行一个Python模块 python fibo.py <arguments>
   Remember, everything in python is an object.
 
@@ -1114,6 +1986,29 @@ print “%s %.4f%%” % (sid, (len(not_close)/len(ctp)))
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- filter not null, filter not NaT rows:
+since strings data types have variable length, it is by default stored as object dtype. If you want to store them as string type, you can do something like this.
+#+BEGIN_SRC python
+df_text.ix[df_text.Conclusion.values.nonzero()[0]]
+df['column'] = df['column'].astype('|S80') #where the max length is set at 80 bytes,
+# or alternatively
+
+df['column'] = df['column'].astype('|S') # which will by default set the length to the max len it encounters
+#+END_SRC
+- change datatypes
+#+BEGIN_SRC python
+df.a.astype(float)
+drinks['beer_servings'] = drinks.beer_servings.astype(float)
+#+END_SRC
+- change date type to string:
+#+BEGIN_SRC python
+drinks['beer_servings'] = drinks.beer_servings.astype('str)
+
+#+END_SRC
+- read csv without header, delimiter is space:
+#+BEGIN_SRC python
+vocab = pd.read_csv("/home/weiwu/share/deep_learning/data/model/phrase/zhwiki/categories/三板.vocab",delim_whitespace=True,header=None)
+#+END_SRC
 - parse text in csv
 #+BEGIN_SRC python
 reddit_news = pd.read_csv('/home/weiwu/share/deep_learning/data/RedditNews.csv')
@@ -1164,6 +2059,8 @@ dtype: float64
 #+begin_src python
 dates = pd.date_range('1/1/2000', periods=8)
 df = pd.DataFrame(np.random.randn(8, 4), index=dates, columns=['A', 'B', 'C', 'D'])
+# or
+df = pd.DataFrame(data={'a':[1,2],'b':[3,3]})
 #+end_src
 
 - create diagonal matrix/dataframe using a series:
@@ -1246,6 +2143,7 @@ s = df[df.columns[0]]
 - replace value:
 #+BEGIN_SRC python
 DataFrame.replace(to_replace=None, value=None, inplace=False, limit=None, regex=False, method='pad', axis=None)
+df = df[df.line_race != 0]
 #+END_SRC
 - pandas has value:
 #+BEGIN_SRC python
@@ -1268,6 +2166,11 @@ df.isnull().values.any()
 z=(a!=b)
 pd.concat([a.ix[z[reduce(lambda x, y: x | z[y], z, False)].index],b.ix[z[reduce(lambda x, y: x | z[y], z, False)].index]],axis=1)
 #+end_src
+- reduce
+#+BEGIN_SRC python
+from functools import reduce
+reduce(lambda x, y: x+y, range(1,101))
+#+END_SRC
 
 - if array a is a subset of another array b:
 #+BEGIN_SRC python
@@ -1454,7 +2357,8 @@ b    2    4
 **** Index manuplication
 - set column as datetime index
 #+begin_src python
-df = df.set_index(pd.DatetimeIndex(df['Date']))
+index = index.set_index(pd.DatetimeIndex(index['tradeDate'])).drop('tradeDate', axis=1)
+# df = df.set_index(pd.DatetimeIndex(df['Date']))
 #+end_src
 
 - concaterate:
@@ -1585,6 +2489,11 @@ panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
 #+END_SRC
 pandas panel item axis should be datetime64, this should not be an array.
 ** numpy
+- save an array:
+#+BEGIN_SRC python
+import numpy as np
+np.save(filename, array)
+#+END_SRC
 - maximum value in each row
 #+BEGIN_SRC python
 np.amax(ar, axis=1)
@@ -1732,6 +2641,22 @@ fig is the :class:matplotlib.figure.Figure object.
 
 [https://docs.python.org/2/reference/simple_stmts.html?highlight=assert]
 
+*** display Chinese:
+#+BEGIN_SRC bash
+➜  log git:(master) ✗ fc-list :lang=zh
+/usr/share/fonts/truetype/wqy/wqy-microhei.ttc: 文泉驿微米黑,文泉驛微米黑,WenQuanYi Micro Hei:style=Regular
+/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf: Droid Sans Fallback:style=Regular
+/usr/share/fonts/truetype/wqy/wqy-microhei.ttc: 文泉驿等宽微米黑,文泉驛等寬微米黑,WenQuanYi Micro Hei Mono:style=Regular
+#+END_SRC
+#+BEGIN_SRC python
+import matplotlib.font_manager as mfm
+import matplotlib.pyplot as plt
+font_path = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
+prop = mfm.FontProperties(fname=font_path)
+plt.text(0.5, 0.5, s=u'测试', fontproperties=prop)
+plt.show()
+
+#+END_SRC
 ** scipy
 -  combination k from n.
 $$

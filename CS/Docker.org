@@ -71,6 +71,7 @@ docker pull neo4j:3.3
 #+BEGIN_SRC shell
 docker run \
     --publish=7474:7474 --publish=7687:7687 \
+    --env=NEO4J_AUTH=none \
     --volume=$HOME/neo4j/data:/data \
     neo4j
 
@@ -97,6 +98,10 @@ docker run --name wiki -p 27017:27017 -v $PWD/mongodb:/data/db -d mongo:3.2
 -p 27017:27017 :将容器的27017 端口映射到主机的27017 端口
 
 -v $PWD/db:/data/db :将主机中当前目录下的db挂载到容器的/data/db，作为mongo数据存储目录
+** run the interactive mongo shell:
+#+BEGIN_SRC bash
+docker exec -it wiki mongo
+#+END_SRC
 ** 使用mongo镜像执行mongo 命令连接到刚启动的容器,主机IP为172.17.0.1
 #+BEGIN_SRC bash
 ➜  ~ docker run -it mongo:3.2 mongo --host 172.17.0.1
@@ -180,3 +185,34 @@ db.collection_name.remove({})
 - 验证用户
 >use local
 >db.auth('myadmin', 'secret')
+
+- create index
+#+BEGIN_SRC mongodb
+db.collection.createIndex( { orderDate: 1 } )
+#+END_SRC
+
+- create a new database:
+#+BEGIN_SRC mongodb
+>use new_database
+#+END_SRC
+- Drop Database in MongoDB
+#+BEGIN_SRC mongodb
+db.dropDatabase(); # drop currently using database
+#+END_SRC
+- Create Collection
+#+BEGIN_SRC mongodb
+db.createCollection(name, options)
+#+END_SRC
+- Find All Documents in a Collection
+#+BEGIN_SRC mongodb
+db.bios.find()
+
+#+END_SRC
+- Find Documents that Match Query Criteria
+#+BEGIN_SRC mongodb
+db.products.find( { qty: { $gt: 25 } } )
+#+END_SRC
+- count
+#+BEGIN_SRC mongodb
+db.xueqiu.count()
+#+END_SRC

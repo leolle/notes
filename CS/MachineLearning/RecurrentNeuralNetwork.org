@@ -1,0 +1,41 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLEs: RecurrentNeuralNetwork
+#+DATE: <2018-03-26 Mon>
+#+AUTHORs: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
+#+HTML: <div class="outline-2" id="meta">
+| *Author* | {{{author}}} ({{{email}}})           |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}}        |
+| *Title*  | {{{TITLE}}}Recurrent Neural Networks |
+|          |                                      |
+#+HTML: </div>
+
+
+
+* Summary
+Recurrent neural networks (RNNs) are a kind of neural net often used to model sequence data. They maintain a hidden state which can "remember" certain aspects of the sequence it has seen. RNNs can be trained using backpropagation through time, although efficient training remains an open problem.
+* Context
+This concept has the prerequisites:
+
+** backpropagation (RNNs are trained using backpropagation.)
+* Goals
+- Understand what a recurrent neural net is and how it can be used to model sequence data.
+- Know how to train an RNN using backpropagation through time.
+- Be aware of why training RNNs with backpropagation is unstable.
+[[http://www.cs.toronto.edu/~rgrosse/courses/csc321_2017/readings/L15%20Exploding%20and%20Vanishing%20Gradients.pdf][ExplodingandVanishingGradients]]
+* LSTM
+LSTMs also have this chain like structure, but the repeating module has a different structure. Instead of having a single neural network layer, there are four, interacting in a very special way.
+[[file:./Images/LSTM3-chain.png]]
+** The Core Idea Behind LSTMs
+cell state.
+** Entity Mention Detection
+$$O_i=\phi(Oh_i)$$
+$\phi$ is the softmax function.

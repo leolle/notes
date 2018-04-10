@@ -53,9 +53,13 @@ Auto-Encoding Variational Bayes
 Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion
 Semi-supervised Sequence Learning
 
-- Backpropagation
+- Backpropagation[1]
 
-To calculate the gradient the relate weights to error, we use a technique known as backpropagation, which is also referred to as the backward pass of the network. Backpropagation is a repeated application of chain rule of calculus for partial derivatives. The first step is to calculate the derivatives of the objective function with respect to the output units, then the derivatives of the output of the last hidden layer to the input of the last hidden layer; then the input of the last hidden layer to the weights between it and the penultimate hidden layer, etc. Here’s a derivation of backpropagation. And here’s Yann LeCun’s important paper on the subject.
+To calculate the gradient the relate weights to error, to calculate the error contribution of each neuron after a batch of data (in image recognition, multiple images) is processed. we use a technique known as backpropagation, which is also referred to as the backward pass of the network, by the gradient descent optimization algorithm to adjust the weight of neurons by calculating the gradient of the loss function. Backpropagation is a repeated application of chain rule of calculus for partial derivatives. The first step is to calculate the derivatives of the objective function with respect to the output units, then the derivatives of the output of the last hidden layer to the input of the last hidden layer; then the input of the last hidden layer to the weights between it and the penultimate hidden layer, etc.
+
+Assumptions:
+Two assumptions must be made about the form of the error function. The first is that it can be written as an average ${\textstyle E={\frac {1}{n}}\sum _{x}E_{x}}$ over error functions ${\textstyle E_{x}}$, for ${\textstyle n}$ individual training examples, ${\textstyle x}$. The reason for this assumption is that the backpropagation algorithm calculates the gradient of the error function for a single training example, which needs to be generalized to the overall error function. The second assumption is that it can be written as a function of the outputs from the neural network.
+
 
 
 - Alt text
@@ -175,6 +179,8 @@ A fast learning algorithm for deep belief nets
 Deep Learning allows computational models composed of multiple processing layers to learn representations of data with multiple levels of abstraction.  These methods have dramatically improved the state-of-the-art in speech recognition, visual object recognition, object detection, and many other domains such as drug discovery and genomics. Deep learning discovers intricate structure in large datasets by using the back-propagation algorithm to indicate how a machine should change its internal parameters that are used to compute the representation in each layer from the representation in the previous layer.  Deep convolutional nets have brought about dramatic improvements in processing images, video, speech and audio, while recurrent nets have shone on sequential data such as text and speech.  Representation learning is a set of methods that allows a machine to be fed with raw data and to automatically discover the representations needed for detection or classification. Deep learning methods are representation learning methods with multiple levels of representation, obtained by composing simple but non-linear modules that each transform the representation at one level (starting with the raw input) into a representation at a higher, slightly more abstract level.
 -NIPS
 
+- Distant supervision
+远监督。弱监督也称为远监督，数据集的标签是不可靠的(这里的不可靠可以是标记不正确，多种标记，标记不充分，局部标记等)，针对监督信息不完整或不明确对象的学习问题统称为弱监督学习。
 
 - Distributed Representations
 
@@ -198,6 +204,11 @@ Recurrent Neural Network Regularization
 DropConnect is a generalization of Dropout for regularizing large fully-connected layers within neural networks. Dropout sets a randomly selected subset of activations to zero at each layer. DropConnect, in contrast, sets a randomly selected subset of weights within the network to zero.
 
 Regularization of Neural Networks using DropConnect
+
+- Euclidean space
+In geometry, Euclidean space encompasses the two-dimensional Euclidean plane, the three-dimensional space of Euclidean geometry, and certain other spaces.
+
+One way to think of the Euclidean plane is as a set of points satisfying certain relationships, expressible in terms of distance and angle.
 
 - Embedding
 
@@ -313,6 +324,14 @@ The ImageNet Large Scale Visual Recognition Challenge is the formal name for Ima
 - Iteration
 
 An iteration is an update of weights after analysing a batch of input records. See Epoch for clarification.
+
+- Learning rate
+Neural networks are often trained by gradient descent on the weights. This means at each iteration we use backpropagation to calculate the derivative of the loss function with respect to each weight and subtract it from that weight.
+However, if you actually try that, the weights will change far too much each iteration, which will make them “overcorrect” and the loss will actually increase/diverge. So in practice, people usually multiply each derivative by a small value called the “learning rate” before they subtract it from its corresponding weight.
+
+$$W:=W−η∇LW:=W−η∇L$$
+
+This η here is called the learning rate.
 
 
 - LeNet
@@ -576,8 +595,19 @@ Very Deep Convolutional Networks for Large-Scale Image Recognition
 
 Tomas Mikolov’s neural networks, known as Word2vec, have become widely used because they help produce state-of-the-art word embeddings. Word2vec is a two-layer neural net that processes text. Its input is a text corpus and its output is a set of vectors: feature vectors for words in that corpus. While Word2vec is not a deep neural network, it turns text into a numerical form that deep nets can understand. Word2vec’s applications extend beyond parsing sentences in the wild. It can be applied just as well to genes, code, playlists, social media graphs and other verbal or symbolic series in which patterns may be discerned. Deeplearning4j implements a distributed form of Word2vec for Java and Scala, which works on Spark with GPUs.
 
+- Weight decay
+When training neural networks, it is common to use "weight decay," where after each update, the weights are multiplied by a factor slightly less than 1. This prevents the weights from growing too large, and can be seen as gradient descent on a quadratic regularization term.
 
+Weight decay is an example of a regularization method.
+- The $L_2$ norm of the weights isn't necessarily a good regularizer for neural nets. Some more principled alternatives include:
+- Tikhonov regularization, which rewards invariance to noise in the inputs (go to concept)
+- Tangent propagation, which rewards invariance to irrelevant transformations of the inputs such as translation and scalling (go to concept)
+Early stopping is another strategy to prevent overfitting in neural nets.
 
 - Xavier Initialization
 
 The Xavier initialization is based on the work of Xavier Glorot and Yoshua Bengio in their paper “Understanding the difficulty of training deep feedforward neural networks.” An explanation can be found here. Weights should be initialized in a way that promotes “learning”. The wrong weight initialization will make gradients too large or too small, and make it difficult to update the weights. Small weights lead to small activations, and large weights lead to large ones. Xavier weight initialization considers the distribution of output activations with regard to input activations. Its purpose is to maintain same distribution of activations, so they aren’t too small (mean zero but with small variance) or too large (mean zero but with large variance). DL4J’s implementation of Xavier weight initialization aligns with the Glorot Bengio paper, Nd4j.randn(order, shape).muli(FastMath.sqrt(2.0 / (fanIn + fanOut))). Where fanIn(k) would be the number of units sending input to k, and fanOut(k) would be the number of units recieving output from k.
+
+* Footnotes
+
+[1] https://en.wikipedia.org/wiki/Backpropagation#cite_note-:0-4

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-25 Mon 19:46 -->
+<!-- 2018-03-19 Mon 17:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -158,10 +158,11 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline6">3. Docker commands</a></li>
-<li><a href="#orgheadline9">4. Docker install mongodb</a>
+<li><a href="#orgheadline10">4. Docker install mongodb</a>
 <ul>
 <li><a href="#orgheadline7">4.1. create a container:</a></li>
-<li><a href="#orgheadline8">4.2. 使用mongo镜像执行mongo 命令连接到刚启动的容器,主机IP为172.17.0.1</a></li>
+<li><a href="#orgheadline8">4.2. run the interactive mongo shell:</a></li>
+<li><a href="#orgheadline9">4.3. 使用mongo镜像执行mongo 命令连接到刚启动的容器,主机IP为172.17.0.1</a></li>
 </ul>
 </li>
 </ul>
@@ -230,6 +231,7 @@ sudo systemctl restart docker
 
 <pre class="src src-shell">docker run <span style="color: #E6DB74; font-weight: bold;">\</span>
     --publish=<span style="color: #AE81FF;">7474:7474</span> --publish=<span style="color: #AE81FF;">7687:7687</span> <span style="color: #E6DB74; font-weight: bold;">\</span>
+    --env=<span style="color: #FD971F;">NEO4J_AUTH</span>=none <span style="color: #E6DB74; font-weight: bold;">\</span>
     --volume=$<span style="color: #FD971F;">HOME</span>/neo4j/data:/data <span style="color: #E6DB74; font-weight: bold;">\</span>
     neo4j
 </pre>
@@ -267,8 +269,8 @@ sudo systemctl restart docker
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">4</span> Docker install mongodb</h2>
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">4</span> Docker install mongodb</h2>
 <div class="outline-text-2" id="text-4">
 </div><div id="outline-container-orgheadline7" class="outline-3">
 <h3 id="orgheadline7"><span class="section-number-3">4.1</span> create a container:</h3>
@@ -288,8 +290,18 @@ sudo systemctl restart docker
 </div>
 </div>
 <div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">4.2</span> 使用mongo镜像执行mongo 命令连接到刚启动的容器,主机IP为172.17.0.1</h3>
+<h3 id="orgheadline8"><span class="section-number-3">4.2</span> run the interactive mongo shell:</h3>
 <div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+
+<pre class="src src-bash">docker exec -it wiki mongo
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">4.3</span> 使用mongo镜像执行mongo 命令连接到刚启动的容器,主机IP为172.17.0.1</h3>
+<div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 
 <pre class="src src-bash">&#10140;  ~ docker run -it mongo:3.2 mongo --host <span style="color: #AE81FF;">172.17.0.1</span>
@@ -390,6 +402,64 @@ db.createUser(
 &gt;use local
 &gt;db.auth('myadmin', 'secret')
 </p>
+
+<ul class="org-ul">
+<li>create index</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongodb">db.collection.createIndex( { orderDate: 1 } )
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>create a new database:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongodb">&gt;use new_database
+</pre>
+</div>
+<ul class="org-ul">
+<li>Drop Database in MongoDB</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongodb">db.dropDatabase(); # drop currently using database
+</pre>
+</div>
+<ul class="org-ul">
+<li>Create Collection</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongodb">db.createCollection(name, options)
+</pre>
+</div>
+<ul class="org-ul">
+<li>Find All Documents in a Collection</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongodb">db.bios.find()
+</pre>
+</div>
+<ul class="org-ul">
+<li>Find Documents that Match Query Criteria</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongodb">db.products.find( { qty: { $gt: 25 } } )
+</pre>
+</div>
+<ul class="org-ul">
+<li>count</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-mongodb">db.xueqiu.count()
+</pre>
+</div>
 </div>
 </div>
 </div>

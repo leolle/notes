@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-11-13 Mon 09:56 -->
+<!-- 2018-03-01 Thu 14:07 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -350,10 +350,21 @@ Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">52</span>
 <span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">3</span>    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">1</span>  Charlie    Beta    Alpha
 </pre>
 </div>
-</div>
-</div>
-</div>
+<ul class="org-ul">
+<li>append a new row:</li>
+</ul>
+<div class="org-src-container">
 
+<pre class="src src-python"><span style="color: #FD971F;">df_analysis</span> = df_analysis.append<span style="color: #AE81FF;">(</span>
+        <span style="color: #66D9EF;">{</span>
+            <span style="color: #E6DB74;">'datetime'</span>: datetime,
+            <span style="color: #E6DB74;">'score'</span>: score
+        <span style="color: #66D9EF;">}</span>, ignore_index=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline4" class="outline-2">
 <h2 id="orgheadline4"><span class="section-number-2">3</span> MultiIndexing</h2>
 <div class="outline-text-2" id="text-3">

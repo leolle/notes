@@ -29,7 +29,7 @@ A regular opinion expresses a sentiment only on an particular entity or an aspec
 
 ** Sentiment Lexicon and Its Issues
 - lexicon
-opinions, positive and negative.
+专有词汇.
 - issue
 spam review
 - language structure:
@@ -56,6 +56,261 @@ We represent word meaning similarity using the meaning of the context words.
 model = gensim.models.Word2Vec.load('/tmp/model/path')
 model.train(more_sentences)
 #+END_SRC
+*** Several factors influence the quality of the word vectors:
+**** amount and quality of the training data
+**** size of the vectors
+**** training algorithm
+**** glossary:
+- latent semantic
+潜在语义
+- Uniform Resource Identifier (URI)
+- N-gram
+an n-gram is a contiguous sequence of n items from a given sample of text or speech.
+
+An n-gram model is a type of probabilistic language model for predicting the next item in such a sequence in the form of a (n − 1)–order Markov model.
+
+Two benefits of n-gram models (and algorithms that use them) are simplicity and scalability – with larger n, a model can store more context with a well-understood space–time tradeoff, enabling small experiments to scale up efficiently.
+
+
+- Web Ontology Language (OWL)
+- Resource Description Framework
+metadata data model. It has come to be used as a general method for conceptual description or modeling of information that is implemented in web resources, using a variety of syntax notations and data serialization formats. It is also used in knowledge management applications.
+
+- Lemmatization is the process of identifying the base, non-inflected form of a word.
+词干化是确定一个单词的固定的基本部分的过程。
+- Sentence Tokenize Test or Sentence Segmentation Test.
+断句。
+- Syntactic Parsing
+比如在opinion extraction中我们常常要抽取评价对象（aspect）：
+例：“知乎的内容质量很好”
+这里 “很好” 形容的是 “内容质量”。通过依存句法分析，就可以抽取出对应的搭配。
+
+再说说IR，以百度框计算为例。对于以下两个query：Query 1: 谢霆锋的儿子是谁？Query 2: 谢霆锋是谁的儿子？这两个Query的bag-of-words完全一致，如果不考虑其语法结构，很难直接给用户返回正确的结果。类似的例子还有很多。在这种情况下，通过句法分析，我们就能够知道用户询问的真正对象是什么。
+
+Tree-LSTM是基于句法结构之上的LSTM，Bi-LSTM则是简单的双向（left<->right）LSTM。在很多任务上，Bi-LSTM都表现得比Tree-LSTM更好。
+- Part of Speech Tagging
+#+BEGIN_SRC python
+>>> import jieba.posseg as pseg
+>>> words = pseg.cut("我爱北京天安门")
+>>> for w in words:
+...    print('%s %s' % (w.word, w.flag))
+...
+我 r
+爱 v
+北京 ns
+天安门 ns
+#+END_SRC
+- Pos Tagging Test:
+#+BEGIN_SRC python
+In [40]: doc4 = nlp(u"This is pos tagger test for spacy pos tagger")
+
+In [41]: for token in doc4:
+print token, token.pos, token.pos_
+....:
+This 87 DET
+is 97 VERB
+pos 82 ADJ
+tagger 89 NOUN
+test 89 NOUN
+for 83 ADP
+spacy 89 NOUN
+pos 89 NOUN
+tagger 89 NOUN
+#+END_SRC
+- Named Entity Recognizer (NER) Test:
+#+BEGIN_SRC python
+In [51]: doc5 = nlp(u"Rami Eid is studying at Stony Brook University in New York")
+
+In [52]: for ent in doc5.ents:
+print ent, ent.label, ent.label_
+....:
+Rami Eid 346 PERSON
+Stony Brook University 349 ORG
+New York 350 GPE
+#+END_SRC
+- Keyword Extraction(Terms Frequency - Inverse Document Frequency)
+#+BEGIN_SRC python
+import jieba
+import jieba.analyse
+from optparse import OptionParser
+
+topK = 10
+
+content = open(file_name, 'rb').read()
+
+tags = jieba.analyse.extract_tags(content, topK=topK)
+
+print(",".join(tags))
+
+#+END_SRC
+
+* Knowledge Graph
+** architecture
+[[./Images/knowledge_graph_architecture.png]]
+https://ilewseu.github.io/2017/11/11/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/
+知识图谱的定义与架构
+知识图谱的定义
+知识图谱是Google用于增强其搜索引擎功能的知识库。本质上，知识图谱是一种揭示实体之间关系的语义网络，可以对现实世界的事物及其相互关系进行形式化地描述。现在知识图谱以被用来泛指各种大规模的知识库。三元组是知识图谱的一种通用表示方式，即G=(E,R,S)，其中：
+
+G：表示知识库
+E：表示知识库中的所有实际的集合
+R：表示知识库中的关系集合
+S：表示知识库中的三元组集合，S⊆E×R×S
+三元组的基本形式主要包括实体1、关系、实体2和概念、属性、属性值等，实体是知识库中最基本的元素，不同的实体之间存在不同的关系。概念主要指集合、类别、对象类型、事物的种类，例如人物、地理等；属性主要指对象可能具有的属性、特征、特性、特点及参数，例如国籍、生日等；属性值主要指对象指定属性的值，例如中国、1988-09-08等。每个实体可以用一个全局唯一确定的ID来标识，每个属性-属性值对（atrribute-value pair，AVP）可用来刻画实体的内在特性，而关系可用来连接两个实体，刻画它们之间的关联。
+
+从覆盖范围而言，知识图谱可以分为通用知识图谱和行业知识图谱。通用知识图谱注重广度，强调融合更多的实体，较行业知识图谱而言，其准确度不够高，并且受概念范围的影响，很难借助本体库对公理、规则以及约束条件的支持能力规范其实体、属性、实体间的关系等。通用的知识库主要用于智能搜索等领域。行业知识图谱通常需要依靠特定的行业的数据来构建，具有特定的行业意义。行业知识图谱中，实体的属性与数据模式往往比较丰富，需要考虑到不同的业务场景与使用人员。
+
+知识图谱的架构
+知识图谱的架构主要包括自身的逻辑结构以及体系架构。
+
+1）知识图谱的逻辑结构
+知识图谱在逻辑上可以分为模式层与数据层两个层次。数据层主要是由一系列的事实组成，而知识将以事实为单位进行存储。可选择图数据库作为存储介质，例如开源的Neo4j、Twitter的FlockDB、seones的GraphDB。模式层构建在数据层之上，主要是通过本体库来规范数据层的一系列事实表达。本体是结构化知识库的概念模板，通过本体库而形成的知识库不仅层次结构较强，并且冗余程度叫较小。
+
+2）知识图谱的体系架构
+知识图谱的体系架构是指构建模式结构，如下图所示（图引自该论文）
+
+
+mark
+
+知识图谱主要有自顶向下(top-down)与自底向上(bottom-up)两种构建方式。自顶向下指是先为知识图谱定义好本体与数据模式，再将实体加入到知识库。该构建方式需要利用一些现有的结构化知识库作为其基础的知识库，例如Freebase就是采用这种方式，它的绝大部分数据是从维基百科中得到的。自底向上指的是从一些开放链接数据中提取出实体，选择其中置信度较高的加入到知识库，再构建顶层的本体模式。目前，大多数知识图谱都采用自底向上的方式进行构建，其中最典型的就是Google的Knowledge Vault。
+大规模知识库案例
+随着语义web资源数量激增、大量的RDF数据被发布和共享、LOD(linked open data)等项目的全面展开，学术界和工业界的研究人员花费了大量的精力构建各种结构化知识库。主要包括开放链接知识库、行业知识库两类。
+
+开放链接知识库
+在LOD项目的云图中FreeBase、Wikidata、DBpedia、YAGO这4个是比较重要的大规模知识库。它们中不仅包含大量的半结构化、非结构化数据，是知识图谱数据的重要来源。而且具有较高的领域覆盖面，与领域知识库存在大量的关系。
+
+垂直行业知识库
+行业知识库也可以称为垂直型知识库，这类知识库的描述目标是特定的行业领域，通常需要依靠特定行业的数据才能构建，因此其描述范围极为有限。下面几个就是比较典型的垂直行业知识库。
+
+IMDB，是一个关于电影演员、电影、电视节目、电视明星以及电影制作的治疗库。
+MusicBrainz,是一个结构化的音乐维基百科，致力于收藏所有的音乐元数据，并向大众用户开放。
+ConceptNet,是一个语义知识网络，主要由一系列代表概念的结点构成，这些概念将主要采用自然语言单词或短语的表达形式，通过相互连接建立语义联系。
+知识图谱的关键技术
+大规模知识库的构建与应用需要多种智能信息处理技术的支持。主要包括以下技术：
+
+知识抽取：从一些公开的半结构化、非结构化的数据中提取出实体、关系、属性等知识要素。
+知识融合：消除实体、关系、属性等指称项与事实对象之间的奇异，形成高质量的知识库。
+知识推理：在已有的知识库的基础上，进一步挖掘隐含的知识，从而丰富、扩展知识库。
+知识表示：以某种方式表示知识
+下面就分别介绍相关的技术。
+
+知识抽取
+知识抽取主要是面向开放的链接数据，通过自动化的技术抽取出可用的知识单元，知识单元主要包括实体、关系以及属性3个知识要素，并以此为基础，形成一系列高质量的事实表达，为上层模式层的构建奠定基础。
+
+(1) 实体抽取
+实体抽取，也称为命名实体识别，指的是从原始预料自动识别出命名实体。实体抽取主要分为3种方法：
+
+基于规则与词典的方法
+基于统计机器学习的方法
+面向开放域的抽取方法
+(2) 关系抽取
+关系抽取的目标是解决实体间的语义链接问题，早期的关系抽取主要是通过人工构造语义规则以及模板的方法识别实体关系。随后，实体间的关系模型逐渐代替了人工预定义的语法与规则。但是，仍需要提前定义实体间的关系类型。后来出现面向开放域的信息抽取框架(open information extraction,OIE),这是抽取模式上一个巨大进步。但OIE方法在对实体的隐含关系抽取方面性能低下，因此，部分研究者提出基于马尔科夫逻辑网、基于本体推理的深层隐含关系抽取方法。
+
+(3) 属性抽取
+属性抽取主要是针对实体而言的，通过属性可形成对实体的完整描述。由于实体的属性可以看成是实体与属性值之间的一种名称关系，因此可以将实体属性的抽取问题转换为关系抽取问题。大量的属性数据主要存在于半结构化、非结构化的大规模开放域数据集中。抽取这些属性的方法，一种是将上述从百科网站上抽取的结构化数据作为可用于属性抽取的训练集，然后再将该模型应用于开放域中的实体属性抽取；另一种，根据实体属性与属性之间的关系模式，直接从开放域数据集上抽取属性。但是，由于属性值附近普遍存在一些限定属性值定义的属性名等，所以该抽取方法的准确率并不高。
+
+知识表示
+虽然，基于三元组的知识表示形式比较直观，但是其在计算效率、数据稀疏性等方面面临着诸多问题。以Deep Learning为代表的表示学习技术可以将实体的语义信息表示为稠密低维实值向量，进而在低维空间中高效计算实体、关系及其之间的复杂语义关联，对知识库的构建、推理、融合及应用均具有重要的意义。
+
+(1) 应用场景
+分布式表示旨在用一个综合向量表示实体对象的语义信息，是一种模仿人脑工作的表示机制，通过知识表示而得到的分布式表示形式在知识图谱的计算、补全、推理等方面将起到重要作用：
+
+1）语义相似度计算。由于实体通过分布式表示而形成的是一个个低维的实值向量，所以，可使用熵权系数法、余弦相似性等方法计算它们之间的相似性。这种相似性刻画了实体之间的语义关联程度，为自然语言处理等提供了极大的便利。
+
+2）链接预测。通过分布式表示模型，可以预测图谱中任意两个实体之间的关系，以及实体间存在的关系的正确性。尤其是在大规模知识图谱上下文中，需要不断补充其中的实体关系，所以链接预测又被称为知识图谱的不全。
+
+(2) 代表模型
+知识表示学习的代表模型主要包括距离模型、双线性模型、神经张量模型、矩阵分解模型、翻译模型(TransE模型)等。
+
+(3) 复杂关系模型
+知识库中的实体关系类型也可以分为1-to-1、1-to-N、N-to-1、N-to-N四种类型，复杂的关系主要指的是1-to-N、N-to-1、N-to-N的3种关系类型。由于TransE模型不能用在处理复杂关系上，一系列基于它的扩展模型纷纷被提出，主要包括：TransH模型、TransR模型、TransD模型、TransG模型和KG2E模型。
+
+(4) 多源信息融合
+三元组作为知识库的一种通用的表示形式，通过表示学习，能够以较为直接的方式表说实体、关系及其之间的复杂语义关联。然而，互联网中仍蕴含着大量与知识库实体、关系有关的信息未被考虑或有效利用，如何充分融合、利用这些多源异质的相关信息，将有利于进一步提升现有知识表示模型的区分能力以及性能。目前，多源异质信息融合模型方面的研究尚处于起步阶段，涉及的信息来源也极为有限。
+
+知识融合
+由于知识图谱中的知识来源广泛，存在知识质量良莠不齐、来自不同数据源的知识重复、知识间的关联不够明确等问题，所以需要进行知识的融合。知识融合是高层次的知识组织，使来自不同的知识源的知识在同一框架规范下进行异构数据整合、消歧、加工、推理验证、更新等步骤，达到数据、信息、方法、经验以及人的思想的融合，形成高质量的知识库。
+
+实体对齐
+实体对齐(entity alignment)，也称为实体匹配或实体解析，主要用于消除异构数据中实体冲突、指向不明等不一致性问题，可以从顶层创建一个大规模的统一知识库，从而帮助机器理解多源异质的数据，形成高质量的知识。
+
+在大数据环境下，受知识库规模的影响，在进行知识库实体对齐时，主要会面临以下3个方面的挑战：（1）计算复杂度；（2）数据质量，不同知识库的构建目的与方式不同，可能存在知识质量良莠不齐、相似重复数据、孤立数据、数据时间粒度不一致等等问题。（3）先验训练数据，在大规模知识库中想要获得这种先验数据却非常困难。通常情况下，需要手工构造训练数据。
+
+基于上述，知识库实体对齐的主要流程包括：
+
+将待对齐数据分区索引，以降低计算的复杂度；
+利用相似度函数或相似性计算算法查找匹配实例；
+使用实体对齐算法进行实例融合；
+将步骤2和3的结果结合起来，形成最终的对齐结果。
+对齐算法可以分为成对实体对齐和集体实体对齐两大类，而集体实体对齐又可分为局部集体对齐和全局集体对齐。
+
+（1）成对实体对齐
+基于传统概率模型的实体对齐方法，主要是考虑两个实体各自属性的相似性，而不考虑实体之间的关系。基于机器学习的实体对齐方法，主要是将实体对齐问题转化为二分类问题。根据是否使用标注数据可分为有监督学习与无监督学习两类。
+
+（2）局部集体实体对齐方法
+局部集体实体对齐方法为实体本身的属性以及与它有关联的实体的属性分别设置不同的权重，并通过加权求和计算总体的相似度，还可使用向量空间模型以及余弦相似度来判别大规模知识库中的实体的相似程度。
+
+（3）全局集体实体对齐方法
+
+知识加工
+通过实体对齐，可以得到一系列的基本事实表达或初步的本体雏形，然而事实并不等于知识，它只是知识的基本单位。要形成高质量的知识，还需要经过知识加工的过程，从层次上形成一个大规模的知识体系，统一对知识进行管理。知识加工主要包括本体构建与质量评估两方面的内容。
+
+（1）本体构建
+本体是同一领域内不同主体之间进行交流、连通的语义基础，其主要呈现树状结构，相邻的层次结点或概念之间具有严格的”IsA”关系，有利于进行约束、推理等，却不利于表达概念的多样性。本体在知识图谱中的地位相当于知识库的模具，通过本体库而形成的知识库不仅层次结构较强，并且冗余程度较小。
+
+本体可以通过人工编辑的方式手动构建，也可以通过数据驱动自动构建，然后再经质量评估方法与人工审核相结合的方式加以修正和确认。数据驱动的本体自动构建过程主要可以分为以下3个阶段：
+
+纵向概念间的并列关系计算。通过计算任意两个实体间并列关系的相似度，可辨析它们在语义层面是否属于同一个概念。计算方法主要包括模式匹配和分布相似度两种。
+实体上下位关系抽取。上下位关系抽取方法包括基本语法的抽取与基本语义的抽取两种方式。
+本体生成。对各个层次得到的概念进行聚类，并为每一类的实体指定1个或多个公共上位词。
+（2）质量评估
+对知识库的质量评估任务通常是与实体对齐任务一起进行的，其意义在于，可以对知识的可信度进行量化，保留置信度较高的，舍弃置信度较低的，有效确保知识的质量。
+
+知识更新
+人类的认知能力、知识储备以及企业需求都会随着时间而不断递增。因此，知识图谱的内容也需要与时俱进，不论是通用的知识图谱，还是行业知识图谱，它们都需要不断地迭代更新，扩展现有的知识，增加新的知识。
+
+根据知识图谱的逻辑结构，其更新主要包括模式层的更新和数据层的更新。模式层的更新是指本体中元素的更新，包括概念的增加、修改、删除，概念属性的更新以及概念间上下位关系的更新。通常来说，模式层的增量更新方式消耗资源较少，但是多数情况下是在人工干预的情况下完成的。例如，需要人工定义规则，人工处理冲突等。数据层的更新指的是实体元素的更新，包括实体的增加、修改、删除，以及实体的基本信息和属性值。由于数据层的更新一般影响面较小，因此，通常以自动的方式完成。
+
+知识推理
+知识推理则是在已有的知识库基础上进一步挖掘隐含的知识，从而丰富、扩展知识库。在推理的过程中，往往需要关联规则的支持。对于推理规则的挖掘，主要还是依赖于实体以及关系间的丰富同现情况。知识推理的对象可以是实体、实体的属性、实体间的关系、本体库中的概念的层次结构等。知识推理方法主要可以分为基于逻辑的推理和基于图的推理两种类别。
+
+知识图谱的典型应用
+智能搜索
+基于知识图谱的智能搜索是一种基于长尾的搜索，搜索引擎以知识卡片的形式将搜索结果展现出来。用户的查询请求将经过查询式语义理解与知识检索两个阶段。
+
+查询式语义理解。知识图谱对查询式的语义分析主要包括：（1）对查询请求文本进行分词、词性标注以及纠错；（2）描述归一化，使其与知识库中的相关知识进行匹配；（3）语境分析，在不同的语境下，用户查询式中的对象会有所差别，因此，知识图谱需要结合用户当时的情感，将用户此时需要的答案及时反馈给用户；（4）查询扩展，明确了用户的查询意图以及相关概念后，需要加入当前语境下的相关概念进行扩展。
+知识检索。经过查询式语义分析后，标准查询语境进行知识库检索引擎，引擎会在知识库中检索相应的实体以及与其在类别、关系、相关性等方面匹配度较高的实体。通过对知识库的深层挖掘与提炼后，引擎将给出具有重要性排序的完整知识体系。
+智能搜索引擎主要以3种形式展现知识：
+
+集成的语义数据。例如，搜索梵高，搜索引擎将以知识卡片的形式给出梵高的生平，并配合图片等信息。
+直接给出用户查询问题的答案。例如，用户搜索“姚明的身高是多少？”，搜索引擎的结果是“226cm”。
+根据用户的查询给出推荐的列表等。
+深度问答
+问答系统是信息检索系统的一种高级形式，能够以准确简洁的自然语言为用户提供问题的解答。多数问答系统更倾向于将给定的问题分解为多个小的问题，然后逐一去知识库中抽取匹配的答案，并自动检测其在时间与空间上的吻合度等，最后将答案进行合并，以直观的方式展现给用户。
+
+社交网络
+知识图谱的挑战
+(1)知识获取
+(2)知识表示
+复制关系中的知识表示
+多源信息融合中的知识表示
+(3)知识融合
+并行与分布式算法
+众包算法
+跨语言知识对齐
+(4)知识应用
+* Knowledge-based Q&A
+** Introduction
+#+CAPTION: introduction
+[[./nlp/kbqa_intro.jpg]]
+** 基于意图的结构化问答系统
+银江股份的市盈率
+
+首先识别出其中的实体是银江股份（300020），意图是查询财务指标，目标参数是市盈率，隐藏时间是当前日期，然后只需要把这个问题对应到财务的微服务API就可以了，拿到API的返回结果，调用响应模板做填充。
+** 基于检索的问答系统
+对于像新闻、研究报告类的文档内容的搜索和观点挖掘，是一种精细化的搜索方式，不是直接对文档的全文进行检索，而是首先提取分析出文档的重要成分，比如：公司事件、摘要、情感、评级、作者正负面观点等，建立到搜索引擎中，基于启发式方法根据输入的内容进行匹配回复。比如：“航天信息可以买吗？”，不一定能准确的告诉用户可以或不可以，但是可以告诉他航天信息在当前的技术指标（金叉、死叉等），资金流量，研究员的正负面观点以及年报对2017年的管理层意见摘要等等。
+** 基于知识图谱的问答系统
+比如：“和苹果手机有关系的股票有哪些？”，“治理雾霾对哪些上市公司会产生影响？”，“钴价上升对哪些股票产生影响最大？”等，当然这些问题通过搜索的方式也能得到答案，但它们有一些共同点，问题的本身都描述着实体和实体之间的关系或者相关性，而这正是知识图谱能够解决的问题，知识图谱将搜索引擎从字符串匹配推进到实体关系查询推理层面.
 
 * Definition of Sentiment Analysis
 ** Structure
@@ -68,6 +323,42 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 - Definition (entity): An entity e is a product, service, topic, issue, person, organization, or event. It is described with a pair, e: (T, W), where T is a hierarchy of parts, sub-parts, and so on, and W is a set of attributes of e.
 
 - Definition (opinion): An opinion is a quintuple, (ei, aij, sijkl, hk, tl), where ei is the name of an entity, aij is an aspect of ei, sijkl is the sentiment on aspect aij of entity ei, hk is the opinion holder, and tl is the time when the opinion is expressed by hk. The sentiment sijkl is positive, negative, or neutral, or expressed with different strength/intensity levels, e.g., 1 to 5 stars as used by most review sits on the Web.
+
+- 基于词典
+准确率：准确率较高（80%以上），随着人工工作量的增加，准确率增加
+
+优点：易于理解
+
+缺点：人工工作量大
+
+- 基于k_NN
+准确率：很低（60% - 70%）
+
+优点：思想简单、算法简单
+
+缺点：准确率低；耗内存；耗时间
+
+- 基于Bayes
+准确率：还可以（70% - 80%）
+
+优点：简单，高效，运算速度快，扩展性好
+
+缺点：准确率不高，达不到实用
+
+- 基于最大熵
+准确率：比较高（83%以上）
+
+优点：准确率高
+
+缺点：训练时间久
+
+- 基于SVM
+准确率：最高（85%以上）
+
+优点：准确率高
+
+缺点：训练耗时
+
 * Language Technology Processing
 [http://ltp.ai/docs/index.html]
 ** features:
@@ -82,6 +373,10 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 
 - main topic classification:
 [[https://en.wikipedia.org/wiki/Category:Main_topic_classifications]]
+
+- database reports/list of properties
+https://www.wikidata.org/wiki/Wikidata:Database_reports/List_of_properties/all
+
 ** Login
 #+BEGIN_SRC neo4j
 :server connect
@@ -98,6 +393,23 @@ darts-quota-alternation
 
 #+END_SRC
 
+** baike triples
+subjects, predicates, and objects
+
+|   Entity | Relationships | Semantic Descriptions |
+| 65001293 |        374311 |               9284910 |
+subject, attribute, value
+
+subject, relation, subject
+
+** SPARQL: RDF Query Language
+W3C standard that underlies the Web's knowledge representation formalism: the Web Ontology Language (OWL).
+** Visualization tool: Graphviz, networkx, Gephi
+** Graph database: GraphDB, Neo4j.
+- node
+property
+- relationship
+- directional
 ** Approach 1: Loading a reduced subset incrementally through the MediaWiki API
 - wiki dumps:
 
@@ -230,8 +542,8 @@ From Wikipedia, the free encyclopedia
 
 Subcategories
 This category has only the following subcategory.
-R
-► Resource Description Framework‎ (5 C, 24 P)
+
+► Resource Description Framework(RDF)
 
 Pages in category "Graph databases"
 The following 15 pages are in this category, out of 15 total. This list may not reflect recent changes (learn more).
@@ -315,6 +627,7 @@ and p2.page_namespace = 14
 
 *** Data dumps/Import
 **** structure:
+https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql
 - category:
 | cat_id | cat_title                  | cat_pages | cat_subcats | cat_files |
 |      3 | 'Computer_storage_devices' |        88 |          10 |         0 |
@@ -407,12 +720,155 @@ I installed tidy and added the following lines to LocalSettings.php to reflect t
 I set up the interwiki cache cdb file, by using fixup-interwikis.py via the command python fixup-interwikis.py --localsettings /var/www/html/elwikt/LocalSettings.php --sitetype wiktionary and then added $wgInterwikiCache = "$IP/cache/interwiki.cdb" to the LocalSettings.php file. (See mw:Interwiki_cache/Setup_for_your_own_wiki for info.)
 That was it. This was enough to let me view (most) pages without errors.
 
-* TensorBoard: Embedding Visualization
-** Projections
-The Embedding Projector has three methods of reducing the dimensionality of a data set: two linear and one nonlinear. Each method can be used to create either a two- or three-dimensional view.
+* NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim
+|      | jieba | THULAC | SnowNLP | pynlpir | CoreNLP | pyLTP | spaCy | gensim |
+| star | 11859 |    487 |    2159 |     941 |    4262 |   398 |  7985 |   6092 |
 
-- [[http://setosa.io/ev/principal-component-analysis/][Principal Component Analysis]]
-A straightforward technique for reducing dimensions is Principal Component Analysis (PCA). The Embedding Projector computes the top 10 principal components. The menu lets you project those components onto any combination of two or three. PCA is a linear projection, often effective at examining global geometry.
-
-- [[https://distill.pub/2016/misread-tsne/][t-SNE]]
-A popular non-linear dimensionality reduction technique is t-SNE. The Embedding Projector offers both two- and three-dimensional t-SNE views. Layout is performed client-side animating every step of the algorithm. Because t-SNE often preserves some local structure, it is useful for exploring local neighborhoods and finding clusters. Although extremely useful for visualizing high-dimensional data, t-SNE plots can sometimes be mysterious or misleading. See this great article for how to use t-SNE effectively.
+* Position Of Tagging
+** 词性解释
+| CC   | conjunction, coordinatin 表示连词                        |
+| CD   | numeral, cardinal 表示基数词                             |
+| DT   | determiner 表示限定词                                    |
+| EX   | existential there 存在句                                 |
+| FW   | foreign word 外来词                                      |
+| IN   | preposition or conjunction, subordinating 介词或从属连词 |
+| JJ   | adjective or numeral, ordinal 形容词或序数词             |
+| JJR  | adjective, comparative 形容词比较级                      |
+| JJS  | adjective, superlative 形容词最高级                      |
+| LS   | list item marker 列表标识                                |
+| MD   | modal auxiliary 情态助动词                               |
+| NN   | noun, common, singular or mass                           |
+| NNS  | noun, common, plural                                     |
+| NNP  | noun, proper, singular                                   |
+| NNPS | noun, proper, plural                                     |
+| PDT  | pre-determiner 前位限定词                                |
+| POS  | genitive marker 所有格标记                               |
+| PRP  | pronoun, personal 人称代词                               |
+| PRP  | pronoun,possessive所有格代词                             |
+| RB   | adverb副词                                               |
+| RBR  | adverb,comparative副词比较级                             |
+| RBS  | adverb,superlative副词最高级                             |
+| RP   | particle小品词                                           |
+| SYM  | symbol符号                                               |
+| TO   | ”to”asprepositionorinfinitivemarker作为介词或不定式标记  |
+| UH   | interjection插入语                                       |
+| VB   | verb,baseform                                            |
+| VBD  | verb,pasttense                                           |
+| VBG  | verb,presentparticipleorgerund                           |
+| VBN  | verb,pastparticiple                                      |
+| VBP  | verb,presenttense,not3rdpersonsingular                   |
+| VBZ  | verb,presenttense,3rdpersonsingular                      |
+| WDT  | WH−determiner                                            |
+| WH   | 限定词                                                   |
+| WP   | WH−pronoun                                               |
+| WH   | 代词                                                     |
+| WP   | WH-pronoun, possessive                                   |
+| WH   | 所有格代词                                               |
+| WRB  | Wh-adverb                                                |
+| WH   | 副词                                                     |
+** 句法分析（句法树）
+| ROOT | 要处理文本的语句                                                                            |
+| IP   | 简单从句                                                                                    |
+| NP   | 名词短语                                                                                    |
+| VP   | 动词短语                                                                                    |
+| PU   | 断句符，通常是句号、问号、感叹号等标点符号                                                  |
+| LCP  | 方位词短语                                                                                  |
+| PP   | 介词短语                                                                                    |
+| CP   | 由‘的’构成的表示修饰性关系的短语                                                            |
+| DNP  | 由‘的’构成的表示所属关系的短语                                                              |
+| ADVP | 副词短语                                                                                    |
+| ADJP | 形容词短语                                                                                  |
+| DP   | 限定词短语                                                                                  |
+| QP   | 量词短语                                                                                    |
+| NN   | 常用名词                                                                                    |
+| NR   | 固有名词,表示仅适用于该项事物的名词，含地名，人名，国名，书名，团体名称以及一事件的名称等。 |
+| NT   | 时间名词                                                                                    |
+| PN   | 代词                                                                                        |
+| VV   | 动词                                                                                        |
+| VC   | 是                                                                                          |
+| CC   | 表示连词                                                                                    |
+| VE   | 有                                                                                          |
+| VA   | 表语形容词                                                                                  |
+| AS   | 内容标记（如:了）                                                                           |
+| VRD  | 动补复合词                                                                                  |
+| CD   | 表示基数词                                                                                  |
+| DT   | determiner 表示限定词                                                                       |
+| EX   | existential there 存在句                                                                    |
+| FW   | foreign word 外来词                                                                         |
+| IN   | preposition or conjunction, subordinating,介词或从属连词                                    |
+| JJ   | adjective or numeral, ordinal 形容词或序数词                                                |
+| JJR  | adjective, comparative 形容词比较级                                                         |
+| JJS  | adjective, superlative 形容词最高级                                                         |
+| LS   | list item marker 列表标识                                                                   |
+| MD   | modal auxiliary 情态助动词                                                                  |
+| PDT  | pre-determiner 前位限定词                                                                   |
+| POS  | genitive marker 所有格标记                                                                  |
+| PRP  | pronoun, personal 人称代词                                                                  |
+| RB   | adverb 副词                                                                                 |
+| RBR  | adverb, comparative 副词比较级                                                              |
+| RBS  | adverb, superlative 副词最高级                                                              |
+| RP   | particle 小品词                                                                             |
+| SYM  | symbol 符号                                                                                 |
+| TO   | ”to” as preposition or infinitive marker,作为介词或不定式标记                               |
+| WDT  | WH-determiner WH限定词                                                                      |
+| WP   | WH-pronoun                                                                                  |
+| WH   | 代词                                                                                        |
+| WP$  | WH-pronoun, possessive                                                                      |
+| WH   | 所有格代词                                                                                  |
+| WRB  | Wh-adverb,WH副词                                                                            |
+** 关系表示
+| abbrev     | abbreviation modifier，缩写                                      |
+| acomp      | adjectival complement，形容词的补充                              |
+| advcl      | adverbial clause modifier，状语从句修饰词                        |
+| advmod     | adverbial modifier状语                                           |
+| agent      | agent，代理，一般有by的时候会出现这个                            |
+| amod       | adjectival modifier形容词                                        |
+| appos      | appositional modifier,同位词                                     |
+| attr       | attributive，属性                                                |
+| aux        | auxiliary，非主要动词和助词，如BE,HAVE SHOULD/COULD等到          |
+| auxpass    | passive auxiliary 被动词                                         |
+| cc         | coordination，并列关系，一般取第一个词                           |
+| ccomp      | clausal complement从句补充                                       |
+| complm     | complementizer，引导从句的词好重聚中的主要动词                   |
+| conj       | conjunct，连接两个并列的词。                                     |
+| cop        | copula。系动词（如be,seem,appear等），（命题主词与谓词间的）连系 |
+| csubj      | clausal subject，从主关系                                        |
+| csubjpass  | clausal passive subject 主从被动关系                             |
+| dep        | dependent依赖关系                                                |
+| det        | determiner决定词，如冠词等                                       |
+| dobj       | direct object直接宾语                                            |
+| expl       | expletive，主要是抓取there                                       |
+| infmod     | infinitival modifier，动词不定式                                 |
+| iobj       | indirect object，非直接宾语，也就是所以的间接宾语；              |
+| mark       | marker，主要出现在有“that” or “whether”“because”, “when”,        |
+| mwe        | multi-word expression，多个词的表示                              |
+| neg        | negation modifier否定词                                          |
+| nn         | noun compound modifier名词组合形式                               |
+| npadvmod   | noun phrase as adverbial modifier名词作状语                      |
+| nsubj      | nominal subject，名词主语                                        |
+| nsubjpass  | passive nominal subject，被动的名词主语                          |
+| num        | numeric modifier，数值修饰                                       |
+| number     | element of compound number，组合数字                             |
+| parataxis  | parataxis,parataxis，并列关系                                    |
+| partmod    | participial modifier动词形式的修饰                               |
+| pcomp      | prepositional complement，介词补充                               |
+| pobj       | object of a preposition，介词的宾语                              |
+| poss       | possession modifier，所有形式，所有格，所属                      |
+| possessive | possessive modifier，这个表示所有者和那个’S的关系                |
+| preconj    | preconjunct，常常是出现在 “either”, “both”, “neither”的情况下    |
+| predet     | predeterminer，前缀决定，常常是表示所有                          |
+| prep       | prepositional modifier                                           |
+| prepc      | prepositional clausal modifier                                   |
+| prt        | phrasal verb particle，动词短语                                  |
+| punct      | punctuation，这个很少见，但是保留下来了，结果当中不会出现这个    |
+| purpcl     | purpose clause modifier，目的从句                                |
+| quantmod   | quantifier phrase modifier，数量短语                             |
+| rcmod      | relative clause modifier相关关系                                 |
+| ref        | referent，指示物，指代                                           |
+| rel        | relative                                                         |
+| root       | root，最重要的词，从它开始，根节点                               |
+| tmod       | temporal modifier                                                |
+| xcomp      | open clausal complement                                          |
+| xsubj      | controlling subject 掌控者                                       |
+** ICTCLAS词性标注
+#+INCLUDE: "./nlp/ictclas.org" :minlevel 1

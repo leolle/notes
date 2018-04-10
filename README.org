@@ -1,4 +1,7 @@
-Wei Wu's notes
+* Resume
+https://www.linkedin.com/in/victorweiwu/
+
+* Wei Wu's notes
 #+BEGIN_EXAMPLE
 [[notes]]
 ├── books
@@ -7,7 +10,6 @@ Wei Wu's notes
 │   │       ├── flag_orange.png
 │   │       └── 有效network.jpg
 │   └── 有效network.html
-├── Boosting.org
 ├── Business
 │   ├── O2O_files
 │   │   ├── b4ea9f2aca4608d4e9a59900d3a48edd42d8d42d06d803c7c8d54b34d6415f22.png
@@ -63,23 +65,47 @@ Wei Wu's notes
 │   ├── C++
 │   │   └── C++.org
 │   ├── DB.org
+│   ├── Docker.org
+│   ├── Java
+│   │   └── java.org
 │   ├── Linux
 │   │   └── Linux.org
 │   ├── MachineLearning
 │   │   ├── BasicModule2.org
 │   │   ├── BasicModule.org
+│   │   ├── Boosting.org
 │   │   ├── code
+│   │   │   ├── decision_tree.ipynb
 │   │   │   ├── gaussian_3_d_plot.png
 │   │   │   ├── intro.py
+│   │   │   ├── Principal_Component_Analysis.ipynb
 │   │   │   ├── regression
 │   │   │   │   └── L2_regression.py
-│   │   │   └── taylor_expansion.py
+│   │   │   ├── taylor_expansion.py
+│   │   │   └── tree.py
 │   │   ├── DecisionTree.org
 │   │   ├── DeepLearning.org
+│   │   ├── glossary.org
+│   │   ├── Images
+│   │   │   ├── cost_function.png
+│   │   │   ├── knowledge_graph_architecture.png
+│   │   │   ├── lr_vs_svm.jpg
+│   │   │   └── LSTM3-chain.png
+│   │   ├── KnowledgeGraph.org
 │   │   ├── MachineLearning.org
+│   │   ├── NaiveBayes.org
 │   │   ├── NaturalLanguageProcessing.org
 │   │   ├── nlp
-│   │   │   └── clustering_test.png
+│   │   │   ├── clustering_test.png
+│   │   │   ├── kbqa_intro.jpg
+│   │   │   ├── knowledge_graph_company.jpg
+│   │   │   ├── NLP.html
+│   │   │   ├── NLP+libraries+comparison.html
+│   │   │   ├── NLPLibraries.html
+│   │   │   └── resources
+│   │   │       └── sheet.css
+│   │   ├── RecurrentNeuralNetwork.org
+│   │   ├── Tensorflow.org
 │   │   └── TextBasedIndustryClassification.org
 │   ├── ProgramicStyle
 │   │   └── PragmaticProgrammer.org
@@ -100,7 +126,7 @@ Wei Wu's notes
 │   │   │   ├── PerformanceOfPythonParadigms.html
 │   │   │   ├── Regression.html
 │   │   │   └── sentiment.html
-│   │   ├── python2.org
+│   │   ├── python2.org.bak
 │   │   ├── PythonForFinance.md
 │   │   ├── PythonForFinance.org
 │   │   ├── python.org
@@ -164,25 +190,172 @@ Wei Wu's notes
 │   ├── configOrg
 │   │   ├── level0.html
 │   │   ├── level1.html
-│   │   └── level2.html
+│   │   ├── level2.html
+│   │   └── sections
 │   ├── CS
 │   │   ├── C++
 │   │   │   └── C++.html
 │   │   ├── DB.html
+│   │   ├── Docker.html
+│   │   ├── Java
+│   │   │   └── java.html
 │   │   ├── Linux
 │   │   │   └── Linux.html
 │   │   ├── MachineLearning
 │   │   │   ├── BasicModule2.html
 │   │   │   ├── BasicModule.html
 │   │   │   ├── BayesianNetworkDescribingYourData.html
+│   │   │   ├── Boosting.html
 │   │   │   ├── code
 │   │   │   │   └── gaussian_3_d_plot.png
 │   │   │   ├── DecisionTree.html
 │   │   │   ├── DeepLearning.html
+│   │   │   ├── glossary.html
+│   │   │   ├── KnowledgeGraph.html
 │   │   │   ├── MachineLearning.html
+│   │   │   ├── NaiveBayes.html
 │   │   │   ├── NaturalLanguageProcessing.html
 │   │   │   ├── nlp
-│   │   │   │   └── clustering_test.png
+│   │   │   │   ├── clustering_test.png
+│   │   │   │   ├── images
+│   │   │   │   │   ├── image100.png
+│   │   │   │   │   ├── image101.png
+│   │   │   │   │   ├── image102.png
+│   │   │   │   │   ├── image103.png
+│   │   │   │   │   ├── image104.png
+│   │   │   │   │   ├── image105.png
+│   │   │   │   │   ├── image106.png
+│   │   │   │   │   ├── image107.png
+│   │   │   │   │   ├── image108.png
+│   │   │   │   │   ├── image109.png
+│   │   │   │   │   ├── image10.png
+│   │   │   │   │   ├── image110.png
+│   │   │   │   │   ├── image111.png
+│   │   │   │   │   ├── image112.png
+│   │   │   │   │   ├── image113.png
+│   │   │   │   │   ├── image114.png
+│   │   │   │   │   ├── image115.png
+│   │   │   │   │   ├── image116.png
+│   │   │   │   │   ├── image117.png
+│   │   │   │   │   ├── image118.png
+│   │   │   │   │   ├── image119.png
+│   │   │   │   │   ├── image11.png
+│   │   │   │   │   ├── image120.png
+│   │   │   │   │   ├── image121.png
+│   │   │   │   │   ├── image122.png
+│   │   │   │   │   ├── image123.png
+│   │   │   │   │   ├── image124.png
+│   │   │   │   │   ├── image125.png
+│   │   │   │   │   ├── image126.png
+│   │   │   │   │   ├── image127.png
+│   │   │   │   │   ├── image128.png
+│   │   │   │   │   ├── image129.png
+│   │   │   │   │   ├── image12.png
+│   │   │   │   │   ├── image130.png
+│   │   │   │   │   ├── image131.png
+│   │   │   │   │   ├── image13.png
+│   │   │   │   │   ├── image14.png
+│   │   │   │   │   ├── image15.png
+│   │   │   │   │   ├── image16.png
+│   │   │   │   │   ├── image17.png
+│   │   │   │   │   ├── image18.png
+│   │   │   │   │   ├── image19.png
+│   │   │   │   │   ├── image1.png
+│   │   │   │   │   ├── image20.png
+│   │   │   │   │   ├── image21.png
+│   │   │   │   │   ├── image22.png
+│   │   │   │   │   ├── image23.png
+│   │   │   │   │   ├── image24.png
+│   │   │   │   │   ├── image25.png
+│   │   │   │   │   ├── image26.png
+│   │   │   │   │   ├── image27.png
+│   │   │   │   │   ├── image28.png
+│   │   │   │   │   ├── image29.png
+│   │   │   │   │   ├── image2.png
+│   │   │   │   │   ├── image30.png
+│   │   │   │   │   ├── image31.png
+│   │   │   │   │   ├── image32.png
+│   │   │   │   │   ├── image33.png
+│   │   │   │   │   ├── image34.png
+│   │   │   │   │   ├── image35.png
+│   │   │   │   │   ├── image36.png
+│   │   │   │   │   ├── image37.png
+│   │   │   │   │   ├── image38.png
+│   │   │   │   │   ├── image39.png
+│   │   │   │   │   ├── image3.png
+│   │   │   │   │   ├── image40.png
+│   │   │   │   │   ├── image41.png
+│   │   │   │   │   ├── image42.png
+│   │   │   │   │   ├── image43.png
+│   │   │   │   │   ├── image44.png
+│   │   │   │   │   ├── image45.png
+│   │   │   │   │   ├── image46.png
+│   │   │   │   │   ├── image47.png
+│   │   │   │   │   ├── image48.png
+│   │   │   │   │   ├── image49.png
+│   │   │   │   │   ├── image4.png
+│   │   │   │   │   ├── image50.png
+│   │   │   │   │   ├── image51.png
+│   │   │   │   │   ├── image52.png
+│   │   │   │   │   ├── image53.png
+│   │   │   │   │   ├── image54.png
+│   │   │   │   │   ├── image55.png
+│   │   │   │   │   ├── image56.png
+│   │   │   │   │   ├── image57.png
+│   │   │   │   │   ├── image58.png
+│   │   │   │   │   ├── image59.png
+│   │   │   │   │   ├── image5.png
+│   │   │   │   │   ├── image60.png
+│   │   │   │   │   ├── image61.png
+│   │   │   │   │   ├── image62.png
+│   │   │   │   │   ├── image63.png
+│   │   │   │   │   ├── image64.png
+│   │   │   │   │   ├── image65.png
+│   │   │   │   │   ├── image66.png
+│   │   │   │   │   ├── image67.png
+│   │   │   │   │   ├── image68.png
+│   │   │   │   │   ├── image69.png
+│   │   │   │   │   ├── image6.png
+│   │   │   │   │   ├── image70.png
+│   │   │   │   │   ├── image71.png
+│   │   │   │   │   ├── image72.png
+│   │   │   │   │   ├── image73.png
+│   │   │   │   │   ├── image74.png
+│   │   │   │   │   ├── image75.png
+│   │   │   │   │   ├── image76.png
+│   │   │   │   │   ├── image77.png
+│   │   │   │   │   ├── image78.png
+│   │   │   │   │   ├── image79.png
+│   │   │   │   │   ├── image7.png
+│   │   │   │   │   ├── image80.png
+│   │   │   │   │   ├── image81.png
+│   │   │   │   │   ├── image82.png
+│   │   │   │   │   ├── image83.png
+│   │   │   │   │   ├── image84.png
+│   │   │   │   │   ├── image85.png
+│   │   │   │   │   ├── image86.png
+│   │   │   │   │   ├── image87.png
+│   │   │   │   │   ├── image88.png
+│   │   │   │   │   ├── image89.png
+│   │   │   │   │   ├── image8.png
+│   │   │   │   │   ├── image90.png
+│   │   │   │   │   ├── image91.png
+│   │   │   │   │   ├── image92.png
+│   │   │   │   │   ├── image93.png
+│   │   │   │   │   ├── image94.png
+│   │   │   │   │   ├── image95.png
+│   │   │   │   │   ├── image96.png
+│   │   │   │   │   ├── image97.png
+│   │   │   │   │   ├── image98.png
+│   │   │   │   │   ├── image99.png
+│   │   │   │   │   └── image9.png
+│   │   │   │   ├── NLP.html
+│   │   │   │   ├── NLP+libraries+comparison.html
+│   │   │   │   ├── NLPLibraries.html
+│   │   │   │   └── resources
+│   │   │   │       └── sheet.css
+│   │   │   ├── RecurrentNeuralNetwork.html
+│   │   │   ├── Tensorflow.html
 │   │   │   └── TextBasedIndustryClassification.html
 │   │   ├── ProgramicStyle
 │   │   │   └── PragmaticProgrammer.html
@@ -240,7 +413,27 @@ Wei Wu's notes
 │   │   ├── MultiFactorModel.html
 │   │   ├── option.html
 │   │   ├── PortfolioOptimization.html
-│   │   └── QuantitativeInvestment.html
+│   │   ├── QuantitativeInvestment.html
+│   │   └── RiskModelHandbook
+│   │       ├── images
+│   │       │   ├── image10.png
+│   │       │   ├── image11.png
+│   │       │   ├── image12.png
+│   │       │   ├── image13.png
+│   │       │   ├── image14.png
+│   │       │   ├── image15.png
+│   │       │   ├── image16.png
+│   │       │   ├── image17.png
+│   │       │   ├── image1.png
+│   │       │   ├── image2.png
+│   │       │   ├── image3.png
+│   │       │   ├── image4.png
+│   │       │   ├── image5.png
+│   │       │   ├── image6.png
+│   │       │   ├── image7.png
+│   │       │   ├── image8.png
+│   │       │   └── image9.png
+│   │       └── RiskModelHandbook.html
 │   ├── GS
 │   │   ├── converted_file_d64e468e.html
 │   │   ├── converted_file_d64e468e_html_2d293890.jpg
@@ -319,6 +512,7 @@ Wei Wu's notes
 │   │   │       └── converted_file_d64e468e_html_f950e069.jpg
 │   │   ├── OSet
 │   │   │   ├── anomalies.html
+│   │   │   ├── docs_tree.html
 │   │   │   ├── oset.html
 │   │   │   └── oset.html.bak
 │   │   ├── 从文档到创建需求.docx
@@ -344,6 +538,9 @@ Wei Wu's notes
 │   │   │   ├── image019.jpg
 │   │   │   └── image020.jpg
 │   │   └── 从文档到创建需求.htm
+│   ├── img
+│   │   ├── knowledge_graph_company.jpg
+│   │   └── knowledge_graph_organization.png
 │   ├── index.html
 │   ├── ipynb
 │   │   ├── about
@@ -468,13 +665,17 @@ Wei Wu's notes
 │   │   │   └── Unchecked.png
 │   │   └── Statistics.html
 │   ├── notes
+│   │   ├── archive.html
+│   │   ├── investment_analysis.html
 │   │   ├── Jiajia.html
 │   │   ├── miscellaneous.html
+│   │   ├── PaperSummary.html
 │   │   └── thought.html
 │   ├── org
 │   │   ├── index.html
 │   │   └── sitemap.html
 │   ├── python_rules.html
+│   ├── README.html
 │   ├── sitemap.html
 │   ├── styles
 │   │   ├── demo
@@ -521,7 +722,27 @@ Wei Wu's notes
 │   ├── MultiFactorModel.org
 │   ├── option.org
 │   ├── PortfolioOptimization.org
-│   └── QuantitativeInvestment.org
+│   ├── QuantitativeInvestment.org
+│   └── RiskModelHandbook
+│       ├── images
+│       │   ├── image10.png
+│       │   ├── image11.png
+│       │   ├── image12.png
+│       │   ├── image13.png
+│       │   ├── image14.png
+│       │   ├── image15.png
+│       │   ├── image16.png
+│       │   ├── image17.png
+│       │   ├── image1.png
+│       │   ├── image2.png
+│       │   ├── image3.png
+│       │   ├── image4.png
+│       │   ├── image5.png
+│       │   ├── image6.png
+│       │   ├── image7.png
+│       │   ├── image8.png
+│       │   └── image9.png
+│       └── RiskModelHandbook.html
 ├── GS
 │   ├── Introduction
 │   │   ├── create_strategies
@@ -572,9 +793,14 @@ Wei Wu's notes
 │   │       └── converted_file_d64e468e_html_f950e069.jpg
 │   └── OSet
 │       ├── anomalies.org
+│       ├── docs_tree.org
 │       ├── oset.org
 │       └── oset.tex
 ├── img
+│   ├── knowledge_graph_company.jpg
+│   ├── knowledge_graph_fruit.png
+│   ├── knowledge_graph_organization.png
+│   └── knowledge_graph_report.png
 ├── index.org
 ├── ipynb
 │   ├── config
@@ -655,18 +881,21 @@ Wei Wu's notes
 │   │   └── Unchecked.png
 │   └── Statistics.org
 ├── notes
+│   ├── archive.org
+│   ├── investment_analysis.org
 │   ├── Jiajia.org
 │   ├── miscellaneous.org
+│   ├── PaperSummary.org
 │   └── thought.org
 ├── open_index.sh
-├── README.md
+├── README.org
 ├── search.sh
 ├── sitemap.org
-├── some_filename.png
 ├── styles
 │   ├── demo
 │   │   └── css
-│   │       └── demo.css
+│   │       ├── demo.css
+│   │       └── style.css
 │   └── readtheorg
 │       ├── css
 │       │   ├── htmlize.css
@@ -678,5 +907,6 @@ Wei Wu's notes
 ├── update.sh
 └── work_plan.org
 
-139 directories, 537 files
+151 directories, 751 files
+
 #+END_EXAMPLE

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-22 Fri 11:27 -->
+<!-- 2018-04-09 Mon 13:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -149,46 +149,82 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline6">1. Overview</a>
+<li><a href="#orgheadline11">1. Overview</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Sentiment Lexicon and Its Issues</a></li>
 <li><a href="#orgheadline2">1.2. Neural Network Architectures</a></li>
 <li><a href="#orgheadline3">1.3. Feature Representation</a></li>
-<li><a href="#orgheadline5">1.4. Word Embedding</a>
+<li><a href="#orgheadline10">1.4. Word Embedding</a>
 <ul>
 <li><a href="#orgheadline4">1.4.1. Increamental training with Gensim.</a></li>
+<li><a href="#orgheadline9">1.4.2. Several factors influence the quality of the word vectors:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline9">2. Definition of Sentiment Analysis</a>
+<li><a href="#orgheadline13">2. Knowledge Graph</a>
 <ul>
-<li><a href="#orgheadline7">2.1. Structure</a></li>
-<li><a href="#orgheadline8">2.2. Opinion Defintion</a></li>
+<li><a href="#orgheadline12">2.1. architecture</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline11">3. Language Technology Processing</a>
+<li><a href="#orgheadline18">3. Knowledge-based Q&amp;A</a>
 <ul>
-<li><a href="#orgheadline10">3.1. features:</a></li>
+<li><a href="#orgheadline14">3.1. Introduction</a></li>
+<li><a href="#orgheadline15">3.2. 基于意图的结构化问答系统</a></li>
+<li><a href="#orgheadline16">3.3. 基于检索的问答系统</a></li>
+<li><a href="#orgheadline17">3.4. 基于知识图谱的问答系统</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">4. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<li><a href="#orgheadline21">4. Definition of Sentiment Analysis</a>
 <ul>
-<li><a href="#orgheadline12">4.1. Login</a></li>
-<li><a href="#orgheadline13">4.2. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
-<li><a href="#orgheadline17">4.3. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
-<ul>
-<li><a href="#orgheadline16">4.3.1. Data dumps/Import</a></li>
+<li><a href="#orgheadline19">4.1. Structure</a></li>
+<li><a href="#orgheadline20">4.2. Opinion Defintion</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline23">5. Language Technology Processing</a>
+<ul>
+<li><a href="#orgheadline22">5.1. features:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline34">6. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<ul>
+<li><a href="#orgheadline24">6.1. Login</a></li>
+<li><a href="#orgheadline25">6.2. baike triples</a></li>
+<li><a href="#orgheadline26">6.3. SPARQL: RDF Query Language</a></li>
+<li><a href="#orgheadline27">6.4. Visualization tool: Graphviz, networkx, Gephi</a></li>
+<li><a href="#orgheadline28">6.5. Graph database: GraphDB, Neo4j.</a></li>
+<li><a href="#orgheadline29">6.6. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
+<li><a href="#orgheadline33">6.7. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<ul>
+<li><a href="#orgheadline32">6.7.1. Data dumps/Import</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline35">7. NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</a></li>
+<li><a href="#orgheadline40">8. Position Of Tagging</a>
+<ul>
+<li><a href="#orgheadline36">8.1. 词性解释</a></li>
+<li><a href="#orgheadline37">8.2. 句法分析（句法树）</a></li>
+<li><a href="#orgheadline38">8.3. 关系表示</a></li>
+<li><a href="#orgheadline39">8.4. ICTCLAS词性标注</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline41">9. 实词：名词、动词、形容词、状态词、区别词、数词、量词、代词</a></li>
+<li><a href="#orgheadline46">10. 虚词：副词、介词、连词、助词、拟声词、叹词。</a>
+<ul>
+<li><a href="#orgheadline42">10.1. ICTPOS3.0词性标记集</a></li>
+<li><a href="#orgheadline43">10.2. 虚词</a></li>
+<li><a href="#orgheadline44">10.3. jieba 字典中出现的类型</a></li>
+<li><a href="#orgheadline45">10.4. simhash 过滤的掉的词汇</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="./nlp/NLP.html">Stanford NLP CS224n notes</a>
@@ -232,7 +268,7 @@ A regular opinion expresses a sentiment only on an particular entity or an aspec
 <li>lexicon</li>
 </ul>
 <p>
-opinions, positive and negative.
+专有词汇.
 </p>
 <ul class="org-ul">
 <li>issue</li>
@@ -280,8 +316,8 @@ Probabilities: Dog(10 times) vs Cat(several times), almost no connection from pr
 </div>
 
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">1.4</span> Word Embedding</h3>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.4</span> Word Embedding</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Similarity:</li>
@@ -301,23 +337,451 @@ model.train<span style="color: #AE81FF;">(</span>more_sentences<span style="colo
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.4.2</span> Several factors influence the quality of the word vectors:</h4>
+<div class="outline-text-4" id="text-1-4-2">
+</div><ol class="org-ol"><li><a id="orgheadline5"></a>amount and quality of the training data<br  /></li>
+<li><a id="orgheadline6"></a>size of the vectors<br  /></li>
+<li><a id="orgheadline7"></a>training algorithm<br  /></li>
+<li><a id="orgheadline8"></a>glossary:<br  /><div class="outline-text-5" id="text-1-4-2-4">
+<ul class="org-ul">
+<li>latent semantic</li>
+</ul>
+<p>
+潜在语义
+</p>
+<ul class="org-ul">
+<li>Uniform Resource Identifier (URI)</li>
+<li>N-gram</li>
+</ul>
+<p>
+an n-gram is a contiguous sequence of n items from a given sample of text or speech.
+</p>
+
+<p>
+An n-gram model is a type of probabilistic language model for predicting the next item in such a sequence in the form of a (n − 1)–order Markov model.
+</p>
+
+<p>
+Two benefits of n-gram models (and algorithms that use them) are simplicity and scalability – with larger n, a model can store more context with a well-understood space–time tradeoff, enabling small experiments to scale up efficiently.
+</p>
+
+
+<ul class="org-ul">
+<li>Web Ontology Language (OWL)</li>
+<li>Resource Description Framework</li>
+</ul>
+<p>
+metadata data model. It has come to be used as a general method for conceptual description or modeling of information that is implemented in web resources, using a variety of syntax notations and data serialization formats. It is also used in knowledge management applications.
+</p>
+
+<ul class="org-ul">
+<li>Lemmatization is the process of identifying the base, non-inflected form of a word.</li>
+</ul>
+<p>
+词干化是确定一个单词的固定的基本部分的过程。
+</p>
+<ul class="org-ul">
+<li>Sentence Tokenize Test or Sentence Segmentation Test.</li>
+</ul>
+<p>
+断句。
+</p>
+<ul class="org-ul">
+<li>Syntactic Parsing</li>
+</ul>
+<p>
+比如在opinion extraction中我们常常要抽取评价对象（aspect）：
+例：“知乎的内容质量很好”
+这里 “很好” 形容的是 “内容质量”。通过依存句法分析，就可以抽取出对应的搭配。
+</p>
+
+<p>
+再说说IR，以百度框计算为例。对于以下两个query：Query 1: 谢霆锋的儿子是谁？Query 2: 谢霆锋是谁的儿子？这两个Query的bag-of-words完全一致，如果不考虑其语法结构，很难直接给用户返回正确的结果。类似的例子还有很多。在这种情况下，通过句法分析，我们就能够知道用户询问的真正对象是什么。
+</p>
+
+<p>
+Tree-LSTM是基于句法结构之上的LSTM，Bi-LSTM则是简单的双向（left&lt;-&gt;right）LSTM。在很多任务上，Bi-LSTM都表现得比Tree-LSTM更好。
+</p>
+<ul class="org-ul">
+<li>Part of Speech Tagging</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">import</span> jieba.posseg <span style="color: #F92672;">as</span> pseg
+&gt;&gt;&gt; <span style="color: #FD971F;">words</span> = pseg.cut<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"&#25105;&#29233;&#21271;&#20140;&#22825;&#23433;&#38376;"</span><span style="color: #AE81FF;">)</span>
+&gt;&gt;&gt; <span style="color: #F92672;">for</span> w <span style="color: #F92672;">in</span> words:
+...    <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%s %s'</span> % <span style="color: #66D9EF;">(</span>w.word, w.flag<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+...
+&#25105; r
+&#29233; v
+&#21271;&#20140; ns
+&#22825;&#23433;&#38376; ns
+</pre>
+</div>
+<ul class="org-ul">
+<li>Pos Tagging Test:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">40</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">doc4</span> = nlp<span style="color: #AE81FF;">(</span>u<span style="color: #E6DB74;">"This is pos tagger test for spacy pos tagger"</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">41</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">for</span> token <span style="color: #F92672;">in</span> doc4:
+<span style="color: #F92672;">print</span> token, token.pos, token.pos_
+....:
+This <span style="color: #AE81FF;">87</span> DET
+<span style="color: #F92672;">is</span> <span style="color: #AE81FF;">97</span> VERB
+pos <span style="color: #AE81FF;">82</span> ADJ
+tagger <span style="color: #AE81FF;">89</span> NOUN
+test <span style="color: #AE81FF;">89</span> NOUN
+<span style="color: #F92672;">for</span> <span style="color: #AE81FF;">83</span> ADP
+spacy <span style="color: #AE81FF;">89</span> NOUN
+pos <span style="color: #AE81FF;">89</span> NOUN
+tagger <span style="color: #AE81FF;">89</span> NOUN
+</pre>
+</div>
+<ul class="org-ul">
+<li>Named Entity Recognizer (NER) Test:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">51</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">doc5</span> = nlp<span style="color: #AE81FF;">(</span>u<span style="color: #E6DB74;">"Rami Eid is studying at Stony Brook University in New York"</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">52</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">for</span> ent <span style="color: #F92672;">in</span> doc5.ents:
+<span style="color: #F92672;">print</span> ent, ent.label, ent.label_
+....:
+Rami Eid <span style="color: #AE81FF;">346</span> PERSON
+Stony Brook University <span style="color: #AE81FF;">349</span> ORG
+New York <span style="color: #AE81FF;">350</span> GPE
+</pre>
+</div>
+<ul class="org-ul">
+<li>Keyword Extraction(Terms Frequency - Inverse Document Frequency)</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> jieba
+<span style="color: #F92672;">import</span> jieba.analyse
+<span style="color: #F92672;">from</span> optparse <span style="color: #F92672;">import</span> OptionParser
+
+<span style="color: #FD971F;">topK</span> = <span style="color: #AE81FF;">10</span>
+
+<span style="color: #FD971F;">content</span> = <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span>file_name, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span>.read<span style="color: #AE81FF;">()</span>
+
+<span style="color: #FD971F;">tags</span> = jieba.analyse.extract_tags<span style="color: #AE81FF;">(</span>content, topK=topK<span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">","</span>.join<span style="color: #66D9EF;">(</span>tags<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div></li></ol>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">2</span> Definition of Sentiment Analysis</h2>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">2</span> Knowledge Graph</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">2.1</span> Structure</h3>
+</div><div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">2.1</span> architecture</h3>
 <div class="outline-text-3" id="text-2-1">
+<p>
+<img src="./Images/knowledge_graph_architecture.png" alt="knowledge_graph_architecture.png" />
+<a href="https://ilewseu.github.io/2017/11/11/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/">https://ilewseu.github.io/2017/11/11/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8A%80%E6%9C%AF%E7%BB%BC%E8%BF%B0/</a>
+知识图谱的定义与架构
+知识图谱的定义
+知识图谱是Google用于增强其搜索引擎功能的知识库。本质上，知识图谱是一种揭示实体之间关系的语义网络，可以对现实世界的事物及其相互关系进行形式化地描述。现在知识图谱以被用来泛指各种大规模的知识库。三元组是知识图谱的一种通用表示方式，即G=(E,R,S)，其中：
+</p>
+
+<p>
+G：表示知识库
+E：表示知识库中的所有实际的集合
+R：表示知识库中的关系集合
+S：表示知识库中的三元组集合，S⊆E×R×S
+三元组的基本形式主要包括实体1、关系、实体2和概念、属性、属性值等，实体是知识库中最基本的元素，不同的实体之间存在不同的关系。概念主要指集合、类别、对象类型、事物的种类，例如人物、地理等；属性主要指对象可能具有的属性、特征、特性、特点及参数，例如国籍、生日等；属性值主要指对象指定属性的值，例如中国、1988-09-08等。每个实体可以用一个全局唯一确定的ID来标识，每个属性-属性值对（atrribute-value pair，AVP）可用来刻画实体的内在特性，而关系可用来连接两个实体，刻画它们之间的关联。
+</p>
+
+<p>
+从覆盖范围而言，知识图谱可以分为通用知识图谱和行业知识图谱。通用知识图谱注重广度，强调融合更多的实体，较行业知识图谱而言，其准确度不够高，并且受概念范围的影响，很难借助本体库对公理、规则以及约束条件的支持能力规范其实体、属性、实体间的关系等。通用的知识库主要用于智能搜索等领域。行业知识图谱通常需要依靠特定的行业的数据来构建，具有特定的行业意义。行业知识图谱中，实体的属性与数据模式往往比较丰富，需要考虑到不同的业务场景与使用人员。
+</p>
+
+<p>
+知识图谱的架构
+知识图谱的架构主要包括自身的逻辑结构以及体系架构。
+</p>
+
+<p>
+1）知识图谱的逻辑结构
+知识图谱在逻辑上可以分为模式层与数据层两个层次。数据层主要是由一系列的事实组成，而知识将以事实为单位进行存储。可选择图数据库作为存储介质，例如开源的Neo4j、Twitter的FlockDB、seones的GraphDB。模式层构建在数据层之上，主要是通过本体库来规范数据层的一系列事实表达。本体是结构化知识库的概念模板，通过本体库而形成的知识库不仅层次结构较强，并且冗余程度叫较小。
+</p>
+
+<p>
+2）知识图谱的体系架构
+知识图谱的体系架构是指构建模式结构，如下图所示（图引自该论文）
+</p>
+
+
+<p>
+mark
+</p>
+
+<p>
+知识图谱主要有自顶向下(top-down)与自底向上(bottom-up)两种构建方式。自顶向下指是先为知识图谱定义好本体与数据模式，再将实体加入到知识库。该构建方式需要利用一些现有的结构化知识库作为其基础的知识库，例如Freebase就是采用这种方式，它的绝大部分数据是从维基百科中得到的。自底向上指的是从一些开放链接数据中提取出实体，选择其中置信度较高的加入到知识库，再构建顶层的本体模式。目前，大多数知识图谱都采用自底向上的方式进行构建，其中最典型的就是Google的Knowledge Vault。
+大规模知识库案例
+随着语义web资源数量激增、大量的RDF数据被发布和共享、LOD(linked open data)等项目的全面展开，学术界和工业界的研究人员花费了大量的精力构建各种结构化知识库。主要包括开放链接知识库、行业知识库两类。
+</p>
+
+<p>
+开放链接知识库
+在LOD项目的云图中FreeBase、Wikidata、DBpedia、YAGO这4个是比较重要的大规模知识库。它们中不仅包含大量的半结构化、非结构化数据，是知识图谱数据的重要来源。而且具有较高的领域覆盖面，与领域知识库存在大量的关系。
+</p>
+
+<p>
+垂直行业知识库
+行业知识库也可以称为垂直型知识库，这类知识库的描述目标是特定的行业领域，通常需要依靠特定行业的数据才能构建，因此其描述范围极为有限。下面几个就是比较典型的垂直行业知识库。
+</p>
+
+<p>
+IMDB，是一个关于电影演员、电影、电视节目、电视明星以及电影制作的治疗库。
+MusicBrainz,是一个结构化的音乐维基百科，致力于收藏所有的音乐元数据，并向大众用户开放。
+ConceptNet,是一个语义知识网络，主要由一系列代表概念的结点构成，这些概念将主要采用自然语言单词或短语的表达形式，通过相互连接建立语义联系。
+知识图谱的关键技术
+大规模知识库的构建与应用需要多种智能信息处理技术的支持。主要包括以下技术：
+</p>
+
+<p>
+知识抽取：从一些公开的半结构化、非结构化的数据中提取出实体、关系、属性等知识要素。
+知识融合：消除实体、关系、属性等指称项与事实对象之间的奇异，形成高质量的知识库。
+知识推理：在已有的知识库的基础上，进一步挖掘隐含的知识，从而丰富、扩展知识库。
+知识表示：以某种方式表示知识
+下面就分别介绍相关的技术。
+</p>
+
+<p>
+知识抽取
+知识抽取主要是面向开放的链接数据，通过自动化的技术抽取出可用的知识单元，知识单元主要包括实体、关系以及属性3个知识要素，并以此为基础，形成一系列高质量的事实表达，为上层模式层的构建奠定基础。
+</p>
+
+<p>
+(1) 实体抽取
+实体抽取，也称为命名实体识别，指的是从原始预料自动识别出命名实体。实体抽取主要分为3种方法：
+</p>
+
+<p>
+基于规则与词典的方法
+基于统计机器学习的方法
+面向开放域的抽取方法
+(2) 关系抽取
+关系抽取的目标是解决实体间的语义链接问题，早期的关系抽取主要是通过人工构造语义规则以及模板的方法识别实体关系。随后，实体间的关系模型逐渐代替了人工预定义的语法与规则。但是，仍需要提前定义实体间的关系类型。后来出现面向开放域的信息抽取框架(open information extraction,OIE),这是抽取模式上一个巨大进步。但OIE方法在对实体的隐含关系抽取方面性能低下，因此，部分研究者提出基于马尔科夫逻辑网、基于本体推理的深层隐含关系抽取方法。
+</p>
+
+<p>
+(3) 属性抽取
+属性抽取主要是针对实体而言的，通过属性可形成对实体的完整描述。由于实体的属性可以看成是实体与属性值之间的一种名称关系，因此可以将实体属性的抽取问题转换为关系抽取问题。大量的属性数据主要存在于半结构化、非结构化的大规模开放域数据集中。抽取这些属性的方法，一种是将上述从百科网站上抽取的结构化数据作为可用于属性抽取的训练集，然后再将该模型应用于开放域中的实体属性抽取；另一种，根据实体属性与属性之间的关系模式，直接从开放域数据集上抽取属性。但是，由于属性值附近普遍存在一些限定属性值定义的属性名等，所以该抽取方法的准确率并不高。
+</p>
+
+<p>
+知识表示
+虽然，基于三元组的知识表示形式比较直观，但是其在计算效率、数据稀疏性等方面面临着诸多问题。以Deep Learning为代表的表示学习技术可以将实体的语义信息表示为稠密低维实值向量，进而在低维空间中高效计算实体、关系及其之间的复杂语义关联，对知识库的构建、推理、融合及应用均具有重要的意义。
+</p>
+
+<p>
+(1) 应用场景
+分布式表示旨在用一个综合向量表示实体对象的语义信息，是一种模仿人脑工作的表示机制，通过知识表示而得到的分布式表示形式在知识图谱的计算、补全、推理等方面将起到重要作用：
+</p>
+
+<p>
+1）语义相似度计算。由于实体通过分布式表示而形成的是一个个低维的实值向量，所以，可使用熵权系数法、余弦相似性等方法计算它们之间的相似性。这种相似性刻画了实体之间的语义关联程度，为自然语言处理等提供了极大的便利。
+</p>
+
+<p>
+2）链接预测。通过分布式表示模型，可以预测图谱中任意两个实体之间的关系，以及实体间存在的关系的正确性。尤其是在大规模知识图谱上下文中，需要不断补充其中的实体关系，所以链接预测又被称为知识图谱的不全。
+</p>
+
+<p>
+(2) 代表模型
+知识表示学习的代表模型主要包括距离模型、双线性模型、神经张量模型、矩阵分解模型、翻译模型(TransE模型)等。
+</p>
+
+<p>
+(3) 复杂关系模型
+知识库中的实体关系类型也可以分为1-to-1、1-to-N、N-to-1、N-to-N四种类型，复杂的关系主要指的是1-to-N、N-to-1、N-to-N的3种关系类型。由于TransE模型不能用在处理复杂关系上，一系列基于它的扩展模型纷纷被提出，主要包括：TransH模型、TransR模型、TransD模型、TransG模型和KG2E模型。
+</p>
+
+<p>
+(4) 多源信息融合
+三元组作为知识库的一种通用的表示形式，通过表示学习，能够以较为直接的方式表说实体、关系及其之间的复杂语义关联。然而，互联网中仍蕴含着大量与知识库实体、关系有关的信息未被考虑或有效利用，如何充分融合、利用这些多源异质的相关信息，将有利于进一步提升现有知识表示模型的区分能力以及性能。目前，多源异质信息融合模型方面的研究尚处于起步阶段，涉及的信息来源也极为有限。
+</p>
+
+<p>
+知识融合
+由于知识图谱中的知识来源广泛，存在知识质量良莠不齐、来自不同数据源的知识重复、知识间的关联不够明确等问题，所以需要进行知识的融合。知识融合是高层次的知识组织，使来自不同的知识源的知识在同一框架规范下进行异构数据整合、消歧、加工、推理验证、更新等步骤，达到数据、信息、方法、经验以及人的思想的融合，形成高质量的知识库。
+</p>
+
+<p>
+实体对齐
+实体对齐(entity alignment)，也称为实体匹配或实体解析，主要用于消除异构数据中实体冲突、指向不明等不一致性问题，可以从顶层创建一个大规模的统一知识库，从而帮助机器理解多源异质的数据，形成高质量的知识。
+</p>
+
+<p>
+在大数据环境下，受知识库规模的影响，在进行知识库实体对齐时，主要会面临以下3个方面的挑战：（1）计算复杂度；（2）数据质量，不同知识库的构建目的与方式不同，可能存在知识质量良莠不齐、相似重复数据、孤立数据、数据时间粒度不一致等等问题。（3）先验训练数据，在大规模知识库中想要获得这种先验数据却非常困难。通常情况下，需要手工构造训练数据。
+</p>
+
+<p>
+基于上述，知识库实体对齐的主要流程包括：
+</p>
+
+<p>
+将待对齐数据分区索引，以降低计算的复杂度；
+利用相似度函数或相似性计算算法查找匹配实例；
+使用实体对齐算法进行实例融合；
+将步骤2和3的结果结合起来，形成最终的对齐结果。
+对齐算法可以分为成对实体对齐和集体实体对齐两大类，而集体实体对齐又可分为局部集体对齐和全局集体对齐。
+</p>
+
+<p>
+（1）成对实体对齐
+基于传统概率模型的实体对齐方法，主要是考虑两个实体各自属性的相似性，而不考虑实体之间的关系。基于机器学习的实体对齐方法，主要是将实体对齐问题转化为二分类问题。根据是否使用标注数据可分为有监督学习与无监督学习两类。
+</p>
+
+<p>
+（2）局部集体实体对齐方法
+局部集体实体对齐方法为实体本身的属性以及与它有关联的实体的属性分别设置不同的权重，并通过加权求和计算总体的相似度，还可使用向量空间模型以及余弦相似度来判别大规模知识库中的实体的相似程度。
+</p>
+
+<p>
+（3）全局集体实体对齐方法
+</p>
+
+<p>
+知识加工
+通过实体对齐，可以得到一系列的基本事实表达或初步的本体雏形，然而事实并不等于知识，它只是知识的基本单位。要形成高质量的知识，还需要经过知识加工的过程，从层次上形成一个大规模的知识体系，统一对知识进行管理。知识加工主要包括本体构建与质量评估两方面的内容。
+</p>
+
+<p>
+（1）本体构建
+本体是同一领域内不同主体之间进行交流、连通的语义基础，其主要呈现树状结构，相邻的层次结点或概念之间具有严格的”IsA”关系，有利于进行约束、推理等，却不利于表达概念的多样性。本体在知识图谱中的地位相当于知识库的模具，通过本体库而形成的知识库不仅层次结构较强，并且冗余程度较小。
+</p>
+
+<p>
+本体可以通过人工编辑的方式手动构建，也可以通过数据驱动自动构建，然后再经质量评估方法与人工审核相结合的方式加以修正和确认。数据驱动的本体自动构建过程主要可以分为以下3个阶段：
+</p>
+
+<p>
+纵向概念间的并列关系计算。通过计算任意两个实体间并列关系的相似度，可辨析它们在语义层面是否属于同一个概念。计算方法主要包括模式匹配和分布相似度两种。
+实体上下位关系抽取。上下位关系抽取方法包括基本语法的抽取与基本语义的抽取两种方式。
+本体生成。对各个层次得到的概念进行聚类，并为每一类的实体指定1个或多个公共上位词。
+（2）质量评估
+对知识库的质量评估任务通常是与实体对齐任务一起进行的，其意义在于，可以对知识的可信度进行量化，保留置信度较高的，舍弃置信度较低的，有效确保知识的质量。
+</p>
+
+<p>
+知识更新
+人类的认知能力、知识储备以及企业需求都会随着时间而不断递增。因此，知识图谱的内容也需要与时俱进，不论是通用的知识图谱，还是行业知识图谱，它们都需要不断地迭代更新，扩展现有的知识，增加新的知识。
+</p>
+
+<p>
+根据知识图谱的逻辑结构，其更新主要包括模式层的更新和数据层的更新。模式层的更新是指本体中元素的更新，包括概念的增加、修改、删除，概念属性的更新以及概念间上下位关系的更新。通常来说，模式层的增量更新方式消耗资源较少，但是多数情况下是在人工干预的情况下完成的。例如，需要人工定义规则，人工处理冲突等。数据层的更新指的是实体元素的更新，包括实体的增加、修改、删除，以及实体的基本信息和属性值。由于数据层的更新一般影响面较小，因此，通常以自动的方式完成。
+</p>
+
+<p>
+知识推理
+知识推理则是在已有的知识库基础上进一步挖掘隐含的知识，从而丰富、扩展知识库。在推理的过程中，往往需要关联规则的支持。对于推理规则的挖掘，主要还是依赖于实体以及关系间的丰富同现情况。知识推理的对象可以是实体、实体的属性、实体间的关系、本体库中的概念的层次结构等。知识推理方法主要可以分为基于逻辑的推理和基于图的推理两种类别。
+</p>
+
+<p>
+知识图谱的典型应用
+智能搜索
+基于知识图谱的智能搜索是一种基于长尾的搜索，搜索引擎以知识卡片的形式将搜索结果展现出来。用户的查询请求将经过查询式语义理解与知识检索两个阶段。
+</p>
+
+<p>
+查询式语义理解。知识图谱对查询式的语义分析主要包括：（1）对查询请求文本进行分词、词性标注以及纠错；（2）描述归一化，使其与知识库中的相关知识进行匹配；（3）语境分析，在不同的语境下，用户查询式中的对象会有所差别，因此，知识图谱需要结合用户当时的情感，将用户此时需要的答案及时反馈给用户；（4）查询扩展，明确了用户的查询意图以及相关概念后，需要加入当前语境下的相关概念进行扩展。
+知识检索。经过查询式语义分析后，标准查询语境进行知识库检索引擎，引擎会在知识库中检索相应的实体以及与其在类别、关系、相关性等方面匹配度较高的实体。通过对知识库的深层挖掘与提炼后，引擎将给出具有重要性排序的完整知识体系。
+智能搜索引擎主要以3种形式展现知识：
+</p>
+
+<p>
+集成的语义数据。例如，搜索梵高，搜索引擎将以知识卡片的形式给出梵高的生平，并配合图片等信息。
+直接给出用户查询问题的答案。例如，用户搜索“姚明的身高是多少？”，搜索引擎的结果是“226cm”。
+根据用户的查询给出推荐的列表等。
+深度问答
+问答系统是信息检索系统的一种高级形式，能够以准确简洁的自然语言为用户提供问题的解答。多数问答系统更倾向于将给定的问题分解为多个小的问题，然后逐一去知识库中抽取匹配的答案，并自动检测其在时间与空间上的吻合度等，最后将答案进行合并，以直观的方式展现给用户。
+</p>
+
+<p>
+社交网络
+知识图谱的挑战
+(1)知识获取
+(2)知识表示
+复制关系中的知识表示
+多源信息融合中的知识表示
+(3)知识融合
+并行与分布式算法
+众包算法
+跨语言知识对齐
+(4)知识应用
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">3</span> Knowledge-based Q&amp;A</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">3.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<div class="figure">
+<p><img src="./nlp/kbqa_intro.jpg" alt="kbqa_intro.jpg" />
+</p>
+<p><span class="figure-number">Figure 1:</span> introduction</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.2</span> 基于意图的结构化问答系统</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+银江股份的市盈率
+</p>
+
+<p>
+首先识别出其中的实体是银江股份（300020），意图是查询财务指标，目标参数是市盈率，隐藏时间是当前日期，然后只需要把这个问题对应到财务的微服务API就可以了，拿到API的返回结果，调用响应模板做填充。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.3</span> 基于检索的问答系统</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+对于像新闻、研究报告类的文档内容的搜索和观点挖掘，是一种精细化的搜索方式，不是直接对文档的全文进行检索，而是首先提取分析出文档的重要成分，比如：公司事件、摘要、情感、评级、作者正负面观点等，建立到搜索引擎中，基于启发式方法根据输入的内容进行匹配回复。比如：“航天信息可以买吗？”，不一定能准确的告诉用户可以或不可以，但是可以告诉他航天信息在当前的技术指标（金叉、死叉等），资金流量，研究员的正负面观点以及年报对2017年的管理层意见摘要等等。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.4</span> 基于知识图谱的问答系统</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+比如：“和苹果手机有关系的股票有哪些？”，“治理雾霾对哪些上市公司会产生影响？”，“钴价上升对哪些股票产生影响最大？”等，当然这些问题通过搜索的方式也能得到答案，但它们有一些共同点，问题的本身都描述着实体和实体之间的关系或者相关性，而这正是知识图谱能够解决的问题，知识图谱将搜索引擎从字符串匹配推进到实体关系查询推理层面.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-2">
+<h2 id="orgheadline21"><span class="section-number-2">4</span> Definition of Sentiment Analysis</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">4.1</span> Structure</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">2.2</span> Opinion Defintion</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">4.2</span> Opinion Defintion</h3>
+<div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Observation: An opinion consists of two key components: a target g and a sentiment s on the target.</li>
 
@@ -326,20 +790,94 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 <li>Definition (entity): An entity e is a product, service, topic, issue, person, organization, or event. It is described with a pair, e: (T, W), where T is a hierarchy of parts, sub-parts, and so on, and W is a set of attributes of e.</li>
 
 <li>Definition (opinion): An opinion is a quintuple, (ei, aij, sijkl, hk, tl), where ei is the name of an entity, aij is an aspect of ei, sijkl is the sentiment on aspect aij of entity ei, hk is the opinion holder, and tl is the time when the opinion is expressed by hk. The sentiment sijkl is positive, negative, or neutral, or expressed with different strength/intensity levels, e.g., 1 to 5 stars as used by most review sits on the Web.</li>
+
+<li>基于词典</li>
 </ul>
+<p>
+准确率：准确率较高（80%以上），随着人工工作量的增加，准确率增加
+</p>
+
+<p>
+优点：易于理解
+</p>
+
+<p>
+缺点：人工工作量大
+</p>
+
+<ul class="org-ul">
+<li>基于k_NN</li>
+</ul>
+<p>
+准确率：很低（60% - 70%）
+</p>
+
+<p>
+优点：思想简单、算法简单
+</p>
+
+<p>
+缺点：准确率低；耗内存；耗时间
+</p>
+
+<ul class="org-ul">
+<li>基于Bayes</li>
+</ul>
+<p>
+准确率：还可以（70% - 80%）
+</p>
+
+<p>
+优点：简单，高效，运算速度快，扩展性好
+</p>
+
+<p>
+缺点：准确率不高，达不到实用
+</p>
+
+<ul class="org-ul">
+<li>基于最大熵</li>
+</ul>
+<p>
+准确率：比较高（83%以上）
+</p>
+
+<p>
+优点：准确率高
+</p>
+
+<p>
+缺点：训练时间久
+</p>
+
+<ul class="org-ul">
+<li>基于SVM</li>
+</ul>
+<p>
+准确率：最高（85%以上）
+</p>
+
+<p>
+优点：准确率高
+</p>
+
+<p>
+缺点：训练耗时
+</p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">3</span> Language Technology Processing</h2>
-<div class="outline-text-2" id="text-3">
+
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">5</span> Language Technology Processing</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 [<a href="http://ltp.ai/docs/index.html">http://ltp.ai/docs/index.html</a>]
 </p>
 </div>
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">3.1</span> features:</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">5.1</span> features:</h3>
+<div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>针对单一自然语言处理任务，生成统计机器学习模型的工具</li>
 <li>针对单一自然语言处理任务，调用模型进行分析的编程接口</li>
@@ -350,9 +888,9 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">4</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgheadline34" class="outline-2">
+<h2 id="orgheadline34"><span class="section-number-2">6</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
+<div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>guide:</li>
 </ul>
@@ -366,10 +904,18 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 <p>
 <a href="https://en.wikipedia.org/wiki/Category:Main_topic_classifications">https://en.wikipedia.org/wiki/Category:Main_topic_classifications</a>
 </p>
+
+<ul class="org-ul">
+<li>database reports/list of properties</li>
+</ul>
+<p>
+<a href="https://www.wikidata.org/wiki/Wikidata:Database_reports/List_of_properties/all">https://www.wikidata.org/wiki/Wikidata:Database_reports/List_of_properties/all</a>
+</p>
 </div>
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">4.1</span> Login</h3>
-<div class="outline-text-3" id="text-4-1">
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">6.1</span> Login</h3>
+<div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 
 <pre class="src src-neo4j">:server connect
@@ -390,9 +936,76 @@ darts-quota-alternation
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">4.2</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">6.2</span> baike triples</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+subjects, predicates, and objects
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Entity</td>
+<td class="org-right">Relationships</td>
+<td class="org-right">Semantic Descriptions</td>
+</tr>
+
+<tr>
+<td class="org-right">65001293</td>
+<td class="org-right">374311</td>
+<td class="org-right">9284910</td>
+</tr>
+</tbody>
+</table>
+<p>
+subject, attribute, value
+</p>
+
+<p>
+subject, relation, subject
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">6.3</span> SPARQL: RDF Query Language</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+W3C standard that underlies the Web's knowledge representation formalism: the Web Ontology Language (OWL).
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">6.4</span> Visualization tool: Graphviz, networkx, Gephi</h3>
+</div>
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">6.5</span> Graph database: GraphDB, Neo4j.</h3>
+<div class="outline-text-3" id="text-6-5">
+<ul class="org-ul">
+<li>node</li>
+</ul>
+<p>
+property
+</p>
+<ul class="org-ul">
+<li>relationship</li>
+<li>directional</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">6.6</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
+<div class="outline-text-3" id="text-6-6">
 <ul class="org-ul">
 <li>wiki dumps:</li>
 </ul>
@@ -533,9 +1146,9 @@ return value
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">4.3</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">6.7</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
+<div class="outline-text-3" id="text-6-7">
 <ul class="org-ul">
 <li>basics</li>
 <li>wiki page structure example:</li>
@@ -552,8 +1165,10 @@ From Wikipedia, the free encyclopedia
 <p>
 Subcategories
 This category has only the following subcategory.
-R
-► Resource Description Framework‎ (5 C, 24 P)
+</p>
+
+<p>
+► Resource Description Framework(RDF)
 </p>
 
 <p>
@@ -707,10 +1322,13 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-4">
-<h4 id="orgheadline16"><span class="section-number-4">4.3.1</span> Data dumps/Import</h4>
-<div class="outline-text-4" id="text-4-3-1">
-</div><ol class="org-ol"><li><a id="orgheadline14"></a>structure:<br  /><div class="outline-text-5" id="text-4-3-1-1">
+<div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32"><span class="section-number-4">6.7.1</span> Data dumps/Import</h4>
+<div class="outline-text-4" id="text-6-7-1">
+</div><ol class="org-ol"><li><a id="orgheadline30"></a>structure:<br  /><div class="outline-text-5" id="text-6-7-1-1">
+<p>
+<a href="https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql">https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql</a>
+</p>
 <ul class="org-ul">
 <li>category:</li>
 </ul>
@@ -896,7 +1514,7 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </table>
 </div></li>
 
-<li><a id="orgheadline15"></a>methods<br  /><div class="outline-text-5" id="text-4-3-1-2">
+<li><a id="orgheadline31"></a>methods<br  /><div class="outline-text-5" id="text-6-7-1-2">
 <p>
 <a href="https://meta.wikimedia.org/wiki/Data_dumps">https://meta.wikimedia.org/wiki/Data_dumps</a>
 </p>
@@ -998,6 +1616,2124 @@ I set up the interwiki cache cdb file, by using fixup-interwikis.py via the comm
 That was it. This was enough to let me view (most) pages without errors.
 </p>
 </div></li></ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline35" class="outline-2">
+<h2 id="orgheadline35"><span class="section-number-2">7</span> NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</h2>
+<div class="outline-text-2" id="text-7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">jieba</td>
+<td class="org-right">THULAC</td>
+<td class="org-right">SnowNLP</td>
+<td class="org-right">pynlpir</td>
+<td class="org-right">CoreNLP</td>
+<td class="org-right">pyLTP</td>
+<td class="org-right">spaCy</td>
+<td class="org-right">gensim</td>
+</tr>
+
+<tr>
+<td class="org-left">star</td>
+<td class="org-right">11859</td>
+<td class="org-right">487</td>
+<td class="org-right">2159</td>
+<td class="org-right">941</td>
+<td class="org-right">4262</td>
+<td class="org-right">398</td>
+<td class="org-right">7985</td>
+<td class="org-right">6092</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-2">
+<h2 id="orgheadline40"><span class="section-number-2">8</span> Position Of Tagging</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">8.1</span> 词性解释</h3>
+<div class="outline-text-3" id="text-8-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">CC</td>
+<td class="org-left">conjunction, coordinatin 表示连词</td>
+</tr>
+
+<tr>
+<td class="org-left">CD</td>
+<td class="org-left">numeral, cardinal 表示基数词</td>
+</tr>
+
+<tr>
+<td class="org-left">DT</td>
+<td class="org-left">determiner 表示限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">EX</td>
+<td class="org-left">existential there 存在句</td>
+</tr>
+
+<tr>
+<td class="org-left">FW</td>
+<td class="org-left">foreign word 外来词</td>
+</tr>
+
+<tr>
+<td class="org-left">IN</td>
+<td class="org-left">preposition or conjunction, subordinating 介词或从属连词</td>
+</tr>
+
+<tr>
+<td class="org-left">JJ</td>
+<td class="org-left">adjective or numeral, ordinal 形容词或序数词</td>
+</tr>
+
+<tr>
+<td class="org-left">JJR</td>
+<td class="org-left">adjective, comparative 形容词比较级</td>
+</tr>
+
+<tr>
+<td class="org-left">JJS</td>
+<td class="org-left">adjective, superlative 形容词最高级</td>
+</tr>
+
+<tr>
+<td class="org-left">LS</td>
+<td class="org-left">list item marker 列表标识</td>
+</tr>
+
+<tr>
+<td class="org-left">MD</td>
+<td class="org-left">modal auxiliary 情态助动词</td>
+</tr>
+
+<tr>
+<td class="org-left">NN</td>
+<td class="org-left">noun, common, singular or mass</td>
+</tr>
+
+<tr>
+<td class="org-left">NNS</td>
+<td class="org-left">noun, common, plural</td>
+</tr>
+
+<tr>
+<td class="org-left">NNP</td>
+<td class="org-left">noun, proper, singular</td>
+</tr>
+
+<tr>
+<td class="org-left">NNPS</td>
+<td class="org-left">noun, proper, plural</td>
+</tr>
+
+<tr>
+<td class="org-left">PDT</td>
+<td class="org-left">pre-determiner 前位限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">POS</td>
+<td class="org-left">genitive marker 所有格标记</td>
+</tr>
+
+<tr>
+<td class="org-left">PRP</td>
+<td class="org-left">pronoun, personal 人称代词</td>
+</tr>
+
+<tr>
+<td class="org-left">PRP</td>
+<td class="org-left">pronoun,possessive所有格代词</td>
+</tr>
+
+<tr>
+<td class="org-left">RB</td>
+<td class="org-left">adverb副词</td>
+</tr>
+
+<tr>
+<td class="org-left">RBR</td>
+<td class="org-left">adverb,comparative副词比较级</td>
+</tr>
+
+<tr>
+<td class="org-left">RBS</td>
+<td class="org-left">adverb,superlative副词最高级</td>
+</tr>
+
+<tr>
+<td class="org-left">RP</td>
+<td class="org-left">particle小品词</td>
+</tr>
+
+<tr>
+<td class="org-left">SYM</td>
+<td class="org-left">symbol符号</td>
+</tr>
+
+<tr>
+<td class="org-left">TO</td>
+<td class="org-left">”to”asprepositionorinfinitivemarker作为介词或不定式标记</td>
+</tr>
+
+<tr>
+<td class="org-left">UH</td>
+<td class="org-left">interjection插入语</td>
+</tr>
+
+<tr>
+<td class="org-left">VB</td>
+<td class="org-left">verb,baseform</td>
+</tr>
+
+<tr>
+<td class="org-left">VBD</td>
+<td class="org-left">verb,pasttense</td>
+</tr>
+
+<tr>
+<td class="org-left">VBG</td>
+<td class="org-left">verb,presentparticipleorgerund</td>
+</tr>
+
+<tr>
+<td class="org-left">VBN</td>
+<td class="org-left">verb,pastparticiple</td>
+</tr>
+
+<tr>
+<td class="org-left">VBP</td>
+<td class="org-left">verb,presenttense,not3rdpersonsingular</td>
+</tr>
+
+<tr>
+<td class="org-left">VBZ</td>
+<td class="org-left">verb,presenttense,3rdpersonsingular</td>
+</tr>
+
+<tr>
+<td class="org-left">WDT</td>
+<td class="org-left">WH−determiner</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">WP</td>
+<td class="org-left">WH−pronoun</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">代词</td>
+</tr>
+
+<tr>
+<td class="org-left">WP</td>
+<td class="org-left">WH-pronoun, possessive</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">所有格代词</td>
+</tr>
+
+<tr>
+<td class="org-left">WRB</td>
+<td class="org-left">Wh-adverb</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">副词</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">8.2</span> 句法分析（句法树）</h3>
+<div class="outline-text-3" id="text-8-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">ROOT</td>
+<td class="org-left">要处理文本的语句</td>
+</tr>
+
+<tr>
+<td class="org-left">IP</td>
+<td class="org-left">简单从句</td>
+</tr>
+
+<tr>
+<td class="org-left">NP</td>
+<td class="org-left">名词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">VP</td>
+<td class="org-left">动词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">PU</td>
+<td class="org-left">断句符，通常是句号、问号、感叹号等标点符号</td>
+</tr>
+
+<tr>
+<td class="org-left">LCP</td>
+<td class="org-left">方位词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">PP</td>
+<td class="org-left">介词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">CP</td>
+<td class="org-left">由‘的’构成的表示修饰性关系的短语</td>
+</tr>
+
+<tr>
+<td class="org-left">DNP</td>
+<td class="org-left">由‘的’构成的表示所属关系的短语</td>
+</tr>
+
+<tr>
+<td class="org-left">ADVP</td>
+<td class="org-left">副词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">ADJP</td>
+<td class="org-left">形容词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">DP</td>
+<td class="org-left">限定词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">QP</td>
+<td class="org-left">量词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">NN</td>
+<td class="org-left">常用名词</td>
+</tr>
+
+<tr>
+<td class="org-left">NR</td>
+<td class="org-left">固有名词,表示仅适用于该项事物的名词，含地名，人名，国名，书名，团体名称以及一事件的名称等。</td>
+</tr>
+
+<tr>
+<td class="org-left">NT</td>
+<td class="org-left">时间名词</td>
+</tr>
+
+<tr>
+<td class="org-left">PN</td>
+<td class="org-left">代词</td>
+</tr>
+
+<tr>
+<td class="org-left">VV</td>
+<td class="org-left">动词</td>
+</tr>
+
+<tr>
+<td class="org-left">VC</td>
+<td class="org-left">是</td>
+</tr>
+
+<tr>
+<td class="org-left">CC</td>
+<td class="org-left">表示连词</td>
+</tr>
+
+<tr>
+<td class="org-left">VE</td>
+<td class="org-left">有</td>
+</tr>
+
+<tr>
+<td class="org-left">VA</td>
+<td class="org-left">表语形容词</td>
+</tr>
+
+<tr>
+<td class="org-left">AS</td>
+<td class="org-left">内容标记（如:了）</td>
+</tr>
+
+<tr>
+<td class="org-left">VRD</td>
+<td class="org-left">动补复合词</td>
+</tr>
+
+<tr>
+<td class="org-left">CD</td>
+<td class="org-left">表示基数词</td>
+</tr>
+
+<tr>
+<td class="org-left">DT</td>
+<td class="org-left">determiner 表示限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">EX</td>
+<td class="org-left">existential there 存在句</td>
+</tr>
+
+<tr>
+<td class="org-left">FW</td>
+<td class="org-left">foreign word 外来词</td>
+</tr>
+
+<tr>
+<td class="org-left">IN</td>
+<td class="org-left">preposition or conjunction, subordinating,介词或从属连词</td>
+</tr>
+
+<tr>
+<td class="org-left">JJ</td>
+<td class="org-left">adjective or numeral, ordinal 形容词或序数词</td>
+</tr>
+
+<tr>
+<td class="org-left">JJR</td>
+<td class="org-left">adjective, comparative 形容词比较级</td>
+</tr>
+
+<tr>
+<td class="org-left">JJS</td>
+<td class="org-left">adjective, superlative 形容词最高级</td>
+</tr>
+
+<tr>
+<td class="org-left">LS</td>
+<td class="org-left">list item marker 列表标识</td>
+</tr>
+
+<tr>
+<td class="org-left">MD</td>
+<td class="org-left">modal auxiliary 情态助动词</td>
+</tr>
+
+<tr>
+<td class="org-left">PDT</td>
+<td class="org-left">pre-determiner 前位限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">POS</td>
+<td class="org-left">genitive marker 所有格标记</td>
+</tr>
+
+<tr>
+<td class="org-left">PRP</td>
+<td class="org-left">pronoun, personal 人称代词</td>
+</tr>
+
+<tr>
+<td class="org-left">RB</td>
+<td class="org-left">adverb 副词</td>
+</tr>
+
+<tr>
+<td class="org-left">RBR</td>
+<td class="org-left">adverb, comparative 副词比较级</td>
+</tr>
+
+<tr>
+<td class="org-left">RBS</td>
+<td class="org-left">adverb, superlative 副词最高级</td>
+</tr>
+
+<tr>
+<td class="org-left">RP</td>
+<td class="org-left">particle 小品词</td>
+</tr>
+
+<tr>
+<td class="org-left">SYM</td>
+<td class="org-left">symbol 符号</td>
+</tr>
+
+<tr>
+<td class="org-left">TO</td>
+<td class="org-left">”to” as preposition or infinitive marker,作为介词或不定式标记</td>
+</tr>
+
+<tr>
+<td class="org-left">WDT</td>
+<td class="org-left">WH-determiner WH限定词</td>
+</tr>
+
+<tr>
+<td class="org-left">WP</td>
+<td class="org-left">WH-pronoun</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">代词</td>
+</tr>
+
+<tr>
+<td class="org-left">WP$</td>
+<td class="org-left">WH-pronoun, possessive</td>
+</tr>
+
+<tr>
+<td class="org-left">WH</td>
+<td class="org-left">所有格代词</td>
+</tr>
+
+<tr>
+<td class="org-left">WRB</td>
+<td class="org-left">Wh-adverb,WH副词</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">8.3</span> 关系表示</h3>
+<div class="outline-text-3" id="text-8-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">abbrev</td>
+<td class="org-left">abbreviation modifier，缩写</td>
+</tr>
+
+<tr>
+<td class="org-left">acomp</td>
+<td class="org-left">adjectival complement，形容词的补充</td>
+</tr>
+
+<tr>
+<td class="org-left">advcl</td>
+<td class="org-left">adverbial clause modifier，状语从句修饰词</td>
+</tr>
+
+<tr>
+<td class="org-left">advmod</td>
+<td class="org-left">adverbial modifier状语</td>
+</tr>
+
+<tr>
+<td class="org-left">agent</td>
+<td class="org-left">agent，代理，一般有by的时候会出现这个</td>
+</tr>
+
+<tr>
+<td class="org-left">amod</td>
+<td class="org-left">adjectival modifier形容词</td>
+</tr>
+
+<tr>
+<td class="org-left">appos</td>
+<td class="org-left">appositional modifier,同位词</td>
+</tr>
+
+<tr>
+<td class="org-left">attr</td>
+<td class="org-left">attributive，属性</td>
+</tr>
+
+<tr>
+<td class="org-left">aux</td>
+<td class="org-left">auxiliary，非主要动词和助词，如BE,HAVE SHOULD/COULD等到</td>
+</tr>
+
+<tr>
+<td class="org-left">auxpass</td>
+<td class="org-left">passive auxiliary 被动词</td>
+</tr>
+
+<tr>
+<td class="org-left">cc</td>
+<td class="org-left">coordination，并列关系，一般取第一个词</td>
+</tr>
+
+<tr>
+<td class="org-left">ccomp</td>
+<td class="org-left">clausal complement从句补充</td>
+</tr>
+
+<tr>
+<td class="org-left">complm</td>
+<td class="org-left">complementizer，引导从句的词好重聚中的主要动词</td>
+</tr>
+
+<tr>
+<td class="org-left">conj</td>
+<td class="org-left">conjunct，连接两个并列的词。</td>
+</tr>
+
+<tr>
+<td class="org-left">cop</td>
+<td class="org-left">copula。系动词（如be,seem,appear等），（命题主词与谓词间的）连系</td>
+</tr>
+
+<tr>
+<td class="org-left">csubj</td>
+<td class="org-left">clausal subject，从主关系</td>
+</tr>
+
+<tr>
+<td class="org-left">csubjpass</td>
+<td class="org-left">clausal passive subject 主从被动关系</td>
+</tr>
+
+<tr>
+<td class="org-left">dep</td>
+<td class="org-left">dependent依赖关系</td>
+</tr>
+
+<tr>
+<td class="org-left">det</td>
+<td class="org-left">determiner决定词，如冠词等</td>
+</tr>
+
+<tr>
+<td class="org-left">dobj</td>
+<td class="org-left">direct object直接宾语</td>
+</tr>
+
+<tr>
+<td class="org-left">expl</td>
+<td class="org-left">expletive，主要是抓取there</td>
+</tr>
+
+<tr>
+<td class="org-left">infmod</td>
+<td class="org-left">infinitival modifier，动词不定式</td>
+</tr>
+
+<tr>
+<td class="org-left">iobj</td>
+<td class="org-left">indirect object，非直接宾语，也就是所以的间接宾语；</td>
+</tr>
+
+<tr>
+<td class="org-left">mark</td>
+<td class="org-left">marker，主要出现在有“that” or “whether”“because”, “when”,</td>
+</tr>
+
+<tr>
+<td class="org-left">mwe</td>
+<td class="org-left">multi-word expression，多个词的表示</td>
+</tr>
+
+<tr>
+<td class="org-left">neg</td>
+<td class="org-left">negation modifier否定词</td>
+</tr>
+
+<tr>
+<td class="org-left">nn</td>
+<td class="org-left">noun compound modifier名词组合形式</td>
+</tr>
+
+<tr>
+<td class="org-left">npadvmod</td>
+<td class="org-left">noun phrase as adverbial modifier名词作状语</td>
+</tr>
+
+<tr>
+<td class="org-left">nsubj</td>
+<td class="org-left">nominal subject，名词主语</td>
+</tr>
+
+<tr>
+<td class="org-left">nsubjpass</td>
+<td class="org-left">passive nominal subject，被动的名词主语</td>
+</tr>
+
+<tr>
+<td class="org-left">num</td>
+<td class="org-left">numeric modifier，数值修饰</td>
+</tr>
+
+<tr>
+<td class="org-left">number</td>
+<td class="org-left">element of compound number，组合数字</td>
+</tr>
+
+<tr>
+<td class="org-left">parataxis</td>
+<td class="org-left">parataxis,parataxis，并列关系</td>
+</tr>
+
+<tr>
+<td class="org-left">partmod</td>
+<td class="org-left">participial modifier动词形式的修饰</td>
+</tr>
+
+<tr>
+<td class="org-left">pcomp</td>
+<td class="org-left">prepositional complement，介词补充</td>
+</tr>
+
+<tr>
+<td class="org-left">pobj</td>
+<td class="org-left">object of a preposition，介词的宾语</td>
+</tr>
+
+<tr>
+<td class="org-left">poss</td>
+<td class="org-left">possession modifier，所有形式，所有格，所属</td>
+</tr>
+
+<tr>
+<td class="org-left">possessive</td>
+<td class="org-left">possessive modifier，这个表示所有者和那个’S的关系</td>
+</tr>
+
+<tr>
+<td class="org-left">preconj</td>
+<td class="org-left">preconjunct，常常是出现在 “either”, “both”, “neither”的情况下</td>
+</tr>
+
+<tr>
+<td class="org-left">predet</td>
+<td class="org-left">predeterminer，前缀决定，常常是表示所有</td>
+</tr>
+
+<tr>
+<td class="org-left">prep</td>
+<td class="org-left">prepositional modifier</td>
+</tr>
+
+<tr>
+<td class="org-left">prepc</td>
+<td class="org-left">prepositional clausal modifier</td>
+</tr>
+
+<tr>
+<td class="org-left">prt</td>
+<td class="org-left">phrasal verb particle，动词短语</td>
+</tr>
+
+<tr>
+<td class="org-left">punct</td>
+<td class="org-left">punctuation，这个很少见，但是保留下来了，结果当中不会出现这个</td>
+</tr>
+
+<tr>
+<td class="org-left">purpcl</td>
+<td class="org-left">purpose clause modifier，目的从句</td>
+</tr>
+
+<tr>
+<td class="org-left">quantmod</td>
+<td class="org-left">quantifier phrase modifier，数量短语</td>
+</tr>
+
+<tr>
+<td class="org-left">rcmod</td>
+<td class="org-left">relative clause modifier相关关系</td>
+</tr>
+
+<tr>
+<td class="org-left">ref</td>
+<td class="org-left">referent，指示物，指代</td>
+</tr>
+
+<tr>
+<td class="org-left">rel</td>
+<td class="org-left">relative</td>
+</tr>
+
+<tr>
+<td class="org-left">root</td>
+<td class="org-left">root，最重要的词，从它开始，根节点</td>
+</tr>
+
+<tr>
+<td class="org-left">tmod</td>
+<td class="org-left">temporal modifier</td>
+</tr>
+
+<tr>
+<td class="org-left">xcomp</td>
+<td class="org-left">open clausal complement</td>
+</tr>
+
+<tr>
+<td class="org-left">xsubj</td>
+<td class="org-left">controlling subject 掌控者</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">8.4</span> ICTCLAS词性标注</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+词的分类
+<code>======</code>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-2">
+<h2 id="orgheadline41"><span class="section-number-2">9</span> 实词：名词、动词、形容词、状态词、区别词、数词、量词、代词</h2>
+</div>
+<div id="outline-container-orgheadline46" class="outline-2">
+<h2 id="orgheadline46"><span class="section-number-2">10</span> 虚词：副词、介词、连词、助词、拟声词、叹词。</h2>
+<div class="outline-text-2" id="text-10">
+</div><div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42"><span class="section-number-3">10.1</span> ICTPOS3.0词性标记集</h3>
+<div class="outline-text-3" id="text-10-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">名词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nr</td>
+<td class="org-left">人名</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nr1</td>
+<td class="org-left">汉语姓氏</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nr2</td>
+<td class="org-left">汉语名字</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nrj</td>
+<td class="org-left">日语人名</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nrf</td>
+<td class="org-left">音译人名</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ns</td>
+<td class="org-left">地名</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">　nsf</td>
+<td class="org-left">音译地名</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nt</td>
+<td class="org-left">机构团体名</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nz</td>
+<td class="org-left">其它专名</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nl</td>
+<td class="org-left">名词性惯用语</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ng</td>
+<td class="org-left">名词性语素</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">时间词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">　　tg</td>
+<td class="org-left">时间词性语素</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-left">处所词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">方位词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">动词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vd</td>
+<td class="org-left">副动词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vn</td>
+<td class="org-left">名动词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vshi</td>
+<td class="org-left">动词“是”</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vyou</td>
+<td class="org-left">动词“有”</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vf</td>
+<td class="org-left">趋向动词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vx</td>
+<td class="org-left">形式动词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vi</td>
+<td class="org-left">不及物动词（内动词）</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vl</td>
+<td class="org-left">动词性惯用语</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vg</td>
+<td class="org-left">动词性语素</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">形容词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ad</td>
+<td class="org-left">副形词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">an</td>
+<td class="org-left">名形词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ag</td>
+<td class="org-left">形容词性语素</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">al</td>
+<td class="org-left">形容词性惯用语</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">区别词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">bl</td>
+<td class="org-left">区别词性惯用语</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">z</td>
+<td class="org-left">状态词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-left">代词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rr</td>
+<td class="org-left">人称代词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rz</td>
+<td class="org-left">指示代词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rzt</td>
+<td class="org-left">时间指示代词</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rzs</td>
+<td class="org-left">处所指示代词</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rzv</td>
+<td class="org-left">谓词性指示代词</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ry</td>
+<td class="org-left">疑问代词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ryt</td>
+<td class="org-left">时间疑问代词</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rys</td>
+<td class="org-left">处所疑问代词</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ryv</td>
+<td class="org-left">谓词性疑问代词</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rg</td>
+<td class="org-left">代词性语素</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">数词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">mq</td>
+<td class="org-left">数量词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">q</td>
+<td class="org-left">量词</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">qv</td>
+<td class="org-left">动量词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">qt</td>
+<td class="org-left">时量词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">10.2</span> 虚词</h3>
+<div class="outline-text-3" id="text-10-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">d 副词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">p 介词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">pba 介词“把”</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">pbei 介词“被”</td>
+</tr>
+
+<tr>
+<td class="org-left">c 连词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">cc 并列连词</td>
+</tr>
+
+<tr>
+<td class="org-left">u 助词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uzhe 着</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ule 了 喽</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uguo 过</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ude1 的 底</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ude2 地</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ude3 得</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">usuo 所</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">udeng 等 等等 云云</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uyy 一样 一般 似的 般</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">udh 的话</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uls 来讲 来说 而言 说来</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uzhi 之</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ulian 连 （“连小学生都会”）</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">e 叹词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">y 语气词(delete yg)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">o 拟声词</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">h 前缀</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">k 后缀</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">x 字符串</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">xx 非语素字</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">xu 网址URL</td>
+</tr>
+
+<tr>
+<td class="org-left">w 标点符号</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wkz 左括号，全角：（ 〔  ［  ｛  《 【  〖 〈   半角：( [ { &lt;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wky 右括号，全角：） 〕  ］ ｝ 》  】 〗 〉 半角： ) ] { &gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wyz 左引号，全角：“ ‘ 『</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wyy 右引号，全角：” ’ 』</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wj 句号，全角：。</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ww 问号，全角：？ 半角：?</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wt 叹号，全角：！ 半角：!</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wd 逗号，全角：， 半角：,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wf 分号，全角：； 半角： ;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wn 顿号，全角：、</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wm 冒号，全角：： 半角： :</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ws 省略号，全角：……  …</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wp 破折号，全角：——   －－   ——－   半角：&#x2014;  ----</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wb 百分号千分号，全角：％ ‰   半角：%</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">wh 单位符号，全角：￥ ＄ ￡  °  ℃  半角：$</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+ICTCLAS 汉语词性标注集
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">代码</th>
+<th scope="col" class="org-left">名称</th>
+<th scope="col" class="org-left">帮助记忆的诠释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ag</td>
+<td class="org-left">形语素</td>
+<td class="org-left">形容词性语素。形容词代码为a，语素代码ｇ前面置以A。</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">形容词</td>
+<td class="org-left">取英语形容词adjective的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">ad</td>
+<td class="org-left">副形词</td>
+<td class="org-left">直接作状语的形容词。形容词代码a和副词代码d并在一起。</td>
+</tr>
+
+<tr>
+<td class="org-left">an</td>
+<td class="org-left">名形词</td>
+<td class="org-left">具有名词功能的形容词。形容词代码a和名词代码n并在一起。</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">区别词</td>
+<td class="org-left">取汉字“别”的声母。</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">连词</td>
+<td class="org-left">取英语连词conjunction的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">Dg</td>
+<td class="org-left">副语素</td>
+<td class="org-left">副词性语素。副词代码为d，语素代码ｇ前面置以D。</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">副词</td>
+<td class="org-left">取adverb的第2个字母，因其第1个字母已用于形容词。</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">叹词</td>
+<td class="org-left">取英语叹词exclamation的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">方位词</td>
+<td class="org-left">取汉字“方” 的声母。</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">语素</td>
+<td class="org-left">绝大多数语素都能作为合成词的“词根”，取汉字“根”的声母。</td>
+</tr>
+
+<tr>
+<td class="org-left">h</td>
+<td class="org-left">前接成分</td>
+<td class="org-left">取英语head的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">成语</td>
+<td class="org-left">取英语成语idiom的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">j</td>
+<td class="org-left">简称略语</td>
+<td class="org-left">取汉字“简”的声母。</td>
+</tr>
+
+<tr>
+<td class="org-left">k</td>
+<td class="org-left">后接成分</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-left">习用语</td>
+<td class="org-left">习用语尚未成为成语，有点“临时性”，取“临”的声母。</td>
+</tr>
+
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">数词</td>
+<td class="org-left">取英语numeral的第3个字母，n，u已有他用。</td>
+</tr>
+
+<tr>
+<td class="org-left">Ng</td>
+<td class="org-left">名语素</td>
+<td class="org-left">名词性语素。名词代码为n，语素代码ｇ前面置以N。</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">名词</td>
+<td class="org-left">取英语名词noun的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">nr</td>
+<td class="org-left">人名</td>
+<td class="org-left">名词代码n和“人(ren)”的声母并在一起。</td>
+</tr>
+
+<tr>
+<td class="org-left">ns</td>
+<td class="org-left">地名</td>
+<td class="org-left">名词代码n和处所词代码s并在一起。</td>
+</tr>
+
+<tr>
+<td class="org-left">nt</td>
+<td class="org-left">机构团体</td>
+<td class="org-left">“团”的声母为t，名词代码n和t并在一起。</td>
+</tr>
+
+<tr>
+<td class="org-left">nz</td>
+<td class="org-left">其他专名</td>
+<td class="org-left">“专”的声母的第1个字母为z，名词代码n和z并在一起。</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-left">拟声词</td>
+<td class="org-left">取英语拟声词onomatopoeia的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">介词</td>
+<td class="org-left">取英语介词prepositional的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">q</td>
+<td class="org-left">量词</td>
+<td class="org-left">取英语quantity的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-left">代词</td>
+<td class="org-left">取英语代词pronoun的第2个字母,因p已用于介词。</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-left">处所词</td>
+<td class="org-left">取英语space的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">Tg</td>
+<td class="org-left">时语素</td>
+<td class="org-left">时间词性语素。时间词代码为t,在语素的代码g前面置以T。</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">时间词</td>
+<td class="org-left">取英语time的第1个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">助词</td>
+<td class="org-left">取英语助词auxiliary 的第2个字母,因a已用于形容词。</td>
+</tr>
+
+<tr>
+<td class="org-left">Vg</td>
+<td class="org-left">动语素</td>
+<td class="org-left">动词性语素。动词代码为v。在语素的代码g前面置以V。</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">动词</td>
+<td class="org-left">取英语动词verb的第一个字母。</td>
+</tr>
+
+<tr>
+<td class="org-left">vd</td>
+<td class="org-left">副动词</td>
+<td class="org-left">直接作状语的动词。动词和副词的代码并在一起。</td>
+</tr>
+
+<tr>
+<td class="org-left">vn</td>
+<td class="org-left">名动词</td>
+<td class="org-left">指具有名词功能的动词。动词和名词的代码并在一起。</td>
+</tr>
+
+<tr>
+<td class="org-left">w</td>
+<td class="org-left">标点符号</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">x</td>
+<td class="org-left">非语素字</td>
+<td class="org-left">非语素字只是一个符号，字母x通常用于代表未知数、符号。</td>
+</tr>
+
+<tr>
+<td class="org-left">y</td>
+<td class="org-left">语气词</td>
+<td class="org-left">取汉字“语”的声母。</td>
+</tr>
+
+<tr>
+<td class="org-left">z</td>
+<td class="org-left">状态词</td>
+<td class="org-left">取汉字“状”的声母的前一个字母。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">10.3</span> jieba 字典中出现的类型</h3>
+<div class="outline-text-3" id="text-10-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ad</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ag</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">an</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">df</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">dg</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">h</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">j</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">k</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">mg</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">mq</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ng</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nr</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nrfg</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nrt</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ns</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nt</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">nz</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">q</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rg</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rr</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">rz</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">tg</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ud</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ug</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uj</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ul</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uv</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uz</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vd</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vg</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vi</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vn</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">vq</td>
+</tr>
+
+<tr>
+<td class="org-left">x</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">y</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">z</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">zg</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45"><span class="section-number-3">10.4</span> simhash 过滤的掉的词汇</h3>
+<div class="outline-text-3" id="text-10-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">h</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">k</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ud</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ug</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uj</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">ul</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uv</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">uz</td>
+</tr>
+
+<tr>
+<td class="org-left">x</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">y</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

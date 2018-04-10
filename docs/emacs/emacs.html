@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-22 Fri 11:26 -->
+<!-- 2018-03-26 Mon 18:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -223,18 +223,23 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline32">3.7. graphviz</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41">4. emacs python workflow.</a>
+<li><a href="#orgheadline43">4. emacs python workflow.</a>
 <ul>
-<li><a href="#orgheadline34">4.1. install elpy, jedi</a></li>
-<li><a href="#orgheadline35">4.2. Keybinding</a></li>
-<li><a href="#orgheadline36">4.3. upgrade git</a></li>
-<li><a href="#orgheadline37">4.4. reinstall EMACS</a></li>
-<li><a href="#orgheadline38">4.5. Spacemacs Dired</a></li>
-<li><a href="#orgheadline39">4.6. magit</a></li>
-<li><a href="#orgheadline40">4.7. insert images and links</a></li>
+<li><a href="#orgheadline35">4.1. install elpy, jedi</a>
+<ul>
+<li><a href="#orgheadline34">4.1.1. elpy (Emacs Lisp Python Environment)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline42">5. layers</a></li>
+<li><a href="#orgheadline36">4.2. Keybinding</a></li>
+<li><a href="#orgheadline37">4.3. upgrade git</a></li>
+<li><a href="#orgheadline38">4.4. reinstall EMACS</a></li>
+<li><a href="#orgheadline39">4.5. Spacemacs Dired</a></li>
+<li><a href="#orgheadline40">4.6. magit</a></li>
+<li><a href="#orgheadline41">4.7. insert images and links</a></li>
+<li><a href="#orgheadline42">4.8. anaconda mode bug:</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline44">5. layers</a></li>
 </ul>
 </div>
 </div>
@@ -445,6 +450,13 @@ enter,
 |
 </pre>
 </div>
+<ul class="org-ul">
+<li>Creation and conversion</li>
+</ul>
+<p>
+<code>C-c |</code>     (org-table-create-or-convert-from-region)
+Convert the active region to a table. If every line contains at least one TAB character, the function assumes that the material is tab separated. If every line contains a comma, comma-separated values (CSV) are assumed. If not, lines are split at whitespace into fields. You can use a prefix argument to force a specific separator: C-u forces CSV, C-u C-u forces TAB, C-u C-u C-u will prompt for a regular expression to match the separator, and a numeric argument N indicates that at least N consecutive spaces, or alternatively a TAB will be the separator.
+</p>
 
 <ul class="org-ul">
 <li>Initial visibility</li>
@@ -608,8 +620,28 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 <div id="outline-container-orgheadline19" class="outline-3">
 <h3 id="orgheadline19"><span class="section-number-3">3.1</span> Structure editing</h3>
 <div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><code>C-s C-w</code></li>
+</ul>
 <p>
-<code>C-c C-x C-i</code>
+emacs searches the next occurrence of the word.
+</p>
+<ul class="org-ul">
+<li><code>M-s .</code></li>
+</ul>
+<p>
+isearch-forward-symbol-at-point
+</p>
+<ul class="org-ul">
+<li><code>C-h k</code></li>
+</ul>
+<p>
+describe key combination
+</p>
+<ul class="org-ul">
+<li><code>C-c C-x C-i</code></li>
+</ul>
+<p>
 Clock in
 <code>C-c C-x C-o</code>
 Clock out
@@ -942,13 +974,23 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 </div>
 </div>
 
-
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="section-number-2">4</span> emacs python workflow.</h2>
+<div id="outline-container-orgheadline43" class="outline-2">
+<h2 id="orgheadline43"><span class="section-number-2">4</span> emacs python workflow.</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline34" class="outline-3">
-<h3 id="orgheadline34"><span class="section-number-3">4.1</span> install elpy, jedi</h3>
+</div><div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">4.1</span> install elpy, jedi</h3>
 <div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-orgheadline34" class="outline-4">
+<h4 id="orgheadline34"><span class="section-number-4">4.1.1</span> elpy (Emacs Lisp Python Environment)</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<ul class="org-ul">
+<li>Automatic Indentation,</li>
+<li>Syntax Highlighting,</li>
+<li>Auto-Completion,</li>
+<li>Syntax Checking,</li>
+<li>Python REPL Integration,</li>
+<li>Virtual Environment Support, and</li>
+</ul>
 <div class="org-src-container">
 
 <pre class="src src-shell">sudo pip install jedi epc pylint flake8 <span style="color: #FD971F;">ipython</span>==<span style="color: #AE81FF;">5.3</span> yaft
@@ -960,8 +1002,9 @@ install package jedi elpy magit
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline35" class="outline-3">
-<h3 id="orgheadline35"><span class="section-number-3">4.2</span> Keybinding</h3>
+</div>
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">4.2</span> Keybinding</h3>
 <div class="outline-text-3" id="text-4-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1015,8 +1058,8 @@ install package jedi elpy magit
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">4.3</span> upgrade git</h3>
+<div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">4.3</span> upgrade git</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 
@@ -1028,8 +1071,8 @@ git --version
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">4.4</span> reinstall EMACS</h3>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">4.4</span> reinstall EMACS</h3>
 <div class="outline-text-3" id="text-4-4">
 <div class="org-src-container">
 
@@ -1048,8 +1091,8 @@ $ sudo make uninstall
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38"><span class="section-number-3">4.5</span> Spacemacs Dired</h3>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">4.5</span> Spacemacs Dired</h3>
 <div class="outline-text-3" id="text-4-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1123,8 +1166,8 @@ $ sudo make uninstall
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39"><span class="section-number-3">4.6</span> magit</h3>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">4.6</span> magit</h3>
 <div class="outline-text-3" id="text-4-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1321,8 +1364,8 @@ $ sudo make uninstall
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40"><span class="section-number-3">4.7</span> insert images and links</h3>
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">4.7</span> insert images and links</h3>
 <div class="outline-text-3" id="text-4-7">
 <div class="org-src-container">
 
@@ -1333,10 +1376,27 @@ C-c C-x C-v <span style="color: #AE81FF;">(</span>org-toggle-inline-mages<span s
 </div>
 </div>
 </div>
-</div>
+<div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42"><span class="section-number-3">4.8</span> anaconda mode bug:</h3>
+<div class="outline-text-3" id="text-4-8">
+<div class="org-src-container">
 
-<div id="outline-container-orgheadline42" class="outline-2">
-<h2 id="orgheadline42"><span class="section-number-2">5</span> layers</h2>
+<pre class="src src-python">pyenv <span style="color: #F92672;">global</span> anaconda3-<span style="color: #AE81FF;">4</span>.<span style="color: #AE81FF;">4</span>.<span style="color: #AE81FF;">0</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">then</span>
+emacs
+<span style="color: #75715E;"># </span><span style="color: #75715E;">then change global python to 5</span>
+pyenv <span style="color: #F92672;">global</span> anaconda3-<span style="color: #AE81FF;">5</span>.<span style="color: #AE81FF;">0</span>.<span style="color: #AE81FF;">1</span>
+</pre>
+</div>
+<p>
+py-autopep8
+py-autopep8-enable-on-save
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline44" class="outline-2">
+<h2 id="orgheadline44"><span class="section-number-2">5</span> layers</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <code>M-x</code> configuration-layer/create-layer
