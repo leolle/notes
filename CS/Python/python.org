@@ -351,7 +351,13 @@ with open('outfile', 'wb') as fp:
 with open ('outfile', 'rb') as fp:
     itemlist = pickle.load(fp)
 #+end_src
-
+- save a list of Chinese string to a file:
+#+BEGIN_SRC python
+values = [u'股市']
+import codecs
+with codecs.open("file.txt", "w", encoding="utf-8") as d:
+    d.write(str(x0))
+#+END_SRC
 - for item in the list:
 #+begin_src python
 thefile.write("%s\n" % item)
@@ -1429,6 +1435,23 @@ if __name__ == '__main__':
 
     word2vec2tensor(args.input, args.output, args.binary)
 
+#+END_SRC
+*** another way to define function parameters and provide parameters:
+- define function parameters inside a function:
+#+BEGIN_SRC python
+def convert_pdf2txt(args=None):
+    import argparse
+    P = argparse.ArgumentParser(description=__doc__)
+    P.add_argument(
+        "-m", "--maxpages", type=int, default=0, help="Maximum pages to parse")
+
+    A = P.parse_args(args=args)
+    print(A.maxpages)
+#+END_SRC
+- provide parameters:
+#+BEGIN_SRC python
+# all parameters should be strings
+convert_pdf2txt(['--maxpages', '123'])
 #+END_SRC
 ** getopt — C-style parser for command line options
 ** logging — Logging facility for Python

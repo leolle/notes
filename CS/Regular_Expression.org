@@ -225,7 +225,14 @@ SECTION\s\w+: -> *
 (\t){1} -> *
 #+END_SRC
 
+- Chinese:
+[\u4e00-\u9fa5]
 
+- Chinese punctuation:
+[\u3002\uff1b\uff0c\uff1a\u201c\u201d\uff08\uff09\u3001\uff1f\u300a\u300b]
+
+- English punctuation:
+[!#$%&'()*+,-./:;<=>?@[\]^_`{|}~]
 * replace content to org mode strings
 
 * Linux

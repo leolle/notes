@@ -274,27 +274,32 @@ CLOCK: [2018-04-03 Tue 15:41]--[2018-04-03 Tue 19:23] =>  3:42
 - [X] paper - TextRank: Bringing Order into Texts.
 - [X] plot graph.
 - [X] pseudo code.
-****** TODO implementation usecase on GS.
+****** DONE implementation usecase on GS.
+CLOSED: [2018-04-12 Thu 10:14]
 - [X] create a research article node of pdf format.
 - [X] convert the pdf to text.
 - [X] get the highlight of the text.
 - [X] change the number of highlights to a fraction of total words or certain number.
 - [X] feed the highlight into next step.
-- [ ] create highlight nodes on GS.
-****** customize textrank to textrank4zh, change output keywords number.
-****** train model to recognize company, indicator, signal.
+- [X] create highlight nodes on GS.
+- [X] list tool documents.
+****** DONE customize textrank to textrank4zh, change output keywords number.
+CLOSED: [2018-04-10 Tue 18:08]
+****** TODO train model to recognize company, indicator, signal.
 ****** deep learning Named Entity Recognization(NER) model on GS.
 ****** 问题
 - [X] 什么是textrank算法.
 It's a *graph-based ranking* algorithm that deciding on the importance of a vertex within a graph, by taking into account global information recursively computed from the entire graph, rather than relying only on local vertex-specific information.
 - [X] 它能解决什么问题。extractive summarization, keywords extraction.
 - [X] 对语言类型（中英文）是否有要求：对语言没有要求。
-**** extract the structure of a document, represent as a graph
+**** DONE extract the structure of a document, represent as a graph
+CLOSED: [2018-04-10 Tue 18:09]
 https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topsearchbox&tid=report&w=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0
 
 [[./img/knowledge_graph_report.png]]
 **** extract the knowledge from company and products.
 [[./img/knowledge_graph_fruit.png]]
+**** TODO extract keywords from documents, create a knowledge graph.
 *** DONE Word Embedding(Word2Vec):<2017-12-01 Fri> - <2017-12-31 Sun>
 CLOSED: [2018-03-26 Mon 12:47]
 :LOGBOOK:
@@ -533,14 +538,56 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 - what is tha data.
 - what is the algorithm.
 - what is the conclusion.
-****** News summary
+****** TODO News summary
 - [ ] classify 1 year of analyst research articles.
 - [ ] convert PDFs to text files.
 - [ ] summerize articles
-- [ ] send summary to baidu api article classification.
-- [ ] get news summary from webs.
 ****** syntactic parsing
 
+**** NLP tools
+
+***** TODO Latent Dirichlet Allocation(LDA)
+Latent Dirichlet allocation (LDA) is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. For example, if observations are words collected into documents, it posits that each document is a mixture of a small number of topics and that each word's creation is attributable to one of the document's topics.
+
+***** Information Extraction
+
+****** Entity extraction
+Extract company, signal, strategy from text documents.
+****** Relation extraction
+Extract relation between entities, which can create a knowledge network.
+****** Event extraction
+
+****** DONE Keywords extraction
+CLOSED: [2018-04-11 Wed 18:24]
+Extract the keywords from a text document or news.
+***** DONE Word Embedding
+CLOSED: [2018-04-11 Wed 18:24]
+Recommend similar words.
+
+***** DONE Sentiment analysis
+CLOSED: [2018-04-12 Thu 10:25]
+To create a sentiment index for a keyword, which can be provided as a indicator.
+**** NLP information system workflow
+The goal of this information system to create a workflow, which can make current task interact with a website tab. This website content may has company, data, factor, strategy that fits current workflow/current task context for agent/user.
+
+***** highlight related keywords
+Starting from selecting one node at GS, the information system can recommend other connected keywords that maybe under the same topic from the openned website.
+
+The keyword could be a company, data and other things like mentioned above. At the same time, these keywords should be under the same category.
+
+***** usecase 1:
+****** use LDA to classify the current openned website content.
+or alternatively extract 1 or 2 document keyphrases from openned website, use this keyphrase as a tag for the website.
+****** find most similar task on GS:
+1. calculate similarity between target task and current website theme.
+2. calculation process:
+#1. embedding all available task instance.
+#2. use keywords, search name of task.
+
+***** TODO usecase 2:
+1. create a task named 查找动量指标, create requested want afterwards.
+2. open a website(document) at the same time, extract entity related to (动量，指标） in that document via word embedding.
+3. map these entities to GS.
 * GID table
 | date             | GID                              | descriptions                                      |
 | 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                              |
@@ -585,8 +632,10 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 | <2018-02-23 Fri> | 2F773D63314DD8C30C2C212E0AAA88C7 | join(PIT)                                         |
 | <2018-03-05 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 | 搭函数                                            |
 | <2018-03-19 Mon> | 2ABBAB65792E46DD9DFAA734A4A6B575 | Ctrl+Shift+s                                      |
-| <2018-04-09 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 |                                                   |
-|                  | 38B86B2195CE9D035C19754BEB8EED08 | keywords_extraction                               |
+| <2018-04-09 Mon> | D6B8F9A4422036868574F4DB43BEFEA4 | doc_hash_gid                                      |
+|                  | 3D097D5CC66299F2A545D87EA3B90B02 | doc2text                                          |
+|                  | 54625324E0209CDBA2A88D7EA33CE462 | keywords_extraction                               |
+|                  | 8B7796C8015D94AB61B66A5AA72D72F0 | word embedding similar words                      |
 
 * other projects
 - [X] 搭建基金策略
