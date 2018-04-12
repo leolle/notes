@@ -1,0 +1,16 @@
+* Risk model
+DEADLINE: <2017-11-14 Tue>
+:LOGBOOK:
+CLOCK: [2017-11-14 Tue 10:57]--[2017-11-14 Tue 19:30] =>  8:33
+:END:
+** removing risk model/portfolio optimization for loop
+- [ ] remove risk model for loop.
+- [X] calculate factor return and residual(specific risk).
+  - [X] stock return should add one more column constraint.
+  - [X] extract factor exposure and stock return as regression model input X and Y.
+  - [X] apply regression function on groupby.
+  - [X] change regression input parameter name.
+  - [X] regression day by day in a for loop.
+- [X] load xarray data.
+- read the barra&axioma documents about risk model.
+- create charts from the risk model report.

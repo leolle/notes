@@ -1,0 +1,128 @@
+* GS Definition:
+Graph Strategist is a intelligent research platform.
+
+User can start a research from extracting paper idea, to check what data, model the paper uses, to expect what result, modeling input, signal, python function, backtesting, fitness statistics.
+
+difference from DIY, change parameters, taking notes and communicate with peers, saving working sessions, changing models, data.
+
+自然语言处理嵌入gs：
+简单描述说明一下如何把自然语言处理提供的一些功能应用到GS产品，与GS提供的功能结合，目前能够做到的自然语言处理功能包括情感分析，命名实体识别，Word Embedding, 知识网络， 网络爬虫。
+
+使用需求：
+1. 产生事件驱动策略信号：
+根据数据库analyst report, market view, news, company annoucement 的文本所描述的事件，产生文本所描述指数，产业或者股票的买卖交易信号。
+Event-Driven Strategies
+- Earnings Releases:
+Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
+- Mergers & Acquisitions:
+M&A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
+- Spin-Offs:
+Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
+
+2. gs选择函数时产生相关推荐：
+当用户在选择gs函数时，以及将来Reinforcement Learning功能使用时可能需要更多的类似函数或者联想出更多相关的函数。例如：当用户选择函数时打入去极值函数时，gs自动推荐去极值的几种函数，如分位数去极值，标准差去极值，中位数去极值，Median Absolute Deviation(MAD)去极值。
+
+以及当进行函数的输入数据选择时，联想出更多的相关数据选项。例如当选择股票池时，打入上证50，gs自动推荐出其它的几个相关的数据选项，如沪深300，上证100，中证500；再如当进行因子回测时，打入市盈率因子，gs自动推荐出其它因子像PB, ROE 等数据名字。
+
+3. 探索跟某一公司，产业，技术在业务上相关联的公司，产业或者技术：
+
+设计方案：
+1. gs编写Python函数，进行情感分析，命名实体识别，关键字分析，产生事件驱动策略信号：
+
+2. Word Embedding：
+
+3. 知识网络，网络爬虫：
+框架：
+
+* GS
+** Research workflow
+DEADLINE: <2017-11-06 Mon>
+:LOGBOOK:
+CLOCK: [2017-11-06 Mon 10:25]--[2017-11-07 Tue 10:03] => 23:38
+
+#+END:
+
+:END:
+1. [X] Search SSRN and find topics
+2. [X] Highlight those topics to create topics idea
+3. [X] Create topics OSET and Want based on topics idea
+   1. Such want can be under project want or under agent want such as SSRN, Journal
+4. [X] Create a Want workflow to research the topics, e.g.,
+   1. find top school and authors of that topics
+   2. find top papers chronologically in that topics
+5. [X] Search top papers and websites under the topics
+   1. meet the wants in research workflow with top author, school, etc
+6. [X] Download those papers and Meet the Want(s) of that topics
+7. [X] Create an idea workflow for such topics
+   1. define agent behavior under study
+   2. define data
+   3. models
+   4. results
+   5. related topics
+8. [ ] Create wants of different oset (doc, idea, func instance, func def, oset) for idea workflow
+9. [ ] highlights in related papers to meet above wants, create additional f def and f inst oset, then follow GS workflow to create f def, f instance, etc
+10. [ ] define function sampling.
+
+** organize OSet structure
+DEADLINE: <2017-10-23 Mon>
+[[https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit]]
+- [-] 从Handbook Of Equity Market Anomalies提取因子，策略，转化为能产生alpha的需求。
+  - [ ] Analyst-related anomalies
+  - [X] GS技术分析因子分类
+  - [ ] Accural anomalies
+  - [ ] Post-earnings announcement drift
+  - [X] GS函数定义机器学习分类，到需求tree
+  - [ ] 建立动量需求，搜动量因子满足需求
+  - [ ] 盈余惯性
+  - [X] 分析师预测和盈利预测
+- [ ] 原有因子指标加入新建OSet
+- [X] add machine learning functions to statistical inference
+- [X] add abnormal factors on GS
+- [X] add computer age statistical inference function content on GS
+- [ ] strategies
+- [X] stocks
+- [X] f def
+- [X] abnormal factors
+** GS workflow
+** Tools
+- stopwords:
+/mnt/hdfs/cacheServer/aiData/pyltp/stopwords
+- jieba user dictionary:
+user_dict_path = '/mnt/hdfs/cacheServer/aiData/word2Vector/jieba.txt'
+import jieba
+jieba.load_userdict(user_dict_path)
+
+* Issues:
+- 数据预览错误
+#+BEGIN_SRC txt
+
+Func[1EA1E9396E574AF4B6D39EC5BCCD1B61.py] Seq:3in[3CEA6605E3F63191F225D45C21395C41#1],error:Python error:
+TypeError: a bytes-like object is required, not 'str'
+Traceback (recent call last):
+File "<string>", line 1, in <module>
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 823, in transformOutputWithTypeGiven
+return transformOutput(obj)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 861, in transformOutput
+return _wideFrameToTuple(obj.matrix)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 980, in _wideFrameToTuple
+ls_index = transformOFromPandas2Output(objT.index.values)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 332, in transformOFromPandas2Output
+ret = ndOutput.astype(oDataType)
+
+#+END_SRC
+输出数字类型只能是float, 结构为TV时column name必须为GID或者string，否则需要reset index.
+- 输出string
+必须是binary,不能是string
+使用gftIO.gidStrArray2CharArray
+
+* other projects
+- [X] 搭建基金策略
+- [X] 对基金策略进行组合优化
+- [X] 分析优化后结果，把组合优化加入流程
+- Hidden factor model
+ICA
+- portfolio optimization based on factor model
+- non linear constrain on factor model
+
+- [X] 公司帮忙照看搬家。
+8 hours.

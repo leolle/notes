@@ -25,47 +25,10 @@
 9. present and get feedback.
 10. deploy function definition, function sampling.
 
-* GS Definition:
-Graph Strategist is a intelligent research platform.
-
-User can start a research from extracting paper idea, to check what data, model the paper uses, to expect what result, modeling input, signal, python function, backtesting, fitness statistics.
-
-difference from DIY, change parameters, taking notes and communicate with peers, saving working sessions, changing models, data.
-
-自然语言处理嵌入gs：
-简单描述说明一下如何把自然语言处理提供的一些功能应用到GS产品，与GS提供的功能结合，目前能够做到的自然语言处理功能包括情感分析，命名实体识别，Word Embedding, 知识网络， 网络爬虫。
-
-使用需求：
-1. 产生事件驱动策略信号：
-根据数据库analyst report, market view, news, company annoucement 的文本所描述的事件，产生文本所描述指数，产业或者股票的买卖交易信号。
-Event-Driven Strategies
-- Earnings Releases:
-Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
-- Mergers & Acquisitions:
-M&A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
-- Spin-Offs:
-Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
-
-2. gs选择函数时产生相关推荐：
-当用户在选择gs函数时，以及将来Reinforcement Learning功能使用时可能需要更多的类似函数或者联想出更多相关的函数。例如：当用户选择函数时打入去极值函数时，gs自动推荐去极值的几种函数，如分位数去极值，标准差去极值，中位数去极值，Median Absolute Deviation(MAD)去极值。
-
-以及当进行函数的输入数据选择时，联想出更多的相关数据选项。例如当选择股票池时，打入上证50，gs自动推荐出其它的几个相关的数据选项，如沪深300，上证100，中证500；再如当进行因子回测时，打入市盈率因子，gs自动推荐出其它因子像PB, ROE 等数据名字。
-
-3. 探索跟某一公司，产业，技术在业务上相关联的公司，产业或者技术：
-
-设计方案：
-1. gs编写Python函数，进行情感分析，命名实体识别，关键字分析，产生事件驱动策略信号：
-
-2. Word Embedding：
-
-3. 知识网络，网络爬虫：
-框架：
-
-
 * Deep Learning
 ** Natural Language Processing
 
-*** TODO Personalized Intelligent Agents(PIA)
+*** Personalized Intelligent Agents(PIA)
 **** Objective:
 ***** Short Term
 - make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.
@@ -114,12 +77,11 @@ M&A tends to produce dramatic increases or decreases in share prices depending o
 Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
 ******* Tool:
 Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Networks, CNN.
-**** Overview Steps:
 
+**** Overview Steps:
 - 数据爬虫 -> 数据清洗(干净数据) -> 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -> 文档树/表 -> 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -> 本体，本体存储 -> 语用分析 -> 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)
 
 - Pipeline: choose category and depth in GS skill -> return pages GID -> fetch paper via GID in python -> text processing -> word embedding models, entity extraction, classification, topic extraction, relation extraction, sequence to sequenc, sentiment analysis -> help users to select X,y.
-
 
 **** Model
 - State of the Art NL models based on DNN
@@ -134,6 +96,7 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
   - IEPY
   - Stanford coreNLP
   - NLTK
+
 **** Data
 ***** Text Labeled with (semi) structured data
 - [X] wiki page titles and page text, wiki category
@@ -188,7 +151,8 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] listed companies triples importing to neo4j.
 - [ ] read Q&A knowledge graph paper.
 
-**** TODO 语料收集:<2018-03-21 Wed>
+**** DONE 语料收集:<2018-03-21 Wed>
+CLOSED: [2018-04-12 Thu 13:18]
 - 目标语料格式：
 实体1  实体2  关系  包括实体1，实体2和他们之间关系的语句。
 - 加快语料收集的想法：
@@ -216,7 +180,7 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 | 参股     |          | 参股     |          |          |      |
 | 入驻     |          |          |          |          |      |
 | 创投     |          |          |          |          |      |
-**** TODO 实体和关系的联合抽取处理思想：<2018-03-22 Thu> -
+**** 实体和关系的联合抽取处理思想：<2018-03-22 Thu> -
 ***** goal
 :LOGBOOK:
 CLOCK: [2018-03-29 Thu 10:38]--[2018-03-29 Thu 16:08] =>  5:30
@@ -285,7 +249,7 @@ CLOSED: [2018-04-12 Thu 10:14]
 - [X] list tool documents.
 ****** DONE customize textrank to textrank4zh, change output keywords number.
 CLOSED: [2018-04-10 Tue 18:08]
-****** TODO train model to recognize company, indicator, signal.
+****** train model to recognize company, indicator, signal.
 ****** deep learning Named Entity Recognization(NER) model on GS.
 ****** 问题
 - [X] 什么是textrank算法.
@@ -299,7 +263,7 @@ https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topse
 [[./img/knowledge_graph_report.png]]
 **** extract the knowledge from company and products.
 [[./img/knowledge_graph_fruit.png]]
-**** TODO extract keywords from documents, create a knowledge graph.
+**** extract keywords from documents, create a knowledge graph.
 *** DONE Word Embedding(Word2Vec):<2017-12-01 Fri> - <2017-12-31 Sun>
 CLOSED: [2018-03-26 Mon 12:47]
 :LOGBOOK:
@@ -510,7 +474,7 @@ CLOSED: [2018-03-09 Fri 15:15]
 - [X] find unsaved categories under 金融 category.
 - [X] save those to a sql file.
 - [X] upload sql file and edge.
-*** information extraction system
+*** TODO information extraction system
 **** DONE opinion sentiment analysis. <2018-03-09 Fri> - <2018-03-16 Fri>
 CLOSED: [2018-03-26 Mon 12:49]
 :LOGBOOK:
@@ -546,7 +510,7 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 
 **** NLP tools
 
-***** TODO Latent Dirichlet Allocation(LDA)
+***** Latent Dirichlet Allocation(LDA)
 Latent Dirichlet allocation (LDA) is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. For example, if observations are words collected into documents, it posits that each document is a mixture of a small number of topics and that each word's creation is attributable to one of the document's topics.
 
 ***** Information Extraction
@@ -567,7 +531,7 @@ Recommend similar words.
 ***** DONE Sentiment analysis
 CLOSED: [2018-04-12 Thu 10:25]
 To create a sentiment index for a keyword, which can be provided as a indicator.
-**** NLP information system workflow
+**** TODO NLP information system workflow
 The goal of this information system to create a workflow, which can make current task interact with a website tab. This website content may has company, data, factor, strategy that fits current workflow/current task context for agent/user.
 
 ***** highlight related keywords
@@ -588,66 +552,7 @@ or alternatively extract 1 or 2 document keyphrases from openned website, use th
 1. create a task named 查找动量指标, create requested want afterwards.
 2. open a website(document) at the same time, extract entity related to (动量，指标） in that document via word embedding.
 3. map these entities to GS.
-* GID table
-| date             | GID                              | descriptions                                      |
-| 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                              |
-|                  | 69C3DC21A8E1440AA9C54442AB8A1BD3 | activeX                                           |
-|                  | 528FC2E4CC73469496D330AC39E4AE50 | GROUP WEIGHT                                      |
-|                  | 05E0CAE034244B75BB8CD5580CEF3F5C | 搭函数                                            |
-|                  | 047D8ECFE75E44689D1D10EDF06620BF | FD, portfolio optimization                        |
-|                  | 171A21059C62E84D330A4D7B53D72DDC | set target risk and target return                 |
-|                  | 3A29CB69BD7879553AAF2EDDD23810F0 | 基准风格因子暴露_python                           |
-|                  | E647EFFF80C540A58A2BFC7719658756 | 组合优化FR                                        |
-|                  | F7960FEA8B534BE8885639B36C3816A8 | 风格因子暴露 刘鑫                                 |
-|                  | A5A7240AE18DC1D9C84A3D7629EC1B63 | STYLE风格因子暴露 刘鑫                            |
-|                  | 363F23CF55484C6BB57291A6543385BC | function of generate factors                      |
-|                  | 0D5E7E6A76524DC8A6DA5F5AF0BFB3C3 | function of getting factor exposure               |
-|                  | B58B375C952C486C80CC94F041B0EF63 | j of getting factor exposure                      |
-| <2017-08-11 Fri> | B04D8EC4FC14CBDCCD9FD61B9C831955 | FI optimization                                   |
-| <2017-08-11 Fri> | DB7575569F231472384F462E9A0E69AF | j stock portfolio optimization                    |
-|                  | 6224F5BAEF1D4BC9BAC9FFE0244357D8 | multiple period optimization                      |
-| <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
-| <2017-10-17 Tue> | 2D7FFE3045D945B9A84D7CE26329C0D6 | 分类搜索（旧） (吴伟;函数定义;)                   |
-|                  | 44DE982C48224407BF421AA865E9D0C0 | 搜索指标  分类搜索（旧） (吴伟;指标;)             |
-|                  | A894DF1EA89F4229B04ADECB5D1A0661 | 搭函数                                            |
-|                  | E9FA85212E6D4A9C879E36CD7261D84A | 添加Element (吴伟;股票因子（OTV&O是A股股票）;)    |
-|                  | BA205C0589AB4F6CA1FCAF885763B927 | 分类搜索（旧）                                    |
-|                  | FE1171DA00604BF797EE8D6A2AD63924 | 添加Element (吴伟;函数定义;)                      |
-| <2017-10-27 Fri> | 39B85F94CA20442D99C118A6306984F7 | map homepage                                      |
-| <2017-10-31 Tue> | 7D13DEA9E6C405B8176961A15D0D4860 | 总市值L                                           |
-|                  | 83F882F5CB3AF07D00ADA79F77A7C4DD | A股日涨跌幅_L                                     |
-|                  | DAA28C9560375A07DE91319BA0946298 | 资产收益率_TTM_PIT_L                              |
-|                  | 08CFD0E436A442E5B48894CFCBACAB2D | factor return covariance                          |
-|                  | 22503DED4E434CF09DE6DBAAD8BA717C | factor return specific risk                       |
-| <2017-11-13 Mon> | 44CE41A497504EA2A158AC868EDFB48C | risk model compatible                             |
-|                  | 1084AEFAC31C8780344A53F281B1D2EF | risk model data preprocess                        |
-|                  | 58F613096423BCD84783F165C8918368 | regression                                        |
-| <2017-11-14 Tue> | 566186C314C7A760C626249E168D3362 | risk model(extract result)                        |
-| <2017-11-16 Thu> | 8C01AABF99EB43F28A10D2FB9E3F9F8C | black litterman function F                        |
-| <2017-11-17 Fri> | 46F5B372BFEC95833468B698AF7A8120 | black litterman j                                 |
-|                  | C482A7C8AAA93082803F78F03D37F51B | ROE_daily（PIT）     % change                     |
-|                  | CCA1D8B93BE90E135FFBBCA59723146A | 盈利ROE_daily_PIT_L                               |
-|                  | B8EA49740ACCF83BABAE7168BAA895CC | ROE（daily）                                      |
-| <2018-01-16 Tue> | 4CF56BE55CB641DEA428D1C0BBF6BD17 | skill instance example                            |
-| <2018-02-23 Fri> | 2F773D63314DD8C30C2C212E0AAA88C7 | join(PIT)                                         |
-| <2018-03-05 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 | 搭函数                                            |
-| <2018-03-19 Mon> | 2ABBAB65792E46DD9DFAA734A4A6B575 | Ctrl+Shift+s                                      |
-| <2018-04-09 Mon> | D6B8F9A4422036868574F4DB43BEFEA4 | doc_hash_gid                                      |
-|                  | 3D097D5CC66299F2A545D87EA3B90B02 | doc2text                                          |
-|                  | 54625324E0209CDBA2A88D7EA33CE462 | keywords_extraction                               |
-|                  | 8B7796C8015D94AB61B66A5AA72D72F0 | word embedding similar words                      |
 
-* other projects
-- [X] 搭建基金策略
-- [X] 对基金策略进行组合优化
-- [X] 分析优化后结果，把组合优化加入流程
-- Hidden factor model
-ICA
-- portfolio optimization based on factor model
-- non linear constrain on factor model
-
-- [X] 公司帮忙照看搬家。
-8 hours.
 
 * Personal stuff
 ** Studying
@@ -658,369 +563,7 @@ ICA
 - [ ] publish org files to gitbook.
 - [ ] Machine Learning
 
-* Errand
 
-* Machine Learning
-Principle: research and project oriented, adjusting speed based on progress.
-
-Spend at most 1 week to learn all those, then pick one to go deeper.
-** Week 1/2
-*** Logistic Regression
-*** Regularization
-*** Classification
-**** Linear Discriminant Analysis
-
-**** Comparison
-*** Decision tree and random forest
-*** Boosting
-*** XGBoost
-*** SVM
-*** Clustering
-*** Bayesian Network
-*** LDA
-*** HMM
-*** Neural Network
-** Studying method:
-1. model assumption, input data, application, detail.
-* Risk model
-DEADLINE: <2017-11-14 Tue>
-:LOGBOOK:
-CLOCK: [2017-11-14 Tue 10:57]--[2017-11-14 Tue 19:30] =>  8:33
-:END:
-** removing risk model/portfolio optimization for loop
-- [ ] remove risk model for loop.
-- [X] calculate factor return and residual(specific risk).
-  - [X] stock return should add one more column constraint.
-  - [X] extract factor exposure and stock return as regression model input X and Y.
-  - [X] apply regression function on groupby.
-  - [X] change regression input parameter name.
-  - [X] regression day by day in a for loop.
-- [X] load xarray data.
-- read the barra&axioma documents about risk model.
-- create charts from the risk model report.
-* GS
-** Research workflow
-DEADLINE: <2017-11-06 Mon>
-:LOGBOOK:
-CLOCK: [2017-11-06 Mon 10:25]--[2017-11-07 Tue 10:03] => 23:38
-
-#+END:
-
-:END:
-1. [X] Search SSRN and find topics
-2. [X] Highlight those topics to create topics idea
-3. [X] Create topics OSET and Want based on topics idea
-   1. Such want can be under project want or under agent want such as SSRN, Journal
-4. [X] Create a Want workflow to research the topics, e.g.,
-   1. find top school and authors of that topics
-   2. find top papers chronologically in that topics
-5. [X] Search top papers and websites under the topics
-   1. meet the wants in research workflow with top author, school, etc
-6. [X] Download those papers and Meet the Want(s) of that topics
-7. [X] Create an idea workflow for such topics
-   1. define agent behavior under study
-   2. define data
-   3. models
-   4. results
-   5. related topics
-8. [ ] Create wants of different oset (doc, idea, func instance, func def, oset) for idea workflow
-9. [ ] highlights in related papers to meet above wants, create additional f def and f inst oset, then follow GS workflow to create f def, f instance, etc
-10. [ ] define function sampling.
-
-** organize OSet structure
-DEADLINE: <2017-10-23 Mon>
-[[https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit]]
-- [-] 从Handbook Of Equity Market Anomalies提取因子，策略，转化为能产生alpha的需求。
-  - [ ] Analyst-related anomalies
-  - [X] GS技术分析因子分类
-  - [ ] Accural anomalies
-  - [ ] Post-earnings announcement drift
-  - [X] GS函数定义机器学习分类，到需求tree
-  - [ ] 建立动量需求，搜动量因子满足需求
-  - [ ] 盈余惯性
-  - [X] 分析师预测和盈利预测
-- [ ] 原有因子指标加入新建OSet
-- [X] add machine learning functions to statistical inference
-- [X] add abnormal factors on GS
-- [X] add computer age statistical inference function content on GS
-- [ ] strategies
-- [X] stocks
-- [X] f def
-- [X] abnormal factors
-** GS workflow
-** Tools
-- stopwords:
-/mnt/hdfs/cacheServer/aiData/pyltp/stopwords
-- jieba user dictionary:
-user_dict_path = '/mnt/hdfs/cacheServer/aiData/word2Vector/jieba.txt'
-import jieba
-jieba.load_userdict(user_dict_path)
-
-* optimization
-
-** black-litterman model
-DEADLINE: <2017-11-01 Wed>
-- [X] calculate unconstrainted optimized weight.
-bug: inaccurate view will cause extreme result.
-- [ ] translate ROE to views.
-look ahead 3 months strategy.
-- [ ] Omega should be calculated via 2 methods, one is to calculate Omega using LC and Calibration Factor, the other is integrating tilt to new weight w.
-- [ ] write/modify code.
-
-- [ ] plugging gs to run with data.
-- [ ] check result.
-- [ ] prepare presentation of all previous steps.
-- [ ] present and get feedback.
-- [ ] deploy function definition, function sampling.
-<2017-10-01 Sun> - <2017-10-31 Tue>
-**- [X] simply use stocks in a sector instead of all sector classes that ignore sector market capitalization.
-- [X] prepare data on GS.
-- [X] create idea map on GS.
-- [X] write pseudo code.
-- [X] prepapre industial historical price data, data problem on class market capitalization.
-- [X] read pdf/code, take notes.
-- [X] present general idea.
-vivid views on expected return.
-explain exact meaning with each parameter with cases.
-search more industrial use cases.
-view details.
-- [X] write pseudo code, set input parameters.
-*** why most of the cases are on assets classes optimization, not on individual stocks.
-1. The data points of individual asset are not enough, and are not stable.
-
-2. Sector classes perform stably for a long time.
-** cvxportfolio
-- [ ] 查看cvxportfolio的使用说明。
-- [ ] 在开发的帮助下安装cvxportfolio library，调试。
-- [ ] 调试cvxportfolio library，把代码换用该库。
-- [ ] 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。
-** cvxpy
-- [ ] research on soft constraint using cvxpy.
-- [ ] 搭建workflow。
-- [ ] 多期优化。
-** archive
-<2017-07-21 Fri> - <2017-09-18 Mon>
-- [ ] construnct FS, FR, workflow.
-- [ ] soft constraint.
-- [ ] worse-case risk analysis.
-- [X] add excess single returns and excess cumulative returns on PNLFitness.
-- [X] move functions defines osets.
-- [X] read future simulation code.
-- [X] pack constraint input parameters.
-- [ ] DONE multi-period optimization using cvxportfolio.
-- [ ] 用多期因子做一下回测看看效果，没有看到在OBJECTIVE FUNCTION里面加TRADE COST LOSS FUNCTION的做法，RETURN, RISK和 COST 不在同一个数量级的.
-- [ ] 继续在CVXPORTFOLIO上改用RISK MODEL.
-- [ ] 周末把每一期按单期优化处理后得到了新的权重，没有加入预测，上午跑一下看看效果。
-- [ ] 把RISK MODEL加到CVXPORTFOLIO。
-- [X] GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。
-- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
-- [ ] 将 group constaint 的条件泛化。
-- [ ] 组合优化当hard constraint无法达成时，relax constraint，结果同时输出fitness。
-- [X] mode 参数变成一个枚举值。
-- [ ] gs输入signature需要指定 oset.
-oset组织不完整，postpone.
-- [X] risk model api.
-- [-] risk model api test.
-  - [X] change factor return dataframe name to b char array.
-  - [ ] risk model api function.
-    - factor exposure(panel)
-      size(1536*8*2885).
-      items: datetime index
-      major axis: factors
-      minor axis: symbols
-    - sigma(panel)
-      size(1536*35*2885)
-    - specific risk(panel)
-      panel size is too large for calculation(1536*2885*2885).
-    - covariance matrix(panel)
-    - factor return(dataframe)
-- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
-- [ ] 将 group constaint 的条件泛化。
-- [ ] select assets by returns and volatility according to target mode.
-- [ ] test the api according to my own requirement.
-  - [ ] risk model class function.
-    - factor exposure(panel)
-      size(1536*8*2885).
-      items: datetime index
-      major axis: factors
-      minor axis: symbols
-    - sigma(panel)
-      size(1536*35*2885)
-    - specific risk(panel)
-      panel size is too large for calculation(1536*2885*2885).
-    - covariance matrix(panel)
-    - factor return(dataframe)
-- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
-- [ ] 将 group constaint 的条件泛化。
-- [ ] select assets by returns and volatility according to target mode.
-- [ ] which industry does the benchmark return come form?
-using the robust linear regression to estimate the coefficient and do the ranking.
-consider use the lasso regression maybe a better choice.
-- [X] 将新写的api代码应用到gs.
-- [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
-- [X] 将 group constaint 的条件泛化。
-- [ ] select assets by returns and volatility according to target mode.
-- [ ] Paper on industry classification.
-- [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
-- [X] 将 group constaint 的条件泛化。
-- [X] test on gs.
-- [X] select assets by returns and volatility according to target mode.
-- [X] soft constraint based on penalty function.
-- [ ] Paper on industry classification.
-1. portfolio optimization
-- [ ] write pseudo code.
-- [ ] fix const variable issue for target mode naming.
-- [ ] write fd for asset constraint on gs.
-
-2. soft constraint
-- [ ] write pseudo code.
-- [ ] move soft constraint test on gs.
-
-3. industry classification paper
-finish this paper and write summary.
-find a dateset for industry, product, financial statement, etc, extract nouns from text matching these classes.
-duplicate classification algorithm.
-
-- [X] fix const variable issue for target mode naming.
-- [X] write fd for asset constraint on gs.
-- [X] write pseudo code.
-- [ ] move soft constraint test on gs.
-- [X] finish text-based network industry classification(TBNIC) and summarizing.
-- [X] deploy the constraint function on gs.
-- [ ] collect product noun words from description using NLP.
-- [ ] get factors list GID
-- [ ] review optimization function map, functions signature, pseudo code.
-- [ ] collect product noun words from description using NLP.
-- [X] programe the pair input data structure.
-- [X] make this structure available on GS.
-- [X] OTVV的数据结构是通过上传还是写python function还在试验看哪种方式更高效，不过我自己已经把这种函数写出来了。
-- [ ] put the constraint GS, review code.
-- [X] setup the constraint, covariance matrix, sigma, delta on GS.
-- [ ] add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.
-- [X] 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。
-fix by fillna with 0 in the factor exposure dataframe.
-- [X] deploy the whole function on Jupyter and gs.
-- [X] we have a position limit option, length is x.
-asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
-we can create two constraint with the formula (wT*M1)T>= V_1, (wT*M1)T <= V_2.
-- [X] calculate the benchmark factor exposure as the reference j to the exposure constraint input.
-- [ ] debug the optimization with exposure constraint.
-BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.
-- [X] debug the optimization with exposure constraint.
-- [X] 程序已经调通，加入factor exposure constraint找到最优解
-  1. check the calculation of the factor exposure.
-  2. 放松约束条件.
-  3. [X] bug found: group constraint loading dataframe index order should be aligned within calculation.
-- [-] test:
-  - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
-  - [ ] original portfolio is constructed by all hs300 components.
-  - [ ] industry weight constraint match the benchmark weight.
-- [X] profile the program.
-90% of program running time is spent on loading data and decompresssing data.
-- [ ] present &review project.
-- [ ] portfolio construction with risk-parity model.
-- [-] test:
-  - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
-  - [X] original portfolio is constructed by all hs300 components.
-  - [ ] industry weight constraint match the benchmark weight.
-- [X] industry weight constraint match the benchmark weight.
-- [ ] pack functions to modules.
-- [ ] follow up correction.
-- [ ] pack functions to modules.
-- [ ] follow up correction.
-* future simulation                                     :future:optimization:
-
- <2017-09-19 Tue> - <2017-10-01 Sun>
-- [X] buy and hold mode on future backtesting.
-
-- [X] revise pnl fitness function, rename previous pnlfitness function name to PnLAndHoldingFitness, create another two seperate functions PnLFitness and HoldingFitness respectively.
-
-- [X] export data from database.
-- [X] roll over between two contracts to get continious contract data.
-
-- [X] create rolling strategy, return rolling position.
-
-- [X] create continuous contracts.
-
-- [X] learn function define, function sampling instance, wants, search strategy run on GS.
-- [X] add trading volume and other value to the continuous contract.
-- [X] remove unnecessary input of the parsing function.
-
-- [X] learn creating function sampleing.
-
-- [X] create long/short strategy, return neutral position.
-- [ ] deploy portfolio optimization on function sampling workflow.
-- [ ] create position signal via continous contract data.
-- [ ] to get actual position from simulation position.
-
-- [ ] calculate PnL using future rollover position, long/short position, continuous position.
-
-- [ ] modify simulation code referred to stocks simulation.
-- [ ] adjust input signatures.
-- [ ] future simulation requested function:
-- calendar spread trading.
-buy current month expired contract.
-short next month expired contract.
-
-- rolling on constant maturity.
-
-- trend following on dominant contract.
-moving average crossing over on the continous contract.
-- [X] future simulation pseudo code.
-#+BEGIN_SRC python
- def OnData(self,slice):
-        if not self.Portfolio.Invested:
-            for chain in slice.FutureChains:
-                 # Get contracts expiring no earlier than in 90 days
-                contracts = filter(lambda x: x.Expiry > self.Time + timedelta(90), chain.Value)
-
-                # if there is any contract, trade the front contract
-                if len(contracts) == 0: continue
-                front = sorted(contracts, key = lambda x: x.Expiry, reverse=True)[0]
-                self.MarketOrder(front.Symbol , 1)
-        else:
-            self.Liquidate()
-#+END_SRC
- requested function:
-- [ ] calendar spread trading.
-
-calculate the position value based on continious contract and actual contract
-
-buy current month expired contract.
-short next month expired contract.
-
-- [ ] rolling on constant maturity.
-
-calculate the position value based on continious contract and actual contract
-
-- [ ] trend following on dominant contract.
-
-moving average crossing over on the continous contract.
-- [X] range osets.
-- [X] parse future continious contract data.
-- [ ] simple mode test with real data.
-* Issues:
-- 数据预览错误
-#+BEGIN_SRC txt
-
-Func[1EA1E9396E574AF4B6D39EC5BCCD1B61.py] Seq:3in[3CEA6605E3F63191F225D45C21395C41#1],error:Python error:
-TypeError: a bytes-like object is required, not 'str'
-Traceback (recent call last):
-File "<string>", line 1, in <module>
-File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 823, in transformOutputWithTypeGiven
-return transformOutput(obj)
-File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 861, in transformOutput
-return _wideFrameToTuple(obj.matrix)
-File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 980, in _wideFrameToTuple
-ls_index = transformOFromPandas2Output(objT.index.values)
-File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 332, in transformOFromPandas2Output
-ret = ndOutput.astype(oDataType)
-
-#+END_SRC
-输出数字类型只能是float, 结构为TV时column name必须为GID，否则需要reset index.
-- 输出string
-必须是binary,不能是string
-使用gftIO.gidStrArray2CharArray
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
 * Instruction on how to use emacs org mode to orginize calendar.
