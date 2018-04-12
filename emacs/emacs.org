@@ -533,6 +533,9 @@ py-autopep8
 py-autopep8-enable-on-save
 * layers
 =M-x= configuration-layer/create-layer
+* Python mode
+- insert current date from shell to python file
+=C-u M-! date=
 * Instruction on how to use emacs org mode to orginize calendar.
 :LOGBOOK:
 CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 15:01] =>  0:00
