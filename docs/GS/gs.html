@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-04-12 Thu 13:40 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">GS Definition:</a></li>
+<li><a href="#orgheadline6">GS</a>
+<ul>
+<li><a href="#orgheadline2">Research workflow</a></li>
+<li><a href="#orgheadline3">organize OSet structure</a></li>
+<li><a href="#orgheadline4">GS workflow</a></li>
+<li><a href="#orgheadline5">Tools</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline7">Issues:</a></li>
+<li><a href="#orgheadline8">other projects</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">GS Definition:</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<p>
+Graph Strategist is a intelligent research platform.
+</p>
+
+<p>
+User can start a research from extracting paper idea, to check what data, model the paper uses, to expect what result, modeling input, signal, python function, backtesting, fitness statistics.
+</p>
+
+<p>
+difference from DIY, change parameters, taking notes and communicate with peers, saving working sessions, changing models, data.
+</p>
+
+<p>
+自然语言处理嵌入gs：
+简单描述说明一下如何把自然语言处理提供的一些功能应用到GS产品，与GS提供的功能结合，目前能够做到的自然语言处理功能包括情感分析，命名实体识别，Word Embedding, 知识网络， 网络爬虫。
+</p>
+
+<p>
+使用需求：
+</p>
+<ol class="org-ol">
+<li>产生事件驱动策略信号：</li>
+</ol>
+<p>
+根据数据库analyst report, market view, news, company annoucement 的文本所描述的事件，产生文本所描述指数，产业或者股票的买卖交易信号。
+Event-Driven Strategies
+</p>
+<ul class="org-ul">
+<li>Earnings Releases:</li>
+</ul>
+<p>
+Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
+</p>
+<ul class="org-ul">
+<li>Mergers &amp; Acquisitions:</li>
+</ul>
+<p>
+M&amp;A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
+</p>
+<ul class="org-ul">
+<li>Spin-Offs:</li>
+</ul>
+<p>
+Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
+</p>
+
+<ol class="org-ol">
+<li>gs选择函数时产生相关推荐：</li>
+</ol>
+<p>
+当用户在选择gs函数时，以及将来Reinforcement Learning功能使用时可能需要更多的类似函数或者联想出更多相关的函数。例如：当用户选择函数时打入去极值函数时，gs自动推荐去极值的几种函数，如分位数去极值，标准差去极值，中位数去极值，Median Absolute Deviation(MAD)去极值。
+</p>
+
+<p>
+以及当进行函数的输入数据选择时，联想出更多的相关数据选项。例如当选择股票池时，打入上证50，gs自动推荐出其它的几个相关的数据选项，如沪深300，上证100，中证500；再如当进行因子回测时，打入市盈率因子，gs自动推荐出其它因子像PB, ROE 等数据名字。
+</p>
+
+<ol class="org-ol">
+<li>探索跟某一公司，产业，技术在业务上相关联的公司，产业或者技术：</li>
+</ol>
+
+<p>
+设计方案：
+</p>
+<ol class="org-ol">
+<li>gs编写Python函数，进行情感分析，命名实体识别，关键字分析，产生事件驱动策略信号：</li>
+
+<li>Word Embedding：</li>
+
+<li>知识网络，网络爬虫：</li>
+</ol>
+<p>
+框架：
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6">GS</h2>
+<div class="outline-text-2" id="text-orgheadline6">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2">Research workflow</h3>
+<div class="outline-text-3" id="text-orgheadline2">
+<ol class="org-ol">
+<li class="on"><code>[X]</code> Search SSRN and find topics</li>
+<li class="on"><code>[X]</code> Highlight those topics to create topics idea</li>
+<li class="on"><code>[X]</code> Create topics OSET and Want based on topics idea
+<ol class="org-ol">
+<li>Such want can be under project want or under agent want such as SSRN, Journal</li>
+</ol></li>
+<li class="on"><code>[X]</code> Create a Want workflow to research the topics, e.g.,
+<ol class="org-ol">
+<li>find top school and authors of that topics</li>
+<li>find top papers chronologically in that topics</li>
+</ol></li>
+<li class="on"><code>[X]</code> Search top papers and websites under the topics
+<ol class="org-ol">
+<li>meet the wants in research workflow with top author, school, etc</li>
+</ol></li>
+<li class="on"><code>[X]</code> Download those papers and Meet the Want(s) of that topics</li>
+<li class="on"><code>[X]</code> Create an idea workflow for such topics
+<ol class="org-ol">
+<li>define agent behavior under study</li>
+<li>define data</li>
+<li>models</li>
+<li>results</li>
+<li>related topics</li>
+</ol></li>
+<li class="off"><code>[&#xa0;]</code> Create wants of different oset (doc, idea, func instance, func def, oset) for idea workflow</li>
+<li class="off"><code>[&#xa0;]</code> highlights in related papers to meet above wants, create additional f def and f inst oset, then follow GS workflow to create f def, f instance, etc</li>
+<li class="off"><code>[&#xa0;]</code> define function sampling.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3">organize OSet structure</h3>
+<div class="outline-text-3" id="text-orgheadline3">
+<p>
+<a href="https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit">https://docs.google.com/document/d/1eRArN_yGxYnEEbA-AMDAhGOSGSFsL_CvBstbuJ7v4lE/edit</a>
+</p>
+<ul class="org-ul">
+<li class="trans"><code>[-]</code> 从Handbook Of Equity Market Anomalies提取因子，策略，转化为能产生alpha的需求。
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> Analyst-related anomalies</li>
+<li class="on"><code>[X]</code> GS技术分析因子分类</li>
+<li class="off"><code>[&#xa0;]</code> Accural anomalies</li>
+<li class="off"><code>[&#xa0;]</code> Post-earnings announcement drift</li>
+<li class="on"><code>[X]</code> GS函数定义机器学习分类，到需求tree</li>
+<li class="off"><code>[&#xa0;]</code> 建立动量需求，搜动量因子满足需求</li>
+<li class="off"><code>[&#xa0;]</code> 盈余惯性</li>
+<li class="on"><code>[X]</code> 分析师预测和盈利预测</li>
+</ul></li>
+<li class="off"><code>[&#xa0;]</code> 原有因子指标加入新建OSet</li>
+<li class="on"><code>[X]</code> add machine learning functions to statistical inference</li>
+<li class="on"><code>[X]</code> add abnormal factors on GS</li>
+<li class="on"><code>[X]</code> add computer age statistical inference function content on GS</li>
+<li class="off"><code>[&#xa0;]</code> strategies</li>
+<li class="on"><code>[X]</code> stocks</li>
+<li class="on"><code>[X]</code> f def</li>
+<li class="on"><code>[X]</code> abnormal factors</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4">GS workflow</h3>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5">Tools</h3>
+<div class="outline-text-3" id="text-orgheadline5">
+<ul class="org-ul">
+<li>stopwords:</li>
+</ul>
+<p>
+/mnt/hdfs/cacheServer/aiData/pyltp/stopwords
+</p>
+<ul class="org-ul">
+<li>jieba user dictionary:</li>
+</ul>
+<p>
+user<sub>dict</sub><sub>path</sub> = '/mnt/hdfs/cacheServer/aiData/word2Vector/jieba.txt'
+import jieba
+jieba.load<sub>userdict</sub>(user<sub>dict</sub><sub>path</sub>)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7">Issues:</h2>
+<div class="outline-text-2" id="text-orgheadline7">
+<ul class="org-ul">
+<li>数据预览错误</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-txt">Func[1EA1E9396E574AF4B6D39EC5BCCD1B61.py] Seq:3in[3CEA6605E3F63191F225D45C21395C41#1],error:Python error:
+TypeError: a bytes-like object is required, not 'str'
+Traceback (recent call last):
+File "&lt;string&gt;", line 1, in &lt;module&gt;
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 823, in transformOutputWithTypeGiven
+return transformOutput(obj)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 861, in transformOutput
+return _wideFrameToTuple(obj.matrix)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 980, in _wideFrameToTuple
+ls_index = transformOFromPandas2Output(objT.index.values)
+File "/opt/GFTCacheServer/PythonScripts/lib/gftTools/gftIO.py", line 332, in transformOFromPandas2Output
+ret = ndOutput.astype(oDataType)
+</pre>
+</div>
+<p>
+输出数字类型只能是float, 结构为TV时column name必须为GID或者string，否则需要reset index.
+</p>
+<ul class="org-ul">
+<li>输出string</li>
+</ul>
+<p>
+必须是binary,不能是string
+使用gftIO.gidStrArray2CharArray
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8">other projects</h2>
+<div class="outline-text-2" id="text-orgheadline8">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 搭建基金策略</li>
+<li class="on"><code>[X]</code> 对基金策略进行组合优化</li>
+<li class="on"><code>[X]</code> 分析优化后结果，把组合优化加入流程</li>
+<li>Hidden factor model</li>
+</ul>
+<p>
+ICA
+</p>
+<ul class="org-ul">
+<li>portfolio optimization based on factor model</li>
+<li>non linear constrain on factor model</li>
+
+<li class="on"><code>[X]</code> 公司帮忙照看搬家。</li>
+</ul>
+<p>
+8 hours.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

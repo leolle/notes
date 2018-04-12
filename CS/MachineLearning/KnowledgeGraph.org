@@ -63,16 +63,16 @@ YAML在我看来比JSON的可读性更好，更加Pythonic（因为其语法接�
 
 - PyYAML是Python里的Yaml处理库 http://pyyaml.org/wiki/PyYAML
 **  RDF和OWL
+Resource Description Framework: A framework designed for metadata data model, typically triples.
 
+Web Ontology Language: An ontology is like a parent class.
 **  JSON-LD
-
+jason linked.
 自己设计电子邮件的结构化表示
 
 
 
 * 知识存储
-
-
 
 知识存储解决如何管理大量的结构化数据。我们可以用不同的数据库工具。现代的关系数据库可能可以解决大多数需要知识图谱的场合。某些特殊场合，我们需要图数据库。
 
@@ -91,11 +91,7 @@ YAML在我看来比JSON的可读性更好，更加Pythonic（因为其语法接�
 
 * 知识检索
 
-
-
 知识检索提供对用户友好的交互。知识检索从简单到复杂可分为六级：关键词、词联想、词本体、短程关系、长程关系、自由问答。我们会实践前两个层次的技术，并了解后面四个层次。
-
-
 
 **  Gensim实现主题模型
 

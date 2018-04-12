@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-04-12 Thu 13:40 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline6">optimization</a>
+<ul>
+<li><a href="#orgheadline1">black-litterman model</a>
+<ul>
+<li><a href="#orgheadline2">why most of the cases are on assets classes optimization, not on individual stocks.</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline3">cvxportfolio</a></li>
+<li><a href="#orgheadline4">cvxpy</a></li>
+<li><a href="#orgheadline5">archive</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6">optimization</h2>
+<div class="outline-text-2" id="text-orgheadline6">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1">black-litterman model</h3>
+<div class="outline-text-3" id="text-orgheadline1">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> calculate unconstrainted optimized weight.</li>
+</ul>
+<p>
+bug: inaccurate view will cause extreme result.
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> translate ROE to views.</li>
+</ul>
+<p>
+look ahead 3 months strategy.
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> Omega should be calculated via 2 methods, one is to calculate Omega using LC and Calibration Factor, the other is integrating tilt to new weight w.</li>
+<li class="off"><code>[&#xa0;]</code> write/modify code.</li>
+
+<li class="off"><code>[&#xa0;]</code> plugging gs to run with data.</li>
+<li class="off"><code>[&#xa0;]</code> check result.</li>
+<li class="off"><code>[&#xa0;]</code> prepare presentation of all previous steps.</li>
+<li class="off"><code>[&#xa0;]</code> present and get feedback.</li>
+<li class="off"><code>[&#xa0;]</code> deploy function definition, function sampling.</li>
+</ul>
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-01 Sun&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-10-31 Tue&gt;</span></span>
+**- [X] simply use stocks in a sector instead of all sector classes that ignore sector market capitalization.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> prepare data on GS.</li>
+<li class="on"><code>[X]</code> create idea map on GS.</li>
+<li class="on"><code>[X]</code> write pseudo code.</li>
+<li class="on"><code>[X]</code> prepapre industial historical price data, data problem on class market capitalization.</li>
+<li class="on"><code>[X]</code> read pdf/code, take notes.</li>
+<li class="on"><code>[X]</code> present general idea.</li>
+</ul>
+<p>
+vivid views on expected return.
+explain exact meaning with each parameter with cases.
+search more industrial use cases.
+view details.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> write pseudo code, set input parameters.</li>
+</ul>
+</div>
+<div id="outline-container-orgheadline2" class="outline-4">
+<h4 id="orgheadline2">why most of the cases are on assets classes optimization, not on individual stocks.</h4>
+<div class="outline-text-4" id="text-orgheadline2">
+<ol class="org-ol">
+<li>The data points of individual asset are not enough, and are not stable.</li>
+
+<li>Sector classes perform stably for a long time.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3">cvxportfolio</h3>
+<div class="outline-text-3" id="text-orgheadline3">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> 查看cvxportfolio的使用说明。</li>
+<li class="off"><code>[&#xa0;]</code> 在开发的帮助下安装cvxportfolio library，调试。</li>
+<li class="off"><code>[&#xa0;]</code> 调试cvxportfolio library，把代码换用该库。</li>
+<li class="off"><code>[&#xa0;]</code> 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4">cvxpy</h3>
+<div class="outline-text-3" id="text-orgheadline4">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> research on soft constraint using cvxpy.</li>
+<li class="off"><code>[&#xa0;]</code> 搭建workflow。</li>
+<li class="off"><code>[&#xa0;]</code> 多期优化。</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5">archive</h3>
+<div class="outline-text-3" id="text-orgheadline5">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-07-21 Fri&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-09-18 Mon&gt;</span></span>
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> construnct FS, FR, workflow.</li>
+<li class="off"><code>[&#xa0;]</code> soft constraint.</li>
+<li class="off"><code>[&#xa0;]</code> worse-case risk analysis.</li>
+<li class="on"><code>[X]</code> add excess single returns and excess cumulative returns on PNLFitness.</li>
+<li class="on"><code>[X]</code> move functions defines osets.</li>
+<li class="on"><code>[X]</code> read future simulation code.</li>
+<li class="on"><code>[X]</code> pack constraint input parameters.</li>
+<li class="off"><code>[&#xa0;]</code> DONE multi-period optimization using cvxportfolio.</li>
+<li class="off"><code>[&#xa0;]</code> 用多期因子做一下回测看看效果，没有看到在OBJECTIVE FUNCTION里面加TRADE COST LOSS FUNCTION的做法，RETURN, RISK和 COST 不在同一个数量级的.</li>
+<li class="off"><code>[&#xa0;]</code> 继续在CVXPORTFOLIO上改用RISK MODEL.</li>
+<li class="off"><code>[&#xa0;]</code> 周末把每一期按单期优化处理后得到了新的权重，没有加入预测，上午跑一下看看效果。</li>
+<li class="off"><code>[&#xa0;]</code> 把RISK MODEL加到CVXPORTFOLIO。</li>
+<li class="on"><code>[X]</code> GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。</li>
+<li class="off"><code>[&#xa0;]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="off"><code>[&#xa0;]</code> 将 group constaint 的条件泛化。</li>
+<li class="off"><code>[&#xa0;]</code> 组合优化当hard constraint无法达成时，relax constraint，结果同时输出fitness。</li>
+<li class="on"><code>[X]</code> mode 参数变成一个枚举值。</li>
+<li class="off"><code>[&#xa0;]</code> gs输入signature需要指定 oset.</li>
+</ul>
+<p>
+oset组织不完整，postpone.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> risk model api.</li>
+<li class="trans"><code>[-]</code> risk model api test.
+<ul class="org-ul">
+<li class="on"><code>[X]</code> change factor return dataframe name to b char array.</li>
+<li class="off"><code>[&#xa0;]</code> risk model api function.
+<ul class="org-ul">
+<li>factor exposure(panel)
+size(1536*8*2885).
+items: datetime index
+major axis: factors
+minor axis: symbols</li>
+<li>sigma(panel)
+size(1536*35*2885)</li>
+<li>specific risk(panel)
+panel size is too large for calculation(1536*2885*2885).</li>
+<li>covariance matrix(panel)</li>
+<li>factor return(dataframe)</li>
+</ul></li>
+</ul></li>
+<li class="off"><code>[&#xa0;]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="off"><code>[&#xa0;]</code> 将 group constaint 的条件泛化。</li>
+<li class="off"><code>[&#xa0;]</code> select assets by returns and volatility according to target mode.</li>
+<li class="off"><code>[&#xa0;]</code> test the api according to my own requirement.
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> risk model class function.
+<ul class="org-ul">
+<li>factor exposure(panel)
+size(1536*8*2885).
+items: datetime index
+major axis: factors
+minor axis: symbols</li>
+<li>sigma(panel)
+size(1536*35*2885)</li>
+<li>specific risk(panel)
+panel size is too large for calculation(1536*2885*2885).</li>
+<li>covariance matrix(panel)</li>
+<li>factor return(dataframe)</li>
+</ul></li>
+</ul></li>
+<li class="off"><code>[&#xa0;]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="off"><code>[&#xa0;]</code> 将 group constaint 的条件泛化。</li>
+<li class="off"><code>[&#xa0;]</code> select assets by returns and volatility according to target mode.</li>
+<li class="off"><code>[&#xa0;]</code> which industry does the benchmark return come form?</li>
+</ul>
+<p>
+using the robust linear regression to estimate the coefficient and do the ranking.
+consider use the lasso regression maybe a better choice.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 将新写的api代码应用到gs.</li>
+<li class="on"><code>[X]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="on"><code>[X]</code> 将 group constaint 的条件泛化。</li>
+<li class="off"><code>[&#xa0;]</code> select assets by returns and volatility according to target mode.</li>
+<li class="off"><code>[&#xa0;]</code> Paper on industry classification.</li>
+<li class="on"><code>[X]</code> 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。</li>
+<li class="on"><code>[X]</code> 将 group constaint 的条件泛化。</li>
+<li class="on"><code>[X]</code> test on gs.</li>
+<li class="on"><code>[X]</code> select assets by returns and volatility according to target mode.</li>
+<li class="on"><code>[X]</code> soft constraint based on penalty function.</li>
+<li class="off"><code>[&#xa0;]</code> Paper on industry classification.</li>
+<li>portfolio optimization</li>
+<li class="off"><code>[&#xa0;]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> fix const variable issue for target mode naming.</li>
+<li class="off"><code>[&#xa0;]</code> write fd for asset constraint on gs.</li>
+
+<li>soft constraint</li>
+<li class="off"><code>[&#xa0;]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> move soft constraint test on gs.</li>
+
+<li>industry classification paper</li>
+</ul>
+<p>
+finish this paper and write summary.
+find a dateset for industry, product, financial statement, etc, extract nouns from text matching these classes.
+duplicate classification algorithm.
+</p>
+
+<ul class="org-ul">
+<li class="on"><code>[X]</code> fix const variable issue for target mode naming.</li>
+<li class="on"><code>[X]</code> write fd for asset constraint on gs.</li>
+<li class="on"><code>[X]</code> write pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> move soft constraint test on gs.</li>
+<li class="on"><code>[X]</code> finish text-based network industry classification(TBNIC) and summarizing.</li>
+<li class="on"><code>[X]</code> deploy the constraint function on gs.</li>
+<li class="off"><code>[&#xa0;]</code> collect product noun words from description using NLP.</li>
+<li class="off"><code>[&#xa0;]</code> get factors list GID</li>
+<li class="off"><code>[&#xa0;]</code> review optimization function map, functions signature, pseudo code.</li>
+<li class="off"><code>[&#xa0;]</code> collect product noun words from description using NLP.</li>
+<li class="on"><code>[X]</code> programe the pair input data structure.</li>
+<li class="on"><code>[X]</code> make this structure available on GS.</li>
+<li class="on"><code>[X]</code> OTVV的数据结构是通过上传还是写python function还在试验看哪种方式更高效，不过我自己已经把这种函数写出来了。</li>
+<li class="off"><code>[&#xa0;]</code> put the constraint GS, review code.</li>
+<li class="on"><code>[X]</code> setup the constraint, covariance matrix, sigma, delta on GS.</li>
+<li class="off"><code>[&#xa0;]</code> add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.</li>
+<li class="on"><code>[X]</code> 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。</li>
+</ul>
+<p>
+fix by fillna with 0 in the factor exposure dataframe.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> deploy the whole function on Jupyter and gs.</li>
+<li class="on"><code>[X]</code> we have a position limit option, length is x.</li>
+</ul>
+<p>
+asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
+we can create two constraint with the formula (wT*M1)T&gt;= V<sub>1</sub>, (wT*M1)T &lt;= V<sub>2</sub>.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> calculate the benchmark factor exposure as the reference j to the exposure constraint input.</li>
+<li class="off"><code>[&#xa0;]</code> debug the optimization with exposure constraint.</li>
+</ul>
+<p>
+BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> debug the optimization with exposure constraint.</li>
+<li class="on"><code>[X]</code> 程序已经调通，加入factor exposure constraint找到最优解
+<ol class="org-ol">
+<li>check the calculation of the factor exposure.</li>
+<li>放松约束条件.</li>
+<li class="on"><code>[X]</code> bug found: group constraint loading dataframe index order should be aligned within calculation.</li>
+</ol></li>
+<li class="trans"><code>[-]</code> test:
+<ul class="org-ul">
+<li class="on"><code>[X]</code> original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.</li>
+<li class="off"><code>[&#xa0;]</code> original portfolio is constructed by all hs300 components.</li>
+<li class="off"><code>[&#xa0;]</code> industry weight constraint match the benchmark weight.</li>
+</ul></li>
+<li class="on"><code>[X]</code> profile the program.</li>
+</ul>
+<p>
+90% of program running time is spent on loading data and decompresssing data.
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> present &amp;review project.</li>
+<li class="off"><code>[&#xa0;]</code> portfolio construction with risk-parity model.</li>
+<li class="trans"><code>[-]</code> test:
+<ul class="org-ul">
+<li class="on"><code>[X]</code> original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.</li>
+<li class="on"><code>[X]</code> original portfolio is constructed by all hs300 components.</li>
+<li class="off"><code>[&#xa0;]</code> industry weight constraint match the benchmark weight.</li>
+</ul></li>
+<li class="on"><code>[X]</code> industry weight constraint match the benchmark weight.</li>
+<li class="off"><code>[&#xa0;]</code> pack functions to modules.</li>
+<li class="off"><code>[&#xa0;]</code> follow up correction.</li>
+<li class="off"><code>[&#xa0;]</code> pack functions to modules.</li>
+<li class="off"><code>[&#xa0;]</code> follow up correction.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
