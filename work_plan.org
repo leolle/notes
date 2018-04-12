@@ -14,16 +14,17 @@
 
 
 * Workflow
-1. search.
-2. read pdf/code, take notes.
-3. present general idea.
-4. write pseudo code, set input parameters.
-5. write/modify code.
-6. plugging gs to run with data.
-7. check result.
-8. prepare presentation of all previous steps.
-9. present and get feedback.
-10. deploy function definition, function sampling.
+1. define goal.
+2. search paper/report.
+3. read pdf/code, take notes.
+4. present general idea.
+5. write pseudo code, set input parameters.
+6. write/modify code.
+7. plugging gs to run with data.
+8. check out result.
+9. prepare presentation of all previous steps.
+10. present and get feedback.
+11. deploy function definition, function sampling.
 
 * Deep Learning
 ** Natural Language Processing
@@ -474,7 +475,7 @@ CLOSED: [2018-03-09 Fri 15:15]
 - [X] find unsaved categories under 金融 category.
 - [X] save those to a sql file.
 - [X] upload sql file and edge.
-*** TODO information extraction system
+*** TODO information extraction system<2018-04-04 Wed>
 **** DONE opinion sentiment analysis. <2018-03-09 Fri> - <2018-03-16 Fri>
 CLOSED: [2018-03-26 Mon 12:49]
 :LOGBOOK:
@@ -531,7 +532,7 @@ Recommend similar words.
 ***** DONE Sentiment analysis
 CLOSED: [2018-04-12 Thu 10:25]
 To create a sentiment index for a keyword, which can be provided as a indicator.
-**** TODO NLP information system workflow
+**** TODO NLP information system workflow<2018-04-11 Wed> -
 The goal of this information system to create a workflow, which can make current task interact with a website tab. This website content may has company, data, factor, strategy that fits current workflow/current task context for agent/user.
 
 ***** highlight related keywords
@@ -542,66 +543,21 @@ The keyword could be a company, data and other things like mentioned above. At t
 ****** usecase 1 find task according to website:
 ******* use LDA to classify the current openned website content.
 or alternatively extract 1 or 2 document keyphrases from openned website, use this keyphrase as a tag for the website.
+
 ******* find most similar task on GS:
 1. calculate similarity between target task and current website theme.
 2. calculation process:
 #1. embedding all available task instance.
 #2. use keywords, search name of task.
 
-****** TODO usecase 2 highligh entities according to GS task:
+****** TODO usecase 2 highlight entities according to GS task:
+:LOGBOOK:
+CLOCK: [2018-04-12 Thu 15:46]
+:END:
 1. create a task named 查找动量指标, create requested want afterwards.
 2. open a website(document) at the same time, extract entity related to (动量，指标） in that document via word embedding.
 3. map these entities to GS.
-
-
-* Personal stuff
-** Studying
-- [X] make studying plan on deep learning and NLP course.
-** knowledge database website
-- [X] modify python content aligned with python library index.
-[[http://usyiyi.cn/translate/python_352/library/index.html][python library]]
-- [ ] publish org files to gitbook.
-- [ ] Machine Learning
-
-
+- [ ] train word2vec model on opened document.
+- [ ] find similar words of input.
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
-* Instruction on how to use emacs org mode to orginize calendar.
-:LOGBOOK:
-CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 15:01] =>  0:00
-:END:
-
-- insert current date
-=C-c .= <2017-08-11 Fri>
-
-- insert current date and time
-=C-u C-c .= <2017-08-11 Fri 16:06>
-
-- set deadline for an item
-=C-c C-d=
-
-- clock log in
-=C-c C-x C-i=
-
-- clock log out
-=C-c C-x C-o=
-
-- clock cancle
-=C-c C-x C-q=
-- org-mode
-#+BEGIN_SRC text
-#+TOC: headlines 3
-#+INCLUDE: "./CS/Python/python2.org" :minlevel 1
-#+BEGIN_COMMENT
-Each major section of this document is defined in its own file.
-
-You can jump to each file by moving the cursor on an "#+include" line
-and typing =C-c '= Note: There is *no requirement* to split, but large
-org-mode files can become quite slow to edit, so separate sections help
-keeping things fluid...
-#+END_COMMENT
-#+LINK: gh    https://github.com/
-#+LINK: rfc   https://tools.ietf.org/html/
-#+LINK: thing https://github.com/thi-ng/
-#+LINK: wiki  https://en.wikipedia.org/wiki/
-#+END_SRC
