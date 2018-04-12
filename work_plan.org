@@ -575,16 +575,16 @@ Starting from selecting one node at GS, the information system can recommend oth
 
 The keyword could be a company, data and other things like mentioned above. At the same time, these keywords should be under the same category.
 
-***** usecase 1:
-****** use LDA to classify the current openned website content.
+****** usecase 1 find task according to website:
+******* use LDA to classify the current openned website content.
 or alternatively extract 1 or 2 document keyphrases from openned website, use this keyphrase as a tag for the website.
-****** find most similar task on GS:
+******* find most similar task on GS:
 1. calculate similarity between target task and current website theme.
 2. calculation process:
 #1. embedding all available task instance.
 #2. use keywords, search name of task.
 
-***** TODO usecase 2:
+****** TODO usecase 2 highligh entities according to GS task:
 1. create a task named 查找动量指标, create requested want afterwards.
 2. open a website(document) at the same time, extract entity related to (动量，指标） in that document via word embedding.
 3. map these entities to GS.
