@@ -1,0 +1,172 @@
+* optimization
+
+** black-litterman model
+DEADLINE: <2017-11-01 Wed>
+- [X] calculate unconstrainted optimized weight.
+bug: inaccurate view will cause extreme result.
+- [ ] translate ROE to views.
+look ahead 3 months strategy.
+- [ ] Omega should be calculated via 2 methods, one is to calculate Omega using LC and Calibration Factor, the other is integrating tilt to new weight w.
+- [ ] write/modify code.
+
+- [ ] plugging gs to run with data.
+- [ ] check result.
+- [ ] prepare presentation of all previous steps.
+- [ ] present and get feedback.
+- [ ] deploy function definition, function sampling.
+<2017-10-01 Sun> - <2017-10-31 Tue>
+**- [X] simply use stocks in a sector instead of all sector classes that ignore sector market capitalization.
+- [X] prepare data on GS.
+- [X] create idea map on GS.
+- [X] write pseudo code.
+- [X] prepapre industial historical price data, data problem on class market capitalization.
+- [X] read pdf/code, take notes.
+- [X] present general idea.
+vivid views on expected return.
+explain exact meaning with each parameter with cases.
+search more industrial use cases.
+view details.
+- [X] write pseudo code, set input parameters.
+*** why most of the cases are on assets classes optimization, not on individual stocks.
+1. The data points of individual asset are not enough, and are not stable.
+
+2. Sector classes perform stably for a long time.
+** cvxportfolio
+- [ ] 查看cvxportfolio的使用说明。
+- [ ] 在开发的帮助下安装cvxportfolio library，调试。
+- [ ] 调试cvxportfolio library，把代码换用该库。
+- [ ] 在gs上调试使用cvxpy和cvxportfolio的因子中性程序。
+** cvxpy
+- [ ] research on soft constraint using cvxpy.
+- [ ] 搭建workflow。
+- [ ] 多期优化。
+** archive
+<2017-07-21 Fri> - <2017-09-18 Mon>
+- [ ] construnct FS, FR, workflow.
+- [ ] soft constraint.
+- [ ] worse-case risk analysis.
+- [X] add excess single returns and excess cumulative returns on PNLFitness.
+- [X] move functions defines osets.
+- [X] read future simulation code.
+- [X] pack constraint input parameters.
+- [ ] DONE multi-period optimization using cvxportfolio.
+- [ ] 用多期因子做一下回测看看效果，没有看到在OBJECTIVE FUNCTION里面加TRADE COST LOSS FUNCTION的做法，RETURN, RISK和 COST 不在同一个数量级的.
+- [ ] 继续在CVXPORTFOLIO上改用RISK MODEL.
+- [ ] 周末把每一期按单期优化处理后得到了新的权重，没有加入预测，上午跑一下看看效果。
+- [ ] 把RISK MODEL加到CVXPORTFOLIO。
+- [X] GS说明文档，结合以前学到的东西，WORKFLOW, J, FR, FI, 边，等等，重新理解一下。
+- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [ ] 将 group constaint 的条件泛化。
+- [ ] 组合优化当hard constraint无法达成时，relax constraint，结果同时输出fitness。
+- [X] mode 参数变成一个枚举值。
+- [ ] gs输入signature需要指定 oset.
+oset组织不完整，postpone.
+- [X] risk model api.
+- [-] risk model api test.
+  - [X] change factor return dataframe name to b char array.
+  - [ ] risk model api function.
+    - factor exposure(panel)
+      size(1536*8*2885).
+      items: datetime index
+      major axis: factors
+      minor axis: symbols
+    - sigma(panel)
+      size(1536*35*2885)
+    - specific risk(panel)
+      panel size is too large for calculation(1536*2885*2885).
+    - covariance matrix(panel)
+    - factor return(dataframe)
+- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [ ] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
+- [ ] test the api according to my own requirement.
+  - [ ] risk model class function.
+    - factor exposure(panel)
+      size(1536*8*2885).
+      items: datetime index
+      major axis: factors
+      minor axis: symbols
+    - sigma(panel)
+      size(1536*35*2885)
+    - specific risk(panel)
+      panel size is too large for calculation(1536*2885*2885).
+    - covariance matrix(panel)
+    - factor return(dataframe)
+- [ ] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [ ] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
+- [ ] which industry does the benchmark return come form?
+using the robust linear regression to estimate the coefficient and do the ranking.
+consider use the lasso regression maybe a better choice.
+- [X] 将新写的api代码应用到gs.
+- [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [X] 将 group constaint 的条件泛化。
+- [ ] select assets by returns and volatility according to target mode.
+- [ ] Paper on industry classification.
+- [X] 将非模型的处理逻辑，如asset constriant，group constraint, exposure constraint抽取与剥离出来，通过app定义输入与输出，编写RISK MODEL API，从 risk model 中取数据的逻辑泛化。
+- [X] 将 group constaint 的条件泛化。
+- [X] test on gs.
+- [X] select assets by returns and volatility according to target mode.
+- [X] soft constraint based on penalty function.
+- [ ] Paper on industry classification.
+1. portfolio optimization
+- [ ] write pseudo code.
+- [ ] fix const variable issue for target mode naming.
+- [ ] write fd for asset constraint on gs.
+
+2. soft constraint
+- [ ] write pseudo code.
+- [ ] move soft constraint test on gs.
+
+3. industry classification paper
+finish this paper and write summary.
+find a dateset for industry, product, financial statement, etc, extract nouns from text matching these classes.
+duplicate classification algorithm.
+
+- [X] fix const variable issue for target mode naming.
+- [X] write fd for asset constraint on gs.
+- [X] write pseudo code.
+- [ ] move soft constraint test on gs.
+- [X] finish text-based network industry classification(TBNIC) and summarizing.
+- [X] deploy the constraint function on gs.
+- [ ] collect product noun words from description using NLP.
+- [ ] get factors list GID
+- [ ] review optimization function map, functions signature, pseudo code.
+- [ ] collect product noun words from description using NLP.
+- [X] programe the pair input data structure.
+- [X] make this structure available on GS.
+- [X] OTVV的数据结构是通过上传还是写python function还在试验看哪种方式更高效，不过我自己已经把这种函数写出来了。
+- [ ] put the constraint GS, review code.
+- [X] setup the constraint, covariance matrix, sigma, delta on GS.
+- [ ] add industry to portfolio bug: output of this function will ignore assets whose industry information is missing.
+- [X] 数据传入没有问题，在计算时出现bug，估计是传入数据dataframe column的顺序出现问题，debug。
+fix by fillna with 0 in the factor exposure dataframe.
+- [X] deploy the whole function on Jupyter and gs.
+- [X] we have a position limit option, length is x.
+asset information is a diagonal matrix coming from the input portfolio, whose size is n*n, weight variable should be an m*1 vector, so select m assets from asset information dataframe first.
+we can create two constraint with the formula (wT*M1)T>= V_1, (wT*M1)T <= V_2.
+- [X] calculate the benchmark factor exposure as the reference j to the exposure constraint input.
+- [ ] debug the optimization with exposure constraint.
+BUG: asColumnTab will get wrong data if the content in the GftTable is a dataframe with datetimeindex.
+- [X] debug the optimization with exposure constraint.
+- [X] 程序已经调通，加入factor exposure constraint找到最优解
+  1. check the calculation of the factor exposure.
+  2. 放松约束条件.
+  3. [X] bug found: group constraint loading dataframe index order should be aligned within calculation.
+- [-] test:
+  - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
+  - [ ] original portfolio is constructed by all hs300 components.
+  - [ ] industry weight constraint match the benchmark weight.
+- [X] profile the program.
+90% of program running time is spent on loading data and decompresssing data.
+- [ ] present &review project.
+- [ ] portfolio construction with risk-parity model.
+- [-] test:
+  - [X] original portfolio is constructed by 59 assets in a single period. gid: 3C9221A6176B231A095969B6BFE8BFB2.
+  - [X] original portfolio is constructed by all hs300 components.
+  - [ ] industry weight constraint match the benchmark weight.
+- [X] industry weight constraint match the benchmark weight.
+- [ ] pack functions to modules.
+- [ ] follow up correction.
+- [ ] pack functions to modules.
+- [ ] follow up correction.

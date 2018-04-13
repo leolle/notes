@@ -533,3 +533,45 @@ py-autopep8
 py-autopep8-enable-on-save
 * layers
 =M-x= configuration-layer/create-layer
+* Python mode
+- insert current date from shell to python file
+=C-u M-! date=
+* Instruction on how to use emacs org mode to orginize calendar.
+:LOGBOOK:
+CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 15:01] =>  0:00
+:END:
+
+- insert current date
+=C-c .= <2017-08-11 Fri>
+
+- insert current date and time
+=C-u C-c .= <2017-08-11 Fri 16:06>
+
+- set deadline for an item
+=C-c C-d=
+
+- clock log in
+=C-c C-x C-i=
+
+- clock log out
+=C-c C-x C-o=
+
+- clock cancle
+=C-c C-x C-q=
+- org-mode
+#+BEGIN_SRC text
+#+TOC: headlines 3
+#+INCLUDE: "./CS/Python/python2.org" :minlevel 1
+#+BEGIN_COMMENT
+Each major section of this document is defined in its own file.
+
+You can jump to each file by moving the cursor on an "#+include" line
+and typing =C-c '= Note: There is *no requirement* to split, but large
+org-mode files can become quite slow to edit, so separate sections help
+keeping things fluid...
+#+END_COMMENT
+#+LINK: gh    https://github.com/
+#+LINK: rfc   https://tools.ietf.org/html/
+#+LINK: thing https://github.com/thi-ng/
+#+LINK: wiki  https://en.wikipedia.org/wiki/
+#+END_SRC

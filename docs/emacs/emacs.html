@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-26 Mon 18:01 -->
+<!-- 2018-04-12 Thu 13:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -240,6 +240,7 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline44">5. layers</a></li>
+<li><a href="#orgheadline45">6. Instruction on how to use emacs org mode to orginize calendar.</a></li>
 </ul>
 </div>
 </div>
@@ -1401,6 +1402,73 @@ py-autopep8-enable-on-save
 <p>
 <code>M-x</code> configuration-layer/create-layer
 </p>
+</div>
+</div>
+<div id="outline-container-orgheadline45" class="outline-2">
+<h2 id="orgheadline45"><span class="section-number-2">6</span> Instruction on how to use emacs org mode to orginize calendar.</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>insert current date</li>
+</ul>
+<p>
+<code>C-c .</code> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-11 Fri&gt;</span></span>
+</p>
+
+<ul class="org-ul">
+<li>insert current date and time</li>
+</ul>
+<p>
+<code>C-u C-c .</code> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-08-11 Fri 16:06&gt;</span></span>
+</p>
+
+<ul class="org-ul">
+<li>set deadline for an item</li>
+</ul>
+<p>
+<code>C-c C-d</code>
+</p>
+
+<ul class="org-ul">
+<li>clock log in</li>
+</ul>
+<p>
+<code>C-c C-x C-i</code>
+</p>
+
+<ul class="org-ul">
+<li>clock log out</li>
+</ul>
+<p>
+<code>C-c C-x C-o</code>
+</p>
+
+<ul class="org-ul">
+<li>clock cancle</li>
+</ul>
+<p>
+<code>C-c C-x C-q</code>
+</p>
+<ul class="org-ul">
+<li>org-mode</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-text">#+TOC: headlines 3
+#+INCLUDE: "./CS/Python/python2.org" :minlevel 1
+#+BEGIN_COMMENT
+Each major section of this document is defined in its own file.
+
+You can jump to each file by moving the cursor on an "#+include" line
+and typing =C-c '= Note: There is *no requirement* to split, but large
+org-mode files can become quite slow to edit, so separate sections help
+keeping things fluid...
+#+END_COMMENT
+#+LINK: gh    https://github.com/
+#+LINK: rfc   https://tools.ietf.org/html/
+#+LINK: thing https://github.com/thi-ng/
+#+LINK: wiki  https://en.wikipedia.org/wiki/
+</pre>
+</div>
 </div>
 </div>
 </div>

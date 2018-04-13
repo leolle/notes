@@ -1,0 +1,48 @@
+* GID table
+| date             | GID                              | descriptions                                      |
+| 2017/6/6	       | 64C9DC1C96FD4A0693305C87E905E039 | 组合                                              |
+|                  | 69C3DC21A8E1440AA9C54442AB8A1BD3 | activeX                                           |
+|                  | 528FC2E4CC73469496D330AC39E4AE50 | GROUP WEIGHT                                      |
+|                  | 05E0CAE034244B75BB8CD5580CEF3F5C | 搭函数                                            |
+|                  | 047D8ECFE75E44689D1D10EDF06620BF | FD, portfolio optimization                        |
+|                  | 171A21059C62E84D330A4D7B53D72DDC | set target risk and target return                 |
+|                  | 3A29CB69BD7879553AAF2EDDD23810F0 | 基准风格因子暴露_python                           |
+|                  | E647EFFF80C540A58A2BFC7719658756 | 组合优化FR                                        |
+|                  | F7960FEA8B534BE8885639B36C3816A8 | 风格因子暴露 刘鑫                                 |
+|                  | A5A7240AE18DC1D9C84A3D7629EC1B63 | STYLE风格因子暴露 刘鑫                            |
+|                  | 363F23CF55484C6BB57291A6543385BC | function of generate factors                      |
+|                  | 0D5E7E6A76524DC8A6DA5F5AF0BFB3C3 | function of getting factor exposure               |
+|                  | B58B375C952C486C80CC94F041B0EF63 | j of getting factor exposure                      |
+| <2017-08-11 Fri> | B04D8EC4FC14CBDCCD9FD61B9C831955 | FI optimization                                   |
+| <2017-08-11 Fri> | DB7575569F231472384F462E9A0E69AF | j stock portfolio optimization                    |
+|                  | 6224F5BAEF1D4BC9BAC9FFE0244357D8 | multiple period optimization                      |
+| <2017-08-14 Mon> | DB7575569F231472384F462E9A0E69AF | stocks opts with multi-period exposure constraint |
+| <2017-10-17 Tue> | 2D7FFE3045D945B9A84D7CE26329C0D6 | 分类搜索（旧） (吴伟;函数定义;)                   |
+|                  | 44DE982C48224407BF421AA865E9D0C0 | 搜索指标  分类搜索（旧） (吴伟;指标;)             |
+|                  | A894DF1EA89F4229B04ADECB5D1A0661 | 搭函数                                            |
+|                  | E9FA85212E6D4A9C879E36CD7261D84A | 添加Element (吴伟;股票因子（OTV&O是A股股票）;)    |
+|                  | BA205C0589AB4F6CA1FCAF885763B927 | 分类搜索（旧）                                    |
+|                  | FE1171DA00604BF797EE8D6A2AD63924 | 添加Element (吴伟;函数定义;)                      |
+| <2017-10-27 Fri> | 39B85F94CA20442D99C118A6306984F7 | map homepage                                      |
+| <2017-10-31 Tue> | 7D13DEA9E6C405B8176961A15D0D4860 | 总市值L                                           |
+|                  | 83F882F5CB3AF07D00ADA79F77A7C4DD | A股日涨跌幅_L                                     |
+|                  | DAA28C9560375A07DE91319BA0946298 | 资产收益率_TTM_PIT_L                              |
+|                  | 08CFD0E436A442E5B48894CFCBACAB2D | factor return covariance                          |
+|                  | 22503DED4E434CF09DE6DBAAD8BA717C | factor return specific risk                       |
+| <2017-11-13 Mon> | 44CE41A497504EA2A158AC868EDFB48C | risk model compatible                             |
+|                  | 1084AEFAC31C8780344A53F281B1D2EF | risk model data preprocess                        |
+|                  | 58F613096423BCD84783F165C8918368 | regression                                        |
+| <2017-11-14 Tue> | 566186C314C7A760C626249E168D3362 | risk model(extract result)                        |
+| <2017-11-16 Thu> | 8C01AABF99EB43F28A10D2FB9E3F9F8C | black litterman function F                        |
+| <2017-11-17 Fri> | 46F5B372BFEC95833468B698AF7A8120 | black litterman j                                 |
+|                  | C482A7C8AAA93082803F78F03D37F51B | ROE_daily（PIT）     % change                     |
+|                  | CCA1D8B93BE90E135FFBBCA59723146A | 盈利ROE_daily_PIT_L                               |
+|                  | B8EA49740ACCF83BABAE7168BAA895CC | ROE（daily）                                      |
+| <2018-01-16 Tue> | 4CF56BE55CB641DEA428D1C0BBF6BD17 | skill instance example                            |
+| <2018-02-23 Fri> | 2F773D63314DD8C30C2C212E0AAA88C7 | join(PIT)                                         |
+| <2018-03-05 Mon> | 34B4A9FDF6EF4960A03A87C5A8070AA3 | 搭函数                                            |
+| <2018-03-19 Mon> | 2ABBAB65792E46DD9DFAA734A4A6B575 | Ctrl+Shift+s                                      |
+| <2018-04-09 Mon> | D6B8F9A4422036868574F4DB43BEFEA4 | doc_hash_gid                                      |
+|                  | 3D097D5CC66299F2A545D87EA3B90B02 | doc2text                                          |
+|                  | 54625324E0209CDBA2A88D7EA33CE462 | keywords_extraction                               |
+|                  | 8B7796C8015D94AB61B66A5AA72D72F0 | word embedding similar words                      |

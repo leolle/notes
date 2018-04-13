@@ -1,0 +1,71 @@
+* future simulation                                     :future:optimization:
+
+ <2017-09-19 Tue> - <2017-10-01 Sun>
+- [X] buy and hold mode on future backtesting.
+
+- [X] revise pnl fitness function, rename previous pnlfitness function name to PnLAndHoldingFitness, create another two seperate functions PnLFitness and HoldingFitness respectively.
+
+- [X] export data from database.
+- [X] roll over between two contracts to get continious contract data.
+
+- [X] create rolling strategy, return rolling position.
+
+- [X] create continuous contracts.
+
+- [X] learn function define, function sampling instance, wants, search strategy run on GS.
+- [X] add trading volume and other value to the continuous contract.
+- [X] remove unnecessary input of the parsing function.
+
+- [X] learn creating function sampleing.
+
+- [X] create long/short strategy, return neutral position.
+- [ ] deploy portfolio optimization on function sampling workflow.
+- [ ] create position signal via continous contract data.
+- [ ] to get actual position from simulation position.
+
+- [ ] calculate PnL using future rollover position, long/short position, continuous position.
+
+- [ ] modify simulation code referred to stocks simulation.
+- [ ] adjust input signatures.
+- [ ] future simulation requested function:
+- calendar spread trading.
+buy current month expired contract.
+short next month expired contract.
+
+- rolling on constant maturity.
+
+- trend following on dominant contract.
+moving average crossing over on the continous contract.
+- [X] future simulation pseudo code.
+#+BEGIN_SRC python
+ def OnData(self,slice):
+        if not self.Portfolio.Invested:
+            for chain in slice.FutureChains:
+                 # Get contracts expiring no earlier than in 90 days
+                contracts = filter(lambda x: x.Expiry > self.Time + timedelta(90), chain.Value)
+
+                # if there is any contract, trade the front contract
+                if len(contracts) == 0: continue
+                front = sorted(contracts, key = lambda x: x.Expiry, reverse=True)[0]
+                self.MarketOrder(front.Symbol , 1)
+        else:
+            self.Liquidate()
+#+END_SRC
+ requested function:
+- [ ] calendar spread trading.
+
+calculate the position value based on continious contract and actual contract
+
+buy current month expired contract.
+short next month expired contract.
+
+- [ ] rolling on constant maturity.
+
+calculate the position value based on continious contract and actual contract
+
+- [ ] trend following on dominant contract.
+
+moving average crossing over on the continous contract.
+- [X] range osets.
+- [X] parse future continious contract data.
+- [ ] simple mode test with real data.
