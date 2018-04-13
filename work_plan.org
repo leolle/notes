@@ -536,16 +536,16 @@ To create a sentiment index for a keyword, which can be provided as a indicator.
 The goal of this information system to create a workflow, which can make current task interact with a website tab. This website content may has company, data, factor, strategy that fits current workflow/current task context for agent/user.
 
 ***** highlight related keywords
-Starting from selecting one node at GS, the information system can recommend other connected keywords that maybe under the same topic from the openned website.
+Starting from selecting one node at GS, the information system can recommend other connected keywords that maybe under the same topic from the opened website.
 
 The keyword could be a company, data and other things like mentioned above. At the same time, these keywords should be under the same category.
 
 ****** usecase 1 find task according to website:
-******* use LDA to classify the current openned website content.
+******* use LDA to classify the current opened website content.
 :LOGBOOK:
 CLOCK: [2018-04-13 Fri 10:42]
 :END:
-or alternatively extract 1 or 2 document keyphrases from openned website, use this keyphrase as a tag for the website.
+or alternatively extract 1 or 2 document keyphrases from opened website, use this keyphrase as a tag for the website.
 #+BEGIN_SRC python
 def extract_theme(text):
     tr4w = TextRank4Keyword()
@@ -574,8 +574,9 @@ def extract_theme(text):
 1. create a task named 查找动量指标, create requested want afterwards.
 2. open a website(document) at the same time, extract entity related to (动量，指标） in that document via word embedding.
 3. map these entities to GS.
-- [ ] train word2vec model on opened document.
-- [ ] find similar words of input.
+4. [X] train word2vec model on opened document.
+5. [X] find similar words of input.
+6. [ ] join keywords and similar words.
 #+BEGIN_SRC python
 model.most_similar(u'指标')
 #+END_SRC
