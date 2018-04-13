@@ -575,3 +575,10 @@ keeping things fluid...
 #+LINK: thing https://github.com/thi-ng/
 #+LINK: wiki  https://en.wikipedia.org/wiki/
 #+END_SRC
+** navigation
+- set mark (activates and then deactivates region)
+=C-SPC C-SPC=
+- bound to exchange-point-and-mark
+=C-x C-x=
+- move to previous mark
+=C-u C-SPC=
