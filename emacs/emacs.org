@@ -425,8 +425,8 @@ digraph G {
 
 ** output results:
 #+BEGIN_SRC txt
-#+RESULTS:
-:
+#+RESULT:
+:  output
 #+END_SRC
 * emacs python workflow.
 
