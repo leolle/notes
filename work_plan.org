@@ -532,20 +532,60 @@ Recommend similar words.
 ***** DONE Sentiment analysis
 CLOSED: [2018-04-12 Thu 10:25]
 To create a sentiment index for a keyword, which can be provided as a indicator.
-**** TODO NLP information system workflow<2018-04-11 Wed> -
-The goal of this information system to create a workflow, which can make current task interact with a website tab. This website content may has company, data, factor, strategy that fits current workflow/current task context for agent/user.
+*** TODO NLP information system workflow<2018-04-11 Wed> -
 
-***** highlight related keywords
-Starting from selecting one node at GS, the information system can recommend other connected keywords that maybe under the same topic from the opened website.
+**** Overview:
+***** GS can easily help users increase working efficiency on:
+- Idea search on data/document
+- Model building
+***** NLP information system integrated into document search.
+****** Increase working efficiency features:
+******* Interaction between GS current task of workflow and web browser page.
+Interaction is based on:
+- Context information of workflow, current main task
+- Web browser page content
+******* Recommend documents based on user profile.
+******* Find user preferred data, indicator, factor, strategies, models.
+******* Find connected data/company/node from knowledge graph.
+******* User defined policy can be automatically triggered on schedule or by action.
+******* Users in a group can collaboratively finish the same goal.
+****** Use case:
+******* Switch current main task according to browsing website page.
+******* GS automatically highlight entities on web browser page based on current main task.
+******* Store labeled text for training corpus.
+******* Provide user preferred data, indicator, factor, strategies, models trained from wiki categories and page.
+****** Principle of use case i:
+- Use text summarization tool can extract theme of page content.
+- Use the extracted theme to trigger a current main task change.
+****** Principle of use case ii:
+- Embedding all node text from current main task together with text from page content.
+- Find similar sentences from current main task’s vector.
 
-The keyword could be a company, data and other things like mentioned above. At the same time, these keywords should be under the same category.
+****** Define policy, state variable, reward:
+Policy and state variable:
 
-****** usecase 1 find task according to website:
-******* use LDA to classify the current opened website content.
-:LOGBOOK:
-CLOCK: [2018-04-13 Fri 10:42]
-:END:
-or alternatively extract 1 or 2 document keyphrases from opened website, use this keyphrase as a tag for the website.
+******* Reward:
+- If agent finds target data, indicator, factor, strategies, models and continue his workflow.
+- If user shares this document in the group, or agent shares it to other users.
+- If user labeled additional text from the document.
+- If user check this document again.
+****** technique/library description:
+https://docs.google.com/spreadsheets/d/1j10vRQhwOWBLtYsJjsbgXqI5XyCDagSF708pano1JEc/edit#gid=0
+
+
+***** Use case i:
+Switch current main task according to browsing website page:
+****** Input: Example document:
+20170122-长江证券-长江证券金融工程：基于网络的动量选股策略
+****** URL:
+http://q.gftchina.com:13567/DocUIHTML/pdf/web/viewer.html?file=/vqservice/vq/docs/BB362E31FF4D41C234A804E3653030B1
+****** Available tools:
+- TextRank summarization
+- Tokenization
+- Word Embedding
+****** Description:
+- extract document theme from opened website.
+
 #+BEGIN_SRC python
 def extract_theme(text):
     tr4w = TextRank4Keyword()
@@ -559,69 +599,39 @@ def extract_theme(text):
 #+END_SRC
 
 #+RESULT:
-:  关键短语：
+:  Output:
+:  主题：
 :  模型指标
 :  股票动量
 :  策略模型
 :  股价股票
-
-******* find most similar task on GS:
-1. find similar target task using current website theme.
-
-****** TODO usecase 2 highlight entities according to GS task:
+****** Store theme to state variable.
+****** Trigger workflow policy change task action.
+***** Use case 2:
 :LOGBOOK:
+CLOCK: [2018-04-13 Fri 10:42]--[2018-04-13 Fri 19:18] =>  8:36
 :END:
-1. create a task named 查找动量指标, create requested want afterwards.
-2. open a website(document) at the same time, extract entity related to (动量，指标） in that document via word embedding.
-3. map these entities to GS.
-4. [X] train word2vec model on opened document.
-5. [X] find similar words of input.
-6. [ ] join keywords and similar words.
-#+BEGIN_SRC python
-model.most_similar(u'指标')
-#+END_SRC
-
+highlight entities/sentences according to GS current main task.
+****** Input: current task nodes text and web page content
+****** example task: 查找动量指标, equivalent want.
+****** Available tools/techniques:
+- Word embedding
+- LDA
+- Named Entity Recognition
+****** Description
+- Embedding all nodes text.
+- Find nearest vectors between entities/sentences and current node.
+- Find most similar words in the web browser page from node text.
 #+RESULT:
-:  [('市值', 0.36147886514663696),
-:   ('模型', 0.3467492461204529),
-:   ('ptt', 0.312774121761322),
-:   ('节点', 0.2739245295524597),
-:   ('网络', 0.27202028036117554),
-:   ('专题报告', 0.25942254066467285),
-:   ('DEA', 0.2574650049209595),
-:   ('股价', 0.2555598020553589),
-:   ('平均线', 0.25043344497680664),
-:   ('MF', 0.24960537254810333)]
-
-#+BEGIN_SRC python
-model.most_similar(u'策略')
-#+END_SRC
-
-#+RESULT:
-:  [(('A股', 0.2801433205604553),
-:   ('CCICCI', 0.23448781669139862),
-:   ('指标', 0.2320791333913803),
-:   ('节点', 0.22942544519901276),
-:   ('模型', 0.22912780940532684),
-:   ('动力学', 0.2196020781993866),
-:   ('ptt', 0.21833498775959015),
-:   ('方法', 0.20321808755397797),
-:   ('散户', 0.1981358826160431)]
-
-#+BEGIN_SRC python
-model.most_similar(u'动量')
-#+END_SRC
-
-#+RESULT:
-:  [('距离', 0.2513788342475891),
-:   ('平均线', 0.24599115550518036),
-:   ('ptt', 0.22933638095855713),
-:   ('收盘价', 0.22588738799095154),
-:   ('指数', 0.2201143503189087),
-:   ('速度感', 0.21861907839775085),
-:   ('节点', 0.21831932663917542),
-:   ('概率', 0.21310825645923615),
-:   ('资金', 0.20784440636634827)]
+:  Output:
+:  model.most_similar(u'指标')
+:  '市值', '模型', '节点', '网络', '专题报告', 'DEA', '股价', '平均线', 'MF', '策略', '声明', '目录', '速度', '流量'
+:  model.most_similar(u'动量')
+:  '距离', '平均线', 'NMF', '收盘价', '指数', '速度感', '节点', '概率', '资金', '股价', '行业', '散户', '策略', '指标', '速率', 'DEA'
+:  model.most_similar(u'策略')
+:  '指标', '节点', '模型', '动力学', '方法', '散户', '动量', '速率', '速度', '流量', '股价', '资金', '速度感'
+:  model.most_similar(u'模型')
+:  '指标', '散户', '网络', '策略', '数值', '最高价', '目录', '组分', '联系人', '专题报告', '基础', '股价', '历史数据', '股票走势'
 
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
