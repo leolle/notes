@@ -566,10 +566,7 @@ def extract_theme(text):
 :  股价股票
 
 ******* find most similar task on GS:
-1. calculate similarity between target task and current website theme.
-2. calculation process:
-#1. embedding all available task instance.
-#2. use keywords, search name of task.
+1. find similar target task using current website theme.
 
 ****** TODO usecase 2 highlight entities according to GS task:
 :LOGBOOK:
@@ -579,5 +576,51 @@ def extract_theme(text):
 3. map these entities to GS.
 - [ ] train word2vec model on opened document.
 - [ ] find similar words of input.
+#+BEGIN_SRC python
+model.most_similar(u'指标')
+#+END_SRC
+
+#+RESULT:
+:  [('市值', 0.36147886514663696),
+:   ('模型', 0.3467492461204529),
+:   ('ptt', 0.312774121761322),
+:   ('节点', 0.2739245295524597),
+:   ('网络', 0.27202028036117554),
+:   ('专题报告', 0.25942254066467285),
+:   ('DEA', 0.2574650049209595),
+:   ('股价', 0.2555598020553589),
+:   ('平均线', 0.25043344497680664),
+:   ('MF', 0.24960537254810333)]
+
+#+BEGIN_SRC python
+model.most_similar(u'策略')
+#+END_SRC
+
+#+RESULT:
+:  [(('A股', 0.2801433205604553),
+:   ('CCICCI', 0.23448781669139862),
+:   ('指标', 0.2320791333913803),
+:   ('节点', 0.22942544519901276),
+:   ('模型', 0.22912780940532684),
+:   ('动力学', 0.2196020781993866),
+:   ('ptt', 0.21833498775959015),
+:   ('方法', 0.20321808755397797),
+:   ('散户', 0.1981358826160431)]
+
+#+BEGIN_SRC python
+model.most_similar(u'动量')
+#+END_SRC
+
+#+RESULT:
+:  [('距离', 0.2513788342475891),
+:   ('平均线', 0.24599115550518036),
+:   ('ptt', 0.22933638095855713),
+:   ('收盘价', 0.22588738799095154),
+:   ('指数', 0.2201143503189087),
+:   ('速度感', 0.21861907839775085),
+:   ('节点', 0.21831932663917542),
+:   ('概率', 0.21310825645923615),
+:   ('资金', 0.20784440636634827)]
+
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
