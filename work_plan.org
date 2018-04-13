@@ -557,6 +557,14 @@ def extract_theme(text):
     theme_result = tr4w.get_keyphrases(keywords_num=20, min_occur_num=2)
     return theme_result
 #+END_SRC
+
+#+RESULTS:
+: 关键短语：
+: 模型指标
+: 股票动量
+: 策略模型
+: 股价股票
+
 ******* find most similar task on GS:
 1. calculate similarity between target task and current website theme.
 2. calculation process:

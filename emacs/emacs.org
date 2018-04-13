@@ -423,6 +423,11 @@ digraph G {
 #+RESULTS:
 [[file:some_filename.png]]
 
+** output results:
+#+BEGIN_SRC txt
+#+RESULTS:
+:
+#+END_SRC
 * emacs python workflow.
 
 ** install elpy, jedi
@@ -536,6 +541,7 @@ py-autopep8-enable-on-save
 * Python mode
 - insert current date from shell to python file
 =C-u M-! date=
+
 * Instruction on how to use emacs org mode to orginize calendar.
 :LOGBOOK:
 CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 15:01] =>  0:00
