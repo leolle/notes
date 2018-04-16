@@ -294,3 +294,10 @@ git submodule add https://github.com/chaconinc/DbConnector
 # 2. Cloning a Project with Submodules
 git clone https://github.com/chaconinc/MainProject
 #+END_SRC
+** ignore files
+#+BEGIN_SRC txt
+*.zip
+
+# include a file
+!include.file
+#+END_SRC

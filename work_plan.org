@@ -532,32 +532,106 @@ Recommend similar words.
 ***** DONE Sentiment analysis
 CLOSED: [2018-04-12 Thu 10:25]
 To create a sentiment index for a keyword, which can be provided as a indicator.
-**** TODO NLP information system workflow<2018-04-11 Wed> -
-The goal of this information system to create a workflow, which can make current task interact with a website tab. This website content may has company, data, factor, strategy that fits current workflow/current task context for agent/user.
+*** TODO NLP information system workflow<2018-04-11 Wed> -
 
-***** highlight related keywords
-Starting from selecting one node at GS, the information system can recommend other connected keywords that maybe under the same topic from the openned website.
+**** Overview:
+***** GS can easily help users increase working efficiency on:
+- Idea search on data/document
+- Model building
+***** NLP information system integrated into document search.
+****** Increase working efficiency features:
+******* Interaction between GS current task of workflow and web browser page.
+Interaction is based on:
+- Context information of workflow, current main task
+- Web browser page content
+******* Recommend documents based on user profile.
+******* Find user preferred data, indicator, factor, strategies, models.
+******* Find connected data/company/node from knowledge graph.
+******* User defined policy can be automatically triggered on schedule or by action.
+******* Users in a group can collaboratively finish the same goal.
+****** Use case:
+******* Switch current main task according to browsing website page.
+******* GS automatically highlight entities on web browser page based on current main task.
+******* Store labeled text for training corpus.
+******* Provide user preferred data, indicator, factor, strategies, models trained from wiki categories and page.
+****** Principle of use case i:
+- Use text summarization tool can extract theme of page content.
+- Use the extracted theme to trigger a current main task change.
+****** Principle of use case ii:
+- Embedding all node text from current main task together with text from page content.
+- Find similar sentences from current main task’s vector.
 
-The keyword could be a company, data and other things like mentioned above. At the same time, these keywords should be under the same category.
+****** Define policy, state variable, reward:
+Policy and state variable:
 
-****** usecase 1 find task according to website:
-******* use LDA to classify the current openned website content.
-or alternatively extract 1 or 2 document keyphrases from openned website, use this keyphrase as a tag for the website.
+******* Reward:
+- If agent finds target data, indicator, factor, strategies, models and continue his workflow.
+- If user shares this document in the group, or agent shares it to other users.
+- If user labeled additional text from the document.
+- If user check this document again.
+****** technique/library description:
+https://docs.google.com/spreadsheets/d/1j10vRQhwOWBLtYsJjsbgXqI5XyCDagSF708pano1JEc/edit#gid=0
 
-******* find most similar task on GS:
-1. calculate similarity between target task and current website theme.
-2. calculation process:
-#1. embedding all available task instance.
-#2. use keywords, search name of task.
 
-****** TODO usecase 2 highlight entities according to GS task:
+***** Use case i:
+Switch current main task according to browsing website page:
+****** Input: Example document:
+20170122-长江证券-长江证券金融工程：基于网络的动量选股策略
+****** URL:
+http://q.gftchina.com:13567/DocUIHTML/pdf/web/viewer.html?file=/vqservice/vq/docs/BB362E31FF4D41C234A804E3653030B1
+****** Available tools:
+- TextRank summarization
+- Tokenization
+- Word Embedding
+****** Description:
+- extract document theme from opened website.
+
+#+BEGIN_SRC python
+def extract_theme(text):
+    tr4w = TextRank4Keyword()
+
+    tr4w.analyze(
+        text=text, lower=False,
+        window=2)
+    # 获取关键短语。获取 keywords_num 个关键词构造的可能出现的短语，要求这个短语在原文本中至少出现的次数为min_occur_num。
+    theme_result = tr4w.get_keyphrases(keywords_num=20, min_occur_num=2)
+    return theme_result
+#+END_SRC
+
+#+RESULT:
+:  Output:
+:  主题：
+:  模型指标
+:  股票动量
+:  策略模型
+:  股价股票
+****** Store theme to state variable.
+****** Trigger workflow policy change task action.
+***** Use case 2:
 :LOGBOOK:
-CLOCK: [2018-04-12 Thu 15:46]
+CLOCK: [2018-04-13 Fri 10:42]--[2018-04-13 Fri 19:18] =>  8:36
 :END:
-1. create a task named 查找动量指标, create requested want afterwards.
-2. open a website(document) at the same time, extract entity related to (动量，指标） in that document via word embedding.
-3. map these entities to GS.
-- [ ] train word2vec model on opened document.
-- [ ] find similar words of input.
+highlight entities/sentences according to GS current main task.
+****** Input: current task nodes text and web page content
+****** example task: 查找动量指标, equivalent want.
+****** Available tools/techniques:
+- Word embedding
+- LDA
+- Named Entity Recognition
+****** Description
+- Embedding all nodes text.
+- Find nearest vectors between entities/sentences and current node.
+- Find most similar words in the web browser page from node text.
+#+RESULT:
+:  Output:
+:  model.most_similar(u'指标')
+:  '市值', '模型', '节点', '网络', '专题报告', 'DEA', '股价', '平均线', 'MF', '策略', '声明', '目录', '速度', '流量'
+:  model.most_similar(u'动量')
+:  '距离', '平均线', 'NMF', '收盘价', '指数', '速度感', '节点', '概率', '资金', '股价', '行业', '散户', '策略', '指标', '速率', 'DEA'
+:  model.most_similar(u'策略')
+:  '指标', '节点', '模型', '动力学', '方法', '散户', '动量', '速率', '速度', '流量', '股价', '资金', '速度感'
+:  model.most_similar(u'模型')
+:  '指标', '散户', '网络', '策略', '数值', '最高价', '目录', '组分', '联系人', '专题报告', '基础', '股价', '历史数据', '股票走势'
+
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"

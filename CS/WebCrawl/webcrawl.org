@@ -1,0 +1,41 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLEs: webcrawl
+#+DATE: <2018-04-13 Fri>
+#+AUTHORs: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../../configOrg/level2.org
+
+* Create a project
+
+** new project
+#+BEGIN_SRC bash
+scrapy startproject tutorial
+#+END_SRC
+
+- directory content:
+#+BEGIN_SRC txt
+└── quotes
+    ├── quotes
+    │   ├── __init__.py
+    │   ├── items.py
+    │   ├── middlewares.py
+    │   ├── pipelines.py
+    │   ├── __pycache__
+    │   ├── settings.py
+    │   └── spiders
+    │       ├── __init__.py
+    │       └── __pycache__
+    └── scrapy.cfg
+#+END_SRC
+- store the scraped data
+#+BEGIN_SRC bash
+scrapy crawl quotes -o quotes.json
+#+END_SRC
+- the name of the crawler should be defined in class name as unique.
