@@ -573,7 +573,8 @@ Policy and state variable:
 https://docs.google.com/spreadsheets/d/1j10vRQhwOWBLtYsJjsbgXqI5XyCDagSF708pano1JEc/edit#gid=0
 
 
-***** Use case i:
+***** DONE Use case 1:
+CLOSED: [2018-04-17 Tue 09:42]
 Switch current main task according to browsing website page:
 ****** Input: Example document:
 20170122-长江证券-长江证券金融工程：基于网络的动量选股策略
@@ -607,7 +608,8 @@ def extract_theme(text):
 :  股价股票
 ****** Store theme to state variable.
 ****** Trigger workflow policy change task action.
-***** Use case 2:
+***** DONE Use case 2:
+CLOSED: [2018-04-17 Tue 09:42]
 :LOGBOOK:
 CLOCK: [2018-04-13 Fri 10:42]--[2018-04-13 Fri 19:18] =>  8:36
 :END:
@@ -619,9 +621,9 @@ highlight entities/sentences according to GS current main task.
 - LDA
 - Named Entity Recognition
 ****** Description
-- Embedding all nodes text.
-- Find nearest vectors between entities/sentences and current node.
-- Find most similar words in the web browser page from node text.
+- [ ] Embedding all nodes text.
+- [ ] Find nearest vectors between entities/sentences and current node.
+- [ ] Find most similar words in the web browser page from node text.
 #+RESULT:
 :  Output:
 :  model.most_similar(u'指标')
@@ -632,6 +634,42 @@ highlight entities/sentences according to GS current main task.
 :  '指标', '节点', '模型', '动力学', '方法', '散户', '动量', '速率', '速度', '流量', '股价', '资金', '速度感'
 :  model.most_similar(u'模型')
 :  '指标', '散户', '网络', '策略', '数值', '最高价', '目录', '组分', '联系人', '专题报告', '基础', '股价', '历史数据', '股票走势'
+****** context: 选择了节点，打开了相关的网页
+goal:
+1. 手动或者自动高亮similar words
+2. 根据网页内容找出可能的task下一步动作，例如是制作某个因子，建立某个模型等。
+3. 通过node的信息，如category, Oset, event，relation，找出网页对应的entity。
+***** TODO Use case 4:
+****** Goal: 通过node的信息，如category, Oset, event，relation，找出网页对应的entity. 根据当前收集到的信息，自动高亮网页中关于基本面的关键字.
+- [ ] collect Oset dictionary
+  - [ ] use wikipedia categories and page hierarchy tree to find similar words.
+- [ ] collect relationship dictionary
+
+****** input(node, task, url):
+Task: 当前任务的前一步是在构造基本面因子任务。
+Selected node: 福耀玻璃(i)
+Url: 查看福耀玻璃的网页信息，https://xueqiu.com/3075122481/105256619
+******  Tools:
+OSet scheme.
+****** Output:
+营业收入，利润，净利润，毛利率，每股收益，财务指标，市值，市盈率，市净率，PE，市场占有率，增长率等。
+***** Use case 5:
+****** Goal: automatically collect relation(based on existed scheme like 投资，兼并) in the website content, recommend keyword pair.
+****** input(url, task, node)
+Url: 查看福耀玻璃的网页信息，https://xueqiu.com/3075122481/105256619
+Task: 查找数据
+Selected node: 福耀玻璃(i)
+****** Output:
+加拿大皇家银行增持
+***** Use case 6:
+****** Goal: automatically recommend next step task/model use website extracted relation.
+****** input(url, task, node, relation)
+Url: 查看福耀玻璃的网页信息，https://xueqiu.com/3075122481/105256619
+Task: 查找数据
+Selected node: 福耀玻璃(i)
+Relation: 加拿大皇家银行增持
+****** Output:
+Similar stocks(under the same industry)  increase holding event happened.
 
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"

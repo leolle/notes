@@ -619,6 +619,7 @@ sudo service network-manager restart
 
 　　表示log2012.log是一个普通文件；log2012.log的属主有读写权限；与log2012.log属主同组的用户只有读权限；其他用户也只有读权限。
 
+一般程序文件为 chmod 644 *.py
 - create symbolic link for a directory
 #+BEGIN_SRC shell
 ln -s /absolute/path/of/source/folder/ /absolute/path/of/target/folder/
