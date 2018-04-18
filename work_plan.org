@@ -608,6 +608,11 @@ def extract_theme(text):
 :  股价股票
 ****** Store theme to state variable.
 ****** Trigger workflow policy change task action.
+1. 说明library, algorithm 的使用场景。
+2. 比较bag of words与textrank的使用效果。
+3. 前期花了很多时间在数据准备的工具制作上，给后期使用数据提供了方便，接下来还需要把一些算法具体的细节搞明白，如跟其它算法相比有什么不同，有什么优势，效果怎么样等。
+4. 列出还没完全搞明白算法。
+
 ***** DONE Use case 2:
 CLOSED: [2018-04-17 Tue 09:42]
 :LOGBOOK:

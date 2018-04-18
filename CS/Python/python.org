@@ -555,6 +555,18 @@ for name in g.graph.keys():
 	key = len(g.graph[name])
 	d[name] = key
 #+END_SRC
+- convert a list of tuples with the same key into a dictionary:
+#+BEGIN_SRC python
+from collections import defaultdict
+d = defaultdict(list)
+for k, v in list(graph.out_edges('财务管理')):
+    d[k].append(v)
+# or
+d = {}
+for k, v in list(graph.out_edges('财务管理')):
+    d.setdefault(k,[]).append(v)
+#+END_SRC
+
 - add value in a dictionary:
 #+BEGIN_SRC python
 In [231]: d
