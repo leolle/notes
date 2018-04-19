@@ -179,7 +179,8 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 - indent a block by number of space
 =C-u 4 C-x TAB=
 =C-M-\=
-
+- dired jump, folder jump:
+=M-m f j=
 * ORG Mode
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4][Example]]
 ** Structure editing
@@ -422,6 +423,8 @@ digraph G {
 
 #+RESULTS:
 [[file:some_filename.png]]
+
+
 
 ** output results:
 #+BEGIN_SRC txt

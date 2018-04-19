@@ -2611,7 +2611,25 @@ ax = contract_data.plot(legend=True)
 continuous_price.plot(legend=True, style='k--', ax=ax)
 plt.show()
 #+END_SRC
-- multiple subplots
+*** multiple figure一次绘制多个图形
+- same plot, 多个figure:
+#+BEGIN_SRC python
+# figure.py
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.arange(100, 201)
+plt.plot(data)
+
+data2 = np.arange(200, 301)
+plt.figure()
+plt.plot(data2)
+
+plt.show()
+#+END_SRC
+
+- multiple subplots 在同一个窗口显示多个图形
 #+begin_src python
 import matplotlib.pyplot as plt
 fig = plt.figure()
@@ -2620,6 +2638,16 @@ ax2 = fig.add_subplot(2, 2, 2)
 ax3 = fig.add_subplot(2, 2, 3)
 fig, axes = plt.subplots(2,3)
 fig, ax : tuple
+# or
+data = np.arange(100, 201)
+plt.subplot(2, 1, 1)
+plt.plot(data)
+
+data2 = np.arange(200, 301)
+plt.subplot(2, 1, 2)
+plt.plot(data2)
+
+plt.show()
 #+end_src
 *** subplot with different axis
 #+BEGIN_SRC python
