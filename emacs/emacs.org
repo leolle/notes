@@ -181,6 +181,11 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 =C-M-\=
 - dired jump, folder jump:
 =M-m f j=
+- reload .emacs init.el without restart:
+move to the end of the sexp
+=C-x C-e=
+or load the init.el file
+=M-x load-file=
 * ORG Mode
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4][Example]]
 ** Structure editing
