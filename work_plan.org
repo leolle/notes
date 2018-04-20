@@ -532,6 +532,16 @@ Recommend similar words.
 ***** DONE Sentiment analysis
 CLOSED: [2018-04-12 Thu 10:25]
 To create a sentiment index for a keyword, which can be provided as a indicator.
+
+***** DeepDive
+
+****** function
+
+****** feature
+
+****** advantage
+
+****** test
 *** TODO NLP information system workflow<2018-04-11 Wed> -
 
 **** Overview:
@@ -571,7 +581,6 @@ Policy and state variable:
 - If user check this document again.
 ****** technique/library description:
 https://docs.google.com/spreadsheets/d/1j10vRQhwOWBLtYsJjsbgXqI5XyCDagSF708pano1JEc/edit#gid=0
-
 
 ***** DONE Use case 1:
 CLOSED: [2018-04-17 Tue 09:42]
