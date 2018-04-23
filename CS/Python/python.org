@@ -1316,6 +1316,12 @@ ListPeople(address_book)
 #+BEGIN_SRC bash
 python list_person.py ADDRESS_BOOK_FILE
 #+END_SRC
+** neo4j
+*** install
+#+BEGIN_SRC bash
+pip install neo4j-driver py2neo
+
+#+END_SRC
 * Data Compression and Archiving
 ** zip
 zip([iterable, ...])
