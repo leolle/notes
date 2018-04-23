@@ -543,7 +543,25 @@ scp file usr_name@ip:/absolute/path/
 scp -r ./path/from/destination username@hostname:/path/to/destination
 #+END_SRC
 - linux folder tree output to clipboard.
+#+BEGIN_SRC txt
+-P pattern
+      List  only  those files that match the wild-card pattern.  Note:
+      you must use the -a option to also consider those  files  begin‐
+      ning  with a dot `.' for matching.  Valid wildcard operators are
+      `*' (any zero or more characters), `?' (any  single  character),
+      `[...]'  (any single character listed between brackets (optional
+      - (dash) for character  range  may  be  used:  ex:  [A-Z]),  and
+      `[^...]'  (any  single character not listed in brackets) and `|'
+      separates alternate patterns.
+
+-I pattern
+      Do not list those files that match the wild-card pattern.
+So, for example
+
+tree -I 'test*|docs|bin|lib'
+#+END_SRC
 #+BEGIN_SRC shell
+tree -P '*.org' | xclip && xclip -o > /tmp/tree.txt
 tree | xclip
 xclip -o
 #+END_SRC

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-26 Mon 18:01 -->
+<!-- 2018-04-23 Mon 10:59 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -609,8 +609,12 @@ Precision answers: “Given a positive prediction from the classifier, how likel
 For f1 to be high, both recall and precision of the model have to be high.
 </p>
 
-
-
+<ul class="org-ul">
+<li>recall rate:</li>
+</ul>
+<p>
+举个栗子假设我们手上有60个正样本，40个负样本，我们要找出所有的正样本，系统查找出50个，其中只有40个是真正的正样本，计算上述各指标。TP: 将正类预测为正类数  40 FN: 将正类预测为负类数  20 FP: 将负类预测为正类数  10 TN: 将负类预测为负类数  30 准确率(accuracy) = 预测对的/所有 = (TP+TN)/(TP+FN+FP+TN) = 70% 精确率(precision) = TP/(TP+FP) = 80% 召回率(recall) = TP/(TP+FN) = 2/3
+</p>
 
 <ul class="org-ul">
 <li>Feed-Forward Network</li>

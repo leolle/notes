@@ -20,3 +20,6 @@ The Java Development Kit (JDK) is a software development environment used for de
 The Java Runtime Environment (JRE) is a set of software tools for development of Java applications. It combines the Java Virtual Machine (JVM), platform core classes and supporting libraries.
 
 To run Java applications and applets, simply download the JRE. However, to develop Java applications and applets as well as run them, the JDK is needed.
+
+- Java SE
+Java Platform, Standard Edition (Java SE)

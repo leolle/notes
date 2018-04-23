@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-12 Thu 13:41 -->
+<!-- 2018-04-23 Mon 10:59 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1370,7 +1370,27 @@ scp -r ./path/from/destination username@hostname:/path/to/destination
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-shell">tree | xclip
+<pre class="src src-txt">-P pattern
+      List  only  those files that match the wild-card pattern.  Note:
+      you must use the -a option to also consider those  files  begin‐
+      ning  with a dot `.' for matching.  Valid wildcard operators are
+      `*' (any zero or more characters), `?' (any  single  character),
+      `[...]'  (any single character listed between brackets (optional
+      - (dash) for character  range  may  be  used:  ex:  [A-Z]),  and
+      `[^...]'  (any  single character not listed in brackets) and `|'
+      separates alternate patterns.
+
+-I pattern
+      Do not list those files that match the wild-card pattern.
+So, for example
+
+tree -I 'test*|docs|bin|lib'
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-shell">tree -P <span style="color: #E6DB74;">'*.org'</span> | xclip &amp;&amp; xclip -o &gt; /tmp/tree.txt
+tree | xclip
 xclip -o
 </pre>
 </div>
@@ -1482,6 +1502,9 @@ tar -xvzf rebol.tar.gz
 　　表示log2012.log是一个普通文件；log2012.log的属主有读写权限；与log2012.log属主同组的用户只有读权限；其他用户也只有读权限。
 </p>
 
+<p>
+一般程序文件为 chmod 644 *.py
+</p>
 <ul class="org-ul">
 <li>create symbolic link for a directory</li>
 </ul>
