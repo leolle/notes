@@ -144,7 +144,7 @@ print(",".join(tags))
 
 #+END_SRC
 ** tutorial
-[[https://docs.google.com/spreadsheets/d/1mxwMNg7eDc5bVEVdYmsm_hdyI3d2jbIF5M4nKR04Tq0/edit#gid=1648960929][excel_table]]
+[[https://docs.google.com/spreadsheets/d/1mxwMNg7eDc5bVEVdYmsm_hdyI3d2jbIF5M4nKR04Tq0/edit#gid=1648960929][technique_excel_table]] 具体每项技术细节在excel table 的链接里面。
 1. 分词
 
  中文自然语言处理首先要解决的一个问题是分词问题，即一个句子，怎么样把它拆分成一组一组的词或者单个意义的字。
