@@ -525,10 +525,9 @@ Extract relation between entities, which can create a knowledge network.
 ****** DONE Keywords extraction
 CLOSED: [2018-04-11 Wed 18:24]
 Extract the keywords from a text document or news.
-***** DONE Word Embedding
-CLOSED: [2018-04-11 Wed 18:24]
+***** TODO Word Embedding
 Recommend similar words.
-
+- [ ] change skill instance input as node.
 ***** DONE Sentiment analysis
 CLOSED: [2018-04-12 Thu 10:25]
 To create a sentiment index for a keyword, which can be provided as a indicator.

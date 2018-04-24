@@ -46,3 +46,5 @@
 |                  | 3D097D5CC66299F2A545D87EA3B90B02 | doc2text                                          |
 |                  | 54625324E0209CDBA2A88D7EA33CE462 | keywords_extraction                               |
 |                  | 8B7796C8015D94AB61B66A5AA72D72F0 | word embedding similar words                      |
+| <2018-04-24 Tue> | 9920B79FE31B4350B635AC29FC5ADAB2 | read_mysql_database                               |
+|                  |                                  |                                                   |

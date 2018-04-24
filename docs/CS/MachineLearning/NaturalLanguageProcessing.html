@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-23 Mon 10:59 -->
+<!-- 2018-04-24 Tue 18:15 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -149,7 +149,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline11">1. Overview</a>
+<li><a href="#orgheadline12">1. Overview</a>
 <ul>
 <li><a href="#orgheadline1">1.1. Sentiment Lexicon and Its Issues</a></li>
 <li><a href="#orgheadline2">1.2. Neural Network Architectures</a></li>
@@ -160,71 +160,72 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline9">1.4.2. Several factors influence the quality of the word vectors:</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline11">1.5. tutorial</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">2. Knowledge Graph</a>
+<li><a href="#orgheadline14">2. Knowledge Graph</a>
 <ul>
-<li><a href="#orgheadline12">2.1. architecture</a></li>
+<li><a href="#orgheadline13">2.1. architecture</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">3. Knowledge-based Q&amp;A</a>
+<li><a href="#orgheadline19">3. Knowledge-based Q&amp;A</a>
 <ul>
-<li><a href="#orgheadline14">3.1. Introduction</a></li>
-<li><a href="#orgheadline15">3.2. 基于意图的结构化问答系统</a></li>
-<li><a href="#orgheadline16">3.3. 基于检索的问答系统</a></li>
-<li><a href="#orgheadline17">3.4. 基于知识图谱的问答系统</a></li>
+<li><a href="#orgheadline15">3.1. Introduction</a></li>
+<li><a href="#orgheadline16">3.2. 基于意图的结构化问答系统</a></li>
+<li><a href="#orgheadline17">3.3. 基于检索的问答系统</a></li>
+<li><a href="#orgheadline18">3.4. 基于知识图谱的问答系统</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">4. Definition of Sentiment Analysis</a>
+<li><a href="#orgheadline22">4. Definition of Sentiment Analysis</a>
 <ul>
-<li><a href="#orgheadline19">4.1. Structure</a></li>
-<li><a href="#orgheadline20">4.2. Opinion Defintion</a></li>
+<li><a href="#orgheadline20">4.1. Structure</a></li>
+<li><a href="#orgheadline21">4.2. Opinion Defintion</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline23">5. Language Technology Processing</a>
+<li><a href="#orgheadline24">5. Language Technology Processing</a>
 <ul>
-<li><a href="#orgheadline22">5.1. features:</a></li>
+<li><a href="#orgheadline23">5.1. features:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline34">6. Building the Wikipedia Knowledge Graph in Neo4j</a>
+<li><a href="#orgheadline35">6. Building the Wikipedia Knowledge Graph in Neo4j</a>
 <ul>
-<li><a href="#orgheadline24">6.1. Login</a></li>
-<li><a href="#orgheadline25">6.2. baike triples</a></li>
-<li><a href="#orgheadline26">6.3. SPARQL: RDF Query Language</a></li>
-<li><a href="#orgheadline27">6.4. Visualization tool: Graphviz, networkx, Gephi</a></li>
-<li><a href="#orgheadline28">6.5. Graph database: GraphDB, Neo4j.</a></li>
-<li><a href="#orgheadline29">6.6. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
-<li><a href="#orgheadline33">6.7. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
+<li><a href="#orgheadline25">6.1. Login</a></li>
+<li><a href="#orgheadline26">6.2. baike triples</a></li>
+<li><a href="#orgheadline27">6.3. SPARQL: RDF Query Language</a></li>
+<li><a href="#orgheadline28">6.4. Visualization tool: Graphviz, networkx, Gephi</a></li>
+<li><a href="#orgheadline29">6.5. Graph database: GraphDB, Neo4j.</a></li>
+<li><a href="#orgheadline30">6.6. Approach 1: Loading a reduced subset incrementally through the MediaWiki API</a></li>
+<li><a href="#orgheadline34">6.7. Approach 2: Batch loading the data with LOAD CSV from an SQL dump</a>
 <ul>
-<li><a href="#orgheadline32">6.7.1. Data dumps/Import</a></li>
+<li><a href="#orgheadline33">6.7.1. Data dumps/Import</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline35">7. NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</a></li>
-<li><a href="#orgheadline40">8. Position Of Tagging</a>
+<li><a href="#orgheadline36">7. NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</a></li>
+<li><a href="#orgheadline41">8. Position Of Tagging</a>
 <ul>
-<li><a href="#orgheadline36">8.1. 词性解释</a></li>
-<li><a href="#orgheadline37">8.2. 句法分析（句法树）</a></li>
-<li><a href="#orgheadline38">8.3. 关系表示</a></li>
-<li><a href="#orgheadline39">8.4. ICTCLAS词性标注</a></li>
+<li><a href="#orgheadline37">8.1. 词性解释</a></li>
+<li><a href="#orgheadline38">8.2. 句法分析（句法树）</a></li>
+<li><a href="#orgheadline39">8.3. 关系表示</a></li>
+<li><a href="#orgheadline40">8.4. ICTCLAS词性标注</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline41">9. 实词：名词、动词、形容词、状态词、区别词、数词、量词、代词</a></li>
-<li><a href="#orgheadline46">10. 虚词：副词、介词、连词、助词、拟声词、叹词。</a>
+<li><a href="#orgheadline42">9. 实词：名词、动词、形容词、状态词、区别词、数词、量词、代词</a></li>
+<li><a href="#orgheadline47">10. 虚词：副词、介词、连词、助词、拟声词、叹词。</a>
 <ul>
-<li><a href="#orgheadline42">10.1. ICTPOS3.0词性标记集</a></li>
-<li><a href="#orgheadline43">10.2. 虚词</a></li>
-<li><a href="#orgheadline44">10.3. jieba 字典中出现的类型</a></li>
-<li><a href="#orgheadline45">10.4. simhash 过滤的掉的词汇</a></li>
+<li><a href="#orgheadline43">10.1. ICTPOS3.0词性标记集</a></li>
+<li><a href="#orgheadline44">10.2. 虚词</a></li>
+<li><a href="#orgheadline45">10.3. jieba 字典中出现的类型</a></li>
+<li><a href="#orgheadline46">10.4. simhash 过滤的掉的词汇</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgheadline12" class="outline-2">
+<h2 id="orgheadline12"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="./nlp/NLP.html">Stanford NLP CS224n notes</a>
@@ -476,13 +477,47 @@ New York <span style="color: #AE81FF;">350</span> GPE
 </div></li></ol>
 </div>
 </div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.5</span> tutorial</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+<a href="https://docs.google.com/spreadsheets/d/1mxwMNg7eDc5bVEVdYmsm_hdyI3d2jbIF5M4nKR04Tq0/edit#gid=1648960929">excel_table</a>
+</p>
+<ol class="org-ol">
+<li>分词
+中文自然语言处理首先要解决的一个问题是分词问题，即一个句子，怎么样把它拆分成一组一组的词或者单个意义的字。</li>
+<li>词向量化
+怎么样让计算机可以读懂中文呢？得想办法把字符转换成数字。</li>
+</ol>
+
+<p>
+这里面有两个方法，一个是one-hot mapping，把每个字用一个单独的向量来表示，向量的dimension就是所有搜集到词的词典的大小。这里有个问题就是词与词之间的向量是没有联系的。
+ 另一个方法是word embedding, 用distributed representation的方式来表示所有词，把一个向量压缩到一个100维或者200维的空间里面，这样训练出来的模型词与词之间在空间上就有联系。具体看principle里面的内容介绍。
+</p>
+<ol class="org-ol">
+<li>词向量可视化
+怎么样把这些高维空间的向量可视化，或者说怎么知道一个词的向量与另一个词向量之间空间上的关系，就是embedding visualization, 也就是降维。里面运用到的技术主要有t-SNE和PCA.</li>
+<li>实体抽取与关系抽取
+怎么样知道一段话里面说了什么东西，他们之间的关系是怎么样的，运用了实体抽取和关系抽取的技术。现在这两个都是由深度学习模型循环神经网络来做了。当然也有deepdive这样已经集成化的library.</li>
+<li>关键词抽取
+怎么把一段话，一篇文章里面的关键词，关键句子找出来，运用了textrank技术，这种技术是从pagerank得到启发。
+将原文本拆分为句子，在每个句子中过滤掉停用词（可选），并只保留指定词性的单词（可选）。由此可以得到句子的集合和单词的集合。每个单词作为pagerank中的一个节点。设定窗口大小为k，假设一个句子依次由下面的单词组成：w1, w2, w3, w4, w5, &#x2026;, wn，w1, w2, &#x2026;, wk、w2, w3, &#x2026;,wk+1、w3, w4, &#x2026;,wk+2等都是一个窗口。在一个窗口中的任两个单词对应的节点之间存在一个无向无权的边。k=2:10.基于上面构成图，可以计算出每个单词节点的重要性。最重要的若干单词可以作为关键词。</li>
+<li>文档相似性
+怎么分辨文档与文档之间的相关性运用了LDA, TF-IDF技术，具体可在文档里面查看。</li>
+<li>网络爬虫
+网络爬虫是用来从某个网站上搜集数据的，一般是结构化数据。</li>
+<li>知识图谱
+知识图谱是把识别到的实体，用实体之间关系组成的一个图。涉及到了图数据库（当然也可以用关系型数据库），实体抽取和关系抽取。</li>
+</ol>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">2</span> Knowledge Graph</h2>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">2</span> Knowledge Graph</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">2.1</span> architecture</h3>
+</div><div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">2.1</span> architecture</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <img src="./Images/knowledge_graph_architecture.png" alt="knowledge_graph_architecture.png" />
@@ -724,11 +759,11 @@ ConceptNet,是一个语义知识网络，主要由一系列代表概念的结点
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline18" class="outline-2">
-<h2 id="orgheadline18"><span class="section-number-2">3</span> Knowledge-based Q&amp;A</h2>
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">3</span> Knowledge-based Q&amp;A</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">3.1</span> Introduction</h3>
+</div><div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">3.1</span> Introduction</h3>
 <div class="outline-text-3" id="text-3-1">
 
 <div class="figure">
@@ -738,8 +773,8 @@ ConceptNet,是一个语义知识网络，主要由一系列代表概念的结点
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">3.2</span> 基于意图的结构化问答系统</h3>
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">3.2</span> 基于意图的结构化问答系统</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 银江股份的市盈率
@@ -750,16 +785,16 @@ ConceptNet,是一个语义知识网络，主要由一系列代表概念的结点
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">3.3</span> 基于检索的问答系统</h3>
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">3.3</span> 基于检索的问答系统</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 对于像新闻、研究报告类的文档内容的搜索和观点挖掘，是一种精细化的搜索方式，不是直接对文档的全文进行检索，而是首先提取分析出文档的重要成分，比如：公司事件、摘要、情感、评级、作者正负面观点等，建立到搜索引擎中，基于启发式方法根据输入的内容进行匹配回复。比如：“航天信息可以买吗？”，不一定能准确的告诉用户可以或不可以，但是可以告诉他航天信息在当前的技术指标（金叉、死叉等），资金流量，研究员的正负面观点以及年报对2017年的管理层意见摘要等等。
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">3.4</span> 基于知识图谱的问答系统</h3>
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">3.4</span> 基于知识图谱的问答系统</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 比如：“和苹果手机有关系的股票有哪些？”，“治理雾霾对哪些上市公司会产生影响？”，“钴价上升对哪些股票产生影响最大？”等，当然这些问题通过搜索的方式也能得到答案，但它们有一些共同点，问题的本身都描述着实体和实体之间的关系或者相关性，而这正是知识图谱能够解决的问题，知识图谱将搜索引擎从字符串匹配推进到实体关系查询推理层面.
@@ -768,19 +803,19 @@ ConceptNet,是一个语义知识网络，主要由一系列代表概念的结点
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">4</span> Definition of Sentiment Analysis</h2>
+<div id="outline-container-orgheadline22" class="outline-2">
+<h2 id="orgheadline22"><span class="section-number-2">4</span> Definition of Sentiment Analysis</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">4.1</span> Structure</h3>
+</div><div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">4.1</span> Structure</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Due to a large collection of opinions on the Web, some form of summary of opinions is needed (Hu and Liu, 2004).
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">4.2</span> Opinion Defintion</h3>
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">4.2</span> Opinion Defintion</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Observation: An opinion consists of two key components: a target g and a sentiment s on the target.</li>
@@ -868,15 +903,15 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-2">
-<h2 id="orgheadline23"><span class="section-number-2">5</span> Language Technology Processing</h2>
+<div id="outline-container-orgheadline24" class="outline-2">
+<h2 id="orgheadline24"><span class="section-number-2">5</span> Language Technology Processing</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 [<a href="http://ltp.ai/docs/index.html">http://ltp.ai/docs/index.html</a>]
 </p>
 </div>
-<div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">5.1</span> features:</h3>
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">5.1</span> features:</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>针对单一自然语言处理任务，生成统计机器学习模型的工具</li>
@@ -888,8 +923,8 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline34" class="outline-2">
-<h2 id="orgheadline34"><span class="section-number-2">6</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
+<div id="outline-container-orgheadline35" class="outline-2">
+<h2 id="orgheadline35"><span class="section-number-2">6</span> Building the Wikipedia Knowledge Graph in Neo4j</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>guide:</li>
@@ -913,8 +948,8 @@ Due to a large collection of opinions on the Web, some form of summary of opinio
 </p>
 </div>
 
-<div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">6.1</span> Login</h3>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">6.1</span> Login</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 
@@ -936,8 +971,8 @@ darts-quota-alternation
 </div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">6.2</span> baike triples</h3>
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">6.2</span> baike triples</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 subjects, predicates, and objects
@@ -977,19 +1012,19 @@ subject, relation, subject
 </div>
 </div>
 
-<div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">6.3</span> SPARQL: RDF Query Language</h3>
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">6.3</span> SPARQL: RDF Query Language</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 W3C standard that underlies the Web's knowledge representation formalism: the Web Ontology Language (OWL).
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-3">
-<h3 id="orgheadline27"><span class="section-number-3">6.4</span> Visualization tool: Graphviz, networkx, Gephi</h3>
-</div>
 <div id="outline-container-orgheadline28" class="outline-3">
-<h3 id="orgheadline28"><span class="section-number-3">6.5</span> Graph database: GraphDB, Neo4j.</h3>
+<h3 id="orgheadline28"><span class="section-number-3">6.4</span> Visualization tool: Graphviz, networkx, Gephi</h3>
+</div>
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">6.5</span> Graph database: GraphDB, Neo4j.</h3>
 <div class="outline-text-3" id="text-6-5">
 <ul class="org-ul">
 <li>node</li>
@@ -1003,8 +1038,8 @@ property
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline29" class="outline-3">
-<h3 id="orgheadline29"><span class="section-number-3">6.6</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
+<div id="outline-container-orgheadline30" class="outline-3">
+<h3 id="orgheadline30"><span class="section-number-3">6.6</span> Approach 1: Loading a reduced subset incrementally through the MediaWiki API</h3>
 <div class="outline-text-3" id="text-6-6">
 <ul class="org-ul">
 <li>wiki dumps:</li>
@@ -1146,8 +1181,8 @@ return value
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline33" class="outline-3">
-<h3 id="orgheadline33"><span class="section-number-3">6.7</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">6.7</span> Approach 2: Batch loading the data with LOAD CSV from an SQL dump</h3>
 <div class="outline-text-3" id="text-6-7">
 <ul class="org-ul">
 <li>basics</li>
@@ -1322,10 +1357,10 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </div>
 </div>
 
-<div id="outline-container-orgheadline32" class="outline-4">
-<h4 id="orgheadline32"><span class="section-number-4">6.7.1</span> Data dumps/Import</h4>
+<div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33"><span class="section-number-4">6.7.1</span> Data dumps/Import</h4>
 <div class="outline-text-4" id="text-6-7-1">
-</div><ol class="org-ol"><li><a id="orgheadline30"></a>structure:<br  /><div class="outline-text-5" id="text-6-7-1-1">
+</div><ol class="org-ol"><li><a id="orgheadline31"></a>structure:<br  /><div class="outline-text-5" id="text-6-7-1-1">
 <p>
 <a href="https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql">https://phabricator.wikimedia.org/source/mediawiki/browse/master/maintenance/tables.sql</a>
 </p>
@@ -1514,7 +1549,7 @@ CREATE (from)-[:SUBCAT_OF]-&gt;(to)
 </table>
 </div></li>
 
-<li><a id="orgheadline31"></a>methods<br  /><div class="outline-text-5" id="text-6-7-1-2">
+<li><a id="orgheadline32"></a>methods<br  /><div class="outline-text-5" id="text-6-7-1-2">
 <p>
 <a href="https://meta.wikimedia.org/wiki/Data_dumps">https://meta.wikimedia.org/wiki/Data_dumps</a>
 </p>
@@ -1620,8 +1655,8 @@ That was it. This was enough to let me view (most) pages without errors.
 </div>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-2">
-<h2 id="orgheadline35"><span class="section-number-2">7</span> NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</h2>
+<div id="outline-container-orgheadline36" class="outline-2">
+<h2 id="orgheadline36"><span class="section-number-2">7</span> NLP模块对比:jieba, THULAC, SnowNLP, pynlpir, CoreNLP, pyLTP, spaCy, gensim</h2>
 <div class="outline-text-2" id="text-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1674,11 +1709,11 @@ That was it. This was enough to let me view (most) pages without errors.
 </div>
 </div>
 
-<div id="outline-container-orgheadline40" class="outline-2">
-<h2 id="orgheadline40"><span class="section-number-2">8</span> Position Of Tagging</h2>
+<div id="outline-container-orgheadline41" class="outline-2">
+<h2 id="orgheadline41"><span class="section-number-2">8</span> Position Of Tagging</h2>
 <div class="outline-text-2" id="text-8">
-</div><div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">8.1</span> 词性解释</h3>
+</div><div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">8.1</span> 词性解释</h3>
 <div class="outline-text-3" id="text-8-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1892,8 +1927,8 @@ That was it. This was enough to let me view (most) pages without errors.
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">8.2</span> 句法分析（句法树）</h3>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">8.2</span> 句法分析（句法树）</h3>
 <div class="outline-text-3" id="text-8-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2152,8 +2187,8 @@ That was it. This was enough to let me view (most) pages without errors.
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38"><span class="section-number-3">8.3</span> 关系表示</h3>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">8.3</span> 关系表示</h3>
 <div class="outline-text-3" id="text-8-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2432,8 +2467,8 @@ That was it. This was enough to let me view (most) pages without errors.
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39"><span class="section-number-3">8.4</span> ICTCLAS词性标注</h3>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">8.4</span> ICTCLAS词性标注</h3>
 <div class="outline-text-3" id="text-8-4">
 <p>
 词的分类
@@ -2441,14 +2476,14 @@ That was it. This was enough to let me view (most) pages without errors.
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline41" class="outline-2">
-<h2 id="orgheadline41"><span class="section-number-2">9</span> 实词：名词、动词、形容词、状态词、区别词、数词、量词、代词</h2>
+<div id="outline-container-orgheadline42" class="outline-2">
+<h2 id="orgheadline42"><span class="section-number-2">9</span> 实词：名词、动词、形容词、状态词、区别词、数词、量词、代词</h2>
 </div>
-<div id="outline-container-orgheadline46" class="outline-2">
-<h2 id="orgheadline46"><span class="section-number-2">10</span> 虚词：副词、介词、连词、助词、拟声词、叹词。</h2>
+<div id="outline-container-orgheadline47" class="outline-2">
+<h2 id="orgheadline47"><span class="section-number-2">10</span> 虚词：副词、介词、连词、助词、拟声词、叹词。</h2>
 <div class="outline-text-2" id="text-10">
-</div><div id="outline-container-orgheadline42" class="outline-3">
-<h3 id="orgheadline42"><span class="section-number-3">10.1</span> ICTPOS3.0词性标记集</h3>
+</div><div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">10.1</span> ICTPOS3.0词性标记集</h3>
 <div class="outline-text-3" id="text-10-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2845,8 +2880,8 @@ That was it. This was enough to let me view (most) pages without errors.
 </div>
 </div>
 
-<div id="outline-container-orgheadline43" class="outline-3">
-<h3 id="orgheadline43"><span class="section-number-3">10.2</span> 虚词</h3>
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">10.2</span> 虚词</h3>
 <div class="outline-text-3" id="text-10-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3354,8 +3389,8 @@ ICTCLAS 汉语词性标注集
 </div>
 
 
-<div id="outline-container-orgheadline44" class="outline-3">
-<h3 id="orgheadline44"><span class="section-number-3">10.3</span> jieba 字典中出现的类型</h3>
+<div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45"><span class="section-number-3">10.3</span> jieba 字典中出现的类型</h3>
 <div class="outline-text-3" id="text-10-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -3645,8 +3680,8 @@ ICTCLAS 汉语词性标注集
 </div>
 </div>
 
-<div id="outline-container-orgheadline45" class="outline-3">
-<h3 id="orgheadline45"><span class="section-number-3">10.4</span> simhash 过滤的掉的词汇</h3>
+<div id="outline-container-orgheadline46" class="outline-3">
+<h3 id="orgheadline46"><span class="section-number-3">10.4</span> simhash 过滤的掉的词汇</h3>
 <div class="outline-text-3" id="text-10-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 

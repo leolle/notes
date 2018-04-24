@@ -436,6 +436,11 @@ python models/tutorials/image/mnist/convolutional.py
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
+- evaluate shell configuration without restart shell:
+#+BEGIN_SRC bash
+exec $SHELL -l
+source ~/.zshrc
+#+END_SRC
 - list all files by:
 #+BEGIN_SRC bash
 -r, --reverse
@@ -793,11 +798,11 @@ export XMODIFIERS="@im=fcitx"
 export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
 export LC_CTYPE=zh_CN.UTF-8
-alias lf="ls -l | egrep -v '^d'"
-alias ldir="ls -l | egrep '^d'"
-alias lwc="ls -1 | wc -l"
+alias lf="ll -l | egrep -v '^d'"
+alias ldir="ll -l | egrep '^d'"
+alias lwc="ll -1 | wc -l"
 #alias got="ps awx | grep"
-#alias got="realpath "$1" |  xclip -i -selection clipboard"
+alias got="realpath "$1" |  xclip -i -selection clipboard"
 function got()
 {
     readlink -f $1 | xclip -i -selection clipboard
@@ -859,6 +864,8 @@ if [ -f '/home/weiwu/projects/sentiment/google-cloud-sdk/path.zsh.inc' ]; then s
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc'; fi
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
 
 #+END_SRC
 
