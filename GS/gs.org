@@ -125,4 +125,7 @@ ICA
 - non linear constrain on factor model
 
 - [X] 公司帮忙照看搬家。
-8 hours.
+1） 有多少 use case 对其有依赖
+2） 整体的完成度
+3） “做某事” 被 repeat 了几次
+4） TODO 列出来，听相关人员建议。被他人选中的 reward 更高
