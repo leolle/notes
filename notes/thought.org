@@ -285,9 +285,7 @@ Overall view of the paper. A quick summary of the form that the parts of the res
 *** Literature Review
 - Previous research
 - Contribution in more detail
-Differences from what has been done before: Is it new data? A new model? A
-new identication strategy? Are you answering a question more broadly/specially? Specifically
-comparing how you are improving on a previous paper is useful.
+Differences from what has been done before: Is it new data? A new model? A new identication strategy? Are you answering a question more broadly/specially? Specifically comparing how you are improving on a previous paper is useful.
 - Method/Model
 Exact design and methodology used to perform the research.
 - Data
