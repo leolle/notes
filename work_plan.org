@@ -532,7 +532,10 @@ Recommend similar words.
 CLOSED: [2018-04-12 Thu 10:25]
 To create a sentiment index for a keyword, which can be provided as a indicator.
 
-***** DeepDive
+***** TODO DeepDive<2018-04-23 Mon>
+:LOGBOOK:
+CLOCK: [2018-04-27 Fri 14:22]
+:END:
 
 ****** function
 
