@@ -1493,6 +1493,15 @@ handler.close()
 logger.removeHandler(handler)
 #+END_SRC
 
+- ylog
+#+BEGIN_SRC python
+from ylib import ylog
+import logging
+
+ylog.set_level(logging.DEBUG)
+ylog.console_on()
+
+#+END_SRC
 ** logging.config — Logging configuration
 ** logging.handlers — Logging handlers
 ** getpass — Portable password input
