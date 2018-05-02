@@ -313,6 +313,10 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 
 另外在presentation的时候要把原理性的讲述做为重点，详细展开，包括数据介绍，步骤，结果。
 * May 2018
+** resources are not unlimited when operating tasks. you are not Google.<2018-05-02 Wed>
+** pay attention for presentation format, keep it simple and clean, remove redundant noise.
+** define reward, action space for news recommendation use case.
+** build a knowledge graph with mentioned events in searching results, then use such knowledge graph and reinforcement learning to infer user interests.
 
 * Footnotes
 
