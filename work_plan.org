@@ -686,6 +686,13 @@ Selected node: 福耀玻璃(i)
 Relation: 加拿大皇家银行增持
 ****** Output:
 Similar stocks(under the same industry)  increase holding event happened.
+***** news recommendation with RL
+- [ ] web scraping case study.
+https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-from-news24/
+
+- [ ] list available web crawling scripts.
+https://github.com/ckreibich/scholar.py
+
 
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
