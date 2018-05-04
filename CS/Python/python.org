@@ -1500,6 +1500,7 @@ import logging
 
 ylog.set_level(logging.DEBUG)
 ylog.console_on()
+ylog.filelog_on("app")
 
 #+END_SRC
 ** logging.config — Logging configuration

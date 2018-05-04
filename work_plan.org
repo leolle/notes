@@ -690,9 +690,25 @@ Similar stocks(under the same industry)  increase holding event happened.
 - [ ] web scraping case study.
 https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-from-news24/
 
-- [ ] list available web crawling scripts.
-https://github.com/ckreibich/scholar.py
-
+- [-] list available web crawling scripts.
+  - [X] google scholar: https://github.com/ckreibich/scholar.py
+  - [ ] google search
+  - [ ] google news
+- [ ] focused crawler with reinforcement learning.
+* review and recall the process how you found those, both positive and negative episodes.
+** search python libraries.
+** search paper.
+** search web content.
+** search chrome extension:
+*** goal:
+chrome extension that inreases action space in RL, helps with Ux.
+*** training steps:
+1. google useful chrome extension.
+2. open web page whose title has a list of chrome extension introduction, for example, the 10 best google chrome extensions, 41 best google chrome extensions of 2018, etc.
+3. episode training process:
+ positive sample: extension that is classified as system tool, utility tool, efficiency tool to help processing data, text, reading.
+ negative sample: extension that is not related as above features.
+4. extract extension name, description, url.
 
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
