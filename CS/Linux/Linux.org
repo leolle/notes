@@ -567,6 +567,7 @@ tree -I 'test*|docs|bin|lib'
 #+END_SRC
 #+BEGIN_SRC shell
 tree -P '*.org' | xclip && xclip -o > /tmp/tree.txt
+tree -P '*.sh|*.py|*.csv|*.ddlog|*.url|*.conf' | xclip && xclip -o > /tmp/tree.txt
 tree | xclip
 xclip -o
 #+END_SRC
