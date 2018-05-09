@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-23 Mon 10:59 -->
+<!-- 2018-05-07 Mon 10:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -2983,9 +2983,22 @@ handler.close<span style="color: #AE81FF;">()</span>
 logger.removeHandler<span style="color: #AE81FF;">(</span>handler<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
-</div>
-</div>
 
+<ul class="org-ul">
+<li>ylog</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> ylib <span style="color: #F92672;">import</span> ylog
+<span style="color: #F92672;">import</span> logging
+
+ylog.set_level<span style="color: #AE81FF;">(</span>logging.DEBUG<span style="color: #AE81FF;">)</span>
+ylog.console_on<span style="color: #AE81FF;">()</span>
+ylog.filelog_on<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"app"</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
 <div id="outline-container-orgheadline138" class="outline-3">
 <h3 id="orgheadline138"><span class="section-number-3">14.7</span> logging.config — Logging configuration</h3>
 </div>

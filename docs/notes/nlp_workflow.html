@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-05-08 Tue 15:36 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline17">1. NLP workflow:</a>
+<ul>
+<li><a href="#orgheadline9">1.1. Sentiment analysis</a>
+<ul>
+<li><a href="#orgheadline7">1.1.1. Use cases</a></li>
+<li><a href="#orgheadline8">1.1.2. Steps of generating sentiment values in GS</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline15">1.2. Word2vec</a>
+<ul>
+<li><a href="#orgheadline13">1.2.1. Use cases</a></li>
+<li><a href="#orgheadline14">1.2.2. Steps of finding similar words in GS</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline16">1.3. Information extraction</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="outline-2" id="meta">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Author</b></td>
+<td class="org-left">weiwu (victor.wuv@gmail.com)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Date</b></td>
+<td class="org-left">2018-05-08 15:36:25</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">1</span> NLP workflow:</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">1.1</span> Sentiment analysis</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+A sentiment value determines attitude, which may be a judgment or evaluation, affective state or the intended emotional communication. The sentiment value is labeled as 0 (negative), 1 (neutral) or 2 (positive).
+</p>
+
+<p>
+GS can read stock news and report from our database, then it analyze the sentiment of the text content, finally giving a sentiment value on each date.
+</p>
+
+<p>
+We can use this sentiment value as a factor for stocks in the multi-factor analysis.
+</p>
+
+<p>
+At the same time, we can use this technique to give a sentiment value of the current web page user are browsing.
+</p>
+<ul class="org-ul">
+<li>Input: selected document content</li>
+<li>Output: sentiment value time series.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">1.1.1</span> Use cases</h4>
+<div class="outline-text-4" id="text-1-1-1">
+</div><ol class="org-ol"><li><a id="orgheadline3"></a>Map stock name related to the news/report statement input into its sentiment value, then we can set them as factors, which can be applied to<br  /><ol class="org-ol"><li><a id="orgheadline1"></a>Factor model - univariate test<br  /></li>
+<li><a id="orgheadline2"></a>Stock selection - pick stocks labeled as 2<br  /></li></ol></li>
+<li><a id="orgheadline4"></a>Compute average sentiment values in time series, presenting sentiment of overall public opinions, which can be applied to<br  /><div class="outline-text-5" id="text-1-1-1-2">
+<p>
+Defining and predicting public opinions for investors/analysts who cares (more efficient and probably more accurate than human’s instinct judgement)
+</p>
+
+<p>
+Eg 短期交易者, dispersion (data and function variance), 与market opinion相对/同做trading
+</p>
+</div></li>
+<li><a id="orgheadline5"></a>Source is important, diverse and complete enough: possible standard - a database can make completely random sampling<br  /></li>
+<li><a id="orgheadline6"></a>News sentiment analysis, together with keyword extraction, see below<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.1.2</span> Steps of generating sentiment values in GS</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ol class="org-ol">
+<li>Load report summaries from a relational database, here we use Juyuan MySQL database (see below screenshot).</li>
+</ol>
+<p>
+Hyperparameters:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">input</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">db_name</td>
+<td class="org-left">database name</td>
+</tr>
+
+<tr>
+<td class="org-left">table_name</td>
+<td class="org-left">database table</td>
+</tr>
+
+<tr>
+<td class="org-left">tbl_columns</td>
+<td class="org-left">list of column names to select from SQL table (only used when reading a table)</td>
+</tr>
+
+<tr>
+<td class="org-left">t_filter_col_name</td>
+<td class="org-left">column name of date</td>
+</tr>
+
+<tr>
+<td class="org-left">t_values</td>
+<td class="org-left">filter by date</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Output:
+An analyst reports dataframe, each report is presented in a row
+</p>
+
+<ol class="org-ol">
+<li>Apply SnowNLP library’s sentiment method, which is a bayesian classifier.</li>
+</ol>
+<p>
+Then we get each report’s sentiment value.
+</p>
+
+<ol class="org-ol">
+<li>Calculate the average sentiment value by dividing the total number of reports on each date.</li>
+</ol>
+<p>
+Output is time series.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">1.2</span> Word2vec</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Word2vec is a group of related models for word embeddings. We provide a specific process of how to use it to find similar words.
+</p>
+
+<p>
+Input: selected document content
+Output: word embedding model
+</p>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">1.2.1</span> Use cases</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline10"></a>Searching relevant papers: providing similar keywords of papers to the paper title we already have<br  /><div class="outline-text-5" id="text-1-2-1-1">
+<p>
+‘The Decision Tree Approach to Stock Selection’: find other papers by looking for similar keywords of ‘decision tree classifier’, ‘random forest’, ‘stock prediction’&#x2026;
+</p>
+</div></li>
+<li><a id="orgheadline11"></a>Node2vec for GS tasks<br  /></li>
+<li><a id="orgheadline12"></a>Policy instance<br  /></li></ol>
+</div>
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">1.2.2</span> Steps of finding similar words in GS</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ol class="org-ol">
+<li>Select corpus, which can be an user interested domain from wikipedia, analyst reports and research files. Assume GS having a category tree of default corpus and there is also an API for users to insert their own sources.</li>
+
+<li>Extract all the related pages by manually selecting a category/keyword, including its subcategories such as depth level. This forms a skill instance.</li>
+
+<li>Output:</li>
+</ol>
+<p>
+A skill instance, which can be shown as a node array as below
+</p>
+
+<ol class="org-ol">
+<li>Translate the skill instance into graph nodes, then extract all GIDs from the nodes</li>
+</ol>
+<p>
+Function: skill2graph
+Graph nodes
+</p>
+
+<ul class="org-ul">
+<li>Output: node gid</li>
+
+<li>Extract nodes of read only documents</li>
+<li>Input: node GID from  above</li>
+<li>Function: lib.gftIO.gs_call.get_nodes_binary_data</li>
+
+<li>Text data cleaning</li>
+</ul>
+<p>
+remove punctuation, remove stopwords, tokenize
+</p>
+
+<ol class="org-ol">
+<li>Train the word2vec model by gensim lib</li>
+</ol>
+<p>
+Hyperparameters
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">input</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Window size</td>
+<td class="org-left">moving window size.</td>
+</tr>
+
+<tr>
+<td class="org-left">Dimension</td>
+<td class="org-left">word2vec array dimension.</td>
+</tr>
+
+<tr>
+<td class="org-left">Minimum occurrence</td>
+<td class="org-left">minimum occurence of vocabulary.</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Output: trained word2vec model</li>
+
+<li>Cache this model as a policy variable</li>
+
+<li>Find similar words using function ‘model.most_similar()’ from gensim lib</li>
+</ul>
+<p>
+eg. 10 most similar words of ‘股票’.
+</p>
+
+<ol class="org-ol">
+<li>Evaluation</li>
+</ol>
+<p>
+Currently using human judgement
+</p>
+
+<p>
+Factor Graph?
+</p>
+
+<p>
+Other possible methods: <a href="http://www.aclweb.org/anthology/D15-1036">http://www.aclweb.org/anthology/D15-1036</a>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">1.3</span> Information extraction</h3>
+</div>
+</div>
+</div>
+</body>
+</html>

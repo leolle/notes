@@ -63,6 +63,7 @@
 在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
 
 某公司打算借壳上市，通过知识图谱相关技术寻找相关联的公司，找到有可能的潜在借壳对象。
+
 [[./img/knowledge_graph_company.jpg]]
 
 [[./img/knowledge_graph_organization.png]]
@@ -583,7 +584,7 @@ Policy and state variable:
 - If user check this document again.
 ****** technique/library description:
 https://docs.google.com/spreadsheets/d/1j10vRQhwOWBLtYsJjsbgXqI5XyCDagSF708pano1JEc/edit#gid=0
-
+**** use cases:
 ***** DONE Use case 1:
 CLOSED: [2018-04-17 Tue 09:42]
 Switch current main task according to browsing website page:
@@ -695,20 +696,16 @@ https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-fro
   - [ ] google search
   - [ ] google news
 - [ ] focused crawler with reinforcement learning.
-* review and recall the process how you found those, both positive and negative episodes.
-** search python libraries.
-** search paper.
-** search web content.
-** search chrome extension:
-*** goal:
-chrome extension that inreases action space in RL, helps with Ux.
-*** training steps:
-1. google useful chrome extension.
-2. open web page whose title has a list of chrome extension introduction, for example, the 10 best google chrome extensions, 41 best google chrome extensions of 2018, etc.
-3. episode training process:
- positive sample: extension that is classified as system tool, utility tool, efficiency tool to help processing data, text, reading.
- negative sample: extension that is not related as above features.
-4. extract extension name, description, url.
+***** detecting and visualizing emerging technology trends.
+****** 主题词网络分析
+- [X] propose use case details.
+- [ ] list available web crawler.
+- [ ] modify current web crawler.
+- [ ] unit test crawler.
+- [ ] create crawling function.
+****** 主题词时间序列分析
+****** 主题词s curve分析
+****** extract title, author, date from pdf.
 
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"

@@ -317,7 +317,15 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 ** pay attention for presentation format, keep it simple and clean, remove redundant noise.
 ** define reward, action space for news recommendation use case.
 ** build a knowledge graph with mentioned events in searching results, then use such knowledge graph and reinforcement learning to infer user interests.
-
+<2018-05-07 Mon>
+** think about my relative strength:
+- get the things done.
+- don't have to waste too much time on something you know that will be failed or be succeeded.
+** set the objective specific, get positive and negative feedback.
+we are human, we have small data. so we have to plan, we are not good at model free based learning. however, we are good at model based learning. we set a goal(making a plan), get positive or negative feedback. gradient search to one purticular direction, do not randomly try things.
+** fail as soon as possible.
+** that's a trade off between thinking big and trying many things.
+** search, machine learning, reinforcement learning, diet, exercises.
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own

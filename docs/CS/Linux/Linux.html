@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-23 Mon 10:59 -->
+<!-- 2018-05-07 Mon 10:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1179,6 +1179,15 @@ mu_scale = 0.2449489742783178 var_scale = 0.05
 <h4 id="orgheadline18"><span class="section-number-4">1.2.1</span> Shell basics</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
+<li>evaluate shell configuration without restart shell:</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash"><span style="color: #F92672;">exec</span> $<span style="color: #FD971F;">SHELL</span> -l
+<span style="color: #F92672;">source</span> ~/.zshrc
+</pre>
+</div>
+<ul class="org-ul">
 <li>list all files by:</li>
 </ul>
 <div class="org-src-container">
@@ -1390,6 +1399,7 @@ tree -I 'test*|docs|bin|lib'
 <div class="org-src-container">
 
 <pre class="src src-shell">tree -P <span style="color: #E6DB74;">'*.org'</span> | xclip &amp;&amp; xclip -o &gt; /tmp/tree.txt
+tree -P <span style="color: #E6DB74;">'*.sh|*.py|*.csv|*.ddlog|*.url|*.conf'</span> | xclip &amp;&amp; xclip -o &gt; /tmp/tree.txt
 tree | xclip
 xclip -o
 </pre>
@@ -1705,11 +1715,11 @@ ls -ls /usr/bin/python*
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">GTK_IM_MODULE</span>=xim
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">QT_IM_MODULE</span>=xim
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">LC_CTYPE</span>=zh_CN.UTF-8
-<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">lf</span>=<span style="color: #E6DB74;">"ls -l | egrep -v '^d'"</span>
-<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">ldir</span>=<span style="color: #E6DB74;">"ls -l | egrep '^d'"</span>
-<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">lwc</span>=<span style="color: #E6DB74;">"ls -1 | wc -l"</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">lf</span>=<span style="color: #E6DB74;">"ll -l | egrep -v '^d'"</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">ldir</span>=<span style="color: #E6DB74;">"ll -l | egrep '^d'"</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">lwc</span>=<span style="color: #E6DB74;">"ll -1 | wc -l"</span>
 <span style="color: #75715E;">#</span><span style="color: #75715E;">alias got="ps awx | grep"</span>
-<span style="color: #75715E;">#</span><span style="color: #75715E;">alias got="realpath "$1" |  xclip -i -selection clipboard"</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">got</span>=<span style="color: #E6DB74;">"realpath "</span>$<span style="color: #AE81FF;">1</span><span style="color: #E6DB74;">" |  xclip -i -selection clipboard"</span>
 <span style="color: #F92672;">function</span> <span style="color: #A6E22E;">got</span><span style="color: #AE81FF;">()</span>
 <span style="color: #AE81FF;">{</span>
     readlink -f $<span style="color: #AE81FF;">1</span> | xclip -i -selection clipboard
@@ -1771,6 +1781,8 @@ ls -ls /usr/bin/python*
 
 <span style="color: #75715E;"># </span><span style="color: #75715E;">The next line enables shell command completion for gcloud.</span>
 <span style="color: #F92672;">if</span> <span style="color: #AE81FF;">[</span> -f <span style="color: #E6DB74;">'/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc'</span> <span style="color: #AE81FF;">]</span>; <span style="color: #F92672;">then </span><span style="color: #F92672;">source</span> <span style="color: #E6DB74;">'/home/weiwu/projects/sentiment/google-cloud-sdk/completion.zsh.inc'</span>; <span style="color: #F92672;">fi</span>
+<span style="color: #FD971F;">fpath</span>=<span style="color: #AE81FF;">(</span>~/.zsh/completion $<span style="color: #FD971F;">fpath</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">autoload</span> -Uz compinit &amp;&amp; compinit -i
 </pre>
 </div>
 </div>

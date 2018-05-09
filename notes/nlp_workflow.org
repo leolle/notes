@@ -1,0 +1,118 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: workflow
+#+DATE: <2018-05-08 Tue>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../configOrg/level1.org
+
+#+HTML: <div class="outline-2" id="meta">
+| *Author* | {{{author}}} ({{{email}}})    |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+#+HTML: </div>
+
+* NLP workflow:
+** Sentiment analysis
+A sentiment value determines attitude, which may be a judgment or evaluation, affective state or the intended emotional communication. The sentiment value is labeled as 0 (negative), 1 (neutral) or 2 (positive).
+
+GS can read stock news and report from our database, then it analyze the sentiment of the text content, finally giving a sentiment value on each date.
+
+We can use this sentiment value as a factor for stocks in the multi-factor analysis.
+
+At the same time, we can use this technique to give a sentiment value of the current web page user are browsing.
+- Input: selected document content
+- Output: sentiment value time series.
+
+*** Use cases
+**** Map stock name related to the news/report statement input into its sentiment value, then we can set them as factors, which can be applied to
+***** Factor model - univariate test
+***** Stock selection - pick stocks labeled as 2
+**** Compute average sentiment values in time series, presenting sentiment of overall public opinions, which can be applied to
+Defining and predicting public opinions for investors/analysts who cares (more efficient and probably more accurate than human’s instinct judgement)
+
+Eg 短期交易者, dispersion (data and function variance), 与market opinion相对/同做trading
+**** Source is important, diverse and complete enough: possible standard - a database can make completely random sampling
+**** News sentiment analysis, together with keyword extraction, see below
+*** Steps of generating sentiment values in GS
+1. Load report summaries from a relational database, here we use Juyuan MySQL database (see below screenshot).
+Hyperparameters:
+| input             | description                                                                    |
+|-------------------+--------------------------------------------------------------------------------|
+| db_name           | database name                                                                  |
+| table_name        | database table                                                                 |
+| tbl_columns       | list of column names to select from SQL table (only used when reading a table) |
+| t_filter_col_name | column name of date                                                            |
+| t_values          | filter by date                                                                 |
+
+Output:
+An analyst reports dataframe, each report is presented in a row
+
+2. Apply SnowNLP library’s sentiment method, which is a bayesian classifier.
+Then we get each report’s sentiment value.
+
+3. Calculate the average sentiment value by dividing the total number of reports on each date.
+Output is time series.
+
+** Word2vec
+
+Word2vec is a group of related models for word embeddings. We provide a specific process of how to use it to find similar words.
+
+Input: selected document content
+Output: word embedding model
+
+*** Use cases
+**** Searching relevant papers: providing similar keywords of papers to the paper title we already have
+‘The Decision Tree Approach to Stock Selection’: find other papers by looking for similar keywords of ‘decision tree classifier’, ‘random forest’, ‘stock prediction’...
+**** Node2vec for GS tasks
+**** Policy instance
+*** Steps of finding similar words in GS
+1. Select corpus, which can be an user interested domain from wikipedia, analyst reports and research files. Assume GS having a category tree of default corpus and there is also an API for users to insert their own sources.
+
+2. Extract all the related pages by manually selecting a category/keyword, including its subcategories such as depth level. This forms a skill instance.
+
+- Output:
+A skill instance, which can be shown as a node array as below
+
+3. Translate the skill instance into graph nodes, then extract all GIDs from the nodes
+Function: skill2graph
+Graph nodes
+
+- Output: node gid
+
+4. Extract nodes of read only documents
+- Input: node GID from  above
+- Function: lib.gftIO.gs_call.get_nodes_binary_data
+
+5. Text data cleaning
+remove punctuation, remove stopwords, tokenize
+
+6. Train the word2vec model by gensim lib
+Hyperparameters
+| input              | description                      |
+|--------------------+----------------------------------|
+| Window size        | moving window size.              |
+| Dimension          | word2vec array dimension.        |
+| Minimum occurrence | minimum occurence of vocabulary. |
+
+- Output: trained word2vec model
+
+7. Cache this model as a policy variable
+
+8. Find similar words using function ‘model.most_similar()’ from gensim lib
+eg. 10 most similar words of ‘股票’.
+
+9. Evaluation
+Currently using human judgement
+
+Factor Graph?
+
+Other possible methods: http://www.aclweb.org/anthology/D15-1036
+
+
+** Information extraction
