@@ -326,6 +326,8 @@ we are human, we have small data. so we have to plan, we are not good at model f
 ** fail as soon as possible.
 ** that's a trade off between thinking big and trying many things.
 ** search, machine learning, reinforcement learning, diet, exercises.
+** increase the searching space of actions doing work.<2018-05-09 Wed>
+** plan ahead, organize task as a workflow.
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own

@@ -697,6 +697,7 @@ https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-fro
   - [ ] google news
 - [ ] focused crawler with reinforcement learning.
 ***** detecting and visualizing emerging technology trends.
+****** steps breakdown to create such workflow.
 ****** 主题词网络分析
 - [X] propose use case details.
 - [ ] list available web crawler.
