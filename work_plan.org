@@ -693,6 +693,10 @@ https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-fro
 
 - [-] list available web crawling scripts.
   - [X] google scholar: https://github.com/ckreibich/scholar.py
+    - ip轮询
+    - user agent随机
+    - domain随机
+    - 休眠
   - [ ] google search
   - [ ] google news
 - [ ] focused crawler with reinforcement learning.
