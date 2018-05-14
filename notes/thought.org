@@ -328,6 +328,42 @@ we are human, we have small data. so we have to plan, we are not good at model f
 ** search, machine learning, reinforcement learning, diet, exercises.
 ** increase the searching space of actions doing work.<2018-05-09 Wed>
 ** plan ahead, organize task as a workflow.
+** remember paper cases.<2018-05-14 Mon>
+Idea:
+how to understand paper.
+    1). Find out rules behind the paper model.
+    2). summarize paper rule.
+
+How connect paper to create useful use case.
+    remember specific example in the paper via visualization.
+    Use rules behind the paper to create example and ideas.
+
+
+Why you have to remember the idea & example in the paper?
+    1). Taking notes on paper then go back to read notes is costly, you don’t read 80%-90% of your notes.
+    2). memory will trigger you to create similar ideas to solve some problems, then you create examples.
+
+why we need use RL multi-user & multi-task workflow to do classification & clustering.
+    1). original idea:
+  Multi-user & multi-task RL is based on sketch learning.
+
+  2). RL works by making plans based on different goal settings, e.g. collect resources to make tools.
+
+	      3). derived idea for trading:
+I. goal: stock pool.
+II. goal: get a trading strategy
+
+	    Results from I can feed to step II.
+E.g., pick stocks from analyst profile, then create a trading strategy.
+stocks Warren Buffet picked from long term perspective are easy to forecast, then trade these stocks with a long term strategy.
+
+
+follow up:
+Give specific policy instance about:
+    1). how to pick stocks.
+    2). how to trade.
+Search machine learning strategy based on x, y.
+
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
