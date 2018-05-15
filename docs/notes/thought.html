@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-08 Tue 15:36 -->
+<!-- 2018-05-15 Tue 10:37 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -224,7 +224,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline51">5.2. 看资料需要达到的目标是理解他的思路，重点不是他底层的技术，不要重新去造轮子。</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline62">6. May 2018</a>
+<li><a href="#orgheadline66">6. May 2018</a>
 <ul>
 <li><a href="#orgheadline53">6.1. resources are not unlimited when operating tasks. you are not Google.<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-02 Wed&gt;</span></span></a></li>
 <li><a href="#orgheadline54">6.2. pay attention for presentation format, keep it simple and clean, remove redundant noise.</a></li>
@@ -235,6 +235,10 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline59">6.7. fail as soon as possible.</a></li>
 <li><a href="#orgheadline60">6.8. that's a trade off between thinking big and trying many things.</a></li>
 <li><a href="#orgheadline61">6.9. search, machine learning, reinforcement learning, diet, exercises.</a></li>
+<li><a href="#orgheadline62">6.10. increase the searching space of actions doing work.<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-09 Wed&gt;</span></span></a></li>
+<li><a href="#orgheadline63">6.11. plan ahead, organize task as a workflow.</a></li>
+<li><a href="#orgheadline64">6.12. remember paper cases.<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-14 Mon&gt;</span></span></a></li>
+<li><a href="#orgheadline65">6.13. Combine NLP, RL</a></li>
 </ul>
 </li>
 </ul>
@@ -945,8 +949,8 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline62" class="outline-2">
-<h2 id="orgheadline62"><span class="section-number-2">6</span> May 2018</h2>
+<div id="outline-container-orgheadline66" class="outline-2">
+<h2 id="orgheadline66"><span class="section-number-2">6</span> May 2018</h2>
 <div class="outline-text-2" id="text-6">
 </div><div id="outline-container-orgheadline53" class="outline-3">
 <h3 id="orgheadline53"><span class="section-number-3">6.1</span> resources are not unlimited when operating tasks. you are not Google.<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-02 Wed&gt;</span></span></h3>
@@ -990,6 +994,140 @@ we are human, we have small data. so we have to plan, we are not good at model f
 </div>
 <div id="outline-container-orgheadline61" class="outline-3">
 <h3 id="orgheadline61"><span class="section-number-3">6.9</span> search, machine learning, reinforcement learning, diet, exercises.</h3>
+</div>
+<div id="outline-container-orgheadline62" class="outline-3">
+<h3 id="orgheadline62"><span class="section-number-3">6.10</span> increase the searching space of actions doing work.<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-09 Wed&gt;</span></span></h3>
+</div>
+<div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">6.11</span> plan ahead, organize task as a workflow.</h3>
+</div>
+<div id="outline-container-orgheadline64" class="outline-3">
+<h3 id="orgheadline64"><span class="section-number-3">6.12</span> remember paper cases.<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-14 Mon&gt;</span></span></h3>
+<div class="outline-text-3" id="text-6-12">
+<p>
+Idea:
+how to understand paper.
+    1). Find out rules behind the paper model.
+    2). summarize paper rule.
+</p>
+
+<p>
+How connect paper to create useful use case.
+    remember specific example in the paper via visualization.
+    Use rules behind the paper to create example and ideas.
+</p>
+
+
+<p>
+Why you have to remember the idea &amp; example in the paper?
+    1). Taking notes on paper then go back to read notes is costly, you don’t read 80%-90% of your notes.
+    2). memory will trigger you to create similar ideas to solve some problems, then you create examples.
+</p>
+
+<p>
+why we need use RL multi-user &amp; multi-task workflow to do classification &amp; clustering.
+    1). original idea:
+  Multi-user &amp; multi-task RL is based on sketch learning.
+</p>
+
+<p>
+2). RL works by making plans based on different goal settings, e.g. collect resources to make tools.
+</p>
+
+<p>
+        3). derived idea for trading:
+I. goal: stock pool.
+II. goal: get a trading strategy
+</p>
+
+<p>
+      Results from I can feed to step II.
+E.g., pick stocks from analyst profile, then create a trading strategy.
+stocks Warren Buffet picked from long term perspective are easy to forecast, then trade these stocks with a long term strategy.
+</p>
+
+
+<p>
+follow up:
+Give specific policy instance about:
+    1). how to pick stocks.
+    2). how to trade.
+Search machine learning strategy based on x, y.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65"><span class="section-number-3">6.13</span> Combine NLP, RL</h3>
+<div class="outline-text-3" id="text-6-13">
+<p>
+Topic:
+Combine NLP, RL and web scraping to extract useful financial research information.
+</p>
+
+<p>
+Goal:
+Find out the rising technique not in its early stage nor before it’s widely adopted.
+</p>
+
+<p>
+Why?
+Traditional searching engine is biased(bid ranking), decision making based on first searching result page is not always accurate for user, especially it’s not customized.
+</p>
+
+<p>
+Proof:
+Reinforcement learning in the brain
+</p>
+
+<p>
+A key reinforcement learning signal exists in the brain, the temporal difference reward prediction error.
+</p>
+
+<p>
+Idea:
+</p>
+<ol class="org-ol">
+<li>我们用sql query从RMDB里面取数据, web crawl是不是也可以等价于相当于是在互联网搜数据。</li>
+<li>判断某个keyword/topic/technology的s surve stage需要收集time series数据，找提取这种数据的网站。</li>
+</ol>
+<p>
+例如google scholar, 36kr, seekingalpha, github, twitter.
+</p>
+
+<p>
+S curve indicator data:
+search google scholar with keyword + survey.(advanced technology should be fully covered)
+Youtube, SSRN, arXiv.
+number open source libraries
+citation number.(find out the technique required with the help of expertise from authors)
+Conference paper.
+outsourcing companies/job description(mature technology is covered by outsourcing companies/job description)
+patent application.
+product + technology + use cases + data set(define use case dimension, use specific use case).
+</p>
+
+<ol class="org-ol">
+<li>Design an agent ranking feature, to identify useful agent and distribute more jobs to them because they receive more reward among agents.</li>
+
+<li>GS can replace traditional expert labeling by online labeling(knowledge -&gt; policy):</li>
+</ol>
+<p>
+taking notes
+change parameter
+generate data.
+design action space.
+transfer to action reward.
+</p>
+
+
+<ol class="org-ol">
+<li>difference with GS and ricequant:</li>
+</ol>
+<p>
+Ricequant is a platform providing data/tools.
+GS has a workflow to ease the research process.
+</p>
+</div>
 </div>
 </div>
 <div id="footnotes">

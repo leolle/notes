@@ -363,6 +363,49 @@ Give specific policy instance about:
     1). how to pick stocks.
     2). how to trade.
 Search machine learning strategy based on x, y.
+** Combine NLP, RL
+Topic:
+Combine NLP, RL and web scraping to extract useful financial research information.
+
+Goal:
+Find out the rising technique not in its early stage nor before it’s widely adopted.
+
+Why?
+Traditional searching engine is biased(bid ranking), decision making based on first searching result page is not always accurate for user, especially it’s not customized.
+
+Proof:
+Reinforcement learning in the brain
+
+A key reinforcement learning signal exists in the brain, the temporal difference reward prediction error.
+
+Idea:
+1. 我们用sql query从RMDB里面取数据, web crawl是不是也可以等价于相当于是在互联网搜数据。
+2. 判断某个keyword/topic/technology的s surve stage需要收集time series数据，找提取这种数据的网站。
+例如google scholar, 36kr, seekingalpha, github, twitter.
+
+S curve indicator data:
+search google scholar with keyword + survey.(advanced technology should be fully covered)
+Youtube, SSRN, arXiv.
+number open source libraries
+citation number.(find out the technique required with the help of expertise from authors)
+Conference paper.
+outsourcing companies/job description(mature technology is covered by outsourcing companies/job description)
+patent application.
+product + technology + use cases + data set(define use case dimension, use specific use case).
+
+3. Design an agent ranking feature, to identify useful agent and distribute more jobs to them because they receive more reward among agents.
+
+4. GS can replace traditional expert labeling by online labeling(knowledge -> policy):
+taking notes
+change parameter
+generate data.
+design action space.
+transfer to action reward.
+
+
+5. difference with GS and ricequant:
+Ricequant is a platform providing data/tools.
+GS has a workflow to ease the research process.
 
 * Footnotes
 

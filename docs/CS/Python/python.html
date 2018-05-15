@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-07 Mon 10:23 -->
+<!-- 2018-05-15 Tue 10:37 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1518,7 +1518,11 @@ json.dump<span style="color: #AE81FF;">(</span>yourdict, <span style="color: #F9
 <li>getattr magic method only gets invoked for attributes that are not in the dict magic attribute. Implementing getattr causes the hasattr built-in function to always return True, unless an exception is raised from within getattr.</li>
 <li>setattr allows you to override Python’s default mechanism for member assignment.</li>
 <li>The repr function also converts an object to a string. It can also be invoked using the reverse quotes (`), also called accent grave, (underneath the tilde, ~, on most keyboards). But it will convert unambitiously the object. For example, repr(datetime.datetime.now) = datetime.datetime(2018, 1, 20, 13, 32, 51, 483232).</li>
+<li>__str__</li>
 </ul>
+<p>
+get string of elements inside.
+</p>
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #F92672;">print</span> `a`
@@ -2801,6 +2805,22 @@ Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">179</span
 <pre class="src src-python"><span style="color: #F92672;">import</span> yaml
 <span style="color: #F92672;">with</span> <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span>r<span style="color: #E6DB74;">'config.yaml'</span>, <span style="color: #E6DB74;">'rb'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> f:
     <span style="color: #FD971F;">config</span> = yaml.load<span style="color: #AE81FF;">(</span>f<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>ylib.yaml_config</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> ylib.yaml_config <span style="color: #F92672;">import</span> Configuraion
+<span style="color: #FD971F;">config</span> = Configuraion<span style="color: #AE81FF;">()</span>
+config.load<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'../config.yaml'</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>config.__str__<span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">USER_AGENT</span> = config.USER_AGENT
+<span style="color: #FD971F;">DOMAIN</span> = config.DOMAIN
+<span style="color: #FD971F;">BLACK_DOMAIN</span> = config.BLACK_DOMAIN
+<span style="color: #FD971F;">URL_SEARCH</span> = config.URL_SEARCH
 </pre>
 </div>
 </div>

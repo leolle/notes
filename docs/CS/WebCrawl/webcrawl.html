@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-13 Fri 19:29 -->
+<!-- 2018-05-15 Tue 10:37 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -149,17 +149,18 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline2">1. Create a project</a>
+<li><a href="#orgheadline3">1. Create a project</a>
 <ul>
 <li><a href="#orgheadline1">1.1. new project</a></li>
+<li><a href="#orgheadline2">1.2. run the program</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">1</span> Create a project</h2>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">1</span> Create a project</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-orgheadline1" class="outline-3">
 <h3 id="orgheadline1"><span class="section-number-3">1.1</span> new project</h3>
@@ -199,7 +200,42 @@ for the JavaScript code in this tag.
 </div>
 <ul class="org-ul">
 <li>the name of the crawler should be defined in class name as unique.</li>
+<li>save the code for our spider under <b>quotes/quotes/spider</b>.</li>
+<li>the name of the spider is defined uniquely in the class name.</li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">class</span> <span style="color: #66D9EF;">QuotesSpider</span><span style="color: #AE81FF;">(</span>scrapy.Spider<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">name</span> = <span style="color: #E6DB74;">"quotes"</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">unique name</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">start_requests</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span><span style="color: #AE81FF;">)</span>:
+        <span style="color: #FD971F;">urls</span> = <span style="color: #AE81FF;">[</span>
+            <span style="color: #E6DB74;">'http://quotes.toscrape.com/page/1/'</span>,
+            <span style="color: #E6DB74;">'http://quotes.toscrape.com/page/2/'</span>,
+        <span style="color: #AE81FF;">]</span>
+        <span style="color: #F92672;">for</span> url <span style="color: #F92672;">in</span> urls:
+            <span style="color: #F92672;">yield</span> scrapy.Request<span style="color: #AE81FF;">(</span>url=url, callback=<span style="color: #F92672;">self</span>.parse<span style="color: #AE81FF;">)</span>
+
+    <span style="color: #F92672;">def</span> <span style="color: #A6E22E;">parse</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, response<span style="color: #AE81FF;">)</span>:
+        <span style="color: #FD971F;">page</span> = response.url.split<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/"</span><span style="color: #AE81FF;">)[</span>-<span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">]</span>
+        <span style="color: #FD971F;">filename</span> = <span style="color: #E6DB74;">'quotes-%s.html'</span> % page
+        <span style="color: #F92672;">with</span> <span style="color: #F92672;">open</span><span style="color: #AE81FF;">(</span>filename, <span style="color: #E6DB74;">'wb'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> f:
+            f.write<span style="color: #AE81FF;">(</span>response.body<span style="color: #AE81FF;">)</span>
+        <span style="color: #F92672;">self</span>.log<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'Saved file %s'</span> % filename<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> run the program</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+
+<pre class="src src-python">cd webcrawl/scrapy/quotes
+scrapy crawl quotes -o quotes-humor.json -a <span style="color: #FD971F;">tag</span>=humor
+</pre>
+</div>
 </div>
 </div>
 </div>

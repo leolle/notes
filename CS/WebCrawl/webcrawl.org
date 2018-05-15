@@ -39,3 +39,30 @@ scrapy startproject tutorial
 scrapy crawl quotes -o quotes.json
 #+END_SRC
 - the name of the crawler should be defined in class name as unique.
+- save the code for our spider under *quotes/quotes/spider*.
+- the name of the spider is defined uniquely in the class name.
+#+BEGIN_SRC python
+class QuotesSpider(scrapy.Spider):
+    name = "quotes" # unique name
+
+    def start_requests(self):
+        urls = [
+            'http://quotes.toscrape.com/page/1/',
+            'http://quotes.toscrape.com/page/2/',
+        ]
+        for url in urls:
+            yield scrapy.Request(url=url, callback=self.parse)
+
+    def parse(self, response):
+        page = response.url.split("/")[-2]
+        filename = 'quotes-%s.html' % page
+        with open(filename, 'wb') as f:
+            f.write(response.body)
+        self.log('Saved file %s' % filename)
+#+END_SRC
+
+** run the program
+#+BEGIN_SRC python
+cd webcrawl/scrapy/quotes
+scrapy crawl quotes -o quotes-humor.json -a tag=humor
+#+END_SRC
