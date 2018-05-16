@@ -34,10 +34,7 @@ scrapy startproject tutorial
     │       └── __pycache__
     └── scrapy.cfg
 #+END_SRC
-- store the scraped data
-#+BEGIN_SRC bash
-scrapy crawl quotes -o quotes.json
-#+END_SRC
+- save a python file under quotes/spiders.
 - the name of the crawler should be defined in class name as unique.
 - save the code for our spider under *quotes/quotes/spider*.
 - the name of the spider is defined uniquely in the class name.
@@ -60,9 +57,52 @@ class QuotesSpider(scrapy.Spider):
             f.write(response.body)
         self.log('Saved file %s' % filename)
 #+END_SRC
+** input
+1. 定义item
+Item 是保存爬取到的数据的容器；这里相当于定义需要爬哪些内容，如title, desc, date.
+
+2. start_urls
+·         start_urls: 包含了Spider在启动时进行爬取的url列表。 因此，第一个被获取到的页面将是其中之一。 后续的URL则从初始的URL获取到的数据中提取。
+
+3. 提取Item selectors选择器（重点）
+从网页中提取数据有很多方法。Scrapy使用了一种基于 XPath 和 CSS 表达式机制: Scrapy Selectors.
+这里给出XPath表达式的例子及对应的含义:
+·         /html/head/title: 选择HTML文档中 <head> 标签内的 <title> 元素
+·         /html/head/title/text(): 选择上面提到的 <title> 元素的文字
+·         //td: 选择所有的 <td> 元素
+·         //div[@class="mine"]: 选择所有具有 class="mine" 属性的 div 元素
+Selector有四个基本的方法:
+·         xpath(): 传入xpath表达式，返回该表达式所对应的所有节点的selector list列表 。
+·         css(): 传入CSS表达式，返回该表达式所对应的所有节点的selector list列表.
+·         extract(): 序列化该节点为unicode字符串并返回list。
+·         re(): 根据传入的正则表达式对数据进行提取，返回unicode字符串list列表。
+
+4. setting配置文件
+针对不同的网站，可能需要不同setting。
+在这里可以配置输出的方式，如csv, json等。
+
+** extracting data test in shell
+#+BEGIN_SRC bash
+scrapy shell https://www.jianshu.com/p/fa614bea98eb
+#+END_SRC
+you can try selecting elements using CSS or xpath with the response object
+#+BEGIN_SRC bash
+In [31]: books = response.xpath('//div[@class="bd doulist-subject"]').extract()
+
+In [32]: books
+#+END_SRC
+
+#+RESULT:
+: ['<div class="bd doulist-subject">\n    \n\n\n\n    <div class="source">\n      来自：豆瓣读书\n    </div>\n    \n    <div class="post">\n      <a href="https://book.douban.com/subject/10519369/" target="_blank">\n        <img width="100" src="https://img1.doubanio.com/view/subject/l/public/s8869768.jpg">\n      </a>\n    </div>\n    <div class="title">\n      <a href="https://book.douban.com/subject/10519369/" target="_blank">\n        万物生光辉\n      </a>\n    </div>\n    \n      <div class="rating">\n          <span class="allstar45"></span>\n          <span class="rating_nums">9.4</span>\n          <span>(1052人评价)</span>\n      </div>\n    <div class="abstract">\n      \n          作者: [英] 吉米·哈利\n            <br>\n          出版社: 中国城市出版社\n            <br>\n          出版年: 2012-3\n    </div>\n  </div>',...]
+
 
 ** run the program
-#+BEGIN_SRC python
+- store the scraped data
+#+BEGIN_SRC bash
 cd webcrawl/scrapy/quotes
+#+END_SRC
+#+BEGIN_SRC python
+scrapy crawl quotes -o quotes.json
+# or
 scrapy crawl quotes -o quotes-humor.json -a tag=humor
 #+END_SRC

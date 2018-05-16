@@ -697,6 +697,7 @@ https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-fro
     - user agent随机
     - domain随机
     - 休眠
+    - cookies
   - [ ] google search
   - [ ] google news
 - [ ] focused crawler with reinforcement learning.
@@ -704,8 +705,8 @@ https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-fro
 ****** steps breakdown to create such workflow.
 ****** 主题词网络分析
 - [X] propose use case details.
-- [ ] list available web crawler.
-- [ ] modify current web crawler.
+- [X] list available web crawler.
+- [X] modify current web crawler.
 - [ ] unit test crawler.
 - [ ] create crawling function.
 ****** 主题词时间序列分析
