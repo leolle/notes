@@ -63,7 +63,9 @@ model.train(more_sentences)
 **** glossary:
 - latent semantic
 潜在语义
+
 - Uniform Resource Identifier (URI)
+
 - N-gram
 an n-gram is a contiguous sequence of n items from a given sample of text or speech.
 
@@ -71,8 +73,14 @@ An n-gram model is a type of probabilistic language model for predicting the nex
 
 Two benefits of n-gram models (and algorithms that use them) are simplicity and scalability – with larger n, a model can store more context with a well-understood space–time tradeoff, enabling small experiments to scale up efficiently.
 
+- ontology
+a branch of philosophy that deals with the nature of existence
 
 - Web Ontology Language (OWL)
+
+- topology
+拓扑
+
 - Resource Description Framework
 metadata data model. It has come to be used as a general method for conceptual description or modeling of information that is implemented in web resources, using a variety of syntax notations and data serialization formats. It is also used in knowledge management applications.
 

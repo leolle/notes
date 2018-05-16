@@ -11,10 +11,17 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ../../configOrg/level2.org
+* extract data from the HTML source
 
-* Create a project
+** beautifulsoup
+BeautifulSoup is a very popular web scraping library among Python programmers which constructs a Python object based on the structure of the HTML code and also deals with bad markup reasonably well, but it has one drawback: it’s slow.
 
-** new project
+** lxml
+lxml is an XML parsing library (which also parses HTML) with a pythonic API based on ElementTree. (lxml is not part of the Python standard library.)
+
+* Scrapy
+
+** Create a new project
 #+BEGIN_SRC bash
 scrapy startproject tutorial
 #+END_SRC
@@ -57,7 +64,9 @@ class QuotesSpider(scrapy.Spider):
             f.write(response.body)
         self.log('Saved file %s' % filename)
 #+END_SRC
+
 ** input
+
 1. 定义item
 Item 是保存爬取到的数据的容器；这里相当于定义需要爬哪些内容，如title, desc, date.
 
@@ -82,6 +91,7 @@ Selector有四个基本的方法:
 在这里可以配置输出的方式，如csv, json等。
 
 ** extracting data test in shell
+
 #+BEGIN_SRC bash
 scrapy shell https://www.jianshu.com/p/fa614bea98eb
 #+END_SRC
@@ -97,6 +107,7 @@ In [32]: books
 
 
 ** run the program
+
 - store the scraped data
 #+BEGIN_SRC bash
 cd webcrawl/scrapy/quotes
