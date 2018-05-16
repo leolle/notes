@@ -20,8 +20,27 @@ BeautifulSoup is a very popular web scraping library among Python programmers wh
 lxml is an XML parsing library (which also parses HTML) with a pythonic API based on ElementTree. (lxml is not part of the Python standard library.)
 
 * Scrapy
+** Constructing selectors
+Scrapy selectors are instances of Selector class constructed by passing text or TextResponse object. It automatically chooses the best parsing rules (XML vs HTML) based on input type:
 
-** Create a new project
+>>> from scrapy.selector import Selector
+>>> from scrapy.http import HtmlResponse
+Constructing from text:
+
+>>> body = '<html><body><span>good</span></body></html>'
+>>> Selector(text=body).xpath('//span/text()').extract()
+[u'good']
+** Constructing from response:
+
+>>> response = HtmlResponse(url='http://example.com', body=body)
+>>> Selector(response=response).xpath('//span/text()').extract()
+[u'good']
+For convenience, response objects expose a selector on .selector attribute, it’s totally OK to use this shortcut when possible:
+
+>>> response.selector.xpath('//span/text()').extract()
+[u'good']
+
+* Create a new scrapy project
 #+BEGIN_SRC bash
 scrapy startproject tutorial
 #+END_SRC
