@@ -1889,6 +1889,11 @@ You can use a different encoding from UTF-8 by putting a specially-formatted com
 
 ** gc — Garbage Collector interface
 ** inspect — Inspect live objects
+- find the folder of a module:
+#+BEGIN_SRC python
+import inspect
+inspect.getfile(Module)
+#+END_SRC
 ** site — Site-specific configuration hook
 ** fpectl — Floating point exception control
 * Custom Python Interpreters

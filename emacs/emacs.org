@@ -566,6 +566,9 @@ CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 15:01] =>  0:00
 - set deadline for an item
 =C-c C-d=
 
+- show deadline items due or due within 14 days
+=C-c / d=
+
 - clock log in
 =C-c C-x C-i=
 

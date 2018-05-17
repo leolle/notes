@@ -1260,7 +1260,12 @@ tcpdump ip proto \\icmp
 *** Virtual interfaces
 *** The Secure Sockets Layer (SSL)
 *** Caching
+*** chrome cookies
+1. view source code from a webpage.
 
+2. goto console
+
+3. type document.cookie
 * BUNCH O' STUFF
 ** VIRTUALIZATION
 *** Virtual vernacular
