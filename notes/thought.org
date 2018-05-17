@@ -13,11 +13,13 @@
 #+SETUPFILE: ../configOrg/level1.org
 * 2017
 ** September 2017
-*** 线性与非线性思维 <2017-09-23 Sat>
+*** 线性与非线性思维
+<2017-09-23 Sat>
 世界是非线性的，人的大脑为了适应环境，会常选择用线性的思维来判断周围的环境，从而做出比较机械式的决定--《思维的快与慢》。例如人们以为成功是有秘诀的，所有的成功是有一套模式的，从而从成功人士身上提取一堆特质，并认为只要具有这些特质，自然而然就会成功了。这也是为什么畅销书一直火爆的秘密。但是人们忘记了，成功并没有范式，同样具有这样物征的人也许有很多很多，有这样特征的人失败的人并没有常被人们提起，而因为幸存者偏差被遗忘了。同样的道理，线性的模型认为经过了一些漏斗选择出来的股票，将来有大概率的机会会上涨或者反弹，但是这些alpha在现实世界上往往经不起考验，因为还有beta的因素在影响股票的价格。
 打破线性思维，用非线性模型来思考，就像Taleb在《黑天鹅》里面说的一样，当人们见到的大多数天鹅是白色的，就认为所有的天鹅是白色的，当黑天鹅出现的时候，人们才想起天鹅还有黑色的。逆向思维，当提出一个假设以后，通过反面的例子去否定他。
 
-*** Anormalies <2017-09-27 Wed>
+*** Anormalies
+<2017-09-27 Wed>
 
 科学的产生是经验的总结，人的习惯性思维是去寻找一些规律，好利用这些规律来辅助生产。
 
@@ -25,7 +27,8 @@
 
 投资时避免选择拥护的交易，逆向思维，用排除法去除大众的想法，而应该选择去寻找Anormaly，风险小，收益高。
 ** October 2017
-*** Zero-sum game theory<2017-10-19 Thu>
+*** Zero-sum game theory
+<2017-10-19 Thu>
 When applied specifically to economics there are multiple factors to consider when understanding a zero-sum game. Zero-sum game assumes a version of perfect competition and perfect information; that is, both opponents in the model have all the relevant information to make an informed decision. To take a step back, most transactions or trades are inherently non zero-sum games because when two parties agree to trade they do so with the understanding that the goods or services they are receiving are more valuable than the goods or services they are trading for it, after transaction costs. This is called positive-sum, and most transactions fall under this category.
 
 Accumenting information is a key element at trading so that a lot of economic resources are put on the research. Most of the time the institutional investors have more and depth information than the individual investors, this makes the game not a fair one. And the disposition effect makes the unbalance evern worse, frequent buying high and selling low bothers investors, which brings loss to them.
@@ -34,7 +37,8 @@ The increasement of the corporate value will bring more value to investors as lo
 
 However, this is different from the poker game, where winners' gain is losers' loss.
 
-*** Survival in the financial technology industry<2017-10-23 Mon>
+*** Survival in the financial technology industry
+<2017-10-23 Mon>
 There are two competition factors that affect people's career expectation at the financial technology industry, one is industry advancing by the era, beginners/newbies bring more resource including new knowledge and more capital, you have to learn more knlowlege to compete with other peers. The other one is the threat of Artifical Intellegience, most of the nowadays jobs will be eliminated by AI because of their high efficiency in the next few decades. Imaging the competition from AI that will be more productive than average people by many times, it's not hard to get the conclusion that you need study much much harder to face the competition of AI in the future.
 
 The benefit of not being eliminated, or still having a job in the future is huge. It means you can still produce productivity and effort from a job, which is not token by robots or other competitors. This high payoff will bring those survivors enough resources to get people the most wanted dream since thousand years ago, longervity. In order to prove that you can still produce good for the society, you need a talent job making value. Otherwise, your future social function can not be approved by others, and the natural aging will be an end. Longervity can brought by the high curing level, which can cancel the aging or even better, modifying your body organs.
@@ -42,7 +46,8 @@ The benefit of not being eliminated, or still having a job in the future is huge
 *** Why not follow a standard course schedule on studying after your graduation?<2017-10-23 Mon>
 Standard course is designed for average people, or even worse the lowest level to save time and money in the society. Adapting learning progress and not following those old-fashion style studying skills, learninig the basic principles then choosing one topic to go deeper related to your work or project is a more talent way for people above avergae.
 
-*** Follow the advice from the master<2017-10-24 Tue>
+*** Follow the advice from the master
+<2017-10-24 Tue>
 **** Principle:
 - Be perceptive, ask the reason why behind the facts.
 - Be more initiative, approach to people and present your ideas.
@@ -51,7 +56,8 @@ Standard course is designed for average people, or even worse the lowest level t
 Laziness, taking shortcut, in-sample test on GS, not challenging other people.
 
 ** November 2017
-*** Learning techniques<2017-11-05 Sun>
+*** Learning techniques
+<2017-11-05 Sun>
 The most efficient way of learning new things is to go deep understanding of the knowledge, therefore reading a good textbook is a great way for understanding the knowledge, other resources include MOOCs, course notes, research papers.
 
 
@@ -74,7 +80,8 @@ When you read a textbook or listen to a lecture, it's easy to trick yourself int
 If you're trying to learn math, programming, or anything closely related, try not to do much rote memorization(死记硬背). You get familiar with the concepts by using them.
 
 ** December 2017
-*** Use model assumption to increase the productivity<2017-12-05 Tue>
+*** Use model assumption to increase the productivity
+<2017-12-05 Tue>
 Think about the reading as an investment. We need the cutting edge and be early.
 If we can't replicate the model, cut the loss.
 
@@ -85,7 +92,8 @@ What data they use, what do we have, what's the assumption, what's the conclusio
 Without backtesting, you have no idea if you can beat the market.
 
 If you want to at least beat average, find the benchmark. But if the benchmark is too high, forget it, or find another opportunity.
-*** How to learn things fast<2017-12-11 Mon>
+*** How to learn things fast
+<2017-12-11 Mon>
 How to efficiently learn things from a meeting or presentation.
 
 If the presenten gives something I know, connect it with my objective. For example, Zhongwei and me all know mean reversion strategy, how is LSTM and PCA used on this subject.
@@ -97,13 +105,16 @@ Machine learning is for ungifted people. Feeding the model big trunk of data, le
 Learning new technology or knowledge is the same principle, connect your previous knowledge or understanding or experience, predict the unknown field. If the prediction is right, then you have the optimized understanding of that thing, if not, you correct or re-calibrate it.
 
 Three key points should be minded in Machine learning: objective function, optimization process, prediction.
-*** Objective, Obstacle, Solution<2017-12-26 Tue>
+*** Objective, Obstacle, Solution
+<2017-12-26 Tue>
 The challenge financial analysts facing is how to extract useful information from big data, which includes news articles, financial statements, tables, graphs etc. Our objective is to provide them a tool to analyze these information with an understandable workflow in order to increase the efficiency to solve selecting strategy and portfolio, making investment decision.
 
 One of the tools that can be utilized for increasing workflow decision is to tell machines to understand human needs, which is referred as NaturalLanguageProcessing(NLP) pipline.
-*** Neural Networks on stock valuation<2017-12-26 Tue>
+*** Neural Networks on stock valuation
+<2017-12-26 Tue>
 用一个LSTM model，加一个valuation model的方法，如[[https://en.wikipedia.org/wiki/Discounted_cash_flow][discounted cashflow model]][2]，输出再用另一个valuation model，如[[https://en.wikipedia.org/wiki/Dividend_discount_model][Dividend discount model]]，来做某个industry 的return prediction.
-*** Research methods<2017-12-28 Thu>
+*** Research methods
+<2017-12-28 Thu>
 **** Feasibility study: Know paper details
 - Is this case possible? For example, applying Variational Auto Encoder to the mean and variance from the Gausian Mixed model result, is it possible? Can graph cnn be applied a graph with directions on the signal? Can neural networks physical methods be applied on multi-variable time series data?
 - Is it efficient to solve the problem?
@@ -150,14 +161,16 @@ You might have had the experience while reading that your mind wandered and you 
 
 If you're studying on your own using multiple resources, the clashes of notation might be confusing. But I often find that confusion about notation reflects an underlying confusion about ideas, and that having to confront multiple notations ultimately helps my understanding.
 
-** coding review<2018-01-04 Thu>
+** coding review
+<2018-01-04 Thu>
 - using open-source model sequence
   1. reading paper, understanding paper, input data structure, algorithm, limitation, drawback, efficiency, comparison with other model/algorithm.
   2. reading open-source code documentation, demo code, data preparation process.
   3. take a Q&A on decision making.
   4. don't take high confidence on wild guess, dig into deepth and don't let the doubt stand in your way.
 
-** Integrating NLP with GS<2018-01-26 Fri>
+** Integrating NLP with GS
+<2018-01-26 Fri>
 *** The overview picture of GS is to help analysts searching strategy ideas, adaptively constructing data input(X,y), and incrementally backtesting strategies.
 *** NLP techniques can transfer unstructured documentations into structured graph data, extracting entities, views, concepts, ideas, events from research paper/reports, announcement, news, books, etc. Then it provides users next steps research recommendation.
 *** Information sentiment analysis. Web crawling can extract hot and the most user concerned events/results from different web sources using a keyword, thus continuously tracking the subjects.
@@ -174,14 +187,16 @@ Another useful NLP tool is information sentiment analysis. Web crawling can extr
 
 Based on hot events or keywords, documents classification help can extract topics and incrementally searching information from previous results, thus recommending plentiful relevant results from one context to another. This technology gives more possibilities to understand the most cared user question and attempts.
 * February 2018
-** 产业链分析<2018-02-01 Thu>
+** 产业链分析
+<2018-02-01 Thu>
 - 通过联想到挖掘机销售提高，industrial sector, 上有挖掘机生产，三一重工，矿业里有紫金矿业，需求上有电子行业。
 - 山东疫苗案—实杰生物与沃森生物。2016年2月份疫苗案开始被媒体逐渐报道；3月7日，实杰生物总经理辞职；同月18日，山东药监局开始报道破案线索；21日晚上药监局公布实杰生物涉及此案；22日，实杰生物与其母公司沃森生物(创业板)同时停牌。通过实杰生物的股转说明书，我们可以知道它是从事疫苗代理销售，冷链管理的；它的主要疫苗包括此次案件涉及的产品；它的第二大客户便是山东省疾病预防控制中心。之后，从事同类业务的中小板上市公司鹭燕医药也涉及此案，24日刚开盘便跌了5.80%。通过这一系列信息，即使不能建立直接联系，但至少也可以警惕相应股票发生重大风险。
 
 - 金蛋理财借壳南京软智挂牌新三板。2015年6月3日，南京软智同意向邓巍等两名外者以1块钱的价格发行2000万股，同时辞去董事职位，并提名这三位为新进董事。1块钱的定增往往是对内部员工的激励措施；邓巍所拥有的公司钱得乐和南京软智的经营范围类似；南京软智的净资产很低，在13年年底只有300万。有这三个基本数据后，股东决议定增的公告一出来我们就应当能判断出借壳上市，而真正的收购公告在6月18日才公布出来。
 
 - 《叶问3》票房造假—十方控股与神开股份。《叶问3》的投资方是快鹿，控制着神开股份和十方控股这两家上市公司，与快鹿关联的是P2P公司金鹿财行，充当资金端，快鹿在影视业的关联公司是合禾影视，是资产端。2016年2月，十方控股和神开股份相继认购《叶问3》的票房收益权。票房作假可拉升二级市场股价来获得利益，并弥补P2P的融资成本。但众所周知票房造假是国内普遍现象，为何又在此时此刻被揪出来？3月25日成立的中国互联网金融协会的主要职责就是监管P2P市场，很难讲这里面没有联系。
-** Reading habit<2018-02-02 Fri>
+** Reading habit
+<2018-02-02 Fri>
 First of all, I really need to realize that my understanding has serious problem.
 
 How to fix it:
@@ -202,7 +217,8 @@ So, in short: Speed reading anything you need to truly comprehend is probably a 
 https://lifehacker.com/the-truth-about-speed-reading-1542508398
 
 https://www.wired.com/2017/01/make-resolution-read-speed-reading-wont-help/
-** Financial knowledge graph<2018-02-05 Mon>
+** Financial knowledge graph
+<2018-02-05 Mon>
 :LOGBOOK:
 CLOCK: [2018-02-05 Mon 14:00]--[2018-02-05 Mon 17:25] =>  3:25
 :END:
@@ -225,7 +241,8 @@ CLOCK: [2018-02-05 Mon 14:00]--[2018-02-05 Mon 17:25] =>  3:25
 其中需要的主要技术为：文档篇章分割、中文分词、实体提取及消歧、关系提取、规则库建设等。金融领域中的征信、融资、资管、二级市场交易等都有具体的业务场景，都需要业务逻辑，这些逻辑在数据之上表现为模型，需要在基础数据和领域知识的基础上实现。
 
 　　此外，金融知识图谱还包含了很多其他的形式，例如：A股的公司、港股和美股的公司，各种基本面的数据、行情的数据都在逐渐的知识图谱化，还有公告数据、研报数据、以及工商数据等都是金融知识图谱的分支。
-** Management case study<2018-02-05 Mon>
+** Management case study
+<2018-02-05 Mon>
 在公司工作的半年多时间内，发现了很多因为工作方法不正确，而导致在某些工作项目上效率低下的问题。现把一些现象背后的原因进行分析，得出经验，总结出一套规则，以及将来怎么样贯彻这些规则做一些说明。
 
 - 从小的数据开始着手，通过小实验以后再增量扩大训练样本。
@@ -317,6 +334,7 @@ Emphasizes the importance of the results in the field, and ties it in with the p
 ** pay attention for presentation format, keep it simple and clean, remove redundant noise.
 ** define reward, action space for news recommendation use case.
 ** build a knowledge graph with mentioned events in searching results, then use such knowledge graph and reinforcement learning to infer user interests.
+
 <2018-05-07 Mon>
 ** think about my relative strength:
 - get the things done.
@@ -364,6 +382,7 @@ Give specific policy instance about:
     2). how to trade.
 Search machine learning strategy based on x, y.
 ** Combine NLP, RL
+<2018-05-15 Tue>
 Topic:
 Combine NLP, RL and web scraping to extract useful financial research information.
 
@@ -402,10 +421,32 @@ generate data.
 design action space.
 transfer to action reward.
 
-
 5. difference with GS and ricequant:
 Ricequant is a platform providing data/tools.
 GS has a workflow to ease the research process.
+** Learning
+we have two types of neurons within studying process, focused neurons and defused neurons.
+
+our focused neurons are active when we read and think, our defused neurons work when we do other exercises except studying.
+
+In order to activate those synapses, we need practice with different methods or exercises.
+
+** communication 太少
+<2018-05-17 Thu>
+*** observation
+long term progress and short term progress report is not too much.
+*** reason
+long term goal milestone很难一下子达成
+short term progress没做出来或者失败的多，不报告
+*** experience
+goal: report negative examples(bad cases) can help GS to solve problems we met.
+
+要知道为什么这么concern，需要从根源上去找答案。It's not much helpful if GS is a solo software to solve the problem.
+
+increase precision, 在沟通的时候需要多问别人是否理解自己的话，增加feedback.
+
+increase recall, 增加数量，次数，从根源逻辑上解释话，自己是否也是一样的逻辑。
+
 
 * Footnotes
 

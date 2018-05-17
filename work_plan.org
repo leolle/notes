@@ -539,12 +539,15 @@ CLOCK: [2018-04-27 Fri 14:22]
 :END:
 
 ****** function
+deepdive适合从unstructured data里面找出event, 而我们从scholar上爬下来的数据已经可以变成structured-data了，所以用实体消歧工具之后做entity linking即可。
 
+deepdive的输入数据为unstructured-data，他需要利用Stanford CoreNLP从句子里面提取语义信息，包括词干，词性信息（主谓宾等），识别出来的实体，还有句子特征来帮助做信息抽取。
 ****** feature
 
 ****** advantage
 
-****** test
+****** DONE start from structured data, entity linking these data.
+CLOSED: [2018-05-17 Thu 11:43]
 *** TODO NLP information system workflow<2018-04-11 Wed> -
 
 **** Overview:
