@@ -426,7 +426,20 @@ goal: report negative examples(bad cases) can help GS to solve problems we met.
 increase precision, 在沟通的时候需要多问别人是否理解自己的话，增加feedback.
 
 increase recall, 增加数量，次数，从根源逻辑上解释话，自己是否也是一样的逻辑。
+** presentation instruction feedback, communication<2018-05-18 Fri>
+1. differetiate clear points and points having confusion, put on a mark sign.
+2. understand the meaning of all symbols.
+3. take out the example from the paper.
+4. classify the function of the paper, understand the input and output.
+5. quote original text from paper if possible.
+6. conduct connection/rules from paper to our usecase.
+7. spend more time on thinking, abstarcting, comparison.
+8. having hierarchical goals on reading. 看一遍肯定是不够的，第一遍和第二遍的goal也肯定是不一样的。
 
+communication skill connected with reinforcement learning gradient search:
+1. in order to keep away from local minimum, we need to push the gradient search from local field to global field, if the function is convex.
+
+2. giving feedback in the team, no matter positive or negative, is helpful to let others know your project condition, and they can help you get out of the trouble.
 
 * Footnotes
 
