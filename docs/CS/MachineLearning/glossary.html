@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-23 Mon 10:59 -->
+<!-- 2018-05-21 Mon 16:16 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -258,6 +258,35 @@ Attention models “attend” to specific parts of an image in sequence, one aft
 
 <p>
 DRAW: A Recurrent Neural Network For Image Generation.
+</p>
+
+<p>
+an attention-based system as having three components:
+</p>
+
+<ol class="org-ol">
+<li>A process that “ reads” raw data (such as source words in a source sentence),</li>
+</ol>
+<p>
+and converts them into distributed representations, with one feature vector
+associated with each word position.
+</p>
+
+<ol class="org-ol">
+<li>A list of feature vectors storing the output of the reader. This can be</li>
+</ol>
+<p>
+understood as a “ memory” containing a sequence of facts, which can be
+retrieved later, not necessarily in the same order, without having to visit all
+of them.
+</p>
+
+<ol class="org-ol">
+<li>A process that “ exploits” the content of the memory to sequentially perform</li>
+</ol>
+<p>
+a task, at each time step having the ability put attention on the content of
+one memory element (or a few, with a different weight).
 </p>
 
 <ul class="org-ul">

@@ -458,6 +458,7 @@ communication skill connected with reinforcement learning gradient search:
 15. uncertain outcome is addictive because brain backpropergation algo the algo reward triggered by error term y hat - y , this is like epsilon gradient algo.
 16. a good long term goal is those which can predictably trigger more external short term rewards.
 17. hiearchical task and multi user games can be overlapping in game setup but different in levels for different players Eg 割韭菜 一管就死 一放就乱 are basically game settings with demographic support serving as env for policy makers as agent , agent of different people inherit from previous people can be seen as one agent.
+18. turn a paper to structured document. then summerize the structure and provide quizz. 不同轮次读的理解层次不一样。
 
 *** Follow up
 1. Search reinforcement learning + cognitive bias.
@@ -473,6 +474,9 @@ communication skill connected with reinforcement learning gradient search:
 11. ask role 2 to review own workflow and come up above better action or policy instead of just write down workflow step by step.
 12. To be like Marty Yu maybe when reading financial report , think of management decision and market / regulatory env to come up with causal story verified by numbers , how game was played as action seq. With concrete episodic examples of firm to retrieve related data points.
 13. attention tech applied to current want or goal aligned with contents or inputs ie always read with question in mind (goal) dot product to get attention to decide next move or state.
+
+** recall knowledge from the principle or usecases(utilized with the principle)
+connect the observed infomation with your own knowledge trunk.
 
 * Footnotes
 
