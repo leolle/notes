@@ -434,12 +434,45 @@ increase recall, 增加数量，次数，从根源逻辑上解释话，自己是
 5. quote original text from paper if possible.
 6. conduct connection/rules from paper to our usecase.
 7. spend more time on thinking, abstarcting, comparison.
-8. having hierarchical goals on reading. 看一遍肯定是不够的，第一遍和第二遍的goal也肯定是不一样的。
+8. having hierarchical goals on reading. 看一遍肯定是不够的，第一遍和第二遍的goal也是不一样的。
 
 communication skill connected with reinforcement learning gradient search:
 1. in order to keep away from local minimum, we need to push the gradient search from local field to global field, if the function is convex.
 
 2. giving feedback in the team, no matter positive or negative, is helpful to let others know your project condition, and they can help you get out of the trouble.
+** What is missing from online edu or MOOC hype since 2012 and how Gs can fix it in vertical domain <2018-05-21 Mon>
+1. Most Online edu still too much like traditional courses and less like gaming and trading.
+2. Copy the really successful gamers and self learners and get rid of traditional courses formats customized to multi task multi user workflow including concepts , usecases , applications , debugging , searching supported by nlp and rl technology.
+3. matching students directly with projects and employer , who design and pick courses and tasks at different levels , make the 2-way reward system much more flexible to fit specific task.
+4. MOOC failed to use new form of edu replacing core customer of traditional education at top schools by ML and task based skill.
+5. Traditional homework replaced by discussion , reading and writing papers, product design and demo, ppt presentation , fund raising basically the real thing real task instead of toys more like mba courses.
+6. Courses online missing team building and real ease for anyone to design a course or RL task with goals rewards etc.
+7. GS can target low tech univ in both really high end of traders and low tech end.
+8. change each paper and research report and news into a simple course snippet with homework questions designed by author , peer and self.
+9. use RL to understand why pre commitment works because it gives instrinsic reward afterwards before real external reward in reward sparsity situation.
+10. online course not designed by focusing on search and trial error.
+11. The trend is much more learning over human lifetime , less time producing but once produced , it can be massively leveraged into services and shared knowledge.
+12. adjust notification freq by RL instead of real time that interrupts or judge the cost of interruption before Alert.
+13. chaging one habit can have down side to reduce one relative strength from that habit , aware of that habit weakness use team work and tool to complement it is best.
+14. make gs work so interesting that intern want to work for free, filtering out those with right passion and forcing gs to be good enough without having to pay user to use it as a job , money can be short term initial reward to get users to try out product like b2c marketing strategy Eg coupon , Uber etc.
+15. uncertain outcome is addictive because brain backpropergation algo the algo reward triggered by error term y hat - y , this is like epsilon gradient algo.
+16. a good long term goal is those which can predictably trigger more external short term rewards.
+17. hiearchical task and multi user games can be overlapping in game setup but different in levels for different players Eg 割韭菜 一管就死 一放就乱 are basically game settings with demographic support serving as env for policy makers as agent , agent of different people inherit from previous people can be seen as one agent.
+
+*** Follow up
+1. Search reinforcement learning + cognitive bias.
+2. search reinforcemnrt learn + habits or anything that can improve ux and improve human RL workflow.
+3. truly learned skill by brain means it can be recalled at right time with least mental effort.
+4. why mindful meditation works ? Neuron science point of view.
+5. combine neuron science psychology economics (team game) etc enlarges human intuition to retrieve known test cases from human memory and self low cost experiment.
+6. ask role 2 in what scenario or state you start to put 2 things together (attention alignment) to induce and deduce facts and pythothesis ?.
+7. Gs: use different form of question to help human recall attention based memory aligned with current task , multiple choice question then specific episode , analogy like questions.
+8. homework is hard and procrastinated because it lacks hints and rewards and focuses too much on large step recall, detailed hints not customized for each student kB.
+9. when reading , mixing usecase and theory books to help make connection Eg China or industry analysis book with causality book or nlp book , mix software book with usecase or theory book for practical product connection . Read knowledge adjacent to each other but in different categories.
+10. let analysts give specie scenario explained by reason for agent action , rl matches action to general causal workflow , generate more scenarios then again checked by human for labeling.
+11. ask role 2 to review own workflow and come up above better action or policy instead of just write down workflow step by step.
+12. To be like Marty Yu maybe when reading financial report , think of management decision and market / regulatory env to come up with causal story verified by numbers , how game was played as action seq. With concrete episodic examples of firm to retrieve related data points.
+13. attention tech applied to current want or goal aligned with contents or inputs ie always read with question in mind (goal) dot product to get attention to decide next move or state.
 
 * Footnotes
 
