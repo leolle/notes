@@ -85,6 +85,17 @@ docker rmi image_name
 #+BEGIN_SRC bash
 docker ps -l
 #+END_SRC
+- What is docker.io in relation to docker-ce and docker-ee?
+Older versions of Docker were called docker or docker-engine or docker.io
+
+docker-io package was the name used on Debian/Ubuntu for the official docker release.
+
+Main reason was to avoid a name conflict with Ubuntu docker system-tray binary.
+
+http://manpages.ubuntu.com/manpages/precise/man1/docker.1.html
+
+Docker now has an enterprise version (EE) and a free community Edition version(CE)
+
 
 * Docker install mongodb
 ** create a container:
