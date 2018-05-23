@@ -254,17 +254,13 @@ https://deeplearning4j.org/cn/compare-dl4j-torch7-pylearn#tensorflow
  Theano及其生态系统, TensorFlow, Caffe, Caffe2, CNTK, Chainer, DSSTNE, DyNet, Keras, Paddle, 它们的优劣分析一下.
 *** 我们在这里将机器学习工程师需要掌握的基本技能分为五类：
 
-
-
 1	计算机科学基础与编程能力
 2	概率与统计
 3	数据建模与评估
 4	应用机器学习算法与库
 5	软件工程和系统设计
 
-
 （一）计算机科学基础与编程能力
-
 
 ▲ 你怎么判断一个链表中是否有循环？
 
@@ -278,8 +274,6 @@ https://deeplearning4j.org/cn/compare-dl4j-torch7-pylearn#tensorflow
 
 ▲ 求一个字符串中所有的回文子串。
 
-
-
 对于所有这些问题，你都要能够推导出你的方法的时间和空间复杂度，并且尽可能用最低复杂度解决问题。
 
 
@@ -287,8 +281,6 @@ https://deeplearning4j.org/cn/compare-dl4j-torch7-pylearn#tensorflow
 
 
 常用的算法面试准备平台有 Lintcode、LeetCode、Interview Cake等。
-
-
 
 （二）概率与统计
 
