@@ -2784,3 +2784,6 @@ pip install tensorflow-gpu
 #+BEGIN_SRC bash
 python -m tensorflow.models.image.mnist.convolutional
 #+END_SRC
+*** GPU test:
+[[file:./tensorflow.py][tensorflow]]
+#+INCLUDE: "tensorflow.py"
