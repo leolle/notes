@@ -943,6 +943,38 @@ sudo userdel -r username
 
 ** STORAGE
 *** I just want to add a disk!
+primary -> (extended(logic))
+
+磁盘的分区大致可以分为三类，分别为主分区、扩展分区和逻辑分区等等。Linux系统管理员在部署系统时，必须要对这三个分区进行一个合理的规划，否则的话会浪费宝贵的硬盘空间。
+
+通常情况下，一个硬盘中最多能够分割四个主分区。因为硬盘中分区表的大小只有64Bytes，而分割一个分区就需要利用16Bytes空间来存储这个分区的相关信息。由于这个分区表大小的限制，硬盘之能够分给为四个主分区。如果此时一块硬盘有120个G，而管理员划分了4个主分区，每个主分区的空间为20个G。那么总共才用去了80G的空间。这块硬盘剩余的40G空间就将无法使用。这显然浪费了硬盘的空间。
+
+为了突破这最多四个主分区的限制，Linux系统引入了扩展分区的概念。即管理员可以把其中一个主分区设置为扩展分区(注意只能够使用一个扩展分区)来进行扩充。而在扩充分区下，又可以建立多个逻辑分区。也就是说，扩展分区是无法直接使用的，必须在细分成逻辑分区才可以用来存储数据。通常情况下，逻辑分区的起始位置及结束位置记录在每个逻辑分区的第一个扇区，这也叫做扩展分区表。在扩展分区下，系统管理员可以根据实际情况建立多个逻辑分区，将一个扩展分区划割成多个区域来使用。
+**** add a new disk:
+#+BEGIN_SRC bash
+fdisk -l
+fdisk /dev/hdd
+# （选中对新硬盘/dev/hdd进行操作）
+Command (m for help): d
+1-end
+
+p （p表示新建主分区）
+.Command (m for help): w（完成分区规划后不要忘记用w命令保存退出，如果觉得之前的分区工作不合理，千万不要使用w退出，使用q不保存退出便可以重新进行磁盘划分）
+
+mkfs.ext3 /dev/hdd1
+(注：需要手动对每个分区进行格式化，不能一次性格式整个硬盘，例如:mkfs.ext3 /dev/sda，否则会格式化失败。)
+
+mount /dev/hdd1 /home/oem/extended(将主分区1挂载到/home/oem/extended目录)
+df -h
+(查看新硬盘挂载后的信息，确保正确无误)
+
+sudo gedit /etc/fstab
+编辑fstab文件
+（这点十分重要，一定要记得编辑该文件，不然重启电脑后系统将不会保存之前的挂载操作）
+/dev/hdd5            /usr/local/superman    ext3    defaults        1 1
+
+
+#+END_SRC
 *** Storage hardware
 - check disk storage space:
 #+BEGIN_SRC bash
