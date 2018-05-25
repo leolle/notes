@@ -716,5 +716,6 @@ https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-fro
 ****** 主题词s curve分析
 ****** extract title, author, date from pdf.
 ***** Search answer on the website based on the keywords from the documents combined with the question.
+Use attention/theme to give hints of the conversation.
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
