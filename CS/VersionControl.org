@@ -294,6 +294,16 @@ git submodule add https://github.com/chaconinc/DbConnector
 # 2. Cloning a Project with Submodules
 git clone https://github.com/chaconinc/MainProject
 #+END_SRC
+- Removal
+To remove a submodule you need to:
+#+BEGIN_SRC txt
+Delete the relevant line from the .gitmodules file.
+Delete the relevant section from .git/config.
+Run git rm --cached path_to_submodule (no trailing slash).
+Commit the superproject.
+Delete the now untracked submodule files.
+#+END_SRC
+
 ** ignore files
 #+BEGIN_SRC txt
 *.zip
