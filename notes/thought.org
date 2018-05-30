@@ -288,6 +288,8 @@ Overall view of the paper. A quick summary of the form that the parts of the res
 Differences from what has been done before: Is it new data? A new model? A new identication strategy? Are you answering a question more broadly/specially? Specifically comparing how you are improving on a previous paper is useful.
 - Method/Model
 Exact design and methodology used to perform the research.
+
+To increase the understanding process, connect the model with previous known models. It will help you quickly find the similarity and difference.
 - Data
 Describe the name and source of the data you are using and the period it covers.
 
@@ -477,6 +479,9 @@ communication skill connected with reinforcement learning gradient search:
 
 ** recall knowledge from the principle or usecases(utilized with the principle)
 connect the observed infomation with your own knowledge trunk.
+
+** need to comprehend conversation more deeply before giving a response.<2018-05-29 Tue>
+Find comprehension QA dataset, which answers these questions need deep understanding.
 
 * Footnotes
 

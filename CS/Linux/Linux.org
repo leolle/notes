@@ -521,6 +521,28 @@ rename 's/\.bak$//' *.bak
 *** bash scripting
 *** Regular expressions
 *** Perl programming
+*** Ruby
+- install ruby
+https://www.ruby-lang.org/en/documentation/installation/#apt
+
+- pdfextract:
+#+BEGIN_SRC bash
+sudo gem install ttfunk
+
+# Get the cloned pdf-reader-1.3.3 (and uninstall all other versions)
+git clone https://github.com/yob/pdf-reader
+cd pdf-reader
+gem build pdf-reader.gemspec
+sudo gem install pdf-reader-1.3.3.gem # check version number
+
+# Then get the cloned pdf-extract (not the same as zip)
+git clone https://github.com/CrossRef/pdfextract
+cd pdfextract
+gem build pdf-extract.gemspec
+sudo gem install pdf-extract-0.1.1.gem
+
+
+#+END_SRC
 *** Python scripting
 *** Scripting best practices
 
