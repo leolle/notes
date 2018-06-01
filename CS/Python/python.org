@@ -720,6 +720,14 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 #+END_SRC
 * Text Processing Services
 ** string — Common string operations
+- find if strings are almost equal:
+#+BEGIN_SRC python
+from difflib import SequenceMatcher
+s_1 = 'Mohan Mehta'
+s_2 = 'Mohan Mehte'
+print(SequenceMatcher(a=s_1,b=s_2).ratio())
+0.909090909091
+#+END_SRC
 - check if string is empty:
 #+BEGIN_SRC python
 if not text:

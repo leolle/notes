@@ -433,6 +433,10 @@ python models/tutorials/image/mnist/convolutional.py
 : Vocab size:  71290  + UNK
 : Words per epoch:  17005207
 : mu_scale = 0.2449489742783178 var_scale = 0.05
+**** make nvida docker runnning tensorflow gpu
+#+BEGIN_SRC bash
+sudo apt-get install -y nvidia-docker2=2.0.2+docker1.13.1 nvidia-container-runtime=1.1.1+docker1.13.1
+#+END_SRC
 
 ** SCRIPTING AND THE SHELL
 *** Shell basics
