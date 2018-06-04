@@ -718,6 +718,35 @@ https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-fro
 ***** Search answer on the website based on the keywords from the documents combined with the question.
 Use attention/theme to give hints of the conversation.
 ***** entity linking
+***** scholar paper download:
+****** Download with the article title:
+1. [X] Find meta data with article title from crossref.org API.
 
+2. [ ] Download specific articles directly(article url) or via sci-hub based on DOI.
+
+The actual pdf source url behind sci-hub is embedded in a iframe with the link looks something like
+
+
+****** Download a collection of articles by passing in file of DOIs/URLs.
+- [ ] Search for articles on Google Scholar and download them.
+- [ ] Search Google Scholar.
+- [ ] Download pdf directly if possible.
+- [ ] Download specific articles directly(article url) or via sci-hub based on url.
+
+****** Usage:
+- [X] 1. Download with the article title:
+#+BEGIN_SRC python
+sh = SciHub()
+title = “”“Improving Traffic Locality in BitTorrent via Biased Neighbor Selection”“”
+meta = sh.find_meta(title)
+result = sh.download(meta.get(‘DOI’), path=title + ‘.pdf’)
+#+END_SRC
+
+
+- [ ] 2. Search for articles on Google Scholar and download them:
+
+****** TODO issues:
+- [ ] captcha验证
+- [ ] 上传DOI, pdf到服务器
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
