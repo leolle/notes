@@ -727,11 +727,11 @@ Use attention/theme to give hints of the conversation.
 The actual pdf source url behind sci-hub is embedded in a iframe with the link looks something like
 
 
-****** Download a collection of articles by passing in file of DOIs/URLs.
-- [ ] Search for articles on Google Scholar and download them.
-- [ ] Search Google Scholar.
-- [ ] Download pdf directly if possible.
-- [ ] Download specific articles directly(article url) or via sci-hub based on url.
+****** Download a  article.
+- [X] Search for articles on Google Scholar and download them.
+- [X] Download pdf directly if possible.
+- [X] Download specific articles directly(article url) or via sci-hub based on url.
+- [ ] Get DOI from sci-hub content if possible, else search crossref with title, then search metadata for the article on crossref.
 
 ****** Usage:
 - [X] 1. Download with the article title:
