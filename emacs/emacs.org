@@ -549,7 +549,7 @@ py-autopep8-enable-on-save
 * layers
 =M-x= configuration-layer/create-layer
 * Python mode
-- insert current date from shell to python file
+- insert date/current date from shell to python file
 =C-u M-! date=
 
 * Instruction on how to use emacs org mode to orginize calendar.
