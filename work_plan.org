@@ -719,19 +719,30 @@ https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-fro
 Use attention/theme to give hints of the conversation.
 ***** entity linking
 ***** scholar paper download:
-****** Download with the article title:
+****** Download metadata with the article title:
 1. [X] Find meta data with article title from crossref.org API.
 
-2. [ ] Download specific articles directly(article url) or via sci-hub based on DOI.
+2. [X] Download specific articles directly(article url) or via sci-hub based on DOI.
 
-The actual pdf source url behind sci-hub is embedded in a iframe with the link looks something like
-
-
-****** Download a  article.
+****** DONE Download a  article.
+CLOSED: [2018-06-07 Thu 10:39]
 - [X] Search for articles on Google Scholar and download them.
 - [X] Download pdf directly if possible.
 - [X] Download specific articles directly(article url) or via sci-hub based on url.
-- [ ] Get DOI from sci-hub content if possible, else search crossref with title, then search metadata for the article on crossref.
+  The actual pdf source url behind sci-hub is embedded in a iframe with the link looks something like
+
+- [X] Get DOI from sci-hub content if possible, else search crossref with title, then search metadata for the article on crossref.
+- [ ] or use google search.
+
+****** TODO run code on GS.
+
+****** TODO upload article and metadata on GS.
+
+****** entity linking for author.
+
+****** extract table and figure from pdf.
+
+****** rename an uploaded pdf.
 
 ****** Usage:
 - [X] 1. Download with the article title:
@@ -743,7 +754,7 @@ result = sh.download(meta.get(‘DOI’), path=title + ‘.pdf’)
 #+END_SRC
 
 
-- [ ] 2. Search for articles on Google Scholar and download them:
+- [X] 2. Search for articles on Google Scholar and download them:
 
 ****** TODO issues:
 - [ ] captcha验证

@@ -1370,6 +1370,25 @@ Out[179]: {1: 4, 2: 5, 3: 6}
 ** tarfile — Read and write tar archive files
 * File Formats
 ** csv — CSV File Reading and Writing
+** *args, **kwargs
+如果我们不确定要往函数中传入多少个参数，或者我们想往函数中以列表和元组的形式传参数时，那就使要用*args；
+#+BEGIN_SRC python
+>>> args = ("two", 3,5)
+>>> test_args_kwargs(*args)
+arg1: two
+arg2: 3
+arg3: 5
+
+#+END_SRC
+如果我们不知道要往函数中传入多少个关键词参数，或者想传入字典的值作为关键词参数时，那就要使用**kwargs。args和kwargs这两个标识符是约定俗成的用法，你当然还可以用*bob和**billy，但是这样就并不太妥。
+#+BEGIN_SRC python
+>>> kwargs = {"arg3": 3, "arg2": "two","arg1":5}
+>>> test_args_kwargs(**kwargs)
+arg1: 5
+arg2: two
+arg3: 3
+
+#+END_SRC
 ** configparser — Configuration file parser
 - use yaml and config file.
 #+BEGIN_SRC yaml

@@ -47,4 +47,5 @@
 |                  | 54625324E0209CDBA2A88D7EA33CE462 | keywords_extraction                               |
 |                  | 8B7796C8015D94AB61B66A5AA72D72F0 | word embedding similar words                      |
 | <2018-04-24 Tue> | 9920B79FE31B4350B635AC29FC5ADAB2 | read_mysql_database                               |
+| <2018-06-07 Thu> | CDF3041F049AD76F74BBC73BDF0B0072 | scholar_hub                                       |
 |                  |                                  |                                                   |
