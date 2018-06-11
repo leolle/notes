@@ -56,8 +56,6 @@
 | 选股类筛选 | 每股收益在0.2-0.3之间，且市盈率小于30的股票;浙江省市盈率小于20倍的公司 |
 
 ****** 知识图谱分析
-通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
-
 关系可以是企业的上下游、合作、竞争对手、子母公司、投资、对标等关系，可以是高管与企业间的任职等关系，也可以是行业间的逻辑关系，实体则是投资机构、投资人、企业等等，把它们用知识图谱表示出来，从而进行更深入的知识推理。
 
 在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
@@ -112,6 +110,28 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
 - [ ] analyst research reports, analyst research reports, report classification, analyst ranking
 - [ ] textbooks
 *** TODO Knowledge Graph
+**** 知识图谱的架构
+http://www.xml-data.org/dzkj-nature/html/201645589.htm
+logical structure:
+1). data layer
+2). scheme layer
+
+从逻辑上可以划分为2个层次：数据层和模式层。
+
+在知识图谱的数据层，知识以事实（fact）为单位存储在图数据库。图数据中有“实体-关系-实体”或者“实体-属性-属性值”两种三元组，所有数据构成庞大的实体关系网络。
+
+模式层在数据层之上，是知识图谱的核心。模式层存储的是经过提炼的知识，通常采用本体库来管理知识图谱的模式层。
+通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
+**** 知识图谱构建过程
+知识图谱的构建过程是从原始数据出发，采用一系列自动或半自动的技术手段，从原始数据中提取出知识要素，并将其存入知识库的数据层和模式层的过程。
+
+这是一个迭代更新的过程，每一轮迭代包含3个阶段：信息抽取、知识融合以及知识加工
+
+知识图谱有自顶向下和**自底向上**2种构建方法。
+
+自顶向下是从百科类网站等高质量数据源中提取本体和模式信息，加入到知识库中。
+
+自底向上是从公开采集的数据中提取出资源模式，选择其中置信度较高的新模式，经人工审核后，加入到知识库中。
 **** DONE entity relationship<2018-03-19 Mon> - <2018-03-21 Wed>
 CLOSED: [2018-03-26 Mon 13:52]
 :LOGBOOK:
@@ -129,7 +149,7 @@ CLOCK: [2018-01-31 Wed 10:09]--[2018-01-31 Wed 10:52] =>  0:43
 CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 :END:
 - 命名实体识别
-现在常用的方法有「条件随机场（CRF）」、「最大熵隐马尔科夫」、「隐马尔科夫」等序列标注模型。 主要的处理思想有:
+现在常用的方法有「LSTM + 条件随机场（CRF）」、「最大熵隐马尔科夫」、「隐马尔科夫」等序列标注模型。 主要的处理思想有:
 
 - [X] finish join learning entity extraction paper.<2018-03-20 Tue>
 - [ ] summerize text first, then event extraction?
@@ -137,7 +157,7 @@ CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
 - [ ] from survey paper -> book -> reference paper -> citation paper -> application -> open source library.
 - [ ] company relation
 - [ ] analyst relation
-- [ ] entity extraction resolution detection like author, publisher.
+- [ ] entity disambiguation: extraction resolution detection like author, publisher.
 - [X] pseudo code of node, edge upload.
 - [X] summerize nlp library extraction result comparison in jupyter notebook.
 - [X] find the difference of attirbutes not in Juyuan database, searching for useful information.
@@ -504,9 +524,9 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 - what is tha data.
 - what is the algorithm.
 - what is the conclusion.
-****** TODO News summary
+****** News summary
 - [ ] classify 1 year of analyst research articles.
-- [ ] convert PDFs to text files.
+- [X] convert PDFs to text files.
 - [ ] summerize articles
 ****** syntactic parsing
 
@@ -759,5 +779,9 @@ result = sh.download(meta.get(‘DOI’), path=title + ‘.pdf’)
 ****** TODO issues:
 - [ ] captcha验证
 - [ ] 上传DOI, pdf到服务器
+
+***** twitter account monitoring
+monitor AI accounts' newsest tweets, send tweets including the paper mentioned to users daily.
+
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
