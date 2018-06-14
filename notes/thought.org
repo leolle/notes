@@ -121,9 +121,10 @@ Lessions learned from such study. Explain the axis and legend when showing a fig
 - What is the data like, its properties?
 **** Limit test: what if
 - Think about the limits of each model. When data changes, is it still appropriate to use such method to process data, to use the model, to get the same conclusion?
-* January 2018
-** about learning on your own.<2018-01-04 Thu>
-*** obstacles to motivation:
+* 2018 first half
+** January 2018
+*** about learning on your own.<2018-01-04 Thu>
+**** obstacles to motivation:
 
 - Students set aside a decade or two of their lives to learn (or at least pretend to learn) things long before they have any idea why they'd need to know them.
 - Students have little or no control over their course of studies, since the educational system processes far too many students to be able to personalize the curriculum.
@@ -137,7 +138,7 @@ But notice that all the items in the above list are *responses to various constr
 
 The main way to stay motivated is to learn topics you're interested in learning.
 
-*** Metacognition
+**** Metacognition
 Learning without a teacher presents many challenges, but in my experience the biggest is that you don't get any feedback. (That is, unless you're using a service with interactive exercises, such as Khan Academy.) Without feedback, you need to monitor your own understanding to decide if you're done or which gaps still need to be filled. The ability to introspect on and manage your own thought processes is known as metacognition.
 
 You need to find ways to test your understanding, for instance:
@@ -150,18 +151,18 @@ You might have had the experience while reading that your mind wandered and you 
 
 If you're studying on your own using multiple resources, the clashes of notation might be confusing. But I often find that confusion about notation reflects an underlying confusion about ideas, and that having to confront multiple notations ultimately helps my understanding.
 
-** coding review<2018-01-04 Thu>
+*** coding review<2018-01-04 Thu>
 - using open-source model sequence
   1. reading paper, understanding paper, input data structure, algorithm, limitation, drawback, efficiency, comparison with other model/algorithm.
   2. reading open-source code documentation, demo code, data preparation process.
   3. take a Q&A on decision making.
   4. don't take high confidence on wild guess, dig into deepth and don't let the doubt stand in your way.
 
-** Integrating NLP with GS<2018-01-26 Fri>
-*** The overview picture of GS is to help analysts searching strategy ideas, adaptively constructing data input(X,y), and incrementally backtesting strategies.
-*** NLP techniques can transfer unstructured documentations into structured graph data, extracting entities, views, concepts, ideas, events from research paper/reports, announcement, news, books, etc. Then it provides users next steps research recommendation.
-*** Information sentiment analysis. Web crawling can extract hot and the most user concerned events/results from different web sources using a keyword, thus continuously tracking the subjects.
-*** Documents classification help can extract topics and incrementally searching information from previous results, thus recommending plentiful relevant results from one context to another.
+*** Integrating NLP with GS<2018-01-26 Fri>
+**** The overview picture of GS is to help analysts searching strategy ideas, adaptively constructing data input(X,y), and incrementally backtesting strategies.
+**** NLP techniques can transfer unstructured documentations into structured graph data, extracting entities, views, concepts, ideas, events from research paper/reports, announcement, news, books, etc. Then it provides users next steps research recommendation.
+**** Information sentiment analysis. Web crawling can extract hot and the most user concerned events/results from different web sources using a keyword, thus continuously tracking the subjects.
+**** Documents classification help can extract topics and incrementally searching information from previous results, thus recommending plentiful relevant results from one context to another.
 First of all, strategy research idea comes from various sort of unstructured data like research paper/reports, news events. Where does an analyst start from when we facing a tons of structured and unstructured data?
 
 NLP techniques can transfer unstructured documentations into structured graph data, therefore extracting multi perspective understanding of entities, views, concepts, ideas, events from research paper/reports, announcement, news, books, etc. Then it provides users more adaptive next steps research recommendation, helping them to finish the strategy construction and backtesting based on different context. For example, what data they use, the brief ideas behind the paper, what models/algorithms they can use, how the results look like(positive or negative).
@@ -173,15 +174,15 @@ The model starts with the equilibrium assumption that the asset allocation of a 
 Another useful NLP tool is information sentiment analysis. Web crawling can extract hot and the most user concerned events/results from different web sources using a keyword. Such a keyword can also be highly adaptive to user and associated with its relevance. NLP can process web crawling information, extracting entities, relationship, plugging such unique financial knowledge graph into the overall database, thus continuously tracking the subjects on time and depth dimension.
 
 Based on hot events or keywords, documents classification help can extract topics and incrementally searching information from previous results, thus recommending plentiful relevant results from one context to another. This technology gives more possibilities to understand the most cared user question and attempts.
-* February 2018
-** 产业链分析<2018-02-01 Thu>
+** February 2018
+*** 产业链分析<2018-02-01 Thu>
 - 通过联想到挖掘机销售提高，industrial sector, 上有挖掘机生产，三一重工，矿业里有紫金矿业，需求上有电子行业。
 - 山东疫苗案—实杰生物与沃森生物。2016年2月份疫苗案开始被媒体逐渐报道；3月7日，实杰生物总经理辞职；同月18日，山东药监局开始报道破案线索；21日晚上药监局公布实杰生物涉及此案；22日，实杰生物与其母公司沃森生物(创业板)同时停牌。通过实杰生物的股转说明书，我们可以知道它是从事疫苗代理销售，冷链管理的；它的主要疫苗包括此次案件涉及的产品；它的第二大客户便是山东省疾病预防控制中心。之后，从事同类业务的中小板上市公司鹭燕医药也涉及此案，24日刚开盘便跌了5.80%。通过这一系列信息，即使不能建立直接联系，但至少也可以警惕相应股票发生重大风险。
 
 - 金蛋理财借壳南京软智挂牌新三板。2015年6月3日，南京软智同意向邓巍等两名外者以1块钱的价格发行2000万股，同时辞去董事职位，并提名这三位为新进董事。1块钱的定增往往是对内部员工的激励措施；邓巍所拥有的公司钱得乐和南京软智的经营范围类似；南京软智的净资产很低，在13年年底只有300万。有这三个基本数据后，股东决议定增的公告一出来我们就应当能判断出借壳上市，而真正的收购公告在6月18日才公布出来。
 
 - 《叶问3》票房造假—十方控股与神开股份。《叶问3》的投资方是快鹿，控制着神开股份和十方控股这两家上市公司，与快鹿关联的是P2P公司金鹿财行，充当资金端，快鹿在影视业的关联公司是合禾影视，是资产端。2016年2月，十方控股和神开股份相继认购《叶问3》的票房收益权。票房作假可拉升二级市场股价来获得利益，并弥补P2P的融资成本。但众所周知票房造假是国内普遍现象，为何又在此时此刻被揪出来？3月25日成立的中国互联网金融协会的主要职责就是监管P2P市场，很难讲这里面没有联系。
-** Reading habit<2018-02-02 Fri>
+*** Reading habit<2018-02-02 Fri>
 First of all, I really need to realize that my understanding has serious problem.
 
 How to fix it:
@@ -202,7 +203,7 @@ So, in short: Speed reading anything you need to truly comprehend is probably a 
 https://lifehacker.com/the-truth-about-speed-reading-1542508398
 
 https://www.wired.com/2017/01/make-resolution-read-speed-reading-wont-help/
-** Financial knowledge graph<2018-02-05 Mon>
+*** Financial knowledge graph<2018-02-05 Mon>
 :LOGBOOK:
 CLOCK: [2018-02-05 Mon 14:00]--[2018-02-05 Mon 17:25] =>  3:25
 :END:
@@ -225,7 +226,7 @@ CLOCK: [2018-02-05 Mon 14:00]--[2018-02-05 Mon 17:25] =>  3:25
 其中需要的主要技术为：文档篇章分割、中文分词、实体提取及消歧、关系提取、规则库建设等。金融领域中的征信、融资、资管、二级市场交易等都有具体的业务场景，都需要业务逻辑，这些逻辑在数据之上表现为模型，需要在基础数据和领域知识的基础上实现。
 
 　　此外，金融知识图谱还包含了很多其他的形式，例如：A股的公司、港股和美股的公司，各种基本面的数据、行情的数据都在逐渐的知识图谱化，还有公告数据、研报数据、以及工商数据等都是金融知识图谱的分支。
-** Management case study<2018-02-05 Mon>
+*** Management case study<2018-02-05 Mon>
 在公司工作的半年多时间内，发现了很多因为工作方法不正确，而导致在某些工作项目上效率低下的问题。现把一些现象背后的原因进行分析，得出经验，总结出一套规则，以及将来怎么样贯彻这些规则做一些说明。
 
 - 从小的数据开始着手，通过小实验以后再增量扩大训练样本。
@@ -273,8 +274,8 @@ Case: 编程时的风格：函数，变量，类的命名规则经常不一致�
 设计你的计划时，要考虑各种相互关联的任务的时间顺序。先草拟大概，再用具体任务补充完善。
 
 Case: 在做Word Embedding时，做出的计划应该包括一开始找什么资料，读什么书，什么paper，用什么技术，能够找到什么数据，最后怎么测试这些数据，比较各个技术之间的优势和不足，了解每项技术的瓶颈，解决方案有哪些，运用这些技术能够解决哪些问题，有哪些跟实际工作相关的应用，自己这样做的优势在哪里。
-** Social Science Paper Structure
-*** Introduction
+*** Social Science Paper Structure
+**** Introduction
 State the contribution.
 - Problem
 Benefits to be gained by the research or why the problem has not been solved yet.
@@ -282,7 +283,7 @@ Benefits to be gained by the research or why the problem has not been solved yet
 What you are trying to achieve.
 - Own position
 Overall view of the paper. A quick summary of the form that the parts of the research paper is going to take.
-*** Literature Review
+**** Literature Review
 - Previous research
 - Contribution in more detail
 Differences from what has been done before: Is it new data? A new model? A new identication strategy? Are you answering a question more broadly/specially? Specifically comparing how you are improving on a previous paper is useful.
@@ -296,41 +297,41 @@ Describe the name and source of the data you are using and the period it covers.
 Present (relevant) descriptive statistics of the data.
 - Formulate
 A specific question problem, or conjecture, and to describe the approach you will take to answer, solve, or test it. Often, this will take the form of an empirical hypothesis: social security depresses personal savings;
-*** Results
+**** Results
 Numerical results and data, tables or graphs of data.
-*** Discussion
+**** Discussion
 Elaborate on your findings, and explain what you found, adding your own personal interpretations.
-*** Conclusion
+**** Conclusion
 Emphasizes the importance of the results in the field, and ties it in with the previous research.
-* March 2018
-* April 2018
-** 如何避免被党国挟持:<2018-04-01 Sun>
+** March 2018
+** April 2018
+*** 如何避免被党国挟持:<2018-04-01 Sun>
 培养自己独立的人格, 一个人成不成功,是建立在他个人的成就上的,与国家无关.伟大的人之所以伟大,是因为他们的成就,而不是因为他们的背景.爱因斯坦的成功,不是因为他的美国籍.
 
 还有根本的就是要培养自己的公民意识.公民意识代表自己为自己的行为负责.
-** 看资料需要达到的目标是理解他的思路，重点不是他底层的技术，不要重新去造轮子。
+*** 看资料需要达到的目标是理解他的思路，重点不是他底层的技术，不要重新去造轮子。
 看资料不懂的时候就要问，例如我的问题实际上是LSTM理解不深刻，这时我去看LSTM在tensorflow里面怎么搭的其实是很费时间的。理解他大概的原理就可以了。
 
 要把目标分解成sub-goals.
 
 另外在presentation的时候要把原理性的讲述做为重点，详细展开，包括数据介绍，步骤，结果。
-* May 2018
-** resources are not unlimited when operating tasks. you are not Google.<2018-05-02 Wed>
-** pay attention for presentation format, keep it simple and clean, remove redundant noise.
-** define reward, action space for news recommendation use case.
-** build a knowledge graph with mentioned events in searching results, then use such knowledge graph and reinforcement learning to infer user interests.
+** May 2018
+*** resources are not unlimited when operating tasks. you are not Google.<2018-05-02 Wed>
+*** pay attention for presentation format, keep it simple and clean, remove redundant noise.
+*** define reward, action space for news recommendation use case.
+*** build a knowledge graph with mentioned events in searching results, then use such knowledge graph and reinforcement learning to infer user interests.
 <2018-05-07 Mon>
-** think about my relative strength:
+*** think about my relative strength:
 - get the things done.
 - don't have to waste too much time on something you know that will be failed or be succeeded.
-** set the objective specific, get positive and negative feedback.
+*** set the objective specific, get positive and negative feedback.
 we are human, we have small data. so we have to plan, we are not good at model free based learning. however, we are good at model based learning. we set a goal(making a plan), get positive or negative feedback. gradient search to one purticular direction, do not randomly try things.
-** fail as soon as possible.
-** that's a trade off between thinking big and trying many things.
-** search, machine learning, reinforcement learning, diet, exercises.
-** increase the searching space of actions doing work.<2018-05-09 Wed>
-** plan ahead, organize task as a workflow.
-** remember paper cases.<2018-05-14 Mon>
+*** fail as soon as possible.
+*** that's a trade off between thinking big and trying many things.
+*** search, machine learning, reinforcement learning, diet, exercises.
+*** increase the searching space of actions doing work.<2018-05-09 Wed>
+*** plan ahead, organize task as a workflow.
+*** remember paper cases.<2018-05-14 Mon>
 Idea:
 how to understand paper.
     1). Find out rules behind the paper model.
@@ -365,7 +366,7 @@ Give specific policy instance about:
     1). how to pick stocks.
     2). how to trade.
 Search machine learning strategy based on x, y.
-** Combine NLP, RL<2018-05-15 Tue>
+*** Combine NLP, RL<2018-05-15 Tue>
 Topic:
 Combine NLP, RL and web scraping to extract useful financial research information.
 
@@ -407,20 +408,20 @@ transfer to action reward.
 5. difference with GS and ricequant:
 Ricequant is a platform providing data/tools.
 GS has a workflow to ease the research process.
-** Learning
+*** Learning
 we have two types of neurons within studying process, focused neurons and defused neurons.
 
 our focused neurons are active when we read and think, our defused neurons work when we do other exercises except studying.
 
 In order to activate those synapses, we need practice with different methods or exercises.
 
-** communication 太少<2018-05-17 Thu>
-*** observation
+*** communication 太少<2018-05-17 Thu>
+**** observation
 long term progress and short term progress report is not too much.
-*** reason
+**** reason
 long term goal milestone很难一下子达成
 short term progress没做出来或者失败的多，不报告
-*** experience
+**** experience
 goal: report negative examples(bad cases) can help GS to solve problems we met.
 
 要知道为什么这么concern，需要从根源上去找答案。It's not much helpful if GS is a solo software to solve the problem.
@@ -428,7 +429,7 @@ goal: report negative examples(bad cases) can help GS to solve problems we met.
 increase precision, 在沟通的时候需要多问别人是否理解自己的话，增加feedback.
 
 increase recall, 增加数量，次数，从根源逻辑上解释话，自己是否也是一样的逻辑。
-** presentation instruction feedback, communication<2018-05-18 Fri>
+*** presentation instruction feedback, communication<2018-05-18 Fri>
 1. differetiate clear points and points having confusion, put on a mark sign.
 2. understand the meaning of all symbols.
 3. take out the example from the paper.
@@ -442,7 +443,7 @@ communication skill connected with reinforcement learning gradient search:
 1. in order to keep away from local minimum, we need to push the gradient search from local field to global field, if the function is convex.
 
 2. giving feedback in the team, no matter positive or negative, is helpful to let others know your project condition, and they can help you get out of the trouble.
-** What is missing from online edu or MOOC hype since 2012 and how Gs can fix it in vertical domain <2018-05-21 Mon>
+*** What is missing from online edu or MOOC hype since 2012 and how Gs can fix it in vertical domain <2018-05-21 Mon>
 1. Most Online edu still too much like traditional courses and less like gaming and trading.
 2. Copy the really successful gamers and self learners and get rid of traditional courses formats customized to multi task multi user workflow including concepts , usecases , applications , debugging , searching supported by nlp and rl technology.
 3. matching students directly with projects and employer , who design and pick courses and tasks at different levels , make the 2-way reward system much more flexible to fit specific task.
@@ -462,7 +463,7 @@ communication skill connected with reinforcement learning gradient search:
 17. hiearchical task and multi user games can be overlapping in game setup but different in levels for different players Eg 割韭菜 一管就死 一放就乱 are basically game settings with demographic support serving as env for policy makers as agent , agent of different people inherit from previous people can be seen as one agent.
 18. turn a paper to structured document. then summerize the structure and provide quizz. 不同轮次读的理解层次不一样。
 
-*** Follow up
+**** Follow up
 1. Search reinforcement learning + cognitive bias.
 2. search reinforcemnrt learn + habits or anything that can improve ux and improve human RL workflow.
 3. truly learned skill by brain means it can be recalled at right time with least mental effort.
@@ -477,13 +478,15 @@ communication skill connected with reinforcement learning gradient search:
 12. To be like Marty Yu maybe when reading financial report , think of management decision and market / regulatory env to come up with causal story verified by numbers , how game was played as action seq. With concrete episodic examples of firm to retrieve related data points.
 13. attention tech applied to current want or goal aligned with contents or inputs ie always read with question in mind (goal) dot product to get attention to decide next move or state.
 
-** recall knowledge from the principle or usecases(utilized with the principle)
+*** recall knowledge from the principle or usecases(utilized with the principle)
 connect the observed infomation with your own knowledge trunk.
 
-** need to comprehend conversation more deeply before giving a response.<2018-05-29 Tue>
+*** need to comprehend conversation more deeply before giving a response.<2018-05-29 Tue>
 Find comprehension QA dataset, which answers these questions need deep understanding.
 
-** negative thinking will shut your brain down. feel safe and speak frankly.<2018-06-12 Tue>
+** June 2018
+*** negative thinking will shut your brain down. feel safe and speak frankly.<2018-06-12 Tue>
+* 2018 second half
 
 * Footnotes
 
