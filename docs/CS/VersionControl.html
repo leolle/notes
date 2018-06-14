@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-13 Fri 19:29 -->
+<!-- 2018-06-14 Thu 11:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -725,8 +725,24 @@ git submodule add https://github.com/chaconinc/DbConnector
 git clone https://github.com/chaconinc/MainProject
 </pre>
 </div>
+<ul class="org-ul">
+<li>Removal</li>
+</ul>
+<p>
+To remove a submodule you need to:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Delete the relevant line from the .gitmodules file.
+Delete the relevant section from .git/config.
+Run git rm --cached path_to_submodule (no trailing slash).
+Commit the superproject.
+Delete the now untracked submodule files.
+</pre>
 </div>
 </div>
+</div>
+
 <div id="outline-container-orgheadline36" class="outline-3">
 <h3 id="orgheadline36"><span class="section-number-3">2.17</span> ignore files</h3>
 <div class="outline-text-3" id="text-2-17">

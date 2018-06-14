@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-08 Tue 15:36 -->
+<!-- 2018-06-14 Thu 11:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -163,7 +163,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline14">1.2.2. Steps of finding similar words in GS</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">1.3. Information extraction</a></li>
+<li><a href="#orgheadline16">1.3. relation extraction</a></li>
 </ul>
 </li>
 </ul>
@@ -186,7 +186,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-05-08 15:36:25</td>
+<td class="org-left">2018-06-14 11:50:35</td>
 </tr>
 </tbody>
 </table>
@@ -195,7 +195,11 @@ for the JavaScript code in this tag.
 <div id="outline-container-orgheadline17" class="outline-2">
 <h2 id="orgheadline17"><span class="section-number-2">1</span> NLP workflow:</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline9" class="outline-3">
+<p>
+<a href="https://docs.google.com/document/d/1RN49VzAcGFhjHUvXbmYNwyGc0h8ock9jsZ45cv62HUQ/edit?usp=sharing">link</a>
+</p>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
 <h3 id="orgheadline9"><span class="section-number-3">1.1</span> Sentiment analysis</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
@@ -437,7 +441,135 @@ Other possible methods: <a href="http://www.aclweb.org/anthology/D15-1036">http:
 
 
 <div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">1.3</span> Information extraction</h3>
+<h3 id="orgheadline16"><span class="section-number-3">1.3</span> relation extraction</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+从文本中抽取两个实体之间的投资关系。
+</p>
+
+<p>
+下表为投资这一大类关系所包含的相似关系。
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">设立</th>
+<th scope="col" class="org-left">增资</th>
+<th scope="col" class="org-left">入股</th>
+<th scope="col" class="org-left">收购</th>
+<th scope="col" class="org-left">并购</th>
+<th scope="col" class="org-left">换股</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">成立</td>
+<td class="org-left">受让</td>
+<td class="org-left">现金出资</td>
+<td class="org-left">要约收购</td>
+<td class="org-left">海外并购</td>
+<td class="org-left">转股</td>
+</tr>
+
+<tr>
+<td class="org-left">发起设立</td>
+<td class="org-left">扩股</td>
+<td class="org-left">携手</td>
+<td class="org-left">拟收购</td>
+<td class="org-left">重组</td>
+<td class="org-left">交换</td>
+</tr>
+
+<tr>
+<td class="org-left">组建</td>
+<td class="org-left">扩股</td>
+<td class="org-left">间接持有</td>
+<td class="org-left">并表</td>
+<td class="org-left">整合</td>
+<td class="org-left">配股</td>
+</tr>
+
+<tr>
+<td class="org-left">新设</td>
+<td class="org-left">占股</td>
+<td class="org-left">所持</td>
+<td class="org-left">过户</td>
+<td class="org-left">兼并</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">出资</td>
+<td class="org-left">转让给</td>
+<td class="org-left">联手</td>
+<td class="org-left">收购了</td>
+<td class="org-left">业务整合</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">共同出资</td>
+<td class="org-left">认缴</td>
+<td class="org-left">正式成为</td>
+<td class="org-left">资产收购</td>
+<td class="org-left">借壳上市</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">全资</td>
+<td class="org-left">定向增发</td>
+<td class="org-left">转让给</td>
+<td class="org-left">通过收购</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">参股</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">参股</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">入驻</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">创投</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>

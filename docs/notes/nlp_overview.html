@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 2018-06-14 Thu 11:50 -->
+<meta  charset="utf-8">
+<meta  name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="weiwu">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="./styles/demo/css/style.css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div class="outline-2" id="meta">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>Author</b></td>
+<td class="org-left">weiwu (victor.wuv@gmail.com)</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Date</b></td>
+<td class="org-left">2018-06-14 11:50:35</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-2">
+<h2 id="orgheadline22">Natural Language Processing</h2>
+<div class="outline-text-2" id="text-orgheadline22">
+</div><div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17">Personalized Intelligent Agents(PIA)</h3>
+<div class="outline-text-3" id="text-orgheadline17">
+</div><div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12">Objective:</h4>
+<div class="outline-text-4" id="text-orgheadline12">
+</div><div id="outline-container-orgheadline1" class="outline-5">
+<h5 id="orgheadline1">Short Term</h5>
+<div class="outline-text-5" id="text-orgheadline1">
+<ul class="org-ul">
+<li>make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.</li>
+<li>incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.</li>
+<li>recommendation of context sensitive synonyms.</li>
+<li>Hot-word trending analysis on various topics, technology, industrial sectors, analysts comment, company announcement, Deep Learning authors comments, popular topics, papges, etc. Scrape the historical archives of web text in order to get for each post the following information: date, keywords, text.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-5">
+<h5 id="orgheadline2">Long Term</h5>
+<div class="outline-text-5" id="text-orgheadline2">
+<ul class="org-ul">
+<li>context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.</li>
+<li>Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。</li>
+<li>可计算的知识服务引擎, like WolframAlpha.</li>
+</ul>
+</div>
+<ul class="org-ul"><li><a id="orgheadline3"></a>智能投顾<br ><div class="outline-text-6" id="text-orgheadline3">
+<ul class="org-ul">
+<li>基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。</li>
+<li>搜索相关主题的股票，及其新闻，公告，如“雄安题材”，“苹果主题”，“独角兽”等。</li>
+</ul>
+</div></li>
+<li><a id="orgheadline4"></a>金融新闻Bots<br ><div class="outline-text-6" id="text-orgheadline4">
+<ul class="org-ul">
+<li>实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。</li>
+<li>Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.</li>
+</ul>
+</div>
+<ul class="org-ul"><li><a id="orgheadline5"></a>金融搜索<br ><div class="outline-text-7" id="text-orgheadline5">
+<p>
+显示当前关键词所有的新闻消息，公告，根据消息数量得出的热度。
+</p>
+</div></li></ul></li>
+<li><a id="orgheadline6"></a>智能选股<br ><div class="outline-text-6" id="text-orgheadline6">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">百科类筛选</td>
+<td class="org-left">ST股票， 非ST股票， 上证50股票</td>
+</tr>
+
+<tr>
+<td class="org-left">数据类筛选</td>
+<td class="org-left">股价小于100块股票</td>
+</tr>
+
+<tr>
+<td class="org-left">事件类筛选</td>
+<td class="org-left">刚复牌股票，今年刚上市的股票</td>
+</tr>
+
+<tr>
+<td class="org-left">选股类筛选</td>
+<td class="org-left">每股收益在0.2-0.3之间，且市盈率小于30的股票;浙江省市盈率小于20倍的公司</td>
+</tr>
+</tbody>
+</table>
+</div></li>
+
+<li><a id="orgheadline7"></a>知识图谱分析<br ><div class="outline-text-6" id="text-orgheadline7">
+<p>
+关系可以是企业的上下游、合作、竞争对手、子母公司、投资、对标等关系，可以是高管与企业间的任职等关系，也可以是行业间的逻辑关系，实体则是投资机构、投资人、企业等等，把它们用知识图谱表示出来，从而进行更深入的知识推理。
+</p>
+
+<p>
+在某个宏观经济事件或者企业相关事件发生的时候，券商分析师、交易员、基金公司基金经理等投资研究人员可以通过此图谱做更深层次的分析和更好的投资决策，比如在美国限制向中兴通讯出口的消息发布之后，如果我们有中兴通讯的客户供应商、合作伙伴以及竞争对手的关系图谱，就能在中兴通讯停牌的情况下快速地筛选出受影响的国际国内上市公司从而挖掘投资机会或者进行投资组合风险控制。
+</p>
+
+<p>
+某公司打算借壳上市，通过知识图谱相关技术寻找相关联的公司，找到有可能的潜在借壳对象。
+</p>
+
+
+<div class="figure">
+<p><img src="../img/knowledge_graph_company.jpg" alt="knowledge_graph_company.jpg">
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="../img/knowledge_graph_organization.png" alt="knowledge_graph_organization.png">
+</p>
+</div>
+</div></li>
+<li><a id="orgheadline11"></a>Event-Driven Strategies<br ><ul class="org-ul"><li><a id="orgheadline8"></a>Goal:<br ><div class="outline-text-7" id="text-orgheadline8">
+<p>
+Detect event from announcement, predict stock price.
+</p>
+</div></li>
+<li><a id="orgheadline9"></a>events:<br ><div class="outline-text-7" id="text-orgheadline9">
+<ul class="org-ul">
+<li>Earnings Releases:</li>
+</ul>
+<p>
+Corporate earnings tend to move markets when they come in above or below the market’s expectations, which means that it’s important for active traders to understand the expected figures beforehand.
+</p>
+<ul class="org-ul">
+<li>Mergers &amp; Acquisitions:</li>
+</ul>
+<p>
+M&amp;A tends to produce dramatic increases or decreases in share prices depending on the terms of the deal, while creating an opportunity for arbitrage strategies between the buyer and seller.
+</p>
+<ul class="org-ul">
+<li>Spin-Offs:</li>
+</ul>
+<p>
+Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
+</p>
+</div></li>
+<li><a id="orgheadline10"></a>Tool:<br ><div class="outline-text-7" id="text-orgheadline10">
+<p>
+Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Networks, CNN.
+</p>
+</div></li></ul></li></ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13">Overview Steps:</h4>
+<div class="outline-text-4" id="text-orgheadline13">
+<ul class="org-ul">
+<li>数据爬虫 -&gt; 数据清洗(干净数据) -&gt; 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -&gt; 文档树/表 -&gt; 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -&gt; 本体，本体存储 -&gt; 语用分析 -&gt; 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16">Data</h4>
+<div class="outline-text-4" id="text-orgheadline16">
+</div><div id="outline-container-orgheadline14" class="outline-5">
+<h5 id="orgheadline14">Text Labeled with (semi) structured data</h5>
+<div class="outline-text-5" id="text-orgheadline14">
+<ul class="org-ul">
+<li class="on"><code>[X]</code> wiki page titles and page text, wiki category</li>
+<li class="off"><code>[&#xa0;]</code> company filings text, filing classification, event time series data (attributes manually extracted)</li>
+<li class="off"><code>[&#xa0;]</code> finance conference scripts.</li>
+<li class="off"><code>[&#xa0;]</code> corporate telephone comference notes, memo.</li>
+<li class="off"><code>[&#xa0;]</code> company filings text, company industry classification</li>
+<li class="off"><code>[&#xa0;]</code> textbook or CFA chapter name, chapter exercise questions, multiple choice questions</li>
+<li class="off"><code>[&#xa0;]</code> SSRN paper keyword, category, title, abstract, data, model and conclusion</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline15" class="outline-5">
+<h5 id="orgheadline15">Text Unlabeled</h5>
+<div class="outline-text-5" id="text-orgheadline15">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> analyst research reports, analyst research reports, report classification, analyst ranking</li>
+<li class="off"><code>[&#xa0;]</code> textbooks</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="todo TODO">TODO</span> Knowledge Graph</h3>
+<div class="outline-text-3" id="text-orgheadline20">
+</div><div id="outline-container-orgheadline18" class="outline-5">
+<h5 id="orgheadline18">知识图谱的架构</h5>
+<div class="outline-text-5" id="text-orgheadline18">
+<p>
+<a href="http://www.xml-data.org/dzkj-nature/html/201645589.htm">http://www.xml-data.org/dzkj-nature/html/201645589.htm</a>
+logical structure:
+1). data layer
+2). scheme layer
+</p>
+
+<p>
+从逻辑上可以划分为2个层次：数据层和模式层。
+</p>
+
+<p>
+在知识图谱的数据层，知识以事实（fact）为单位存储在图数据库。图数据中有“实体-关系-实体”或者“实体-属性-属性值”两种三元组，所有数据构成庞大的实体关系网络。
+</p>
+
+<p>
+模式层在数据层之上，是知识图谱的核心。模式层存储的是经过提炼的知识，通常采用本体库来管理知识图谱的模式层。
+通过知识图谱相关技术从招股书、年报、公司公告、券商研究报告、新闻等半结构化表格和非结构化文本数据中批量自动抽取公司的股东、子公司、供应商、客户、合作伙伴、竞争对手等信息，构建出公司的知识图谱。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-5">
+<h5 id="orgheadline19">知识图谱构建过程</h5>
+<div class="outline-text-5" id="text-orgheadline19">
+<p>
+知识图谱的构建过程是从原始数据出发，采用一系列自动或半自动的技术手段，从原始数据中提取出知识要素，并将其存入知识库的数据层和模式层的过程。
+</p>
+
+<p>
+这是一个迭代更新的过程，每一轮迭代包含3个阶段：信息抽取、知识融合以及知识加工
+</p>
+
+<p>
+知识图谱有自顶向下和自底向上2种构建方法。
+</p>
+
+<p>
+自顶向下是从百科类网站等高质量数据源中提取本体和模式信息，加入到知识库中。
+</p>
+
+<p>
+自底向上是从公开采集的数据中提取出资源模式，选择其中置信度较高的新模式，经人工审核后，加入到知识库中。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21">Key technique and application</h3>
+<div class="outline-text-3" id="text-orgheadline21">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">关键技术</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">方法</th>
+<th scope="col" class="org-left">应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">数据获取</td>
+<td class="org-left">网络爬虫</td>
+<td class="org-left">xpath</td>
+<td class="org-left">article search</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">requests</td>
+<td class="org-left">AI news crawler</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">paper citation network(inspider web)</td>
+</tr>
+
+<tr>
+<td class="org-left">知识抽取</td>
+<td class="org-left">实体抽取(NER)</td>
+<td class="org-left">IDCNN<sub>CRF</sub></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">关系抽取</td>
+<td class="org-left">BGRU<sub>2ATT</sub></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Deepdive</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">事件抽取</td>
+<td class="org-left">Joint event extraction</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">强化+模版（深度卷积）</td>
+<td class="org-left">event embedding 做股票预测</td>
+</tr>
+
+<tr>
+<td class="org-left">知识表示</td>
+<td class="org-left">单词相似度计算</td>
+<td class="org-left">Word2vec</td>
+<td class="org-left">近义词搜索</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">句子语义相似度计算</td>
+<td class="org-left">Cosine distance</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">LDA</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">DSSM</td>
+<td class="org-left">content recommendation based on interest</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">关系预测(e1,?,e2)</td>
+<td class="org-left">TransH</td>
+<td class="org-left">flash card</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Gaussian Embedding</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">知识融合</td>
+<td class="org-left">Knowledge base update</td>
+<td class="org-left">Focused Crawler with Reinforcement Learning</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">entity linking</td>
+<td class="org-left">Deeptype</td>
+<td class="org-left">在GS找到ground truth entity</td>
+</tr>
+
+<tr>
+<td class="org-left">知识推理</td>
+<td class="org-left">KBQA</td>
+<td class="org-left">path ranking</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Reasonet</td>
+<td class="org-left">flash card</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Time-RNN</td>
+<td class="org-left">alert</td>
+</tr>
+
+<tr>
+<td class="org-left">General</td>
+<td class="org-left">sentiment analysis</td>
+<td class="org-left">Bayes</td>
+<td class="org-left">finance sentiment analysis</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">stock sentiment classification</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

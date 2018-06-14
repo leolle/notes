@@ -483,6 +483,8 @@ connect the observed infomation with your own knowledge trunk.
 ** need to comprehend conversation more deeply before giving a response.<2018-05-29 Tue>
 Find comprehension QA dataset, which answers these questions need deep understanding.
 
+** negative thinking will shut your brain down. feel safe and speak frankly.<2018-06-12 Tue>
+
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own

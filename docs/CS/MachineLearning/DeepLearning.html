@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-05-21 Mon 16:16 -->
+<!-- 2018-06-14 Thu 11:51 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -196,13 +196,14 @@ for the JavaScript code in this tag.
 </li>
 </ul>
 </li>
-<li><a href="#orgheadline17">5. Critical questions</a>
+<li><a href="#orgheadline18">5. Critical questions</a>
 <ul>
 <li>
 <ul>
 <li><a href="#orgheadline14">5.0.1. 传统机器学习考察点：</a></li>
 <li><a href="#orgheadline15">5.0.2. 深度学习考察点：</a></li>
 <li><a href="#orgheadline16">5.0.3. 最优化考察点：</a></li>
+<li><a href="#orgheadline17">5.0.4. 我们在这里将机器学习工程师需要掌握的基本技能分为五类：</a></li>
 </ul>
 </li>
 </ul>
@@ -227,7 +228,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-05-21 16:16:31</td>
+<td class="org-left">2018-06-14 11:51:01</td>
 </tr>
 
 <tr>
@@ -795,6 +796,25 @@ Since MLPs are, by construction, differentiable operators, they can be trained t
 </p>
 
 <ul class="org-ul">
+<li>Generative model</li>
+</ul>
+<p>
+In statistical classification, including machine learning, two main approaches are called the generative approach and the discriminative approach. These compute classifiers by different approaches, differing in the degree of statistical modelling. Terminology is inconsistent,[a] but three major types can be distinguished, following (Jebara 2004):
+</p>
+
+<p>
+Given an observable variable X and a target variable Y, a generative model is a statistical model of the joint probability distribution on X × Y, {\displaystyle P(X,Y)} {\displaystyle P(X,Y)};
+</p>
+
+<p>
+A discriminative model is a model of the conditional probability of the target Y, given an observation x, symbolically, {\displaystyle P(Y|X=x)} {\displaystyle P(Y|X=x)}; and
+</p>
+
+<p>
+Classifiers computed without using a probability model are also referred to loosely as "discriminative".
+</p>
+
+<ul class="org-ul">
 <li>Gradient Clipping</li>
 </ul>
 
@@ -947,6 +967,19 @@ Going Deeper with Convolutions
 LSTMs are a form of recurrent neural network invented in the 1990s by Sepp Hochreiter and Juergen Schmidhuber, and now widely used for image, sound and time series analysis, because they help solve the vanishing gradient problem by using a memory gates. Alex Graves made significant improvements to the LSTM with what is now known as the Graves LSTM, which Deeplearning4j implements here.
 </p>
 
+<ul class="org-ul">
+<li>Latent Semantic Indexing (LSI)</li>
+</ul>
+<p>
+LSI (also known as Latent Semantic Analysis, LSA) learns latent topics by performing a matrix decomposition (SVD) on the term-document matrix.
+</p>
+
+<ul class="org-ul">
+<li>LDA</li>
+</ul>
+<p>
+LDA is a generative probabilistic model, that assumes a Dirichlet prior over the latent topics.
+</p>
 
 <ul class="org-ul">
 <li>Log-Likelihood</li>
@@ -1559,8 +1592,8 @@ for deep neural networks with less hidden units, the computation is O(log(n)). B
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">5</span> Critical questions</h2>
+<div id="outline-container-orgheadline18" class="outline-2">
+<h2 id="orgheadline18"><span class="section-number-2">5</span> Critical questions</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 how - overview picture
@@ -1837,6 +1870,207 @@ Torch 和 Pytorch
 </ul>
 <p>
 Theano及其生态系统, TensorFlow, Caffe, Caffe2, CNTK, Chainer, DSSTNE, DyNet, Keras, Paddle, 它们的优劣分析一下.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">5.0.4</span> 我们在这里将机器学习工程师需要掌握的基本技能分为五类：</h4>
+<div class="outline-text-4" id="text-5-0-4">
+<p>
+1  计算机科学基础与编程能力
+2  概率与统计
+3  数据建模与评估
+4  应用机器学习算法与库
+5  软件工程和系统设计
+</p>
+
+<p>
+（一）计算机科学基础与编程能力
+</p>
+
+<p>
+▲ 你怎么判断一个链表中是否有循环？
+</p>
+
+<p>
+▲ 给定一棵二叉查找树中的两个元素，求它们的最近公共祖先。
+</p>
+
+<p>
+▲ 写一个栈排列函数
+</p>
+
+<p>
+▲ 如何计算比较排序算法的时间复杂度？你能证明吗？
+</p>
+
+<p>
+▲ 如何在加权图中找到两个节点间最短路径？如果有些权值是负的怎么办？
+</p>
+
+<p>
+▲ 求一个字符串中所有的回文子串。
+</p>
+
+<p>
+对于所有这些问题，你都要能够推导出你的方法的时间和空间复杂度，并且尽可能用最低复杂度解决问题。
+</p>
+
+
+<p>
+只有通过大量的练习才能对这些不同类型的问题烂熟于胸，这样你就能够在面试时快速给出一个有效的解决方案。
+</p>
+
+
+<p>
+常用的算法面试准备平台有 Lintcode、LeetCode、Interview Cake等。
+</p>
+
+<p>
+（二）概率与统计
+</p>
+
+
+<p>
+▲ 给出一个群体中男性和女性各自的平均身高，整个群体的平均身高是多少？
+</p>
+
+<p>
+▲ 最近一项调查显示，在意大利1/3的汽车是费拉里斯（法拉利跑车），这其中一半的车都是红色。那么如果你在意大利的街头看到一辆红色的汽车驶来，请问它是费拉里斯的可能性有多大？
+</p>
+
+<p>
+▲ 你想在网站上找到一个最合适的位置放广告，你可以选择广告字体的大小(小号、中号、大号)，你也可以选择广告放置的位置(顶部、中部、底部)。那么至少需要多少页面访问量（n）和广告点击量(m)，你才能有95%的自信说其中的一个设计比其他设计都好？
+</p>
+
+
+
+<p>
+很多机器学习算法以概率论与统计学作为基础。所以对这些基础知识有清晰的概念非常重要，同时，你也要能够将这些抽象的公式与实际联系起来。
+</p>
+
+
+
+<p>
+（三）数据建模和评估
+</p>
+
+
+<p>
+▲ 奶农正试图了解影响牛奶品质的因素。他记录了每天的气温（30-40°C）、湿度（60-90%）、饲料消耗（2000-2500公斤）、牛奶产量（500-1000升）。
+</p>
+
+<p>
+假设问题是要预测每天的牛奶产量，你会如何处理数据并建立模型？
+</p>
+
+<p>
+这是一个什么类型的机器学习问题？
+</p>
+
+
+
+<p>
+▲ 你的公司正在开发一个面部表情识别系统，这个系统接受像素为1920*1080的高清图片作为输入，接收到输入的图片后它就能告诉用户图片中的人脸处于以下哪种情绪状态：平常、高兴、悲伤、愤怒和恐惧。若图片中没有人脸时系统要能够分辨这种情况。
+</p>
+
+<p>
+这属于什么类型的机器学习问题？
+</p>
+
+<p>
+如果每个像素点由 3 个值来表示（RGB），那么输入数据的原始维度有多大？有办法降维吗？
+</p>
+
+<p>
+你会如何对系统的输出进行编码？为什么？
+</p>
+
+
+
+<p>
+▲ 在过去几个世纪里搜集到的气象数据显示温度呈循环上升和下降。对于这样的数据（年平均温度值序列），你会如何建模来预测未来 5 年的平均气温？
+</p>
+
+<p>
+▲ 你的工作是收集世界各地的文章，并将来源不同的相似文章整合成一篇文章。你会如何设计这样一个系统？会用到哪些机器学习技术？
+</p>
+
+
+
+<p>
+（四）应用机器学习算法与库
+</p>
+
+
+<p>
+▲ 你在用一个给定的数据集训练一个单隐层神经网络时，发现权重在迭代训练中波动很大(变化巨大，常在正负值间摇摆)，你需要调整什么参数来解决这个问题？
+</p>
+
+<p>
+▲ 支持向量机的训练在本质上是在最优化哪个值？
+</p>
+
+<p>
+▲ LASSO 回归用 L1-norm 作为惩罚项，而岭回归（Ridge Regression）则使用 L2-norm 作为惩罚项。这两者哪个更有可能得到一个稀疏（某些项的系数为 0）的模型？
+Ridge
+</p>
+
+
+<p>
+▲ 当测试一个10层神经网络的反向传播时，你发现前三层的权值完全没有变化。接下来的几层（4-6）权值变化的非常缓慢。这是为什么？该如何解决?
+</p>
+
+<p>
+▲ 你现在有一些关于欧洲小麦产出的数据，包括年降雨量（R，英寸），平均高度（A，米）和小麦产量（O，公斤/平方千米）。你经过粗略分析认为小麦产量与降雨量的平方以及平均海报的对数之间存在关系，即: O = β0+ β1 × R2 + β2 × loge(A)。你能使用线性回归模型计算出系数（β）吗？
+</p>
+
+
+
+<p>
+你可以通过参加一些数据科学和机器学习的比赛来了解各种各样的问题和它们之间的细微差别。多多参加这些比赛，并尝试应用不同的机器学习模型。
+</p>
+
+
+
+<p>
+（五）软件工程和系统设计
+</p>
+
+
+<p>
+▲ 你在运行一个电子商务网站。当用户点击商品详细信息时，你要根据用户过去所购商品特征推荐5个用户感兴趣的商品，同时在页面底部显示。为完成这个功能你需要什么服务器和数据库？假设它们是可用的，写一个程序来获得这5个推荐商品。
+</p>
+
+
+
+<p>
+▲ 你会从一个在线视频播放网站（如YouTube）上搜集什么数据来估测用户参与度和视频人气度？
+人气度：
+  参与度：评论，转发，浏览次数。
+总浏览次数，平均每天浏览次数。
+</p>
+
+
+<p>
+▲ 一个非常简单的垃圾邮件检测系统工作原理如下：它每次处理一封邮件并统计每个不同单词出现的频率（Term frequency），然后将这些频率与之前被标注为垃圾/正常邮件的那些频率进行比较。为扩大这一系统处理大量的电子邮件，你能设计一种能在计算机集群上运行的 Map-Reduce 方案吗？
+</p>
+
+
+
+<p>
+▲你想实现用户实时使用可视化，就像热敏图一样。为实现这个功能，在客户端与服务器端你需要什么组件/服务器/API？
+</p>
+
+
+
+<p>
+六、结语
+</p>
+
+
+<p>
+很多正在准备机器学习面试的朋友往往都会沉浸在如何准备技术层面的问题上，却极少思考为什么这家公司会有这个职位，为什么公司想要用机器学习作为解决方案，为什么他们对你感兴趣？等等。
 </p>
 </div>
 </div>

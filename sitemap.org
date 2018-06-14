@@ -63,4 +63,6 @@
       + [[file:GS/OSet/anomalies.org][The Handbook of Equity Market Anomalies]]
 + Notes
   + [[file:notes/thought.org][Thought]]
-+ [[file:work_plan.org][WorkPlan]]
++ [[file:./notes/nlp_overview.org][NLP overview]]
++ [[file:./notes/nlp_workflow.org][NLP Work Flow]]
++ [[file:work_plan.org][Project Plan]]

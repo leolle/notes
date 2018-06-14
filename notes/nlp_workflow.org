@@ -18,6 +18,7 @@
 #+HTML: </div>
 
 * NLP workflow:
+[[https://docs.google.com/document/d/1RN49VzAcGFhjHUvXbmYNwyGc0h8ock9jsZ45cv62HUQ/edit?usp=sharing][link]]
 ** Sentiment analysis
 A sentiment value determines attitude, which may be a judgment or evaluation, affective state or the intended emotional communication. The sentiment value is labeled as 0 (negative), 1 (neutral) or 2 (positive).
 
@@ -115,4 +116,20 @@ Factor Graph?
 Other possible methods: http://www.aclweb.org/anthology/D15-1036
 
 
-** Information extraction
+** relation extraction
+从文本中抽取两个实体之间的投资关系。
+
+下表为投资这一大类关系所包含的相似关系。
+
+| 设立     | 增资     | 入股     | 收购     | 并购     | 换股 |
+|----------+----------+----------+----------+----------+------|
+| 成立     | 受让     | 现金出资 | 要约收购 | 海外并购 | 转股 |
+| 发起设立 | 扩股     | 携手     | 拟收购   | 重组     | 交换 |
+| 组建     | 扩股     | 间接持有 | 并表     | 整合     | 配股 |
+| 新设     | 占股     | 所持     | 过户     | 兼并     |      |
+| 出资     | 转让给   | 联手     | 收购了   | 业务整合 |      |
+| 共同出资 | 认缴     | 正式成为 | 资产收购 | 借壳上市 |      |
+| 全资     | 定向增发 | 转让给   | 通过收购 |          |      |
+| 参股     |          | 参股     |          |          |      |
+| 入驻     |          |          |          |          |      |
+| 创投     |          |          |          |          |      |
