@@ -115,6 +115,8 @@ ret = ndOutput.astype(oDataType)
 必须是binary,不能是string
 使用gftIO.gidStrArray2CharArray
 
+- python module path:
+'/home/gft/anaconda3/lib/python3.6/site-packages/snownlp/sentiment/__init__.py'
 * other projects
 - [X] 搭建基金策略
 - [X] 对基金策略进行组合优化

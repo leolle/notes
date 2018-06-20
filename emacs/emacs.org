@@ -438,6 +438,16 @@ digraph G {
 #+RESULT:
 :  output
 #+END_SRC
+
+** setting tags:
+Tags can simply be typed into the buffer at the end of a headline. After a colon, M-TAB offers completion on tags. There is also a special command for inserting tags:
+
+=C-c C-q=
+Enter new tags for the current headline. Org mode will either offer completion or a special single-key interface for setting tags, see below. After pressing RET, the tags will be inserted and aligned to org-tags-column. When called with a C-u prefix, all tags in the current buffer will be aligned to that column, just to make things look nice.
+
+=C-c C-c=
+When the cursor is in a headline, this does the same as C-c C-q.
+
 * emacs python workflow.
 
 ** install elpy, jedi

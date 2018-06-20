@@ -1,5 +1,6 @@
 #+TITLEs: Document title
 #+LANGUAGE: en
+#+TAGS: review
 #+OPTIONS: toc:nil h:4 html-postamble:nil html-preamble:t tex:t f:t
 #+OPTIONS: prop:("VERSION")
 #+HTML_DOCTYPE: <!DOCTYPE html>
@@ -214,6 +215,17 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 - [X] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
 能否用这个指数来预警，今天可以扩大一下样本空间，看看上证在1%下跌的情况下前一日的情感指数值是如何变化。
 - [ ] search paper and books how to use sentiment analysis.
+***** DONE train sentiment classification model.                 :review:
+CLOSED: [2018-06-19 Tue 19:03]
+review:
+1. 分拆分类器的训练和分类。
+2. 训练好的模型存储在GID背后的路径。
+
+****** improvement:                                             :improvement:
+1. 应该早点把与sentiment classification action不太相关的步骤省略。
+2. 训练的步骤代码早点应该弄清楚：怎么调用，可以做几个分类？
+3. 不要hard code一些自己加进去的逻辑，如positive probability *2;
+
 **** information retrieval system
 ***** goal
 ****** question and answering from a document
@@ -603,7 +615,7 @@ Selected node: 福耀玻璃(i)
 Relation: 加拿大皇家银行增持
 ****** Output:
 Similar stocks(under the same industry)  increase holding event happened.
-***** news recommendation with RL
+**** news recommendation with RL
 - [ ] web scraping case study.
 https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-from-news24/
 
@@ -647,7 +659,8 @@ CLOSED: [2018-06-07 Thu 10:39]
 - [X] Get DOI from sci-hub content if possible, else search crossref with title, then search metadata for the article on crossref.
 - [ ] or use google search.
 
-***** TODO run code on GS.
+***** DONE run code on GS.
+CLOSED: [2018-06-19 Tue 11:06]
 
 ***** TODO upload article and metadata on GS.
 
@@ -669,7 +682,7 @@ result = sh.download(meta.get(‘DOI’), path=title + ‘.pdf’)
 
 - [X] 2. Search for articles on Google Scholar and download them:
 
-***** TODO issues:
+***** issues:
 - [ ] captcha验证
 - [ ] 上传DOI, pdf到服务器
 
