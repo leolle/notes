@@ -24,8 +24,10 @@
 
 **** Long Term
 - context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.
-- Graph2vec, 把word2vec应用在用户workflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
+- Graph2vec, 把word2vec应用在用户wo\rkflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。
 - 可计算的知识服务引擎, like WolframAlpha.
+- a customer might be able to query different functions/want simply by chatting or typing a single request for exactly what information they’re seeking. There might even be a spoken interface to GS!
+
 ***** 智能投顾
 - 基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。
 - 搜索相关主题的股票，及其新闻，公告，如“雄安题材”，“苹果主题”，“独角兽”等。

@@ -48,8 +48,8 @@
 |                  | 8B7796C8015D94AB61B66A5AA72D72F0 | word embedding similar words                      |
 | <2018-04-24 Tue> | 9920B79FE31B4350B635AC29FC5ADAB2 | read_mysql_database                               |
 | <2018-06-07 Thu> | CDF3041F049AD76F74BBC73BDF0B0072 | scholar_hub                                       |
-| <2018-06-19 Tue> | A84F735722F94CD7BADA8D03A10B3DDA | preview_dict                                      |
-|                  | C6772CD57DEC84A9E93179982E54D5ED | snownlp_bayes_model_training                      |
+| <2018-06-19 Tue> | 2DDAAE15977013736DDC5DD9C895AF98 | preview_dict                                      |
+|                  | CB047C961931F072EFB61F802C87A91E | snownlp_classification_training                      |
 |                  |                                  |                                                   |
 * Trouble shooting
 ** Debug
