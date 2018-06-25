@@ -1,0 +1,43 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: workon GPU machine
+#+DATE: <2017-06-25 Mon>
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+STARTUP: latexpreview
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../configOrg/level1.org
+
+* Working on the GPU machine:
+1. Connect to the server:
+#+BEGIN_SRC bash
+ssh oem@192.168.1.73
+#+END_SRC
+
+2. goto your working folder:
+#+BEGIN_SRC bash
+#first goto the folder.
+cd /media/oem/Data_disk_1
+# check the folders.
+ls
+# goto the folder in your name, e.g.
+cd ran
+#+END_SRC
+
+3. working on a virtual python environment:
+#+BEGIN_SRC bash
+# change $USERNAME with your name.
+workon $USERNAME
+# use pip install any necessary modules.
+# e.g. pandas
+pip install pandas
+#+END_SRC
+
+4. run your code:
+#+BEGIN_SRC bash
+python main.py
+#+END_SRC

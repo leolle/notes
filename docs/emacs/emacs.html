@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-14 Thu 11:50 -->
+<!-- 2018-06-25 Mon 11:29 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -196,7 +196,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline17">2.3. shortcut :</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline34">3. ORG Mode</a>
+<li><a href="#orgheadline35">3. ORG Mode</a>
 <ul>
 <li><a href="#orgheadline19">3.1. Structure editing</a></li>
 <li><a href="#orgheadline24">3.2. Latex</a>
@@ -222,29 +222,30 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline31">3.6. export org to html using styles</a></li>
 <li><a href="#orgheadline32">3.7. graphviz</a></li>
 <li><a href="#orgheadline33">3.8. output results:</a></li>
+<li><a href="#orgheadline34">3.9. setting tags:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline44">4. emacs python workflow.</a>
+<li><a href="#orgheadline45">4. emacs python workflow.</a>
 <ul>
-<li><a href="#orgheadline36">4.1. install elpy, jedi</a>
+<li><a href="#orgheadline37">4.1. install elpy, jedi</a>
 <ul>
-<li><a href="#orgheadline35">4.1.1. elpy (Emacs Lisp Python Environment)</a></li>
+<li><a href="#orgheadline36">4.1.1. elpy (Emacs Lisp Python Environment)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline37">4.2. Keybinding</a></li>
-<li><a href="#orgheadline38">4.3. upgrade git</a></li>
-<li><a href="#orgheadline39">4.4. reinstall EMACS</a></li>
-<li><a href="#orgheadline40">4.5. Spacemacs Dired</a></li>
-<li><a href="#orgheadline41">4.6. magit</a></li>
-<li><a href="#orgheadline42">4.7. insert images and links</a></li>
-<li><a href="#orgheadline43">4.8. anaconda mode bug:</a></li>
+<li><a href="#orgheadline38">4.2. Keybinding</a></li>
+<li><a href="#orgheadline39">4.3. upgrade git</a></li>
+<li><a href="#orgheadline40">4.4. reinstall EMACS</a></li>
+<li><a href="#orgheadline41">4.5. Spacemacs Dired</a></li>
+<li><a href="#orgheadline42">4.6. magit</a></li>
+<li><a href="#orgheadline43">4.7. insert images and links</a></li>
+<li><a href="#orgheadline44">4.8. anaconda mode bug:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline45">5. layers</a></li>
-<li><a href="#orgheadline46">6. Python mode</a></li>
-<li><a href="#orgheadline48">7. Instruction on how to use emacs org mode to orginize calendar.</a>
+<li><a href="#orgheadline46">5. layers</a></li>
+<li><a href="#orgheadline47">6. Python mode</a></li>
+<li><a href="#orgheadline49">7. Instruction on how to use emacs org mode to orginize calendar.</a>
 <ul>
-<li><a href="#orgheadline47">7.1. navigation</a></li>
+<li><a href="#orgheadline48">7.1. navigation</a></li>
 </ul>
 </li>
 </ul>
@@ -631,8 +632,8 @@ or load the init.el file
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline34" class="outline-2">
-<h2 id="orgheadline34"><span class="section-number-2">3</span> ORG Mode</h2>
+<div id="outline-container-orgheadline35" class="outline-2">
+<h2 id="orgheadline35"><span class="section-number-2">3</span> ORG Mode</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="http://ehneilsen.net/notebook/orgExamples/org-examples.html#sec-4">Example</a>
@@ -1007,15 +1008,35 @@ the Heat Equation$$\[ \frac{\partial u}{\partial t}
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">3.9</span> setting tags:</h3>
+<div class="outline-text-3" id="text-3-9">
+<p>
+Tags can simply be typed into the buffer at the end of a headline. After a colon, M-TAB offers completion on tags. There is also a special command for inserting tags:
+</p>
+
+<p>
+<code>C-c C-q</code>
+Enter new tags for the current headline. Org mode will either offer completion or a special single-key interface for setting tags, see below. After pressing RET, the tags will be inserted and aligned to org-tags-column. When called with a C-u prefix, all tags in the current buffer will be aligned to that column, just to make things look nice.
+</p>
+
+<p>
+<code>C-c C-c</code>
+When the cursor is in a headline, this does the same as C-c C-q.
+</p>
 </div>
-<div id="outline-container-orgheadline44" class="outline-2">
-<h2 id="orgheadline44"><span class="section-number-2">4</span> emacs python workflow.</h2>
+</div>
+</div>
+
+<div id="outline-container-orgheadline45" class="outline-2">
+<h2 id="orgheadline45"><span class="section-number-2">4</span> emacs python workflow.</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline36" class="outline-3">
-<h3 id="orgheadline36"><span class="section-number-3">4.1</span> install elpy, jedi</h3>
+</div><div id="outline-container-orgheadline37" class="outline-3">
+<h3 id="orgheadline37"><span class="section-number-3">4.1</span> install elpy, jedi</h3>
 <div class="outline-text-3" id="text-4-1">
-</div><div id="outline-container-orgheadline35" class="outline-4">
-<h4 id="orgheadline35"><span class="section-number-4">4.1.1</span> elpy (Emacs Lisp Python Environment)</h4>
+</div><div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36"><span class="section-number-4">4.1.1</span> elpy (Emacs Lisp Python Environment)</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <ul class="org-ul">
 <li>Automatic Indentation,</li>
@@ -1037,8 +1058,8 @@ install package jedi elpy magit
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline37" class="outline-3">
-<h3 id="orgheadline37"><span class="section-number-3">4.2</span> Keybinding</h3>
+<div id="outline-container-orgheadline38" class="outline-3">
+<h3 id="orgheadline38"><span class="section-number-3">4.2</span> Keybinding</h3>
 <div class="outline-text-3" id="text-4-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1092,8 +1113,8 @@ install package jedi elpy magit
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline38" class="outline-3">
-<h3 id="orgheadline38"><span class="section-number-3">4.3</span> upgrade git</h3>
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">4.3</span> upgrade git</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 
@@ -1105,8 +1126,8 @@ git --version
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline39" class="outline-3">
-<h3 id="orgheadline39"><span class="section-number-3">4.4</span> reinstall EMACS</h3>
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">4.4</span> reinstall EMACS</h3>
 <div class="outline-text-3" id="text-4-4">
 <div class="org-src-container">
 
@@ -1125,8 +1146,8 @@ $ sudo make uninstall
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline40" class="outline-3">
-<h3 id="orgheadline40"><span class="section-number-3">4.5</span> Spacemacs Dired</h3>
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">4.5</span> Spacemacs Dired</h3>
 <div class="outline-text-3" id="text-4-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1200,8 +1221,8 @@ $ sudo make uninstall
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline41" class="outline-3">
-<h3 id="orgheadline41"><span class="section-number-3">4.6</span> magit</h3>
+<div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42"><span class="section-number-3">4.6</span> magit</h3>
 <div class="outline-text-3" id="text-4-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1398,8 +1419,8 @@ $ sudo make uninstall
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline42" class="outline-3">
-<h3 id="orgheadline42"><span class="section-number-3">4.7</span> insert images and links</h3>
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">4.7</span> insert images and links</h3>
 <div class="outline-text-3" id="text-4-7">
 <div class="org-src-container">
 
@@ -1410,8 +1431,8 @@ C-c C-x C-v <span style="color: #AE81FF;">(</span>org-toggle-inline-mages<span s
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline43" class="outline-3">
-<h3 id="orgheadline43"><span class="section-number-3">4.8</span> anaconda mode bug:</h3>
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">4.8</span> anaconda mode bug:</h3>
 <div class="outline-text-3" id="text-4-8">
 <div class="org-src-container">
 
@@ -1429,16 +1450,16 @@ py-autopep8-enable-on-save
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline45" class="outline-2">
-<h2 id="orgheadline45"><span class="section-number-2">5</span> layers</h2>
+<div id="outline-container-orgheadline46" class="outline-2">
+<h2 id="orgheadline46"><span class="section-number-2">5</span> layers</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 <code>M-x</code> configuration-layer/create-layer
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline46" class="outline-2">
-<h2 id="orgheadline46"><span class="section-number-2">6</span> Python mode</h2>
+<div id="outline-container-orgheadline47" class="outline-2">
+<h2 id="orgheadline47"><span class="section-number-2">6</span> Python mode</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>insert date/current date from shell to python file</li>
@@ -1449,8 +1470,8 @@ py-autopep8-enable-on-save
 </div>
 </div>
 
-<div id="outline-container-orgheadline48" class="outline-2">
-<h2 id="orgheadline48"><span class="section-number-2">7</span> Instruction on how to use emacs org mode to orginize calendar.</h2>
+<div id="outline-container-orgheadline49" class="outline-2">
+<h2 id="orgheadline49"><span class="section-number-2">7</span> Instruction on how to use emacs org mode to orginize calendar.</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>insert current date</li>
@@ -1522,8 +1543,8 @@ keeping things fluid...
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline47" class="outline-3">
-<h3 id="orgheadline47"><span class="section-number-3">7.1</span> navigation</h3>
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48"><span class="section-number-3">7.1</span> navigation</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>set mark (activates and then deactivates region)</li>
