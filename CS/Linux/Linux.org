@@ -612,6 +612,12 @@ ls -l folder/path | wc -l
 - resume interrupted download via wget:
 #+BEGIN_SRC shell
 wget -c -t 0 --timeout=10 --waitretry=10 url
+# zsh: parse error near &
+wget “<DOWNLOAD_URL>”
+#+END_SRC
+- download with axel
+#+BEGIN_SRC bash
+axel -n 10 url
 #+END_SRC
 - show sub folder and file size
 #+BEGIN_SRC bash
@@ -1153,6 +1159,26 @@ sudo mount -t nfs4 -o proto=tcp,port=2049 192.168.1.199:/home/weiwu/Documents/pr
 *** IP addresses: the gory details
 - change dynamic ip to static ip:
 #+BEGIN_SRC bash
+# Ubuntu 14.04
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto eth1
+iface eth1 inet static
+address 192.168.1.128
+netmask 255.255.255.0
+network 192.168.1.1
+dns-nameservers 8.8.8.8
+
+auto eth0
+iface eth0 inet static
+address 192.168.1.199
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 8.8.8.8
+
+# Ubuntu 16.04
 sudo gedit /etc/network/interfaces
 auto eno1
 iface eno1 inet static
