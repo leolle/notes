@@ -618,6 +618,7 @@ wget “<DOWNLOAD_URL>”
 - download with axel
 #+BEGIN_SRC bash
 axel -n 10 url
+unzip *.zip -d folder/
 #+END_SRC
 - show sub folder and file size
 #+BEGIN_SRC bash

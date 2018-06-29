@@ -686,8 +686,9 @@ result = sh.download(meta.get(‘DOI’), path=title + ‘.pdf’)
 - [ ] captcha验证
 - [ ] 上传DOI, pdf到服务器
 
-***** TODO twitter account monitoring
+***** twitter account monitoring
 monitor AI accounts' newsest tweets, send tweets including the paper mentioned to users daily.
 
+***** TODO design a QT UI for the downloader.
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
