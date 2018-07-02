@@ -487,6 +487,12 @@ Find comprehension QA dataset, which answers these questions need deep understan
 ** June 2018
 *** negative thinking will shut your brain down. feel safe and speak frankly.<2018-06-12 Tue>
 *** review your daily job with the purpose, so you can improve your skill, increase your working efficiency.<2018-06-19 Tue>
+*** productive meetings<2018-06-25 Mon>
+1. Make sure everyone is on the same page
+2. Use a whiteboard to stay on track
+3. Assign follow up
+4. Use the "two-minute rule"
+*** Give alert when you waiting for somebody else to finish the rest of the job.<2018-06-29 Fri>
 * 2018 second half
 
 * Footnotes

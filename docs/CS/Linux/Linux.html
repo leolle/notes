@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-14 Thu 11:51 -->
+<!-- 2018-07-02 Mon 15:24 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -1475,6 +1475,17 @@ xclip -o
 <div class="org-src-container">
 
 <pre class="src src-shell">wget -c -t <span style="color: #AE81FF;">0</span> --timeout=<span style="color: #AE81FF;">10</span> --waitretry=<span style="color: #AE81FF;">10</span> url
+<span style="color: #75715E;"># </span><span style="color: #75715E;">zsh: parse error near &amp;</span>
+wget &#8220;&lt;DOWNLOAD_URL&gt;&#8221;
+</pre>
+</div>
+<ul class="org-ul">
+<li>download with axel</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">axel -n <span style="color: #AE81FF;">10</span> url
+unzip *.zip -d folder/
 </pre>
 </div>
 <ul class="org-ul">
@@ -2469,7 +2480,27 @@ sudo exportfs -v
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-bash">sudo gedit /etc/network/interfaces
+<pre class="src src-bash"><span style="color: #75715E;"># </span><span style="color: #75715E;">Ubuntu 14.04</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">interfaces(5) file used by ifup(8) and ifdown(8)</span>
+auto lo
+iface lo inet loopback
+
+auto eth1
+iface eth1 inet static
+address <span style="color: #AE81FF;">192.168.1.128</span>
+netmask <span style="color: #AE81FF;">255.255.255.0</span>
+network <span style="color: #AE81FF;">192.168.1.1</span>
+dns-nameservers <span style="color: #AE81FF;">8.8.8.8</span>
+
+auto eth0
+iface eth0 inet static
+address <span style="color: #AE81FF;">192.168.1.199</span>
+netmask <span style="color: #AE81FF;">255.255.255.0</span>
+gateway <span style="color: #AE81FF;">192.168.1.1</span>
+dns-nameservers <span style="color: #AE81FF;">8.8.8.8</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Ubuntu 16.04</span>
+sudo gedit /etc/network/interfaces
 auto eno1
 iface eno1 inet static
 address <span style="color: #AE81FF;">192.168.1.73</span>
