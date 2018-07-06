@@ -666,8 +666,8 @@ CLOSED: [2018-06-19 Tue 11:06]
 
 ***** entity linking for author.
 
-***** extract table and figure from pdf.
-
+***** TODO extract table and figure from pdf.
+use pdfminer.six dumppdf.py
 ***** rename an uploaded pdf.
 
 ***** Usage:
@@ -686,9 +686,11 @@ result = sh.download(meta.get(‘DOI’), path=title + ‘.pdf’)
 - [ ] captcha验证
 - [ ] 上传DOI, pdf到服务器
 
-***** twitter account monitoring
+***** twitter account monitoring.
 monitor AI accounts' newsest tweets, send tweets including the paper mentioned to users daily.
 
 ***** TODO design a QT UI for the downloader.
+
+***** add tensorflow & estimator into Jupyter notebook.
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"
