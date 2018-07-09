@@ -16,6 +16,7 @@
     + [[file:CS/Python/HighPerformancePython.org][HighPerformancePython]]
     + [[file:CS/Python/PythonForFinance.org][PythonForFinance]]
     + [[file:CS/Python/sqlalchemy.org][sqlalchemy]]
+    + [[file:CS/Python/interview.org][PythonInterview]]
   + Database
     + [[file:Database/DBMS.org][DBMS]]
     + [[file:CS/DB.org][DB]]
