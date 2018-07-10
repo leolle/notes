@@ -18,26 +18,296 @@
 #+HTML: </div>
 
 http://www.10tiao.com/html/383/201801/2247486052/1.html
+
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+#+BEGIN_SRC txt
+
+#+END_SRC
+
+#+BEGIN_SRC bash
+
+#+END_SRC
+
+#+BEGIN_SRC python
+
+#+END_SRC
+
 * 1000道Python题库系列分享一（17道）
 
 1.1  到Python官方网站下载并安装Python解释器环境。
+
 1.2  到Anaconda官方网站下载并安装最新的Anaconda3开发环境。
+
 1.3  Python程序的__name__的作用是什么？
-#+results:
-: module的命名
-1.4  Python安装扩展库常用的工具是______pip____和conda，其中后者需要安装Python集成开发环境Anaconda3之后才可以使用，而前者是Python官方推荐和标配的。
-1.5  Python程序文件扩展名主要有_____.py_____和___.pyw_______两种，其中后者常用于GUI程序。
-1.6  Python源代码程序伪编译后的文件扩展名为___.pyc_______。
-1.7  使用pip工具在线安装Excel文件操作扩展库openpyxl的完整命令是__________。
+#+BEGIN_SRC txt
+每个Python程序都有一个__name__变量，用来表示程序的运行方式。当作为模块导入时，__name__变量的值等于程序文件名，当直接运行程序时其值为字符串’__main__’。
+#+END_SRC
+#+BEGIN_SRC python
+#!/usr/bin/python
+# Filename: using_name.py
+
+if __name__ == '__main__':
+	print 'This program is being run by itself'
+else:
+	print 'I am being imported from another module'
+
+#+END_SRC
+
 #+RESULTS:
-: pip install openpyxl
+: $ python using_name.py
+: This program is being run by itself
+
+#+RESULTS:
+: $ python
+: >>> import using_name
+: I am being imported from another module
+
+1.4  Python安装扩展库常用的工具是______pip____和conda，其中后者需要安装Python集成开发环境Anaconda3之后才可以使用，而前者是Python官方推荐和标配的。
+
+1.5  Python程序文件扩展名主要有_____.py_____和___.pyw_______两种，其中后者常用于GUI程序。
+
+1.6  Python源代码程序伪编译后的文件扩展名为___.pyc_______。
+
+1.7  使用pip工具在线安装Excel文件操作扩展库openpyxl的完整命令是__________。
+#+BEGIN_SRC bash
+pip install openpyxl
+#+END_SRC
+
 1.8  使用pip工具在线升级科学计算扩展库numpy的完整命令是__________。
+#+BEGIN_SRC bash
+pip install numpy --update
+#+END_SRC
+
 1.9  使用pip工具把本机已安装的Python扩展库及版本信息输出到文本文件requirements.txt中的完整命令是__________。
+#+BEGIN_SRC bash
+pip freeze > requirements.txt
+#+END_SRC
+
 1.10  使用pip工具查看当前已安装的Python扩展库（不含版本号）的完整命令是__________。
+#+BEGIN_SRC bash
+pip list
+#+END_SRC
+
 1.11  判断对错：Python是一种跨平台、开源、免费的高级动态编程语言。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
 1.12  判断对错：Python 3.x完全兼容Python 2.x。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
 1.13  判断对错：在Windows平台上编写的Python程序无法在Unix平台运行。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
 1.14  判断对错：不可以在同一台计算机上安装多个Python版本。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
 1.15  判断对错：pip命令支持使用扩展名为whl的文件离线安装Python扩展库。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
 1.16  判断对错：下载whl文件进行离线安装扩展库时，因为whl文件的名字都比较长，可以改成短一些的名字再使用pip进行安装。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
 1.17  判断对错：用来安装Python扩展库的pip命令应该在命令提示符环境下运行，如果安装了多个版本的Python，最好切换至相应版本的Python安装目录下运行。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+* 1000道Python题库系列分享二（48道）
+2.1  表达式int('11111', 2)的值为__________。
+#+BEGIN_SRC text
+In [210]: int?
+Init signature: int(self, /, *args, **kwargs)
+Docstring:
+int(x=0) -> integer
+int(x, base=10) -> integer
+
+Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.
+
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by '+' or '-' and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+>>> int('0b100', base=0)
+4
+Type:           type
+#+END_SRC
+
+#+BEGIN_SRC text
+此题为：base=2, 1+2+4+8+16=31
+#+END_SRC
+
+2.2  表达式chr(ord('D')+2)的值为__________。
+#+BEGIN_SRC text
+In [253]: ord?
+Signature: ord(c, /)
+Docstring: Return the Unicode code point for a one-character string.
+Type:      builtin_function_or_method
+
+In [255]: chr?
+Signature: chr(i, /)
+Docstring: Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff.
+Type:      builtin_function_or_method
+#+END_SRC
+
+2.3  简单解释Python基于值的内存管理模式。
+
+2.4  简单解释运算符/和//的区别。
+#+BEGIN_SRC text
+/普通除法，//取余数。
+#+END_SRC
+
+2.5  运算符%__________（可以/不可以）对浮点数进行求余数操作。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.6  一个数字5__________（是/不是）合法的Python表达式。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.7  判断对错：在Python 3.x中，内置函数input()把用户的键盘输入一律作为字符串返回。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.8  在Python中关键字__________表示空类型。
+#+BEGIN_SRC txt
+None
+#+END_SRC
+
+2.9  列表、元组、字符串是Python的__________(有序、无序？)序列。
+
+2.10  查看变量类型的Python内置函数是__________。
+#+BEGIN_SRC txt
+type
+#+END_SRC
+
+2.11  查看对象内存地址的Python内置函数是__________。
+#+BEGIN_SRC python
+addr()
+#+END_SRC
+
+2.12  以3为实部4为虚部，Python复数的表达形式为__________或__________。
+#+BEGIN_SRC python
+3+4j, (3+4j)
+#+END_SRC
+2.13  Python运算符中用来计算整商的是__________。
+
+2.14  Python运算符中用来计算集合并集的是__________。
+
+2.15  Python运算符中用来计算集合差集的是__________。
+
+2.16  Python运算符中用来计算集合交集的是__________。
+
+2.17  使用运算符测试集合A是否为集合B的真子集的表达式可以写作__________。
+
+2.18  __________命令既可以删除列表中的一个元素，也可以删除整个列表或其他任意类型的Python对象。
+
+2.19  表达式int('123', 16)的值为_____123, 16_____。
+
+2.20  表达式int('123', 8)的值为_______123, 8___。
+
+2.21  表达式int('123')的值为_______123___。
+
+2.22  表达式int('101',2)的值为_____101,2_____。
+
+2.23  表达式abs(-3)的值为_______3___。
+
+2.24  Python 3.x语句print(1, 2, 3, sep=':')的输出结果为__________。
+
+2.25  Python 3.x语句print(1, 2, 3, sep=',')的输出结果为__________。
+
+2.26  表达式int(4**0.5)的值为__________。
+
+2.27  表达式8 ** (1/3)的值为__________。
+
+2.28  Python内置函数__________可以返回列表、元组、字典、集合、字符串以及range对象中元素个数。
+
+2.29  Python内置函数____max______用来返回序列中的最大元素。
+
+2.30  Python内置函数_______min___用来返回序列中的最小元素。
+
+2.31  Python内置函数______sum____用来返回数值型序列中所有元素之和。
+
+2.32  已知x = 3，那么执行语句x += 6之后，x的值为___9_______。
+
+2.33  表达式13 / 4的值为______3____。
+
+2.34  表达式13 // 4的值为__________。
+
+2.35  表达式-13 // 4的值为__________。
+
+2.36  表达式3 ** 2的值为____9______。
+
+2.37  表达式chr(ord('a')-32) 的值为__________。
+
+2.38  表达式abs(3+4j) 的值为__________。
+
+2.39  表达式16 ** 0.5的值为__4________。
+
+2.40  表达式type({3})的值为__________。
+#+BEGIN_SRC txt
+dict
+#+END_SRC
+
+2.41  表达式type({3:3})的值为__________。
+#+BEGIN_SRC txt
+dict
+#+END_SRC
+
+2.42  表达式isinstance('Hello world', str)的值为__________。
+#+BEGIN_SRC txt
+True
+#+END_SRC
+
+2.43  表达式isinstance('abc', int)的值为__________。
+#+BEGIN_SRC txt
+False
+#+END_SRC
+
+2.44  表达式isinstance(4j, (int, float, complex))的值为__________。
+#+BEGIN_SRC txt
+False
+#+END_SRC
+
+2.45  表达式isinstance('4', (int, float, complex))的值为__________。
+#+BEGIN_SRC txt
+False
+#+END_SRC
+
+2.46  表达式type(3) in (int, float, complex)的值为__________。
+#+BEGIN_SRC txt
+True
+#+END_SRC
+
+2.47  表达式type('3') in (int, float, complex)的值为__________。
+#+BEGIN_SRC txt
+False
+#+END_SRC
+
+2.48  表达式type(3) == int的值为__________。
+#+BEGIN_SRC txt
+True
+#+END_SRC

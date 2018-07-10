@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-07-09 Mon 12:02 -->
+<!-- 2018-07-09 Mon 14:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -150,6 +150,7 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. 1000道Python题库系列分享一（17道）</a></li>
+<li><a href="#orgheadline2">2. 1000道Python题库系列分享二（48道）</a></li>
 </ul>
 </div>
 </div>
@@ -170,7 +171,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-07-09 12:02:14</td>
+<td class="org-left">2018-07-09 14:27:17</td>
 </tr>
 
 <tr>
@@ -184,37 +185,377 @@ for the JavaScript code in this tag.
 <p>
 <a href="http://www.10tiao.com/html/383/201801/2247486052/1.html">http://www.10tiao.com/html/383/201801/2247486052/1.html</a>
 </p>
+
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-txt"></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-bash"></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"></pre>
+</div>
+
 <div id="outline-container-orgheadline1" class="outline-2">
 <h2 id="orgheadline1"><span class="section-number-2">1</span> 1000道Python题库系列分享一（17道）</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 1.1  到Python官方网站下载并安装Python解释器环境。
+</p>
+
+<p>
 1.2  到Anaconda官方网站下载并安装最新的Anaconda3开发环境。
+</p>
+
+<p>
 1.3  Python程序的_<sub>name</sub>_<sub>的作用是什么</sub>？
 </p>
-<pre class="example">
-module的命名
+<div class="org-src-container">
+
+<pre class="src src-txt">每个Python程序都有一个__name__变量，用来表示程序的运行方式。当作为模块导入时，__name__变量的值等于程序文件名，当直接运行程序时其值为字符串’__main__’。
 </pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;">#</span><span style="color: #75715E;">!/usr/bin/python</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Filename: using_name.py</span>
+
+<span style="color: #F92672;">if</span> <span style="color: #F92672;">__name__</span> == <span style="color: #E6DB74;">'__main__'</span>:
+  <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'This program is being run by itself'</span>
+<span style="color: #F92672;">else</span>:
+  <span style="color: #F92672;">print</span> <span style="color: #E6DB74;">'I am being imported from another module'</span>
+</pre>
+</div>
+
+<pre class="example">
+$ python
+&gt;&gt;&gt; import using_name
+I am being imported from another module
+</pre>
+
 <p>
 1.4  Python安装扩展库常用的工具是_____<sub>pip</sub>___<sub>和conda</sub>，其中后者需要安装Python集成开发环境Anaconda3之后才可以使用，而前者是Python官方推荐和标配的。
+</p>
+
+<p>
 1.5  Python程序文件扩展名主要有____<sub>.py</sub>____<sub>和</sub>__<sub>.pyw</sub>______<sub>两种</sub>，其中后者常用于GUI程序。
+</p>
+
+<p>
 1.6  Python源代码程序伪编译后的文件扩展名为__<sub>.pyc</sub>_______。
+</p>
+
+<p>
 1.7  使用pip工具在线安装Excel文件操作扩展库openpyxl的完整命令是__________。
 </p>
-<pre class="example">
-pip install openpyxl
+<div class="org-src-container">
+
+<pre class="src src-bash">pip install openpyxl
 </pre>
+</div>
+
 <p>
 1.8  使用pip工具在线升级科学计算扩展库numpy的完整命令是__________。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">pip install numpy --update
+</pre>
+</div>
+
+<p>
 1.9  使用pip工具把本机已安装的Python扩展库及版本信息输出到文本文件requirements.txt中的完整命令是__________。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">pip freeze &gt; requirements.txt
+</pre>
+</div>
+
+<p>
 1.10  使用pip工具查看当前已安装的Python扩展库（不含版本号）的完整命令是__________。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">pip list
+</pre>
+</div>
+
+<p>
 1.11  判断对错：Python是一种跨平台、开源、免费的高级动态编程语言。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
 1.12  判断对错：Python 3.x完全兼容Python 2.x。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
 1.13  判断对错：在Windows平台上编写的Python程序无法在Unix平台运行。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
 1.14  判断对错：不可以在同一台计算机上安装多个Python版本。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
 1.15  判断对错：pip命令支持使用扩展名为whl的文件离线安装Python扩展库。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
 1.16  判断对错：下载whl文件进行离线安装扩展库时，因为whl文件的名字都比较长，可以改成短一些的名字再使用pip进行安装。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
 1.17  判断对错：用来安装Python扩展库的pip命令应该在命令提示符环境下运行，如果安装了多个版本的Python，最好切换至相应版本的Python安装目录下运行。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> 1000道Python题库系列分享二（48道）</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+2.1  表达式int('11111', 2)的值为__________。
+</p>
+
+<p>
+2.2  表达式chr(ord('D')+2)的值为__________。
+</p>
+
+<p>
+2.3  简单解释Python基于值的内存管理模式。
+</p>
+
+<p>
+2.4  简单解释运算符/和//的区别。
+</p>
+
+<p>
+2.5  运算符%__________（可以/不可以）对浮点数进行求余数操作。
+</p>
+
+<p>
+2.6  一个数字5__________（是/不是）合法的Python表达式。
+</p>
+
+<p>
+2.7  判断对错：在Python 3.x中，内置函数input()把用户的键盘输入一律作为字符串返回。
+</p>
+
+<p>
+2.8  在Python中关键字_________<sub>表示空类型</sub>。
+</p>
+
+<p>
+2.9  列表、元组、字符串是Python的_________<sub>(有序、无序？)</sub>序列。
+</p>
+
+<p>
+2.10  查看变量类型的Python内置函数是__________。
+</p>
+
+<p>
+2.11  查看对象内存地址的Python内置函数是__________。
+</p>
+
+<p>
+2.12  以3为实部4为虚部，Python复数的表达形式为_________<sub>或</sub>__________。
+</p>
+
+<p>
+2.13  Python运算符中用来计算整商的是__________。
+</p>
+
+<p>
+2.14  Python运算符中用来计算集合并集的是__________。
+</p>
+
+<p>
+2.15  Python运算符中用来计算集合差集的是__________。
+</p>
+
+<p>
+2.16  Python运算符中用来计算集合交集的是__________。
+</p>
+
+<p>
+2.17  使用运算符测试集合A是否为集合B的真子集的表达式可以写作__________。
+</p>
+
+<p>
+2.18  _________<sub>命令既可以删除列表中的一个元素</sub>，也可以删除整个列表或其他任意类型的Python对象。
+</p>
+
+<p>
+2.19  表达式int('123', 16)的值为__________。
+</p>
+
+<p>
+2.20  表达式int('123', 8)的值为__________。
+</p>
+
+<p>
+2.21  表达式int('123')的值为__________。
+</p>
+
+<p>
+2.22  表达式int('101',2)的值为__________。
+</p>
+
+<p>
+2.23  表达式abs(-3)的值为__________。
+</p>
+
+<p>
+2.24  Python 3.x语句print(1, 2, 3, sep=':')的输出结果为__________。
+</p>
+
+<p>
+2.25  Python 3.x语句print(1, 2, 3, sep=',')的输出结果为__________。
+</p>
+
+<p>
+2.26  表达式int(4**0.5)的值为__________。
+</p>
+
+<p>
+2.27  表达式8 ** (1/3)的值为__________。
+</p>
+
+<p>
+2.28  Python内置函数_________<sub>可以返回列表</sub>、元组、字典、集合、字符串以及range对象中元素个数。
+</p>
+
+<p>
+2.29  Python内置函数_________<sub>用来返回序列中的最大元素</sub>。
+</p>
+
+<p>
+2.30  Python内置函数_________<sub>用来返回序列中的最小元素</sub>。
+</p>
+
+<p>
+2.31  Python内置函数_________<sub>用来返回数值型序列中所有元素之和</sub>。
+</p>
+
+<p>
+2.32  已知x = 3，那么执行语句x += 6之后，x的值为__________。
+</p>
+
+<p>
+2.33  表达式13 / 4的值为__________。
+</p>
+
+<p>
+2.34  表达式13 // 4的值为__________。
+</p>
+
+<p>
+2.35  表达式-13 // 4的值为__________。
+</p>
+
+<p>
+2.36  表达式3 ** 2的值为__________。
+</p>
+
+<p>
+2.37  表达式chr(ord('a')-32) 的值为__________。
+</p>
+
+<p>
+2.38  表达式abs(3+4j) 的值为__________。
+</p>
+
+<p>
+2.39  表达式16 ** 0.5的值为__________。
+</p>
+
+<p>
+2.40  表达式type({3})的值为__________。
+</p>
+
+<p>
+2.41  表达式type({3:3})的值为__________。
+</p>
+
+<p>
+2.42  表达式isinstance('Hello world', str)的值为__________。
+</p>
+
+<p>
+2.43  表达式isinstance('abc', int)的值为__________。
+</p>
+
+<p>
+2.44  表达式isinstance(4j, (int, float, complex))的值为__________。
+</p>
+
+<p>
+2.45  表达式isinstance('4', (int, float, complex))的值为__________。
+</p>
+
+<p>
+2.46  表达式type(3) in (int, float, complex)的值为__________。
+</p>
+
+<p>
+2.47  表达式type('3') in (int, float, complex)的值为__________。
+</p>
+
+<p>
+2.48  表达式type(3) == int的值为__________。
 </p>
 </div>
 </div>
