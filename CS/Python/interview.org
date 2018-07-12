@@ -131,8 +131,8 @@ Yes
 #+END_SRC
 
 * 1000道Python题库系列分享二（48道）
-2.1  表达式int('11111', 2)的值为__________。
-#+BEGIN_SRC text
+*2.1  表达式int('11111', 2)的值为__________。*
+#+BEGIN_SRC python
 In [210]: int?
 Init signature: int(self, /, *args, **kwargs)
 Docstring:
@@ -153,6 +153,20 @@ Base 0 means to interpret the base from the string as an integer literal.
 Type:           type
 #+END_SRC
 
+#+BEGIN_SRC python
+# binary 0b or 0B
+print("For 1010, int is:", int('1010', 2))
+print("For 0b1010, int is:", int('0b1010', 2))
+
+# octal 0o or 0O
+print("For 12, int is:", int('12', 8))
+print("For 0o12, int is:", int('0o12', 8))
+
+# hexadecimal
+print("For A, int is:", int('A', 16))
+print("For 0xA, int is:", int('0xA', 16))
+#+END_SRC
+
 #+BEGIN_SRC text
 此题为：base=2, 1+2+4+8+16=31
 #+END_SRC
@@ -170,11 +184,13 @@ Docstring: Return a Unicode string of one character with ordinal i; 0 <= i <= 0x
 Type:      builtin_function_or_method
 #+END_SRC
 
-2.3  简单解释Python基于值的内存管理模式。
-
+*2.3  简单解释Python基于值的内存管理模式。*
+#+BEGIN_SRC text
+Python采用的是基于值得内存管理方式，在Python中可以为不同变量赋值为相同值，这个值在内存中只有一份，多个变量指向同一个内存地址；Python具有自动内存管理功能，会自动跟踪内存中所有的值，对于没有任何变量指向的值，Python自动将其删除。
+#+END_SRC
 2.4  简单解释运算符/和//的区别。
 #+BEGIN_SRC text
-/普通除法，//取余数。
+/普通真除法，//取整数。
 #+END_SRC
 
 2.5  运算符%__________（可以/不可以）对浮点数进行求余数操作。
@@ -197,37 +213,38 @@ Yes
 None
 #+END_SRC
 
-2.9  列表、元组、字符串是Python的__________(有序、无序？)序列。
+2.9  列表、元组、字符串是Python的____有序______(有序、无序？)序列。
 
 2.10  查看变量类型的Python内置函数是__________。
 #+BEGIN_SRC txt
 type
 #+END_SRC
 
-2.11  查看对象内存地址的Python内置函数是__________。
+*2.11  查看对象内存地址的Python内置函数是__________。*
 #+BEGIN_SRC python
-addr()
+id()
 #+END_SRC
 
 2.12  以3为实部4为虚部，Python复数的表达形式为__________或__________。
 #+BEGIN_SRC python
-3+4j, (3+4j)
+3+4j, (3+4J)
 #+END_SRC
-2.13  Python运算符中用来计算整商的是__________。
 
-2.14  Python运算符中用来计算集合并集的是__________。
+2.13  Python运算符中用来计算整商的是_______//___。
 
-2.15  Python运算符中用来计算集合差集的是__________。
+2.14  Python运算符中用来计算集合并集的是_____|_____。
 
-2.16  Python运算符中用来计算集合交集的是__________。
+2.15  Python运算符中用来计算集合差集的是______-____。
 
-2.17  使用运算符测试集合A是否为集合B的真子集的表达式可以写作__________。
+2.16  Python运算符中用来计算集合交集的是_______&___。
 
-2.18  __________命令既可以删除列表中的一个元素，也可以删除整个列表或其他任意类型的Python对象。
+2.17  使用运算符测试集合A是否为集合B的真子集的表达式可以写作___A<B_______。
 
-2.19  表达式int('123', 16)的值为_____123, 16_____。
+2.18  ___del_______命令既可以删除列表中的一个元素，也可以删除整个列表或其他任意类型的Python对象。
 
-2.20  表达式int('123', 8)的值为_______123, 8___。
+2.19  表达式int('123', 16)的值为__________。
+
+2.20  表达式int('123', 8)的值为__________。
 
 2.21  表达式int('123')的值为_______123___。
 
@@ -239,37 +256,37 @@ addr()
 
 2.25  Python 3.x语句print(1, 2, 3, sep=',')的输出结果为__________。
 
-2.26  表达式int(4**0.5)的值为__________。
+2.26  表达式int(4**0.5)的值为__2________。
 
-2.27  表达式8 ** (1/3)的值为__________。
+2.27  表达式8 ** (1/3)的值为____2.0______。
 
-2.28  Python内置函数__________可以返回列表、元组、字典、集合、字符串以及range对象中元素个数。
+2.28  Python内置函数____len()______可以返回列表、元组、字典、集合、字符串以及range对象中元素个数。
 
-2.29  Python内置函数____max______用来返回序列中的最大元素。
+2.29  Python内置函数____max()______用来返回序列中的最大元素。
 
-2.30  Python内置函数_______min___用来返回序列中的最小元素。
+2.30  Python内置函数_______min()___用来返回序列中的最小元素。
 
-2.31  Python内置函数______sum____用来返回数值型序列中所有元素之和。
+2.31  Python内置函数______sum()____用来返回数值型序列中所有元素之和。
 
 2.32  已知x = 3，那么执行语句x += 6之后，x的值为___9_______。
 
-2.33  表达式13 / 4的值为______3____。
+2.33  表达式13 / 4的值为______3.25____。
 
-2.34  表达式13 // 4的值为__________。
+2.34  表达式13 // 4的值为____3______。
 
-2.35  表达式-13 // 4的值为__________。
+2.35  表达式-13 // 4的值为____-4______。
 
 2.36  表达式3 ** 2的值为____9______。
 
 2.37  表达式chr(ord('a')-32) 的值为__________。
 
-2.38  表达式abs(3+4j) 的值为__________。
+2.38  表达式abs(3+4j) 的值为____5.0______。
 
 2.39  表达式16 ** 0.5的值为__4________。
 
-2.40  表达式type({3})的值为__________。
+*2.40  表达式type({3})的值为__________。*
 #+BEGIN_SRC txt
-dict
+set
 #+END_SRC
 
 2.41  表达式type({3:3})的值为__________。
@@ -289,7 +306,7 @@ False
 
 2.44  表达式isinstance(4j, (int, float, complex))的值为__________。
 #+BEGIN_SRC txt
-False
+True
 #+END_SRC
 
 2.45  表达式isinstance('4', (int, float, complex))的值为__________。
@@ -310,4 +327,156 @@ False
 2.48  表达式type(3) == int的值为__________。
 #+BEGIN_SRC txt
 True
+#+END_SRC
+
+* 1000道Python题库系列分享三（30道）
+
+2.49  判断对错：已知x = 3，那么赋值语句x = 'abcedfg'是无法正常执行的。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.50  判断对错：Python变量使用前必须先声明，并且一旦声明就不能在当前作用域内改变其类型了。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.51  判断对错：Python不允许使用关键字作为变量名，但是允许使用内置函数名作为变量名，不过这会改变函数名的含义，所以不建议这样做。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.52  判断对错：在Python中可以使用if作为变量名。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.53  判断对错：在Python 3.x中可以使用中文作为变量名。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.54  判断对错：Python变量名必须以字母或下划线开头，并且区分字母大小写。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.55  判断对错：加法运算符可以用来连接字符串并生成新字符串。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.56  判断对错：x = 9999**9999这样的语句在Python中无法运行，因为数字太大了超出了整型变量的表示范围。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.57  判断对错：3+4j不是合法的Python表达式。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.58  判断对错：0o12f是合法的八进制数字。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.59  判断对错：只有Python扩展库才需要导入以后才能使用其中的对象，Python标准库不需要导入即可使用其中的所有对象。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.60  判断对错：在Python中0xad是合法的十六进制数字表示形式。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.61  判断对错：4j 是合法Python数字类型。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.62  判断对错：Python使用缩进来体现代码之间的逻辑关系，对缩进的要求非常严格。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.63  判断对错：Python代码的注释只有一种方式，那就是使用#符号。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.64  判断对错：放在一对三引号之间的任何内容将被认为是注释。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.65  判断对错：尽管可以使用import语句一次导入任意多个标准库或扩展库，但是仍建议每次只导入一个标准库或扩展库。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.66  判断对错：为了让代码更加紧凑，编写Python程序时应尽量避免加入空格和空行。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.67  判断对错：在Python 3.5中运算符+不仅可以实现数值的相加、字符串连接，还可以实现列表、元组的连接和集合的并集运算。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.68  判断对错：在Python中可以使用 for 作为变量名。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.69  判断对错：在Python中可以使用 id 作为变量名，但是不建议这样做。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.70  判断对错：一个数字5也是合法的Python表达式。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.71  判断对错：执行语句from math import sin之后，可以直接使用sin()函数，例如 sin(3)。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.72  判断对错：一般来说，Python扩展库没有通用于所有版本Python的，安装时应选择与已安装Python的版本对应的扩展库。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.73  判断对错：Python变量名区分大小写，所以student和Student不是同一个变量。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.74  判断对错：在Python 3.x中reduce()是内置函数。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.75  判断对错：如果只需要math模块中的sin()函数，建议使用from math import sin来导入，而不要使用import math导入整个模块。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.76  判断对错：表达式pow(3, 2) == 3 ** 2的值为True。
+#+BEGIN_SRC txt
+Yes
+#+END_SRC
+
+2.77  判断对错：已知x = 3，那么执行语句x+=6之后，x的内存地址不变。
+#+BEGIN_SRC txt
+No
+#+END_SRC
+
+2.78  判断对错：安装Python扩展库时只能使用pip工具在线安装，如果安装不成功就没有别的办法了。
+#+BEGIN_SRC txt
+No
 #+END_SRC

@@ -679,7 +679,6 @@ meta = sh.find_meta(title)
 result = sh.download(meta.get(‘DOI’), path=title + ‘.pdf’)
 #+END_SRC
 
-
 - [X] 2. Search for articles on Google Scholar and download them:
 
 ***** issues:
@@ -692,5 +691,31 @@ monitor AI accounts' newsest tweets, send tweets including the paper mentioned t
 ***** TODO design a QT UI for the downloader.
 
 ***** add tensorflow & estimator into Jupyter notebook.
+
+**** machine reading for scientific paper.
+
+***** machine reading/comprehension for scientific paper.
+Hermann, K. M., Kočiský, T., Grefenstette, E., Espeholt, L., Kay, W., Suleyman, M., & Blunsom, P. (2015). Teaching Machines to Read and Comprehend, 1–9. https://doi.org/10.1109/72.410363
+
+***** transfer article summary bullets into questions.
+
+
+***** event extraction from scientific paprser.
+
+***** extract abstract/reference/full-text from scholar paper.
+Lopez, P., & Romary, L. (2010). HUMB : Automatic Key Term Extraction from Scientific Articles in GROBID. Proceedings of the 5th International Workshop on Semantic Evaluation, (July), 248–251. Retrieved from http://aclweb.org/anthology/S/S10/S10-1055.pdf
+
+Romary, L., & Lopez, P. (2017). GROBID - Information Extraction from Scientific Publications To cite this version : HAL Id : hal-01673305.
+
+***** extract core claims/sentences.
+Jansen, T., & Kuhn, T. (2017). Extracting core claims from scientific articles. Communications in Computer and Information Science, 765, 32–46. https://doi.org/10.1007/978-3-319-67468-1_3
+
+Augenstein, I., Das, M., Riedel, S., Vikraman, L., & McCallum, A. (2017). SemEval 2017 Task 10: ScienceIE - Extracting Keyphrases and Relations from Scientific Publications. https://doi.org/10.18653/v1/S17-2091
+
+***** information extraction for scientific paper.
+Chen, J., & Chen, H. (2013). A structured information extraction algorithm for scientific papers based on feature rules learning. Journal of Software, 8(1), 55–62. https://doi.org/10.4304/jsw.8.1.55-62
+
+Ronzano, F., & Saggion, H. (2016). Knowledge extraction and modeling from scientific publications. Lecture Notes in Computer Science (Including Subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics), 9792 LNCS, 11–25. https://doi.org/10.1007/978-3-319-53637-8_2
+
 * Paper Summary
 #+INCLUDE: "notes/PaperSummary.org"

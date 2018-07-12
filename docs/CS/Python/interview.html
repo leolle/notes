@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-07-09 Mon 14:27 -->
+<!-- 2018-07-12 Thu 19:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -151,6 +151,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline1">1. 1000道Python题库系列分享一（17道）</a></li>
 <li><a href="#orgheadline2">2. 1000道Python题库系列分享二（48道）</a></li>
+<li><a href="#orgheadline3">3. 1000道Python题库系列分享三（30道）</a></li>
 </ul>
 </div>
 </div>
@@ -171,7 +172,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-07-09 14:27:17</td>
+<td class="org-left">2018-07-12 19:10:24</td>
 </tr>
 
 <tr>
@@ -367,75 +368,176 @@ I am being imported from another module
 <h2 id="orgheadline2"><span class="section-number-2">2</span> 1000道Python题库系列分享二（48道）</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-2.1  表达式int('11111', 2)的值为__________。
+<b>2.1  表达式int('11111', 2)的值为__________。</b>
 </p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">210</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">int</span>?
+Init signature: <span style="color: #F92672;">int</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">self</span>, /, *args, **kwargs<span style="color: #AE81FF;">)</span>
+Docstring:
+<span style="color: #F92672;">int</span><span style="color: #AE81FF;">(</span>x=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span> -&gt; integer
+<span style="color: #F92672;">int</span><span style="color: #AE81FF;">(</span>x, base=<span style="color: #AE81FF;">10</span><span style="color: #AE81FF;">)</span> -&gt; integer
+
+Convert a number <span style="color: #F92672;">or</span> string to an integer, <span style="color: #F92672;">or</span> <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">0</span> <span style="color: #F92672;">if</span> no arguments
+are given.  If x <span style="color: #F92672;">is</span> a number, <span style="color: #F92672;">return</span> x.__int__<span style="color: #AE81FF;">()</span>.  For floating point
+numbers, this truncates towards zero.
+
+If x <span style="color: #F92672;">is</span> <span style="color: #F92672;">not</span> a number <span style="color: #F92672;">or</span> <span style="color: #F92672;">if</span> base <span style="color: #F92672;">is</span> given, then x must be a string,
+<span style="color: #F92672;">bytes</span>, <span style="color: #F92672;">or</span> <span style="color: #F92672;">bytearray</span> instance representing an integer literal <span style="color: #F92672;">in</span> the
+given base.  The literal can be preceded by <span style="color: #E6DB74;">'+'</span> <span style="color: #F92672;">or</span> <span style="color: #E6DB74;">'-'</span> <span style="color: #F92672;">and</span> be surrounded
+by whitespace.  The base defaults to <span style="color: #AE81FF;">10</span>.  Valid bases are <span style="color: #AE81FF;">0</span> <span style="color: #F92672;">and</span> <span style="color: #AE81FF;">2</span>-<span style="color: #AE81FF;">36</span>.
+Base <span style="color: #AE81FF;">0</span> means to interpret the base <span style="color: #F92672;">from</span> the string <span style="color: #F92672;">as</span> an integer literal.
+&gt;&gt;&gt; <span style="color: #F92672;">int</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'0b100'</span>, base=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">4</span>
+Type:           <span style="color: #F92672;">type</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #75715E;"># </span><span style="color: #75715E;">binary 0b or 0B</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"For 1010, int is:"</span>, <span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'1010'</span>, <span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"For 0b1010, int is:"</span>, <span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'0b1010'</span>, <span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">octal 0o or 0O</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"For 12, int is:"</span>, <span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'12'</span>, <span style="color: #AE81FF;">8</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"For 0o12, int is:"</span>, <span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'0o12'</span>, <span style="color: #AE81FF;">8</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">hexadecimal</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"For A, int is:"</span>, <span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'A'</span>, <span style="color: #AE81FF;">16</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"For 0xA, int is:"</span>, <span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'0xA'</span>, <span style="color: #AE81FF;">16</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-text">&#27492;&#39064;&#20026;&#65306;base=2, 1+2+4+8+16=31
+</pre>
+</div>
 
 <p>
 2.2  表达式chr(ord('D')+2)的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-text">In [253]: ord?
+Signature: ord(c, /)
+Docstring: Return the Unicode code point for a one-character string.
+Type:      builtin_function_or_method
+
+In [255]: chr?
+Signature: chr(i, /)
+Docstring: Return a Unicode string of one character with ordinal i; 0 &lt;= i &lt;= 0x10ffff.
+Type:      builtin_function_or_method
+</pre>
+</div>
 
 <p>
-2.3  简单解释Python基于值的内存管理模式。
+<b>2.3  简单解释Python基于值的内存管理模式。</b>
 </p>
+<div class="org-src-container">
 
+<pre class="src src-text">Python&#37319;&#29992;&#30340;&#26159;&#22522;&#20110;&#20540;&#24471;&#20869;&#23384;&#31649;&#29702;&#26041;&#24335;&#65292;&#22312;Python&#20013;&#21487;&#20197;&#20026;&#19981;&#21516;&#21464;&#37327;&#36171;&#20540;&#20026;&#30456;&#21516;&#20540;&#65292;&#36825;&#20010;&#20540;&#22312;&#20869;&#23384;&#20013;&#21482;&#26377;&#19968;&#20221;&#65292;&#22810;&#20010;&#21464;&#37327;&#25351;&#21521;&#21516;&#19968;&#20010;&#20869;&#23384;&#22320;&#22336;&#65307;Python&#20855;&#26377;&#33258;&#21160;&#20869;&#23384;&#31649;&#29702;&#21151;&#33021;&#65292;&#20250;&#33258;&#21160;&#36319;&#36394;&#20869;&#23384;&#20013;&#25152;&#26377;&#30340;&#20540;&#65292;&#23545;&#20110;&#27809;&#26377;&#20219;&#20309;&#21464;&#37327;&#25351;&#21521;&#30340;&#20540;&#65292;Python&#33258;&#21160;&#23558;&#20854;&#21024;&#38500;&#12290;
+</pre>
+</div>
 <p>
 2.4  简单解释运算符/和//的区别。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-text">/&#26222;&#36890;&#30495;&#38500;&#27861;&#65292;//&#21462;&#25972;&#25968;&#12290;
+</pre>
+</div>
 
 <p>
 2.5  运算符%__________（可以/不可以）对浮点数进行求余数操作。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
 
 <p>
 2.6  一个数字5__________（是/不是）合法的Python表达式。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
 
 <p>
 2.7  判断对错：在Python 3.x中，内置函数input()把用户的键盘输入一律作为字符串返回。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
 
 <p>
 2.8  在Python中关键字_________<sub>表示空类型</sub>。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">None
+</pre>
+</div>
 
 <p>
-2.9  列表、元组、字符串是Python的_________<sub>(有序、无序？)</sub>序列。
+2.9  列表、元组、字符串是Python的___<sub>有序</sub>_____<sub>(有序、无序？)</sub>序列。
 </p>
 
 <p>
 2.10  查看变量类型的Python内置函数是__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">type
+</pre>
+</div>
 
 <p>
-2.11  查看对象内存地址的Python内置函数是__________。
+<b>2.11  查看对象内存地址的Python内置函数是__________。</b>
 </p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">id</span><span style="color: #AE81FF;">()</span>
+</pre>
+</div>
 
 <p>
 2.12  以3为实部4为虚部，Python复数的表达形式为_________<sub>或</sub>__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #AE81FF;">3</span>+<span style="color: #AE81FF;">4j</span>, <span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span>+<span style="color: #AE81FF;">4J</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
 
 <p>
-2.13  Python运算符中用来计算整商的是__________。
+2.13  Python运算符中用来计算整商的是_______//___。
 </p>
 
 <p>
-2.14  Python运算符中用来计算集合并集的是__________。
+2.14  Python运算符中用来计算集合并集的是_____|_____。
 </p>
 
 <p>
-2.15  Python运算符中用来计算集合差集的是__________。
+2.15  Python运算符中用来计算集合差集的是______-____。
 </p>
 
 <p>
-2.16  Python运算符中用来计算集合交集的是__________。
+2.16  Python运算符中用来计算集合交集的是_______&amp;___。
 </p>
 
 <p>
-2.17  使用运算符测试集合A是否为集合B的真子集的表达式可以写作__________。
+2.17  使用运算符测试集合A是否为集合B的真子集的表达式可以写作__<sub>A</sub>&lt;B_______。
 </p>
 
 <p>
-2.18  _________<sub>命令既可以删除列表中的一个元素</sub>，也可以删除整个列表或其他任意类型的Python对象。
+2.18  __<sub>del</sub>______<sub>命令既可以删除列表中的一个元素</sub>，也可以删除整个列表或其他任意类型的Python对象。
 </p>
 
 <p>
@@ -447,15 +549,15 @@ I am being imported from another module
 </p>
 
 <p>
-2.21  表达式int('123')的值为__________。
+2.21  表达式int('123')的值为______<sub>123</sub>___。
 </p>
 
 <p>
-2.22  表达式int('101',2)的值为__________。
+2.22  表达式int('101',2)的值为____<sub>101,2</sub>_____。
 </p>
 
 <p>
-2.23  表达式abs(-3)的值为__________。
+2.23  表达式abs(-3)的值为______<sub>3</sub>___。
 </p>
 
 <p>
@@ -467,47 +569,47 @@ I am being imported from another module
 </p>
 
 <p>
-2.26  表达式int(4**0.5)的值为__________。
+2.26  表达式int(4**0.5)的值为_<sub>2</sub>________。
 </p>
 
 <p>
-2.27  表达式8 ** (1/3)的值为__________。
+2.27  表达式8 ** (1/3)的值为___<sub>2.0</sub>______。
 </p>
 
 <p>
-2.28  Python内置函数_________<sub>可以返回列表</sub>、元组、字典、集合、字符串以及range对象中元素个数。
+2.28  Python内置函数___<sub>len</sub>()_____<sub>可以返回列表</sub>、元组、字典、集合、字符串以及range对象中元素个数。
 </p>
 
 <p>
-2.29  Python内置函数_________<sub>用来返回序列中的最大元素</sub>。
+2.29  Python内置函数___<sub>max</sub>()_____<sub>用来返回序列中的最大元素</sub>。
 </p>
 
 <p>
-2.30  Python内置函数_________<sub>用来返回序列中的最小元素</sub>。
+2.30  Python内置函数______<sub>min</sub>()__<sub>用来返回序列中的最小元素</sub>。
 </p>
 
 <p>
-2.31  Python内置函数_________<sub>用来返回数值型序列中所有元素之和</sub>。
+2.31  Python内置函数_____<sub>sum</sub>()___<sub>用来返回数值型序列中所有元素之和</sub>。
 </p>
 
 <p>
-2.32  已知x = 3，那么执行语句x += 6之后，x的值为__________。
+2.32  已知x = 3，那么执行语句x += 6之后，x的值为__<sub>9</sub>_______。
 </p>
 
 <p>
-2.33  表达式13 / 4的值为__________。
+2.33  表达式13 / 4的值为_____<sub>3.25</sub>____。
 </p>
 
 <p>
-2.34  表达式13 // 4的值为__________。
+2.34  表达式13 // 4的值为___<sub>3</sub>______。
 </p>
 
 <p>
-2.35  表达式-13 // 4的值为__________。
+2.35  表达式-13 // 4的值为___<sub>-4</sub>______。
 </p>
 
 <p>
-2.36  表达式3 ** 2的值为__________。
+2.36  表达式3 ** 2的值为___<sub>9</sub>______。
 </p>
 
 <p>
@@ -515,48 +617,368 @@ I am being imported from another module
 </p>
 
 <p>
-2.38  表达式abs(3+4j) 的值为__________。
+2.38  表达式abs(3+4j) 的值为___<sub>5.0</sub>______。
 </p>
 
 <p>
-2.39  表达式16 ** 0.5的值为__________。
+2.39  表达式16 ** 0.5的值为_<sub>4</sub>________。
 </p>
 
 <p>
-2.40  表达式type({3})的值为__________。
+<b>2.40  表达式type({3})的值为__________。</b>
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">set
+</pre>
+</div>
 
 <p>
 2.41  表达式type({3:3})的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">dict
+</pre>
+</div>
 
 <p>
 2.42  表达式isinstance('Hello world', str)的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">True
+</pre>
+</div>
 
 <p>
 2.43  表达式isinstance('abc', int)的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">False
+</pre>
+</div>
 
 <p>
 2.44  表达式isinstance(4j, (int, float, complex))的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">True
+</pre>
+</div>
 
 <p>
 2.45  表达式isinstance('4', (int, float, complex))的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">False
+</pre>
+</div>
 
 <p>
 2.46  表达式type(3) in (int, float, complex)的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">True
+</pre>
+</div>
 
 <p>
 2.47  表达式type('3') in (int, float, complex)的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">False
+</pre>
+</div>
 
 <p>
 2.48  表达式type(3) == int的值为__________。
 </p>
+<div class="org-src-container">
+
+<pre class="src src-txt">True
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> 1000道Python题库系列分享三（30道）</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+2.49  判断对错：已知x = 3，那么赋值语句x = 'abcedfg'是无法正常执行的。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.50  判断对错：Python变量使用前必须先声明，并且一旦声明就不能在当前作用域内改变其类型了。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.51  判断对错：Python不允许使用关键字作为变量名，但是允许使用内置函数名作为变量名，不过这会改变函数名的含义，所以不建议这样做。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.52  判断对错：在Python中可以使用if作为变量名。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.53  判断对错：在Python 3.x中可以使用中文作为变量名。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.54  判断对错：Python变量名必须以字母或下划线开头，并且区分字母大小写。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.55  判断对错：加法运算符可以用来连接字符串并生成新字符串。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.56  判断对错：x = 9999**9999这样的语句在Python中无法运行，因为数字太大了超出了整型变量的表示范围。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.57  判断对错：3+4j不是合法的Python表达式。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.58  判断对错：0o12f是合法的八进制数字。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.59  判断对错：只有Python扩展库才需要导入以后才能使用其中的对象，Python标准库不需要导入即可使用其中的所有对象。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.60  判断对错：在Python中0xad是合法的十六进制数字表示形式。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.61  判断对错：4j 是合法Python数字类型。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.62  判断对错：Python使用缩进来体现代码之间的逻辑关系，对缩进的要求非常严格。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.63  判断对错：Python代码的注释只有一种方式，那就是使用#符号。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.64  判断对错：放在一对三引号之间的任何内容将被认为是注释。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.65  判断对错：尽管可以使用import语句一次导入任意多个标准库或扩展库，但是仍建议每次只导入一个标准库或扩展库。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.66  判断对错：为了让代码更加紧凑，编写Python程序时应尽量避免加入空格和空行。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.67  判断对错：在Python 3.5中运算符+不仅可以实现数值的相加、字符串连接，还可以实现列表、元组的连接和集合的并集运算。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.68  判断对错：在Python中可以使用 for 作为变量名。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.69  判断对错：在Python中可以使用 id 作为变量名，但是不建议这样做。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.70  判断对错：一个数字5也是合法的Python表达式。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.71  判断对错：执行语句from math import sin之后，可以直接使用sin()函数，例如 sin(3)。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.72  判断对错：一般来说，Python扩展库没有通用于所有版本Python的，安装时应选择与已安装Python的版本对应的扩展库。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.73  判断对错：Python变量名区分大小写，所以student和Student不是同一个变量。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.74  判断对错：在Python 3.x中reduce()是内置函数。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.75  判断对错：如果只需要math模块中的sin()函数，建议使用from math import sin来导入，而不要使用import math导入整个模块。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.76  判断对错：表达式pow(3, 2) == 3 ** 2的值为True。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Yes
+</pre>
+</div>
+
+<p>
+2.77  判断对错：已知x = 3，那么执行语句x+=6之后，x的内存地址不变。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
+
+<p>
+2.78  判断对错：安装Python扩展库时只能使用pip工具在线安装，如果安装不成功就没有别的办法了。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">No
+</pre>
+</div>
 </div>
 </div>
 </div>
