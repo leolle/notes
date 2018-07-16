@@ -116,7 +116,8 @@ Factor Graph?
 Other possible methods: http://www.aclweb.org/anthology/D15-1036
 
 
-** relation extraction
+** Information Extraction
+*** relation extraction
 从文本中抽取两个实体之间的投资关系。
 
 下表为投资这一大类关系所包含的相似关系。
@@ -133,3 +134,5 @@ Other possible methods: http://www.aclweb.org/anthology/D15-1036
 | 参股     |          | 参股     |          |          |      |
 | 入驻     |          |          |          |          |      |
 | 创投     |          |          |          |          |      |
+
+*** knowledge extraction from scientific publications for ease paper reading

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-14 Thu 11:50 -->
+<!-- 2018-07-16 Mon 19:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -560,38 +560,39 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline286">28.2. imp — Access the import internals</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline289">29. Undocumented Modules</a>
+<li><a href="#orgheadline290">29. Undocumented Modules</a>
 <ul>
 <li><a href="#orgheadline288">29.1. Platform specific modules</a></li>
+<li><a href="#orgheadline289">29.2. call java service</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline312">30. Data Analysis:</a>
+<li><a href="#orgheadline313">30. Data Analysis:</a>
 <ul>
-<li><a href="#orgheadline302">30.1. pandas:</a>
+<li><a href="#orgheadline303">30.1. pandas:</a>
 <ul>
-<li><a href="#orgheadline290">30.1.1. multiplying</a></li>
-<li><a href="#orgheadline301">30.1.2. Index</a></li>
+<li><a href="#orgheadline291">30.1.1. multiplying</a></li>
+<li><a href="#orgheadline302">30.1.2. Index</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline303">30.2. numpy</a></li>
-<li><a href="#orgheadline310">30.3. plot:</a>
+<li><a href="#orgheadline304">30.2. numpy</a></li>
+<li><a href="#orgheadline311">30.3. plot:</a>
 <ul>
-<li><a href="#orgheadline304">30.3.1. subplot with the same axis:</a></li>
-<li><a href="#orgheadline305">30.3.2. multiple figure一次绘制多个图形</a></li>
-<li><a href="#orgheadline306">30.3.3. subplot with different axis</a></li>
-<li><a href="#orgheadline307">30.3.4. plot a secondary y scale</a></li>
-<li><a href="#orgheadline308">30.3.5. plot a 3d figure:</a></li>
-<li><a href="#orgheadline309">30.3.6. display Chinese:</a></li>
+<li><a href="#orgheadline305">30.3.1. subplot with the same axis:</a></li>
+<li><a href="#orgheadline306">30.3.2. multiple figure一次绘制多个图形</a></li>
+<li><a href="#orgheadline307">30.3.3. subplot with different axis</a></li>
+<li><a href="#orgheadline308">30.3.4. plot a secondary y scale</a></li>
+<li><a href="#orgheadline309">30.3.5. plot a 3d figure:</a></li>
+<li><a href="#orgheadline310">30.3.6. display Chinese:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline311">30.4. scipy</a></li>
+<li><a href="#orgheadline312">30.4. scipy</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline315">31. Deep Learning</a>
+<li><a href="#orgheadline316">31. Deep Learning</a>
 <ul>
-<li><a href="#orgheadline314">31.1. Tensorflow</a>
+<li><a href="#orgheadline315">31.1. Tensorflow</a>
 <ul>
-<li><a href="#orgheadline313">31.1.1. GPU test:</a></li>
+<li><a href="#orgheadline314">31.1.1. GPU test:</a></li>
 </ul>
 </li>
 </ul>
@@ -792,6 +793,18 @@ Closures are nothing but functions that are returned by another function. We use
 <p>
 An object capable of returning its members one at a time. Examples of iterables include all sequence types (such as list, str, and tuple) and some non-sequence types like dict and file and objects of any classes you define with an __iter__() or __getitem__() method. Iterables can be used in a for loop and in many other places where a sequence is needed (zip(), map(), …). When an iterable object is passed as an argument to the built-in function iter(), it returns an iterator for the object. This iterator is good for one pass over the set of values. When using iterables, it is usually not necessary to call iter() or deal with iterator objects yourself. The for statement does that automatically for you, creating a temporary unnamed variable to hold the iterator for the duration of the loop. See also iterator, sequence, and generator.
 </p>
+
+<ul class="org-ul">
+<li>check if an object is iterable</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python">&gt;&gt;&gt; <span style="color: #F92672;">from</span> collections <span style="color: #F92672;">import</span> Iterable
+&gt;&gt;&gt; <span style="color: #FD971F;">l</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">]</span>
+&gt;&gt;&gt; <span style="color: #F92672;">isinstance</span><span style="color: #AE81FF;">(</span>l, Iterable<span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">True</span>
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-orgheadline9" class="outline-3">
@@ -1383,6 +1396,57 @@ int64
 </div>
 <div id="outline-container-orgheadline23" class="outline-3">
 <h3 id="orgheadline23"><span class="section-number-3">3.10</span> Set Types — set, frozenset</h3>
+<div class="outline-text-3" id="text-3-10">
+<ul class="org-ul">
+<li>access an element in a set.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">a</span>=<span style="color: #F92672;">set</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">element</span> = a.pop<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span>a<span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">from</span> random <span style="color: #F92672;">import</span> sample
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">ForLoop</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">for</span> e <span style="color: #F92672;">in</span> s:
+        <span style="color: #F92672;">break</span>
+    <span style="color: #F92672;">return</span> e
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">IterNext</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">return</span> <span style="color: #F92672;">next</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">iter</span><span style="color: #66D9EF;">(</span>s<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">ListIndex</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">return</span> <span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">PopAdd</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">e</span> = s.pop<span style="color: #AE81FF;">()</span>
+    s.add<span style="color: #AE81FF;">(</span>e<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">return</span> e
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">RandomSample</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">return</span> sample<span style="color: #AE81FF;">(</span>s, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">SetUnpacking</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span>:
+    e, *<span style="color: #FD971F;">_</span> = s
+    <span style="color: #F92672;">return</span> e
+
+<span style="color: #F92672;">from</span> simple_benchmark <span style="color: #F92672;">import</span> benchmark
+
+<span style="color: #FD971F;">b</span> = benchmark<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span>ForLoop, IterNext, ListIndex, PopAdd, RandomSample, SetUnpacking<span style="color: #66D9EF;">]</span>,
+              <span style="color: #66D9EF;">{</span><span style="color: #AE81FF;">2</span>**i: <span style="color: #F92672;">set</span><span style="color: #A6E22E;">(</span><span style="color: #F92672;">range</span><span style="color: #E6DB74;">(</span><span style="color: #AE81FF;">2</span>**i<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span> <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #A6E22E;">(</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">20</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">}</span>,
+              argument_name=<span style="color: #E6DB74;">'set size'</span>,
+              function_aliases=<span style="color: #66D9EF;">{</span>first: <span style="color: #E6DB74;">'First'</span><span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+
+b.plot<span style="color: #AE81FF;">()</span>
+</pre>
+</div>
+</div>
 </div>
 <div id="outline-container-orgheadline24" class="outline-3">
 <h3 id="orgheadline24"><span class="section-number-3">3.11</span> Mapping Types — dict</h3>
@@ -4202,18 +4266,41 @@ $ conda-env remove --name env_name
 <h3 id="orgheadline286"><span class="section-number-3">28.2</span> imp — Access the import internals</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline289" class="outline-2">
-<h2 id="orgheadline289"><span class="section-number-2">29</span> Undocumented Modules</h2>
+<div id="outline-container-orgheadline290" class="outline-2">
+<h2 id="orgheadline290"><span class="section-number-2">29</span> Undocumented Modules</h2>
 <div class="outline-text-2" id="text-29">
 </div><div id="outline-container-orgheadline288" class="outline-3">
 <h3 id="orgheadline288"><span class="section-number-3">29.1</span> Platform specific modules</h3>
 </div>
+<div id="outline-container-orgheadline289" class="outline-3">
+<h3 id="orgheadline289"><span class="section-number-3">29.2</span> call java service</h3>
+<div class="outline-text-3" id="text-29-2">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> subprocess
+<span style="color: #F92672;">try</span>:
+    subprocess.call<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span><span style="color: #E6DB74;">"java"</span>,
+                     <span style="color: #E6DB74;">"-jar"</span>, grobid_jar,
+                     <span style="color: #75715E;"># </span><span style="color: #75715E;">Avoid OutOfMemoryException</span>
+                     <span style="color: #E6DB74;">"-Xmx1024m"</span>,
+                     <span style="color: #E6DB74;">"-gH"</span>, grobid_home,
+                     <span style="color: #E6DB74;">"-gP"</span>, os.path.join<span style="color: #A6E22E;">(</span>grobid_home,
+                                         <span style="color: #E6DB74;">"config/grobid.properties"</span><span style="color: #A6E22E;">)</span>,
+                     <span style="color: #E6DB74;">"-dIn"</span>, pdf_folder,
+                     <span style="color: #E6DB74;">"-exe"</span>, <span style="color: #E6DB74;">"processReferences"</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">True</span>
+<span style="color: #F92672;">except</span> subprocess.CalledProcessError:
+    <span style="color: #F92672;">return</span> <span style="color: #AE81FF;">False</span>
+</pre>
 </div>
-<div id="outline-container-orgheadline312" class="outline-2">
-<h2 id="orgheadline312"><span class="section-number-2">30</span> Data Analysis:</h2>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline313" class="outline-2">
+<h2 id="orgheadline313"><span class="section-number-2">30</span> Data Analysis:</h2>
 <div class="outline-text-2" id="text-30">
-</div><div id="outline-container-orgheadline302" class="outline-3">
-<h3 id="orgheadline302"><span class="section-number-3">30.1</span> pandas:</h3>
+</div><div id="outline-container-orgheadline303" class="outline-3">
+<h3 id="orgheadline303"><span class="section-number-3">30.1</span> pandas:</h3>
 <div class="outline-text-3" id="text-30-1">
 <p>
 <a href="./pandas.html">advanced pandas</a>
@@ -4703,8 +4790,8 @@ s + datetime.timedelta<span style="color: #AE81FF;">(</span>minutes=<span style=
 </div>
 </div>
 
-<div id="outline-container-orgheadline290" class="outline-4">
-<h4 id="orgheadline290"><span class="section-number-4">30.1.1</span> multiplying</h4>
+<div id="outline-container-orgheadline291" class="outline-4">
+<h4 id="orgheadline291"><span class="section-number-4">30.1.1</span> multiplying</h4>
 <div class="outline-text-4" id="text-30-1-1">
 <ul class="org-ul">
 <li>the multiplying calculation is not about the sequence of the index or column.</li>
@@ -4768,10 +4855,10 @@ b    <span style="color: #AE81FF;">2</span>    <span style="color: #AE81FF;">4</
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline301" class="outline-4">
-<h4 id="orgheadline301"><span class="section-number-4">30.1.2</span> Index</h4>
+<div id="outline-container-orgheadline302" class="outline-4">
+<h4 id="orgheadline302"><span class="section-number-4">30.1.2</span> Index</h4>
 <div class="outline-text-4" id="text-30-1-2">
-</div><ol class="org-ol"><li><a id="orgheadline291"></a>Index manuplication<br  /><div class="outline-text-5" id="text-30-1-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline292"></a>Index manuplication<br  /><div class="outline-text-5" id="text-30-1-2-1">
 <ul class="org-ul">
 <li>set column as datetime index</li>
 </ul>
@@ -4869,7 +4956,7 @@ pd.concat([A, B])
 index variable value variable value
 </p>
 </div></li>
-<li><a id="orgheadline292"></a>merge<br  /><div class="outline-text-5" id="text-30-1-2-2">
+<li><a id="orgheadline293"></a>merge<br  /><div class="outline-text-5" id="text-30-1-2-2">
 <p>
 merge will take two dataframe to a new dataframe by index, on the columns.
 A:
@@ -4883,13 +4970,13 @@ pd.merge(A, B, how='left', on=['index', 'variable'])
 index variable value value
 </p>
 </div></li>
-<li><a id="orgheadline293"></a>update<br  /><div class="outline-text-5" id="text-30-1-2-3">
+<li><a id="orgheadline294"></a>update<br  /><div class="outline-text-5" id="text-30-1-2-3">
 <p>
 update dataframe1 with dataframe2
 </p>
 </div></li>
 
-<li><a id="orgheadline294"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-30-1-2-4">
+<li><a id="orgheadline295"></a>access hierarchical index.<br  /><div class="outline-text-5" id="text-30-1-2-4">
 <ul class="org-ul">
 <li>A MultiIndex can be created from a list of arrays (using MultiIndex.from_arrays), an array of tuples (using MultiIndex.from_tuples), or a crossed set of iterables (using MultiIndex.from_product).</li>
 </ul>
@@ -4947,7 +5034,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline298"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline295"></a>#1<br  /><div class="outline-text-6" id="text-30-1-2-5-1">
+<li><a id="orgheadline299"></a>remove pandas duplicated index<br  /><ol class="org-ol"><li><a id="orgheadline296"></a>#1<br  /><div class="outline-text-6" id="text-30-1-2-5-1">
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FD971F;">grouped</span> = sym.groupby<span style="color: #AE81FF;">(</span>level=<span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">)</span>
@@ -4956,7 +5043,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline296"></a>#2<br  /><div class="outline-text-6" id="text-30-1-2-5-2">
+<li><a id="orgheadline297"></a>#2<br  /><div class="outline-text-6" id="text-30-1-2-5-2">
 <div class="org-src-container">
 
 <pre class="src src-python">df2<span style="color: #AE81FF;">[</span>~df2.index.duplicated<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">]</span>
@@ -4964,7 +5051,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline297"></a>remove duplicated rows<br  /><div class="outline-text-6" id="text-30-1-2-5-3">
+<li><a id="orgheadline298"></a>remove duplicated rows<br  /><div class="outline-text-6" id="text-30-1-2-5-3">
 <div class="org-src-container">
 
 <pre class="src src-python">pandas.DataFrame.drop_duplicates<span style="color: #AE81FF;">(</span>subset=<span style="color: #AE81FF;">None</span>, keep=<span style="color: #E6DB74;">'first'</span>, inplace=<span style="color: #AE81FF;">False</span><span style="color: #AE81FF;">)</span>
@@ -4972,7 +5059,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </pre>
 </div>
 </div></li></ol></li>
-<li><a id="orgheadline299"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-30-1-2-6">
+<li><a id="orgheadline300"></a>convert a dataframe to an array:<br  /><div class="outline-text-5" id="text-30-1-2-6">
 <div class="org-src-container">
 
 <pre class="src src-emacs-lisp">pd.dataframe.to_matrix<span style="color: #AE81FF;">()</span>
@@ -4980,7 +5067,7 @@ df.loc<span style="color: #AE81FF;">(</span>axis=<span style="color: #AE81FF;">0
 </div>
 </div></li>
 
-<li><a id="orgheadline300"></a>panel:<br  /><div class="outline-text-5" id="text-30-1-2-7">
+<li><a id="orgheadline301"></a>panel:<br  /><div class="outline-text-5" id="text-30-1-2-7">
 <ul class="org-ul">
 <li>create from dictionary:</li>
 </ul>
@@ -4997,8 +5084,8 @@ pandas panel item axis should be datetime64, this should not be an array.
 </div></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline303" class="outline-3">
-<h3 id="orgheadline303"><span class="section-number-3">30.2</span> numpy</h3>
+<div id="outline-container-orgheadline304" class="outline-3">
+<h3 id="orgheadline304"><span class="section-number-3">30.2</span> numpy</h3>
 <div class="outline-text-3" id="text-30-2">
 <ul class="org-ul">
 <li>save an array:</li>
@@ -5115,11 +5202,11 @@ np.random.shuffle<span style="color: #AE81FF;">(</span>arr<span style="color: #A
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline310" class="outline-3">
-<h3 id="orgheadline310"><span class="section-number-3">30.3</span> plot:</h3>
+<div id="outline-container-orgheadline311" class="outline-3">
+<h3 id="orgheadline311"><span class="section-number-3">30.3</span> plot:</h3>
 <div class="outline-text-3" id="text-30-3">
-</div><div id="outline-container-orgheadline304" class="outline-4">
-<h4 id="orgheadline304"><span class="section-number-4">30.3.1</span> subplot with the same axis:</h4>
+</div><div id="outline-container-orgheadline305" class="outline-4">
+<h4 id="orgheadline305"><span class="section-number-4">30.3.1</span> subplot with the same axis:</h4>
 <div class="outline-text-4" id="text-30-3-1">
 <p>
 pandas plot.
@@ -5146,8 +5233,8 @@ plt.show<span style="color: #AE81FF;">()</span>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline305" class="outline-4">
-<h4 id="orgheadline305"><span class="section-number-4">30.3.2</span> multiple figure一次绘制多个图形</h4>
+<div id="outline-container-orgheadline306" class="outline-4">
+<h4 id="orgheadline306"><span class="section-number-4">30.3.2</span> multiple figure一次绘制多个图形</h4>
 <div class="outline-text-4" id="text-30-3-2">
 <ul class="org-ul">
 <li>same plot, 多个figure:</li>
@@ -5196,8 +5283,8 @@ plt.show<span style="color: #AE81FF;">()</span>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline306" class="outline-4">
-<h4 id="orgheadline306"><span class="section-number-4">30.3.3</span> subplot with different axis</h4>
+<div id="outline-container-orgheadline307" class="outline-4">
+<h4 id="orgheadline307"><span class="section-number-4">30.3.3</span> subplot with different axis</h4>
 <div class="outline-text-4" id="text-30-3-3">
 <div class="org-src-container">
 
@@ -5218,8 +5305,8 @@ pe000001.plot<span style="color: #AE81FF;">()</span>
 </div>
 </div>
 
-<div id="outline-container-orgheadline307" class="outline-4">
-<h4 id="orgheadline307"><span class="section-number-4">30.3.4</span> plot a secondary y scale</h4>
+<div id="outline-container-orgheadline308" class="outline-4">
+<h4 id="orgheadline308"><span class="section-number-4">30.3.4</span> plot a secondary y scale</h4>
 <div class="outline-text-4" id="text-30-3-4">
 <div class="org-src-container">
 
@@ -5239,8 +5326,8 @@ plt.axvline<span style="color: #AE81FF;">(</span>a<span style="color: #66D9EF;">
 </div>
 </div>
 
-<div id="outline-container-orgheadline308" class="outline-4">
-<h4 id="orgheadline308"><span class="section-number-4">30.3.5</span> plot a 3d figure:</h4>
+<div id="outline-container-orgheadline309" class="outline-4">
+<h4 id="orgheadline309"><span class="section-number-4">30.3.5</span> plot a 3d figure:</h4>
 <div class="outline-text-4" id="text-30-3-5">
 <div class="org-src-container">
 
@@ -5283,8 +5370,8 @@ fig is the :class:matplotlib.figure.Figure object.
 </div>
 </div>
 
-<div id="outline-container-orgheadline309" class="outline-4">
-<h4 id="orgheadline309"><span class="section-number-4">30.3.6</span> display Chinese:</h4>
+<div id="outline-container-orgheadline310" class="outline-4">
+<h4 id="orgheadline310"><span class="section-number-4">30.3.6</span> display Chinese:</h4>
 <div class="outline-text-4" id="text-30-3-6">
 <div class="org-src-container">
 
@@ -5307,8 +5394,8 @@ plt.show<span style="color: #AE81FF;">()</span>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline311" class="outline-3">
-<h3 id="orgheadline311"><span class="section-number-3">30.4</span> scipy</h3>
+<div id="outline-container-orgheadline312" class="outline-3">
+<h3 id="orgheadline312"><span class="section-number-3">30.4</span> scipy</h3>
 <div class="outline-text-3" id="text-30-4">
 <ul class="org-ul">
 <li>combination k from n.</li>
@@ -5340,11 +5427,11 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline315" class="outline-2">
-<h2 id="orgheadline315"><span class="section-number-2">31</span> Deep Learning</h2>
+<div id="outline-container-orgheadline316" class="outline-2">
+<h2 id="orgheadline316"><span class="section-number-2">31</span> Deep Learning</h2>
 <div class="outline-text-2" id="text-31">
-</div><div id="outline-container-orgheadline314" class="outline-3">
-<h3 id="orgheadline314"><span class="section-number-3">31.1</span> Tensorflow</h3>
+</div><div id="outline-container-orgheadline315" class="outline-3">
+<h3 id="orgheadline315"><span class="section-number-3">31.1</span> Tensorflow</h3>
 <div class="outline-text-3" id="text-31-1">
 <ul class="org-ul">
 <li>install tensorflow:</li>
@@ -5363,8 +5450,8 @@ array<span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">[</span
 </pre>
 </div>
 </div>
-<div id="outline-container-orgheadline313" class="outline-4">
-<h4 id="orgheadline313"><span class="section-number-4">31.1.1</span> GPU test:</h4>
+<div id="outline-container-orgheadline314" class="outline-4">
+<h4 id="orgheadline314"><span class="section-number-4">31.1.1</span> GPU test:</h4>
 <div class="outline-text-4" id="text-31-1-1">
 <p>
 <a href="./tensorflow.py">tensorflow</a>

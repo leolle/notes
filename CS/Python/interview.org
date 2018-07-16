@@ -186,8 +186,11 @@ Type:      builtin_function_or_method
 
 *2.3  简单解释Python基于值的内存管理模式。*
 #+BEGIN_SRC text
-Python采用的是基于值得内存管理方式，在Python中可以为不同变量赋值为相同值，这个值在内存中只有一份，多个变量指向同一个内存地址；Python具有自动内存管理功能，会自动跟踪内存中所有的值，对于没有任何变量指向的值，Python自动将其删除。
+Python采用的是基于值得内存管理方式，在Python中可以为不同变量赋值为相同值，这个值在内存中只有一份，多个变量指向同一个内存地址；
+
+Python具有自动内存管理功能，会自动跟踪内存中所有的值，对于没有任何变量指向的值，Python自动将其删除。
 #+END_SRC
+
 2.4  简单解释运算符/和//的区别。
 #+BEGIN_SRC text
 /普通真除法，//取整数。
@@ -341,9 +344,9 @@ No
 No
 #+END_SRC
 
-2.51  判断对错：Python不允许使用关键字作为变量名，但是允许使用内置函数名作为变量名，不过这会改变函数名的含义，所以不建议这样做。
+*2.51  判断对错：Python不允许使用关键字作为变量名，但是允许使用内置函数名作为变量名，不过这会改变函数名的含义，所以不建议这样做。*
 #+BEGIN_SRC txt
-No
+Yes
 #+END_SRC
 
 2.52  判断对错：在Python中可以使用if作为变量名。
@@ -351,14 +354,14 @@ No
 No
 #+END_SRC
 
-2.53  判断对错：在Python 3.x中可以使用中文作为变量名。
+*2.53  判断对错：在Python 3.x中可以使用中文作为变量名。*
 #+BEGIN_SRC txt
-No
+Yes
 #+END_SRC
 
 2.54  判断对错：Python变量名必须以字母或下划线开头，并且区分字母大小写。
 #+BEGIN_SRC txt
-No
+Yes
 #+END_SRC
 
 2.55  判断对错：加法运算符可以用来连接字符串并生成新字符串。
@@ -403,7 +406,7 @@ Yes
 
 2.63  判断对错：Python代码的注释只有一种方式，那就是使用#符号。
 #+BEGIN_SRC txt
-Yes
+No
 #+END_SRC
 
 2.64  判断对错：放在一对三引号之间的任何内容将被认为是注释。
@@ -418,12 +421,12 @@ Yes
 
 2.66  判断对错：为了让代码更加紧凑，编写Python程序时应尽量避免加入空格和空行。
 #+BEGIN_SRC txt
-Yes
+No
 #+END_SRC
 
-2.67  判断对错：在Python 3.5中运算符+不仅可以实现数值的相加、字符串连接，还可以实现列表、元组的连接和集合的并集运算。
+*2.67  判断对错：在Python 3.5中运算符+不仅可以实现数值的相加、字符串连接，还可以实现列表、元组的连接和集合的并集运算。*
 #+BEGIN_SRC txt
-Yes
+No
 #+END_SRC
 
 2.68  判断对错：在Python中可以使用 for 作为变量名。
@@ -433,7 +436,7 @@ No
 
 2.69  判断对错：在Python中可以使用 id 作为变量名，但是不建议这样做。
 #+BEGIN_SRC txt
-No
+Yes
 #+END_SRC
 
 2.70  判断对错：一个数字5也是合法的Python表达式。
@@ -458,7 +461,7 @@ Yes
 
 2.74  判断对错：在Python 3.x中reduce()是内置函数。
 #+BEGIN_SRC txt
-Yes
+No
 #+END_SRC
 
 2.75  判断对错：如果只需要math模块中的sin()函数，建议使用from math import sin来导入，而不要使用import math导入整个模块。
@@ -505,183 +508,229 @@ dictionary_stat = defaults.default_dict()
 #+END_SRC
 的值为___________。
 #+BEGIN_SRC text
-True
+False
 #+END_SRC
 
 3.5  编写程序，用户输入一个列表和2个整数作为下标，然后使用切片获取并输出列表中介于2个下标之间的元素组成的子列表。例如用户输入[1, 2, 3, 4, 5, 6]和2,5，程序输出[3, 4, 5, 6]。
 #+BEGIN_SRC txt
-
+a = [1, 2, 3, 4, 5, 6]
+begin = input()
+end = input()
+a[begin:end+1]
 #+END_SRC
 
 3.6  列表对象的sort()方法用来对列表元素进行原地排序，该函数返回值为________。
 #+BEGIN_SRC txt
-
+None
 #+END_SRC
 
-3.7  列表对象的___________方法删除首次出现的指定元素，如果列表中不存在要删除的元素，则抛出异常。
+*3.7  列表对象的___________方法删除首次出现的指定元素，如果列表中不存在要删除的元素，则抛出异常。*
 #+BEGIN_SRC txt
-
+remove()
 #+END_SRC
 
 3.8  假设列表对象aList的值为[3, 4, 5, 6, 7, 9, 11, 13, 15, 17]，那么切片aList[3:7]得到的值是_____________________。
 #+BEGIN_SRC txt
-
+[6, 7, 9, 11]
 #+END_SRC
 
 3.9  设计一个字典，并编写程序，用户输入内容作为“键”，然后输出字典中对应的“值”，如果用户输入的“键”不存在，则输出“您输入的键不存在！”
-#+BEGIN_SRC txt
-
+#+BEGIN_SRC python
+d={"a":1,"b":2}
+key = input()
+d.get(key,"key not existed")
 #+END_SRC
 
 3.10  编写程序，生成包含20个随机数的列表，然后将前10个元素升序排列，后10个元素降序排列，并输出结果。
-#+BEGIN_SRC txt
-
+#+BEGIN_SRC python
+import numpy as np
+a = np.random.randn(20)
+print(sorted(a[:10]))
+print(sorted(a[10:],reverse=True))
 #+END_SRC
 
 3.11  在Python中，字典和集合都是用一对____{}________作为界定符，字典的每个元素有两部分组成，即____key____和_____value_____，其中___key_____不允许重复。
-#+BEGIN_SRC txt
-
-#+END_SRC
 
 3.12  使用字典对象的__items()________方法可以返回字典的“键-值对”，使用字典对象的_____keys()________方法可以返回字典的“键”，使用字典对象的___values()_______方法可以返回字典的“值”。
 
 3.13  假设有列表a = ['name', 'age', 'sex']和b = ['Dong', 38, 'Male']，请使用一个语句将这两个列表的内容转换为字典，并且以列表a中的元素为“键”，
 以列表b中的元素为“值”，这个语句可以写为_____________________。
-#+BEGIN_SRC txt
-
+#+BEGIN_SRC python
+dict(zip(a,b))
 #+END_SRC
 
 3.14  假设有一个列表a，现要求从列表a中每3个元素取1个，并且将取到的元素组成新的列表b，可以使用语句________________。
-#+BEGIN_SRC txt
-
+#+BEGIN_SRC python
+a = [3, 4, 5, 6, 7, 9, 11, 13, 15, 17]
+b = a[::2]
 #+END_SRC
 
 3.15  使用列表推导式生成包含10个数字5的列表，语句可以写为__________________。
-#+BEGIN_SRC txt
-
+#+BEGIN_SRC python
+[5 for _ in range(10)]
 #+END_SRC
 
 3.16  ___________（可以、不可以）使用del命令来删除元组中的部分元素。
 #+BEGIN_SRC txt
-
+No
 #+END_SRC
 
 3.17  表达式[1, 2, 3]*3的值为______________________。
 #+BEGIN_SRC txt
-
+[1,2,3,1,2,3,1,2,3]
 #+END_SRC
 
 3.18  表达式list(map(str, [1, 2, 3]))的值为__________。
 #+BEGIN_SRC txt
-
+['1','2','3']
 #+END_SRC
 
 3.19  语句x = 3==3, 5执行结束后，变量x的值为__________。
 #+BEGIN_SRC txt
-True
+(True, 5)
 #+END_SRC
 
 3.20  已知x = 3，并且id(x)的返回值为496103280，那么执行语句x += 6之后，表达式id(x) == 496103280的值为__________。
 #+BEGIN_SRC txt
-
+False
 #+END_SRC
 
 3.21  已知x = 3，那么执行语句x *= 6之后，x的值为__________。
 #+BEGIN_SRC txt
-
+18
 #+END_SRC
 
 3.22  表达式3 in [1, 2, 3, 4]的值为__________。
 #+BEGIN_SRC txt
-
+True
 #+END_SRC
 
 3.23  使用列表与整数的乘法生成包含10个数字5的列表，可以写为__________。
 #+BEGIN_SRC txt
-
+[5] * 10
 #+END_SRC
 
 3.24  任意长度的非空列表、元组和字符串中最后一个元素的下标为__________。
 #+BEGIN_SRC txt
-
+-1
 #+END_SRC
 
 3.25  表达式list(range(1, 10, 3))的值为__________。
 #+BEGIN_SRC txt
-
+[1,4,7]
 #+END_SRC
 
 3.26  表达式list(range(10, 1, -3))的值为__________。
 #+BEGIN_SRC txt
-
+[10, 7, 4]
 #+END_SRC
 
 3.27  表达式list(range(5))的值为________________。
 #+BEGIN_SRC txt
-
+[0,1,2,3,4]
 #+END_SRC
 
 3.28  已知a = [1, 2, 3]和b = [1, 2, 4]，那么
 #+BEGIN_SRC python
 id(a[1])==id(b[1])
 #+END_SRC
-的执行结果为__________。
+的执行结果为_True_________。
+
 3.29  切片操作list(range(6))[::2]执行结果为__________。
 #+BEGIN_SRC txt
-
+[0, 2, 4]
 #+END_SRC
 
 3.30  使用切片操作在列表对象x的开始处增加一个元素3的代码为__________。
-#+BEGIN_SRC txt
-
+#+BEGIN_SRC python
+x[0:0] = [3]
 #+END_SRC
 
 3.31  语句sorted([1, 2, 3], reverse=True) == reversed([1, 2, 3])执行结果为__________。
 #+BEGIN_SRC txt
-
+False
 #+END_SRC
 
 3.32  表达式sorted([111, 2, 33], key=lambda x: len(str(x)))的值为________________。
 #+BEGIN_SRC txt
-
+[2, 33, 111]
 #+END_SRC
 
 3.33  表达式sorted([111, 2, 33], key=lambda x: -len(str(x)))的值为__________。
 #+BEGIN_SRC txt
-
+[111, 33, 2]
 #+END_SRC
 
 3.34  表达式max([111, 22, 3], key=str)的值为__________。
 #+BEGIN_SRC txt
-
+3
 #+END_SRC
 
 3.35  语句x = (3,)执行后x的值为__________。
 #+BEGIN_SRC txt
-
+(3,)
 #+END_SRC
 
 3.36  语句x = (3)执行后x的值为__________。
 #+BEGIN_SRC txt
-
+3
 #+END_SRC
 
 3.37  已知x=3和y=5，执行语句 x, y = y, x 后x的值是__________。
 #+BEGIN_SRC txt
-
+5
 #+END_SRC
 
 3.38  可以使用内置函数__________查看包含当前作用域内所有全局变量和值的字典。
 #+BEGIN_SRC txt
-
+globals()
 #+END_SRC
 
 3.39  可以使用内置函数__________查看包含当前作用域内所有局部变量和值的字典。
 #+BEGIN_SRC txt
-
+locals()
 #+END_SRC
 
-3.40  字典中多个元素之间使用__________分隔开，每个元素的“键”与“值”之间使用__________分隔开。
+3.40  字典中多个元素之间使用___,_______分隔开，每个元素的“键”与“值”之间使用______:____分隔开。
 #+BEGIN_SRC txt
 
 #+END_SRC
+
+* 1000道Python题库系列分享五（40道）
+3.43 x = ?
+#+BEGIN_SRC python
+x = {1:2}
+x[2] = 3
+#+END_SRC
+
+#+RESULTS:
+: {1:2, 2:3}
+
+3.44
+#+BEGIN_SRC python
+{1,2,3,4} - {3,4,5,6}
+#+END_SRC
+#+RESULTS:
+: {1,2}
+
+3.46
+#+BEGIN_SRC python
+[x for x in range(100) if x%13 == 0]
+#+END_SRC
+
+3.47
+#+BEGIN_SRC python
+x = [1,2,3,4]
+#+END_SRC
+
+#+RESULTS:
+: x[10:] = []
+
+3.48
+#+BEGIN_SRC python
+x[len(x):]=[1,2]
+#+END_SRC
+
+#+RESULTS:
+: In [291]: x
+: Out[291]: [1, 2, 3, 4, 1, 2]

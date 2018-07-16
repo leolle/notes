@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-23 Mon 10:59 -->
+<!-- 2018-07-16 Mon 19:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -150,6 +150,11 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. Glossary</a></li>
+<li><a href="#orgheadline3">2. Java基础01 从HelloWorld到面向对象</a>
+<ul>
+<li><a href="#orgheadline2">2.1. HelloWorld</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -181,6 +186,57 @@ To run Java applications and applets, simply download the JRE. However, to devel
 <p>
 Java Platform, Standard Edition (Java SE)
 </p>
+
+<ul class="org-ul">
+<li>JAR</li>
+</ul>
+<p>
+JAR （计算机文件格式）
+JAR文件（Java归档，英语：Java ARchive）是一种软件包文件格式，通常用于聚合大量的Java类文件、相关的元数据和资源（文本、图片等）文件到一个文件，以便分发Java平台应用软件或库。
+</p>
+
+<p>
+JAR（Java Archive，Java 归档文件）是与平台无关的文件格式，它允许将许多文件组合成一个压缩文件。为 J2EE 应用程序创建的 JAR 文件是 EAR 文件（企业 JAR 文件）。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">2</span> Java基础01 从HelloWorld到面向对象</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> HelloWorld</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">HelloWorld</span>
+<span style="color: #AE81FF;">{</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">main</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">String</span><span style="color: #A6E22E;">[]</span> <span style="color: #FD971F;">args</span><span style="color: #66D9EF;">)</span>
+    <span style="color: #66D9EF;">{</span>
+        System.out.println<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"Hello World!"</span><span style="color: #A6E22E;">)</span>;
+    <span style="color: #66D9EF;">}</span>
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+
+<p>
+编译器编译
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">$<span style="color: #FD971F;">javac</span> HelloWorld.java
+</pre>
+</div>
+
+<p>
+使用java命令来运行。Java会搜寻该类中的main方法，并执行。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">$<span style="color: #FD971F;">java</span> HelloWorld
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>

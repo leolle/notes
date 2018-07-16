@@ -567,6 +567,736 @@ round3：
 4；遍历树
 
 5：HMM原理
+*** data science
+https://towardsdatascience.com/data-science-and-machine-learning-interview-questions-3f6207cf040b
+
+What’s the trade-off between bias and variance?
+What is gradient descent?
+Explain over- and under-fitting and how to combat them?
+How do you combat the curse of dimensionality?
+What is regularization, why do we use it, and give some examples of common methods?
+Explain Principal Component Analysis (PCA)?
+Why is ReLU better and more often used than Sigmoid in Neural Networks?
+What is data normalization and why do we need it? I felt this one would be important to highlight. Data normalization is very important preprocessing step, used to rescale values to fit in a specific range to assure better convergence during backpropagation. In general, it boils down to subtracting the mean of each data point and dividing by its standard deviation. If we don’t do this then some of the features (those with high magnitude) will be weighted more in the cost function (if a higher-magnitude feature changes by 1%, then that change is pretty big, but for smaller features it’s quite insignificant). The data normalization makes all features weighted equally.
+Explain dimensionality reduction, where it’s used, and it’s benefits? Dimensionality reduction is the process of reducing the number of feature variables under consideration by obtaining a set of principal variables which are basically the important features. Importance of a feature depends on how much the feature variable contributes to the information representation of the data and depends on which technique you decide to use. Deciding which technique to use comes down to trial-and-error and preference. It’s common to start with a linear technique and move to non-linear techniques when results suggest inadequate fit. Benefits of dimensionality reduction for a data set may be: (1) Reduce the storage space needed (2) Speed up computation (for example in machine learning algorithms), less dimensions mean less computing, also less dimensions can allow usage of algorithms unfit for a large number of dimensions (3) Remove redundant features, for example no point in storing a terrain’s size in both sq meters and sq miles (maybe data gathering was flawed) (4) Reducing a data’s dimension to 2D or 3D may allow us to plot and visualize it, maybe observe patterns, give us insights (5) Too many features or too complex a model can lead to overfitting.
+How do you handle missing or corrupted data in a dataset? You could find missing/corrupted data in a dataset and either drop those rows or columns, or decide to replace them with another value. In Pandas, there are two very useful methods: isnull() and dropna() that will help you find columns of data with missing or corrupted data and drop those values. If you want to fill the invalid values with a placeholder value (for example, 0), you could use the fillna() method.
+Explain this clustering algorithm? I wrote a popular article on the The 5 Clustering Algorithms Data Scientists Need to Know explaining all of them in detail with some great visualizations.
+How would you go about doing an Exploratory Data Analysis (EDA)? The goal of an EDA is to gather some insights from the data before applying your predictive model i.e gain some information. Basically, you want to do your EDA in a coarse to fine manner. We start by gaining some high-level global insights. Check out some imbalanced classes. Look at mean and variance of each class. Check out the first few rows to see what it’s all about. Run a pandas df.info() to see which features are continuous, categorical, their type (int, float, string). Next, drop unnecessary columns that won’t be useful in analysis and prediction. These can simply be columns that look useless, one’s where many rows have the same value (i.e it doesn’t give us much information), or it’s missing a lot of values. We can also fill in missing values with the most common value in that column, or the median. Now we can start making some basic visualizations. Start with high-level stuff. Do some bar plots for features that are categorical and have a small number of groups. Bar plots of the final classes. Look at the most “general features”. Create some visualizations about these individual features to try and gain some basic insights. Now we can start to get more specific. Create visualizations between features, two or three at a time. How are features related to each other? You can also do a PCA to see which features contain the most information. Group some features together as well to see their relationships. For example, what happens to the classes when A = 0 and B = 0? How about A = 1 and B = 0? Compare different features. For example, if feature A can be either “Female” or “Male” then we can plot feature A against which cabin they stayed in to see if Males and Females stay in different cabins. Beyond bar, scatter, and other basic plots, we can do a PDF/CDF, overlayed plots, etc. Look at some statistics like distribution, p-value, etc. Finally it’s time to build the ML model. Start with easier stuff like Naive Bayes and Linear Regression. If you see that those suck or the data is highly non-linear, go with polynomial regression, decision trees, or SVMs. The features can be selected based on their importance from the EDA. If you have lots of data you can use a Neural Network. Check ROC curve. Precision, Recall
+How do you know which Machine Learning model you should use? While one should always keep the “no free lunch theorem” in mind, there are some general guidelines. I wrote an article on how to select the proper regression model here. This cheatsheet is also fantastic!
+Why do we use convolutions for images rather than just FC layers? This one was pretty interesting since it’s not something companies usually ask. As you would expect, I got this question from a company focused on Computer Vision. This answer has 2 parts to it. Firstly, convolutions preserve, encode, and actually use the spatial information from the image. If we used only FC layers we would have no relative spatial information. Secondly, Convolutional Neural Networks (CNNs) have a partially built-in translation in-variance, since each convolution kernel acts as it’s own filter/feature detector.
+What makes CNNs translation invariant? As explained above, each convolution kernel acts as it’s own filter/feature detector. So let’s say you’re doing object detection, it doesn’t matter where in the image the object is since we’re going to apply the convolution in a sliding window fashion across the entire image anyways.
+Why do we have max-pooling in classification CNNs? Again as you would expect this is for a role in Computer Vision. Max-pooling in a CNN allows you to reduce computation since your feature maps are smaller after the pooling. You don’t lose too much semantic information since you’re taking the maximum activation. There’s also a theory that max-pooling contributes a bit to giving CNNs more translation in-variance. Check out this great video from Andrew Ng on the benefits of max-pooling.
+Why do segmentation CNNs typically have an encoder-decoder style / structure? The encoder CNN can basically be thought of as a feature extraction network, while the decoder uses that information to predict the image segments by “decoding” the features and upscaling to the original image size.
+What is the significance of Residual Networks? The main thing that residual connections did was allow for direct feature access from previous layers. This makes information propagation throughout the network much easier. One very interesting paper about this shows how using local skip connections gives the network a type of ensemble multi-path structure, giving features multiple paths to propagate throughout the network.
+What is batch normalization and why does it work? Training Deep Neural Networks is complicated by the fact that the distribution of each layer’s inputs changes during training, as the parameters of the previous layers change. The idea is then to normalize the inputs of each layer in such a way that they have a mean output activation of zero and standard deviation of one. This is done for each individual mini-batch at each layer i.e compute the mean and variance of that mini-batch alone, then normalize. This is analogous to how the inputs to networks are standardized. How does this help? We know that normalizing the inputs to a network helps it learn. But a network is just a series of layers, where the output of one layer becomes the input to the next. That means we can think of any layer in a neural network as the first layer of a smaller subsequent network. Thought of as a series of neural networks feeding into each other, we normalize the output of one layer before applying the activation function, and then feed it into the following layer (sub-network).
+How would you handle an imbalanced dataset? I have an article about this! Check out #3 :)
+Why would you use many small convolutional kernels such as 3x3 rather than a few large ones? This is very well explained in the VGGNet paper. There are 2 reasons: First, you can use several smaller kernels rather than few large ones to get the same receptive field and capture more spatial context, but with the smaller kernels you are using less parameters and computations. Secondly, because with smaller kernels you will be using more filters, you’ll be able to use more activation functions and thus have a more discriminative mapping function being learned by your CNN.
+Do you have any other projects that would be related here? Here you’ll really draw connections between your research and their business. Is there anything you did or any skills you learned that could possibly connect back to their business or the role you are applying for? It doesn’t have to be 100% exact, just somehow related such that you can show that you will be able to directly add lots of value.
+Explain your current masters research? What worked? What didn’t? Future directions? Same as the last question!
+*** analytics
+https://www.analyticsvidhya.com/blog/2016/09/40-interview-questions-asked-at-startups-in-machine-learning-data-science/
+
+Interview Questions on Machine Learning
+Q1. You are given a train data set having 1000 columns and 1 million rows. The data set is based on a classification problem. Your manager has asked you to reduce the dimension of this data so that model computation time can be reduced. Your machine has memory constraints. What would you do? (You are free to make practical assumptions.)
+
+Answer: Processing a high dimensional data on a limited memory machine is a strenuous task, your interviewer would be fully aware of that. Following are the methods you can use to tackle such situation:
+
+Since we have lower RAM, we should close all other applications in our machine, including the web browser, so that most of the memory can be put to use.
+We can randomly sample the data set. This means, we can create a smaller data set, let’s say, having 1000 variables and 300000 rows and do the computations.
+To reduce dimensionality, we can separate the numerical and categorical variables and remove the correlated variables. For numerical variables, we’ll use correlation. For categorical variables, we’ll use chi-square test.
+Also, we can use PCA and pick the components which can explain the maximum variance in the data set.
+Using online learning algorithms like Vowpal Wabbit (available in Python) is a possible option.
+Building a linear model using Stochastic Gradient Descent is also helpful.
+We can also apply our business understanding to estimate which all predictors can impact the response variable. But, this is an intuitive approach, failing to identify useful predictors might result in significant loss of information.
+Note: For point 4 & 5, make sure you read about online learning algorithms & Stochastic Gradient Descent. These are advanced methods.
+
+
+
+Q2. Is rotation necessary in PCA? If yes, Why? What will happen if you don’t rotate the components?
+
+Answer: Yes, rotation (orthogonal) is necessary because it maximizes the difference between variance captured by the component. This makes the components easier to interpret. Not to forget, that’s the motive of doing PCA where, we aim to select fewer components (than features) which can explain the maximum variance in the data set. By doing rotation, the relative location of the components doesn’t change, it only changes the actual coordinates of the points.
+
+If we don’t rotate the components, the effect of PCA will diminish and we’ll have to select more number of components to explain variance in the data set.
+
+Know more: PCA
+
+
+
+Q3. You are given a data set. The data set has missing values which spread along 1 standard deviation from the median. What percentage of data would remain unaffected? Why?
+
+Answer: This question has enough hints for you to start thinking! Since, the data is spread across median, let’s assume it’s a normal distribution. We know, in a normal distribution, ~68% of the data lies in 1 standard deviation from mean (or mode, median), which leaves ~32% of the data unaffected. Therefore, ~32% of the data would remain unaffected by missing values.
+
+
+
+Q4. You are given a data set on cancer detection. You’ve build a classification model and achieved an accuracy of 96%. Why shouldn’t you be happy with your model performance? What can you do about it?
+
+Answer: If you have worked on enough data sets, you should deduce that cancer detection results in imbalanced data. In an imbalanced data set, accuracy should not be used as a measure of performance because 96% (as given) might only be predicting majority class correctly, but our class of interest is minority class (4%) which is the people who actually got diagnosed with cancer. Hence, in order to evaluate model performance, we should use Sensitivity (True Positive Rate), Specificity (True Negative Rate), F measure to determine class wise performance of the classifier. If the minority class performance is found to to be poor, we can undertake the following steps:
+
+We can use undersampling, oversampling or SMOTE to make the data balanced.
+We can alter the prediction threshold value by doing probability caliberation and finding a optimal threshold using AUC-ROC curve.
+We can assign weight to classes such that the minority classes gets larger weight.
+We can also use anomaly detection.
+Know more: Imbalanced Classification
+
+
+
+Q5. Why is naive Bayes so ‘naive’ ?
+
+Answer: naive Bayes is so ‘naive’ because it assumes that all of the features in a data set are equally important and independent. As we know, these assumption are rarely true in real world scenario.
+
+
+
+Q6. Explain prior probability, likelihood and marginal likelihood in context of naiveBayes algorithm?
+
+Answer: Prior probability is nothing but, the proportion of dependent (binary) variable in the data set. It is the closest guess you can make about a class, without any further information. For example: In a data set, the dependent variable is binary (1 and 0). The proportion of 1 (spam) is 70% and 0 (not spam) is 30%. Hence, we can estimate that there are 70% chances that any new email would  be classified as spam.
+
+Likelihood is the probability of classifying a given observation as 1 in presence of some other variable. For example: The probability that the word ‘FREE’ is used in previous spam message is likelihood. Marginal likelihood is, the probability that the word ‘FREE’ is used in any message.
+
+
+
+Q7. You are working on a time series data set. You manager has asked you to build a high accuracy model. You start with the decision tree algorithm, since you know it works fairly well on all kinds of data. Later, you tried a time series regression model and got higher accuracy than decision tree model. Can this happen? Why?
+
+Answer: Time series data is known to posses linearity. On the other hand, a decision tree algorithm is known to work best to detect non – linear interactions. The reason why decision tree failed to provide robust predictions because it couldn’t map the linear relationship as good as a regression model did. Therefore, we learned that, a linear regression model can provide robust prediction given the data set satisfies its linearity assumptions.
+
+
+
+Q8. You are assigned a new project which involves helping a food delivery company save more money. The problem is, company’s delivery team aren’t able to deliver food on time. As a result, their customers get unhappy. And, to keep them happy, they end up delivering food for free. Which machine learning algorithm can save them?
+
+Answer: You might have started hopping through the list of ML algorithms in your mind. But, wait! Such questions are asked to test your machine learning fundamentals.
+
+This is not a machine learning problem. This is a route optimization problem. A machine learning problem consist of three things:
+
+There exist a pattern.
+You cannot solve it mathematically (even by writing exponential equations).
+You have data on it.
+Always look for these three factors to decide if machine learning is a tool to solve a particular problem.
+
+
+
+Q9. You came to know that your model is suffering from low bias and high variance. Which algorithm should you use to tackle it? Why?
+
+Answer:  Low bias occurs when the model’s predicted values are near to actual values. In other words, the model becomes flexible enough to mimic the training data distribution. While it sounds like great achievement, but not to forget, a flexible model has no generalization capabilities. It means, when this model is tested on an unseen data, it gives disappointing results.
+
+In such situations, we can use bagging algorithm (like random forest) to tackle high variance problem. Bagging algorithms divides a data set into subsets made with repeated randomized sampling. Then, these samples are used to generate  a set of models using a single learning algorithm. Later, the model predictions are combined using voting (classification) or averaging (regression).
+
+Also, to combat high variance, we can:
+
+Use regularization technique, where higher model coefficients get penalized, hence lowering model complexity.
+Use top n features from variable importance chart. May be, with all the variable in the data set, the algorithm is having difficulty in finding the meaningful signal.
+
+
+Q10. You are given a data set. The data set contains many variables, some of which are highly correlated and you know about it. Your manager has asked you to run PCA. Would you remove correlated variables first? Why?
+
+Answer: Chances are, you might be tempted to say No, but that would be incorrect. Discarding correlated variables have a substantial effect on PCA because, in presence of correlated variables, the variance explained by a particular component gets inflated.
+
+For example: You have 3 variables in a data set, of which 2 are correlated. If you run PCA on this data set, the first principal component would exhibit twice the variance than it would exhibit with uncorrelated variables. Also, adding correlated variables lets PCA put more importance on those variable, which is misleading.
+
+
+
+Q11. After spending several hours, you are now anxious to build a high accuracy model. As a result, you build 5 GBM models, thinking a boosting algorithm would do the magic. Unfortunately, neither of models could perform better than benchmark score. Finally, you decided to combine those models. Though, ensembled models are known to return high accuracy, but you are unfortunate. Where did you miss?
+
+Answer: As we know, ensemble learners are based on the idea of combining weak learners to create strong learners. But, these learners provide superior result when the combined models are uncorrelated. Since, we have used 5 GBM models and got no accuracy improvement, suggests that the models are correlated. The problem with correlated models is, all the models provide same information.
+
+For example: If model 1 has classified User1122 as 1, there are high chances model 2 and model 3 would have done the same, even if its actual value is 0. Therefore, ensemble learners are built on the premise of combining weak uncorrelated models to obtain better predictions.
+
+
+
+Q12. How is kNN different from kmeans clustering?
+
+Answer: Don’t get mislead by ‘k’ in their names. You should know that the fundamental difference between both these algorithms is, kmeans is unsupervised in nature and kNN is supervised in nature. kmeans is a clustering algorithm. kNN is a classification (or regression) algorithm.
+
+kmeans algorithm partitions a data set into clusters such that a cluster formed is homogeneous and the points in each cluster are close to each other. The algorithm tries to maintain enough separability between these clusters. Due to unsupervised nature, the clusters have no labels.
+
+kNN algorithm tries to classify an unlabeled observation based on its k (can be any number ) surrounding neighbors. It is also known as lazy learner because it involves minimal training of model. Hence, it doesn’t use training data to make generalization on unseen data set.
+
+
+
+Q13. How is True Positive Rate and Recall related? Write the equation.
+
+Answer: True Positive Rate = Recall. Yes, they are equal having the formula (TP/TP + FN).
+
+Know more: Evaluation Metrics
+
+
+
+Q14. You have built a multiple regression model. Your model R² isn’t as good as you wanted. For improvement, your remove the intercept term, your model R² becomes 0.8 from 0.3. Is it possible? How?
+
+Answer: Yes, it is possible. We need to understand the significance of intercept term in a regression model. The intercept term shows model prediction without any independent variable i.e. mean prediction. The formula of R² = 1 – ∑(y – y´)²/∑(y – ymean)² where y´ is predicted value.
+
+When intercept term is present, R² value evaluates your model wrt. to the mean model. In absence of intercept term (ymean), the model can make no such evaluation, with large denominator, ∑(y - y´)²/∑(y)² equation’s value becomes smaller than actual, resulting in higher R².
+
+
+
+Q15. After analyzing the model, your manager has informed that your regression model is suffering from multicollinearity. How would you check if he’s true? Without losing any information, can you still build a better model?
+
+Answer: To check multicollinearity, we can create a correlation matrix to identify & remove variables having correlation above 75% (deciding a threshold is subjective). In addition, we can use calculate VIF (variance inflation factor) to check the presence of multicollinearity. VIF value <= 4 suggests no multicollinearity whereas a value of >= 10 implies serious multicollinearity. Also, we can use tolerance as an indicator of multicollinearity.
+
+But, removing correlated variables might lead to loss of information. In order to retain those variables, we can use penalized regression models like ridge or lasso regression. Also, we can add some random noise in correlated variable so that the variables become different from each other. But, adding noise might affect the prediction accuracy, hence this approach should be carefully used.
+
+Know more: Regression
+
+
+
+Q16. When is Ridge regression favorable over Lasso regression?
+
+Answer: You can quote ISLR’s authors Hastie, Tibshirani who asserted that, in presence of few variables with medium / large sized effect, use lasso regression. In presence of many variables with small / medium sized effect, use ridge regression.
+
+Conceptually, we can say, lasso regression (L1) does both variable selection and parameter shrinkage, whereas Ridge regression only does parameter shrinkage and end up including all the coefficients in the model. In presence of correlated variables, ridge regression might be the preferred choice. Also, ridge regression works best in situations where the least square estimates have higher variance. Therefore, it depends on our model objective.
+
+Know more: Ridge and Lasso Regression
+
+
+
+Q17. Rise in global average temperature led to decrease in number of pirates around the world. Does that mean that decrease in number of pirates caused the climate change?
+
+Answer: After reading this question, you should have understood that this is a classic case of “causation and correlation”. No, we can’t conclude that decrease in number of pirates caused the climate change because there might be other factors (lurking or confounding variables) influencing this phenomenon.
+
+Therefore, there might be a correlation between global average temperature and number of pirates, but based on this information we can’t say that pirated died because of rise in global average temperature.
+
+Know more: Causation and Correlation
+
+
+
+Q18. While working on a data set, how do you select important variables? Explain your methods.
+
+Answer: Following are the methods of variable selection you can use:
+
+Remove the correlated variables prior to selecting important variables
+Use linear regression and select variables based on p values
+Use Forward Selection, Backward Selection, Stepwise Selection
+Use Random Forest, Xgboost and plot variable importance chart
+Use Lasso Regression
+Measure information gain for the available set of features and select top n features accordingly.
+
+
+Q19. What is the difference between covariance and correlation?
+
+Answer: Correlation is the standardized form of covariance.
+
+Covariances are difficult to compare. For example: if we calculate the covariances of salary ($) and age (years), we’ll get different covariances which can’t be compared because of having unequal scales. To combat such situation, we calculate correlation to get a value between -1 and 1, irrespective of their respective scale.
+
+
+
+Q20. Is it possible capture the correlation between continuous and categorical variable? If yes, how?
+
+Answer: Yes, we can use ANCOVA (analysis of covariance) technique to capture association between continuous and categorical variables.
+
+
+
+Q21. Both being tree based algorithm, how is random forest different from Gradient boosting algorithm (GBM)?
+
+Answer: The fundamental difference is, random forest uses bagging technique to make predictions. GBM uses boosting techniques to make predictions.
+
+In bagging technique, a data set is divided into n samples using randomized sampling. Then, using a single learning algorithm a model is build on all samples. Later, the resultant predictions are combined using voting or averaging. Bagging is done is parallel. In boosting, after the first round of predictions, the algorithm weighs misclassified predictions higher, such that they can be corrected in the succeeding round. This sequential process of giving higher weights to misclassified predictions continue until a stopping criterion is reached.
+
+Random forest improves model accuracy by reducing variance (mainly). The trees grown are uncorrelated to maximize the decrease in variance. On the other hand, GBM improves accuracy my reducing both bias and variance in a model.
+
+Know more: Tree based modeling
+
+
+
+Q22. Running a binary classification tree algorithm is the easy part. Do you know how does a tree splitting takes place i.e. how does the tree decide which variable to split at the root node and succeeding nodes?
+
+Answer: A classification trees makes decision based on Gini Index and Node Entropy. In simple words, the tree algorithm find the best possible feature which can divide the data set into purest possible children nodes.
+
+Gini index says, if we select two items from a population at random then they must be of same class and probability for this is 1 if population is pure. We can calculate Gini as following:
+
+Calculate Gini for sub-nodes, using formula sum of square of probability for success and failure (p^2+q^2).
+Calculate Gini for split using weighted Gini score of each node of that split
+Entropy is the measure of impurity as given by (for binary class):
+
+Entropy, Decision Tree
+
+Here p and q is probability of success and failure respectively in that node. Entropy is zero when a node is homogeneous. It is maximum when a both the classes are present in a node at 50% – 50%.  Lower entropy is desirable.
+
+
+
+Q23. You’ve built a random forest model with 10000 trees. You got delighted after getting training error as 0.00. But, the validation error is 34.23. What is going on? Haven’t you trained your model perfectly?
+
+Answer: The model has overfitted. Training error 0.00 means the classifier has mimiced the training data patterns to an extent, that they are not available in the unseen data. Hence, when this classifier was run on unseen sample, it couldn’t find those patterns and returned prediction with higher error. In random forest, it happens when we use larger number of trees than necessary. Hence, to avoid these situation, we should tune number of trees using cross validation.
+
+
+
+Q24. You’ve got a data set to work having p (no. of variable) > n (no. of observation). Why is OLS as bad option to work with? Which techniques would be best to use? Why?
+
+Answer: In such high dimensional data sets, we can’t use classical regression techniques, since their assumptions tend to fail. When p > n, we can no longer calculate a unique least square coefficient estimate, the variances become infinite, so OLS cannot be used at all.
+
+To combat this situation, we can use penalized regression methods like lasso, LARS, ridge which can shrink the coefficients to reduce variance. Precisely, ridge regression works best in situations where the least square estimates have higher variance.
+
+Among other methods include subset regression, forward stepwise regression.
+
+
+
+11222Q25. What is convex hull ? (Hint: Think SVM)
+
+Answer: In case of linearly separable data, convex hull represents the outer boundaries of the two group of data points. Once convex hull is created, we get maximum margin hyperplane (MMH) as a perpendicular bisector between two convex hulls. MMH is the line which attempts to create greatest separation between two groups.
+
+
+
+Q26. We know that one hot encoding increasing the dimensionality of a data set. But, label encoding doesn’t. How ?
+
+Answer: Don’t get baffled at this question. It’s a simple question asking the difference between the two.
+
+Using one hot encoding, the dimensionality (a.k.a features) in a data set get increased because it creates a new variable for each level present in categorical variables. For example: let’s say we have a variable ‘color’. The variable has 3 levels namely Red, Blue and Green. One hot encoding ‘color’ variable will generate three new variables as Color.Red, Color.Blue and Color.Green containing 0 and 1 value.
+
+In label encoding, the levels of a categorical variables gets encoded as 0 and 1, so no new variable is created. Label encoding is majorly used for binary variables.
+
+
+
+Q27. What cross validation technique would you use on time series data set? Is it k-fold or LOOCV?
+
+Answer: Neither.
+
+In time series problem, k fold can be troublesome because there might be some pattern in year 4 or 5 which is not in year 3. Resampling the data set will separate these trends, and we might end up validation on past years, which is incorrect. Instead, we can use forward chaining strategy with 5 fold as shown below:
+#+BEGIN_SRC text
+fold 1 : training [1], test [2]
+fold 2 : training [1 2], test [3]
+fold 3 : training [1 2 3], test [4]
+fold 4 : training [1 2 3 4], test [5]
+fold 5 : training [1 2 3 4 5], test [6]
+where 1,2,3,4,5,6 represents “year”.
+#+END_SRC
+
+
+
+Q28. You are given a data set consisting of variables having more than 30% missing values? Let’s say, out of 50 variables, 8 variables have missing values higher than 30%. How will you deal with them?
+
+Answer: We can deal with them in the following ways:
+
+Assign a unique category to missing values, who knows the missing values might decipher some trend
+We can remove them blatantly.
+Or, we can sensibly check their distribution with the target variable, and if found any pattern we’ll keep those missing values and assign them a new category while removing others.
+
+
+29. ‘People who bought this, also bought…’ recommendations seen on amazon is a result of which algorithm?
+
+Answer: The basic idea for this kind of recommendation engine comes from collaborative filtering.
+
+Collaborative Filtering algorithm considers “User Behavior” for recommending items. They exploit behavior of other users and items in terms of transaction history, ratings, selection and purchase information. Other users behaviour and preferences over the items are used to recommend items to the new users. In this case, features of the items are not known.
+
+Know more: Recommender System
+
+
+
+Q30. What do you understand by Type I vs Type II error ?
+
+Answer: Type I error is committed when the null hypothesis is true and we reject it, also known as a ‘False Positive’. Type II error is committed when the null hypothesis is false and we accept it, also known as ‘False Negative’.
+
+In the context of confusion matrix, we can say Type I error occurs when we classify a value as positive (1) when it is actually negative (0). Type II error occurs when we classify a value as negative (0) when it is actually positive(1).
+
+
+
+Q31. You are working on a classification problem. For validation purposes, you’ve randomly sampled the training data set into train and validation. You are confident that your model will work incredibly well on unseen data since your validation accuracy is high. However, you get shocked after getting poor test accuracy. What went wrong?
+
+Answer: In case of classification problem, we should always use stratified sampling instead of random sampling. A random sampling doesn’t takes into consideration the proportion of target classes. On the contrary, stratified sampling helps to maintain the distribution of target variable in the resultant distributed samples also.
+
+
+
+Q32. You have been asked to evaluate a regression model based on R², adjusted R² and tolerance. What will be your criteria?
+
+Answer: Tolerance (1 / VIF) is used as an indicator of multicollinearity. It is an indicator of percent of variance in a predictor which cannot be accounted by other predictors. Large values of tolerance is desirable.
+
+We will consider adjusted R² as opposed to R² to evaluate model fit because R² increases irrespective of improvement in prediction accuracy as we add more variables. But, adjusted R² would only increase if an additional variable improves the accuracy of model, otherwise stays same. It is difficult to commit a general threshold value for adjusted R² because it varies between data sets. For example: a gene mutation data set might result in lower adjusted R² and still provide fairly good predictions, as compared to a stock market data where lower adjusted R² implies that model is not good.
+
+
+
+Q33. In k-means or kNN, we use euclidean distance to calculate the distance between nearest neighbors. Why not manhattan distance ?
+
+Answer: We don’t use manhattan distance because it calculates distance horizontally or vertically only. It has dimension restrictions. On the other hand, euclidean metric can be used in any space to calculate distance. Since, the data points can be present in any dimension, euclidean distance is a more viable option.
+
+Example: Think of a chess board, the movement made by a bishop or a rook is calculated by manhattan distance because of their respective vertical & horizontal movements.
+
+
+
+Q34. Explain machine learning to me like a 5 year old.
+
+Answer: It’s simple. It’s just like how babies learn to walk. Every time they fall down, they learn (unconsciously) & realize that their legs should be straight and not in a bend position. The next time they fall down, they feel pain. They cry. But, they learn ‘not to stand like that again’. In order to avoid that pain, they try harder. To succeed, they even seek support from the door or wall or anything near them, which helps them stand firm.
+
+This is how a machine works & develops intuition from its environment.
+
+Note: The interview is only trying to test if have the ability of explain complex concepts in simple terms.
+
+
+
+Q35. I know that a linear regression model is generally evaluated using Adjusted R² or F value. How would you evaluate a logistic regression model?
+
+Answer: We can use the following methods:
+
+Since logistic regression is used to predict probabilities, we can use AUC-ROC curve along with confusion matrix to determine its performance.
+Also, the analogous metric of adjusted R² in logistic regression is AIC. AIC is the measure of fit which penalizes model for the number of model coefficients. Therefore, we always prefer model with minimum AIC value.
+Null Deviance indicates the response predicted by a model with nothing but an intercept. Lower the value, better the model. Residual deviance indicates the response predicted by a model on adding independent variables. Lower the value, better the model.
+Know more: Logistic Regression
+
+
+
+Q36. Considering the long list of machine learning algorithm, given a data set, how do you decide which one to use?
+
+Answer: You should say, the choice of machine learning algorithm solely depends of the type of data. If you are given a data set which is exhibits linearity, then linear regression would be the best algorithm to use. If you given to work on images, audios, then neural network would help you to build a robust model.
+
+If the data comprises of non linear interactions, then a boosting or bagging algorithm should be the choice. If the business requirement is to build a model which can be deployed, then we’ll use regression or a decision tree model (easy to interpret and explain) instead of black box algorithms like SVM, GBM etc.
+
+In short, there is no one master algorithm for all situations. We must be scrupulous enough to understand which algorithm to use.
+
+
+
+Q37. Do you suggest that treating a categorical variable as continuous variable would result in a better predictive model?
+
+Answer: For better predictions, categorical variable can be considered as a continuous variable only when the variable is ordinal in nature.
+
+
+
+Q38. When does regularization becomes necessary in Machine Learning?
+
+Answer: Regularization becomes necessary when the model begins to ovefit / underfit. This technique introduces a cost term for bringing in more features with the objective function. Hence, it tries to push the coefficients for many variables to zero and hence reduce cost term. This helps to reduce model complexity so that the model can become better at predicting (generalizing).
+
+
+
+Q39. What do you understand by Bias Variance trade off?
+
+Answer:  The error emerging from any model can be broken down into three components mathematically. Following are these component :
+
+error of a model
+
+Bias error is useful to quantify how much on an average are the predicted values different from the actual value. A high bias error means we have a under-performing model which keeps on missing important trends. Variance on the other side quantifies how are the prediction made on same observation different from each other. A high variance model will over-fit on your training population and perform badly on any observation beyond training.
+
+
+
+Q40. OLS is to linear regression. Maximum likelihood is to logistic regression. Explain the statement.
+
+Answer: OLS and Maximum likelihood are the methods used by the respective regression methods to approximate the unknown parameter (coefficient) value. In simple words,
+
+Ordinary least square(OLS) is a method used in linear regression which approximates the parameters resulting in minimum distance between actual and predicted values. Maximum Likelihood helps in choosing the the values of parameters which maximizes the likelihood that the parameters are most likely to produce observed data.
+*** essential questions
+https://svrtechnologies.com/machine-learning-lnterview-questions/new-51-machine-learning-lnterview-questions
+
+1. What is machine learning ? (machine learning lnterview questions)
+Answer:
+In answering this question, try to show your understand of the broad applications of machine learning, as well as how it fits into AI. Put it into your own words, but convey your understanding that machine learning is a form of AI that automates data analysis to enable computers to learn and adapt through experience to do specific tasks without explicit programming.
+(machine learning lnterview questions)
+
+2. Which one would you prefer to choose – model accuracy or model performance ?
+
+Answer:
+Model accuracy is just a subset of model performance but is not the be-all and end-all of model performance. This question is asked to test your knowledge on how well you can make a perfect balance between model accuracy and model performance.
+
+3. How will you set the threshold for credit card fraud detection mode ?
+
+Answer:
+
+A machine learning interview is a compound process and the final result of the interview is determined by multiple factors and not just by looking at the number of right answers given by the candidate. If you really want that machine learning job, it’s going to take time and dedication as you practice multiple ways to answer the above listed machine learning interview questions, but hopefully it is the enjoyable kind. You will learn a lot and get a good deal of knowledge preparing for your next machine learning interview with the help of these questions.
+
+Machine learning interview questions updated on this blog have been collected from various sources like actual interview experiences of data scientists, discussions on quora, facebook, job portals and other forums,etc. To contribute to this blogpost and help the learning community, please feel free to post your questions in the comments section below.
+
+4. Give a drawback of Gradient descent. ?
+
+Answer:
+
+It does not always converge to the same point as in some cases it reaches a local-minima instead of a global optimal point.
+
+5. When should one use Mean absolute error over Root mean square error as a performance measure for regression problems ?
+
+Answer:
+
+When we have many outliers in the data, Mean absolute error is a better choice.
+
+6. What are the three stages to build any model in Machine learning ?
+
+Answer:
+
+There are 3 stages to build mode in machine learning. Those are
+
+Model Building:- Choose the suitable algorithm for the model and train it according to the requirement of your problem.
+Model Testing:- Check the accuracy of the model through the test data
+Applying the model:- Make the required changes after testing and apply the final model which we have at the end.
+
+7. Why is it important for the royal society to be doing a project about machine learning ?
+
+Answer:
+
+I think this is very important that a royal society to do a project on machine learning to realize themselves to know, how much impact machine learning is going to create in the future. There are some people who even did not heard about what is machine learning till now. That going to be changed in our society in near future. In order to address their potential or in order to address their phase/state where they are right now. When the world is moving so forward with these cutting-edge technologies. I think it’s all about transparency that we need to tell the potential of all the things where we can go when we learn these things in our future. It’s all about looking into the future to make predictions.
+
+8. How do we know which machine learning algorithm is better for us to solve our problem ?
+
+Answer:
+
+If we are concerning about accuracy then one can test with different algorithms and cross-validate them to know whether you are getting good accuracy or not. Let us suppose When your problem having some small training dataset we need to use models which having low variance and high bias. Or else When your problem having large training dataset we need to use models which having high variance and low bias. If we follow these things we will easily get o know which algorithm is better to solve your machine learning algorithm.
+
+Besant Technologies trained students are having the luxury life by getting placed in top MNC companies and earning lots of huge amount as salary. We have lots of best feedbacks for the machine learning interview questions and answers prepared by us and these questions are fully analyzed and prepared by having a tie-up with the top MNC companies. Do pursue in the best Machine learning institute in Chennai by Besant Technologies and get placed and stay happy.
+
+machine learning lnterview questions
+
+9. How will you explain machine learning to a layperson in an easily comprehensible manner ?
+
+Answer:
+
+Machine learning is a kind of technology that enables the computer-based machines and systems to make decisions based on prior experience with an activity, with the intent of improving its performance continuously. This can be understood through multiple examples, such as:
+
+Imagine about a curious kid who sticks his palm
+You have observed that the obese people are more prone to heart diseases than the thinner people; thus, you decided that you will try to remain slim to prevent the risk of a heart disease. You have gone through a lot of information on this topic and then, come up with a general rule of classification.
+Suppose, you are playing blackjack and based on the sequence of the cards you see, you decide whether to hit or not. In this case, based on the prior experience you have and by looking at what happens, you decide on your course of action.
+The same way the machines also lear with the aid of technology.
+
+10. How will you choose the most appropriate machine learning algorithm for your classification problem ?
+
+Answer:
+
+If accuracy has to be given priority in deciding a machine learning algorithm, then the best way to go about it is to test a couple of different algorithms (try different parameters within each algorithm ) and choose the one that best meets the requirement. As a rule of thumb, choose a machine learning algorithm for your classification based on the size of your training set. If the training set is small, then using low variance/high bias classifiers like Naïve Bayes is beneficial, while in the case of large training sets high variance/low bias classifiers like k-nearest would serve the purpose best.
+
+Top 50 Basic SQL Interview Questions And Answers Pdf
+
+11. What is backpropagation in machine learning ?
+
+Answer:
+
+A) The primary algorithm for performing gradient descent on neural networks. First, the output values of each node are calculated (and cached) in a forward pass. Then, the partial derivative of the error with respect to each parameter is calculated in a backward pass through the graph.
+The Area Under the ROC curve is the probability that a classifier will be more confident that a randomly chosen positive example is actually positive than that a randomly chosen negative example is positive.
+
+12. What is candidate sampling in machine learning ?
+
+Answer:
+
+A training-time optimization in which a probability is calculated for all the positive labels, using, for example, softmax, but only for a random sample of negative labels. For example, if we have an example labeled beagle and dog candidate sampling computes the predicted probabilities and corresponding loss terms for the beagle and dog class outputs in addition to a random subset of the remaining classes (cat, lollipop, fence).
+
+13. What is classification threshold in machine learning ?
+
+Answer:
+A scalar-value criterion that is applied to a model’s predicted score in order to separate the positive class from the negative class. Used when mapping logistic regression results to binary classification.
+
+14. What is Naive Bayes classifier ?
+
+Answer:
+Naïve Bayes is an extensively used algorithm for classification task. Naïve Bayes classifier is proved to be effective in textual data analysis. This algorithm is a basis for machine learning as it seeks to work on conditional probability to cut through the improbability of a task in advance.
+
+15. What is Bias-Variance trade-off in machine learning ?
+
+Answer:
+Bias-Variance is a dilemma of minimizing the errors that stems from 2 different sources at a time. While Bias is based on preconceived assumptions in the learning algorithm, Variance measures whence a set of random numbers are spread across from their average value. Trading off in between these two aspects defines the process of machine algorithm.
+
+16. What is the difference between artificial learning and machine learning ?
+
+Answer:
+Machine Learning: Designing and developing algorithms according to the behaviors based on empirical data are known as Machine Learning.
+
+Artificial intelligence: in addition to machine learning, it also covers other aspects like knowledge representation, natural language processing, planning, robotics etc.
+
+machine learning lnterview questions
+
+17. What is deep learning ?
+
+Answer:
+This might or might not apply to the job you’re going after, but your answer will help to show you know more than just the technical aspects of machine learning. Deep learning is a subset of machine learning. It refers to using multi-layered neural networks to process data in increasingly complex ways, enabling the software to train itself to perform tasks like speech and image recognition through exposure to these vast amounts of data. Thus the machine undergoes continual improvement in the ability to recognize and process information. Layers of neural networks stacked on top of each for use in deep learning are called deep neural networks.
+
+18. What is Genetic Programming ?
+
+Answer:
+Genetic programming is one of the two techniques used in machine learning. The model is based on the testing and selecting the best choice among a set of results. (Company)
+
+19. Why is Naïve Bayes machine learning algorithm naïve ?
+
+Answer:
+Naïve Bayes machine learning algorithm is considered Naïve because the assumptions the algorithm makes are virtually impossible to find in real-life data. Conditional probability is calculated as a pure product of individual probabilities of components. This means that the algorithm assumes the presence or absence of a specific feature of a class is not related to the presence or absence of any other feature (absolute independence of features), given the class variable. For instance, a fruit may be considered to be a banana if it is yellow, long and about 5 inches in length. However, if these features depend on each other or are based on the existence of other features, a naïve Bayes classifier will assume all these properties to contribute independently to the probability that this fruit is a banana. Assuming that all features in a given dataset are equally important and independent rarely exists in the real-world scenario.
+
+20. You are given a data set. The data set has missing values which spread along 1 standard deviation from the median. What percentage of data would remain unaffected? Why ?
+
+Answer:
+This question has enough hints for you to start thinking! Since, the data is spread across median, let’s assume it’s a normal distribution. We know, in a normal distribution, ~68% of the data lies in 1 standard deviation from mean (or mode, median), which leaves ~32% of the data unaffected. Therefore, ~32% of the data would remain unaffected by missing values.
+
+21. What’s a Fourier transform ?
+
+Answer:
+A Fourier transform is a generic method to decompose generic functions into a superposition of symmetric functions. Or as this more intuitive tutorial puts it, given a smoothie, it’s how we find the recipe. The Fourier transform finds the set of cycle speeds, amplitudes and phases to match any time signal. A Fourier transform converts a signal from time to frequency domain — it’s a very common way to extract features from audio signals or other time series such as sensor data.
+
+22. You are given a dataset where the number of variables (p) is greater than the number of observations (n) (p>n). Which is the best technique to use and why ?
+
+Answer:
+
+When the number of variables is greater than the number of observations, it represents a high dimensional dataset. In such cases, it is not possible to calculate a unique least square coefficient estimate. Penalized regression methods like LARS, Lasso or Ridge seem work well under these circumstances as they tend to shrink the coefficients to reduce variance. Whenever the least square estimates have higher variance, Ridge regression technique seems to work best.
+
+23. When will you use classification over regression ?
+
+Answer:
+Classification is about identifying group membership while regression technique involves predicting a response. Both techniques are related to prediction, where classification predicts the belonging to a class whereas regression predicts the value from a continuous set. Classification technique is preferred over regression when the results of the model need to return the belongingness of data points in a dataset to specific explicit categories. (For instance, when you want to find out whether a name is male or female instead of just finding it how correlated they are with male and female names.
+
+machine learning lnterview questions
+
+24. If a highly positively skewed variable has missing values and we replace them with mean, do we underestimate or overestimate the values ?
+
+Answer:
+Since in positively skewed data, mean in greater than median, we overestimate the value of missing observations.
+
+25. What does linear in ‘linear regression’ actually mean ?
+
+Answer:
+It implies that the dependent variable should be a linear function of parameters. For the same reason, Polynomial regression is classified as linear though it fits a non-linear model between the dependent and independent variable. ( machine learning training)
+
+26. What type of learning is needed when the system needs to adapt to rapidly changing data ?
+
+Answer:
+Online learning. Because in Online learning each learning step is fast and cheap, and the system can be trained by feeding data instances sequentially.
+
+27. What kind of problems lend themselves to machine learning ?
+
+Answer:
+I think machine learning is become such a big deal because of big data. We now had access to so much of data that machine can interact with it. So, I think this would be a problem where machine learning is going to make great progress. Its like big exploitation to the data. So, one of the big challenges is for artificial intelligence is a computer vision. One of the things like humans do their job in an incredible way
+
+Example:- When humans look at a picture and they will interpret that picture very well. For computers, it is very difficult.
+
+Because we are trying to program the thing from bottom to upwards. But now we can expose an algorithm to many pictures as it can learn as its going learn. So, I think the sort of ability for machine actually to view its environment and interpret and read it. Where it can make a lot of progress. Frankly, where are this data machine learning would be successful? For Example recommendations on the internet and navigation like whenever we drive we are giving new information to it and that’s being used and adapt to change the progress to a higher level. Likewise, health filed one of the biggest filed where a machine can study a lot of data that doctors can’t study and cant maintain that much data.
+
+28. What is false positive and false negative in terms of machine learning ?
+
+Answer:
+Let see you are performing some task or you conducted some experiment or you conducted some test and whatever the test is associated with you or whatever the output came from your test or task is actually a negative but you actually predicted as a positive. That means you performed some experiment and output is actually negative but you predicted as a positive. So, Those kinds of cases will lie under false positive. In false negative exactly negative of the previous case called false positive. Actually, there are some outputs which are actually positive but you predicted a negative. So those kinds of cases lies under false negative.
+
+29. What do you mean by parametric models? Also, give some examples of them ?
+
+Answer:
+Parametric models are the models having a limited number of parameters. In order to predict new data, you only need to know the parameters of the model. The examples of such models include logistic regression, linear regression, and linear SVMs.
+
+30. What is a neural network and what are some advantages and disadvantages of such a network ?
+
+Answer:
+In the information technology field, a neural network is basically a system of hardware and/or software akin to the pattern of neurons in the human brain; it constitutes an important part of deep learning. The greatest advantage of neural networks is that they lead to the performance breakthroughs for unstructured datasets like audio, video, and images. Their high flexibility enables them to learn patterns that no other ML algorithm would be unable to manage. However, the disadvantage of neural networks is that need a huge volume of training data to work effectively. Also, there is difficulty in picking the right architecture for these networks due to their incomprehensible internal layers.
+
+31. What is sigmoid function in Machine learning ?
+
+Answer:
+A function that maps logistic or multinomial regression output (log odds) to probabilities, returning a value between 0 and 1.
+
+machine learning lnterview questions
+
+32. What is batch size machine learning ?
+
+Answer:
+The number of examples in a batch. For example, the batch size of SGD is 1, while the batch size of a mini-batch is usually between 10 and 1000. Batch size is usually fixed during training and inference.
+
+33. What is bucketing in machine learning ?
+
+Answer:
+Converting a (usually continuous) feature into multiple binary features called buckets or bins, typically based on value range. For example, instead of representing temperature as a single continuous floating-point feature, you could chop ranges of temperatures into discrete bins. Given temperature data sensitive to a tenth of a degree, all temperatures between 0.0 and 15.0 degrees could be put into one bin, 15.1 to 30.0 degrees could be a second bin, and 30.1 to 50.0 degrees could be a third bin.
+
+34. What is checkpoint in machine learning ?
+
+Answer:
+Data that captures the state of the variables of a model at a particular time. Checkpoints enable exporting model weights, as well as performing training across multiple sessions. Checkpoints also enable training to continue past errors (for example, job preemption). Note that the graph itself is not included in a checkpoint.
+
+35. What is collaborative filtering in machine learning ?
+
+Answer:
+Making predictions about the interests of one user based on the interests of many other users. Collaborative filtering is often used in recommendation systems.
+
+36. What is supervised and unsupervised machine learning ?
+
+Answer:
+
+Supervised machine learning is commonly used as the algorithm is already fed as an input and the algorithm is taught from an equipped dataset. The AI is guided steadily to teach itself with the readily available data resources.
+
+Unsupervised machine learning refers to a process where the machine goes blindly into analysing the input whose outcome is necessarily unknown.
+
+37. How to choose notable variables while working on a data set ?
+
+Answer:
+
+Removing the correlated variables is the first step before marking the selective variables as correlation hinders uniqueness among the variables. Other important tools such as linear regression, Random Forest and Lasso regression are keys to select variables in a machine learning process.
+
+38. What is ‘Training set’ and ‘Test set’ ?
+
+Answer:
+
+Training set: It is a set of data is used to discover the potentially predictive relationship in various areas of information science like machine learning. It is an example given to the learner.
+
+Test set: It is used to test the accuracy of the hypotheses generated by the learner, and it is the set of example held back from the learner.
+
+39. What is the standard approach to supervised learning ?
+
+Answer:
+
+Split the set of example into the training set and the test is the standard approach to supervised learning is.
+
+machine learning lnterview questions
+
+40. What is Model Selection in Machine Learning ?
+
+Answer:
+The process of choosing models among diverse mathematical models, which are used to define the same data set is known as Model Selection. It is applied to the fields of statistics, data mining and machine learning.
+
+41. Explain the two components of Bayesian logic program ?
+
+Answer:
+Bayesian logic program consists of two components. The first component is a logical one ; it consists of a set of Bayesian Clauses, which captures the qualitative structure of the domain. The second component is a quantitative one, it encodes the quantitative information about the domain.
+
+42. List some use cases where classification machine learning algorithms can be used ?
+
+Answer:
+
+Natural language processing (Best example for this is Spoken Language Understanding )
+Market Segmentation
+Text Categorization (Spam Filtering )
+Bioinformatics (Classifying proteins according to their function)
+Fraud Detection
+Face detection
+
+43. How much data will you allocate for your training, validation and test sets ?
+
+Answer:
+
+There is no to the point answer to this question but there needs to be a balance/equilibrium when allocating data for training, validation and test sets.
+
+If you make the training set too small, then the actual model parameters might have high variance. Also, if the test set is too small, there are chances of unreliable estimation of model performance. A general thumb rule to follow is to use 80: 20 train/test spilt. After this the training set can be further split into validation sets.
+
+44. What is the most frequent metric to assess model accuracy for classification problems ?
+
+Answer:
+
+Percent Correct Classification (PCC) measures the overall accuracy irrespective of the kind of errors that are made, all errors are considered to have same weight.
+
+45. “People who bought this, also bought….” recommendations on Amazon are a result of which machine learning algorithm ?
+
+Answer:
+
+Recommender systems usually implement the collaborative filtering machine learning algorithm that considers user behaviour for recommending products to users. Collaborative filtering machine learning algorithms exploit the behaviour of users and products through ratings, reviews, transaction history, browsing history, selection and purchase information.
+
+46. Name some feature extraction techniques used for dimensionality reduction. ?
+
+Answer:
+Independent Component Analysis
+Principal Component Analysis
+Kernel Based Principal Component Analysis
+
+machine learning lnterview questions
+
+47. What kind of problems does regularization solve ?
+
+Answer:
+Regularization is used to address overfitting problems as it penalizes the loss function by adding a multiple of an L1 (LASSO) or an L2 (Ridge) norm of your weights vector w.
+
+48. Why is Manhattan distance not used in kNN machine learning algorithm to calculate the distance between nearest neighbours ?
+
+Answer:
+Manhattan distance has restrictions on dimensions and calculates the distance either vertically or horizontally. Euclidean distance is better option in kNN to calculate the distance between nearest neighbours because the data points can be represented in any space without any dimension restriction.
+
+49. Why do we convert categorical variables into factor? Which function is used in R to perform the same ?
+
+Answer:
+Most Machine learning algorithms require numbers as input. On converting categorical values to factors we get numerical values and also we don’t have to deal with dummy variables.
+
+We can use both factor() and as.factor() to convert variables to factors.
+
+50. What is Standardization and Normalisation? Give one advantage of each over the other ?
+
+Answer:
+Both are feature scaling techniques.
+
+Standardization is less affected by outliers as compared to Normalisation.
+
+Standardization doesn’t bound values to a specific range which may be a problem for some algorithms where an input is bounded between ranges.
+
+51. How is machine learning used in the movement ?
+
+Answer:
+As per my knowledge many people already using machine learning in their everyday life. Let us suppose when you are engaging with the internet you are actually expressing your preferences, likes, dislikes through your search. So all these things picked up by cookies coming on to your computer. From that, we can evaluate the behavior of a user. Basically, that will help us to increase a progress of a user through the internet. Navigation is also one of the examples where we are using machine learning to find a distance between two places through using optimization techniques. I think people going to more engage with machine learning in the near future is health.
+
+Example:- If you see now, Actually watson is being to use for health. It looking at and scans of body data & trying to understand symptoms of cancer. These are the things machine learning used in the movement.
 
 
 * Footnotes
