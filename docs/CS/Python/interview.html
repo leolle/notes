@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-07-16 Mon 19:30 -->
+<!-- 2018-07-17 Tue 11:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -174,7 +174,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-07-16 19:30:37</td>
+<td class="org-left">2018-07-17 11:58:07</td>
 </tr>
 
 <tr>
@@ -1408,6 +1408,139 @@ d.get<span style="color: #AE81FF;">(</span>key,<span style="color: #E6DB74;">"ke
 <div class="org-src-container">
 
 <pre class="src src-python"><span style="color: #FD971F;">x</span><span style="color: #AE81FF;">[</span><span style="color: #F92672;">len</span><span style="color: #66D9EF;">(</span>x<span style="color: #66D9EF;">)</span>:<span style="color: #AE81FF;">]</span>=<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<p>
+3.49
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">x</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">]</span>
+x.sort<span style="color: #AE81FF;">(</span>reverse=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">314</span><span style="color: #AE81FF;">]</span>: x
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">314</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<p>
+3.50
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">x</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">x</span> = x.sort<span style="color: #AE81FF;">(</span>reverse=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">314</span><span style="color: #AE81FF;">]</span>: x
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">314</span><span style="color: #AE81FF;">]</span>:
+</pre>
+</div>
+
+<p>
+3.51
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">x</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">11</span>, <span style="color: #AE81FF;">111</span><span style="color: #AE81FF;">]</span>
+x.sort<span style="color: #AE81FF;">(</span>key=<span style="color: #F92672;">lambda</span> x:<span style="color: #F92672;">len</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">str</span><span style="color: #A6E22E;">(</span>x<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>, reverse=<span style="color: #AE81FF;">True</span><span style="color: #AE81FF;">)</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">314</span><span style="color: #AE81FF;">]</span>: x
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">314</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">111</span>, <span style="color: #AE81FF;">11</span>, <span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<p>
+3.55
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">348</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">map</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">list</span>, <span style="color: #F92672;">zip</span><span style="color: #A6E22E;">(</span>*<span style="color: #E6DB74;">[</span><span style="color: #FD971F;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span><span style="color: #FD971F;">]</span>,<span style="color: #FD971F;">[</span><span style="color: #AE81FF;">4</span>,<span style="color: #AE81FF;">5</span>,<span style="color: #AE81FF;">6</span><span style="color: #FD971F;">]</span><span style="color: #E6DB74;">]</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">349</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">4</span><span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">5</span><span style="color: #66D9EF;">]</span>, <span style="color: #66D9EF;">[</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">6</span><span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<p>
+3.60
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">350</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">list</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">enumerate</span><span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">354</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">[</span><span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">0</span>, <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span>, <span style="color: #66D9EF;">(</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+
+<p>
+3.67
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">385</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">x</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span>,<span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">4</span>,<span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">]</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">389</span><span style="color: #AE81FF;">]</span>: x.remove<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">390</span><span style="color: #AE81FF;">]</span>: x
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">390</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">]</span>
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">392</span><span style="color: #AE81FF;">]</span>: x.remove?
+Docstring:
+L.remove<span style="color: #AE81FF;">(</span>value<span style="color: #AE81FF;">)</span> -&gt; <span style="color: #AE81FF;">None</span> -- remove first occurrence of value.
+Raises <span style="color: #66D9EF;">ValueError</span> <span style="color: #F92672;">if</span> the value <span style="color: #F92672;">is</span> <span style="color: #F92672;">not</span> present.
+Type:      builtin_function_or_method
+</pre>
+</div>
+
+<p>
+3.71
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">411</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">10</span>,<span style="color: #AE81FF;">20</span><span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">]</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">416</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">14</span>
+</pre>
+</div>
+
+<p>
+3.74
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">420</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">x</span>=<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">425</span><span style="color: #AE81FF;">]</span>: x
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">425</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">3</span>
+</pre>
+</div>
+
+<p>
+3.75
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">442</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">x</span>=<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">443</span><span style="color: #AE81FF;">]</span>: x
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">443</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span>,<span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">444</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">type</span><span style="color: #AE81FF;">(</span>x<span style="color: #AE81FF;">)</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">445</span><span style="color: #AE81FF;">]</span>: <span style="color: #F92672;">tuple</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">446</span><span style="color: #AE81FF;">]</span>: x*<span style="color: #AE81FF;">3</span>
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">450</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">3</span>, <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+3.80
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">456</span><span style="color: #AE81FF;">]</span>: <span style="color: #FD971F;">x</span>=<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">]</span>*<span style="color: #AE81FF;">2</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">457</span><span style="color: #AE81FF;">]</span>: x.insert<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">1</span>,<span style="color: #AE81FF;">4</span><span style="color: #AE81FF;">)</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">463</span><span style="color: #AE81FF;">]</span>: x
+Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">463</span><span style="color: #AE81FF;">]</span>: <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">4</span>, <span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">1</span>, <span style="color: #AE81FF;">2</span><span style="color: #AE81FF;">]</span>
+
+In <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">464</span><span style="color: #AE81FF;">]</span>: x.insert?
+Docstring: L.insert<span style="color: #AE81FF;">(</span>index, <span style="color: #F92672;">object</span><span style="color: #AE81FF;">)</span> -- insert <span style="color: #F92672;">object</span> before index
+Type:      builtin_function_or_method
 </pre>
 </div>
 </div>

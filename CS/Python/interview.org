@@ -734,3 +734,96 @@ x[len(x):]=[1,2]
 #+RESULTS:
 : In [291]: x
 : Out[291]: [1, 2, 3, 4, 1, 2]
+
+3.49
+#+BEGIN_SRC python
+x = [1, 2, 3, 4, 1, 2]
+x.sort(reverse=True)
+In [314]: x
+Out[314]: [4, 3, 2, 2, 1, 1]
+#+END_SRC
+
+3.50
+#+BEGIN_SRC python
+x = [1, 2, 3, 4, 1, 2]
+x = x.sort(reverse=True)
+In [314]: x
+Out[314]:
+#+END_SRC
+
+3.51
+#+BEGIN_SRC python
+x = [1, 11, 111]
+x.sort(key=lambda x:len(str(x)), reverse=True)
+In [314]: x
+Out[314]: [111, 11, 1]
+#+END_SRC
+
+3.55
+#+BEGIN_SRC python
+In [348]: list(map(list, zip(*[[1,2,3],[4,5,6]])))
+Out[349]: [[1, 4], [2, 5], [3, 6]]
+#+END_SRC
+
+3.60
+#+BEGIN_SRC python
+In [350]: list(enumerate([1,2]))
+Out[354]: [(0, 1), (1, 2)]
+#+END_SRC
+
+3.67
+#+BEGIN_SRC python
+In [385]: x = [1,2,3,4,2]
+
+In [389]: x.remove(2)
+
+In [390]: x
+Out[390]: [1, 3, 4, 2]
+In [392]: x.remove?
+Docstring:
+L.remove(value) -> None -- remove first occurrence of value.
+Raises ValueError if the value is not present.
+Type:      builtin_function_or_method
+#+END_SRC
+
+3.71
+#+BEGIN_SRC python
+In [411]: range(10,20)[4]
+Out[416]: 14
+#+END_SRC
+
+3.74
+#+BEGIN_SRC python
+In [420]: x=(3)
+
+In [425]: x
+Out[425]: 3
+#+END_SRC
+
+3.75
+#+BEGIN_SRC python
+In [442]: x=(3,)
+
+In [443]: x
+Out[443]: (3,)
+
+In [444]: type(x)
+Out[445]: tuple
+
+In [446]: x*3
+Out[450]: (3, 3, 3)
+#+END_SRC
+
+3.80
+#+BEGIN_SRC python
+In [456]: x=[1,2]*2
+
+In [457]: x.insert(1,4)
+
+In [463]: x
+Out[463]: [1, 4, 2, 1, 2]
+
+In [464]: x.insert?
+Docstring: L.insert(index, object) -- insert object before index
+Type:      builtin_function_or_method
+#+END_SRC

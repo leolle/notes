@@ -320,6 +320,9 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- tuple vs set
+A set is a slightly different concept from a list or a tuple. A set, in Python, is just like the mathematical set. It does not hold duplicate values, and is unordered. However, it is not immutable unlike a tuple.Jan 9, 2018
+
 - combine list of lists into one list, join list of lists
 #+BEGIN_SRC python
 import itertools
