@@ -551,32 +551,43 @@ sudo gem install pdf-extract-0.1.1.gem
 *** Scripting best practices
 
 *** Shell commands:
+- clear terminal output:
+#+BEGIN_SRC bash
+reset
+#+END_SRC
+
 - copy a filepath to clipboard
 #+BEGIN_SRC bash
 pwd |  xclip -i -selection clipboard
 #+END_SRC
+
 - copy folder:
 #+BEGIN_SRC bash
 cp folder /destination/path -a
 #+END_SRC
+
 - check operation system information:
 #+BEGIN_SRC bash
 uname -m && cat /etc/*release
 #+END_SRC
+
 - view a document with openoffice:
 #+BEGIN_SRC bash
 soffice filename
 #+END_SRC
+
 - transfer files, copy file from a remote computer to local host
 #+BEGIN_SRC bash
 scp usrname@ip:/home/weiwu/share/deep_learning/data/enwiki-20170820-pages-articles.xml.bz2 ./
 #+END_SRC
+
 - transfer local files to remote host
 #+BEGIN_SRC bash
 scp file usr_name@ip:/absolute/path/
 # copy folder
 scp -r ./path/from/destination username@hostname:/path/to/destination
 #+END_SRC
+
 - linux folder tree output to clipboard.
 #+BEGIN_SRC txt
 -P pattern

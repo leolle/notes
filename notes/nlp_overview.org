@@ -128,4 +128,3 @@ logical structure:
 |          |                       | Time-RNN                                    | alert                                    |
 | General  | sentiment analysis    | Bayes                                       | finance sentiment analysis               |
 |          |                       |                                             | stock sentiment classification           |
-|          |                       |                                             |                                          |

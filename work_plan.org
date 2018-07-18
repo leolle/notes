@@ -691,6 +691,7 @@ monitor AI accounts' newsest tweets, send tweets including the paper mentioned t
 ***** TODO design a QT UI for the downloader.
 
 ***** add tensorflow & estimator into Jupyter notebook.
+https://docs.google.com/document/d/1Zm4SsJlHI8cB--E55Kki38QVHclbClZcBtQoaJX4TJU/edit?usp=sharing
 
 **** machine reading for scientific paper.
 
@@ -699,8 +700,7 @@ Hermann, K. M., Kočiský, T., Grefenstette, E., Espeholt, L., Kay, W., Suleyman
 
 ***** transfer article summary bullets into questions.
 
-
-***** event extraction from scientific paprser.
+***** event extraction from scientific paper.
 
 ***** extract abstract/reference/full-text from scholar paper.
 Lopez, P., & Romary, L. (2010). HUMB : Automatic Key Term Extraction from Scientific Articles in GROBID. Proceedings of the 5th International Workshop on Semantic Evaluation, (July), 248–251. Retrieved from http://aclweb.org/anthology/S/S10/S10-1055.pdf

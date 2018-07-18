@@ -827,3 +827,94 @@ In [464]: x.insert?
 Docstring: L.insert(index, object) -- insert object before index
 Type:      builtin_function_or_method
 #+END_SRC
+
+* 1000道Python题库系列分享六（40道）
+3.82
+#+BEGIN_SRC python
+In [465]: x=[[1]]*3
+
+In [469]: x
+Out[470]: [[1], [1], [1]]
+
+#+END_SRC
+
+3.84
+#+BEGIN_SRC python
+In [482]: y=x[:]
+
+In [484]: id(x)
+Out[485]: 140324141711560
+
+In [486]: id(y)
+Out[490]: 140324142182536
+
+In [491]: x==y
+Out[492]: True
+
+In [497]: id(x)==id(y)
+Out[497]: False
+#+END_SRC
+
+3.85
+#+BEGIN_SRC python
+In [512]: sorted([13,1,237,89,100],key=lambda x:len(str(x)))
+Out[532]: [1, 13, 89, 237, 100]
+#+END_SRC
+
+3.90
+#+BEGIN_SRC python
+In [540]: {1,2,3} < {3,4,5}
+Out[540]: False
+
+In [541]: {1,2,3} < {1,2,4}
+Out[541]: False
+
+#+END_SRC
+
+3.94
+#+BEGIN_SRC python
+In [552]: random.randrange?
+Signature: random.randrange(start, stop=None, step=1, _int=<class 'int'>)
+Docstring:
+Choose a random item from range(start, stop[, step]).
+
+This fixes the problem with randint() which includes the
+endpoint; in Python this is usually not what you want.
+File:      ~/.virtualenvs/graph/lib/python3.6/random.py
+Type:      method
+#+END_SRC
+
+3.95
+#+BEGIN_SRC python
+In [557]: random.sample?
+Signature: random.sample(population, k)
+Docstring:
+Chooses k unique random elements from a population sequence or set.
+#+END_SRC
+
+3.104
+#+BEGIN_SRC python
+In [592]: x=[1,2]
+
+In [594]: y=x
+
+In [597]: y.append(3)
+
+In [610]: x
+Out[611]: [1, 2, 3]
+#+END_SRC
+
+3.114
+#+BEGIN_SRC python
+x = [1,2]
+x.append([3])
+In [631]: x
+Out[631]: [1, 2, [3]]
+#+END_SRC
+
+3.111
+#+BEGIN_SRC python
+x = [[1,2,3],[4,5,6]]
+[[row[i] for row in x] for i in range(len(x[0]))]
+# 先从最右边起，i in range(3), 循环3次， row在x里面取两次，取[x[[0][0],x[[1],[0]]...
+#+END_SRC
