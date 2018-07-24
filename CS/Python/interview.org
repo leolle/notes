@@ -987,4 +987,90 @@ Out[45]: [4, 2, 1, 0]
 In [46]: x=x.reverse()
 
 In [47]: x
+Out[47: None
+#+END_SRC
+
+3.142
+#+BEGIN_SRC python
+In [5]: x=[1,2,3,4,5,6]
+
+In [12]: x==x[:5]+x[5:]
+Out[16]: True
+
+In [17]: y = [1,2,3,4,5,6]
+
+In [22]: x==y
+Out[22]: True
+
+In [23]: id(x)==id(y)
+Out[26]: False
+
+In [27]: id(x)==id(x[:5]+x[5:])
+Out[31]: False
+#+END_SRC
+
+* 1000道Python题库系列分享八（29道）
+
+3.153
+#+BEGIN_SRC python
+In [40]: '%c'%65
+Out[46]: 'A'
+
+In [47]: str(65)
+Out[51]: '65'
+#+END_SRC
+
+3.157
+#+BEGIN_SRC python
+In [56]: x='abcd'
+
+In [63]: y='abcde'
+
+In [67]: list(zip(x,y))
+Out[70]: [('a', 'a'), ('b', 'b'), ('c', 'c'), ('d', 'd')]
+
+In [71]: [i==j for i,j in zip(x,y)]
+Out[76]: [True, True, True, True]
+#+END_SRC
+
+3.163
+#+BEGIN_SRC python
+In [104]: list(str([3,4]))==[3,4]
+Out[104]: False
+
+In [105]: list(str([3,4]))
+Out[105]: ['[', '3', ',', ' ', '4', ']']
+#+END_SRC
+
+3.165
+#+BEGIN_SRC python
+In [110]: sorted({'a':3,'b':9})
+Out[123]: ['a', 'b']
+
+In [124]: sorted({'a':3,'b':9}.values())
+Out[126]: [3, 9]
+#+END_SRC
+
+3.174
+#+BEGIN_SRC python
+In [199]: [1,2,3]>[1,3,2]
+Out[211]: False
+
+In [212]: [1]>[2]
+Out[218]: False
+
+In [219]: [1]<[2]
+Out[219]: True
+
+In [220]: [1,2,3]<[1,3,2]
+Out[220]: True
+#+END_SRC
+
+3.178
+#+BEGIN_SRC python
+In [221]: type({})
+Out[222]: dict
+
+In [223]: type({1})
+Out[226]: set
 #+END_SRC
