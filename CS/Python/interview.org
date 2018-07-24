@@ -926,3 +926,65 @@ x = [[1,2,3],[4,5,6]]
 In [666]: [1,2,3] == [1,3,2]
 Out[672]: False
 #+END_SRC
+
+3.129
+#+BEGIN_SRC python
+In [11]: x=[1.0,2.0,3.0]
+
+In [12]: sum(x)/len(x)
+Out[12]: 2.0
+#+END_SRC
+
+3.130
+#+BEGIN_SRC python
+In [13]: x={1:2,2:3,3:4}
+
+In [14]: sum(x)
+Out[14]: 6
+In [16]: sum(x.values())
+Out[16]: 9
+
+
+#+END_SRC
+
+3.138
+#+BEGIN_SRC python
+In [25]: map(int, ['1','2'])
+Out[25]: <map at 0x11037ee80>
+
+In [26]: x,y=map(int, ['1','2'])
+
+In [27]: x
+Out[27]: 1
+
+In [28]: y
+Out[28]: 2
+#+END_SRC
+
+3.140
+#+BEGIN_SRC python
+In [35]: x=list(range(5))
+
+In [36]: x.remove(3)
+
+In [37]: x
+Out[37]: [0, 1, 2, 4]
+
+In [42]: x.index(4)
+Out[42]: 3
+#+END_SRC
+
+3.141
+#+BEGIN_SRC python
+In [43]: x
+Out[43]: [0, 1, 2, 4]
+
+In [44]: x.reverse()
+
+In [45]: x
+Out[45]: [4, 2, 1, 0]
+
+In [46]: x=x.reverse()
+
+In [47]: x
+#+END_SRC
