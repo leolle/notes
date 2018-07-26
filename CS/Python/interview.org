@@ -1074,3 +1074,5 @@ Out[222]: dict
 In [223]: type({1})
 Out[226]: set
 #+END_SRC
+
+* 1000道Python题库系列分享九（31道）
