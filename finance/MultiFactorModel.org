@@ -484,6 +484,12 @@ $$r_i(t) - P_0  = \beta_i1 [P_1 + f_1(t)] + ... + \beta_iK[P_K + f_K(t)] + \epsi
 ** Application to detect irregularities in hedge fund returns
 ** Conclusion
 ** Chapter highlights Extended space-state model
+* Interview question:
+1. how to construct a factor like ROE.
+2. how to measure the risk or volatility of the factor.
+3. what's the process of optimization.
+4. how to optimize portfolio with non-linear constraint.
+5. Barra risk attributes.
 
 * Footnotes
 
