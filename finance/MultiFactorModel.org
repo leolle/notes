@@ -105,6 +105,29 @@ SMB accounts for publicly traded companies with small market caps that generate 
 | Estimation       | 2-Pass Asymptotic Principal Components factor analysis with residual variance adjusted returns. |
 |                  |                                                                                                 |
 
+** 多因子选股
+- 打分法较常见
+根据各个因子的大小对股票进行打分,然后按照一定的权重加权得到一个总分,再根据总分对股票进行筛选.
+
+打分法优点是相对比较稳健,不容易受到极端值的影响.
+
+- 回归法
+用过去的股票的收益率对多因子进行回归,得到一个回归方程,然后把最新的因子代入回归方程得到一个对未来股票收益的预判,最后以此为依据进行选股.
+
+回归法的优点是能够比较及时地调整股票对各因子的敏感性,而且不同的股票对不同的因子的敏感性也可以不同. 回归法的缺点是容易受到极端值的影响(OLS),在股票对因子敏感度变化较大的市场情况下效果也比较差.
+
+*** 策略模型
+
+**** 候选因子的选取
+
+**** 选股因子的有效性检验
+第一个月初计算市场每只正常交易股票的该因子的大小,按从小到大的顺序对样本股票进行排序,并平均分为n个组合,一直到月末,在下月初再按同样的方法重新构建n个组合.
+
+**** 有效但冗余因子的剔除
+
+**** 综合评分模型的建立
+
+**** 模型的评价
 * Multi-Factor Risk Model
 ** why multi factor risk model and the usage
 The asset covariance matrix is critical both for portfolio construction and for risk management purposes.
@@ -283,7 +306,28 @@ $h_n$ is the holding of asset n, $r_n$ is the expected return to asset n, $\lamb
 ** Factor Returns
 ** Factor Covariance Matrix
 ** Specific Risk
+* 量化择时
+** 技术指标
+** 投资者情绪
+*** 投资信心
+*** 折溢价率指标
+转债转股溢价率, 封闭型基金的折价
+*** 新股指标
+IPO的数量, IPO首日涨幅和市场定价一般受市场情绪的影响.
 
+如果市场情绪高昂, 涨幅较大, PE高; 如果市场情绪低迷, 上市有可能跛破发行价, 市场参与者比较少, 公司上市意愿不强, IPO数量减少, 同时政策也将会停止新股审批.
+*** 市场指标
+资金流量,创新高,新低股票,涨跌停股票数量,上涨家数百分比.
+*** investor behavior
+新增开户数,基金仓位,卖空比例,保证金交易,资金出入.
+** 择时策略
+** SVM
+传统统计模式的缺点:
+- 传统的统计模式识别方法,只有在样本趋向无穷大时,其性能才有理论的保证.
+- 传统的统计模式识别方法, 包括BP神经网络等,在进行机器学习时,强调经验风险最小化, 而单纯的经验风险最小化会产生学习问题,其推广能力较差.
+- 传统的统计模式识别方法存在局部极小值的问题.
+
+训练参数输入阶段的任务主要是确定SVM模型的参数$gamma$ 和 $sigma$.
 * The low risk effect
 ** What is the Low Risk Effect?
 beta and volatility are related, though not the same. Beta depends on volatility and correlation to the market, whereas volatility is related to idiosyncratic risk (see here for an explanation of how to calculate the different measures).
