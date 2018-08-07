@@ -1076,3 +1076,17 @@ Out[226]: set
 #+END_SRC
 
 * 1000道Python题库系列分享九（31道）
+
+* Hackerrank
+
+** string validator
+#+BEGIN_SRC python
+s = "aA2"
+#In the first line, print True if  has any alphanumeric characters. Otherwise, print False.
+print("True" if any(k.islower() or k.isnum() for k in s) else "False")
+
+#In the second line, print True if  has any alphabetical characters. Otherwise, print False.
+#In the third line, print True if  has any digits. Otherwise, print False.
+#In the fourth line, print True if  has any lowercase characters. Otherwise, print False.
+#In the fifth line, print True if  has any uppercase characters. Otherwise, print False.
+#+END_SRC
