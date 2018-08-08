@@ -1081,12 +1081,113 @@ Out[226]: set
 
 ** string validator
 #+BEGIN_SRC python
-s = "aA2"
-#In the first line, print True if  has any alphanumeric characters. Otherwise, print False.
-print("True" if any(k.islower() or k.isnum() for k in s) else "False")
+    s = "aA2"
+    #In the first line, print True if  has any alphanumeric characters. Otherwise, print False.
+    print("True" if any(k.islower() or k.isnum() for k in s) else "False")
 
-#In the second line, print True if  has any alphabetical characters. Otherwise, print False.
-#In the third line, print True if  has any digits. Otherwise, print False.
-#In the fourth line, print True if  has any lowercase characters. Otherwise, print False.
-#In the fifth line, print True if  has any uppercase characters. Otherwise, print False.
+    #In the second line, print True if  has any alphabetical characters. Otherwise, print False.
+    print("True" if any(k.isalpha() for k in s) else "False")
+
+    #In the third line, print True if  has any digits. Otherwise, print False.
+    print("True" if any(k.isdigit() for k in s) else "False")
+
+    #In the fourth line, print True if  has any lowercase characters. Otherwise, print False.
+    print("True" if any(k.islower() for k in s) else "False")
+
+    #In the fifth line, print True if  has any uppercase characters. Otherwise, print False.
+    print("True" if any(k.isupper() for k in s) else "False")
+#+END_SRC
+
+** find a string
+#+BEGIN_SRC python
+# Output the integer number indicating the total number of occurrences of the substring in the original string.
+
+# Sample Input
+
+string = 'ABCDCDC'
+sub_string = 'CDC'
+counter = 0
+for i in range(0, len(string)):
+    print(string[i:len(sub_string)+i])
+    if sub_string == string[i:len(sub_string)+i]:
+        counter += 1
+
+#+END_SRC
+
+** calendar-module
+#+BEGIN_SRC python
+You are given a date. Your task is to find what the day is on that date.
+
+Input Format
+
+A single line of input containing the space separated month, day and year, respectively, in    format.
+
+Constraints
+
+Output Format
+
+Output the correct day in capital letters.
+
+Sample Input
+
+date = '08 05 2015'
+Sample Output
+
+WEDNESDAY
+
+import calendar
+date = raw_input()
+#MM, DD, YYYY = map(int,raw_input().split())
+#print calendar.day_name[calendar.weekday(YYYY,MM,DD)].upper()
+month, day, year = date.split()
+weekday = calendar.weekday(int(year), int(month), int(day))
+weekday_dict = {0:"MONDAY",
+1:"TUESDAY",
+2:"WEDNESDAY",
+3:"THURSDAY",
+4:"FRIDAY",
+5:"SATURDAY",
+6:"SUNDAY"}
+print(weekday_dict[weekday])
+#+END_SRC
+
+** python mutation
+#+BEGIN_SRC python
+nput Format
+The first line contains a string, .
+The next line contains an integer , denoting the index location and a character  separated by a space.
+
+Output Format
+Using any of the methods explained above, replace the character at index  with character .
+
+Sample Input
+
+s = 'abracadabra'
+index, value = "5 k".split()
+
+l = list(s)
+l[int(index)] = value
+string = ''.join(l)
+print(string)
+#+END_SRC
+
+** door mat
+#+BEGIN_SRC python
+N = 7
+M = 21
+welcome = 'WELCOME'
+middle = '.|.'
+slash = '-'
+
+for i in range(1,N/2):
+	s = M - i*3
+
+	print(i)
+	print(slash*((s)/2) + middle*i + slash*((s)/2))
+
+for i in range(N/2,N-1):
+	if i == N/2:
+		wel = (M - 7)/2
+		print(slash*wel + welcome + slash*wel)
+	print(i)
 #+END_SRC
