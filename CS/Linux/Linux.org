@@ -919,7 +919,30 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
 #+END_SRC
+*** make cmake compile
+**** cmake
+http://derekmolloy.ie/hello-world-introductions-to-cmake/
+***** Example 2: A Project with Directories
+#+BEGIN_SRC txt
+ molloyd@beaglebone:~/exploringBB/extras/cmake/student$ tree
+ .
+ |-- CMakeLists.txt
+ |-- build
+ |-- include
+ |   \-- Student.h
+ \-- src
+     |-- Student.cpp
+     \-- mainapp.cpp
+ 3 directories, 4 files
+#+END_SRC
 
+#+BEGIN_SRC bash
+cd build
+cmake ..
+make
+ls
+./test
+#+END_SRC
 ** BOOTING AND SHUTTING DOWN
 *** Bootstrapping
 *** Booting PCs

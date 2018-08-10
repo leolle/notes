@@ -1191,3 +1191,49 @@ for i in range(N/2,N-1):
 		print(slash*wel + welcome + slash*wel)
 	print(i)
 #+END_SRC
+
+** leap year
+#+BEGIN_SRC python
+
+add Febuary 29
+The year can be evenly divided by 4, is a leap year, unless:
+The year can be evenly divided by 100, it is NOT a leap year, unless:
+The year is also evenly divisible by 400. Then it is a leap year.
+
+def is_leap(year):
+    leap = False
+    # Write your logic here
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                leap = True
+                return leap
+            leap = False
+            return leap
+        leap = True
+    return leap
+#+END_SRC
+
+** find angle MBC
+#+BEGIN_SRC python
+在直角三角形ABC, <B=90 degree，斜边上找到一中点M, 输入AB, BC 长度， 找MBC角度。
+import math
+ab = float(raw_input())
+bc = float(raw_input())
+tang = ab / bc
+rad = math.atan(tang)
+print '{}°'.format(int(round(math.degrees(rad))))
+#+END_SRC
+
+** Print the palindromic triangle of size N
+#+BEGIN_SRC python
+n = 5
+for i in range(1, n + 1):
+    print((111111111//(10**(9-i)))**2)
+#+END_SRC
+
+** list-comprehensions
+#+BEGIN_SRC python
+print a list of all possible coordinates given by  on a 3D grid where the sum of  is not equal to .
+print [ [ i, j, o] for i in range( x + 1) for j in range( y + 1) for o in range(z + 1) if ( ( i + j + z) != n )]
+#+END_SRC
