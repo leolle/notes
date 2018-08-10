@@ -490,6 +490,7 @@ alias ldir="ls -l | egrep '^d'"
 - list all the sub-folders in a directory
 #+BEGIN_SRC bash
 find ./ -type d
+
 #+END_SRC
 - remove all the sub-folders in a directory
 #+BEGIN_SRC bash
@@ -715,7 +716,8 @@ less +320123 filename
   - k - scroll single line up
   - j - scroll single line down
   - -i - case insensitive searching unless pattern contains capitals (as clo or in less)
-  - / /pattern/ - search (used with n)
+  - =/= /pattern/ - search (used with =n= forward and =N= backward)
+  - =?= – search for a pattern which will take you to the previous occurrence.
   - -p /pattern/ open file at /pattern/ (as clo)
   - & /pattern/ show lines containing /pattern/ (like grep)
 
@@ -748,7 +750,7 @@ ls -ls /usr/bin/python*
 #+BEGIN_SRC bash
 grep "_" vocabulary > phrase_vocab
 #+END_SRC
-- search under a subfolder
+- search a folder name under a subfolder
 #+BEGIN_SRC bash
 find . -name "name*"
 #+END_SRC

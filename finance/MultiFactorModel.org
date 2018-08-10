@@ -28,7 +28,7 @@ Return relative to a benchmark.
 Expeced residual return, or expected exceptional return, or realized residual, or exceptional return.
 
 Residual return plus benchmark timing return.
-$\Theta = \beta*(residual return + benchmark return exceeds consensus expected return)$
+$\Theta = \beta*(\text{residual return + benchmark return exceeds consensus expected return})$
 
 
 * Multi-Factor Model
@@ -292,6 +292,17 @@ Out-of-sample tests compare forecast risk with realized risk.
 One out-ofsample test builds portfolios of randomly chosen assets and then compares the forecast and realized active risk of those portfolios.
 *** empirical observations
 concerning model validity are more vague than statistical tests, but they are still relevant.
+*** factor multi-collinearity多重共线性：
+**** 解释：
+多重共线性是指线性回归模型中的解释变量之间由于存在精确相关关系或高度相关关系而使模型估计失真或难以估计准确。
+
+**** 解决办法
+（1）排除引起共线性的变量,PCA降维。
+找出引起多重共线性的解释变量，将它排除出去，以逐步回归法得到最广泛的应用。
+（2）差分法EMB
+时间序列数据、线性模型：将原模型变换为差分模型。
+（3）减小参数估计量的方差：岭回归法（Ridge Regression）。
+
 ** Applications of Multiple-Factor Risk Model
 - the attribution of asset returns to chosen common factor and specific returns,
 - forecasts of the variances and covariances of these common factor and specific returns.
