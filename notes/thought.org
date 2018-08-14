@@ -494,6 +494,15 @@ Find comprehension QA dataset, which answers these questions need deep understan
 4. Use the "two-minute rule"
 *** Give alert when you waiting for somebody else to finish the rest of the job.<2018-06-29 Fri>
 * 2018 second half
+** August 2018
+*** 网约车O2O:
+生态：
+- 智能客服，聊天机器人
+- 人脸识别，司机，乘客表情识别
+- 智能调度, 供需预测热力图
+- 汽车金融
+- 智能定价，不同车不同城市定价不同
+- 路径规划
 
 * Footnotes
 
