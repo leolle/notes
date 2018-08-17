@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-10-25 Wed 10:16 -->
+<!-- 2018-08-17 Fri 11:20 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -172,7 +172,7 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">1. Terminology:</a></li>
-<li><a href="#orgheadline14">2. Multi-Factor Model</a>
+<li><a href="#orgheadline21">2. Multi-Factor Model</a>
 <ul>
 <li><a href="#orgheadline2">2.1. What is a 'Multi-Factor Model'</a></li>
 <li><a href="#orgheadline3">2.2. Why a Multi-Factor Model?</a></li>
@@ -189,225 +189,248 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#orgheadline12">2.8. Fundamental Factor Model</a></li>
 <li><a href="#orgheadline13">2.9. Statistical Factor Model</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline58">3. Multi-Factor Risk Model</a>
+<li><a href="#orgheadline20">2.10. 多因子选股</a>
 <ul>
-<li><a href="#orgheadline15">3.1. why multi factor risk model and the usage</a></li>
-<li><a href="#orgheadline18">3.2. structure</a>
+<li><a href="#orgheadline19">2.10.1. 策略模型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline68">3. Multi-Factor Risk Model</a>
 <ul>
-<li><a href="#orgheadline16">3.2.1. four components:</a></li>
-<li><a href="#orgheadline17">3.2.2. risk structure:</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline43">3.3. building the model</a>
+<li><a href="#orgheadline22">3.1. why multi factor risk model and the usage</a></li>
+<li><a href="#orgheadline25">3.2. structure</a>
 <ul>
-<li><a href="#orgheadline28">3.3.1. choosing the factors</a></li>
-<li><a href="#orgheadline38">3.3.2. estimating factor returns</a></li>
-<li><a href="#orgheadline39">3.3.3. forecasting risk</a></li>
-<li><a href="#orgheadline42">3.3.4. Data Requirements</a></li>
+<li><a href="#orgheadline23">3.2.1. four components:</a></li>
+<li><a href="#orgheadline24">3.2.2. risk structure:</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline49">3.4. Model validity</a>
+<li><a href="#orgheadline50">3.3. building the model</a>
 <ul>
-<li><a href="#orgheadline46">3.4.1. in-sample tests</a></li>
-<li><a href="#orgheadline47">3.4.2. out-of-sample tests</a></li>
-<li><a href="#orgheadline48">3.4.3. empirical observations</a></li>
+<li><a href="#orgheadline35">3.3.1. choosing the factors</a></li>
+<li><a href="#orgheadline45">3.3.2. estimating factor returns</a></li>
+<li><a href="#orgheadline46">3.3.3. forecasting risk</a></li>
+<li><a href="#orgheadline49">3.3.4. Data Requirements</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline53">3.5. Applications of Multiple-Factor Risk Model</a>
+<li><a href="#orgheadline59">3.4. Model validity</a>
 <ul>
-<li><a href="#orgheadline50">3.5.1. The Present: Current Portfolio Risk Analysis.</a></li>
-<li><a href="#orgheadline51">3.5.2. Portfolio Construction</a></li>
-<li><a href="#orgheadline52">3.5.3. Performance Analysis</a></li>
+<li><a href="#orgheadline53">3.4.1. in-sample tests</a></li>
+<li><a href="#orgheadline54">3.4.2. out-of-sample tests</a></li>
+<li><a href="#orgheadline55">3.4.3. empirical observations</a></li>
+<li><a href="#orgheadline58">3.4.4. factor multi-collinearity多重共线性：</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline54">3.6. Factor Exposures</a></li>
-<li><a href="#orgheadline55">3.7. Factor Returns</a></li>
-<li><a href="#orgheadline56">3.8. Factor Covariance Matrix</a></li>
-<li><a href="#orgheadline57">3.9. Specific Risk</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline62">4. The low risk effect</a>
+<li><a href="#orgheadline63">3.5. Applications of Multiple-Factor Risk Model</a>
 <ul>
-<li><a href="#orgheadline59">4.1. What is the Low Risk Effect?</a></li>
-<li><a href="#orgheadline60">4.2. Why Does the Low Risk Effect Exist?</a></li>
-<li><a href="#orgheadline61">4.3. The Latest Research on the Low Risk Effect</a></li>
+<li><a href="#orgheadline60">3.5.1. The Present: Current Portfolio Risk Analysis.</a></li>
+<li><a href="#orgheadline61">3.5.2. Portfolio Construction</a></li>
+<li><a href="#orgheadline62">3.5.3. Performance Analysis</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline87">5. Factor Models and General Definition</a>
+<li><a href="#orgheadline64">3.6. Factor Exposures</a></li>
+<li><a href="#orgheadline65">3.7. Factor Returns</a></li>
+<li><a href="#orgheadline66">3.8. Factor Covariance Matrix</a></li>
+<li><a href="#orgheadline67">3.9. Specific Risk</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline78">4. 量化择时</a>
 <ul>
-<li><a href="#orgheadline63">5.1. Introduction</a></li>
-<li><a href="#orgheadline66">5.2. What are factor models?</a>
+<li><a href="#orgheadline69">4.1. 技术指标</a></li>
+<li><a href="#orgheadline75">4.2. 投资者情绪</a>
 <ul>
-<li><a href="#orgheadline64">5.2.1. Notations</a></li>
-<li><a href="#orgheadline65">5.2.2. Factor representation</a></li>
+<li><a href="#orgheadline70">4.2.1. 投资信心</a></li>
+<li><a href="#orgheadline71">4.2.2. 折溢价率指标</a></li>
+<li><a href="#orgheadline72">4.2.3. 新股指标</a></li>
+<li><a href="#orgheadline73">4.2.4. 市场指标</a></li>
+<li><a href="#orgheadline74">4.2.5. investor behavior</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline69">5.3. Why factor models in finance?</a>
+<li><a href="#orgheadline76">4.3. 择时策略</a></li>
+<li><a href="#orgheadline77">4.4. SVM</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline82">5. The low risk effect</a>
 <ul>
-<li><a href="#orgheadline67">5.3.1. Style analysis</a></li>
-<li><a href="#orgheadline68">5.3.2. Optimal portfolio allocation</a></li>
+<li><a href="#orgheadline79">5.1. What is the Low Risk Effect?</a></li>
+<li><a href="#orgheadline80">5.2. Why Does the Low Risk Effect Exist?</a></li>
+<li><a href="#orgheadline81">5.3. The Latest Research on the Low Risk Effect</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline72">5.4. How to build factor models?</a>
+<li><a href="#orgheadline107">6. Factor Models and General Definition</a>
 <ul>
-<li><a href="#orgheadline70">5.4.1. Factor selection</a></li>
-<li><a href="#orgheadline71">5.4.2. Parameters estimation</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline85">5.5. Historical perspective</a>
+<li><a href="#orgheadline83">6.1. Introduction</a></li>
+<li><a href="#orgheadline86">6.2. What are factor models?</a>
 <ul>
-<li><a href="#orgheadline77">5.5.1. CAPM and Sharpe’s market model</a></li>
-<li><a href="#orgheadline84">5.5.2. APT for arbitrage pricing theory</a></li>
+<li><a href="#orgheadline84">6.2.1. Notations</a></li>
+<li><a href="#orgheadline85">6.2.2. Factor representation</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline86">5.6. Glossary Volatility</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline121">6. Factor Selection</a>
+<li><a href="#orgheadline89">6.3. Why factor models in finance?</a>
 <ul>
-<li><a href="#orgheadline97">6.1. 量化选股基本面选股</a>
+<li><a href="#orgheadline87">6.3.1. Style analysis</a></li>
+<li><a href="#orgheadline88">6.3.2. Optimal portfolio allocation</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline92">6.4. How to build factor models?</a>
 <ul>
-<li><a href="#orgheadline94">6.1.1. 多因子模型</a></li>
-<li><a href="#orgheadline95">6.1.2. 风格轮动模型</a></li>
-<li><a href="#orgheadline96">6.1.3. 行业轮动模型</a></li>
+<li><a href="#orgheadline90">6.4.1. Factor selection</a></li>
+<li><a href="#orgheadline91">6.4.2. Parameters estimation</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline102">6.2. 市场行为选股</a>
+<li><a href="#orgheadline105">6.5. Historical perspective</a>
 <ul>
-<li><a href="#orgheadline98">6.2.1. 资金流选股</a></li>
-<li><a href="#orgheadline99">6.2.2. 动量反转模型</a></li>
-<li><a href="#orgheadline100">6.2.3. 一致预期模型</a></li>
-<li><a href="#orgheadline101">6.2.4. 趋势追踪模型</a></li>
+<li><a href="#orgheadline97">6.5.1. CAPM and Sharpe’s market model</a></li>
+<li><a href="#orgheadline104">6.5.2. APT for arbitrage pricing theory</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline103">6.3. Introduction</a></li>
-<li><a href="#orgheadline107">6.4. Qualitative know-how</a>
+<li><a href="#orgheadline106">6.6. Glossary Volatility</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline141">7. Factor Selection</a>
 <ul>
-<li><a href="#orgheadline104">6.4.1. Fama and French model</a></li>
-<li><a href="#orgheadline105">6.4.2. The Chen et al. model</a></li>
-<li><a href="#orgheadline106">6.4.3. The risk-based factor model of Fung and Hsieh</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline110">6.5. Quantitative methods based on eigenfactors</a>
+<li><a href="#orgheadline117">7.1. 量化选股基本面选股</a>
 <ul>
-<li><a href="#orgheadline108">6.5.1. Notation</a></li>
-<li><a href="#orgheadline109">6.5.2. Subspace methods: the Principal Component Analysis</a></li>
+<li><a href="#orgheadline114">7.1.1. 多因子模型</a></li>
+<li><a href="#orgheadline115">7.1.2. 风格轮动模型</a></li>
+<li><a href="#orgheadline116">7.1.3. 行业轮动模型</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline112">6.6. Model order choice</a>
+<li><a href="#orgheadline122">7.2. 市场行为选股</a>
 <ul>
-<li><a href="#orgheadline111">6.6.1. Information criteria</a></li>
+<li><a href="#orgheadline118">7.2.1. 资金流选股</a></li>
+<li><a href="#orgheadline119">7.2.2. 动量反转模型</a></li>
+<li><a href="#orgheadline120">7.2.3. 一致预期模型</a></li>
+<li><a href="#orgheadline121">7.2.4. 趋势追踪模型</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline116">6.7. Appendix 1: Covariance matrix estimation</a>
+<li><a href="#orgheadline123">7.3. Introduction</a></li>
+<li><a href="#orgheadline127">7.4. Qualitative know-how</a>
 <ul>
-<li><a href="#orgheadline113">6.7.1. Sample mean</a></li>
-<li><a href="#orgheadline114">6.7.2. Sample covariance matrix</a></li>
-<li><a href="#orgheadline115">6.7.3. Robust covariance matrix estimation: M-estimators</a></li>
+<li><a href="#orgheadline124">7.4.1. Fama and French model</a></li>
+<li><a href="#orgheadline125">7.4.2. The Chen et al. model</a></li>
+<li><a href="#orgheadline126">7.4.3. The risk-based factor model of Fung and Hsieh</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline117">6.8. Appendix 2: Similarity of the eigenfactor selection with the MUSIC algorithm</a></li>
-<li><a href="#orgheadline119">6.9. Appendix 3: Large panel data</a>
+<li><a href="#orgheadline130">7.5. Quantitative methods based on eigenfactors</a>
 <ul>
-<li><a href="#orgheadline118">6.9.1. Large panel data criteria</a></li>
+<li><a href="#orgheadline128">7.5.1. Notation</a></li>
+<li><a href="#orgheadline129">7.5.2. Subspace methods: the Principal Component Analysis</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline120">6.10. *highlights</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline162">7. Least Squares Estimation (LSE) and Kalman Filtering (KF) for Factor Modeling: A Geometrical Perspective</a>
+<li><a href="#orgheadline132">7.6. Model order choice</a>
 <ul>
-<li><a href="#orgheadline122">7.1. Introduction</a></li>
-<li><a href="#orgheadline125">7.2. Why LSE and KF in factor modeling?</a>
+<li><a href="#orgheadline131">7.6.1. Information criteria</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline136">7.7. Appendix 1: Covariance matrix estimation</a>
 <ul>
-<li><a href="#orgheadline123">7.2.1. Factor model per return</a></li>
-<li><a href="#orgheadline124">7.2.2. Alpha and beta estimation per return</a></li>
+<li><a href="#orgheadline133">7.7.1. Sample mean</a></li>
+<li><a href="#orgheadline134">7.7.2. Sample covariance matrix</a></li>
+<li><a href="#orgheadline135">7.7.3. Robust covariance matrix estimation: M-estimators</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline128">7.3. LSE setup</a>
+<li><a href="#orgheadline137">7.8. Appendix 2: Similarity of the eigenfactor selection with the MUSIC algorithm</a></li>
+<li><a href="#orgheadline139">7.9. Appendix 3: Large panel data</a>
 <ul>
-<li><a href="#orgheadline126">7.3.1. Current observation window and block processing</a></li>
-<li><a href="#orgheadline127">7.3.2. LSE regression</a></li>
+<li><a href="#orgheadline138">7.9.1. Large panel data criteria</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline129">7.4. LSE objective and criterion</a></li>
-<li><a href="#orgheadline130">7.5. How LSE is working (for LSE users and programmers)</a></li>
-<li><a href="#orgheadline133">7.6. Interpretation of the LSE solution</a>
+<li><a href="#orgheadline140">7.10. *highlights</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline182">8. Least Squares Estimation (LSE) and Kalman Filtering (KF) for Factor Modeling: A Geometrical Perspective</a>
 <ul>
-<li><a href="#orgheadline131">7.6.1. Bias and variance</a></li>
-<li><a href="#orgheadline132">7.6.2. Geometrical interpretation of LSE</a></li>
-</ul>
-</li>
-<li><a href="#orgheadline134">7.7. Derivations of LSE solution</a></li>
-<li><a href="#orgheadline138">7.8. Why KF and which setup?</a>
+<li><a href="#orgheadline142">8.1. Introduction</a></li>
+<li><a href="#orgheadline145">8.2. Why LSE and KF in factor modeling?</a>
 <ul>
-<li><a href="#orgheadline135">7.8.1. LSE method does not provide a recursive estimate</a></li>
-<li><a href="#orgheadline136">7.8.2. The state space model and its recursive component</a></li>
-<li><a href="#orgheadline137">7.8.3. Parsimony and orthogonality assumptions</a></li>
+<li><a href="#orgheadline143">8.2.1. Factor model per return</a></li>
+<li><a href="#orgheadline144">8.2.2. Alpha and beta estimation per return</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline142">7.9. What are the main properties of the KF model?</a>
+<li><a href="#orgheadline148">8.3. LSE setup</a>
 <ul>
-<li><a href="#orgheadline139">7.9.1. Self-aggregation feature</a></li>
-<li><a href="#orgheadline140">7.9.2. Markovian property</a></li>
-<li><a href="#orgheadline141">7.9.3. Innovation property</a></li>
+<li><a href="#orgheadline146">8.3.1. Current observation window and block processing</a></li>
+<li><a href="#orgheadline147">8.3.2. LSE regression</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline143">7.10. What is the objective of KF?</a></li>
-<li><a href="#orgheadline146">7.11. How does the KF work (for users and programmers)?</a>
+<li><a href="#orgheadline149">8.4. LSE objective and criterion</a></li>
+<li><a href="#orgheadline150">8.5. How LSE is working (for LSE users and programmers)</a></li>
+<li><a href="#orgheadline153">8.6. Interpretation of the LSE solution</a>
 <ul>
-<li><a href="#orgheadline144">7.11.1. Algorithm summary</a></li>
-<li><a href="#orgheadline145">7.11.2. Initialization of the KF recursive equations</a></li>
+<li><a href="#orgheadline151">8.6.1. Bias and variance</a></li>
+<li><a href="#orgheadline152">8.6.2. Geometrical interpretation of LSE</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline151">7.12. Interpretation of the KF updates</a>
+<li><a href="#orgheadline154">8.7. Derivations of LSE solution</a></li>
+<li><a href="#orgheadline158">8.8. Why KF and which setup?</a>
 <ul>
-<li><a href="#orgheadline147">7.12.1. Prediction filtering, equation [3.34]</a></li>
-<li><a href="#orgheadline148">7.12.2. Prediction accuracy processing, equation [3.35]</a></li>
-<li><a href="#orgheadline149">7.12.3. Correction filtering equations [3.36]–[3.37]</a></li>
-<li><a href="#orgheadline150">7.12.4. Correction accuracy processing, equation [3.38]</a></li>
+<li><a href="#orgheadline155">8.8.1. LSE method does not provide a recursive estimate</a></li>
+<li><a href="#orgheadline156">8.8.2. The state space model and its recursive component</a></li>
+<li><a href="#orgheadline157">8.8.3. Parsimony and orthogonality assumptions</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline155">7.13. Practice</a>
+<li><a href="#orgheadline162">8.9. What are the main properties of the KF model?</a>
 <ul>
-<li><a href="#orgheadline152">7.13.1. Comparison of the estimation methods on synthetic data</a></li>
-<li><a href="#orgheadline153">7.13.2. Market risk hedging given a single-factor model</a></li>
-<li><a href="#orgheadline154">7.13.3. Hedge fund style analysis using a multi-factor model</a></li>
+<li><a href="#orgheadline159">8.9.1. Self-aggregation feature</a></li>
+<li><a href="#orgheadline160">8.9.2. Markovian property</a></li>
+<li><a href="#orgheadline161">8.9.3. Innovation property</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline161">7.14. Geometrical derivation of KF updating equations</a>
+<li><a href="#orgheadline163">8.10. What is the objective of KF?</a></li>
+<li><a href="#orgheadline166">8.11. How does the KF work (for users and programmers)?</a>
 <ul>
-<li><a href="#orgheadline156">7.14.1. Geometrical interpretation of MSE criterion and the MMSE solution</a></li>
-<li><a href="#orgheadline157">7.14.2. Derivation of the prediction filtering update</a></li>
-<li><a href="#orgheadline158">7.14.3. Derivation of the prediction accuracy update</a></li>
-<li><a href="#orgheadline159">7.14.4. Derivation of the correction filtering update</a></li>
-<li><a href="#orgheadline160">7.14.5. Derivation of the correction accuracy update</a></li>
+<li><a href="#orgheadline164">8.11.1. Algorithm summary</a></li>
+<li><a href="#orgheadline165">8.11.2. Initialization of the KF recursive equations</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orgheadline173">8. A Regularized Kalman Filter (rgKF) for Spiky Data</a>
+<li><a href="#orgheadline171">8.12. Interpretation of the KF updates</a>
 <ul>
-<li><a href="#orgheadline163">8.1. Introduction</a></li>
-<li><a href="#orgheadline164">8.2. Preamble: statistical evidence on the KF recursive equations</a></li>
-<li><a href="#orgheadline166">8.3. Robust KF</a>
+<li><a href="#orgheadline167">8.12.1. Prediction filtering, equation [3.34]</a></li>
+<li><a href="#orgheadline168">8.12.2. Prediction accuracy processing, equation [3.35]</a></li>
+<li><a href="#orgheadline169">8.12.3. Correction filtering equations [3.36]–[3.37]</a></li>
+<li><a href="#orgheadline170">8.12.4. Correction accuracy processing, equation [3.38]</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline175">8.13. Practice</a>
 <ul>
-<li><a href="#orgheadline165">8.3.1. RKF description</a></li>
+<li><a href="#orgheadline172">8.13.1. Comparison of the estimation methods on synthetic data</a></li>
+<li><a href="#orgheadline173">8.13.2. Market risk hedging given a single-factor model</a></li>
+<li><a href="#orgheadline174">8.13.3. Hedge fund style analysis using a multi-factor model</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline169">8.4. rgKF: the rgKF(NG,lq)</a>
+<li><a href="#orgheadline181">8.14. Geometrical derivation of KF updating equations</a>
 <ul>
-<li><a href="#orgheadline167">8.4.1. rgKF description</a></li>
-<li><a href="#orgheadline168">8.4.2. rgKF performance</a></li>
+<li><a href="#orgheadline176">8.14.1. Geometrical interpretation of MSE criterion and the MMSE solution</a></li>
+<li><a href="#orgheadline177">8.14.2. Derivation of the prediction filtering update</a></li>
+<li><a href="#orgheadline178">8.14.3. Derivation of the prediction accuracy update</a></li>
+<li><a href="#orgheadline179">8.14.4. Derivation of the correction filtering update</a></li>
+<li><a href="#orgheadline180">8.14.5. Derivation of the correction accuracy update</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline170">8.5. Application to detect irregularities in hedge fund returns</a></li>
-<li><a href="#orgheadline171">8.6. Conclusion</a></li>
-<li><a href="#orgheadline172">8.7. Chapter highlights Extended space-state model</a></li>
 </ul>
 </li>
+<li><a href="#orgheadline193">9. A Regularized Kalman Filter (rgKF) for Spiky Data</a>
+<ul>
+<li><a href="#orgheadline183">9.1. Introduction</a></li>
+<li><a href="#orgheadline184">9.2. Preamble: statistical evidence on the KF recursive equations</a></li>
+<li><a href="#orgheadline186">9.3. Robust KF</a>
+<ul>
+<li><a href="#orgheadline185">9.3.1. RKF description</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline189">9.4. rgKF: the rgKF(NG,lq)</a>
+<ul>
+<li><a href="#orgheadline187">9.4.1. rgKF description</a></li>
+<li><a href="#orgheadline188">9.4.2. rgKF performance</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline190">9.5. Application to detect irregularities in hedge fund returns</a></li>
+<li><a href="#orgheadline191">9.6. Conclusion</a></li>
+<li><a href="#orgheadline192">9.7. Chapter highlights Extended space-state model</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline194">10. Interview question:</a></li>
 </ul>
 </div>
 </div>
@@ -451,14 +474,14 @@ Expeced residual return, or expected exceptional return, or realized residual, o
 
 <p>
 Residual return plus benchmark timing return.
-\(\Theta = \beta*(residual return + benchmark return exceeds consensus expected return)\)
+\(\Theta = \beta*(\text{residual return + benchmark return exceeds consensus expected return})\)
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">2</span> Multi-Factor Model</h2>
+<div id="outline-container-orgheadline21" class="outline-2">
+<h2 id="orgheadline21"><span class="section-number-2">2</span> Multi-Factor Model</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-orgheadline2" class="outline-3">
 <h3 id="orgheadline2"><span class="section-number-3">2.1</span> What is a 'Multi-Factor Model'</h3>
@@ -685,13 +708,57 @@ SMB accounts for publicly traded companies with small market caps that generate 
 </table>
 </div>
 </div>
+
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">2.10</span> 多因子选股</h3>
+<div class="outline-text-3" id="text-2-10">
+<ul class="org-ul">
+<li>打分法较常见</li>
+</ul>
+<p>
+根据各个因子的大小对股票进行打分,然后按照一定的权重加权得到一个总分,再根据总分对股票进行筛选.
+</p>
+
+<p>
+打分法优点是相对比较稳健,不容易受到极端值的影响.
+</p>
+
+<ul class="org-ul">
+<li>回归法</li>
+</ul>
+<p>
+用过去的股票的收益率对多因子进行回归,得到一个回归方程,然后把最新的因子代入回归方程得到一个对未来股票收益的预判,最后以此为依据进行选股.
+</p>
+
+<p>
+回归法的优点是能够比较及时地调整股票对各因子的敏感性,而且不同的股票对不同的因子的敏感性也可以不同. 回归法的缺点是容易受到极端值的影响(OLS),在股票对因子敏感度变化较大的市场情况下效果也比较差.
+</p>
 </div>
 
-<div id="outline-container-orgheadline58" class="outline-2">
-<h2 id="orgheadline58"><span class="section-number-2">3</span> Multi-Factor Risk Model</h2>
+<div id="outline-container-orgheadline19" class="outline-4">
+<h4 id="orgheadline19"><span class="section-number-4">2.10.1</span> 策略模型</h4>
+<div class="outline-text-4" id="text-2-10-1">
+</div><ol class="org-ol"><li><a id="orgheadline14"></a>候选因子的选取<br  /></li>
+
+<li><a id="orgheadline15"></a>选股因子的有效性检验<br  /><div class="outline-text-5" id="text-2-10-1-2">
+<p>
+第一个月初计算市场每只正常交易股票的该因子的大小,按从小到大的顺序对样本股票进行排序,并平均分为n个组合,一直到月末,在下月初再按同样的方法重新构建n个组合.
+</p>
+</div></li>
+
+<li><a id="orgheadline16"></a>有效但冗余因子的剔除<br  /></li>
+
+<li><a id="orgheadline17"></a>综合评分模型的建立<br  /></li>
+
+<li><a id="orgheadline18"></a>模型的评价<br  /></li></ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline68" class="outline-2">
+<h2 id="orgheadline68"><span class="section-number-2">3</span> Multi-Factor Risk Model</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">3.1</span> why multi factor risk model and the usage</h3>
+</div><div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">3.1</span> why multi factor risk model and the usage</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 The asset covariance matrix is critical both for portfolio construction and for risk management purposes.
@@ -722,11 +789,11 @@ The portfolio factor exposures are given by the weighted average of the asset ex
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">3.2</span> structure</h3>
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">3.2</span> structure</h3>
 <div class="outline-text-3" id="text-3-2">
-</div><div id="outline-container-orgheadline16" class="outline-4">
-<h4 id="orgheadline16"><span class="section-number-4">3.2.1</span> four components:</h4>
+</div><div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">3.2.1</span> four components:</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <ul class="org-ul">
 <li>a stock's exposures to the factors</li>
@@ -757,8 +824,8 @@ The portfolio factor exposures are given by the weighted average of the asset ex
 </div>
 
 
-<div id="outline-container-orgheadline17" class="outline-4">
-<h4 id="orgheadline17"><span class="section-number-4">3.2.2</span> risk structure:</h4>
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">3.2.2</span> risk structure:</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
 \[ V_{n,m} = \displaystyle\sum_{k1,k2=1}^{K} X_{n,k1} F_{k1,k2} X_{m,k2} + \delta_{n,m} \]
@@ -784,11 +851,11 @@ where
 </div>
 </div>
 
-<div id="outline-container-orgheadline43" class="outline-3">
-<h3 id="orgheadline43"><span class="section-number-3">3.3</span> building the model</h3>
+<div id="outline-container-orgheadline50" class="outline-3">
+<h3 id="orgheadline50"><span class="section-number-3">3.3</span> building the model</h3>
 <div class="outline-text-3" id="text-3-3">
-</div><div id="outline-container-orgheadline28" class="outline-4">
-<h4 id="orgheadline28"><span class="section-number-4">3.3.1</span> choosing the factors</h4>
+</div><div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35"><span class="section-number-4">3.3.1</span> choosing the factors</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 all factors must be a priori factor. even though the factor returns are uncertain, the factor exposures must be known at the beginning of the period.
@@ -798,7 +865,7 @@ all factors must be a priori factor. even though the factor returns are uncertai
 <li>The second source represents the diversifiable component that cannot be explained by the factors, and is therefore deemed idiosyncratic or asset specific.</li>
 </ul>
 </div>
-<ol class="org-ol"><li><a id="orgheadline22"></a>Responses to external influences<br  /><div class="outline-text-5" id="text-3-3-1-1">
+<ol class="org-ol"><li><a id="orgheadline29"></a>Responses to external influences<br  /><div class="outline-text-5" id="text-3-3-1-1">
 <p>
 These factors include
 </p>
@@ -810,7 +877,7 @@ These factors include
 <li>changes in industrial production</li>
 </ul>
 </div>
-<ol class="org-ol"><li><a id="orgheadline19"></a>defects:<br  /><div class="outline-text-6" id="text-3-3-1-1-1">
+<ol class="org-ol"><li><a id="orgheadline26"></a>defects:<br  /><div class="outline-text-6" id="text-3-3-1-1-1">
 <ul class="org-ul">
 <li>the response coefficient has to be estimated through regression analysis or some similar technique. This requirement leads to errors in the estimates, commonly called the error-in-variables problem.</li>
 <li>the estimates are based on behavior during a past period, generally five years. Even if these past estimates are accurate in the statistical sense of capturing the true situation in the past, they may not accurately describe the present. In short, these response coefficients can be nonstationary.</li>
@@ -818,13 +885,13 @@ These factors include
 <li>Another important characteristic of a high-quality factor structure is parsimony, meaning that the systematic component of asset returns is explained with the fewest possible number of factors.</li>
 </ul>
 </div></li>
-<li><a id="orgheadline20"></a>key of success choosing factors<br  /><div class="outline-text-6" id="text-3-3-1-1-2">
+<li><a id="orgheadline27"></a>key of success choosing factors<br  /><div class="outline-text-6" id="text-3-3-1-1-2">
 <ul class="org-ul">
 <li>statistical significance of the factor returns. In particular, the statistical significance of the factors should be persistent across time, and not due to isolated events that are unlikely to recur in the future.</li>
 <li>Stability is another characteristic of a high-quality factor structure. Stability means that typical stock exposures do not change drastically over short periods of time.</li>
 </ul>
 </div></li>
-<li><a id="orgheadline21"></a>data preparation<br  /><div class="outline-text-6" id="text-3-3-1-1-3">
+<li><a id="orgheadline28"></a>data preparation<br  /><div class="outline-text-6" id="text-3-3-1-1-3">
 <p>
 multi-step algorithm to identify and treat outliers. The algorithm assigns each observation into one of three groups.
 </p>
@@ -834,19 +901,19 @@ multi-step algorithm to identify and treat outliers. The algorithm assigns each 
 <li>The third group of observations, forming the bulk of the distribution, consists of values that are less than three standard deviations from the mean; these observations are left unadjusted.</li>
 </ul>
 </div></li></ol></li>
-<li><a id="orgheadline25"></a>cross-sectional comparisons of asset attributes<br  /><div class="outline-text-5" id="text-3-3-1-2">
+<li><a id="orgheadline32"></a>cross-sectional comparisons of asset attributes<br  /><div class="outline-text-5" id="text-3-3-1-2">
 <p>
 These factors, which have no link to the remainder of the economy, compare attributes of the stocks.
 </p>
 </div>
-<ol class="org-ol"><li><a id="orgheadline23"></a>fundamental<br  /><div class="outline-text-6" id="text-3-3-1-2-1">
+<ol class="org-ol"><li><a id="orgheadline30"></a>fundamental<br  /><div class="outline-text-6" id="text-3-3-1-2-1">
 <ul class="org-ul">
 <li>dividend yield</li>
 <li>earnings yield</li>
 <li>analysts' forecasts of future earnings per share</li>
 </ul>
 </div></li>
-<li><a id="orgheadline24"></a>market<br  /><div class="outline-text-6" id="text-3-3-1-2-2">
+<li><a id="orgheadline31"></a>market<br  /><div class="outline-text-6" id="text-3-3-1-2-2">
 <ul class="org-ul">
 <li>volatility</li>
 <li>return during a past period</li>
@@ -854,7 +921,7 @@ These factors, which have no link to the remainder of the economy, compare attri
 <li>share turnover</li>
 </ul>
 </div></li></ol></li>
-<li><a id="orgheadline26"></a>purely internal or statistical factors<br  /><div class="outline-text-5" id="text-3-3-1-3">
+<li><a id="orgheadline33"></a>purely internal or statistical factors<br  /><div class="outline-text-5" id="text-3-3-1-3">
 <p>
 It is possible to amass returns data on a large number of stocks, turn the crank of a statistical meat grinder, and admire the factors the machine produces: factor ex machina.
 methods:
@@ -865,7 +932,7 @@ methods:
 <li>expectations maximization analysis</li>
 </ul>
 </div></li>
-<li><a id="orgheadline27"></a>overall criteria:<br  /><div class="outline-text-5" id="text-3-3-1-4">
+<li><a id="orgheadline34"></a>overall criteria:<br  /><div class="outline-text-5" id="text-3-3-1-4">
 <ul class="org-ul">
 <li>incisive</li>
 <li>intuitive</li>
@@ -874,15 +941,15 @@ methods:
 </div></li></ol>
 </div>
 
-<div id="outline-container-orgheadline38" class="outline-4">
-<h4 id="orgheadline38"><span class="section-number-4">3.3.2</span> estimating factor returns</h4>
+<div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45"><span class="section-number-4">3.3.2</span> estimating factor returns</h4>
 <div class="outline-text-4" id="text-3-3-2">
-</div><ol class="org-ol"><li><a id="orgheadline33"></a>exposures<br  /><ol class="org-ol"><li><a id="orgheadline29"></a>industry exposures<br  /><div class="outline-text-6" id="text-3-3-2-1-1">
+</div><ol class="org-ol"><li><a id="orgheadline40"></a>exposures<br  /><ol class="org-ol"><li><a id="orgheadline36"></a>industry exposures<br  /><div class="outline-text-6" id="text-3-3-2-1-1">
 <p>
 The market itself has unit exposure in total to the industries. Because large corporations can do business in several industries, the industry factors must account for multiple industry memberships.
 </p>
 </div></li>
-<li><a id="orgheadline32"></a>risk index exposures<br  /><div class="outline-text-6" id="text-3-3-2-1-2">
+<li><a id="orgheadline39"></a>risk index exposures<br  /><div class="outline-text-6" id="text-3-3-2-1-2">
 <ul class="org-ul">
 <li>Volatilitydistinguishes stocks by their volatility. Assets that rank high in this dimension have been and are expected to be more volatile than average.</li>
 <li>Momentum distinguishes stocks by recent performance.</li>
@@ -893,13 +960,13 @@ The market itself has unit exposure in total to the industries. Because large co
 <li>Financial leverage distinguishes firms by their debt-to-equity ratios and exposure to interest rate risk.</li>
 </ul>
 </div>
-<ol class="org-ol"><li><a id="orgheadline30"></a>Relying on several different descriptors can improve model robustness.<br  /></li>
-<li><a id="orgheadline31"></a>all raw exposure data must be rescaled:<br  /><div class="outline-text-7" id="text-3-3-2-1-2-2">
+<ol class="org-ol"><li><a id="orgheadline37"></a>Relying on several different descriptors can improve model robustness.<br  /></li>
+<li><a id="orgheadline38"></a>all raw exposure data must be rescaled:<br  /><div class="outline-text-7" id="text-3-3-2-1-2-2">
 <p>
 \[X_{normalized} = \frac{X_{raw} - mean(X_{raw})}{SD(X_{raw})}\]
 </p>
 </div></li></ol></li></ol></li>
-<li><a id="orgheadline34"></a>returns<br  /><div class="outline-text-5" id="text-3-3-2-2">
+<li><a id="orgheadline41"></a>returns<br  /><div class="outline-text-5" id="text-3-3-2-2">
 <ul class="org-ul">
 <li>Given exposures to the industry and risk index factors, the next step is to estimate returns via multiple regressions.</li>
 <li>The R2 statistic, which measures the explanatory power of the model, tends to average between 30 percent and 40 percent for models of monthly equity returns with roughly 1,000 assets and 50 factors. Larger R' statistics tend to occur in months with larger market moves.</li>
@@ -907,18 +974,18 @@ The market itself has unit exposure in total to the industries. Because large co
 <li>Although these cross-sectional regressions can involve many variables (the USE2 model uses 68 factors), <b>the models do not suffer from multicollinearity.</b> Most of the factors are industries (55out of 68 in USEZ), which are orthogonal. In addition, tests of variance inflation factors, which measure the inflation in estimate errors attributable to multicollinearity, lie far below serious danger levels.</li>
 </ul>
 </div></li>
-<li><a id="orgheadline37"></a>Factor Portfolios<br  /><div class="outline-text-5" id="text-3-3-2-3">
+<li><a id="orgheadline44"></a>Factor Portfolios<br  /><div class="outline-text-5" id="text-3-3-2-3">
 <p>
 \[f=(X^T W X)^{-1} (X^T W r)\], where X is the exposure matrix, W is the diagonal matrix of regression weights, and r is the vector of excess returns.
 \[f_k = \displaystyle\sum_{n=1}^{N} C_{k,n}r_n\]
 </p>
 </div>
-<ol class="org-ol"><li><a id="orgheadline35"></a>Factor Covariance<br  /><div class="outline-text-6" id="text-3-3-2-3-1">
+<ol class="org-ol"><li><a id="orgheadline42"></a>Factor Covariance<br  /><div class="outline-text-6" id="text-3-3-2-3-1">
 <p>
 Once the factor returns each period are estimated, we can estimate a factor covariance matrix-an estimate of all the factor variances and covariances.
 </p>
 </div></li>
-<li><a id="orgheadline36"></a>Specific-Risk Matrixes<br  /><div class="outline-text-6" id="text-3-3-2-3-2">
+<li><a id="orgheadline43"></a>Specific-Risk Matrixes<br  /><div class="outline-text-6" id="text-3-3-2-3-2">
 <p>
 \(u_n\), is that component of its return that the model cannot explain. So the multiple-factor model can provide no insight into stock-specific returns.
 </p>
@@ -934,23 +1001,23 @@ S(t) measures the average specific variance across the universe of stocks, and \
 </p>
 </div></li></ol></li></ol>
 </div>
-<div id="outline-container-orgheadline39" class="outline-4">
-<h4 id="orgheadline39"><span class="section-number-4">3.3.3</span> forecasting risk</h4>
+<div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46"><span class="section-number-4">3.3.3</span> forecasting risk</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 we use a time series model for S(t) and a linear multiple-factor model for vn(t). Models for vn(t) typically include some risk index factors, plus factors measuring recent squared specific returns.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline42" class="outline-4">
-<h4 id="orgheadline42"><span class="section-number-4">3.3.4</span> Data Requirements</h4>
+<div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">3.3.4</span> Data Requirements</h4>
 <div class="outline-text-4" id="text-3-3-4">
-</div><ol class="org-ol"><li><a id="orgheadline40"></a>stock returns<br  /><div class="outline-text-5" id="text-3-3-4-1">
+</div><ol class="org-ol"><li><a id="orgheadline47"></a>stock returns<br  /><div class="outline-text-5" id="text-3-3-4-1">
 <p>
 adjusted stock close price.
 </p>
 </div></li>
-<li><a id="orgheadline41"></a>sufficient industry identification data to calculate factor exposures<br  /><div class="outline-text-5" id="text-3-3-4-2">
+<li><a id="orgheadline48"></a>sufficient industry identification data to calculate factor exposures<br  /><div class="outline-text-5" id="text-3-3-4-2">
 <ul class="org-ul">
 <li>earnings</li>
 <li>sales</li>
@@ -963,17 +1030,17 @@ adjusted stock close price.
 </div></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline49" class="outline-3">
-<h3 id="orgheadline49"><span class="section-number-3">3.4</span> Model validity</h3>
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">3.4</span> Model validity</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 three categories: in-sample tests, out-of-sample tests, and empirical observations.
 </p>
 </div>
-<div id="outline-container-orgheadline46" class="outline-4">
-<h4 id="orgheadline46"><span class="section-number-4">3.4.1</span> in-sample tests</h4>
+<div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53"><span class="section-number-4">3.4.1</span> in-sample tests</h4>
 <div class="outline-text-4" id="text-3-4-1">
-</div><ol class="org-ol"><li><a id="orgheadline44"></a>\(R^2\) roughly 50 factors to explain the returns to roughly 1,000 assets each month.<br  /><div class="outline-text-5" id="text-3-4-1-1">
+</div><ol class="org-ol"><li><a id="orgheadline51"></a>\(R^2\) roughly 50 factors to explain the returns to roughly 1,000 assets each month.<br  /><div class="outline-text-5" id="text-3-4-1-1">
 <p>
 Monthly R2statistics for the models average about 30-40 percent, meaning
 that the model "explains," on average, about 30-40 percent of the observed
@@ -990,10 +1057,10 @@ statistic can be quite low, even if discrepancies between realized and modeled
 returns are small
 </p>
 </div></li>
-<li><a id="orgheadline45"></a>root mean square error from the regression.<br  /></li></ol>
+<li><a id="orgheadline52"></a>root mean square error from the regression.<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline47" class="outline-4">
-<h4 id="orgheadline47"><span class="section-number-4">3.4.2</span> out-of-sample tests</h4>
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54"><span class="section-number-4">3.4.2</span> out-of-sample tests</h4>
 <div class="outline-text-4" id="text-3-4-2">
 <p>
 Out-of-sample tests compare forecast risk with realized risk.
@@ -1004,28 +1071,48 @@ One out-ofsample test builds portfolios of randomly chosen assets and then compa
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline48" class="outline-4">
-<h4 id="orgheadline48"><span class="section-number-4">3.4.3</span> empirical observations</h4>
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">3.4.3</span> empirical observations</h4>
 <div class="outline-text-4" id="text-3-4-3">
 <p>
 concerning model validity are more vague than statistical tests, but they are still relevant.
 </p>
 </div>
 </div>
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58"><span class="section-number-4">3.4.4</span> factor multi-collinearity多重共线性：</h4>
+<div class="outline-text-4" id="text-3-4-4">
+</div><ol class="org-ol"><li><a id="orgheadline56"></a>解释：<br  /><div class="outline-text-5" id="text-3-4-4-1">
+<p>
+多重共线性是指线性回归模型中的解释变量之间由于存在精确相关关系或高度相关关系而使模型估计失真或难以估计准确。
+</p>
+</div></li>
+
+<li><a id="orgheadline57"></a>解决办法<br  /><div class="outline-text-5" id="text-3-4-4-2">
+<p>
+（1）排除引起共线性的变量,PCA降维。
+找出引起多重共线性的解释变量，将它排除出去，以逐步回归法得到最广泛的应用。
+（2）差分法EMB
+时间序列数据、线性模型：将原模型变换为差分模型。
+（3）减小参数估计量的方差：岭回归法（Ridge Regression）。
+</p>
+</div></li></ol>
 </div>
-<div id="outline-container-orgheadline53" class="outline-3">
-<h3 id="orgheadline53"><span class="section-number-3">3.5</span> Applications of Multiple-Factor Risk Model</h3>
+</div>
+
+<div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">3.5</span> Applications of Multiple-Factor Risk Model</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>the attribution of asset returns to chosen common factor and specific returns,</li>
 <li>forecasts of the variances and covariances of these common factor and specific returns.</li>
 </ul>
 </div>
-<div id="outline-container-orgheadline50" class="outline-4">
-<h4 id="orgheadline50"><span class="section-number-4">3.5.1</span> The Present: Current Portfolio Risk Analysis.</h4>
+<div id="outline-container-orgheadline60" class="outline-4">
+<h4 id="orgheadline60"><span class="section-number-4">3.5.1</span> The Present: Current Portfolio Risk Analysis.</h4>
 </div>
-<div id="outline-container-orgheadline51" class="outline-4">
-<h4 id="orgheadline51"><span class="section-number-4">3.5.2</span> Portfolio Construction</h4>
+<div id="outline-container-orgheadline61" class="outline-4">
+<h4 id="orgheadline61"><span class="section-number-4">3.5.2</span> Portfolio Construction</h4>
 <div class="outline-text-4" id="text-3-5-2">
 <p>
 risk-adjusted expected return:
@@ -1034,40 +1121,109 @@ risk-adjusted expected return:
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline52" class="outline-4">
-<h4 id="orgheadline52"><span class="section-number-4">3.5.3</span> Performance Analysis</h4>
+<div id="outline-container-orgheadline62" class="outline-4">
+<h4 id="orgheadline62"><span class="section-number-4">3.5.3</span> Performance Analysis</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline54" class="outline-3">
-<h3 id="orgheadline54"><span class="section-number-3">3.6</span> Factor Exposures</h3>
-</div>
-
-<div id="outline-container-orgheadline55" class="outline-3">
-<h3 id="orgheadline55"><span class="section-number-3">3.7</span> Factor Returns</h3>
-</div>
-<div id="outline-container-orgheadline56" class="outline-3">
-<h3 id="orgheadline56"><span class="section-number-3">3.8</span> Factor Covariance Matrix</h3>
-</div>
-<div id="outline-container-orgheadline57" class="outline-3">
-<h3 id="orgheadline57"><span class="section-number-3">3.9</span> Specific Risk</h3>
-</div>
+<div id="outline-container-orgheadline64" class="outline-3">
+<h3 id="orgheadline64"><span class="section-number-3">3.6</span> Factor Exposures</h3>
 </div>
 
-<div id="outline-container-orgheadline62" class="outline-2">
-<h2 id="orgheadline62"><span class="section-number-2">4</span> The low risk effect</h2>
+<div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65"><span class="section-number-3">3.7</span> Factor Returns</h3>
+</div>
+<div id="outline-container-orgheadline66" class="outline-3">
+<h3 id="orgheadline66"><span class="section-number-3">3.8</span> Factor Covariance Matrix</h3>
+</div>
+<div id="outline-container-orgheadline67" class="outline-3">
+<h3 id="orgheadline67"><span class="section-number-3">3.9</span> Specific Risk</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline78" class="outline-2">
+<h2 id="orgheadline78"><span class="section-number-2">4</span> 量化择时</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline59" class="outline-3">
-<h3 id="orgheadline59"><span class="section-number-3">4.1</span> What is the Low Risk Effect?</h3>
-<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-orgheadline69" class="outline-3">
+<h3 id="orgheadline69"><span class="section-number-3">4.1</span> 技术指标</h3>
+</div>
+<div id="outline-container-orgheadline75" class="outline-3">
+<h3 id="orgheadline75"><span class="section-number-3">4.2</span> 投资者情绪</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-orgheadline70" class="outline-4">
+<h4 id="orgheadline70"><span class="section-number-4">4.2.1</span> 投资信心</h4>
+</div>
+<div id="outline-container-orgheadline71" class="outline-4">
+<h4 id="orgheadline71"><span class="section-number-4">4.2.2</span> 折溢价率指标</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<p>
+转债转股溢价率, 封闭型基金的折价
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline72" class="outline-4">
+<h4 id="orgheadline72"><span class="section-number-4">4.2.3</span> 新股指标</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<p>
+IPO的数量, IPO首日涨幅和市场定价一般受市场情绪的影响.
+</p>
+
+<p>
+如果市场情绪高昂, 涨幅较大, PE高; 如果市场情绪低迷, 上市有可能跛破发行价, 市场参与者比较少, 公司上市意愿不强, IPO数量减少, 同时政策也将会停止新股审批.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73"><span class="section-number-4">4.2.4</span> 市场指标</h4>
+<div class="outline-text-4" id="text-4-2-4">
+<p>
+资金流量,创新高,新低股票,涨跌停股票数量,上涨家数百分比.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline74" class="outline-4">
+<h4 id="orgheadline74"><span class="section-number-4">4.2.5</span> investor behavior</h4>
+<div class="outline-text-4" id="text-4-2-5">
+<p>
+新增开户数,基金仓位,卖空比例,保证金交易,资金出入.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline76" class="outline-3">
+<h3 id="orgheadline76"><span class="section-number-3">4.3</span> 择时策略</h3>
+</div>
+<div id="outline-container-orgheadline77" class="outline-3">
+<h3 id="orgheadline77"><span class="section-number-3">4.4</span> SVM</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+传统统计模式的缺点:
+</p>
+<ul class="org-ul">
+<li>传统的统计模式识别方法,只有在样本趋向无穷大时,其性能才有理论的保证.</li>
+<li>传统的统计模式识别方法, 包括BP神经网络等,在进行机器学习时,强调经验风险最小化, 而单纯的经验风险最小化会产生学习问题,其推广能力较差.</li>
+<li>传统的统计模式识别方法存在局部极小值的问题.</li>
+</ul>
+
+<p>
+训练参数输入阶段的任务主要是确定SVM模型的参数\(gamma\) 和 \(sigma\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline82" class="outline-2">
+<h2 id="orgheadline82"><span class="section-number-2">5</span> The low risk effect</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline79" class="outline-3">
+<h3 id="orgheadline79"><span class="section-number-3">5.1</span> What is the Low Risk Effect?</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
 beta and volatility are related, though not the same. Beta depends on volatility and correlation to the market, whereas volatility is related to idiosyncratic risk (see here for an explanation of how to calculate the different measures).
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline60" class="outline-3">
-<h3 id="orgheadline60"><span class="section-number-3">4.2</span> Why Does the Low Risk Effect Exist?</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-orgheadline80" class="outline-3">
+<h3 id="orgheadline80"><span class="section-number-3">5.2</span> Why Does the Low Risk Effect Exist?</h3>
+<div class="outline-text-3" id="text-5-2">
 <p>
 The first is that it’s related to one of the assumptions of the CAPM, which is that there are no constraints on either leverage or short-selling. However, in the real world, many investors are either constrained against the use of leverage (by their charters) or have an aversion to its use. The same is true of short-selling, and the borrowing costs for hard-to-borrow stocks can be quite high. Such limits can prevent arbitrageurs from correcting mispricings.
 </p>
@@ -1090,9 +1246,9 @@ Another explanation for the low-risk premium comes from the fact that while one 
 </div>
 </div>
 
-<div id="outline-container-orgheadline61" class="outline-3">
-<h3 id="orgheadline61"><span class="section-number-3">4.3</span> The Latest Research on the Low Risk Effect</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-orgheadline81" class="outline-3">
+<h3 id="orgheadline81"><span class="section-number-3">5.3</span> The Latest Research on the Low Risk Effect</h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
 The latest contribution to the literature on the low-risk phenomenon is from Cliff Asness, Andrea Frazzini, Niels Joachim Gormsen and Lasse Heje Pedersen, authors of the January 2017 study “Betting Against Correlation: Testing Theories of the Low-Risk Effect.” They suggest that if the low-risk effect is driven by leverage constraints, risk should be measured using systematic risk (beta). On the other hand, if the low-risk effect is driven by behavioral effects, then risk should be measured using idiosyncratic risk (volatility) — stocks with low idiosyncratic risk outperform stocks with high idiosyncratic risk.
 </p>
@@ -1105,12 +1261,12 @@ The authors noted that “the challenge with the existing literature is that it 
 </div>
 
 
-<div id="outline-container-orgheadline87" class="outline-2">
-<h2 id="orgheadline87"><span class="section-number-2">5</span> Factor Models and General Definition<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h2>
-<div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline63" class="outline-3">
-<h3 id="orgheadline63"><span class="section-number-3">5.1</span> Introduction</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-orgheadline107" class="outline-2">
+<h2 id="orgheadline107"><span class="section-number-2">6</span> Factor Models and General Definition<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline83" class="outline-3">
+<h3 id="orgheadline83"><span class="section-number-3">6.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-6-1">
 <p>
 The expected excess return (or risk premium) of asset i is the return we can expect from asset i in excess of rf, \(expected excess return = expected return - r_f\)
 </p>
@@ -1120,47 +1276,47 @@ To select uncorrelated factors, empirical dimension reduction techniques, such a
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline66" class="outline-3">
-<h3 id="orgheadline66"><span class="section-number-3">5.2</span> What are factor models?</h3>
-<div class="outline-text-3" id="text-5-2">
-</div><div id="outline-container-orgheadline64" class="outline-4">
-<h4 id="orgheadline64"><span class="section-number-4">5.2.1</span> Notations</h4>
+<div id="outline-container-orgheadline86" class="outline-3">
+<h3 id="orgheadline86"><span class="section-number-3">6.2</span> What are factor models?</h3>
+<div class="outline-text-3" id="text-6-2">
+</div><div id="outline-container-orgheadline84" class="outline-4">
+<h4 id="orgheadline84"><span class="section-number-4">6.2.1</span> Notations</h4>
 </div>
-<div id="outline-container-orgheadline65" class="outline-4">
-<h4 id="orgheadline65"><span class="section-number-4">5.2.2</span> Factor representation</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline69" class="outline-3">
-<h3 id="orgheadline69"><span class="section-number-3">5.3</span> Why factor models in finance?</h3>
-<div class="outline-text-3" id="text-5-3">
-</div><div id="outline-container-orgheadline67" class="outline-4">
-<h4 id="orgheadline67"><span class="section-number-4">5.3.1</span> Style analysis</h4>
-</div>
-<div id="outline-container-orgheadline68" class="outline-4">
-<h4 id="orgheadline68"><span class="section-number-4">5.3.2</span> Optimal portfolio allocation</h4>
+<div id="outline-container-orgheadline85" class="outline-4">
+<h4 id="orgheadline85"><span class="section-number-4">6.2.2</span> Factor representation</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline72" class="outline-3">
-<h3 id="orgheadline72"><span class="section-number-3">5.4</span> How to build factor models?</h3>
-<div class="outline-text-3" id="text-5-4">
-</div><div id="outline-container-orgheadline70" class="outline-4">
-<h4 id="orgheadline70"><span class="section-number-4">5.4.1</span> Factor selection</h4>
+<div id="outline-container-orgheadline89" class="outline-3">
+<h3 id="orgheadline89"><span class="section-number-3">6.3</span> Why factor models in finance?</h3>
+<div class="outline-text-3" id="text-6-3">
+</div><div id="outline-container-orgheadline87" class="outline-4">
+<h4 id="orgheadline87"><span class="section-number-4">6.3.1</span> Style analysis</h4>
 </div>
-<div id="outline-container-orgheadline71" class="outline-4">
-<h4 id="orgheadline71"><span class="section-number-4">5.4.2</span> Parameters estimation</h4>
+<div id="outline-container-orgheadline88" class="outline-4">
+<h4 id="orgheadline88"><span class="section-number-4">6.3.2</span> Optimal portfolio allocation</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline85" class="outline-3">
-<h3 id="orgheadline85"><span class="section-number-3">5.5</span> Historical perspective</h3>
-<div class="outline-text-3" id="text-5-5">
+<div id="outline-container-orgheadline92" class="outline-3">
+<h3 id="orgheadline92"><span class="section-number-3">6.4</span> How to build factor models?</h3>
+<div class="outline-text-3" id="text-6-4">
+</div><div id="outline-container-orgheadline90" class="outline-4">
+<h4 id="orgheadline90"><span class="section-number-4">6.4.1</span> Factor selection</h4>
+</div>
+<div id="outline-container-orgheadline91" class="outline-4">
+<h4 id="orgheadline91"><span class="section-number-4">6.4.2</span> Parameters estimation</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline105" class="outline-3">
+<h3 id="orgheadline105"><span class="section-number-3">6.5</span> Historical perspective</h3>
+<div class="outline-text-3" id="text-6-5">
 <p>
 One factor model:
 associated with the Capital Asset Pricing Model (CAPM).
 </p>
 </div>
-<div id="outline-container-orgheadline77" class="outline-4">
-<h4 id="orgheadline77"><span class="section-number-4">5.5.1</span> CAPM and Sharpe’s market model</h4>
-<div class="outline-text-4" id="text-5-5-1">
+<div id="outline-container-orgheadline97" class="outline-4">
+<h4 id="orgheadline97"><span class="section-number-4">6.5.1</span> CAPM and Sharpe’s market model</h4>
+<div class="outline-text-4" id="text-6-5-1">
 <ul class="org-ul">
 <li>measure systematic risk, it depends only upon exposure to the overall market, usually proxied by a broad stock market index, such as the S&amp;P 500. This exposure is measured by the CAPM beta.</li>
 <li>capital asset pricing model (CAPM) is a model used to determine a theoretically appropriate required rate of return of an asset, to make decisions about adding assets to a well-diversified portfolio.</li>
@@ -1179,7 +1335,7 @@ associated with the Capital Asset Pricing Model (CAPM).
 <li>The CAPM is about expected returns, not risk.</li>
 </ul>
 </div>
-<ol class="org-ol"><li><a id="orgheadline73"></a>overview<br  /><div class="outline-text-5" id="text-5-5-1-1">
+<ol class="org-ol"><li><a id="orgheadline93"></a>overview<br  /><div class="outline-text-5" id="text-6-5-1-1">
 <ul class="org-ul">
 <li>The model takes into account the asset's sensitivity to non-diversifiable risk (also known as systematic risk or market risk), often represented by the quantity beta (β) in the financial industry, as well as the expected return of the market and the expected return of a theoretical risk-free asset.</li>
 <li>\(r_a = r_f + \beta (r_m - r_f)\)
@@ -1193,13 +1349,13 @@ S&amp;P500.
 <li>The CAPM is equivalent to the statement that the market index is itself mean-variance efficient in the sense of providing maximum average return for a given level of volatility.</li>
 </ul>
 </div></li>
-<li><a id="orgheadline74"></a>breaking down<br  /><div class="outline-text-5" id="text-5-5-1-2">
+<li><a id="orgheadline94"></a>breaking down<br  /><div class="outline-text-5" id="text-6-5-1-2">
 <ul class="org-ul">
 <li>two factors: time value of money and risk.</li>
 <li>individual risk premium equals the market premium times beta.</li>
 </ul>
 </div></li>
-<li><a id="orgheadline76"></a>forecast of expected return<br  /><ol class="org-ol"><li><a id="orgheadline75"></a>problem of using historical average returns<br  /><div class="outline-text-6" id="text-5-5-1-3-1">
+<li><a id="orgheadline96"></a>forecast of expected return<br  /><ol class="org-ol"><li><a id="orgheadline95"></a>problem of using historical average returns<br  /><div class="outline-text-6" id="text-6-5-1-3-1">
 <p>
 One alternative is to use historical average returns, i.e., the average return to the stock over some previous period. This is not a good idea, for two main reasons.
 </p>
@@ -1210,10 +1366,10 @@ One alternative is to use historical average returns, i.e., the average return t
 </div></li></ol></li></ol>
 </div>
 
-<div id="outline-container-orgheadline84" class="outline-4">
-<h4 id="orgheadline84"><span class="section-number-4">5.5.2</span> APT for arbitrage pricing theory</h4>
-<div class="outline-text-4" id="text-5-5-2">
-</div><ol class="org-ol"><li><a id="orgheadline78"></a>overview<br  /><div class="outline-text-5" id="text-5-5-2-1">
+<div id="outline-container-orgheadline104" class="outline-4">
+<h4 id="orgheadline104"><span class="section-number-4">6.5.2</span> APT for arbitrage pricing theory</h4>
+<div class="outline-text-4" id="text-6-5-2">
+</div><ol class="org-ol"><li><a id="orgheadline98"></a>overview<br  /><div class="outline-text-5" id="text-6-5-2-1">
 <ul class="org-ul">
 <li>only one type of nondiversifiable risk influences expected security returns, and that single type of risk is <b>market risk.</b></li>
 <li>the APT recognizes that several different broad risk sources may combine to influence security returns. The intuitive appeal of the APT results from its recognition that the interaction of several macroeconomic factors such as <b>inflation, interest rates, and business activity</b> affects rates of return.</li>
@@ -1221,7 +1377,7 @@ One alternative is to use historical average returns, i.e., the average return t
 </ul>
 </div></li>
 
-<li><a id="orgheadline79"></a>shortfalls or using accounting attributes as market risk:<br  /><div class="outline-text-5" id="text-5-5-2-2">
+<li><a id="orgheadline99"></a>shortfalls or using accounting attributes as market risk:<br  /><div class="outline-text-5" id="text-6-5-2-2">
 <ul class="org-ul">
 <li>Most are based on accountingdata, and such data are generated by rules that may differ sigmficantly across firms.</li>
 <li>Even if allfirms used the same accountingrules, reporting dates differ, so constructing time-synchronized interfirm comparisons is difficult.</li>
@@ -1229,19 +1385,19 @@ One alternative is to use historical average returns, i.e., the average return t
 </ul>
 </div></li>
 
-<li><a id="orgheadline83"></a>Basics:<br  /><div class="outline-text-5" id="text-5-5-2-3">
+<li><a id="orgheadline103"></a>Basics:<br  /><div class="outline-text-5" id="text-6-5-2-3">
 <ul class="org-ul">
 <li>Every stock and portfolio has exposures (or betas) with respect to each of these systematic risks. The pattern of economic betas for a stock or portfolio is called its risk exposure profile.</li>
 </ul>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline82"></a>APT Equations<br  /><div class="outline-text-6" id="text-5-5-2-3-1">
+<ol class="org-ol"><li><a id="orgheadline102"></a>APT Equations<br  /><div class="outline-text-6" id="text-6-5-2-3-1">
 <p>
 The APT follows from two basic postulates:
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline80"></a>Postulate 1.<br  /><div class="outline-text-7" id="text-5-5-2-3-1-1">
+<ol class="org-ol"><li><a id="orgheadline100"></a>Postulate 1.<br  /><div class="outline-text-7" id="text-6-5-2-3-1-1">
 <p>
 In every time period, the difference between the actual (realized)return and the expected return for any asset is equal to the sum, over all risk factors, of the risk exposure (the beta for that risk factor) multiplied by the realization (the actual end-of-period value) for that risk factor, plus an asset-specific (idiosyncratic) error term.
 \[r_i(t) - E[r_i(t)] = \beta_i1 f_1(t) + ... + \beta_iK f_K(t) + \epsilon_i(t)\]
@@ -1254,7 +1410,7 @@ In every time period, the difference between the actual (realized)return and the
 </p>
 </div></li>
 
-<li><a id="orgheadline81"></a>Postulate 2.<br  /><div class="outline-text-7" id="text-5-5-2-3-1-2">
+<li><a id="orgheadline101"></a>Postulate 2.<br  /><div class="outline-text-7" id="text-6-5-2-3-1-2">
 <p>
 Pure arbitrage profits are impossible.
 \[E[r_i(t)] = P_0 + \beta_i1 P_1 + ... + \beta_iK P_K\]
@@ -1263,293 +1419,305 @@ Pure arbitrage profits are impossible.
 </div></li></ol></li></ol></li></ol>
 </div>
 </div>
-<div id="outline-container-orgheadline86" class="outline-3">
-<h3 id="orgheadline86"><span class="section-number-3">5.6</span> Glossary Volatility</h3>
+<div id="outline-container-orgheadline106" class="outline-3">
+<h3 id="orgheadline106"><span class="section-number-3">6.6</span> Glossary Volatility</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline121" class="outline-2">
-<h2 id="orgheadline121"><span class="section-number-2">6</span> Factor Selection</h2>
-<div class="outline-text-2" id="text-6">
-</div><div id="outline-container-orgheadline97" class="outline-3">
-<h3 id="orgheadline97"><span class="section-number-3">6.1</span> 量化选股基本面选股</h3>
-<div class="outline-text-3" id="text-6-1">
-</div><div id="outline-container-orgheadline94" class="outline-4">
-<h4 id="orgheadline94"><span class="section-number-4">6.1.1</span> 多因子模型</h4>
-<div class="outline-text-4" id="text-6-1-1">
+<div id="outline-container-orgheadline141" class="outline-2">
+<h2 id="orgheadline141"><span class="section-number-2">7</span> Factor Selection</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline117" class="outline-3">
+<h3 id="orgheadline117"><span class="section-number-3">7.1</span> 量化选股基本面选股</h3>
+<div class="outline-text-3" id="text-7-1">
+</div><div id="outline-container-orgheadline114" class="outline-4">
+<h4 id="orgheadline114"><span class="section-number-4">7.1.1</span> 多因子模型</h4>
+<div class="outline-text-4" id="text-7-1-1">
 <p>
 优点是可以综合很多信息后给出一个选股结果. 综合因子的方法有打分法和回归法两种，打分法较常见。
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgheadline93"></a>steps:<br  /><ol class="org-ol"><li><a id="orgheadline91"></a>备选因子选取<br  /><ol class="org-ol"><li><a id="orgheadline88"></a>估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）<br  /></li>
+<ol class="org-ol"><li><a id="orgheadline113"></a>steps:<br  /><ol class="org-ol"><li><a id="orgheadline111"></a>备选因子选取<br  /><ol class="org-ol"><li><a id="orgheadline108"></a>估值：账面市值比（B/M)、盈利收益率（EPS）、动态市盈（PEG）<br  /></li>
 
-<li><a id="orgheadline89"></a>成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)<br  /></li>
+<li><a id="orgheadline109"></a>成长性：ROE、ROA、主营毛利率（GP/R)、净利率(P/R)<br  /></li>
 
-<li><a id="orgheadline90"></a>资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）<br  /></li></ol></li>
+<li><a id="orgheadline110"></a>资本结构：资产负债（L/A)、固定资产比例（FAP）、流通市值（CMV）<br  /></li></ol></li>
 
-<li><a id="orgheadline92"></a>因子有效性检验<br  /><div class="outline-text-6" id="text-6-1-1-1-2">
+<li><a id="orgheadline112"></a>因子有效性检验<br  /><div class="outline-text-6" id="text-7-1-1-1-2">
 <p>
 采用排序的方法检验备选因子的有效性。
 </p>
 </div></li></ol></li></ol>
 </div>
 
-<div id="outline-container-orgheadline95" class="outline-4">
-<h4 id="orgheadline95"><span class="section-number-4">6.1.2</span> 风格轮动模型</h4>
-</div>
-
-<div id="outline-container-orgheadline96" class="outline-4">
-<h4 id="orgheadline96"><span class="section-number-4">6.1.3</span> 行业轮动模型</h4>
-</div>
-</div>
-
-<div id="outline-container-orgheadline102" class="outline-3">
-<h3 id="orgheadline102"><span class="section-number-3">6.2</span> 市场行为选股</h3>
-<div class="outline-text-3" id="text-6-2">
-</div><div id="outline-container-orgheadline98" class="outline-4">
-<h4 id="orgheadline98"><span class="section-number-4">6.2.1</span> 资金流选股</h4>
-</div>
-
-<div id="outline-container-orgheadline99" class="outline-4">
-<h4 id="orgheadline99"><span class="section-number-4">6.2.2</span> 动量反转模型</h4>
-</div>
-
-<div id="outline-container-orgheadline100" class="outline-4">
-<h4 id="orgheadline100"><span class="section-number-4">6.2.3</span> 一致预期模型</h4>
-</div>
-
-<div id="outline-container-orgheadline101" class="outline-4">
-<h4 id="orgheadline101"><span class="section-number-4">6.2.4</span> 趋势追踪模型</h4>
-</div>
-</div>
-
-<div id="outline-container-orgheadline103" class="outline-3">
-<h3 id="orgheadline103"><span class="section-number-3">6.3</span> Introduction</h3>
-</div>
-<div id="outline-container-orgheadline107" class="outline-3">
-<h3 id="orgheadline107"><span class="section-number-3">6.4</span> Qualitative know-how</h3>
-<div class="outline-text-3" id="text-6-4">
-</div><div id="outline-container-orgheadline104" class="outline-4">
-<h4 id="orgheadline104"><span class="section-number-4">6.4.1</span> Fama and French model</h4>
-</div>
-<div id="outline-container-orgheadline105" class="outline-4">
-<h4 id="orgheadline105"><span class="section-number-4">6.4.2</span> The Chen et al. model</h4>
-</div>
-<div id="outline-container-orgheadline106" class="outline-4">
-<h4 id="orgheadline106"><span class="section-number-4">6.4.3</span> The risk-based factor model of Fung and Hsieh</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline110" class="outline-3">
-<h3 id="orgheadline110"><span class="section-number-3">6.5</span> Quantitative methods based on eigenfactors</h3>
-<div class="outline-text-3" id="text-6-5">
-</div><div id="outline-container-orgheadline108" class="outline-4">
-<h4 id="orgheadline108"><span class="section-number-4">6.5.1</span> Notation</h4>
-</div>
-<div id="outline-container-orgheadline109" class="outline-4">
-<h4 id="orgheadline109"><span class="section-number-4">6.5.2</span> Subspace methods: the Principal Component Analysis</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline112" class="outline-3">
-<h3 id="orgheadline112"><span class="section-number-3">6.6</span> Model order choice</h3>
-<div class="outline-text-3" id="text-6-6">
-</div><div id="outline-container-orgheadline111" class="outline-4">
-<h4 id="orgheadline111"><span class="section-number-4">6.6.1</span> Information criteria</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline116" class="outline-3">
-<h3 id="orgheadline116"><span class="section-number-3">6.7</span> Appendix 1: Covariance matrix estimation</h3>
-<div class="outline-text-3" id="text-6-7">
-</div><div id="outline-container-orgheadline113" class="outline-4">
-<h4 id="orgheadline113"><span class="section-number-4">6.7.1</span> Sample mean</h4>
-</div>
-<div id="outline-container-orgheadline114" class="outline-4">
-<h4 id="orgheadline114"><span class="section-number-4">6.7.2</span> Sample covariance matrix</h4>
-</div>
 <div id="outline-container-orgheadline115" class="outline-4">
-<h4 id="orgheadline115"><span class="section-number-4">6.7.3</span> Robust covariance matrix estimation: M-estimators</h4>
+<h4 id="orgheadline115"><span class="section-number-4">7.1.2</span> 风格轮动模型</h4>
+</div>
+
+<div id="outline-container-orgheadline116" class="outline-4">
+<h4 id="orgheadline116"><span class="section-number-4">7.1.3</span> 行业轮动模型</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline117" class="outline-3">
-<h3 id="orgheadline117"><span class="section-number-3">6.8</span> Appendix 2: Similarity of the eigenfactor selection with the MUSIC algorithm</h3>
-</div>
-<div id="outline-container-orgheadline119" class="outline-3">
-<h3 id="orgheadline119"><span class="section-number-3">6.9</span> Appendix 3: Large panel data</h3>
-<div class="outline-text-3" id="text-6-9">
-</div><div id="outline-container-orgheadline118" class="outline-4">
-<h4 id="orgheadline118"><span class="section-number-4">6.9.1</span> Large panel data criteria</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline120" class="outline-3">
-<h3 id="orgheadline120"><span class="section-number-3">6.10</span> *highlights</h3>
-</div>
-</div>
-<div id="outline-container-orgheadline162" class="outline-2">
-<h2 id="orgheadline162"><span class="section-number-2">7</span> Least Squares Estimation (LSE) and Kalman Filtering (KF) for Factor Modeling: A Geometrical Perspective</h2>
-<div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline122" class="outline-3">
-<h3 id="orgheadline122"><span class="section-number-3">7.1</span> Introduction</h3>
-</div>
-<div id="outline-container-orgheadline125" class="outline-3">
-<h3 id="orgheadline125"><span class="section-number-3">7.2</span> Why LSE and KF in factor modeling?</h3>
+
+<div id="outline-container-orgheadline122" class="outline-3">
+<h3 id="orgheadline122"><span class="section-number-3">7.2</span> 市场行为选股</h3>
 <div class="outline-text-3" id="text-7-2">
-</div><div id="outline-container-orgheadline123" class="outline-4">
-<h4 id="orgheadline123"><span class="section-number-4">7.2.1</span> Factor model per return</h4>
+</div><div id="outline-container-orgheadline118" class="outline-4">
+<h4 id="orgheadline118"><span class="section-number-4">7.2.1</span> 资金流选股</h4>
 </div>
-<div id="outline-container-orgheadline124" class="outline-4">
-<h4 id="orgheadline124"><span class="section-number-4">7.2.2</span> Alpha and beta estimation per return</h4>
+
+<div id="outline-container-orgheadline119" class="outline-4">
+<h4 id="orgheadline119"><span class="section-number-4">7.2.2</span> 动量反转模型</h4>
+</div>
+
+<div id="outline-container-orgheadline120" class="outline-4">
+<h4 id="orgheadline120"><span class="section-number-4">7.2.3</span> 一致预期模型</h4>
+</div>
+
+<div id="outline-container-orgheadline121" class="outline-4">
+<h4 id="orgheadline121"><span class="section-number-4">7.2.4</span> 趋势追踪模型</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline128" class="outline-3">
-<h3 id="orgheadline128"><span class="section-number-3">7.3</span> LSE setup</h3>
-<div class="outline-text-3" id="text-7-3">
-</div><div id="outline-container-orgheadline126" class="outline-4">
-<h4 id="orgheadline126"><span class="section-number-4">7.3.1</span> Current observation window and block processing</h4>
+
+<div id="outline-container-orgheadline123" class="outline-3">
+<h3 id="orgheadline123"><span class="section-number-3">7.3</span> Introduction</h3>
 </div>
-<div id="outline-container-orgheadline127" class="outline-4">
-<h4 id="orgheadline127"><span class="section-number-4">7.3.2</span> LSE regression</h4>
+<div id="outline-container-orgheadline127" class="outline-3">
+<h3 id="orgheadline127"><span class="section-number-3">7.4</span> Qualitative know-how</h3>
+<div class="outline-text-3" id="text-7-4">
+</div><div id="outline-container-orgheadline124" class="outline-4">
+<h4 id="orgheadline124"><span class="section-number-4">7.4.1</span> Fama and French model</h4>
 </div>
+<div id="outline-container-orgheadline125" class="outline-4">
+<h4 id="orgheadline125"><span class="section-number-4">7.4.2</span> The Chen et al. model</h4>
 </div>
-<div id="outline-container-orgheadline129" class="outline-3">
-<h3 id="orgheadline129"><span class="section-number-3">7.4</span> LSE objective and criterion</h3>
+<div id="outline-container-orgheadline126" class="outline-4">
+<h4 id="orgheadline126"><span class="section-number-4">7.4.3</span> The risk-based factor model of Fung and Hsieh</h4>
+</div>
 </div>
 <div id="outline-container-orgheadline130" class="outline-3">
-<h3 id="orgheadline130"><span class="section-number-3">7.5</span> How LSE is working (for LSE users and programmers)</h3>
+<h3 id="orgheadline130"><span class="section-number-3">7.5</span> Quantitative methods based on eigenfactors</h3>
+<div class="outline-text-3" id="text-7-5">
+</div><div id="outline-container-orgheadline128" class="outline-4">
+<h4 id="orgheadline128"><span class="section-number-4">7.5.1</span> Notation</h4>
 </div>
-<div id="outline-container-orgheadline133" class="outline-3">
-<h3 id="orgheadline133"><span class="section-number-3">7.6</span> Interpretation of the LSE solution</h3>
+<div id="outline-container-orgheadline129" class="outline-4">
+<h4 id="orgheadline129"><span class="section-number-4">7.5.2</span> Subspace methods: the Principal Component Analysis</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline132" class="outline-3">
+<h3 id="orgheadline132"><span class="section-number-3">7.6</span> Model order choice</h3>
 <div class="outline-text-3" id="text-7-6">
 </div><div id="outline-container-orgheadline131" class="outline-4">
-<h4 id="orgheadline131"><span class="section-number-4">7.6.1</span> Bias and variance</h4>
-</div>
-<div id="outline-container-orgheadline132" class="outline-4">
-<h4 id="orgheadline132"><span class="section-number-4">7.6.2</span> Geometrical interpretation of LSE</h4>
+<h4 id="orgheadline131"><span class="section-number-4">7.6.1</span> Information criteria</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline134" class="outline-3">
-<h3 id="orgheadline134"><span class="section-number-3">7.7</span> Derivations of LSE solution</h3>
+<div id="outline-container-orgheadline136" class="outline-3">
+<h3 id="orgheadline136"><span class="section-number-3">7.7</span> Appendix 1: Covariance matrix estimation</h3>
+<div class="outline-text-3" id="text-7-7">
+</div><div id="outline-container-orgheadline133" class="outline-4">
+<h4 id="orgheadline133"><span class="section-number-4">7.7.1</span> Sample mean</h4>
 </div>
-<div id="outline-container-orgheadline138" class="outline-3">
-<h3 id="orgheadline138"><span class="section-number-3">7.8</span> Why KF and which setup?</h3>
-<div class="outline-text-3" id="text-7-8">
-</div><div id="outline-container-orgheadline135" class="outline-4">
-<h4 id="orgheadline135"><span class="section-number-4">7.8.1</span> LSE method does not provide a recursive estimate</h4>
+<div id="outline-container-orgheadline134" class="outline-4">
+<h4 id="orgheadline134"><span class="section-number-4">7.7.2</span> Sample covariance matrix</h4>
 </div>
-<div id="outline-container-orgheadline136" class="outline-4">
-<h4 id="orgheadline136"><span class="section-number-4">7.8.2</span> The state space model and its recursive component</h4>
-</div>
-<div id="outline-container-orgheadline137" class="outline-4">
-<h4 id="orgheadline137"><span class="section-number-4">7.8.3</span> Parsimony and orthogonality assumptions</h4>
+<div id="outline-container-orgheadline135" class="outline-4">
+<h4 id="orgheadline135"><span class="section-number-4">7.7.3</span> Robust covariance matrix estimation: M-estimators</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline142" class="outline-3">
-<h3 id="orgheadline142"><span class="section-number-3">7.9</span> What are the main properties of the KF model?</h3>
+<div id="outline-container-orgheadline137" class="outline-3">
+<h3 id="orgheadline137"><span class="section-number-3">7.8</span> Appendix 2: Similarity of the eigenfactor selection with the MUSIC algorithm</h3>
+</div>
+<div id="outline-container-orgheadline139" class="outline-3">
+<h3 id="orgheadline139"><span class="section-number-3">7.9</span> Appendix 3: Large panel data</h3>
 <div class="outline-text-3" id="text-7-9">
-</div><div id="outline-container-orgheadline139" class="outline-4">
-<h4 id="orgheadline139"><span class="section-number-4">7.9.1</span> Self-aggregation feature</h4>
-</div>
-<div id="outline-container-orgheadline140" class="outline-4">
-<h4 id="orgheadline140"><span class="section-number-4">7.9.2</span> Markovian property</h4>
-</div>
-<div id="outline-container-orgheadline141" class="outline-4">
-<h4 id="orgheadline141"><span class="section-number-4">7.9.3</span> Innovation property</h4>
+</div><div id="outline-container-orgheadline138" class="outline-4">
+<h4 id="orgheadline138"><span class="section-number-4">7.9.1</span> Large panel data criteria</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline143" class="outline-3">
-<h3 id="orgheadline143"><span class="section-number-3">7.10</span> What is the objective of KF?</h3>
-</div>
-<div id="outline-container-orgheadline146" class="outline-3">
-<h3 id="orgheadline146"><span class="section-number-3">7.11</span> How does the KF work (for users and programmers)?</h3>
-<div class="outline-text-3" id="text-7-11">
-</div><div id="outline-container-orgheadline144" class="outline-4">
-<h4 id="orgheadline144"><span class="section-number-4">7.11.1</span> Algorithm summary</h4>
-</div>
-<div id="outline-container-orgheadline145" class="outline-4">
-<h4 id="orgheadline145"><span class="section-number-4">7.11.2</span> Initialization of the KF recursive equations</h4>
+<div id="outline-container-orgheadline140" class="outline-3">
+<h3 id="orgheadline140"><span class="section-number-3">7.10</span> *highlights</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline151" class="outline-3">
-<h3 id="orgheadline151"><span class="section-number-3">7.12</span> Interpretation of the KF updates</h3>
-<div class="outline-text-3" id="text-7-12">
-</div><div id="outline-container-orgheadline147" class="outline-4">
-<h4 id="orgheadline147"><span class="section-number-4">7.12.1</span> Prediction filtering, equation [3.34]</h4>
+<div id="outline-container-orgheadline182" class="outline-2">
+<h2 id="orgheadline182"><span class="section-number-2">8</span> Least Squares Estimation (LSE) and Kalman Filtering (KF) for Factor Modeling: A Geometrical Perspective</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-orgheadline142" class="outline-3">
+<h3 id="orgheadline142"><span class="section-number-3">8.1</span> Introduction</h3>
 </div>
-<div id="outline-container-orgheadline148" class="outline-4">
-<h4 id="orgheadline148"><span class="section-number-4">7.12.2</span> Prediction accuracy processing, equation [3.35]</h4>
+<div id="outline-container-orgheadline145" class="outline-3">
+<h3 id="orgheadline145"><span class="section-number-3">8.2</span> Why LSE and KF in factor modeling?</h3>
+<div class="outline-text-3" id="text-8-2">
+</div><div id="outline-container-orgheadline143" class="outline-4">
+<h4 id="orgheadline143"><span class="section-number-4">8.2.1</span> Factor model per return</h4>
 </div>
-<div id="outline-container-orgheadline149" class="outline-4">
-<h4 id="orgheadline149"><span class="section-number-4">7.12.3</span> Correction filtering equations [3.36]–[3.37]</h4>
-</div>
-<div id="outline-container-orgheadline150" class="outline-4">
-<h4 id="orgheadline150"><span class="section-number-4">7.12.4</span> Correction accuracy processing, equation [3.38]</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline155" class="outline-3">
-<h3 id="orgheadline155"><span class="section-number-3">7.13</span> Practice</h3>
-<div class="outline-text-3" id="text-7-13">
-</div><div id="outline-container-orgheadline152" class="outline-4">
-<h4 id="orgheadline152"><span class="section-number-4">7.13.1</span> Comparison of the estimation methods on synthetic data</h4>
-</div>
-<div id="outline-container-orgheadline153" class="outline-4">
-<h4 id="orgheadline153"><span class="section-number-4">7.13.2</span> Market risk hedging given a single-factor model</h4>
-</div>
-<div id="outline-container-orgheadline154" class="outline-4">
-<h4 id="orgheadline154"><span class="section-number-4">7.13.3</span> Hedge fund style analysis using a multi-factor model</h4>
+<div id="outline-container-orgheadline144" class="outline-4">
+<h4 id="orgheadline144"><span class="section-number-4">8.2.2</span> Alpha and beta estimation per return</h4>
 </div>
 </div>
-<div id="outline-container-orgheadline161" class="outline-3">
-<h3 id="orgheadline161"><span class="section-number-3">7.14</span> Geometrical derivation of KF updating equations</h3>
-<div class="outline-text-3" id="text-7-14">
-</div><div id="outline-container-orgheadline156" class="outline-4">
-<h4 id="orgheadline156"><span class="section-number-4">7.14.1</span> Geometrical interpretation of MSE criterion and the MMSE solution</h4>
+<div id="outline-container-orgheadline148" class="outline-3">
+<h3 id="orgheadline148"><span class="section-number-3">8.3</span> LSE setup</h3>
+<div class="outline-text-3" id="text-8-3">
+</div><div id="outline-container-orgheadline146" class="outline-4">
+<h4 id="orgheadline146"><span class="section-number-4">8.3.1</span> Current observation window and block processing</h4>
+</div>
+<div id="outline-container-orgheadline147" class="outline-4">
+<h4 id="orgheadline147"><span class="section-number-4">8.3.2</span> LSE regression</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline149" class="outline-3">
+<h3 id="orgheadline149"><span class="section-number-3">8.4</span> LSE objective and criterion</h3>
+</div>
+<div id="outline-container-orgheadline150" class="outline-3">
+<h3 id="orgheadline150"><span class="section-number-3">8.5</span> How LSE is working (for LSE users and programmers)</h3>
+</div>
+<div id="outline-container-orgheadline153" class="outline-3">
+<h3 id="orgheadline153"><span class="section-number-3">8.6</span> Interpretation of the LSE solution</h3>
+<div class="outline-text-3" id="text-8-6">
+</div><div id="outline-container-orgheadline151" class="outline-4">
+<h4 id="orgheadline151"><span class="section-number-4">8.6.1</span> Bias and variance</h4>
+</div>
+<div id="outline-container-orgheadline152" class="outline-4">
+<h4 id="orgheadline152"><span class="section-number-4">8.6.2</span> Geometrical interpretation of LSE</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline154" class="outline-3">
+<h3 id="orgheadline154"><span class="section-number-3">8.7</span> Derivations of LSE solution</h3>
+</div>
+<div id="outline-container-orgheadline158" class="outline-3">
+<h3 id="orgheadline158"><span class="section-number-3">8.8</span> Why KF and which setup?</h3>
+<div class="outline-text-3" id="text-8-8">
+</div><div id="outline-container-orgheadline155" class="outline-4">
+<h4 id="orgheadline155"><span class="section-number-4">8.8.1</span> LSE method does not provide a recursive estimate</h4>
+</div>
+<div id="outline-container-orgheadline156" class="outline-4">
+<h4 id="orgheadline156"><span class="section-number-4">8.8.2</span> The state space model and its recursive component</h4>
 </div>
 <div id="outline-container-orgheadline157" class="outline-4">
-<h4 id="orgheadline157"><span class="section-number-4">7.14.2</span> Derivation of the prediction filtering update</h4>
+<h4 id="orgheadline157"><span class="section-number-4">8.8.3</span> Parsimony and orthogonality assumptions</h4>
 </div>
-<div id="outline-container-orgheadline158" class="outline-4">
-<h4 id="orgheadline158"><span class="section-number-4">7.14.3</span> Derivation of the prediction accuracy update</h4>
 </div>
-<div id="outline-container-orgheadline159" class="outline-4">
-<h4 id="orgheadline159"><span class="section-number-4">7.14.4</span> Derivation of the correction filtering update</h4>
+<div id="outline-container-orgheadline162" class="outline-3">
+<h3 id="orgheadline162"><span class="section-number-3">8.9</span> What are the main properties of the KF model?</h3>
+<div class="outline-text-3" id="text-8-9">
+</div><div id="outline-container-orgheadline159" class="outline-4">
+<h4 id="orgheadline159"><span class="section-number-4">8.9.1</span> Self-aggregation feature</h4>
 </div>
 <div id="outline-container-orgheadline160" class="outline-4">
-<h4 id="orgheadline160"><span class="section-number-4">7.14.5</span> Derivation of the correction accuracy update</h4>
+<h4 id="orgheadline160"><span class="section-number-4">8.9.2</span> Markovian property</h4>
+</div>
+<div id="outline-container-orgheadline161" class="outline-4">
+<h4 id="orgheadline161"><span class="section-number-4">8.9.3</span> Innovation property</h4>
 </div>
 </div>
-</div>
-<div id="outline-container-orgheadline173" class="outline-2">
-<h2 id="orgheadline173"><span class="section-number-2">8</span> A Regularized Kalman Filter (rgKF) for Spiky Data</h2>
-<div class="outline-text-2" id="text-8">
-</div><div id="outline-container-orgheadline163" class="outline-3">
-<h3 id="orgheadline163"><span class="section-number-3">8.1</span> Introduction</h3>
-</div>
-<div id="outline-container-orgheadline164" class="outline-3">
-<h3 id="orgheadline164"><span class="section-number-3">8.2</span> Preamble: statistical evidence on the KF recursive equations</h3>
+<div id="outline-container-orgheadline163" class="outline-3">
+<h3 id="orgheadline163"><span class="section-number-3">8.10</span> What is the objective of KF?</h3>
 </div>
 <div id="outline-container-orgheadline166" class="outline-3">
-<h3 id="orgheadline166"><span class="section-number-3">8.3</span> Robust KF</h3>
-<div class="outline-text-3" id="text-8-3">
-</div><div id="outline-container-orgheadline165" class="outline-4">
-<h4 id="orgheadline165"><span class="section-number-4">8.3.1</span> RKF description</h4>
+<h3 id="orgheadline166"><span class="section-number-3">8.11</span> How does the KF work (for users and programmers)?</h3>
+<div class="outline-text-3" id="text-8-11">
+</div><div id="outline-container-orgheadline164" class="outline-4">
+<h4 id="orgheadline164"><span class="section-number-4">8.11.1</span> Algorithm summary</h4>
 </div>
+<div id="outline-container-orgheadline165" class="outline-4">
+<h4 id="orgheadline165"><span class="section-number-4">8.11.2</span> Initialization of the KF recursive equations</h4>
 </div>
-<div id="outline-container-orgheadline169" class="outline-3">
-<h3 id="orgheadline169"><span class="section-number-3">8.4</span> rgKF: the rgKF(NG,lq)</h3>
-<div class="outline-text-3" id="text-8-4">
-</div><div id="outline-container-orgheadline167" class="outline-4">
-<h4 id="orgheadline167"><span class="section-number-4">8.4.1</span> rgKF description</h4>
-</div>
-<div id="outline-container-orgheadline168" class="outline-4">
-<h4 id="orgheadline168"><span class="section-number-4">8.4.2</span> rgKF performance</h4>
-</div>
-</div>
-<div id="outline-container-orgheadline170" class="outline-3">
-<h3 id="orgheadline170"><span class="section-number-3">8.5</span> Application to detect irregularities in hedge fund returns</h3>
 </div>
 <div id="outline-container-orgheadline171" class="outline-3">
-<h3 id="orgheadline171"><span class="section-number-3">8.6</span> Conclusion</h3>
+<h3 id="orgheadline171"><span class="section-number-3">8.12</span> Interpretation of the KF updates</h3>
+<div class="outline-text-3" id="text-8-12">
+</div><div id="outline-container-orgheadline167" class="outline-4">
+<h4 id="orgheadline167"><span class="section-number-4">8.12.1</span> Prediction filtering, equation [3.34]</h4>
 </div>
-<div id="outline-container-orgheadline172" class="outline-3">
-<h3 id="orgheadline172"><span class="section-number-3">8.7</span> Chapter highlights Extended space-state model</h3>
+<div id="outline-container-orgheadline168" class="outline-4">
+<h4 id="orgheadline168"><span class="section-number-4">8.12.2</span> Prediction accuracy processing, equation [3.35]</h4>
+</div>
+<div id="outline-container-orgheadline169" class="outline-4">
+<h4 id="orgheadline169"><span class="section-number-4">8.12.3</span> Correction filtering equations [3.36]–[3.37]</h4>
+</div>
+<div id="outline-container-orgheadline170" class="outline-4">
+<h4 id="orgheadline170"><span class="section-number-4">8.12.4</span> Correction accuracy processing, equation [3.38]</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline175" class="outline-3">
+<h3 id="orgheadline175"><span class="section-number-3">8.13</span> Practice</h3>
+<div class="outline-text-3" id="text-8-13">
+</div><div id="outline-container-orgheadline172" class="outline-4">
+<h4 id="orgheadline172"><span class="section-number-4">8.13.1</span> Comparison of the estimation methods on synthetic data</h4>
+</div>
+<div id="outline-container-orgheadline173" class="outline-4">
+<h4 id="orgheadline173"><span class="section-number-4">8.13.2</span> Market risk hedging given a single-factor model</h4>
+</div>
+<div id="outline-container-orgheadline174" class="outline-4">
+<h4 id="orgheadline174"><span class="section-number-4">8.13.3</span> Hedge fund style analysis using a multi-factor model</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline181" class="outline-3">
+<h3 id="orgheadline181"><span class="section-number-3">8.14</span> Geometrical derivation of KF updating equations</h3>
+<div class="outline-text-3" id="text-8-14">
+</div><div id="outline-container-orgheadline176" class="outline-4">
+<h4 id="orgheadline176"><span class="section-number-4">8.14.1</span> Geometrical interpretation of MSE criterion and the MMSE solution</h4>
+</div>
+<div id="outline-container-orgheadline177" class="outline-4">
+<h4 id="orgheadline177"><span class="section-number-4">8.14.2</span> Derivation of the prediction filtering update</h4>
+</div>
+<div id="outline-container-orgheadline178" class="outline-4">
+<h4 id="orgheadline178"><span class="section-number-4">8.14.3</span> Derivation of the prediction accuracy update</h4>
+</div>
+<div id="outline-container-orgheadline179" class="outline-4">
+<h4 id="orgheadline179"><span class="section-number-4">8.14.4</span> Derivation of the correction filtering update</h4>
+</div>
+<div id="outline-container-orgheadline180" class="outline-4">
+<h4 id="orgheadline180"><span class="section-number-4">8.14.5</span> Derivation of the correction accuracy update</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline193" class="outline-2">
+<h2 id="orgheadline193"><span class="section-number-2">9</span> A Regularized Kalman Filter (rgKF) for Spiky Data</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline183" class="outline-3">
+<h3 id="orgheadline183"><span class="section-number-3">9.1</span> Introduction</h3>
+</div>
+<div id="outline-container-orgheadline184" class="outline-3">
+<h3 id="orgheadline184"><span class="section-number-3">9.2</span> Preamble: statistical evidence on the KF recursive equations</h3>
+</div>
+<div id="outline-container-orgheadline186" class="outline-3">
+<h3 id="orgheadline186"><span class="section-number-3">9.3</span> Robust KF</h3>
+<div class="outline-text-3" id="text-9-3">
+</div><div id="outline-container-orgheadline185" class="outline-4">
+<h4 id="orgheadline185"><span class="section-number-4">9.3.1</span> RKF description</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline189" class="outline-3">
+<h3 id="orgheadline189"><span class="section-number-3">9.4</span> rgKF: the rgKF(NG,lq)</h3>
+<div class="outline-text-3" id="text-9-4">
+</div><div id="outline-container-orgheadline187" class="outline-4">
+<h4 id="orgheadline187"><span class="section-number-4">9.4.1</span> rgKF description</h4>
+</div>
+<div id="outline-container-orgheadline188" class="outline-4">
+<h4 id="orgheadline188"><span class="section-number-4">9.4.2</span> rgKF performance</h4>
+</div>
+</div>
+<div id="outline-container-orgheadline190" class="outline-3">
+<h3 id="orgheadline190"><span class="section-number-3">9.5</span> Application to detect irregularities in hedge fund returns</h3>
+</div>
+<div id="outline-container-orgheadline191" class="outline-3">
+<h3 id="orgheadline191"><span class="section-number-3">9.6</span> Conclusion</h3>
+</div>
+<div id="outline-container-orgheadline192" class="outline-3">
+<h3 id="orgheadline192"><span class="section-number-3">9.7</span> Chapter highlights Extended space-state model</h3>
+</div>
+</div>
+<div id="outline-container-orgheadline194" class="outline-2">
+<h2 id="orgheadline194"><span class="section-number-2">10</span> Interview question:</h2>
+<div class="outline-text-2" id="text-10">
+<ol class="org-ol">
+<li>how to construct a factor like ROE.</li>
+<li>how to measure the risk or volatility of the factor.</li>
+<li>what's the process of optimization.</li>
+<li>how to optimize portfolio with non-linear constraint.</li>
+<li>Barra risk attributes.</li>
+</ol>
 </div>
 </div>
 <div id="footnotes">

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-08-17 Fri 11:20 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="weiwu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../styles/demo/css/demo.css"/>
+<link href="https://fonts.proxy.ustclug.org/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline7">1. Alpha design</a>
+<ul>
+<li><a href="#orgheadline1">1.1. QUALITY OF AN ALPHA</a></li>
+<li><a href="#orgheadline2">1.2. ALGORITHM FOR FINDING ALPHAS</a></li>
+<li><a href="#orgheadline3">1.3. Categories:</a></li>
+<li><a href="#orgheadline4">1.4. DEVELOPMENT OF AN ALPHA</a></li>
+<li><a href="#orgheadline5">1.5. FUTURE PERFORMANCE</a></li>
+<li><a href="#orgheadline6">1.6. How to develop an alpha</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">1</span> Alpha design</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+A price action is a response to some world event. This event is reflected in the data. If the data never changes then there is no alpha. Thus, it is changes in the data that have the information. A change in information should produce a change in the alpha.
+</p>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> QUALITY OF AN ALPHA</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+An alpha is considered one of good quality when:
+The idea and expression is simple.
+The expression/code is elegant.
+It has good in-sample Sharpe.
+It is not sensitive to small changes in data and parameters.
+It works in multiple universes.
+It works in different regions.
+Its profit hits a recent new high.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> ALGORITHM FOR FINDING ALPHAS</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Repeat the below steps forever:
+Look at the variables in the data.
+Get an idea of the change you want to model.
+Come up with a mathematical expression that translates this change into stock position.
+Test the expression.
+If the result is favorable, submit the alpha.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Categories:</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+According to the time the alphas use the information, and the frequency at which the predictions are generated, we may categorize those alphas into the following groups:
+</p>
+<ol class="org-ol">
+<li>Intraday alphas: rebalanced during trading hours of the day. They can also be grouped as</li>
+</ol>
+<p>
+follows:
+a. Rebalance at each interval, e.g. 1 min/5 min/15 min, etc.
+b. Rebalance triggered by some events such as ticks/orders/fills or predefined events.
+</p>
+
+<ol class="org-ol">
+<li>Daily alphas: rebalance every day. These types of alphas can be broken into further</li>
+</ol>
+<p>
+subgroups by the time the information is used:
+a. Delay N: use data of N days ago.
+b. Delay 0 snapshot: use the data before a certain time snapshot.
+c. MOO/MOC: alphas trade at market open/close auction session.
+</p>
+<ol class="org-ol">
+<li>Weekly/monthly alphas, rebalanced every week/month.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> DEVELOPMENT OF AN ALPHA</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+An alpha is developed by using public information. The more efficient the process, the better performance the alpha can achieve. One can find alphas either by sourcing public information or building specific models to process the information. Alphas can be generated by searching signals/patterns from the informational spaces. Typical sources are as follows:
+</p>
+<ol class="org-ol">
+<li>Price/volume. We can use technical analysis or prediction/regression models based on the price/volume.</li>
+<li>Fundamentals. By analyzing the fundamentals of each company automatically, one can build fundamental alphas. Such alphas typically have very low turnover.</li>
+</ol>
+<p>
+<b>anormally</b>
+</p>
+<ol class="org-ol">
+<li>Macro data, such as gross domestic product numbers, employment rates. Such numbers</li>
+</ol>
+<p>
+have big impacts on the financial markets.
+</p>
+<ol class="org-ol">
+<li>Text, such as Federal Open Market Committee minutes, company filings, papers, journals,</li>
+</ol>
+<p>
+news, or even information in publicly available social media. It’s necessary to quantify the
+text into numbers (eventually number of shares to buy/sell). Text data includes both current
+and future events.
+</p>
+<ol class="org-ol">
+<li>Multimedia such as videos/audios can also be used as information sources. The techniques</li>
+</ol>
+<p>
+to process video/audio are pretty mature. For example, one can simply use Text-To-Speech
+techniques to extract text information from the video/audio and then build models on the
+text information.
+Sometimes alphas are not derived from the models of information directly. This information
+may be used to improve the performance of alphas or generate alphas. Some examples are
+listed below:
+</p>
+<ol class="org-ol">
+<li>Risk factor models: by controlling risk exposure or eliminating risk exposure to some</li>
+</ol>
+<p>
+factors, one can improve the alpha’s performance.
+</p>
+<ol class="org-ol">
+<li>Relationship models: e.g. instruments typically correlated with each other to some extent.</li>
+</ol>
+<p>
+Some may lead or lag with others, thus they generate the opportunities for arbitrage.
+</p>
+<ol class="org-ol">
+<li>Microstructure models to improve the execution performance of real trading.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> FUTURE PERFORMANCE</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+All of the measurements in the preceding section are intended to compare two alphas where
+we have no additional information other than their actual predictions. However, additional
+information, such as how the alpha was constructed, can yield useful information in
+determining whether the alpha will make good predictions going forward. Ultimately, what is
+important is whether the alpha makes reliable future predictions, not historical predictions.
+</p>
+
+<p>
+Comparison of in-sample to out-of-sample performance is useful not only on the alpha level
+but also in aggregate across all alphas of a given designer, or on groups of alphas from a given
+designer.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.6</span> How to develop an alpha</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+STEP 5 → FINAL ROBUST ALPHA
+The final alpha would be a combination derived from both pieces of information. This would
+change the old values of +2.5 and +7.5 to –5.0 and +5.0 for Google and Apple, respectively.
+</p>
+
+<p>
+STEP 6 → TRANSLATE INTO POSITIONS IN A
+FINANCIAL INSTRUMENT
+In order to get the final positions, we can simply apply the following formula:
+Final<sub>alpha</sub><sub>stock</sub> = (alpha<sub>stock</sub>/sum<sub>of</sub><sub>alphas</sub><sub>of</sub><sub>all</sub><sub>stocks</sub>) * booksize
+So, if we have $10M, we’ll go long $5M on Apple and short $5M on Google.
+STEP 7 → CHECK FOR ROBUSTNESS
+These are indicators for robustness:
+</p>
+<ol class="org-ol">
+<li>High in-sample information ratio (IR)</li>
+<li>Good out-of-sample IR</li>
+<li>Works well across the trading universe</li>
+<li>Less fitting</li>
+<li>Intuitive/interesting/simple idea</li>
+<li>Works in multiple regions</li>
+<li>Small drawdowns</li>
+<li>Short drawdown periods</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

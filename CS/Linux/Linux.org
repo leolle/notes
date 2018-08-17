@@ -943,6 +943,7 @@ make
 ls
 ./test
 #+END_SRC
+
 ** BOOTING AND SHUTTING DOWN
 *** Bootstrapping
 *** Booting PCs
@@ -1051,7 +1052,7 @@ sudo gedit /etc/fstab
 *** Storage hardware
 - check disk storage space:
 #+BEGIN_SRC bash
-df -h
+df -H
 sudo fdisk -l
 #+END_SRC
 - list size of all files and directories:

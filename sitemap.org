@@ -33,6 +33,7 @@
   + [[file:finance/ActivePortfolioManagement.org][PortfolioManagement]]
   + FactorsResearch
     + [[file:./finance/RiskModelHandbook/RiskModelHandbook.html][RiskModelHandbook]]
+    + [[file:./finance/alpha.org][find_alpha]]
     + [[file:finance/IndustryNeutral.org][IndustryNeutral]]
     + [[file:finance/FundAnalysis.org][FundAnalysis]]
     + [[file:finance/MultiFactorModel.org][MultiFactorModel]]
