@@ -1237,3 +1237,148 @@ for i in range(1, n + 1):
 print a list of all possible coordinates given by  on a 3D grid where the sum of  is not equal to .
 print [ [ i, j, o] for i in range( x + 1) for j in range( y + 1) for o in range(z + 1) if ( ( i + j + z) != n )]
 #+END_SRC
+
+** timedelta
+#+BEGIN_SRC python
+t1 = 'Sun 10 May 2015 13:54:36 -0700'
+t2 = 'Sun 10 May 2015 13:54:36 -0000'
+t1 = 'Sat 02 May 2015 19:54:36 +0530'
+t2 = 'Fri 01 May 2015 13:54:36 -0000'
+
+def time_delta(t1, t2):
+    t1_p1 = datetime.datetime.strptime(t1[:-5],'%a %d %b %Y %H:%M:%S ')
+    if t1[-5]=='+':
+       t1_p1-=datetime.timedelta(hours=int(t1[-4:-2]),minutes=int(t1[-2:]))
+    elif t1[-5]=='-':
+       t1_p1+=datetime.timedelta(hours=int(t1[-4:-2]),minutes=int(t1[-2:]))
+
+    t2_p1 = datetime.datetime.strptime(t2[:-5],'%a %d %b %Y %H:%M:%S ')
+    if t2[-5]=='+':
+       t2_p1-=datetime.timedelta(hours=int(t2[-4:-2]),minutes=int(t2[-2:]))
+    elif t2[-5]=='-':
+       t2_p1+=datetime.timedelta(hours=int(t2[-4:-2]),minutes=int(t2[-2:]))
+
+    return str(abs(int(((t2_p1-t1_p1).total_seconds()))))
+
+delta = time_delta(t1, t2)
+print(delta)
+#+END_SRC
+
+** text wrapper
+#+BEGIN_SRC python
+string = 'bscnksbcjscksbcjksbckjdscsbdcbsdkjbcsdjcbsdjkcbsdkjbckjdsbjksd'
+max_width = 9
+
+for i in range(0, len(string), max_width):
+	print(string[i:i+max_width])
+#+END_SRC
+
+** words score
+#+BEGIN_SRC python
+n = 3
+words = 'programming is awesome'.split()
+
+def is_vowel(letter):
+    return letter in ['a', 'e', 'i', 'o', 'u', 'y']
+
+def score_words(words):
+    score = 0
+    for word in words:
+        num_vowels = 0
+        for letter in word:
+            if is_vowel(letter):
+                print(letter)
+                num_vowels += 1
+        if num_vowels % 2 == 0:
+            score += 2
+        else:
+            score += 1
+        print(num_vowels)
+    return score
+
+print(score_words(words))
+#+END_SRC
+
+** words capital
+#+BEGIN_SRC python
+s = '1 w 2 r 3g'
+s = 'hello   world  lol'
+s = s.capitalize()
+l = []
+for i,v in enumerate(s):
+	if v != ' ' and s[i-1] == ' ':
+		l.append(v.upper())
+	else:
+		l.append(v)
+print(''.join(l))
+#+END_SRC
+
+** calculate Karl Person's coefficient of correlation:
+#+BEGIN_SRC python
+import numpy as np
+Physics_Scores = [15,  12,  8,   8,   7,   7,   7,   6,   5,   3]
+History_Scores = [10,  25,  17,  11,  13,  17,  20,  13,  9,   15]
+
+coef = np.corrcoef(Physics_Scores,History_Scores)[0][1]
+print('%.3f'%coef)
+#+END_SRC
+
+** Bot saves princess
+#+BEGIN_SRC python
+m = 3
+grid = [
+'---',
+'-m-',
+'p--']
+
+def displayPathtoPrincess(n,grid):
+	#print all the moves here
+	for row, rv in enumerate(grid):
+		for col, cv in enumerate(rv):
+			if cv == 'p':
+				pos_x = row
+				pos_y = col
+
+
+	if pos_x > 0:
+		for x in range(n-pos_x):
+			print('DOWN')
+	else:
+		for x in range(n//2-pos_x):
+			print('UP')
+	if pos_y > 0:
+		for y in range(n-pos_y):
+			print('RIGHT')
+	else:
+		for y in range(n//2-pos_y):
+			print('LEFT')
+
+m = input()
+
+grid = []
+for i in xrange(0, m):
+    grid.append(raw_input().strip())
+
+displayPathtoPrincess(m,grid)
+#+END_SRC
+
+** find the second smallest in nested list:
+#+BEGIN_SRC python
+name = ['Harry', 'Berry', 'Tina', 'Akriti', 'Harsh']
+score = [37.21, 37.21, 37.2, 37.2, 39]
+
+
+scores = dict(zip(name, score))
+sorted_score = sorted(score)
+#print(min(scores, key=scores.get))
+min_score = min(score)
+for _ in sorted_score:
+	try:
+		sorted_score.remove(min_score)
+	except:
+		break
+reversed_second_score = sorted_score[0]
+for name, s in scores.items():    # for name, age in list.items():  (for Python 3.x)
+    if s == reversed_second_score:
+        print(name)
+#+END_SRC
