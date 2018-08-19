@@ -647,12 +647,16 @@ du -sh ./*/
 - unzip a compressed file:
 #+BEGIN_SRC shell
 unzip filename.zip
+# batch unzip
+ls *.zip | xargs -n1 unzip -o -P infected
 #+END_SRC
 
 - unpack a tar.gz file
 #+BEGIN_SRC shell
 # tar.gz
 tar -xvzf rebol.tar.gz
+# batch extract
+ls *.tar.gz | xargs -n1 tar xzvf
 简介
 
 参数：

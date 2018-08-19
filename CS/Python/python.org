@@ -861,6 +861,25 @@ print(str.isalpha())
 *** useage:
 - find strings
 - convert strings
+*** types:
+In : rex_property.search?
+Signature: rex_property.search(string=None, pos=0, endpos=9223372036854775807, *, pattern=None)
+Docstring:
+Scan through string looking for a match, and return a corresponding match object instance.
+This object has start, end, group, groups, span.
+
+Return None if no position in the string matches.
+Type:      builtin_function_or_method
+
+In : rex_property.findall?
+Signature: rex_property.findall(string=None, pos=0, endpos=9223372036854775807, *, source=None)
+Docstring: *Return a list* of all non-overlapping matches of pattern in string.
+Type:      builtin_function_or_method
+
+In : rex_property.match?
+Signature: rex_property.match(string=None, pos=0, endpos=9223372036854775807, *, pattern=None)
+Docstring: Matches zero or more characters at the beginning of the string.
+Type:      builtin_function_or_method
 
 *** string array
 [Pp]ython: find Python or python
@@ -1647,6 +1666,15 @@ pip install ipykernel
 python -m ipykernel install --user --name=my-virtualenv-name
 #+END_SRC
 
+3. list all the kernels
+#+BEGIN_SRC python
+jupyter kernelspec list
+#+END_SRC
+
+4. remove uninstall kernel
+#+BEGIN_SRC python
+jupyter kernelspec uninstall anaconda2.7
+#+END_SRC
 ** fetch data from yahoo
 install pandas-datareader first.
 #+BEGIN_SRC shell

@@ -82,3 +82,24 @@ important is whether the alpha makes reliable future predictions, not historical
 Comparison of in-sample to out-of-sample performance is useful not only on the alpha level
 but also in aggregate across all alphas of a given designer, or on groups of alphas from a given
 designer.
+
+** How to develop an alpha
+STEP 5 → FINAL ROBUST ALPHA
+The final alpha would be a combination derived from both pieces of information. This would
+change the old values of +2.5 and +7.5 to –5.0 and +5.0 for Google and Apple, respectively.
+
+STEP 6 → TRANSLATE INTO POSITIONS IN A
+FINANCIAL INSTRUMENT
+In order to get the final positions, we can simply apply the following formula:
+Final_alpha_stock = (alpha_stock/sum_of_alphas_of_all_stocks) * booksize
+So, if we have $10M, we’ll go long $5M on Apple and short $5M on Google.
+STEP 7 → CHECK FOR ROBUSTNESS
+These are indicators for robustness:
+1. High in-sample information ratio (IR)
+2. Good out-of-sample IR
+3. Works well across the trading universe
+4. Less fitting
+5. Intuitive/interesting/simple idea
+6. Works in multiple regions
+7. Small drawdowns
+8. Short drawdown periods
