@@ -426,7 +426,7 @@ python models/tutorials/image/mnist/convolutional.py
 : Validation error: 7.7%
 : Step 200 (epoch 0.23), 4.1 ms
 : Minibatch loss: 3.351, learning rate: 0.010000
-- tensorlfow cpu only:
+- tensorflow cpu only:
 #+RESULTS:
 : I tensorflow/models/embedding/word2vec_kernels.cc:200] Data file: data/text8 contains 100000000 bytes, 17005207 words, 253854 unique words, 71290 unique frequent words.
 : Data file:  data/text8
