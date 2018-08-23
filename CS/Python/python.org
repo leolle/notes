@@ -1675,6 +1675,20 @@ jupyter kernelspec list
 #+BEGIN_SRC python
 jupyter kernelspec uninstall anaconda2.7
 #+END_SRC
+** typical structure of the ipython notebook ipynb:
+1. imports
+2. get data
+3. transform data
+4. modeling
+5. visualization
+6. making sense of the data
+
+summary:
+- notebook should have one hypothesis data interpretation loop
+- make a multi-project utils library
+- each cell should have one and only one output
+- try to keep code inside notebooks.
+
 ** fetch data from yahoo
 install pandas-datareader first.
 #+BEGIN_SRC shell
@@ -2748,7 +2762,10 @@ Return the sorted, unique values in ar1 that are not in ar2
 #+BEGIN_SRC python
 np.setdiff1d(ar1, ar2)
 #+END_SRC
-
+- sorted a list of tuples
+#+BEGIN_SRC python
+sorted(enumerate(sims), key=lambda item: -item[1])
+#+END_SRC
 - reshape:
 np.reshape((1, -1)), -1 means automatic number of columns.
 

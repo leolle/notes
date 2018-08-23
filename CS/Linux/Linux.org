@@ -426,7 +426,7 @@ python models/tutorials/image/mnist/convolutional.py
 : Validation error: 7.7%
 : Step 200 (epoch 0.23), 4.1 ms
 : Minibatch loss: 3.351, learning rate: 0.010000
-- tensorlfow cpu only:
+- tensorflow cpu only:
 #+RESULTS:
 : I tensorflow/models/embedding/word2vec_kernels.cc:200] Data file: data/text8 contains 100000000 bytes, 17005207 words, 253854 unique words, 71290 unique frequent words.
 : Data file:  data/text8
@@ -1169,6 +1169,15 @@ sudo mount -t nfs4 -o proto=tcp,port=2049 192.168.1.199:/home/weiwu/Documents/pr
 *** Linux udev for fun and profit
 
 ** geditor
+*** notepad ++
+find remotregular expression content in a big file:
+#+BEGIN_SRC txt
+1. Use the Search-->Find-->Mark functionality to mark each line you want to keep/copy and remember to tick 'Bookmark Line' before marking the text
+2. Select Search-->Bookmark-->Remove Unmarked Lines
+3. Use Search-->Find-->Replace to replace other text you do not want to keep/copy with nothing
+4. Save the remaining text or copy it.
+
+#+END_SRC
 *** nano
 - 光标控制 移动光标：使用用方向键移动。
 - 选择文字：按住鼠标左键拖到。
