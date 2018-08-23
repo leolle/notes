@@ -103,3 +103,41 @@ These are indicators for robustness:
 6. Works in multiple regions
 7. Small drawdowns
 8. Short drawdown periods
+
+** How to develop an alpha II
+1. load data
+2. predict stock return by translating data into trading signals
+   1. mean reversion
+   2. lead-lag effect
+   3. momentum
+   4. analyst rating information
+   5. news sentiment
+3. aggregate all different predictions like adjusting alphas, industry neutral and market neutral, building a long short basket.
+4. in sample test
+5. out of sample test
+6. rank the factors
+7. optimize the portfolio to get diversifed weight and adjust risk exposure.
+
+** Fundamental analysis
+financial statement and empirical accounting research
+
+*** fundamental statements
+1. balance sheet
+2. income statement
+3. cash flow
+
+** Improving the robustness of alphas
+properties of robust alpha:
+1. invariance under modification of traded universe. independent of trading universe choices.
+2. robustness to extreme market conditions.
+
+*** ordering methods(打分法)
+1. ranking
+2. quantiles approximation
+
+*** approximation to normal distribution
+1. Z-scoring
+
+*** limiting methods
+1. truncation
+2. winsorizing
