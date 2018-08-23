@@ -183,7 +183,10 @@ CHAR, VARCHAR, BLOB, INT, DEC, DATE, DATETIME
 An inner join is just a cartesian join with
 some result rows removed by a condition in the query.
 #+END_VERSE
-
+#+BEGIN_SRC sql
+select * from table_a a
+inner join * from table_b b
+#+END_SRC
 ** Subquery
 *** Noncorrelated Subquery
 #+BEGIN_VERSE
