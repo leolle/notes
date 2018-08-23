@@ -1170,7 +1170,7 @@ sudo mount -t nfs4 -o proto=tcp,port=2049 192.168.1.199:/home/weiwu/Documents/pr
 
 ** geditor
 *** notepad ++
-find regular expression content in a big file:
+find remotregular expression content in a big file:
 #+BEGIN_SRC txt
 1. Use the Search-->Find-->Mark functionality to mark each line you want to keep/copy and remember to tick 'Bookmark Line' before marking the text
 2. Select Search-->Bookmark-->Remove Unmarked Lines
