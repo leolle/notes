@@ -647,3 +647,9 @@ Using **Ubuntu** as an example.
 
 
 Confession: some images are adopted from the internet without proper credit. If you are the author and this would be an issue for you, please let me know.
+
+### Machine learning
+
+how to handle missing data:
+deletion or imputation:
+![alt text](Images/missing_data.jpy "Title")

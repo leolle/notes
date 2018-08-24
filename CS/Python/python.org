@@ -603,6 +603,10 @@ def in_values(s, d):
 in_values('cow', animals)
 #+END_SRC
 
+- sort a dict by its value:
+#+BEGIN_SRC python
+s = [(k, d[k]) for k in sorted(d, key=d.get, reverse=True)]
+#+END_SRC
 - count key values in a dict:
 #+BEGIN_SRC python
 d = defaultdict(list)
@@ -622,6 +626,12 @@ for k, v in list(graph.out_edges('财务管理')):
     d.setdefault(k,[]).append(v)
 #+END_SRC
 
+- multiply diction by another dictionary:
+#+BEGIN_SRC python
+from copy import copy
+my_dict = copy(another_dict)
+my_dict.update((x, y*2) for x, y in my_dict.items())
+#+END_SRC
 - add value in a dictionary:
 #+BEGIN_SRC python
 In [231]: d
@@ -2932,3 +2942,29 @@ python -m tensorflow.models.image.mnist.convolutional
 *** GPU test:
 [[file:./tensorflow.py][tensorflow]]
 #+INCLUDE: "tensorflow.py"
+* NLP
+** Keywords
+#+BEGIN_SRC python
+input_text_translations = """
+The Chinese government’s top management obviously also hopes to avoid the deterioration of the Sino-US conflict. The Sino-US trade war has started. After the Sino-US trade war began, it emphasized that China has "five advantages" in the trade war. He stressed: "We must especially prevent Sino-US cooperation. Trade conflict spreads to the ideological field
+"""
+from gensim import corpora, models, similarities
+from nltk.tokenize import word_tokenize, sent_tokenize
+from sklearn import feature_extraction
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
+
+test_model = word_tokenize(input_text_translations.lower())
+
+wordstest_model = sent_tokenize(input_text_translations)
+test_model = [word_tokenize(_d.lower()) for _d in docs]
+dictionary = corpora.Dictionary(test_model, prune_at=2000000)
+# for key in dictionary.iterkeys():
+#     print key,dictionary.get(key),dictionary.dfs[key]
+corpus_model = [dictionary.doc2bow(test) for test in test_model]
+tfidf_model = models.TfidfModel(corpus_model)
+# 对语料生成tfidf
+corpus_tfidf = tfidf_model[corpus_model]
+d = {dictionary.get(id): value for doc in corpus_tfidf for id, value in doc}
+
+#+END_SRC

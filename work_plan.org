@@ -15,6 +15,7 @@
 
 
 * Workflow
+** quant
 1. define goal.
 2. search paper/report.
 3. read pdf/code, take notes.
@@ -26,6 +27,12 @@
 9. prepare presentation of all previous steps.
 10. present and get feedback.
 11. deploy function definition, function sampling.
+
+** data analysis
+1. 分析
+2. 实验仿真
+3. 可视化
+4. 建模
 
 * Deep Learning
 ** Natural Language Processing
