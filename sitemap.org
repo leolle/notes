@@ -1,5 +1,13 @@
+#+DATE: <2017-06-08 Thu>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 #+SETUPFILE: ./configOrg/level0.org
 #+OPTIONS: ^:nil
+
 + ComputerScience
   + ProgramicStyle
     + [[file:CS/ProgramicStyle/PragmaticProgrammer.org][PragmaticProgrammer]]

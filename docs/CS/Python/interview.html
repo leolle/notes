@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-17 Fri 11:21 -->
+<!-- 2018-08-28 Tue 07:35 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -158,7 +158,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline7">7. 1000道Python题库系列分享七（30道）</a></li>
 <li><a href="#orgheadline8">8. 1000道Python题库系列分享八（29道）</a></li>
 <li><a href="#orgheadline9">9. 1000道Python题库系列分享九（31道）</a></li>
-<li><a href="#orgheadline19">10. Hackerrank</a>
+<li><a href="#orgheadline26">10. Hackerrank</a>
 <ul>
 <li><a href="#orgheadline10">10.1. string validator</a></li>
 <li><a href="#orgheadline11">10.2. find a string</a></li>
@@ -169,6 +169,13 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline16">10.7. find angle MBC</a></li>
 <li><a href="#orgheadline17">10.8. Print the palindromic triangle of size N</a></li>
 <li><a href="#orgheadline18">10.9. list-comprehensions</a></li>
+<li><a href="#orgheadline19">10.10. timedelta</a></li>
+<li><a href="#orgheadline20">10.11. text wrapper</a></li>
+<li><a href="#orgheadline21">10.12. words score</a></li>
+<li><a href="#orgheadline22">10.13. words capital</a></li>
+<li><a href="#orgheadline23">10.14. calculate Karl Person's coefficient of correlation:</a></li>
+<li><a href="#orgheadline24">10.15. Bot saves princess</a></li>
+<li><a href="#orgheadline25">10.16. find the second smallest in nested list:</a></li>
 </ul>
 </li>
 </ul>
@@ -191,7 +198,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-08-17 11:20:56</td>
+<td class="org-left">2018-08-28 07:34:55</td>
 </tr>
 
 <tr>
@@ -1908,8 +1915,8 @@ Out<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">226</span
 <h2 id="orgheadline9"><span class="section-number-2">9</span> 1000道Python题库系列分享九（31道）</h2>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">10</span> Hackerrank</h2>
+<div id="outline-container-orgheadline26" class="outline-2">
+<h2 id="orgheadline26"><span class="section-number-2">10</span> Hackerrank</h2>
 <div class="outline-text-2" id="text-10">
 </div><div id="outline-container-orgheadline10" class="outline-3">
 <h3 id="orgheadline10"><span class="section-number-3">10.1</span> string validator</h3>
@@ -2117,6 +2124,193 @@ The year <span style="color: #F92672;">is</span> also evenly divisible by <span 
 
 <pre class="src src-python"><span style="color: #F92672;">print</span> a <span style="color: #F92672;">list</span> of <span style="color: #F92672;">all</span> possible coordinates given by  on a <span style="color: #AE81FF;">3D</span> grid where the <span style="color: #F92672;">sum</span> of  <span style="color: #F92672;">is</span> <span style="color: #F92672;">not</span> equal to .
 <span style="color: #F92672;">print</span> <span style="color: #AE81FF;">[</span> <span style="color: #66D9EF;">[</span> i, j, o<span style="color: #66D9EF;">]</span> <span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span> x + <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span> <span style="color: #F92672;">for</span> j <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span> y + <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span> <span style="color: #F92672;">for</span> o <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #66D9EF;">(</span>z + <span style="color: #AE81FF;">1</span><span style="color: #66D9EF;">)</span> <span style="color: #F92672;">if</span> <span style="color: #66D9EF;">(</span> <span style="color: #A6E22E;">(</span> i + j + z<span style="color: #A6E22E;">)</span> != n <span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">10.10</span> timedelta</h3>
+<div class="outline-text-3" id="text-10-10">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">t1</span> = <span style="color: #E6DB74;">'Sun 10 May 2015 13:54:36 -0700'</span>
+<span style="color: #FD971F;">t2</span> = <span style="color: #E6DB74;">'Sun 10 May 2015 13:54:36 -0000'</span>
+<span style="color: #FD971F;">t1</span> = <span style="color: #E6DB74;">'Sat 02 May 2015 19:54:36 +0530'</span>
+<span style="color: #FD971F;">t2</span> = <span style="color: #E6DB74;">'Fri 01 May 2015 13:54:36 -0000'</span>
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">time_delta</span><span style="color: #AE81FF;">(</span>t1, t2<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">t1_p1</span> = datetime.datetime.strptime<span style="color: #AE81FF;">(</span>t1<span style="color: #66D9EF;">[</span>:-<span style="color: #AE81FF;">5</span><span style="color: #66D9EF;">]</span>,<span style="color: #E6DB74;">'%a %d %b %Y %H:%M:%S '</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">if</span> t1<span style="color: #AE81FF;">[</span>-<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">]</span>==<span style="color: #E6DB74;">'+'</span>:
+       <span style="color: #FD971F;">t1_p1</span>-=datetime.timedelta<span style="color: #AE81FF;">(</span>hours=<span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>t1<span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">4</span>:-<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>,minutes=<span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>t1<span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">2</span>:<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">elif</span> t1<span style="color: #AE81FF;">[</span>-<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">]</span>==<span style="color: #E6DB74;">'-'</span>:
+       <span style="color: #FD971F;">t1_p1</span>+=datetime.timedelta<span style="color: #AE81FF;">(</span>hours=<span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>t1<span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">4</span>:-<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>,minutes=<span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>t1<span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">2</span>:<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+    <span style="color: #FD971F;">t2_p1</span> = datetime.datetime.strptime<span style="color: #AE81FF;">(</span>t2<span style="color: #66D9EF;">[</span>:-<span style="color: #AE81FF;">5</span><span style="color: #66D9EF;">]</span>,<span style="color: #E6DB74;">'%a %d %b %Y %H:%M:%S '</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">if</span> t2<span style="color: #AE81FF;">[</span>-<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">]</span>==<span style="color: #E6DB74;">'+'</span>:
+       <span style="color: #FD971F;">t2_p1</span>-=datetime.timedelta<span style="color: #AE81FF;">(</span>hours=<span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>t2<span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">4</span>:-<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>,minutes=<span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>t2<span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">2</span>:<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">elif</span> t2<span style="color: #AE81FF;">[</span>-<span style="color: #AE81FF;">5</span><span style="color: #AE81FF;">]</span>==<span style="color: #E6DB74;">'-'</span>:
+       <span style="color: #FD971F;">t2_p1</span>+=datetime.timedelta<span style="color: #AE81FF;">(</span>hours=<span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>t2<span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">4</span>:-<span style="color: #AE81FF;">2</span><span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span>,minutes=<span style="color: #F92672;">int</span><span style="color: #66D9EF;">(</span>t2<span style="color: #A6E22E;">[</span>-<span style="color: #AE81FF;">2</span>:<span style="color: #A6E22E;">]</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+    <span style="color: #F92672;">return</span> <span style="color: #F92672;">str</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">abs</span><span style="color: #66D9EF;">(</span><span style="color: #F92672;">int</span><span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span><span style="color: #FD971F;">(</span>t2_p1-t1_p1<span style="color: #FD971F;">)</span>.total_seconds<span style="color: #FD971F;">()</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">delta</span> = time_delta<span style="color: #AE81FF;">(</span>t1, t2<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>delta<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">10.11</span> text wrapper</h3>
+<div class="outline-text-3" id="text-10-11">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">string</span> = <span style="color: #E6DB74;">'bscnksbcjscksbcjksbckjdscsbdcbsdkjbcsdjcbsdjkcbsdkjbckjdsbjksd'</span>
+<span style="color: #FD971F;">max_width</span> = <span style="color: #AE81FF;">9</span>
+
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>, <span style="color: #F92672;">len</span><span style="color: #66D9EF;">(</span>string<span style="color: #66D9EF;">)</span>, max_width<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>string<span style="color: #66D9EF;">[</span>i:i+max_width<span style="color: #66D9EF;">]</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">10.12</span> words score</h3>
+<div class="outline-text-3" id="text-10-12">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">n</span> = <span style="color: #AE81FF;">3</span>
+<span style="color: #FD971F;">words</span> = <span style="color: #E6DB74;">'programming is awesome'</span>.split<span style="color: #AE81FF;">()</span>
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">is_vowel</span><span style="color: #AE81FF;">(</span>letter<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">return</span> letter <span style="color: #F92672;">in</span> <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'a'</span>, <span style="color: #E6DB74;">'e'</span>, <span style="color: #E6DB74;">'i'</span>, <span style="color: #E6DB74;">'o'</span>, <span style="color: #E6DB74;">'u'</span>, <span style="color: #E6DB74;">'y'</span><span style="color: #AE81FF;">]</span>
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">score_words</span><span style="color: #AE81FF;">(</span>words<span style="color: #AE81FF;">)</span>:
+    <span style="color: #FD971F;">score</span> = <span style="color: #AE81FF;">0</span>
+    <span style="color: #F92672;">for</span> word <span style="color: #F92672;">in</span> words:
+        <span style="color: #FD971F;">num_vowels</span> = <span style="color: #AE81FF;">0</span>
+        <span style="color: #F92672;">for</span> letter <span style="color: #F92672;">in</span> word:
+            <span style="color: #F92672;">if</span> is_vowel<span style="color: #AE81FF;">(</span>letter<span style="color: #AE81FF;">)</span>:
+                <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>letter<span style="color: #AE81FF;">)</span>
+                <span style="color: #FD971F;">num_vowels</span> += <span style="color: #AE81FF;">1</span>
+        <span style="color: #F92672;">if</span> num_vowels % <span style="color: #AE81FF;">2</span> == <span style="color: #AE81FF;">0</span>:
+            <span style="color: #FD971F;">score</span> += <span style="color: #AE81FF;">2</span>
+        <span style="color: #F92672;">else</span>:
+            <span style="color: #FD971F;">score</span> += <span style="color: #AE81FF;">1</span>
+        <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>num_vowels<span style="color: #AE81FF;">)</span>
+    <span style="color: #F92672;">return</span> score
+
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>score_words<span style="color: #66D9EF;">(</span>words<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">10.13</span> words capital</h3>
+<div class="outline-text-3" id="text-10-13">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">s</span> = <span style="color: #E6DB74;">'1 w 2 r 3g'</span>
+<span style="color: #FD971F;">s</span> = <span style="color: #E6DB74;">'hello   world  lol'</span>
+<span style="color: #FD971F;">s</span> = s.capitalize<span style="color: #AE81FF;">()</span>
+<span style="color: #FD971F;">l</span> = <span style="color: #AE81FF;">[]</span>
+<span style="color: #F92672;">for</span> i,v <span style="color: #F92672;">in</span> <span style="color: #F92672;">enumerate</span><span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span>:
+  <span style="color: #F92672;">if</span> v != <span style="color: #E6DB74;">' '</span> <span style="color: #F92672;">and</span> s<span style="color: #AE81FF;">[</span>i-<span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span> == <span style="color: #E6DB74;">' '</span>:
+    l.append<span style="color: #AE81FF;">(</span>v.upper<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">else</span>:
+    l.append<span style="color: #AE81FF;">(</span>v<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">''</span>.join<span style="color: #66D9EF;">(</span>l<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">10.14</span> calculate Karl Person's coefficient of correlation:</h3>
+<div class="outline-text-3" id="text-10-14">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #F92672;">import</span> numpy <span style="color: #F92672;">as</span> np
+<span style="color: #FD971F;">Physics_Scores</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">15</span>,  <span style="color: #AE81FF;">12</span>,  <span style="color: #AE81FF;">8</span>,   <span style="color: #AE81FF;">8</span>,   <span style="color: #AE81FF;">7</span>,   <span style="color: #AE81FF;">7</span>,   <span style="color: #AE81FF;">7</span>,   <span style="color: #AE81FF;">6</span>,   <span style="color: #AE81FF;">5</span>,   <span style="color: #AE81FF;">3</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">History_Scores</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">10</span>,  <span style="color: #AE81FF;">25</span>,  <span style="color: #AE81FF;">17</span>,  <span style="color: #AE81FF;">11</span>,  <span style="color: #AE81FF;">13</span>,  <span style="color: #AE81FF;">17</span>,  <span style="color: #AE81FF;">20</span>,  <span style="color: #AE81FF;">13</span>,  <span style="color: #AE81FF;">9</span>,   <span style="color: #AE81FF;">15</span><span style="color: #AE81FF;">]</span>
+
+<span style="color: #FD971F;">coef</span> = np.corrcoef<span style="color: #AE81FF;">(</span>Physics_Scores,History_Scores<span style="color: #AE81FF;">)[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">][</span><span style="color: #AE81FF;">1</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'%.3f'</span>%coef<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">10.15</span> Bot saves princess</h3>
+<div class="outline-text-3" id="text-10-15">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">m</span> = <span style="color: #AE81FF;">3</span>
+<span style="color: #FD971F;">grid</span> = <span style="color: #AE81FF;">[</span>
+<span style="color: #E6DB74;">'---'</span>,
+<span style="color: #E6DB74;">'-m-'</span>,
+<span style="color: #E6DB74;">'p--'</span><span style="color: #AE81FF;">]</span>
+
+<span style="color: #F92672;">def</span> <span style="color: #A6E22E;">displayPathtoPrincess</span><span style="color: #AE81FF;">(</span>n,grid<span style="color: #AE81FF;">)</span>:
+  <span style="color: #75715E;">#</span><span style="color: #75715E;">print all the moves here</span>
+  <span style="color: #F92672;">for</span> row, rv <span style="color: #F92672;">in</span> <span style="color: #F92672;">enumerate</span><span style="color: #AE81FF;">(</span>grid<span style="color: #AE81FF;">)</span>:
+    <span style="color: #F92672;">for</span> col, cv <span style="color: #F92672;">in</span> <span style="color: #F92672;">enumerate</span><span style="color: #AE81FF;">(</span>rv<span style="color: #AE81FF;">)</span>:
+      <span style="color: #F92672;">if</span> cv == <span style="color: #E6DB74;">'p'</span>:
+        <span style="color: #FD971F;">pos_x</span> = row
+        <span style="color: #FD971F;">pos_y</span> = col
+
+
+  <span style="color: #F92672;">if</span> pos_x &gt; <span style="color: #AE81FF;">0</span>:
+    <span style="color: #F92672;">for</span> x <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>n-pos_x<span style="color: #AE81FF;">)</span>:
+      <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'DOWN'</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">else</span>:
+    <span style="color: #F92672;">for</span> x <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>n//<span style="color: #AE81FF;">2</span>-pos_x<span style="color: #AE81FF;">)</span>:
+      <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'UP'</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">if</span> pos_y &gt; <span style="color: #AE81FF;">0</span>:
+    <span style="color: #F92672;">for</span> y <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>n-pos_y<span style="color: #AE81FF;">)</span>:
+      <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'RIGHT'</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">else</span>:
+    <span style="color: #F92672;">for</span> y <span style="color: #F92672;">in</span> <span style="color: #F92672;">range</span><span style="color: #AE81FF;">(</span>n//<span style="color: #AE81FF;">2</span>-pos_y<span style="color: #AE81FF;">)</span>:
+      <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'LEFT'</span><span style="color: #AE81FF;">)</span>
+
+<span style="color: #FD971F;">m</span> = <span style="color: #F92672;">input</span><span style="color: #AE81FF;">()</span>
+
+<span style="color: #FD971F;">grid</span> = <span style="color: #AE81FF;">[]</span>
+<span style="color: #F92672;">for</span> i <span style="color: #F92672;">in</span> <span style="color: #F92672;">xrange</span><span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">0</span>, m<span style="color: #AE81FF;">)</span>:
+    grid.append<span style="color: #AE81FF;">(</span><span style="color: #F92672;">raw_input</span><span style="color: #66D9EF;">()</span>.strip<span style="color: #66D9EF;">()</span><span style="color: #AE81FF;">)</span>
+
+displayPathtoPrincess<span style="color: #AE81FF;">(</span>m,grid<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">10.16</span> find the second smallest in nested list:</h3>
+<div class="outline-text-3" id="text-10-16">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FD971F;">name</span> = <span style="color: #AE81FF;">[</span><span style="color: #E6DB74;">'Harry'</span>, <span style="color: #E6DB74;">'Berry'</span>, <span style="color: #E6DB74;">'Tina'</span>, <span style="color: #E6DB74;">'Akriti'</span>, <span style="color: #E6DB74;">'Harsh'</span><span style="color: #AE81FF;">]</span>
+<span style="color: #FD971F;">score</span> = <span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">37</span>.<span style="color: #AE81FF;">21</span>, <span style="color: #AE81FF;">37</span>.<span style="color: #AE81FF;">21</span>, <span style="color: #AE81FF;">37</span>.<span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">37</span>.<span style="color: #AE81FF;">2</span>, <span style="color: #AE81FF;">39</span><span style="color: #AE81FF;">]</span>
+
+
+<span style="color: #FD971F;">scores</span> = <span style="color: #F92672;">dict</span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">zip</span><span style="color: #66D9EF;">(</span>name, score<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #FD971F;">sorted_score</span> = <span style="color: #F92672;">sorted</span><span style="color: #AE81FF;">(</span>score<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">print(min(scores, key=scores.get))</span>
+<span style="color: #FD971F;">min_score</span> = <span style="color: #F92672;">min</span><span style="color: #AE81FF;">(</span>score<span style="color: #AE81FF;">)</span>
+<span style="color: #F92672;">for</span> _ <span style="color: #F92672;">in</span> sorted_score:
+  <span style="color: #F92672;">try</span>:
+    sorted_score.remove<span style="color: #AE81FF;">(</span>min_score<span style="color: #AE81FF;">)</span>
+  <span style="color: #F92672;">except</span>:
+    <span style="color: #F92672;">break</span>
+<span style="color: #FD971F;">reversed_second_score</span> = sorted_score<span style="color: #AE81FF;">[</span><span style="color: #AE81FF;">0</span><span style="color: #AE81FF;">]</span>
+<span style="color: #F92672;">for</span> name, s <span style="color: #F92672;">in</span> scores.items<span style="color: #AE81FF;">()</span>:    <span style="color: #75715E;"># </span><span style="color: #75715E;">for name, age in list.items():  (for Python 3.x)</span>
+    <span style="color: #F92672;">if</span> s == reversed_second_score:
+        <span style="color: #F92672;">print</span><span style="color: #AE81FF;">(</span>name<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 </div>

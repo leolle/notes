@@ -1,0 +1,727 @@
+#+TITLEs: Document title
+#+LANGUAGE: en
+#+TAGS: review
+#+OPTIONS: toc:nil h:4 html-postamble:nil html-preamble:t tex:t f:t
+#+OPTIONS: prop:("VERSION")
+#+HTML_DOCTYPE: <!DOCTYPE html>
+#+HTML_HEAD: <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./styles/demo/css/style.css"/>
+
+#+HTML: <div class="outline-2" id="meta">
+| *Author* | {{{author}}} ({{{email}}})    |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+#+HTML: </div>
+
+
+* Workflow
+** quant
+1. define goal.
+2. search paper/report.
+3. read pdf/code, take notes.
+4. present general idea.
+5. write pseudo code, set input parameters.
+6. write/modify code.
+7. plugging gs to run with data.
+8. check out result.
+9. prepare presentation of all previous steps.
+10. present and get feedback.
+11. deploy function definition, function sampling.
+
+** data analysis
+1. 分析
+2. 实验仿真
+3. 可视化
+4. 建模
+
+* Deep Learning
+** Natural Language Processing
+*** DONE entity relationship extraction <2018-03-19 Mon> - <2018-03-21 Wed>
+CLOSED: [2018-03-26 Mon 13:52]
+:LOGBOOK:
+CLOCK: [2018-03-21 Wed 11:10]--[2018-03-21 Wed 18:56] =>  7:46
+CLOCK: [2018-02-07 Wed 11:13]--[2018-02-07 Wed 15:36] =>  4:23
+CLOCK: [2018-02-06 Tue 10:07]--[2018-02-06 Tue 11:32] =>  1:25
+CLOCK: [2018-02-05 Mon 15:38]--[2018-02-05 Mon 16:21] =>  0:43
+CLOCK: [2018-02-05 Mon 09:54]--[2018-02-05 Mon 15:34] =>  5:40
+CLOCK: [2018-02-02 Fri 10:23]--[2018-02-02 Fri 17:25] =>  7:02
+CLOCK: [2018-02-01 Thu 15:42]--[2018-02-01 Thu 20:26] =>  4:44
+CLOCK: [2018-02-01 Thu 10:00]--[2018-02-01 Thu 11:52] =>  1:52
+CLOCK: [2018-01-31 Wed 15:16]--[2018-01-31 Wed 19:29] =>  4:13
+CLOCK: [2018-01-31 Wed 10:53]--[2018-01-31 Wed 12:08] =>  1:15
+CLOCK: [2018-01-31 Wed 10:09]--[2018-01-31 Wed 10:52] =>  0:43
+CLOCK: [2018-01-30 Tue 17:45]--[2018-01-30 Tue 18:35] =>  0:50
+:END:
+- 命名实体识别
+现在常用的方法有「LSTM + 条件随机场（CRF）」、「最大熵隐马尔科夫」、「隐马尔科夫」等序列标注模型。 主要的处理思想有:
+
+- [X] finish join learning entity extraction paper.<2018-03-20 Tue>
+- [ ] summerize text first, then event extraction?
+- [X] find source code and scheme for this paper.
+- [ ] from survey paper -> book -> reference paper -> citation paper -> application -> open source library.
+- [ ] company relation
+- [ ] analyst relation
+- [ ] entity disambiguation: extraction resolution detection like author, publisher.
+- [X] pseudo code of node, edge upload.
+- [X] summerize nlp library extraction result comparison in jupyter notebook.
+- [X] find the difference of attirbutes not in Juyuan database, searching for useful information.
+聚源数据库已经包含了大量的公司信息，暂时没有在百科三元组发现更有价值的信息。
+- [X] extract the triple relation information.
+- [X] visualization of triples.
+- [ ] NER of all listed company pages content what analyst care about: 有关内容包括：主要产品，产业链，竞争对手，合作伙伴，投资方，key person(如公司跟投资人关联), 上市交易所，sentiment, 分析师评级，评论，公司重大公告.
+- [X] Chinese NER model is missing, searching. models are in the Chinese model jar file.
+- [X] test stanford-corenlp to extract keywords and NER en.
+- [X] compare nlp libraries.
+- [X] extract Named Entity Recognition.
+- [ ] extract RDF company triples.
+- [ ] listed companies triples importing to neo4j.
+- [ ] read Q&A knowledge graph paper.
+
+**** DONE 语料收集:<2018-03-21 Wed>
+CLOSED: [2018-04-12 Thu 13:18]
+- 目标语料格式：
+实体1  实体2  关系  包括实体1，实体2和他们之间关系的语句。
+- 加快语料收集的想法：
+  1. 自定义字典法，利用已有的种子实体。
+  2. 在SSE上搜索已经有的投资，收购等种子实体关系，得到语料。
+  3. 利用NER_IDCNN_CRF的实体识别得到语料里面的实体，现有模型支持人名，组织机构和位置。
+  4. 从distant supervision的方法中获取灵感，可以首先找到具有确定关系的实体对，然后再去爬取该实体对共同出现的语句作为正样本。负样本则从实体库中随机产生没有关系的实体对，最后去爬取这样实体对共同出现的语句，这样的语句可以通过网络爬虫从雪球，google news抓取。*这样保证了语料收集的快速性和关系数量的扩展性*。
+  5. 对于具有确定关系的实体对，从百度百科Triples得到。
+
+- [X] finish Att BLSTM paper.<2018-03-21 Wed>
+- [X] 先完成“投资”这一类语料的收集。
+- [X] 目标：按实体 实体 关系 语料内容的格式放入训练文件，以供模型训练。
+- [X] 丰富语料的思路：通过word2vec 相似词找到“投资”的相似词，如设立，增资，入股，收购，并购，换股;再找以上6个词的相似词。
+下表为投资这一大类所包含的相似关系。
+
+| 设立     | 增资     | 入股     | 收购     | 并购     | 换股 |
+|----------+----------+----------+----------+----------+------|
+| 成立     | 受让     | 现金出资 | 要约收购 | 海外并购 | 转股 |
+| 发起设立 | 扩股     | 携手     | 拟收购   | 重组     | 交换 |
+| 组建     | 扩股     | 间接持有 | 并表     | 整合     | 配股 |
+| 新设     | 占股     | 所持     | 过户     | 兼并     |      |
+| 出资     | 转让给   | 联手     | 收购了   | 业务整合 |      |
+| 共同出资 | 认缴     | 正式成为 | 资产收购 | 借壳上市 |      |
+| 全资     | 定向增发 | 转让给   | 通过收购 |          |      |
+| 参股     |          | 参股     |          |          |      |
+| 入驻     |          |          |          |          |      |
+| 创投     |          |          |          |          |      |
+**** 实体和关系的联合抽取处理思想：<2018-03-22 Thu> -
+***** goal
+:LOGBOOK:
+CLOCK: [2018-03-29 Thu 10:38]--[2018-03-29 Thu 16:08] =>  5:30
+:END:
+1. 利用NER_IDCNN_CRF的实体识别得到语料里面的实体，现有模型支持人名，组织机构和位置。
+2. RE_BGRU_2ATT关系识别。
+3. [ ] Joint extraction of events and entities within a document context.
+Conceptually the method can be applied to Chinese event extraction if you have a training corpus annotated with entities and events.
+
+However, it would require significant changes on the code for feature generation. The current code makes use of the outputs of Stanford CoreNLP (English) and features extracted from English resources like WordNet, FrameNet, and NELL.
+****** Entity extraction
+Extract company, signal, strategy from text documents.
+****** Relation extraction
+Extract relation between entities, which can create a knowledge network.
+****** Event extraction
+
+
+***** DONE pseudo code
+CLOSED: [2018-03-29 Thu 09:55]
+:LOGBOOK:
+CLOCK: [2018-03-28 Wed 15:01]--[2018-03-28 Wed 18:58] =>  3:57
+CLOCK: [2018-03-28 Wed 09:47]--[2018-03-28 Wed 12:09] =>  2:22
+:END:
+***** review
+- the limits of GRU, its memory performance without attention, find out the threshold.
+- [ ] selecting GRU or LSTM Depends on length of input sentence.
+- [ ] using existing Knowledge graph and collected  training data.
+- [ ] use quantitative research, economic indicator formula, analyst report as training data.
+- [ ] what's gold-standard entity information.
+***** study book DL for RE.
+:LOGBOOK:
+CLOCK: [2018-03-29 Thu 16:08]--[2018-03-29 Thu 19:00] =>  2:52
+:END:
+- [X] GRU network, difference between LSTM. simpler.
+- [ ] entity mention detection的过程和处理结构.
+
+
+***** bugs:
+****** multiple white space in the entities.
+
+***** DONE presentation
+CLOSED: [2018-04-08 Sun 16:22]
+:LOGBOOK:
+CLOCK: [2018-04-02 Mon 09:42]--[2018-04-02 Mon 17:04] =>  7:22
+:END:
+- [X] RNN structure.
+- [X] how to use RNN to extract entity.
+- [X] GRU network, difference between LSTM.
+- [X] Bi-directional LSTM.
+- [X] build RNN tensorflow code.
+- [X] pseudo code for GRU attention Relation Extraction.
+- [X] 看deep learning for information extraction书relation extraction和event extraction.
+- [X] 写summary。
+
+**** TextRank
+:LOGBOOK:
+CLOCK: [2018-04-03 Tue 15:41]--[2018-04-03 Tue 19:23] =>  3:42
+:END:
+
+- [X] test text rank example.
+- [X] paper - TextRank: Bringing Order into Texts.
+- [X] plot graph.
+- [X] pseudo code.
+***** DONE Keywords extraction
+CLOSED: [2018-04-11 Wed 18:24]
+Extract the keywords from a text document or news.
+
+***** DONE implementation usecase on GS.
+CLOSED: [2018-04-12 Thu 10:14]
+- [X] create a research article node of pdf format.
+- [X] convert the pdf to text.
+- [X] get the highlight of the text.
+- [X] change the number of highlights to a fraction of total words or certain number.
+- [X] feed the highlight into next step.
+- [X] create highlight nodes on GS.
+- [X] list tool documents.
+***** DONE customize textrank to textrank4zh, change output keywords number.
+CLOSED: [2018-04-10 Tue 18:08]
+***** train model to recognize company, indicator, signal.
+***** deep learning Named Entity Recognization(NER) model on GS.
+***** 问题
+- [X] 什么是textrank算法.
+It's a *graph-based ranking* algorithm that deciding on the importance of a vertex within a graph, by taking into account global information recursively computed from the entire graph, rather than relying only on local vertex-specific information.
+- [X] 它能解决什么问题。extractive summarization, keywords extraction.
+- [X] 对语言类型（中英文）是否有要求：对语言没有要求。
+***** DONE extract the structure of a document, represent as a graph
+CLOSED: [2018-04-10 Tue 18:09]
+https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topsearchbox&tid=report&w=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0
+
+[[././img/knowledge_graph_report.png]]
+*** TODO information extraction system<2018-04-04 Wed>
+**** extract the knowledge from company and products.
+[[./img/knowledge_graph_fruit.png]]
+**** extract keywords from documents, create a knowledge graph.
+**** DONE opinion sentiment analysis. <2018-03-09 Fri> - <2018-03-16 Fri>
+CLOSED: [2018-03-26 Mon 12:49]
+:LOGBOOK:
+CLOCK: [2018-03-07 Wed 10:05]--[2018-03-07 Wed 17:57] =>  7:52
+CLOCK: [2018-03-02 Fri 09:56]--[2018-03-02 Fri 19:07] =>  9:11
+CLOCK: [2018-03-01 Thu 10:38]--[2018-03-01 Thu 12:01] =>  1:23
+:END:
+***** DONE read_RMDB_table -> NLP_sentiment_analysis -> generate_sentiment_signal.
+CLOSED: [2018-03-26 Mon 13:37]
+[[https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pdf][sentiment prediction]]
+- Sentiment analysis 算法.
+SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
+- 爬取Google news, 雪球， 虎嗅， 微信上所有300支股票的文档，再进行sentiment analysis, 结果再排序，选最好的5只。
+- [ ] sentiment score做为单因子测试, upload sentiment data to hadoop and test factor in FS.
+- [X] read paper *joint extraction of entities and relations*.
+- [ ] read paper *Anomalies and Investor Sentiment*.
+- [X] 情感分析指标的设计在GS上实现。
+- [X] news, market-view articles sentiment analysis.
+- [X] 发现2018-02-08, 情感指数0.54，2-9日出现大跌。
+能否用这个指数来预警，今天可以扩大一下样本空间，看看上证在1%下跌的情况下前一日的情感指数值是如何变化。
+- [ ] search paper and books how to use sentiment analysis.
+***** DONE train sentiment classification model.                 :review:
+CLOSED: [2018-06-19 Tue 19:03]
+review:
+1. 分拆分类器的训练和分类。
+2. 训练好的模型存储在GID背后的路径。
+
+****** improvement:                                             :improvement:
+1. 应该早点把与sentiment classification action不太相关的步骤省略。
+2. 训练的步骤代码早点应该弄清楚：怎么调用，可以做几个分类？
+3. 不要hard code一些自己加进去的逻辑，如positive probability *2;
+
+**** information retrieval system
+***** goal
+****** question and answering from a document
+- what is tha data.
+- what is the algorithm.
+- what is the conclusion.
+****** News summary
+- [ ] classify 1 year of analyst research articles.
+- [X] convert PDFs to text files.
+- [ ] summerize articles
+****** syntactic parsing
+
+*** Latent Dirichlet Allocation(LDA)
+Latent Dirichlet allocation (LDA) is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. For example, if observations are words collected into documents, it posits that each document is a mixture of a small number of topics and that each word's creation is attributable to one of the document's topics.
+
+***** TODO Word Embedding
+Recommend similar words.
+- [ ] change skill instance input as node.
+***** DONE Sentiment analysis
+CLOSED: [2018-04-12 Thu 10:25]
+To create a sentiment index for a keyword, which can be provided as a indicator.
+
+***** TODO DeepDive<2018-04-23 Mon>
+:LOGBOOK:
+CLOCK: [2018-04-27 Fri 14:22]
+:END:
+
+****** function
+deepdive适合从unstructured data里面找出event, 而我们从scholar上爬下来的数据已经可以变成structured-data了，所以用实体消歧工具之后做entity linking即可。
+
+deepdive的输入数据为unstructured-data，他需要利用Stanford CoreNLP从句子里面提取语义信息，包括词干，词性信息（主谓宾等），识别出来的实体，还有句子特征来帮助做信息抽取。
+****** feature
+
+****** advantage
+
+****** DONE start from structured data, entity linking these data.
+CLOSED: [2018-05-17 Thu 11:43]
+*** DONE Word Embedding(Word2Vec):<2017-12-01 Fri> - <2017-12-31 Sun>
+CLOSED: [2018-03-26 Mon 12:47]
+:LOGBOOK:
+CLOCK: [2017-12-22 Fri 15:44]--[2017-12-22 Fri 19:21] =>  3:37
+CLOCK: [2017-12-14 Thu 10:04]--[2017-12-14 Thu 12:01] =>  1:57
+CLOCK: [2017-12-13 Wed 10:04]--[2017-12-13 Wed 15:45] =>  5:41
+CLOCK: [2017-12-05 Tue 11:46]--[2017-12-05 Tue 12:04] =>  0:18
+CLOCK: [2017-11-27 Mon 10:28]--[2017-11-27 Mon 12:02] =>  1:34
+CLOCK: [2017-11-21 Tue 09:07]--[2017-11-21 Tue 15:05] =>  5:58
+:END:
+**** Goal/use case
+- use such word2vec to find similar keywords.
+**** jobs: 数据收集， 清洗
+- [ ] train analyst report and save model on hdfs, load this model as a j node.
+- [ ] gs similar words function test use analyst report.
+- [X] upload all vocabulary in word2vec model to Neo4j.
+- [X] create a function: word_rec(model, keywords, topn)
+- [ ] manually add categories and page links in sql file.
+- [X] return word embedding model to next step in GS.
+- [X] word embedding的设计文档修改.
+- [X] pack pages into a corpus file.
+- [ ] compare cutting on paragraph and document.
+- [ ] train few files to see if there's repeat training on word2vec.
+- [ ] extract data from financial documents — usually PDFs — in an automated way, and to produce “better-than-human” analyses. extract data from tables and text.
+- [ ] train function names based on wiki pages on functions, models, and python/matlab/sas/cpp-reference manuals, function names and function descriptions, excel formula, VBA, VB, guass, whatever software which has a function dictionary and manual.
+- [ ] retrieve pages title and id under categories from mysql.
+- [ ] LSA or LDA analysis on unstructured text, which will give a clustering of words on every topic.
+- [ ] visualize vocabulary embedding using t-SNE which project embedding vectors into 2-D surface from an proper perspective using tensorboard locally which can ignore uploading to projector online.
+- [ ] create LSTM networks on xarray data.
+- [X] create test program to run word embedding, to visualize output.
+- [ ] *What is fueling heavy investment in machine learning in the financial industry and how does it fit into customers’ workflows?*
+  A lot of our customers’ workflows are being automated, entirely or partially. What they’re doing today is more on the cognitive side: strategy and portfolio selection, formulating the investment theses, etc. People are trying to solve many, many problems in finance using these methods, because they allow for the building of more sophisticated intelligence into trading and client facing workflows. These methods can improve efficiency, or, crucially, allow us to approach problems which heretofore were intractable – due to complicated interactions in the data, complexity of the problem, availability of data or computational resources, and so on.
+- [X] provide xarray data to Zhou.
+- [X] provide Sun Chinese wiki.
+- [X] network Bloomberg about tensorflow.
+- [X] retrieving speed test from mongodb.
+- [X] test case on finance domain word embedding prediction.
+- [X] dumping wiki pages to mongodb.
+- [X] testing GPU server.
+- [X] configuring deep learning hardware, operation system, software.
+- [X] test sets simularity, A-B=C-D?, A+B=?
+- [X] incremental training finance pages based via online training.
+  online training can not continue missing frequency in pretrained google binary file.
+- [ ] cut/training Chinese osets words into files.
+- [ ] compare similarity between category and end-to-node oset element.
+- [ ] compare the results from GS searching engine and word embedding.
+- [ ] import xml pages to elasticsearch.
+- [X] clustering categories by word embedding, osets, idea.
+  To calculate the similarity matrix between all 160706 vocabulary in RAM, 160706 *160706 *4(bytes)/1024(bytes)/1014(bytes)=99491MB will be needed.
+- [X] use [[http://www.cis.lmu.de/pub/phraseEmbedding.txt.bz2][phrase embedding]] as test.
+  better phrasing results.
+- [X] take a look at cite space iii.
+- [X] test word2vec model from finance.
+- [X] cut paragraph to short sentences, then phrase.
+- [X] phrase text8
+- [X] train phrasing sentences word2vec model.
+- [X] phrase detection with google pretrained vectors.
+- [X] find available library to extract wiki content.
+- [X] find all page titles from level 5 finance sub-categories.
+- [X] extract page section from wiki xml file.
+- [ ] parse Chinese wiki, remove stopwords.
+- [X] model wiki token corpus.
+- [ ] [[https://github.com/ryankiros/skip-thoughts][skip-thought]].
+- [X] find corporate finance/mba questions corpos.
+- [ ] read A primer on Neural Network Models.
+- [X] tensorflow structure.
+- [X] train word2vec model.
+- [X] test finding similar words from Wiki corpus.
+- [X] download wiki xml file.
+- [X] transfer wiki xml file to text format.
+- [X] load pre-trained vector matrix, predict the context using a word based on the Skip-Gram model.
+- [X] overview of word2vec, why does it work.
+- [ ] video explained by Xin Rong.
+- [ ] forward propagation vs backward propagation, CNN explained by Andrew Ng.
+- [X] paper word2vec Parameter Learning Explained.
+- [X] understand Tensorflow Word2Vec example.
+- [X] build a backward propagation network.
+- [ ] fi or function def from output of wants whose idea word2vec is close to target want's idea.
+建一个想法，根据这个想法找到匹配的FI, or FD. 例如，建一个optimize需求，自动推荐black litterman model, or markowitz mean/variance model.
+- [ ] fi and its function def whose word2vec is close to word2vec of function instances of current function def to be built.
+当前FI,查找相关的下一步FI.
+
+*** DONE Chinese wiki model. <2018-01-01 Mon> - <2018-01-12 Fri>
+CLOSED: [2018-02-09 Fri 18:57]
+**** jobs: 训练中文维基数据，嵌入GS
+- choose model using most related model, use wiki category relation similarity to choose model, train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.
+- [X] train financial fields model(58+ categories).
+- [X] use similarity distance to find the nearest category of target words.
+- [X] similarity test on specific model.
+- [X] add all pages title to jieba dict.
+- [X] 中文短语处理，当短语不存在词汇库中时，拆开成词输入到模型。
+- [X] preprocessing workflow.
+  英文text preprocessing需要的注意一些点，及应提供的选择
+  1. cut段落或文章
+  2. phrase是否进行转换
+  3. 停词(a, the, of, that, this, he, I...)是否保留
+  4. 数字是否转为英文单词, 中间有数字的单词是否保留(th8)
+  5. 提取词干（时态转换，单复数单词转换）
+  6. 标点（撇号'，所有格,缩写如don’t），符号（%,#,&,?,@,\,/,",是否保留）
+  7. 大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）
+
+  中文分词（主要利用结巴分词）
+  - [X] 1. cut段落或文章
+  - [X] 2. 去停词
+  - [X] 去标点符号
+  - [X] 去数字
+- [ ] word2vec fast text comparison.
+- [X] compare the training results with or without stopwords.
+- [X] demo code.
+- [X] visualize & compare results.
+- [X] create index for zhwiki.
+- [X] test model.
+- [X] assign wiki pages extraction task.
+- [X] insert Chinese wiki to mongo, transform traditional Chinese to simple Chinese.
+- [X] get rid of the stopwords.
+- [X] retrie Chinese financial wiki pages from mongo and train.
+- [ ] fix zhwiki to mongodb words count.
+                                                                       :wait:
+
+*** DONE Building the Wikipedia Knowledge Graph in Neo4j <2018-01-13 Sat> - <2018-03-09 Fri>
+CLOSED: [2018-02-09 Fri 18:58]
+:LOGBOOK:
+CLOCK: [2017-11-15 Wed 14:01]--[2017-11-15 Wed 16:04] =>  2:03
+:END:
+[[file:/home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.org][NLP]]
+- [X] wiki SQL database links graph.
+- [X] pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.
+**** DONE Data dumps/Import -> create nodes
+CLOSED: [2018-03-26 Mon 13:54]
+- methods
+[[https://meta.wikimedia.org/wiki/Data_dumps]]
+
+[[https://meta.wikimedia.org/wiki/Data_dumps/Import_examples]]
+
+[[https://phabricator.wikimedia.org/source/operations-dumps-import-tools/browse/master/xmlfileutils/]]
+- tools
+[[http://wikipapers.referata.com/wiki/List_of_visualization_tools]]
+
+- [ ] Import into an empty wiki of el wiktionary on Linux with MySQL, or Neo4j
+- [ ] create special wiki reference edge between read only text nodes
+- [X] watch the youtube video
+[[https://www.youtube.com/watch?v=o6wueyweC34 ]]
+- [X] read Neo4j document
+[[http://guides.neo4j.com/wiki]]
+- [X] try Neo4j sandbox
+[[https://neo4j.com/sandbox-v2/]]
+- [X] create Neo4j docker.
+**** DONE create wiki knowledge graph -> create edges
+CLOSED: [2018-03-26 Mon 12:48] DEADLINE: <2018-01-23 Tue>
+:LOGBOOK:
+CLOCK: [2018-02-07 Wed 15:36]--[2018-02-07 Wed 18:56] =>  3:20
+CLOCK: [2018-02-07 Wed 10:09]--[2018-02-07 Wed 11:12] =>  1:03
+CLOCK: [2018-02-06 Tue 11:32]--[2018-02-06 Tue 17:22] =>  5:50
+CLOCK: [2018-01-30 Tue 19:24]--[2018-01-30 Tue 20:52] =>  1:28
+CLOCK: [2018-01-30 Tue 13:11]--[2018-01-30 Tue 17:45] =>  4:34
+CLOCK: [2018-01-30 Tue 10:58]--[2018-01-30 Tue 12:39] =>  1:41
+CLOCK: [2018-01-29 Mon 10:36]--[2018-01-29 Mon 20:18] =>  9:42
+CLOCK: [2018-01-26 Fri 09:49]--[2018-01-26 Fri 11:16] =>  1:27
+CLOCK: [2018-01-25 Thu 10:32]--[2018-01-25 Thu 15:59] =>  5:27
+CLOCK: [2018-01-24 Wed 13:58]--[2018-01-24 Wed 19:40] =>  5:42
+CLOCK: [2018-01-23 Tue 13:47]--[2018-01-23 Tue 15:47] =>  2:00
+CLOCK: [2018-01-23 Tue 09:56]--[2018-01-23 Tue 12:05] =>  2:09
+CLOCK: [2018-01-22 Mon 16:45]--[2018-01-22 Mon 19:34] =>  2:49
+CLOCK: [2018-01-22 Mon 13:38]--[2018-01-22 Mon 14:28] =>  0:50
+CLOCK: [2018-01-22 Mon 10:00]--[2018-01-22 Mon 12:29] =>  2:29
+:END:
+- [X] extract gid from get skill to graph.
+- [X] importing wiki categories and page edge relation to Neo4j.
+- [X] 上传完备份我再建边.
+- [X] 加一个loop detection算法，现在只做了direct cycle detection algorithm.
+  - [X] use networkx to detect loop.
+  - [X] it's too hard to detect cycles in the whole graph. Starting in a small categories.
+  - [X] don't add direct loop edges to a graph, find_cycles will only show such direct loop. save this graph.
+  - [X] remove direct cycle and full cycle at a node completely.
+- [X] skill GID generating in Python.
+- [X] 把节点上传. wiki 上传了1040229 page, 381475 categories.
+- [X] train word2vec model based on GID.
+- [X] import edge, loop detecting for linking categories nodes.
+- [X] fetching pages binary content via GID.
+- [X] test response GID, same with GID saved on Chrome.
+- [X] test fetching binary text with GID.
+- [X] extract page to neo4j from xml file.
+businessID.domain = https://zh.wikipedia.org/wiki/:
+businessID.pk = urlencode(traditional Chinese title).
+title = simple Chinese title
+node.names.chinese = simple Chinese title
+node.url = encoded_url
+- [X] import category to neo4j from sql file.
+businessID.domain = https://zh.wikipedia.org/wiki/Category:
+businessID.pk = urlencode(traditional Chinese title).
+title = simple Chinese title
+node.names.chinese = simple Chinese title
+- [X] double check GID with Shenbing after importing a small set of page.
+- [X] import page from mongo to neo4j.
+- [X] backup neo4j after importing categories and page.
+- [X] delete edges.
+- [X] importing wiki categories nodes and page nodes to Neo4j.
+- [X] test importing wiki categories nodes.
+- [X] skill_2_graph
+=C-M-r= in gs, create 查路径, drag GID: 81F49335AC9C4D84A5F27F7A02AAABBA into the input box, input Parent GID in the parent box.
+***** Thomson Reuters Knowledge graph perim
+- [ ] read how to use the RFM dataset.
+***** relation extraction from training data
+- [ ] search paper and public code.
+- [X] Stanford NLP relation extraction video.
+**** DONE manual import unsaved categories and edges into Neo4j.
+CLOSED: [2018-03-09 Fri 15:15]
+- [X] find unsaved categories under 金融 category.
+- [X] save those to a sql file.
+- [X] upload sql file and edge.
+*** TODO NLP information system workflow<2018-04-11 Wed> -
+
+**** Overview:
+***** GS can easily help users increase working efficiency on:
+- Idea search on data/document
+- Model building
+***** NLP information system integrated into document search.
+****** Increase working efficiency features:
+******* Interaction between GS current task of workflow and web browser page.
+Interaction is based on:
+- Context information of workflow, current main task
+- Web browser page content
+******* Recommend documents based on user profile.
+******* Find user preferred data, indicator, factor, strategies, models.
+******* Find connected data/company/node from knowledge graph.
+******* User defined policy can be automatically triggered on schedule or by action.
+******* Users in a group can collaboratively finish the same goal.
+****** Use case:
+******* Switch current main task according to browsing website page.
+******* GS automatically highlight entities on web browser page based on current main task.
+******* Store labeled text for training corpus.
+******* Provide user preferred data, indicator, factor, strategies, models trained from wiki categories and page.
+****** Principle of use case i:
+- Use text summarization tool can extract theme of page content.
+- Use the extracted theme to trigger a current main task change.
+****** Principle of use case ii:
+- Embedding all node text from current main task together with text from page content.
+- Find similar sentences from current main task’s vector.
+
+****** Define policy, state variable, reward:
+Policy and state variable:
+
+******* Reward:
+- If agent finds target data, indicator, factor, strategies, models and continue his workflow.
+- If user shares this document in the group, or agent shares it to other users.
+- If user labeled additional text from the document.
+- If user check this document again.
+****** technique/library description:
+https://docs.google.com/spreadsheets/d/1j10vRQhwOWBLtYsJjsbgXqI5XyCDagSF708pano1JEc/edit#gid=0
+**** use cases:
+***** DONE Use case 1:
+CLOSED: [2018-04-17 Tue 09:42]
+Switch current main task according to browsing website page:
+****** Input: Example document:
+20170122-长江证券-长江证券金融工程：基于网络的动量选股策略
+****** URL:
+http://q.gftchina.com:13567/DocUIHTML/pdf/web/viewer.html?file=/vqservice/vq/docs/BB362E31FF4D41C234A804E3653030B1
+****** Available tools:
+- TextRank summarization
+- Tokenization
+- Word Embedding
+****** Description:
+- extract document theme from opened website.
+
+#+BEGIN_SRC python
+def extract_theme(text):
+    tr4w = TextRank4Keyword()
+
+    tr4w.analyze(
+        text=text, lower=False,
+        window=2)
+    # 获取关键短语。获取 keywords_num 个关键词构造的可能出现的短语，要求这个短语在原文本中至少出现的次数为min_occur_num。
+    theme_result = tr4w.get_keyphrases(keywords_num=20, min_occur_num=2)
+    return theme_result
+#+END_SRC
+
+#+RESULT:
+:  Output:
+:  主题：
+:  模型指标
+:  股票动量
+:  策略模型
+:  股价股票
+****** Store theme to state variable.
+****** Trigger workflow policy change task action.
+1. 说明library, algorithm 的使用场景。
+2. 比较bag of words与textrank的使用效果。
+3. 前期花了很多时间在数据准备的工具制作上，给后期使用数据提供了方便，接下来还需要把一些算法具体的细节搞明白，如跟其它算法相比有什么不同，有什么优势，效果怎么样等。
+4. 列出还没完全搞明白算法。
+
+***** DONE Use case 2:
+CLOSED: [2018-04-17 Tue 09:42]
+:LOGBOOK:
+CLOCK: [2018-04-13 Fri 10:42]--[2018-04-13 Fri 19:18] =>  8:36
+:END:
+highlight entities/sentences according to GS current main task.
+****** Input: current task nodes text and web page content
+****** example task: 查找动量指标, equivalent want.
+****** Available tools/techniques:
+- Word embedding
+- LDA
+- Named Entity Recognition
+****** Description
+- [ ] Embedding all nodes text.
+- [ ] Find nearest vectors between entities/sentences and current node.
+- [ ] Find most similar words in the web browser page from node text.
+#+RESULT:
+:  Output:
+:  model.most_similar(u'指标')
+:  '市值', '模型', '节点', '网络', '专题报告', 'DEA', '股价', '平均线', 'MF', '策略', '声明', '目录', '速度', '流量'
+:  model.most_similar(u'动量')
+:  '距离', '平均线', 'NMF', '收盘价', '指数', '速度感', '节点', '概率', '资金', '股价', '行业', '散户', '策略', '指标', '速率', 'DEA'
+:  model.most_similar(u'策略')
+:  '指标', '节点', '模型', '动力学', '方法', '散户', '动量', '速率', '速度', '流量', '股价', '资金', '速度感'
+:  model.most_similar(u'模型')
+:  '指标', '散户', '网络', '策略', '数值', '最高价', '目录', '组分', '联系人', '专题报告', '基础', '股价', '历史数据', '股票走势'
+****** context: 选择了节点，打开了相关的网页
+goal:
+1. 手动或者自动高亮similar words
+2. 根据网页内容找出可能的task下一步动作，例如是制作某个因子，建立某个模型等。
+3. 通过node的信息，如category, Oset, event，relation，找出网页对应的entity。
+***** TODO Use case 4:
+****** Goal: 通过node的信息，如category, Oset, event，relation，找出网页对应的entity. 根据当前收集到的信息，自动高亮网页中关于基本面的关键字.
+- [ ] collect Oset dictionary
+  - [ ] use wikipedia categories and page hierarchy tree to find similar words.
+- [ ] collect relationship dictionary
+
+****** input(node, task, url):
+Task: 当前任务的前一步是在构造基本面因子任务。
+Selected node: 福耀玻璃(i)
+Url: 查看福耀玻璃的网页信息，https://xueqiu.com/3075122481/105256619
+******  Tools:
+OSet scheme.
+****** Output:
+营业收入，利润，净利润，毛利率，每股收益，财务指标，市值，市盈率，市净率，PE，市场占有率，增长率等。
+***** Use case 5:
+****** Goal: automatically collect relation(based on existed scheme like 投资，兼并) in the website content, recommend keyword pair.
+****** input(url, task, node)
+Url: 查看福耀玻璃的网页信息，https://xueqiu.com/3075122481/105256619
+Task: 查找数据
+Selected node: 福耀玻璃(i)
+****** Output:
+加拿大皇家银行增持
+***** Use case 6:
+****** Goal: automatically recommend next step task/model use website extracted relation.
+****** input(url, task, node, relation)
+Url: 查看福耀玻璃的网页信息，https://xueqiu.com/3075122481/105256619
+Task: 查找数据
+Selected node: 福耀玻璃(i)
+Relation: 加拿大皇家银行增持
+****** Output:
+Similar stocks(under the same industry)  increase holding event happened.
+**** news recommendation with RL
+- [ ] web scraping case study.
+https://www.octoparse.com/tutorial/web-scraping-case-study-scraping-articles-from-news24/
+
+- [-] list available web crawling scripts.
+  - [X] google scholar: https://github.com/ckreibich/scholar.py
+    - ip轮询
+    - user agent随机
+    - domain随机
+    - 休眠
+    - cookies
+  - [ ] google search
+  - [ ] google news
+- [ ] focused crawler with reinforcement learning.
+***** detecting and visualizing emerging technology trends.
+****** steps breakdown to create such workflow.
+****** 主题词网络分析
+- [X] propose use case details.
+- [X] list available web crawler.
+- [X] modify current web crawler.
+- [ ] unit test crawler.
+- [ ] create crawling function.
+****** 主题词时间序列分析
+****** 主题词s curve分析
+****** extract title, author, date from pdf.
+***** Search answer on the website based on the keywords from the documents combined with the question.
+Use attention/theme to give hints of the conversation.
+***** entity linking
+*** scholar paper download:
+**** Download metadata with the article title:
+1. [X] Find meta data with article title from crossref.org API.
+
+2. [X] Download specific articles directly(article url) or via sci-hub based on DOI.
+
+**** DONE Download a  article.
+CLOSED: [2018-06-07 Thu 10:39]
+- [X] Search for articles on Google Scholar and download them.
+- [X] Download pdf directly if possible.
+- [X] Download specific articles directly(article url) or via sci-hub based on url.
+  The actual pdf source url behind sci-hub is embedded in a iframe with the link looks something like
+
+- [X] Get DOI from sci-hub content if possible, else search crossref with title, then search metadata for the article on crossref.
+- [ ] or use google search.
+
+***** DONE run code on GS.
+CLOSED: [2018-06-19 Tue 11:06]
+
+***** TODO upload article and metadata on GS.
+
+***** entity linking for author.
+
+***** TODO extract table and figure from pdf.
+use pdfminer.six dumppdf.py
+***** rename an uploaded pdf.
+
+***** Usage:
+- [X] 1. Download with the article title:
+#+BEGIN_SRC python
+sh = SciHub()
+title = “”“Improving Traffic Locality in BitTorrent via Biased Neighbor Selection”“”
+meta = sh.find_meta(title)
+result = sh.download(meta.get(‘DOI’), path=title + ‘.pdf’)
+#+END_SRC
+
+- [X] 2. Search for articles on Google Scholar and download them:
+
+***** issues:
+- [ ] captcha验证
+- [ ] 上传DOI, pdf到服务器
+
+***** twitter account monitoring.
+monitor AI accounts' newsest tweets, send tweets including the paper mentioned to users daily.
+
+***** TODO design a QT UI for the downloader.
+
+***** add tensorflow & estimator into Jupyter notebook.
+https://docs.google.com/document/d/1Zm4SsJlHI8cB--E55Kki38QVHclbClZcBtQoaJX4TJU/edit?usp=sharing
+
+**** machine reading for scientific paper.
+
+***** machine reading/comprehension for scientific paper.
+Hermann, K. M., Kočiský, T., Grefenstette, E., Espeholt, L., Kay, W., Suleyman, M., & Blunsom, P. (2015). Teaching Machines to Read and Comprehend, 1–9. https://doi.org/10.1109/72.410363
+
+***** transfer article summary bullets into questions.
+
+***** event extraction from scientific paper.
+
+***** extract abstract/reference/full-text from scholar paper.
+Lopez, P., & Romary, L. (2010). HUMB : Automatic Key Term Extraction from Scientific Articles in GROBID. Proceedings of the 5th International Workshop on Semantic Evaluation, (July), 248–251. Retrieved from http://aclweb.org/anthology/S/S10/S10-1055.pdf
+
+Romary, L., & Lopez, P. (2017). GROBID - Information Extraction from Scientific Publications To cite this version : HAL Id : hal-01673305.
+
+***** extract core claims/sentences.
+Jansen, T., & Kuhn, T. (2017). Extracting core claims from scientific articles. Communications in Computer and Information Science, 765, 32–46. https://doi.org/10.1007/978-3-319-67468-1_3
+
+Augenstein, I., Das, M., Riedel, S., Vikraman, L., & McCallum, A. (2017). SemEval 2017 Task 10: ScienceIE - Extracting Keyphrases and Relations from Scientific Publications. https://doi.org/10.18653/v1/S17-2091
+
+***** information extraction for scientific paper.
+Chen, J., & Chen, H. (2013). A structured information extraction algorithm for scientific papers based on feature rules learning. Journal of Software, 8(1), 55–62. https://doi.org/10.4304/jsw.8.1.55-62
+
+Ronzano, F., & Saggion, H. (2016). Knowledge extraction and modeling from scientific publications. Lecture Notes in Computer Science (Including Subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics), 9792 LNCS, 11–25. https://doi.org/10.1007/978-3-319-53637-8_2
+
+* Paper Summary

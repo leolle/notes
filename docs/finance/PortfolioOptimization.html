@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-12-22 Fri 11:26 -->
+<!-- 2018-08-28 Tue 07:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -256,7 +256,21 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline63">9.9. Shortfall of BLM</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline65">10. NLP</a></li>
+<li><a href="#orgheadline72">10. Risk parity</a>
+<ul>
+<li><a href="#orgheadline68">10.1. Basics</a>
+<ul>
+<li><a href="#orgheadline65">10.1.1. Risk Contribution</a></li>
+<li><a href="#orgheadline66">10.1.2. Marginal risk contribution</a></li>
+<li><a href="#orgheadline67">10.1.3. risk parity</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline69">10.2. IMPLEMENTING ACTUAL RISK PARITY PORTFOLIOS</a></li>
+<li><a href="#orgheadline70">10.3. INVESTING IN RISK PARITY</a></li>
+<li><a href="#orgheadline71">10.4. Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline73">11. NLP</a></li>
 </ul>
 </div>
 </div>
@@ -1272,9 +1286,135 @@ criteria for specifying asset classes are:
 </div>
 </div>
 
-<div id="outline-container-orgheadline65" class="outline-2">
-<h2 id="orgheadline65"><span class="section-number-2">10</span> NLP</h2>
+<div id="outline-container-orgheadline72" class="outline-2">
+<h2 id="orgheadline72"><span class="section-number-2">10</span> Risk parity</h2>
 <div class="outline-text-2" id="text-10">
+</div><div id="outline-container-orgheadline68" class="outline-3">
+<h3 id="orgheadline68"><span class="section-number-3">10.1</span> Basics</h3>
+<div class="outline-text-3" id="text-10-1">
+</div><div id="outline-container-orgheadline65" class="outline-4">
+<h4 id="orgheadline65"><span class="section-number-4">10.1.1</span> Risk Contribution</h4>
+<div class="outline-text-4" id="text-10-1-1">
+<p>
+\[\sigma^2 = w_1^2\sigma_1^2 + 2*corr*w_1*w2*\sigma_1*\sigma_2+w_2^2\sigma_2^2\]
+\[\sigma_1^2 = w_1^2\sigma_1^2 + corr*w_1*w2*\sigma_1*\sigma_2\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline66" class="outline-4">
+<h4 id="orgheadline66"><span class="section-number-4">10.1.2</span> Marginal risk contribution</h4>
+<div class="outline-text-4" id="text-10-1-2">
+<p>
+marginal contribution to risk measures the change in portfolio risk when the weight of an asset in the portfolio changes from the current weight.
+This concept, in turn, can also be expressed as a <b>utility function, a partial derivative of portfolio risk with respect to weights.</b>
+</p>
+
+<p>
+The risk contribution is a close approximation of loss contribution when the portfolio su ers a signicant loss.
+\[L_s/L≈p_s, L_b/L≈p_b\]
+This relationship between risk contribution and loss contribution validates the concept of risk contribution. It is the theoretical foundation of risk parity portfolios.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline67" class="outline-4">
+<h4 id="orgheadline67"><span class="section-number-4">10.1.3</span> risk parity</h4>
+<div class="outline-text-4" id="text-10-1-3">
+<p>
+The mathematical process of MVO is to maximize a utility function based on the expected return and risk of the portfolio. While this is a well-defined mathematical problem, its outcome is often a highly concentrated portfolio. this is because the optimization procedure is highly sensitive to both return and risk inputs. Any minute change in both can cause seismic changes in the optimized portfolio weights. These drawbacks often cause mean-variance portfolios to be unintuitive and hence hard to use in practice.
+</p>
+
+<p>
+why not start with a balanced risk allocation and seek the portfolio that matches the prescribed risk allocation?
+</p>
+
+<p>
+Risk parity portfolio construction is di erent in two key aspects. First, it does not rely on return forecast per se.
+The second aspect of risk parity is it does not use an optimization process. As a result, risk parity portfolio weights are less sensitive to risk inputs.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline69" class="outline-3">
+<h3 id="orgheadline69"><span class="section-number-3">10.2</span> IMPLEMENTING ACTUAL RISK PARITY PORTFOLIOS</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+In order for investors to seek <b>higher returns</b>, they must take on higher risk. The question is how to take that risk. The traditional approach is to concentrate in riskier assets, in particular equities. In contrast, the Risk Parity approach is to start with a diversied lower-risk portfolio and then <b>use leverage</b> to raise the expected return. (The use of leverage introduces its own risks, of course, particularly when investments are illiquid. To mitigate this, Risk Parity portfolios tend to invest in <b>liquid instruments such as fnancial futures contracts.</b>) Risk Parity investors believe that some leveraging of a more diversied <b>liquid</b> portfolio is a fundamentally better way to achieve higher returns than the traditional approach of concentrating in the riskiest assets.
+</p>
+
+<ul class="org-ul">
+<li>Breadth of instruments used.</li>
+</ul>
+<p>
+While the Simple Risk Parity Strategy invests in only three asset classes, <b>actual Risk Parity portfolios can incorporate additional asset classes. Since these instruments are not perfectly correlated with each other</b>, this further enhances the level of risk diversication and the efficiency of the total portfolio.
+</p>
+<ul class="org-ul">
+<li>Correlation and volatility forecasting.</li>
+</ul>
+<p>
+While the Simple Risk Parity Strategy targets an equal amount of risk in each asset class, a real-life implementation would incorporate correlations across different asset classes in order to equalize risk contributions. In addition, <b>proprietary risk models can be utilized to improve volatility forecasts</b>, which can help maintain the risk balance across asset classes and more consistent portfolio level volatility over time.
+</p>
+<ul class="org-ul">
+<li>Tactical over/underweights.</li>
+</ul>
+<p>
+The Simple Risk Parity approach described so far was based on an equal allocation of risk to each of three major risk categories. Indeed, some practical implementations use this “passive” approach to budgeting risk across these categories. However, it is also possible to use the “equal risk across categories” portfolio as the neutral allocation, and then over- or under-weight the risk allocations based on the manager’s tactical views.
+</p>
+<ul class="org-ul">
+<li>Different volatility targets.</li>
+</ul>
+<p>
+In the exposition above, we used an annualized volatility target of about 10%, which corresponds to the approximate average volatility of a 60/40 portfolio. However, by changing the amount of leverage used, it is easy to construct portfolios of an arbitrary level of volatility — e.g. that of a 70/30 portfolio, 80/20 portfolio, or even a 100% equity portfolio. We believe that Risk Parity is a far superior approach to building “target risk” portfolios than those conventionally used.
+</p>
+<ul class="org-ul">
+<li>Trading systems and risk control.</li>
+</ul>
+<p>
+Managers can also use proprietary <b>algorithmic trading systems</b> in order to <b>trade passively and reduce trading costs or market impact while adjusting position sizes</b>. Finally, systematic portfolio level drawdown control systems can be used in order to minimize portfolio losses during challenging periods for the strategy.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline70" class="outline-3">
+<h3 id="orgheadline70"><span class="section-number-3">10.3</span> INVESTING IN RISK PARITY</h3>
+<div class="outline-text-3" id="text-10-3">
+<ul class="org-ul">
+<li>Core/Satellite Approach.</li>
+</ul>
+<p>
+This core portfolio can also be supplemented by other uncorrelated strategies, such as alternative investments. Some large institutions have moved in the direction of this “core/ satellite” approach to building their portfolios.
+</p>
+<ul class="org-ul">
+<li>Alternative investments.</li>
+</ul>
+<p>
+Risk Parity portfolios, which have approximately a 0.5 correlation to equities, would be classi ed as a “directional” alternative rather than a zero beta, non-directional alternative strategy.
+</p>
+<ul class="org-ul">
+<li>Opportunistic or Flexible Allocation.</li>
+<li>Global Tactical Asset Allocation (GTAA).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline71" class="outline-3">
+<h3 id="orgheadline71"><span class="section-number-3">10.4</span> Conclusion</h3>
+<div class="outline-text-3" id="text-10-4">
+<p>
+• reduced equity concentration and reduced tail risk,
+• more meaningful diversi cation than traditional approaches,
+• a portfolio that is more robust in different economic environments, and
+• an opportunity to improve the risk/return characteristics of an overall portfolio, by either enhancing return, reducing risk, or a combination of both.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline73" class="outline-2">
+<h2 id="orgheadline73"><span class="section-number-2">11</span> NLP</h2>
+<div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>Hidden factor model</li>
 <li>portfolio optimization based on factor model</li>

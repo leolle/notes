@@ -397,6 +397,11 @@ text.split(' ', 1)[0]
 #+BEGIN_SRC python
 string.split(",")
 #+END_SRC
+- split by multiple delimiter:
+#+BEGIN_SRC python
+import re
+re.split('; |, |\*|\n',str)
+#+END_SRC
 ** 生成器generator
 通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
@@ -2525,6 +2530,16 @@ benchmark_weight.index.name = 'Date'
 m = benchmark_weight.index.to_period('m')
 benchmark_weight = benchmark_weight.reset_index().groupby(m).last().set_index('Date')
 benchmark_weight.index.name = ''
+#+END_SRC
+
+- groupby and sort by another column:
+#+BEGIN_SRC python
+df_input_text_entity.sort_values(['score'],ascending=False).groupby('mention').head(1) # only take the largest value of score
+#+END_SRC
+
+- filter two dataframe by columns' value
+#+BEGIN_SRC python
+pd.merge(df_input_text_entity_0, df_input_text_entity_1, on=['mention', 'entity'])
 #+END_SRC
 
 *** multiplying

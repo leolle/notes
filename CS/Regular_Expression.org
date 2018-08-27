@@ -211,7 +211,17 @@ indicates one or more occurrences of the preceding element.
 - {m,n}
 Used to match between m and n occurences of the previous character. The example tries to match between three and five w's.
 
-** cases:
+** cases examples:
+- url:
+https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)
+
+- date:
+01 Jan 2003
+^\d{2}\s{1}(Jan|Feb|Mar|Apr|May|Jun|Jul|Apr|Sep|Oct|Nov|Dec)\s{1}\d{4}$
+
+Jan 31, 2018
+(Jan|Feb|Mar|Apr|May|Jun|Jul|Apr|Sep|Oct|Nov|Dec)\s\d{1,2},\s\d{4}
+
 - machine space and numbers:
 \s\b\d+\b
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-08-17 Fri 11:20 -->
+<!-- 2018-08-28 Tue 07:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -149,7 +149,7 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline7">1. Alpha design</a>
+<li><a href="#orgheadline14">1. Alpha design</a>
 <ul>
 <li><a href="#orgheadline1">1.1. QUALITY OF AN ALPHA</a></li>
 <li><a href="#orgheadline2">1.2. ALGORITHM FOR FINDING ALPHAS</a></li>
@@ -157,6 +157,19 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline4">1.4. DEVELOPMENT OF AN ALPHA</a></li>
 <li><a href="#orgheadline5">1.5. FUTURE PERFORMANCE</a></li>
 <li><a href="#orgheadline6">1.6. How to develop an alpha</a></li>
+<li><a href="#orgheadline7">1.7. How to develop an alpha II</a></li>
+<li><a href="#orgheadline9">1.8. Fundamental analysis</a>
+<ul>
+<li><a href="#orgheadline8">1.8.1. fundamental statements</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline13">1.9. Improving the robustness of alphas</a>
+<ul>
+<li><a href="#orgheadline10">1.9.1. ordering methods(打分法)</a></li>
+<li><a href="#orgheadline11">1.9.2. approximation to normal distribution</a></li>
+<li><a href="#orgheadline12">1.9.3. limiting methods</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -164,8 +177,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">1</span> Alpha design</h2>
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">1</span> Alpha design</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A price action is a response to some world event. This event is reflected in the data. If the data never changes then there is no alpha. Thus, it is changes in the data that have the information. A change in information should produce a change in the alpha.
@@ -335,6 +348,90 @@ These are indicators for robustness:
 <li>Small drawdowns</li>
 <li>Short drawdown periods</li>
 </ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">1.7</span> How to develop an alpha II</h3>
+<div class="outline-text-3" id="text-1-7">
+<ol class="org-ol">
+<li>load data</li>
+<li>predict stock return by translating data into trading signals
+<ol class="org-ol">
+<li>mean reversion</li>
+<li>lead-lag effect</li>
+<li>momentum</li>
+<li>analyst rating information</li>
+<li>news sentiment</li>
+</ol></li>
+<li>aggregate all different predictions like adjusting alphas, industry neutral and market neutral, building a long short basket.</li>
+<li>in sample test</li>
+<li>out of sample test</li>
+<li>rank the factors</li>
+<li>optimize the portfolio to get diversifed weight and adjust risk exposure.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">1.8</span> Fundamental analysis</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+financial statement and empirical accounting research
+</p>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.8.1</span> fundamental statements</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<ol class="org-ol">
+<li>balance sheet</li>
+<li>income statement</li>
+<li>cash flow</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">1.9</span> Improving the robustness of alphas</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+properties of robust alpha:
+</p>
+<ol class="org-ol">
+<li>invariance under modification of traded universe. independent of trading universe choices.</li>
+<li>robustness to extreme market conditions.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">1.9.1</span> ordering methods(打分法)</h4>
+<div class="outline-text-4" id="text-1-9-1">
+<ol class="org-ol">
+<li>ranking</li>
+<li>quantiles approximation</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">1.9.2</span> approximation to normal distribution</h4>
+<div class="outline-text-4" id="text-1-9-2">
+<ol class="org-ol">
+<li>Z-scoring</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.9.3</span> limiting methods</h4>
+<div class="outline-text-4" id="text-1-9-3">
+<ol class="org-ol">
+<li>truncation</li>
+<li>winsorizing</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
