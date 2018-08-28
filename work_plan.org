@@ -35,6 +35,18 @@
 3. 可视化
 4. 建模
 
+* TODO 交易，组合优化，回测系统的修改
+- [X] 修改一下readme.org.
+- [ ] 风险模型要自己可以跑。
+- [ ] 对比Quantopian risk model, https://www.youtube.com/watch?v=JNEv_jHu6Is
+- [ ] 输入利率，权重，价格，可以回测，无需加入复权信息。
+- [ ] BlackLitterman 参考华泰的策略，再用ipynb做一遍。
+
+* Find alpha
+[[file:./finance/alpha.org][Find Alpha]]
+- 简单的因子模型自己搭一遍。
+- 取EPS因子，打分，筛选30支股票，然后等权重回测。
+
 * Deep Learning
 ** Natural Language Processing
 *** entity relationship extraction

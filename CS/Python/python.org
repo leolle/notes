@@ -790,6 +790,17 @@ TypeError: unsupported operand type(s) for /: 'str' and 'str'
 #+END_SRC
 * Text Processing Services
 ** string — Common string operations
+- check if string is Chinese:
+#+BEGIN_SRC python
+from googletrans import Translator
+translator = Translator(proxies ={
+             'http': 'http://192.168.1.126:1080',
+             'https': 'http://192.168.1.126:1080'
+         }
+)
+input_text_language_0 = translator.detect(input_text_0).lang
+#+END_SRC
+
 - find if strings are almost equal:
 #+BEGIN_SRC python
 from difflib import SequenceMatcher
