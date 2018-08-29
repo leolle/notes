@@ -222,6 +222,8 @@ https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+
 Jan 31, 2018
 (Jan|Feb|Mar|Apr|May|Jun|Jul|Apr|Sep|Oct|Nov|Dec)\s\d{1,2},\s\d{4}
 
+- time:
+
 - machine space and numbers:
 \s\b\d+\b
 
