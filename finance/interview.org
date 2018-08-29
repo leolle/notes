@@ -14,9 +14,111 @@
 #+SETUPFILE: ../configOrg/level1.org
 
 * Programming
+- travelling grids, how many paths?
+|---+---+---+---+---|
+|---+---+---+---+---|
+|---+---+---+---+---|
+|---+---+---+---+---|
+|---+---+---+---+---|
 
+f(m, n) = 1 + 1
+
+f(m, n) = f(m-1, n) + f(m, n-1)
+
+total number of steps: m + n
+
+select x Ds and then m + n -x Rs, using binomial coefficient:
+
+(m + n)! / m! * n!
 * Probability
+** coin
+- expected number of flips for two consecutive heads:
+E = 2*0.25 + (1 + E)*0.5 + 0.25*(2 + E)
+
+E = 6
+
+- We randomly select 4 numbers from the set of the first 16 prime numbers, without replacement. What is the probability their sum is even? Why?
+prime numbers: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,61
+
+we must exclude 2 in order to get an even sum number.
+
+solution: 16C4/17C4
+
+- You have been chosen to play a game involving a 8-sided die. You get to roll the die once, see the result, and then may choose to either stop or roll again. Your payoff is the sum of your rolls, unless this sum is greater than 8, in which case you "bust" and get nothing. What is your strategy for this game? That is, for each possible outcome of the first roll will you choose stop or to roll again?
+
+- A bag has three coins in it which are visually indistinguishable, but when flipped, one coin has a 20% chance of coming up heads, another as a 20% chance of coming up heads, and the last has 60% chance of coming up heads. I randomly draw a coin from the bag and flip it, and the result comes up heads. What is the probability that if I reflip this coin, it will come up heads again? Why?
+
+- We have two urns. You can't tell them apart from the outside, but one has four $1 chips and six $10 chips, and the other has three $1 chips and seven $10 chips. You randomly draw a chip from one of the urns and it happens to be a $1 chip. Without replacing this draw, I offer you a chance to draw and keep a chip from either urn. Should you draw from the same urn or the opposite urn, and what is the expected value of the chip you draw? Why?
+
 
 * Option
+- assumption of BL
+#+BEGIN_SRC txt
+- risk free rate and volatility is constant
+- liquid market
+- no transaction cost
+- no arbitrage opportunity exists
+- European option
+- no dividend payment
+- return on the underlying are normally distributed
+#+END_SRC
+
+- pricing formula
+$$C=SN(d_1)-N(d_2)KE^{-rt}$$
+#+BEGIN_SRC text
+1. underlying asset expected benefit.
+2. current value of paying the exercise price upon expiration.
+#+END_SRC
+
+- intuition
+Bond and stock arbitrage, portfolio is the same value by buying stock and borrow money.
+
 
 * Database
+select *
+from table_a a
+inner join table_b b
+where a.key==b.key
+
+* Data Analysis
+** handle missing data
+https://towardsdatascience.com/how-to-handle-missing-data-8646b18db0d4
+
+- deletion:
+  - deleting rows
+  - pairwise deletion
+  - deleting columns
+- imputation:
+  - general problem
+    - categorical: make na as level, multiple imputation, logistic regression
+    - continuous: mean median mode, multiple imputation, linear regression
+  - time series
+    - data without trend & without seasonality: mean, median, mode, random sample imputation
+    - data with trend without seasonality: linear interpolation
+    - data with trend & with seasonal: seasonal adjustment + interpolation
+
+** groupby
+#+BEGIN_SRC python
+In [5]: import pandas as pd
+
+In [6]: info = {'sex':['F','F','M'],'age':[1,2,3]}
+In [39]: df_info = pd.DataFrame(data=info,index=range(3))
+
+In [48]: df_info
+Out[49]:
+   age sex
+0    1   F
+1    2   F
+2    3   M
+
+In [63]: df_info.groupby('sex')['age'].mean()
+Out[63]:
+sex
+F    1.5
+M    3.0
+Name: age, dtype: float64
+
+#+END_SRC
+
+** merge, join
+inner join, outter join, left join, right join.
