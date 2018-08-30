@@ -35,10 +35,15 @@
 3. 可视化
 4. 建模
 
-* TODO 交易，组合优化，回测系统的修改
-- [X] 修改一下readme.org.
+* TODO 交易回测系统的修改
+DEADLINE: <2018-09-01 Sat>
 - [ ] 风险模型要自己可以跑。
 - [ ] 对比Quantopian risk model, https://www.youtube.com/watch?v=JNEv_jHu6Is
+
+* risk model
+- [ ] 修改一下readme.org.
+
+* 组合优化，
 - [ ] 输入利率，权重，价格，可以回测，无需加入复权信息。
 - [ ] BlackLitterman 参考华泰的策略，再用ipynb做一遍。
 
