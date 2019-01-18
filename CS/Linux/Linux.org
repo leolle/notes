@@ -1056,6 +1056,7 @@ sudo gedit /etc/fstab
 *** Storage hardware
 - check disk storage space:
 #+BEGIN_SRC bash
+# human readable
 df -H
 sudo fdisk -l
 #+END_SRC
@@ -1502,3 +1503,10 @@ sudo apt-get install vinagre -y
 *** Terminal unwedging
 *** Debugging a serial line
 *** Connecting to serial device consoles
+** Docker
+*** start a docker
+*** manage a docker image
+*** go inside a docker
+#+BEGIN_SRC bash
+docker exec -it container的ID /bin/bash
+#+END_SRC

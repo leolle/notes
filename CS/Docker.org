@@ -69,9 +69,10 @@ docker pull neo4j:3.3
 #+END_SRC
 ** start an instance
 #+BEGIN_SRC shell
-docker run --publish=7474:7474 --publish=7687:7687 --env=NEO4J_AUTH=none --volume=$HOME/neo4j/data:/data neo4j
-
+docker run --publish=7474:7474 --publish=7687:7687 --env=NEO4J_AUTH=none --volume=$HOME/neo4j/data:/data --volume=$HOME/neo4j/logs:/logs neo4j:latest
 #+END_SRC
+** access neo4j in webbrowser
+put the localhost url in bolt: 127.0.0.1
 * Docker commands
 - list all images
 #+BEGIN_SRC bash

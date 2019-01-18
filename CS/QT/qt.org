@@ -1,0 +1,59 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: QTConsole
+#+DATE: <2017-11-15 Wed>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+#+SETUPFILE: ../configOrg/level1.org
+
+
+* QT
+** quick start:
+1. create dialog from qt designer.
+
+2. run python.
+#+BEGIN_SRC python
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Dec  6 15:55:48 2018
+
+@author: wuwei
+"""
+
+from __future__ import division
+import sys
+from PyQt5 import QtCore, QtGui, uic
+from emr import Ui_Dialog
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
+from data_extraction import transform
+from changjiang_extract_2 import txt_to_json, InfoExtr
+import yaml
+
+class MyApp(QWidget, Ui_Dialog):
+    def __init__(self):
+        super(MyApp, self).__init__()
+        self.setupUi(self)
+
+    def extract(self):
+        input_txt = str(self.input_text.toPlainText())
+        txt_dict = txt_to_json(input_txt)
+        ie=InfoExtr()
+        dict_batch = ie.get_batch(txt_dict)
+        self.output_text.setText(yaml.safe_dump(dict_batch, allow_unicode=True))
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MyApp()
+    window.pushButton.clicked.connect(window.extract)
+    window.show()
+    sys.exit(app.exec_())
+#+END_SRC
+
+3. pack python file into windows exe.

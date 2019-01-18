@@ -17,6 +17,11 @@
 * Built-in Functions
 
 ** Function
+- pythonic returning values:
+#+BEGIN_SRC python
+def foo():
+    return 'a' if value is True else 'b'
+#+END_SRC
 - function parameter
   - pass the parameters boo(a=1,b=2) won’t change the value of the parameters themselves. the sequence of the parameters are certain, you can’t change it.
 
@@ -567,6 +572,18 @@ b = benchmark([ForLoop, IterNext, ListIndex, PopAdd, RandomSample, SetUnpacking]
 b.plot()
 #+END_SRC
 ** Mapping Types — dict
+- dump dictionary into pickle:
+#+BEGIN_SRC python
+with open('./data/disease.pkl', 'wb') as f:
+    pickle.dump(dict_intravenous_thrombolysis, f)
+#+END_SRC
+- dump dictionary into json:
+#+BEGIN_SRC python
+import json
+with open('multiple_paths.json', 'w', encoding='utf-8') as fp:
+    js_obj = json.dumps(filtered_dict)
+    fp.write(js_obj)
+#+END_SRC
 - get key from value:
 #+BEGIN_SRC python
 for name, age in word2id.items():    # for name, age in list.items():  (for Python 3.x)
@@ -585,6 +602,10 @@ value = {}
 for key in finance_vocab:
     value[key] = dict_vocab.get(key)
 
+#+END_SRC
+- filter dictionary by value:
+#+BEGIN_SRC python
+filtered_dict = {k:v for k,v in dict.items() if v<0}
 #+END_SRC
 - set all values in a dict:
 #+BEGIN_SRC python
@@ -1112,7 +1133,12 @@ On a typical machine running Python, there are 53 bits of precision available fo
 it’s again replaced with a binary approximation, whose exact value is
 
 2.67499999999999982236431605997495353221893310546875
-
+- precision, scientific number:
+#+BEGIN_SRC python
+import numpy as np
+np.set_printoptions(suppress=True)
+%precision %.4g
+#+END_SRC
 ** fractions — Rational numbers
 ** random — Generate pseudo-random numbers
 ** statistics — Mathematical statistics functions
@@ -1431,6 +1457,14 @@ python list_person.py ADDRESS_BOOK_FILE
 #+BEGIN_SRC bash
 pip install neo4j-driver py2neo
 
+#+END_SRC
+*** basic operations
+- create cursor:
+#+BEGIN_SRC python
+g = Graph(host="192.168.4.36",  # neo4j 搭载服务器的ip地址，ifconfig可获取到
+            http_port=7474,  # neo4j 服务器监听的端口号
+            user="neo4j",  # 数据库user name，如果没有更改过，应该是neo4j
+            password="neo4j123")
 #+END_SRC
 * Data Compression and Archiving
 ** zip
@@ -2225,6 +2259,95 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- create a dataframe from a dictionary:
+#+BEGIN_SRC python
+df = pd.DataFrame.from_dict({}, orient='index')
+#+END_SRC
+- get unique columns value groups:
+#+BEGIN_SRC python
+rels = ['疾病名称','诊疗大类2']
+rels_cure = df_cure.groupby(rels).size().reset_index()[rels].values.tolist()
+#+END_SRC
+- fill na with previous column:
+#+BEGIN_SRC python
+df_tree.fillna(method='pad', axis=1, inplace=True)
+#+END_SRC
+- delete a column in a dataframe:
+#+BEGIN_SRC python
+del df['column']
+#+END_SRC
+- create node edges
+#+BEGIN_SRC python
+def create_node(label, nodes):
+    count = 0
+    for node_name in tqdm(nodes):
+        node = Node(label, name=node_name)
+        # g.schema.create_uniqueness_constraint(label, node_name)
+        try:
+            g.create(node)
+            count += 1
+        except ClientError:
+            continue
+        # debug(count)
+    return
+
+
+'''创建实体关联边'''
+def create_relationship(start_node, end_node, edges, rel_type, rel_name):
+    count = 0
+    # 去重处理
+    set_edges = []
+    for edge in edges:
+        try:
+            set_edges.append('###'.join(edge))
+        except TypeError:
+            continue
+    all = len(set(set_edges))
+    for edge in tqdm(set(set_edges)):
+        edge = edge.split('###')
+        p = edge[0]
+        q = edge[1]
+        if p==q:
+            continue
+        query = "match(p:%s),(q:%s) where p.name='%s'and q.name='%s' create (p)-[rel:%s{name:'%s'}]->(q)" % (
+            start_node, end_node, p, q, rel_type, rel_name)
+        try:
+            g.run(query)
+            count += 1
+            # debug(rel_type)
+        except Exception as e:
+            info(e)
+    return
+
+'''创建知识图谱中心疾病的节点'''
+def create_diseases_nodes(disease_infos):
+    count = 0
+    for disease_dict in tqdm(disease_infos):
+        node = Node("Disease", name=disease_dict['name'], desc=disease_dict['desc'],
+                    prevent=disease_dict['prevent'] ,cause=disease_dict['cause'],
+                    easy_get=disease_dict['easy_get'],cure_lasttime=disease_dict['cure_lasttime'],
+                    cure_department=disease_dict['cure_department']
+                    ,cure_way=disease_dict['cure_way'] , cured_prob=disease_dict['cured_prob'])
+        g.create(node)
+        # count += 1
+        # debug(count)
+    return
+#+END_SRC
+- select rows by column values:
+#+BEGIN_SRC python
+df[df['a'].isin(list)]
+df[df['a']==a]
+df_insurance_disease = df_insurance[(df_insurance['type']=='医疗费用-疾病') & (df_insurance['year'].isin(years[4:]))]
+
+#+END_SRC
+- create tuples or dictionary from two columns:
+#+BEGIN_SRC python
+dict(df[['a', 'b']].values.tolist())
+#+END_SRC
+- mapping:
+#+BEGIN_SRC python
+df['a'].map(dict)
+#+END_SRC
 - filter not null, filter not NaT rows:
 since strings data types have variable length, it is by default stored as object dtype. If you want to store them as string type, you can do something like this.
 #+BEGIN_SRC python
@@ -2937,6 +3060,14 @@ plt.text(0.5, 0.5, s=u'测试', fontproperties=prop)
 plt.show()
 
 #+END_SRC
+
+*** stacked barplot, portfolio change
+#+BEGIN_SRC python
+pivot_df_insurance_accident = df_insurance_accident.pivot(
+    index='year', columns='cat_age_sex', values='basic_insurance_fee')
+pivot_df_insurance_disease.plot.bar(title='医疗保险-疾病纯保费',stacked=True, figsize=(10,7))
+
+#+END_SRC
 ** scipy
 -  combination k from n.
 $$
@@ -2955,6 +3086,35 @@ array([ 120.,  210.])
 220L
 #+END_SRC
 [https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.comb.html]
+** networkx:
+- list edges of a node:
+#+BEGIN_SRC python
+G.neibors('node')
+#+END_SRC
+- count edges of a node:
+#+BEGIN_SRC python
+G.in_edges_degree()
+G.out_edges_degree()
+#+END_SRC
+- create an edge:
+#+BEGIN_SRC python
+G.add_edges_from([(a,b)])
+G.add_weighted_edges_from([(a,b,weight)])
+#+END_SRC
+- create a graph:
+#+BEGIN_SRC python
+G = nx.Graph()
+# directed graph
+G = nx.DiGraph()
+#+END_SRC
+- dump a graph:
+#+BEGIN_SRC python
+nx.write_gexf(G, 'file/path.gexf')
+#+END_SRC
+- draw a graph:
+#+BEGIN_SRC python
+nx.draw(G, with_labels=True)
+#+END_SRC
 * Deep Learning
 ** Tensorflow
 - install tensorflow:
