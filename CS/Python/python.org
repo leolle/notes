@@ -28,16 +28,17 @@ def foo():
 - if the input argument is un-mutable,函数中改变形参值不会改变原值。
 if the input is mutable, operate on the input like append operation will change the input argument.
 
-- a, b = b, a + b # 相当于：
+- 11076976a, b = b, a + b # 相当于：
 #+begin_src python
 t = (b, a + b) # t是一个tuple
-a = t[0]
+table_resulta = t[0]
 b = t[1]
 #+end_src
 
 
 ** trouble shooting
-- linux python FileNotFoundError: [Errno 2] No such file or directory:
+- linux python FileNotFoundEr
+ror: [Errno 2] No such file or directory:
 
 try to use absolute path instead of relative path to read a file.
 
@@ -45,7 +46,7 @@ try to use absolute path instead of relative path to read a file.
 pip install tables
 
 ** Decorator
-Decorator is way to dynamically add some new behavior to some objects. We achieve the same in Python by using closures.
+Decorator is way to dynamically add some new behavior to some objects. We achieve the same in Python by using closuhttp://cnki.cn-ki.net/KCMS/detail/detail.aspx?QueryID=1&CurRec=1&recid=&filename=1019008654.nh&dbname=CDFDTEMP&dbcode=CDFD&yx=&pr=&URLID=&forcenew=nores.
 
 In the example we will create a simple example which will print some statement before and after the execution of a function.
 
@@ -325,6 +326,10 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- remove value in a list:
+#+BEGIN_SRC python
+list.remove('value')
+#+END_SRC
 - tuple vs set
 A set is a slightly different concept from a list or a tuple. A set, in Python, is just like the mathematical set. It does not hold duplicate values, and is unordered. However, it is not immutable unlike a tuple.Jan 9, 2018
 
@@ -1050,6 +1055,16 @@ for i in tqdm(range(10)):
 # enumerate
 for i in enumerate(tqdm(list)):
     do things()
+# pandas 
+df = pd.DataFrame(np.random.randint(0, int(1e8), (10000, 1000)))
+
+# Create and register a new `tqdm` instance with `pandas`
+# (can use tqdm_gui, optional kwargs, etc.)
+tqdm.pandas()
+
+# Now you can use `progress_apply` instead of `apply`
+df.groupby(0).progress_apply(lambda x: x**2)
+
 #+end_src
 
 - string to datetime:
@@ -1269,6 +1284,18 @@ pickle.dump( x0, open( "x0.pkl", "wb" ) )
 #+END_SRC
 
 *** load:
+- read all the objects in the pickle dump file:
+#+BEGIN_SRC python
+pickle_file = open('./data/city_20190228.pkl', 'rb')
+dict_disease_seed_graph = []
+while True:
+    try:
+        dict_disease_seed_graph.append(pickle.load(pickle_file))
+    except EOFError:
+        pickle_file.close()
+        break
+#+END_SRC
+
 #+BEGIN_SRC python
 import pprint, pickle
 
@@ -2158,7 +2185,10 @@ to virtual environment:
 
 - install from github:
 pip install git+https://github.com/quantopian/zipline.git
-
+#+BEGIN_SRC bash
+conda uninstall tqdm
+easy_install git+https://github.com/quantopian/zipline.git
+#+END_SRC
 - change conda source:
 #+BEGIN_SRC shell
 conda config --add channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'
@@ -2259,6 +2289,176 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- apply to each group in groupby:
+#+BEGIN_SRC python
+for group in df2.groupby('type'):
+    print(group_id, group[0])
+    data = group[1]
+    if group[0] == 'A':
+        print group[1].min()
+#+END_SRC
+- apply to a column for each row:
+#+BEGIN_SRC python
+df = pd.DataFrame([[1,2,3],[4,5,6]], columns=['a','b','c'])
+def rowFunc(row):
+    return row['a'] + row['b'] * row['c']
+
+def rowIndex(row):
+    return row.name
+df['d'] = df.apply(rowFunc, axis=1)
+df['rowIndex'] = df.apply(rowIndex, axis=1)
+df
+Out[182]:
+   a  b  c   d  rowIndex
+0  1  2  3   7         0
+1  4  5  6  34         1
+#+END_SRC
+- permutation of an array:
+#+BEGIN_SRC python
+person_id = df_disease_sample['person_id'].unique()
+from itertools import permutations
+perm = permutations(person_id, 2)
+df_person_similarity_adj_matrix = pd.DataFrame(index=perm, columns=['similarity'])
+df_person_similarity_adj_matrix
+#+END_SRC
+- remove value in pandas index:
+#+BEGIN_SRC python
+index.drop('value')
+#+END_SRC
+- select rows with value in multiple columns:
+#+BEGIN_SRC python
+df_suspicious_pairs[df_suspicious_pairs[['person_id_1', 'person_id_2']].isin(['11076976']).any(axis=1)]
+def add_edges(G, row, df_suspicious_pairs):
+    person_id = row.index
+    df_targets = df_suspicious_pairs[df_suspicious_pairs[['person_id_1', 'person_id_2']].isin(person_id).any(axis=1)]
+    G.add_edges_from([tuple(x) for x in df_targets[['person_id_1', 'person_id_2']].values])
+
+
+df_suspicious_person.progress_apply(lambda x: add_edges(G, x, df_suspicious_pairs))
+#+END_SRC
+- delete rows that contain string value in a column:
+#+BEGIN_SRC python
+df_disease_sample[~df_disease_sample['treatment_code'].str.contains('DE')]
+#+END_SRC
+- pandas values to dict:
+#+BEGIN_SRC python
+med_hos_id_mapping.set_index('med_clinic_id')['hos_id'].to_dict()
+#+END_SRC
+- create dataframe from a list of tuples:
+#+BEGIN_SRC python
+pd.DataFrame.from_records([tuples])
+#+END_SRC
+- create multiple index for index:
+#+BEGIN_SRC python
+similarity_rank.index = pd.MultiIndex.from_tuples(similarity_rank.index)
+#+END_SRC
+- groupby, transform, agg:
+#+BEGIN_SRC python
+df = pd.DataFrame(dict(A=list('aabb'), B=[1, 2, 3, 4], C=[0, 9, 0, 9]))
+# groupby is the standard use aggregater
+df.groupby('A').mean()
+# maybe you want these values broadcast across the whole group and return something with the same index as what you started with.
+# use transform
+
+df.groupby('A').transform('mean')
+# is equalvilent to groupby("A").mean()
+df.set_index('A').groupby(level='A').transform('mean')
+
+# agg is used when you have specific things you want to run for different columns or more than one thing run on the same column.
+
+df.groupby('A').agg(['mean', 'std'])
+
+
+#+END_SRC
+
+- read oracle database UnicodeDecodeError:
+#+BEGIN_SRC python
+import cx_Oracle as cx
+import pandas as pd
+import numpy as np
+import os
+from tqdm import *
+import os
+from sqlalchemy import create_engine
+
+
+os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
+
+engine = create_engine('oracle://MMAPV41:MMAPV411556@192.168.4.32:1521/orcl?charset=utf8')
+
+conn=cx.connect('MMAPV41/MMAPV411556@192.168.4.32/orcl')
+sql_regist = """
+select med_clinic_id, person_id, person_nm, person_sex, 
+person_age, in_hosp_date, out_hosp_date, 
+med_ser_org_no, clinic_type, in_diag_dis_nm, out_diag_doc_cd, 
+med_amout, hosp_lev from t_kc21
+"""
+df_regist = pd.read_sql_query(sql_regist, engine)
+
+s_med_clinic_id = pd.read_pickle('med_clinic_id.pkl')
+n = 100
+sql_regist = """
+select med_clinic_id, person_id, person_nm, person_sex, 
+person_age, in_hosp_date, out_hosp_date, 
+med_ser_org_no, clinic_type, in_diag_dis_nm, out_diag_doc_cd, 
+med_amout, hosp_lev from t_kc21 where med_clinic_id in (%s)
+"""
+df_regist = pd.DataFrame()
+for i in tqdm(range(0, int(len(s_med_clinic_id)/100), n)):
+    s = "'"+','.join(s_med_clinic_id.ix[i:(i+n)].values.flatten()).replace(',',"','")+"'"
+    sql = sql_regist%(s)
+    try:
+        df_regist_iter = pd.read_sql(sql, conn)
+        df_regist = df_regist.append(df_regist_iter)
+    except UnicodeDecodeError:
+        continue
+df_regist.to_pickle("registration_data.pkl")
+
+#+END_SRC
+- find rows with nearest dates/value:
+#+BEGIN_SRC python
+df_result = pd.DataFrame()
+for idx, value in enumerate(groups):
+    df_target_group = df_patient.loc[value]
+    df_target_group.sort_values('入院日期', inplace=True)
+    df_target_group['checkin_diff'] = df_target_group['入院日期'].diff()/np.timedelta64(1, 'D')
+    df_target_group.reset_index(inplace=True)
+    index = df_target_group[df_target_group['checkin_diff']<=3].index
+    result = pd.concat([df_target_group.loc[index], df_target_group.loc[index-1]]).sort_values('入院日期')
+    result.drop_duplicates(['个人ID','入院日期'], inplace=True)
+    result['group'] = idx
+    result['hospitals'] = result['机构'].unique().shape[0]
+    df_result = df_result.append(result.drop('checkin_diff',axis=1))
+#+END_SRC
+- save to excel sheet:
+#+BEGIN_SRC python
+writer = pd.ExcelWriter('nanjing_result.xlsx')
+df_nanjing.to_excel(writer,'全部分组')
+big_groups.to_excel(writer,'超大组')
+# writer.save()
+#+END_SRC
+- concate multiple columns into one column:
+#+BEGIN_SRC python
+diff_checkout_next_checkin['date'] = dataframe.loc[index, columns].stack().sort_values()
+diff_checkout_next_checkin['diff'] = diff_checkout_next_checkin['date'].diff()/np.timedelta64(1, 'M')
+
+#+END_SRC
+- sort values:
+#+BEGIN_SRC python
+df_nanjing.sort_values(['group_sn', '个人ID', '入院日期'], inplace=True)
+#+END_SRC
+- read excel:
+#+BEGIN_SRC python
+df_nanjing = pd.read_excel('result.xlsx',dtype={'证件号':str,
+                                                '个人ID':str},
+                         parse_dates=['入院日期','出院日期'])
+#+END_SRC
+- groupby group size:
+#+BEGIN_SRC python
+group_size = df_nanjing.groupby(['group_sn'])['个人ID'].unique().apply(len)
+big_groups = df_nanjing[df_nanjing['group_sn'].isin(group_size[group_size >= 8].index)]
+small_groups = df_nanjing[df_nanjing['group_sn'].isin(group_size[group_size < 8].index)]
+#+END_SRC
 - create a dataframe from a dictionary:
 #+BEGIN_SRC python
 df = pd.DataFrame.from_dict({}, orient='index')
@@ -2335,7 +2535,7 @@ def create_diseases_nodes(disease_infos):
 #+END_SRC
 - select rows by column values:
 #+BEGIN_SRC python
-df[df['a'].isin(list)]
+df[(df['a'].isin(condition1)&(df['a'].isin(condition2))]
 df[df['a']==a]
 df_insurance_disease = df_insurance[(df_insurance['type']=='医疗费用-疾病') & (df_insurance['year'].isin(years[4:]))]
 
@@ -2343,9 +2543,11 @@ df_insurance_disease = df_insurance[(df_insurance['type']=='医疗费用-疾病'
 - create tuples or dictionary from two columns:
 #+BEGIN_SRC python
 dict(df[['a', 'b']].values.tolist())
+[tuple(x) for x in df[['a', 'b', 'c']].values]
 #+END_SRC
 - mapping:
 #+BEGIN_SRC python
+dictionary = df_mapping.set_index('a')['b'].to_dict()
 df['a'].map(dict)
 #+END_SRC
 - filter not null, filter not NaT rows:
@@ -2626,7 +2828,10 @@ data.rename(columns=lambda x: name[x], inplace=True)
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x.)
 #+end_src
-
+- apply by group:
+#+BEGIN_SRC python
+df_long_term = small_groups.groupby('个人ID').progress_apply(lambda x: long_term_hospitalization(x[['入院日期', '出院日期']], days=30))
+#+END_SRC
 - pandas long format to pivot:
 #+begin_src python
 pivoted = df.pivot('name1','name2','name3')
@@ -2861,6 +3066,53 @@ panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
 #+END_SRC
 pandas panel item axis should be datetime64, this should not be an array.
 ** numpy
+- plot histogram:
+#+BEGIN_SRC python
+>>> import matplotlib.pyplot as plt
+>>> rng = np.random.RandomState(10)  # deterministic random data
+>>> a = np.hstack((rng.normal(size=1000),
+...                rng.normal(loc=5, scale=2, size=1000)))
+>>> plt.hist(a, bins='auto')  # arguments are passed to np.histogram
+>>> plt.title("Histogram with 'auto' bins")
+>>> plt.show()
+#+END_SRC
+- quantile:
+#+BEGIN_SRC python
+numpy.quantile(a, q, axis=None, out=None, overwrite_input=False, interpolation='linear', keepdims=False)
+#+END_SRC
+- upper triangle matrix:
+#+BEGIN_SRC python
+import numpy as np
+
+a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+
+#array([[1, 2, 3],
+#       [4, 5, 6],
+#       [7, 8, 9]])
+
+a[np.triu_indices(3, k = 1)]
+
+# this returns the following
+array([2, 3, 6])
+#+END_SRC
+- sort an array by descending:
+#+BEGIN_SRC python
+In [25]: temp = np.random.randint(1,10, 10)
+
+In [26]: temp
+Out[26]: array([5, 2, 7, 4, 4, 2, 8, 6, 4, 4])
+
+In [27]: id(temp)
+Out[27]: 139962713524944
+
+In [28]: temp[::-1].sort()
+
+In [29]: temp
+Out[29]: array([8, 7, 6, 5, 4, 4, 4, 4, 2, 2])
+
+In [30]: id(temp)
+Out[30]: 139962713524944
+#+END_SRC
 - save an array:
 #+BEGIN_SRC python
 import numpy as np

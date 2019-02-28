@@ -1,0 +1,33 @@
+#+SETUPFILE: ../../configOrg/level2.org
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: Healthcare vocalbulary
+#+DATE: <2019-02-21 Thu>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+* Vocabulary
+** Alphabet 
+- LOS:
+length of stay
+
+- Admission
+- Discharge
+- EMR
+electronic medical record
+- deceitful
+- scam
+- criminal group
+- suspects
+
+** todo:
+- extract words from url:
+- [ ] https://www.nhcaa.org/resources/health-care-anti-fraud-resources/the-challenge-of-health-care-fraud.aspx
+
+

@@ -52,7 +52,8 @@ svn checkout http://192.168.1.30/svn/gftchina/Hanadev/trunk/WaveFront/
 *** Other sources of information
 *** Ways to find and install software
 *** System administration under duress
-*** Configuring a deep learning machine after installing a new operation system:
+*** Configuring a deep learning machine after installing
+ a new operation system:
 *very important:*
 Can't use the recommended graphical driver from the system.
 1. change software update sauce to Chinese local sauce.
@@ -199,6 +200,16 @@ sudo /usr/local/cuda-X.Y/bin/uninstall_cuda_X.Y.pl
 sudo apt-get remove --purge nvidia*
 sudo apt-get update
 sudo apt-get install dkms build-essential linux-headers-generic
+#+END_SRC
+
+13. cuda version
+#+BEGIN_SRC bash
+nvcc --version
+#+END_SRC
+
+14. cudnn version
+#+BEGIN_SRC bash
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 #+END_SRC
 ***** install cudnn:
 1. mount share folder:
@@ -982,8 +993,11 @@ ps aux | grep -ie amarok | awk '{print $2}' | xargs kill -9
 *** The /proc filesystem
 *** strace, truss, and tusc: trace signals and system calls
 *** Runaway processes
-
-
+*** Check Memory usage:
+#+BEGIN_SRC bash
+free -m
+top -H
+#+END_SRC
 ** THE FILESYSTEM
 *** Pathnames
 - get file's absolute path
@@ -1416,6 +1430,29 @@ tcpdump ip proto \\icmp
 * BUNCH O' STUFF
 ** VIRTUALIZATION
 *** Virtual vernacular
+**** screen
+Screen or GNU Screen, is a terminal multiplexer. In other words, it means that you can start a screen session and then open any number of windows(virtual terminals) inside that session. Processes running in Screen will continue to run when their window is not visible even if you get disconnected.
+***** installation
+#+BEGIN_SRC bash
+yum install screen
+# or
+sudo apt-get install screen
+#+END_SRC
+***** start a linux screen
+#+BEGIN_SRC bash
+screen -S session_name
+Ctrl+a c # Create a new window (with shell)
+Ctrl+a Ctrl+a # Toggle between current and previous region
+
+#+END_SRC
+***** Detach from Linux Screen Session
+Ctrl+a d
+***** Reattach to a Linux Screen
+#+BEGIN_SRC bash
+screen -ls
+screen -r session
+
+#+END_SRC
 *** Benefits of virtualization
 *** A practical approach
 *** Virtualization with Linux

@@ -67,6 +67,11 @@ where Student.sID = Apply.sID
 and sizeHS < 1000 and major = 'CS' and cname = 'Standford'
 order by GPA desc;
 #+END_SRC
+** oracle select limit:
+#+BEGIN_SRC sql
+select * from table where rownum<=1000
+order by condition_1, condition_2;
+#+END_SRC
 ** Table variables and set operators
 *** Table variables
 using for alternative name readable, express relation with other prompts.

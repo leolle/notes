@@ -42,7 +42,11 @@ A class using Declarative at a minimum needs a tablename attribute, and at least
 ** Create a Schema
 
 When we declared our class, Declarative used a Python metaclass in order to perform additional activities once the class declaration was complete; within this phase, it then created a Table object according to our specifications, and associated it with the class by constructing a Mapper object.
-
+- import data to a table from pandas dataframe:
+#+BEGIN_SRC python
+from sqlalchemy import Column, Integer, String
+df_suspicious.to_sql('t_group_risk', engine, if_exists='append', dtype={'person_id_1':String(25), 'med_id_1':String(25), 'person_id_2':String(25), 'med_id_2':String(25), 'sim':String(25), 'hos_id':String(25), 'hos_lv':String(25), 'disease':String(25)})
+#+END_SRC
 ** reate an Instance of the Mapped Class
 
 ** Creating a Session
@@ -188,4 +192,43 @@ def test_orm_flush(n):
             customer.description += "updated"
         session.flush()
     session.commit()
+#+END_SRC
+
+* Fetching data
+** Oracle
+*** create engine
+#+BEGIN_SRC python
+from sqlalchemy import create_engine, MetaData, Table, select
+engine = create_engine('oracle+cx_oracle://MMAPV41:MMAPV411556@192.168.4.32:1521/orcl?allow_twophase=false')
+con = engine.connect()
+#+END_SRC
+*** mapper
+#+BEGIN_SRC python
+metadata = MetaData()
+outpt = con.execute("SELECT * FROM t_kc21")
+df = Table('t_kc21', metadata, autoload=True, autoload_with=engine)
+#+END_SRC
+*** read data
+#+BEGIN_SRC python
+query = select([df])
+ResultProxy = con.execute(query)
+flag = True
+counter = 0
+while flag:
+    try:
+        partial_results = ResultProxy.fetchmany(50)
+    except:
+        pass
+    if(partial_results == []): 
+        flag = False
+    else:
+        counter += 50
+        if counter == 100000:
+            flag = False
+ResultProxy.close()
+
+df = pd.DataFrame(partial_results)
+df.columns = partial_results[0].keys()
+
+
 #+END_SRC
