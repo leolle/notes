@@ -1,0 +1,58 @@
+#+TITLEs: Stock Recommendation
+#+LANGUAGE: en
+#+TAGS: review
+#+OPTIONS: toc:nil h:4 html-postamble:nil html-preamble:t tex:t f:t
+#+OPTIONS: prop:("VERSION")
+#+HTML_DOCTYPE: <!DOCTYPE html>
+#+HTML_HEAD: <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link href="css/style.css" rel="stylesheet" type="text/css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./styles/demo/css/style.css"/>
+#+SETUPFILE: ./configOrg/level0.org
+
+#+HTML: <div class="outline-2" id="meta">
+| *Author* | {{{author}}} ({{{email}}})    |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+#+HTML: </div>
+
+* Stock prediction
+** Goal:
+To find short term interesting stocks based on the historical reaction of stocks in a specific environment variables based on the current situation.
+
+To recommend stocks based on the current environment variable.
+
+We can read stocks from the financial report.
+
+Stock price is a reflection of three factors:
+- fundamental factors of a company
+- technical level
+- financial news
+
+Using deep learning CNN on financial news to extract features that affect the stock price.
+
+Ranking the portfolio with these features, give top 5 and worst 5 stocks.
+
+** Steps:
+
+*** Algorithm:
+**** PDF解析
+如当前互联网可获取到的公告大部分为pdf文本，因此需要对原始的pdf文档进行内容识别，
+提取有效文字段落、图表、图片等信息，剔除无关信息数据，如页眉页脚、水印、文档背景、格式等。
+
+Convert PDF to images, using CRF to classify blocks of text content, images, figures, tables.
+
+Align these blocks, use CPTN + DenseNet to extract text content, use deep scene to extract figures.
+
+- extract stock events. 系统自动识别PDF内标题，并根据标题进行分类
+
+- 按段落和句子进行切分
+
+- 关键句提取
+
+- 实体或事件提取
+
+- training data on events and stock return.
+
+*** trading strategy:
+Use Martingale trading strategy instead of short-period transaction.
+
+

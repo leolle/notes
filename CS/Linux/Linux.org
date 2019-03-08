@@ -43,6 +43,11 @@ svn checkout http://192.168.1.30/svn/gftchina/Hanadev/trunk/WaveFront/
 *** Suggested background
 *** Friction between UNIX and Linux
 *** Linux distributions
+- centos version:
+#+BEGIN_SRC bash
+cat /etc/redhat-release
+lsb_release -a
+#+END_SRC
 *** Example systems used in this book
 *** System-specific administration tools
 *** Notation and typographical conventions

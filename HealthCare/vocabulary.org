@@ -25,7 +25,8 @@ electronic medical record
 - scam
 - criminal group
 - suspects
-
+- insurance service provider
+- insuranee
 ** todo:
 - extract words from url:
 - [ ] https://www.nhcaa.org/resources/health-care-anti-fraud-resources/the-challenge-of-health-care-fraud.aspx

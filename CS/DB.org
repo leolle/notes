@@ -172,6 +172,17 @@
   - GRANT statement ON table TO who
   - REVOKE statement ON table FROM who
 
+- deadlock
+#+BEGIN_SRC sql
+select * from v$locked_object
+
+select object_name,machine,s.sid,s.serial#
+from v$locked_object l,dba_objects o ,v$session s
+where l.object_id　=　o.object_id and l.session_id=s.sid;
+
+
+alter system kill session '83, 23941'
+#+END_SRC
 ** Datatype
 CHAR, VARCHAR, BLOB, INT, DEC, DATE, DATETIME
 ** Join

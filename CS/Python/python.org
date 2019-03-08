@@ -34,8 +34,27 @@ t = (b, a + b) # t是一个tuple
 table_resulta = t[0]
 b = t[1]
 #+end_src
+*** normal argument, args, kwargs
+*args and **kwargs allow you to pass a variable number of arguments to a function. 
+- *args:
+#+BEGIN_SRC python
+def test_var_args(f_arg, *argv):
+    print "first normal arg:", f_arg
+    for arg in argv:
+        print "another arg through *argv :", arg
 
+test_var_args('yasoob','python','eggs','test')
 
+#+END_SRC
+- **kwargs:
+#+BEGIN_SRC python
+>>> kwargs = {"arg3": 3, "arg2": "two","arg1":5}
+>>> test_args_kwargs(**kwargs)
+arg1: 5
+arg2: two
+arg3: 3
+
+#+END_SRC
 ** trouble shooting
 - linux python FileNotFoundEr
 ror: [Errno 2] No such file or directory:
@@ -913,6 +932,10 @@ print(str.isalpha())
 *** useage:
 - find strings
 - convert strings
+- convert syntax from python2 to python3
+#+BEGIN_SRC txt
+regular expression: find print(\S*), replace with print(\1)
+#+END_SRC
 *** types:
 In : rex_property.search?
 Signature: rex_property.search(string=None, pos=0, endpos=9223372036854775807, *, pattern=None)
@@ -1164,6 +1187,11 @@ np.set_printoptions(suppress=True)
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
 ** os.path — Common pathname manipulations
+- move file
+#+BEGIN_SRC python
+import os
+os.move(source_file_path, destination)
+#+END_SRC
 - find current working dir:
 #+BEGIN_SRC python
 import sys, os
@@ -2051,6 +2079,10 @@ $ python3 test.py arg1 arg2 arg3
 ** builtins — Built-in objects
 ** __main__ — Top-level script environment
 ** warnings — Warning control
+- SettingWithCopyWarning in Pandas
+#+BEGIN_SRC python
+pd.options.mode.chained_assignment = None  # default='warn'
+#+END_SRC
 ** contextlib — Utilities for with-statement contexts
 ** abc — Abstract Base Classes
 ** atexit — Exit handlers
@@ -2289,6 +2321,10 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- filter by groupby count size:
+#+BEGIN_SRC python
+df_patient = df_patient.groupby(['hos_id', 'disease']).filter(lambda x:x['person_id'].unique().size>=3)
+#+END_SRC 
 - apply to each group in groupby:
 #+BEGIN_SRC python
 for group in df2.groupby('type'):
