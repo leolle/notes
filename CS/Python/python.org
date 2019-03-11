@@ -345,6 +345,7 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+
 - remove value in a list:
 #+BEGIN_SRC python
 list.remove('value')
@@ -3407,7 +3408,10 @@ nx.draw(G, with_labels=True)
 ** Tensorflow
 - install tensorflow:
 #+BEGIN_SRC bash
-pip install tensorflow-gpu
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda install tensorflow-gpu==1.3
+conda config --set show_channel_urls yes
+conda install tensorflow-gpu==1.3
 #+END_SRC
 - test drive:
 #+BEGIN_SRC bash
