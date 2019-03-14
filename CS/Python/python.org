@@ -345,7 +345,22 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- nested list comprehension:
+#+BEGIN_SRC python
+[x+y for x in [1,2,3] for y in [4,5,6]]
+# equal to
+res =[]
+for x in [1,2,3]:
+    for y in [4,5,6]:
+        res.append(x+y)
+[y+1 for x in [[1,2],[2,2],[3,2]] for y in x]
 
+# equal to
+res =[]
+for x in [[1,2],[2,2],[3,2]]:
+    for y in x:
+        res.append(1+y)
+#+END_SRC
 - remove value in a list:
 #+BEGIN_SRC python
 list.remove('value')
@@ -2900,6 +2915,9 @@ if dt_diff < pd.Timedelta('3 days'):
 import datetime
 s + datetime.timedelta(minutes=5)
 #+END_SRC
+- resample by a column:
+need to set the index as a datetime index, then use the resample function.
+
 - resample by month and keep the last valid row
 #+BEGIN_SRC python
 benchmark_weight.index.name = 'Date'
@@ -2968,6 +2986,7 @@ a    1    3
 b    2    4
 #+END_SRC
 *** Index
+
 **** Index manuplication
 - set column as datetime index
 #+begin_src python
@@ -3102,7 +3121,26 @@ panel_model = pd.Panel({date: pd.DataFrame(0, index=assets.loc[date,'variable'],
                                            columns=assets.loc[date,'variable']) for date in datetime_index})
 #+END_SRC
 pandas panel item axis should be datetime64, this should not be an array.
+**** unpivot multindex, multindex into colum:
+#+BEGIN_SRC python
+df_med_similarity_adj_matrix['similarity'] = df_med_similarity_adj_matrix.apply(
+    lambda x: 1 - jaccard(docs[x.name[0]], docs[x.name[1]]), axis=1)
+
+df_med_similarity_adj_matrix.index = pd.MultiIndex.from_tuples(df_med_similarity_adj_matrix.index)
+df_med_similarity_adj_matrix.reset_index().pivot(index='level_0', columns='level_1', values='similarity')
+#+END_SRC
 ** numpy
+- numpy unique without sort:
+#+BEGIN_SRC python
+>>> import numpy as np
+>>> a = [4,2,1,3,1,2,3,4]
+>>> np.unique(a)
+array([1, 2, 3, 4])
+>>> indexes = np.unique(a, return_index=True)[1]
+>>> [a[index] for index in sorted(indexes)]
+[4, 2, 1, 3]
+
+#+END_SRC
 - plot histogram:
 #+BEGIN_SRC python
 >>> import matplotlib.pyplot as plt
@@ -3305,6 +3343,26 @@ a['DGAZ.US'].hist(bins=50)
 plt.axvline(a['DGAZ.US'][-1], color='b', linestyle='dashed', linewidth=2)
 #+end_src
 
+*** plot seaborn:
+- plot heatmap:
+#+BEGIN_SRC python
+figure = plt.figure(figsize=(12,12))
+ax = sns.heatmap(temp, vmin=0, vmax=10, fmt="d", cmap="YlGnBu", annot=True)
+# save plot
+ax.get_figure()
+figure.savefig('./images/test.png')
+#+END_SRC
+- save seaborn heatmap:
+#+BEGIN_SRC python
+plt.subplots(figsize=(12,12))
+
+# fig, ax = plt.subplots(figsize=(12,12))
+ax = sns.heatmap(temp, vmin=0, vmax=10, fmt="d", cmap="YlGnBu", annot=True)
+# !!! can't save figure directly, need to get figure first.
+figure = ax.get_figure()
+figure.savefig('./images/%s.png'%(str(person_ids)))
+
+#+END_SRC
 *** plot a 3d figure:
 #+begin_src python :tangle yes
 from mpl_toolkits.mplot3d import Axes3D
@@ -3404,6 +3462,32 @@ nx.write_gexf(G, 'file/path.gexf')
 #+BEGIN_SRC python
 nx.draw(G, with_labels=True)
 #+END_SRC
+* Machine learning:
+** data processing:
+- coding, mapping a list into range:
+#+BEGIN_SRC python
+from sklearn.preprocessing import LabelEncoder
+class_label = LabelEncoder()
+data["label"] = class_label.fit_transform(data["label"].values)
+# or 
+label_mapping = {label:idx for idx,label in enumerate(np.unique(data["label"]))}
+
+#+END_SRC
+- one hot coding:
+#+BEGIN_SRC python
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
+X = data[["color", "price"]].values
+#通过类标编码将颜色装换成为整数
+color_label = LabelEncoder()
+X[:,0] = color_label.fit_transform(X[:,0])
+#设置颜色列使用oneHot编码
+one_hot = OneHotEncoder(categorical_features=[0])
+print(one_hot.fit_transform(X).toarray())
+# or 
+pd.get_dummies(data[["color","price"]])
+#+END_SRC
+
 * Deep Learning
 ** Tensorflow
 - install tensorflow:
@@ -3446,3 +3530,4 @@ corpus_tfidf = tfidf_model[corpus_model]
 d = {dictionary.get(id): value for doc in corpus_tfidf for id, value in doc}
 
 #+END_SRC
+
