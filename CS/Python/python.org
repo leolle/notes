@@ -17,6 +17,80 @@
 * Built-in Functions
 
 ** Function
+*** print
+****  output formatting:
+To use formatted string literals, begin a string with f or F before the opening quotation mark or triple quotation mark. Inside this string, you can write a Python expression between { and } characters that can refer to variables or literal values.
+
+#+BEGIN_SRC python
+>>> year = 2016
+>>> event = 'Referendum'
+>>> f'Results of the {year} {event}'
+'Results of the 2016 Referendum'
+
+#+END_SRC
+- The str.format() method
+#+BEGIN_SRC python
+>>> yes_votes = 42_572_654
+>>> no_votes = 43_132_495
+>>> percentage = yes_votes / (yes_votes + no_votes)
+>>> '{:-9} YES votes  {:2.2%}'.format(yes_votes, percentage)
+' 42572654 YES votes  49.67%'
+
+#+END_SRC
+- Formatted String Literals
+#+BEGIN_SRC python
+>>> table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
+>>> for name, phone in table.items():
+...     print(f'{name:10} ==> {phone:10d}')
+...
+Sjoerd     ==>       4127
+Jack       ==>       4098
+Dcab       ==>       7678
+
+>>> animals = 'eels'
+>>> print(f'My hovercraft is full of {animals}.')
+My hovercraft is full of eels.
+>>> print(f'My hovercraft is full of {animals!r}.')
+My hovercraft is full of 'eels'.
+
+
+#+END_SRC
+- String format() method:
+#+BEGIN_SRC python
+>>> print('We are the {} who say "{}!"'.format('knights', 'Ni'))
+We are the knights who say "Ni!"
+
+>>> print('{0} and {1}'.format('spam', 'eggs'))
+spam and eggs
+>>> print('{1} and {0}'.format('spam', 'eggs'))
+eggs and spam
+
+>>> print('This {food} is {adjective}.'.format(
+...       food='spam', adjective='absolutely horrible'))
+This spam is absolutely horrible.
+
+>>> print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred',
+                                                       other='Georg'))
+The story of Bill, Manfred, and Georg.
+
+>>> table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+>>> print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; '
+...       'Dcab: {0[Dcab]:d}'.format(table))
+Jack: 4098; Sjoerd: 4127; Dcab: 8637678
+
+>>> table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+>>> print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table))
+Jack: 4098; Sjoerd: 4127; Dcab: 8637678
+
+#+END_SRC
+- print into file:
+#+BEGIN_SRC python
+#  python 3.x syntax. 
+print(args, file=f1) 
+# For python 2.x use 
+print >> f1, args.
+
+#+END_SRC
 - pythonic returning values:
 #+BEGIN_SRC python
 def foo():
@@ -2099,6 +2173,15 @@ $ python3 test.py arg1 arg2 arg3
 #+BEGIN_SRC python
 pd.options.mode.chained_assignment = None  # default='warn'
 #+END_SRC
+- RuntimeWarning in numpy:
+numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+#+BEGIN_SRC python
+import warnings
+warnings.filterwarnings("ignore", message="numpy.dtype size changed")
+warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
+
+#+END_SRC
+
 ** contextlib — Utilities for with-statement contexts
 ** abc — Abstract Base Classes
 ** atexit — Exit handlers
@@ -2337,6 +2420,10 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- pandas columns into default dictionary:
+#+BEGIN_SRC python
+df_patient[['pid','med_clinic_id']].groupby('pid').apply(lambda x:x['med_clinic_id'].tolist()).to_dict()
+#+END_SRC
 - filter by groupby count size:
 #+BEGIN_SRC python
 df_patient = df_patient.groupby(['hos_id', 'disease']).filter(lambda x:x['person_id'].unique().size>=3)

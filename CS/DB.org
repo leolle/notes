@@ -61,7 +61,8 @@
 - update $r\leftarrow \Pi_{F_1,F_2,...,F_n}(r)$
 * SQL Language
 ** Command
-*** CREATE & DROP & ALTER
+*** CREATE & DROCY041670521US 11183 - Google Search
+P & ALTER
 #+BEGIN_SRC sql
   CREATE DATABASE dbname;
   USE DATABASE dbname;

@@ -2,3 +2,35 @@
 | Lee and Chung (1996)                            | 	Investigating the effects of price limits on stock market efficiency. | 	Korean Stock Exchange: the opening and closing price series from January 1990 to December 1993 of 30 active individual stocks which experience considerable numbers of price limits hits are selected by the highest turnover ratio from different industry | 	1. OLS regression analysis 2. Regression analyses are performed using GARCH (1,1) procedure Comparing the results from original data with the results from proxy data. Proxy data means that on the day of closing price hitting the limits, the closing price is not the equilibrium price which is measured by the next day’s opening price.	 | There are positive serial correlations between returns due to the price limits, suggesting the rejection of market efficiency. When removing the effects of price limits, the serial correlations between returns disappear. |
 | Xiao Dingy∗, Yue Zhangz, Ting Liuy, Junwen Duan | Deep Learning for Event-Driven Stock Prediction.                        | s&p 500, 15 individual stocks                                                                                                                                                                                                                                 | deep learning stock prediction，先做entity relation extraction, 然后把event 做embedding，再用CNN训练，最后预测。                                                                                                                                                                                                                                   | 6% more than state of art prediction                                                                                                                                                                                         |
 |                                                 |                                                                         |                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                              |
+* Background
+In this post, you will discover an approach to developing a scalable end-to-end LSTM model for time series forecasting.
+
+After reading this post, you will know:
+
+- The challenge of multivariate, multi-step forecasting across multiple sites, in this case cities.
+- An LSTM model architecture for time series forecasting comprised of separate autoencoder and forecasting sub-models.
+- The skill of the proposed LSTM architecture at rare event demand forecasting and the ability to reuse the trained model on unrelated forecasting problems.
+
+* Overview
+In this post, we will review the 2017 paper titled “Time-series Extreme Event Forecasting with Neural Networks at Uber” by Nikolay Laptev, et al. presented at the Time Series Workshop, ICML 2017.
+
+This post is divided into four sections; they are:
+
+1. Motivation
+2. Datasets
+3. Model
+4. Findings
+
+* Motivation
+Two existing approaches were described:
+
+- Classical Forecasting Methods: Where a model was developed per time series, perhaps fit as needed.
+- Two-Step Approach: Where classical models were used in conjunction with machine learning models.
+
+The difficulty of these existing models motivated the desire for a single end-to-end model
+
+* Datasets
+
+* Model
+
+* Findings

@@ -1386,6 +1386,11 @@ sudo mount -t cifs -o username="gft" //192.168.1.126/share ~/share
 *** SmokePing: gather ping statistics over time
 *** traceroute: trace IP packets
 *** netstat: get network statistics
+- check port availability:
+#+BEGIN_SRC bash
+netstat -na -f inet | grep LISTEN
+# example netstat -na -f inet | grep 5277
+#+END_SRC
 *** Inspection of live interface activity
 *** Packet sniffers
 *** The ICSI Netalyzr
