@@ -318,6 +318,22 @@ which group of stocks could possibly move up in the next trading period.
 *** K-Nearest Neighbors(KNN)
 
 *** Hierarchical Clustering
+*** DBSCAN(Density-Based Spatial Clustering and Application with Noise)
+DBSCAN is a density based clustering algorithm.
+
+This approach is derived from human intuitive clustering method. The key idea is that for each point of a cluster, the neighborhood of a given radius has to contain at least a minimum number of points.
+
+- Why DBSCAN?
+K-means and hierarchical clustering are suitable for finding spherical-shaped clusters or convex clusters.
+
+DBSCAN can used on clustering of arbitrary shape such as nonconvex clusters like ovales clusters. 
+
+Unlike K-means, DBSCAN does not require the user to specify the number of clusters to be generated.
+
+DBSCAN can identify outliers.
+
+- Algorithm
+Two important parameters are epsilon('eps') and minimum points('MinPts').
 * Resampling Methods
 
 ** Cross-Validation

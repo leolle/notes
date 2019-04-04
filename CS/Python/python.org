@@ -419,6 +419,12 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- Unique value from list of lists:
+#+BEGIN_SRC python
+testdata = [list(x) for x in set(tuple(x) for x in testdata)]
+
+#+END_SRC
+
 - nested list comprehension:
 #+BEGIN_SRC python
 [x+y for x in [1,2,3] for y in [4,5,6]]
@@ -686,6 +692,10 @@ b = benchmark([ForLoop, IterNext, ListIndex, PopAdd, RandomSample, SetUnpacking]
 b.plot()
 #+END_SRC
 ** Mapping Types — dict
+- concat two dictionary:
+#+BEGIN_SRC python
+dict1.update(dict2)
+#+END_SRC
 - dump dictionary into pickle:
 #+BEGIN_SRC python
 with open('./data/disease.pkl', 'wb') as f:
@@ -2420,6 +2430,17 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+
+- first day of the previous month:
+#+BEGIN_SRC python
+today = datetime.datetime.today()
+the_last_day_of_previous_month = today  datetime.timedelta(days=1)
+the_first_day_of_previous_month = the_last_day_of_previous_month.replace(day=1)
+#+END_SRC
+- N month before:
+#+BEGIN_SRC python
+today - pd.Timedelta(1, unit=’M’)
+#+END_SRC
 - pandas columns into default dictionary:
 #+BEGIN_SRC python
 df_patient[['pid','med_clinic_id']].groupby('pid').apply(lambda x:x['med_clinic_id'].tolist()).to_dict()

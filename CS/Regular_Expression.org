@@ -173,9 +173,13 @@ The match must occur at the end of the string.
 #+end_src
 Defines the boundary for the word.
 
-*** Pattern Matching
+*** Common Tokens, Pattern Matching
 - ?
 indicates zero or one occurrences of the preceding element.
+- *
+indicates zero or more occurrences of the preceding element.
+- +
+indicates one or more occurrences of the preceding element.
 
 - You can match the characters not listed within the class by complementing the set.
  This is indicated by including a '^' as the first character of the class; '^' outside a character class will simply match the '^' character. For example, [^5] will match any character except '5'.
