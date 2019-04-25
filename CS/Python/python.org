@@ -252,6 +252,10 @@ min(np.nan, np.inf) = np.inf
 
 - eval
 eval the value of a variable name from string.
+#+BEGIN_SRC python
+text = '{'a':1}'
+eval(text) # will turn text from a string object into a dictionary object
+#+END_SRC
 ** Comparisons
 ** Numeric Types — int, float, complex
 ** Iterator Types
@@ -419,6 +423,14 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- is list equal:
+#+BEGIN_SRC python
+a = [1,2,3]
+b = [3,2,1]
+a.sort()
+b.sort()
+a == b
+#+END_SRC
 - Unique value from list of lists:
 #+BEGIN_SRC python
 testdata = [list(x) for x in set(tuple(x) for x in testdata)]
@@ -995,8 +1007,11 @@ sent= n_tokenize.sent_tokenize(page)
 sent_list = page.split()
 #+END_SRC
 - list comprehension
+#+BEGIN_SRC python
 [x for x in t if x not in s if x.isdigit()]
-
+l = [22, 13, 45, 50, 98, 69, 43, 44, 1]
+[True if x >= 45 else False for x in l]
+#+END_SRC
 - if string are digits.
 #+BEGIN_SRC python
 str.isdigit()
@@ -2336,6 +2351,14 @@ conda config --add channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/
 conda config --set show_channel_urls yes
 #+END_SRC
 
+- easy_install multiple versions, remove version:
+#+BEGIN_SRC python
+import pkg_resources
+pkg_resources.require("gensim")  # latest installed version
+pkg_resources.require("gensim==3.7.2")  # this exact version
+pkg_resources.require("gensim>=3.7.2")  # this version or higher
+
+#+END_SRC
 - create conda virtualenv:
 #+BEGIN_SRC shell
 # 创建 conda 虚拟环境（ :code:`env_name` 是您希望创建的虚拟环境名）
@@ -2356,6 +2379,15 @@ $ deactivate env_name
 
 # 删除 conda 虚拟环境
 $ conda-env remove --name env_name
+
+# add conda for all users
+sudo ln -s /share/anaconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+# Previous to conda 4.4, the recommended way to activate conda was to modify PATH in
+# your ~/.bashrc file.  You should manually remove the line that looks like
+
+    export PATH="/share/anaconda3/bin:$PATH"
+
+# ^^^ The above line should NO LONGER be in your ~/.bashrc file! ^^^
 
 #+END_SRC
 
@@ -2430,7 +2462,23 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- add new columns to a dataframe:
+#+BEGIN_SRC python
+>>> df = pd.DataFrame([[i] for i in range(10)], columns=['num'])
+>>> df
+    num
+0    0
+1    1
+2    2
+3    3
 
+>>> def powers(x):
+>>>     return x, x**2, x**3, x**4, x**5, x**6
+
+>>> df['p1'], df['p2'], df['p3'], df['p4'], df['p5'], df['p6'] = \
+>>>     zip(*df['num'].map(powers))
+
+#+END_SRC
 - first day of the previous month:
 #+BEGIN_SRC python
 today = datetime.datetime.today()
@@ -2595,7 +2643,7 @@ for idx, value in enumerate(groups):
 writer = pd.ExcelWriter('nanjing_result.xlsx')
 df_nanjing.to_excel(writer,'全部分组')
 big_groups.to_excel(writer,'超大组')
-# writer.save()
+writer.save()
 #+END_SRC
 - concate multiple columns into one column:
 #+BEGIN_SRC python

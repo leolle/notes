@@ -46,6 +46,7 @@ svn checkout http://192.168.1.30/svn/gftchina/Hanadev/trunk/WaveFront/
 - centos version:
 #+BEGIN_SRC bash
 cat /etc/redhat-release
+uname -m && cat /etc/*release
 lsb_release -a
 #+END_SRC
 *** Example systems used in this book
@@ -58,7 +59,14 @@ lsb_release -a
 *** Ways to find and install software
 *** System administration under duress
 *** Configuring a deep learning machine after installing
- a new operation system:
+**** use conda
+1. remove cuda
+2. downgrade nvidia to 384.69
+3. conda create -n tfgpu python=3.6.8
+4. conda activate tfgpu
+5. conda install cuda=9.0
+6. conda install tensorflow-gpu ipython pytorch
+**** a new operation system:
 *very important:*
 Can't use the recommended graphical driver from the system.
 1. change software update sauce to Chinese local sauce.
@@ -118,11 +126,17 @@ lsmod | grep nvidia
 **** Setup Linux Nvidia GPU
 1. check & install linux headers
 #+BEGIN_SRC bash
+# list linux kernal header version
+ls -l /usr/src/kernels/
+uname -r # which should equal to previous result
+# centos
+yum install kernel-devel-$(uname -r) kernel-headers-$(uname -r)
+# ubuntu
 sudo apt-get install linux-headers-$(uname -r)
 #+END_SRC
 2. Perform the following steps to install CUDA and verify the installation.
 3. download cuda
-[[https://developer.nvidia.com/cuda-downloads][cuda_downloads]]
+[[https://developer.nvidia.com/cuda-toolkit-archive][cuda_downloads]]
 
 [[https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/][tutorial of installing cuda gpu for deep learning with python]]
 
@@ -713,6 +727,10 @@ sudo service network-manager restart
 　　表示log2012.log是一个普通文件；log2012.log的属主有读写权限；与log2012.log属主同组的用户只有读权限；其他用户也只有读权限。
 
 一般程序文件为 chmod 644 *.py
+add write permission for all users:
+#+BEGIN_SRC bash
+sudo chmod -R 0777 /folder
+#+END_SRC
 - create symbolic link for a directory
 #+BEGIN_SRC shell
 ln -s /absolute/path/of/source/folder/ /absolute/path/of/target/folder/
