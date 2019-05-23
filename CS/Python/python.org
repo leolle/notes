@@ -423,6 +423,24 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- find all occurrences of a substring
+#+BEGIN_SRC python
+import re
+[m.start() for m in re.finditer('test', 'test test test test')]
+
+#+END_SRC
+- find position of sub list in a list
+#+BEGIN_SRC python
+greeting = ['hello','my','name','is','bob','how','are','you','my','name','is']
+
+def find_sub_list(sl,l):
+    sll=len(sl)
+    for ind in (i for i,e in enumerate(l) if e==sl[0]):
+        if l[ind:ind+sll]==sl:
+            return ind,ind+sll-1
+
+print find_sub_list(['my','name','is'], greeting)    
+#+END_SRC
 - is list equal:
 #+BEGIN_SRC python
 a = [1,2,3]
@@ -1302,6 +1320,18 @@ np.set_printoptions(suppress=True)
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
 ** os.path — Common pathname manipulations
+- change file name
+#+BEGIN_SRC python
+import os
+def change_filename(dir_name, filename, suffix, extension=None):
+    # name = filename.split('/')[-1]
+    path, ext = os.path.splitext(filename)
+    if extension is None:
+        extension = ext
+    return os.path.join(dir_name, path + suffix + extension)
+
+
+#+END_SRC
 - move file
 #+BEGIN_SRC python
 import os
@@ -1693,6 +1723,52 @@ arg2: two
 arg3: 3
 
 #+END_SRC
+- construct argparse for test:
+#+BEGIN_SRC python
+class argparse(dict):
+    """
+    Example:
+    m = Map({'first_name': 'Eduardo'}, last_name='Pool', age=24, sports=['Soccer'])
+    """
+    def __init__(self, *args, **kwargs):
+        super(argparse, self).__init__(*args, **kwargs)
+        for arg in args:
+            if isinstance(arg, dict):
+                for k, v in arg.iteritems():
+                    self[k] = v
+
+        if kwargs:
+            for k, v in kwargs.iteritems():
+                self[k] = v
+    def add_argument(self, *args, **kwargs):
+        # super(Map, self).__init__(*args, **kwargs)
+        for i in args:
+            self[i.strip('-')] = kwargs.get('default', None)
+            if 'action' in kwargs:
+                if kwargs['action'] == 'store_true':
+                    self[i.strip('-')] = True
+                else:
+                    self[i.strip('-')] = False
+    def parse_args(self):
+        return self
+
+    def __getattr__(self, attr):
+        return self.get(attr)
+
+    def __setattr__(self, key, value):
+        self.__setitem__(key, value)
+
+    def __setitem__(self, key, value):
+        super(argparse, self).__setitem__(key, value)
+        self.__dict__.update({key: value})
+
+    def __delattr__(self, item):
+        self.__delitem__(item)
+
+    def __delitem__(self, key):
+        super(argparse, self).__delitem__(key)
+        del self.__dict__[key]
+#+END_SRC
 ** configparser — Configuration file parser
 - use yaml and config file.
 #+BEGIN_SRC yaml
@@ -1904,6 +1980,26 @@ jupyter kernelspec list
 4. remove uninstall kernel
 #+BEGIN_SRC python
 jupyter kernelspec uninstall anaconda2.7
+#+END_SRC
+*** Extension & Configuration
+- Enable line number by default
+#+BEGIN_SRC bash
+touch ~/.jupyter/static/custom/custom.js
+#+END_SRC
+add below text in the file:
+#+BEGIN_SRC js
+define([
+    'base/js/namespace',
+    'base/js/events'
+],
+       function(IPython, events) {
+           events.on("app_initialized.NotebookApp",
+                     function () {
+                         IPython.Cell.options_default.cm_config.lineNumbers = true;
+                     }
+                    );
+       }
+      );
 #+END_SRC
 ** typical structure of the ipython notebook ipynb:
 1. imports
@@ -2462,6 +2558,12 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- change jupyter view:
+#+BEGIN_SRC python
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
+#+END_SRC
 - add new columns to a dataframe:
 #+BEGIN_SRC python
 >>> df = pd.DataFrame([[i] for i in range(10)], columns=['num'])
@@ -3660,6 +3762,105 @@ python -m tensorflow.models.image.mnist.convolutional
 *** GPU test:
 [[file:./tensorflow.py][tensorflow]]
 #+INCLUDE: "tensorflow.py"
+** Computer Vision
+*** style transfer
+*** basic operation
+- show image in jupyter notebook:
+#+BEGIN_SRC python
+from IPython.display import Image
+Image(filename=content_seg_path) 
+
+#+END_SRC
+- read image into numpy arrays:
+#+BEGIN_SRC python
+from scipy.misc import imread, imresize
+import cv2
+init_img = cv2.imread(initImg) # [y, x, 3] BGR
+content = scipy.misc.imread(contentImg, mode='RGB')
+#+END_SRC
+- read image into torch tensor:
+#+BEGIN_SRC python
+import numpy as np
+from PIL import Image
+from torchvision import transforms
+from torchvision.utils import save_image
+def open_image(image_path, image_size=None):
+    """
+    
+    """
+    image = Image.open(image_path)
+    _transforms = []
+    if image_size is not None:
+        image = transforms.Resize(image_size)(image)
+        # _transforms.append(transforms.Resize(image_size))
+    w, h = image.size
+    _transforms.append(transforms.CenterCrop((h // 16 * 16, w // 16 * 16)))
+    _transforms.append(transforms.ToTensor())
+    transform = transforms.Compose(_transforms)
+    result = transform(image)[:3].unsqueeze(0)
+    return result
+
+#+END_SRC
+- concatenate images into one:
+#+BEGIN_SRC python
+def cat_images(fname, ls_images_path):
+    images = []
+    max_width = 0 # find the max width of all the images
+    total_height = 0 # the total height of the images (vertical stacking)
+    for name in image_names:
+        # open all images and find their sizes
+        images.append(cv2.imread(name))
+        if images[-1].shape[1] > max_width:
+            max_width = images[-1].shape[1]
+        total_height += images[-1].shape[0]
+    
+    def cat_arrays(total_height,max_width,arrays):
+        # create a new array with a size large enough to contain all the images
+        final_array = np.zeros((total_height,max_width,3),dtype=np.uint8)
+
+        current_y = 0 # keep track of where your current image was last placed in the y coordinate
+        for array in arrays:
+            # add an image to the final array and increment the y coordinate
+            final_array[current_y:array.shape[0]+current_y,:array.shape[1],:] = array
+            current_y += array.shape[0]
+        return final_array
+    final_image = cat_arrays(total_height, max_width, images)
+    cv2.imwrite(fname,final_image)
+cat_images(fname, image_names)
+#+END_SRC
+
+- overlay visualize:
+#+BEGIN_SRC python
+from matplotlib import gridspec
+from matplotlib import pyplot as plt
+import numpy as np
+from PIL import Image
+
+def vis_overlay(original_im, seg_map):
+  """Visualizes input image, segmentation map and overlay view."""
+  original_im = Image.open(original_im)
+  seg_map = Image.open(seg_map)
+  plt.figure(figsize=(15, 5))
+  grid_spec = gridspec.GridSpec(1, 4, width_ratios=[6, 6, 6, 1])
+
+  plt.subplot(grid_spec[0])
+  plt.imshow(original_im)
+  plt.axis('off')
+  plt.title('input image')
+
+  plt.subplot(grid_spec[1])
+  # seg_image = label_to_color_image(seg_map).astype(np.uint8)
+  plt.imshow(seg_map)
+  plt.axis('off')
+  plt.title('result image')
+
+  plt.subplot(grid_spec[2])
+  plt.imshow(original_im)
+  plt.imshow(seg_map, alpha=0.7)
+  plt.axis('off')
+  plt.title('overlay image')
+  plt.show()
+#+END_SRC
 * NLP
 ** Keywords
 #+BEGIN_SRC python
