@@ -831,6 +831,7 @@ grep "_" vocabulary > phrase_vocab
 - search a folder name under a subfolder
 #+BEGIN_SRC bash
 find . -name "name*"
+find . -path '*/folder/subfolder'
 #+END_SRC
 *** zsh
 #+BEGIN_SRC shell

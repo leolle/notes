@@ -503,7 +503,14 @@ Find comprehension QA dataset, which answers these questions need deep understan
 - 汽车金融
 - 智能定价，不同车不同城市定价不同
 - 路径规划
-
+* 2019 first half
+** June 2019
+*** Recommendation system
+Customers will lose themselves if they face thousands of goods when they try to buy something,
+the utility of recommendation system is to improve the sales.
+In a perspective of the sales, recommendation is good for them, but as a customer, you will spend more
+time and money if the recommendation system is working well.
+If you want to save some time and money, stay away from the system with recommendation function.
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
