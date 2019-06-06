@@ -511,6 +511,9 @@ the utility of recommendation system is to improve the sales.
 In a perspective of the sales, recommendation is good for them, but as a customer, you will spend more
 time and money if the recommendation system is working well.
 If you want to save some time and money, stay away from the system with recommendation function.
+*** Unsupervised learning 
+anomolous driving
+
 * Footnotes
 
 [1] https://metacademy.org/roadmaps/rgrosse/learn_on_your_own
