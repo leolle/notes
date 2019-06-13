@@ -2056,16 +2056,2227 @@ UPDATE [ hint ]
 #+END_SRC
 * SQL Functions
 ** Syntax for SQL Functions
+A function is a command that manipulates data items and returns a single value.
+
+The sections that follow show each SQL function and its related syntax. Refer to [Chapter 5, "Subclauses"](sqlqr05.htm#g1004143) for the syntax of the subclauses.
+
+- [ABS]
+
+#+BEGIN_SRC sql
+ABS(n)
+#+END_SRC
+
+- [ACOS]
+
+#+BEGIN_SRC sql
+ACOS(n)
+#+END_SRC
+
+- [ADD_MONTHS]
+
+#+BEGIN_SRC sql
+ADD_MONTHS(date, integer)
+#+END_SRC
+
+- [aggregate_function]
+
+Aggregate functions return a single result row based on groups of rows, rather than on single rows.
+
+- [analytic_function]
+
+#+BEGIN_SRC sql
+analytic_function([ arguments ])
+   OVER (analytic_clause)
+#+END_SRC
+
+- [APPENDCHILDXML]
+
+#+BEGIN_SRC sql
+APPENDCHILDXML
+  ( XMLType_instance, XPath_string, value_expr [, namespace_string ])
+#+END_SRC
+
+- [ASCII]
+
+#+BEGIN_SRC sql
+ASCII(char)
+#+END_SRC
+
+- [ASCIISTR]
+
+#+BEGIN_SRC sql
+ASCIISTR(char)
+#+END_SRC
+
+- [ASIN]
+
+#+BEGIN_SRC sql
+ASIN(n)
+#+END_SRC
+
+- [ATAN]
+
+#+BEGIN_SRC sql
+ATAN(n)
+#+END_SRC
+
+- [ATAN2]
+
+#+BEGIN_SRC sql
+ATAN2(n1 , n2)
+#+END_SRC
+
+- [AVG]
+
+#+BEGIN_SRC sql
+AVG([ DISTINCT | ALL ] expr) [ OVER(analytic_clause) ]
+#+END_SRC
+
+- [BFILENAME]
+
+#+BEGIN_SRC sql
+BFILENAME('directory', 'filename')
+#+END_SRC
+
+- [BIN_TO_NUM]
+
+#+BEGIN_SRC sql
+BIN_TO_NUM(expr [, expr ]... )
+#+END_SRC
+
+- [BITAND]
+
+#+BEGIN_SRC sql
+BITAND(expr1, expr2)
+#+END_SRC
+
+- [CARDINALITY]
+
+#+BEGIN_SRC sql
+CARDINALITY(nested_table)
+#+END_SRC
+
+- [CAST]
+
+#+BEGIN_SRC sql
+CAST({ expr | MULTISET (subquery) } AS type_name)
+#+END_SRC
+
+- [CEIL]
+
+#+BEGIN_SRC sql
+CEIL(n)
+#+END_SRC
+
+- [CHARTOROWID]
+
+#+BEGIN_SRC sql
+CHARTOROWID(char)
+#+END_SRC
+
+- [CHR]
+
+#+BEGIN_SRC sql
+CHR(n [ USING NCHAR_CS ])
+#+END_SRC
+
+- [CLUSTER_ID]
+
+#+BEGIN_SRC sql
+CLUSTER_ID ( [ schema . ] model mining_attribute_clause )
+#+END_SRC
+
+- [CLUSTER_PROBABILITY]
+
+#+BEGIN_SRC sql
+CLUSTER_PROBABILITY ( [ schema . ] model
+   [ , cluster_id ] mining_attribute_clause )
+#+END_SRC
+
+- [CLUSTER_SET]
+
+#+BEGIN_SRC sql
+CLUSTER_SET ( [ schema . ] model [ , topN [ , cutoff ] ] mining_attribute_clause )
+#+END_SRC
+
+- [COALESCE]
+
+#+BEGIN_SRC sql
+COALESCE(expr [, expr ]...)
+#+END_SRC
+
+- [COLLECT]
+
+#+BEGIN_SRC sql
+COLLECT( [ DISTINCT | UNIQUE ] column [ ORDER BY expr ] )
+#+END_SRC
+
+- [COMPOSE]
+
+#+BEGIN_SRC sql
+COMPOSE(char)
+#+END_SRC
+
+- [CONCAT]
+
+#+BEGIN_SRC sql
+CONCAT(char1, char2)
+#+END_SRC
+
+- [CONVERT]
+
+#+BEGIN_SRC sql
+CONVERT(char, dest_char_set[, source_char_set ])
+#+END_SRC
+
+- [CORR]
+
+#+BEGIN_SRC sql
+CORR(expr1, expr2) [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [CORR_K], <a id="sthref326"></a><a id="sthref327"></a>[CORR_S]
+
+#+BEGIN_SRC sql
+{ CORR_K | CORR_S }
+   (expr1, expr2
+     [, { COEFFICIENT
+        | ONE_SIDED_SIG
+        | ONE_SIDED_SIG_POS
+        | ONE_SIDED_SIG_NEG
+        | TWO_SIDED_SIG
+        }
+     ]
+   )
+#+END_SRC
+
+- [COS]
+
+#+BEGIN_SRC sql
+COS(n)
+#+END_SRC
+
+- [COSH]
+
+#+BEGIN_SRC sql
+COSH(n)
+#+END_SRC
+
+- [COUNT]
+
+#+BEGIN_SRC sql
+COUNT({ * | [ DISTINCT | ALL ] expr }) [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [COVAR_POP]
+
+#+BEGIN_SRC sql
+COVAR_POP(expr1, expr2)
+   [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [COVAR_SAMP]
+
+#+BEGIN_SRC sql
+COVAR_SAMP(expr1, expr2) [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [CUBE_TABLE]
+
+#+BEGIN_SRC sql
+CUBE_TABLE
+( ' { schema.cube [ {HIERARCHY | HRR} dimension hierarchy ]...
+    | schema.dimension [ {HIERARCHY | HRR} [dimension] hierarchy ]
+    }
+  '
+)
+#+END_SRC
+
+- [CUME_DIST (aggregate)]
+
+#+BEGIN_SRC sql
+CUME_DIST(expr[,expr ]...) WITHIN GROUP
+  (ORDER BY expr [ DESC | ASC ]
+                 [ NULLS { FIRST | LAST } ] 
+            [, expr [ DESC | ASC ]
+                    [ NULLS { FIRST | LAST } ]
+            ]...
+  )
+#+END_SRC
+
+- [CUME_DIST (analytic)]
+
+#+BEGIN_SRC sql
+CUME_DIST() OVER ([ query_partition_clause ] order_by_clause)
+#+END_SRC
+
+- [CURRENT_DATE]
+
+#+BEGIN_SRC sql
+CURRENT_DATE
+#+END_SRC
+
+- [CURRENT_TIMESTAMP]
+
+#+BEGIN_SRC sql
+CURRENT_TIMESTAMP [ (precision) ]
+#+END_SRC
+
+- [CV]
+
+#+BEGIN_SRC sql
+CV([ dimension_column ])
+#+END_SRC
+
+- [DATAOBJ_TO_PARTITION]
+
+#+BEGIN_SRC sql
+DATAOBJ_TO_PARTITION( table, partition_id )
+#+END_SRC
+
+- [DBTIMEZONE]
+
+#+BEGIN_SRC sql
+DBTIMEZONE
+#+END_SRC
+
+- [DECODE]
+
+#+BEGIN_SRC sql
+DECODE(expr, search, result [, search, result ]... [, default ])
+#+END_SRC
+
+- [DECOMPOSE]
+
+#+BEGIN_SRC sql
+DECOMPOSE( string [, { 'CANONICAL' | 'COMPATIBILITY' } ] )
+#+END_SRC
+
+- [DELETEXML]
+
+#+BEGIN_SRC sql
+DELETEXML( XMLType_instance, XPath_string [, namespace_string ])
+#+END_SRC
+
+- [DENSE_RANK (aggregate)]
+
+#+BEGIN_SRC sql
+DENSE_RANK(expr [, expr ]...) WITHIN GROUP
+  (ORDER BY expr [ DESC | ASC ]
+                 [ NULLS { FIRST | LAST } ]
+            [,expr [ DESC | ASC ]
+                   [ NULLS { FIRST | LAST } ]
+            ]...
+  )
+#+END_SRC
+
+- [DENSE_RANK (analytic)]
+
+#+BEGIN_SRC sql
+DENSE_RANK( ) OVER([ query_partition_clause ] order_by_clause)
+#+END_SRC
+
+- [DEPTH]
+
+#+BEGIN_SRC sql
+DEPTH(correlation_integer)
+#+END_SRC
+
+- [DEREF]
+
+#+BEGIN_SRC sql
+DEREF(expr)
+#+END_SRC
+
+- [DUMP]
+
+#+BEGIN_SRC sql
+DUMP(expr[, return_fmt [, start_position [, length ] ]])
+#+END_SRC
+
+- [EMPTY_BLOB], <a id="sthref372"></a><a id="sthref373"></a>[EMPTY_CLOB]
+
+#+BEGIN_SRC sql
+{ EMPTY_BLOB | EMPTY_CLOB }( )
+#+END_SRC
+
+- [EXISTSNODE]
+
+#+BEGIN_SRC sql
+EXISTSNODE
+   (XMLType_instance, XPath_string
+      [, namespace_string ]
+   )
+#+END_SRC
+
+- [EXP]
+
+#+BEGIN_SRC sql
+EXP(n)
+#+END_SRC
+
+- [EXTRACT (datetime)]
+
+#+BEGIN_SRC sql
+EXTRACT( { YEAR
+         | MONTH
+         | DAY
+         | HOUR
+         | MINUTE
+         | SECOND
+         | TIMEZONE_HOUR
+         | TIMEZONE_MINUTE
+         | TIMEZONE_REGION
+         | TIMEZONE_ABBR
+         }
+         FROM { expr }
+       )
+#+END_SRC
+
+- [EXTRACT (XML)]
+
+#+BEGIN_SRC sql
+EXTRACT(XMLType_instance, XPath_string [, namespace_string ])
+#+END_SRC
+
+- [EXTRACTVALUE]
+
+#+BEGIN_SRC sql
+EXTRACTVALUE(XMLType_instance, XPath_string [, namespace_string ])
+#+END_SRC
+
+- [FEATURE_ID]
+
+#+BEGIN_SRC sql
+FEATURE_ID( [ schema . ] model mining_attribute_clause )
+#+END_SRC
+
+- [FEATURE_SET]
+
+#+BEGIN_SRC sql
+FEATURE_SET( [ schema . ] model [, topN [, cutoff ]] mining_attribute_clause )
+#+END_SRC
+
+- [FEATURE_VALUE]
+
+#+BEGIN_SRC sql
+FEATURE_VALUE( [ schema . ] model [, feature_id ] mining_attribute_clause )
+#+END_SRC
+
+- [FIRST]
+
+#+BEGIN_SRC sql
+aggregate_function
+   KEEP
+   (DENSE_RANK FIRST ORDER BY
+    expr [ DESC | ASC ]
+         [ NULLS { FIRST | LAST } ]
+    [, expr [ DESC | ASC ]
+            [ NULLS { FIRST | LAST } ]
+    ]...
+   )
+   [ OVER ( [query_partition_clause] ) ]
+#+END_SRC
+
+- [FIRST_VALUE]
+
+#+BEGIN_SRC sql
+FIRST_VALUE 
+  { (expr) [ {RESPECT | IGNORE} NULLS ]
+  | (expr [ {RESPECT | IGNORE} NULLS ])
+  }
+  OVER (analytic_clause)
+#+END_SRC
+
+- [FLOOR]
+
+#+BEGIN_SRC sql
+FLOOR(n)
+#+END_SRC
+
+- [FROM_TZ]
+
+#+BEGIN_SRC sql
+FROM_TZ (timestamp_value, time_zone_value)
+#+END_SRC
+
+- [GREATEST]
+
+#+BEGIN_SRC sql
+GREATEST(expr [, expr ]...)
+#+END_SRC
+
+- [GROUP_ID]
+
+#+BEGIN_SRC sql
+GROUP_ID( )
+#+END_SRC
+
+- [GROUPING]
+
+#+BEGIN_SRC sql
+GROUPING(expr)
+#+END_SRC
+
+- [GROUPING_ID]
+
+#+BEGIN_SRC sql
+GROUPING_ID(expr [, expr ]...)
+#+END_SRC
+
+- [HEXTORAW]
+
+#+BEGIN_SRC sql
+HEXTORAW(char)
+#+END_SRC
+
+- [INITCAP]
+
+#+BEGIN_SRC sql
+INITCAP(char)
+#+END_SRC
+
+- [INSERTCHILDXML]
+
+#+BEGIN_SRC sql
+INSERTCHILDXML
+  ( XMLType_instance, XPath_string, child_expr, value_expr [, namespace_string ] )
+#+END_SRC
+
+- [INSERTCHILDXMLAFTER]
+
+#+BEGIN_SRC sql
+INSERTCHILDXMLAFTER
+  ( XMLType_instance, XPath_string, child_expr, value_expr [, namespace_string ] )
+#+END_SRC
+
+- [INSERTCHILDXMLBEFORE]
+
+#+BEGIN_SRC sql
+INSERTCHILDXMLBEFORE
+  ( XMLType_instance, XPath_string, child_expr, value_expr [, namespace_string ] )
+#+END_SRC
+
+- [INSERTXMLAFTER]
+
+#+BEGIN_SRC sql
+INSERTXMLAFTER
+  ( XMLType_instance, XPath_string, value_expr [, namespace_string ] )
+#+END_SRC
+
+- [INSERTXMLBEFORE]
+
+#+BEGIN_SRC sql
+INSERTXMLBEFORE
+  ( XMLType_instance, XPath_string, value_expr [, namespace_string ] )
+#+END_SRC
+
+- [INSTR]
+
+#+BEGIN_SRC sql
+{ INSTR
+| INSTRB
+| INSTRC
+| INSTR2
+| INSTR4
+}
+(string , substring [, position [, occurrence ] ])
+#+END_SRC
+
+- [ITERATION_NUMBER]
+
+#+BEGIN_SRC sql
+ITERATION_NUMBER
+#+END_SRC
+
+- [LAG]
+
+#+BEGIN_SRC sql
+LAG
+  { ( value_expr [, offset [, default]]) [ { RESPECT | IGNORE } NULLS ] 
+  | ( value_expr [ { RESPECT | IGNORE } NULLS ] [, offset [, default]] )
+  }
+  OVER ([ query_partition_clause ] order_by_clause)
+#+END_SRC
+
+- [LAST]
+
+#+BEGIN_SRC sql
+aggregate_function KEEP
+  (DENSE_RANK LAST ORDER BY
+    expr [ DESC | ASC ]
+         [ NULLS { FIRST | LAST } ]
+    [, expr [ DESC | ASC ]
+            [ NULLS { FIRST | LAST } ]
+    ]...
+  )
+  [ OVER ( [query_partition_clause] ) ]
+#+END_SRC
+
+- [LAST_DAY]
+
+#+BEGIN_SRC sql
+LAST_DAY(date)
+#+END_SRC
+
+- [LAST_VALUE]
+
+#+BEGIN_SRC sql
+LAST_VALUE
+  { (expr) [ { RESPECT | IGNORE } NULLS ]
+  | (expr [ { RESPECT | IGNORE } NULLS ])
+  OVER (analytic_clause)
+#+END_SRC
+
+- [LEAD]
+
+#+BEGIN_SRC sql
+LEAD
+  { ( value_expr [, offset [, default]] ) [ { RESPECT | IGNORE } NULLS ] 
+  | ( value_expr [ { RESPECT | IGNORE } NULLS ] [, offset [, default]] )
+  }
+  OVER ([ query_partition_clause ] order_by_clause)
+#+END_SRC
+
+- [LEAST]
+
+#+BEGIN_SRC sql
+LEAST(expr [, expr ]...)
+#+END_SRC
+
+- [LENGTH]
+
+#+BEGIN_SRC sql
+{ LENGTH
+| LENGTHB
+| LENGTHC
+| LENGTH2
+| LENGTH4
+}
+(char)
+#+END_SRC
+
+- [LISTAGG]
+
+#+BEGIN_SRC sql
+LISTAGG(measure_expr [, 'delimiter'])
+  WITHIN GROUP (order_by_clause) [OVER query_partition_clause]
+#+END_SRC
+
+- [LN]
+
+#+BEGIN_SRC sql
+LN(n)
+#+END_SRC
+
+- [LNNVL]
+
+#+BEGIN_SRC sql
+LNNVL(condition)
+#+END_SRC
+
+- [LOCALTIMESTAMP]
+
+#+BEGIN_SRC sql
+LOCALTIMESTAMP [ (timestamp_precision) ]
+#+END_SRC
+
+- [LOG]
+
+#+BEGIN_SRC sql
+LOG(n2, n1)
+#+END_SRC
+
+- [LOWER]
+
+#+BEGIN_SRC sql
+LOWER(char)
+#+END_SRC
+
+- [LPAD]
+
+#+BEGIN_SRC sql
+LPAD(expr1, n [, expr2 ])
+#+END_SRC
+
+- [LTRIM]
+
+#+BEGIN_SRC sql
+LTRIM(char [, set ])
+#+END_SRC
+
+- [MAKE_REF]
+
+#+BEGIN_SRC sql
+MAKE_REF({ table | view } , key [, key ]...)
+#+END_SRC
+
+- [MAX]
+
+#+BEGIN_SRC sql
+MAX([ DISTINCT | ALL ] expr) [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [MEDIAN]
+
+#+BEGIN_SRC sql
+MEDIAN(expr) [ OVER (query_partition_clause) ]
+#+END_SRC
+
+- [MIN]
+
+#+BEGIN_SRC sql
+MIN([ DISTINCT | ALL ] expr) [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [MOD]
+
+#+BEGIN_SRC sql
+MOD(n2, n1)
+#+END_SRC
+
+- [MONTHS_BETWEEN]
+
+#+BEGIN_SRC sql
+MONTHS_BETWEEN(date1, date2)
+#+END_SRC
+
+- [NANVL]
+
+#+BEGIN_SRC sql
+NANVL(n2, n1)
+#+END_SRC
+
+- [NCHR]
+
+#+BEGIN_SRC sql
+NCHR(number)
+#+END_SRC
+
+- [NEW_TIME]
+
+#+BEGIN_SRC sql
+NEW_TIME(date, timezone1, timezone2)
+#+END_SRC
+
+- [NEXT_DAY]
+
+#+BEGIN_SRC sql
+NEXT_DAY(date, char)
+#+END_SRC
+
+- [NLS_CHARSET_DECL_LEN]
+
+#+BEGIN_SRC sql
+NLS_CHARSET_DECL_LEN(byte_count, char_set_id)
+#+END_SRC
+
+- [NLS_CHARSET_ID]
+
+#+BEGIN_SRC sql
+NLS_CHARSET_ID(string)
+#+END_SRC
+
+- [NLS_CHARSET_NAME]
+
+#+BEGIN_SRC sql
+NLS_CHARSET_NAME(number)
+#+END_SRC
+
+- [NLS_INITCAP]
+
+#+BEGIN_SRC sql
+NLS_INITCAP(char [, 'nlsparam' ])
+#+END_SRC
+
+- [NLS_LOWER]
+
+#+BEGIN_SRC sql
+NLS_LOWER(char [, 'nlsparam' ])
+#+END_SRC
+
+- [NLS_UPPER]
+
+#+BEGIN_SRC sql
+NLS_UPPER(char [, 'nlsparam' ])
+#+END_SRC
+
+- [NLSSORT]
+
+#+BEGIN_SRC sql
+NLSSORT(char [, 'nlsparam' ])
+#+END_SRC
+
+- [NTH_VALUE]
+
+#+BEGIN_SRC sql
+NTH_VALUE(measure_expr, n)
+  [ FROM { FIRST | LAST } ][ { RESPECT | IGNORE } NULLS ] 
+  OVER (analytic_clause)
+#+END_SRC
+
+- [NTILE]
+
+#+BEGIN_SRC sql
+NTILE(expr) OVER ([ query_partition_clause ] order_by_clause)
+#+END_SRC
+
+- [NULLIF]
+
+#+BEGIN_SRC sql
+NULLIF(expr1, expr2)
+#+END_SRC
+
+- [NUMTODSINTERVAL]
+
+#+BEGIN_SRC sql
+NUMTODSINTERVAL(n, 'interval_unit')
+#+END_SRC
+
+- [NUMTOYMINTERVAL]
+
+#+BEGIN_SRC sql
+NUMTOYMINTERVAL(n, 'interval_unit')
+#+END_SRC
+
+- [NVL]
+
+#+BEGIN_SRC sql
+NVL(expr1, expr2)
+#+END_SRC
+
+- [NVL2]
+
+#+BEGIN_SRC sql
+NVL2(expr1, expr2, expr3)
+#+END_SRC
+
+- [ORA_DST_AFFECTED]
+
+#+BEGIN_SRC sql
+ORA_DST_AFFECTED(datetime_expr)
+#+END_SRC
+
+- [ORA_DST_CONVERT]
+
+#+BEGIN_SRC sql
+ORA_DST_CONVERT(datetime_expr [, integer [, integer ]])
+#+END_SRC
+
+- [ORA_DST_ERROR]
+
+#+BEGIN_SRC sql
+ORA_DST_ERROR(datetime_expr)
+#+END_SRC
+
+- [ORA_HASH]
+
+#+BEGIN_SRC sql
+ORA_HASH(expr [, max_bucket [, seed_value ] ])
+#+END_SRC
+
+- [PATH]
+
+#+BEGIN_SRC sql
+PATH(correlation_integer)
+#+END_SRC
+
+- [PERCENT_RANK (aggregate)]
+
+#+BEGIN_SRC sql
+PERCENT_RANK(expr [, expr ]...) WITHIN GROUP
+  (ORDER BY
+   expr [ DESC | ASC ]
+        [NULLS { FIRST | LAST } ]
+   [, expr [ DESC | ASC ]
+           [NULLS { FIRST | LAST } ]
+   ]...
+  )
+#+END_SRC
+
+- [PERCENT_RANK (analytic)]
+
+#+BEGIN_SRC sql
+PERCENT_RANK( ) OVER ([ query_partition_clause ] order_by_clause)
+#+END_SRC
+
+- [PERCENTILE_CONT]
+
+#+BEGIN_SRC sql
+PERCENTILE_CONT(expr) WITHIN GROUP
+  (ORDER BY expr [ DESC | ASC ])
+  [ OVER (query_partition_clause) ]
+#+END_SRC
+
+- [PERCENTILE_DISC]
+
+#+BEGIN_SRC sql
+PERCENTILE_DISC(expr) WITHIN GROUP
+  (ORDER BY expr [ DESC | ASC ])
+  [ OVER (query_partition_clause) ]
+#+END_SRC
+
+- [POWER]
+
+#+BEGIN_SRC sql
+POWER(n2, n1)
+#+END_SRC
+
+- [POWERMULTISET]
+
+#+BEGIN_SRC sql
+POWERMULTISET(expr)
+#+END_SRC
+
+- [POWERMULTISET_BY_CARDINALITY]
+
+#+BEGIN_SRC sql
+POWERMULTISET_BY_CARDINALITY(expr, cardinality)
+#+END_SRC
+
+- [PREDICTION]
+
+#+BEGIN_SRC sql
+PREDICTION ( [ schema . ] model [ cost_matrix_clause ] mining_attribute_clause )
+#+END_SRC
+
+- [PREDICTION_BOUNDS]
+
+#+BEGIN_SRC sql
+PREDICTION_BOUNDS
+( [schema.] model
+  [, confidence_level [, class_value]]
+  mining_attribute_clause
+)
+#+END_SRC
+
+- [PREDICTION_COST]
+
+#+BEGIN_SRC sql
+PREDICTION_COST ( [ schema . ] model [ , class ] cost_matrix_clause
+ mining_attribute_clause )
+#+END_SRC
+
+- [PREDICTION_DETAILS]
+
+#+BEGIN_SRC sql
+PREDICTION_DETAILS ( [ schema . ] model mining_attribute_clause )
+#+END_SRC
+
+- [PREDICTION_PROBABILITY]
+
+#+BEGIN_SRC sql
+PREDICTION_PROBABILITY ( [ schema . ] model [ , class ] 
+   mining_attribute_clause )
+#+END_SRC
+
+- [PREDICTION_SET]
+
+#+BEGIN_SRC sql
+PREDICTION_SET ( [ schema . ] model [ , bestN [ , cutoff ] ] 
+  [ cost_matrix_clause ] mining_attribute_clause )
+#+END_SRC
+
+- [PRESENTNNV]
+
+#+BEGIN_SRC sql
+PRESENTNNV(cell_reference, expr1, expr2)
+#+END_SRC
+
+- [PRESENTV]
+
+#+BEGIN_SRC sql
+PRESENTV(cell_reference, expr1, expr2)
+#+END_SRC
+
+- [PREVIOUS]
+
+#+BEGIN_SRC sql
+PREVIOUS(cell_reference)
+#+END_SRC
+
+- [RANK (aggregate)]
+
+#+BEGIN_SRC sql
+RANK(expr [, expr ]...) WITHIN GROUP
+   (ORDER BY
+    expr [ DESC | ASC ]
+         [ NULLS { FIRST | LAST } ]
+    [, expr [ DESC | ASC ]
+            [ NULLS { FIRST | LAST } ]
+    ]...
+   )
+#+END_SRC
+
+- [RANK (analytic)]
+
+#+BEGIN_SRC sql
+RANK( )
+   OVER ([ query_partition_clause ] order_by_clause)
+#+END_SRC
+
+- [RATIO_TO_REPORT]
+
+#+BEGIN_SRC sql
+RATIO_TO_REPORT(expr)
+   OVER ([ query_partition_clause ])
+#+END_SRC
+
+- [RAWTOHEX]
+
+#+BEGIN_SRC sql
+RAWTOHEX(raw)
+#+END_SRC
+
+- [RAWTONHEX]
+
+#+BEGIN_SRC sql
+RAWTONHEX(raw)
+#+END_SRC
+
+- [REF]
+
+#+BEGIN_SRC sql
+REF (correlation_variable)
+#+END_SRC
+
+- [REFTOHEX]
+
+#+BEGIN_SRC sql
+REFTOHEX (expr)
+#+END_SRC
+
+- [REGEXP_COUNT]
+
+#+BEGIN_SRC sql
+REGEXP_COUNT (source_char, pattern [, position [, match_param]])
+#+END_SRC
+
+- [REGEXP_INSTR]
+
+#+BEGIN_SRC sql
+REGEXP_INSTR (source_char, pattern
+              [, position
+                 [, occurrence
+                    [, return_opt
+                       [, match_param
+                          [, subexpr]
+                       ]
+                    ]
+                 ]
+              ]
+#+END_SRC
+
+- [REGEXP_REPLACE]
+
+#+BEGIN_SRC sql
+REGEXP_REPLACE(source_char, pattern
+               [, replace_string
+                  [, position
+                     [, occurrence
+                        [, match_param ]
+                     ]
+                  ]
+               ]
+              )
+#+END_SRC
+
+- [REGEXP_SUBSTR]
+
+#+BEGIN_SRC sql
+REGEXP_SUBSTR(source_char, pattern
+              [, position
+                 [, occurrence
+                    [, match_param
+                       [, subexpr
+                       ]
+                    ]
+                 ]
+              ]
+             )
+#+END_SRC
+
+- [REGR_AVGX], <a id="sthref568"></a><a id="sthref569"></a>[REGR_AVGY], <a id="sthref570"></a><a id="sthref571"></a>[REGR_COUNT], <a id="sthref572"></a><a id="sthref573"></a>[REGR_INTERCEPT], <a id="sthref574"></a><a id="sthref575"></a>[REGR_R2], <a id="sthref576"></a><a id="sthref577"></a>[REGR_SLOPE], <a id="sthref578"></a><a id="sthref579"></a>[REGR_SXX], <a id="sthref580"></a><a id="sthref581"></a>[REGR_SXY], <a id="sthref582"></a><a id="sthref583"></a>[REGR_SYY]
+
+#+BEGIN_SRC sql
+{ REGR_SLOPE 
+| REGR_INTERCEPT 
+| REGR_COUNT 
+| REGR_R2 
+| REGR_AVGX
+| REGR_AVGY 
+| REGR_SXX 
+| REGR_SYY 
+| REGR_SXY
+}
+(expr1 , expr2)
+[ OVER (analytic_clause) ]
+#+END_SRC
+
+- [REMAINDER]
+
+#+BEGIN_SRC sql
+REMAINDER(n2, n1)
+#+END_SRC
+
+- [REPLACE]
+
+#+BEGIN_SRC sql
+REPLACE(char, search_string
+        [, replacement_string ]
+       )
+#+END_SRC
+
+- [ROUND (date)]
+
+#+BEGIN_SRC sql
+ROUND(date [, fmt ])
+#+END_SRC
+
+- [ROUND (number)]
+
+#+BEGIN_SRC sql
+ROUND(n [, integer ])
+#+END_SRC
+
+- [ROW_NUMBER]
+
+#+BEGIN_SRC sql
+ROW_NUMBER( )
+   OVER ([ query_partition_clause ] order_by_clause)
+#+END_SRC
+
+- [ROWIDTOCHAR]
+
+#+BEGIN_SRC sql
+ROWIDTOCHAR(rowid)
+#+END_SRC
+
+- [ROWIDTONCHAR]
+
+#+BEGIN_SRC sql
+ROWIDTONCHAR(rowid)
+#+END_SRC
+
+- [RPAD]
+
+#+BEGIN_SRC sql
+RPAD(expr1 , n [, expr2 ])
+#+END_SRC
+
+- [RTRIM]
+
+#+BEGIN_SRC sql
+RTRIM(char [, set ])
+#+END_SRC
+
+- [SCN_TO_TIMESTAMP]
+
+#+BEGIN_SRC sql
+SCN_TO_TIMESTAMP(number)
+#+END_SRC
+
+- [SESSIONTIMEZONE]
+
+#+BEGIN_SRC sql
+SESSIONTIMEZONE
+#+END_SRC
+
+- [SET]
+
+#+BEGIN_SRC sql
+SET (nested_table)
+#+END_SRC
+
+- [SIGN]
+
+#+BEGIN_SRC sql
+SIGN(n)
+#+END_SRC
+
+- [SIN]
+
+#+BEGIN_SRC sql
+SIN(n)
+#+END_SRC
+
+- [SINH]
+
+#+BEGIN_SRC sql
+SINH(n)
+#+END_SRC
+
+- [SOUNDEX]
+
+#+BEGIN_SRC sql
+SOUNDEX(char)
+#+END_SRC
+
+- [SQRT]
+
+#+BEGIN_SRC sql
+SQRT(n)
+#+END_SRC
+
+- [STATS_BINOMIAL_TEST]
+
+#+BEGIN_SRC sql
+STATS_BINOMIAL_TEST(expr1, expr2, p
+                    [, { TWO_SIDED_PROB
+                       | EXACT_PROB
+                       | ONE_SIDED_PROB_OR_MORE
+                       | ONE_SIDED_PROB_OR_LESS
+                       }
+                    ]
+                   )
+#+END_SRC
+
+- [STATS_CROSSTAB]
+
+#+BEGIN_SRC sql
+STATS_CROSSTAB(expr1, expr2
+               [, { CHISQ_OBS
+                  | CHISQ_SIG
+                  | CHISQ_DF
+                  | PHI_COEFFICIENT
+                  | CRAMERS_V
+                  | CONT_COEFFICIENT
+                  | COHENS_K
+                  }
+               ]
+              )
+#+END_SRC
+
+- [STATS_F_TEST]
+
+#+BEGIN_SRC sql
+STATS_F_TEST(expr1, expr2
+             [, { { STATISTIC
+                  | DF_NUM
+                  | DF_DEN
+                  | ONE_SIDED_SIG
+    } , expr3
+                | TWO_SIDED_SIG
+                }
+             ]
+            )
+#+END_SRC
+
+- [STATS_KS_TEST]
+
+#+BEGIN_SRC sql
+STATS_KS_TEST(expr1, expr2
+              [, { STATISTIC | SIG } ]
+             )
+#+END_SRC
+
+- [STATS_MODE]
+
+#+BEGIN_SRC sql
+STATS_MODE(expr)
+#+END_SRC
+
+- [STATS_MW_TEST]
+
+#+BEGIN_SRC sql
+STATS_MW_TEST(expr1, expr2
+              [, { STATISTIC
+                 | U_STATISTIC
+                 | ONE_SIDED_SIG , expr3
+                 | TWO_SIDED_SIG
+                 }
+              ]
+             )
+#+END_SRC
+
+- [STATS_ONE_WAY_ANOVA]
+
+#+BEGIN_SRC sql
+STATS_ONE_WAY_ANOVA(expr1, expr2
+                    [, { SUM_SQUARES_BETWEEN
+                       | SUM_SQUARES_WITHIN
+                       | DF_BETWEEN
+                       | DF_WITHIN
+                       | MEAN_SQUARES_BETWEEN
+                       | MEAN_SQUARES_WITHIN
+                       | F_RATIO
+                       | SIG
+                       }
+                    ]
+                   )
+#+END_SRC
+
+- [STATS_T_TEST_INDEP], <a id="sthref634"></a><a id="sthref635"></a>[STATS_T_TEST_INDEPU], <a id="sthref636"></a><a id="sthref637"></a>[STATS_T_TEST_ONE], <a id="sthref638"></a><a id="sthref639"></a>[STATS_T_TEST_PAIRED]
+
+#+BEGIN_SRC sql
+{
+  STATS_T_TEST_ONE ( expr1 [, expr2 ]
+|
+  { { STATS_T_TEST_PAIRED
+    | STATS_T_TEST_INDEP
+    | STATS_T_TEST_INDEPU
+    } ( expr1, expr2
+  }
+}
+[, { { STATISTIC | ONE_SIDED_SIG } , expr3 | TWO_SIDED_SIG | DF } ] )
+#+END_SRC
+
+- [STATS_WSR_TEST]
+
+#+BEGIN_SRC sql
+STATS_WSR_TEST(expr1, expr2
+               [, { STATISTIC
+                  | ONE_SIDED_SIG
+                  | TWO_SIDED_SIG
+                  }
+               ]
+              )
+#+END_SRC
+
+- [STDDEV]
+
+#+BEGIN_SRC sql
+STDDEV([ DISTINCT | ALL ] expr)
+   [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [STDDEV_POP]
+
+#+BEGIN_SRC sql
+STDDEV_POP(expr)
+   [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [STDDEV_SAMP]
+
+#+BEGIN_SRC sql
+STDDEV_SAMP(expr)
+   [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [SUBSTR]
+
+#+BEGIN_SRC sql
+{ SUBSTR
+| SUBSTRB
+| SUBSTRC
+| SUBSTR2
+| SUBSTR4
+}
+(char, position [, substring_length ])
+#+END_SRC
+
+- [SUM]
+
+#+BEGIN_SRC sql
+SUM([ DISTINCT | ALL ] expr)
+   [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [SYS_CONNECT_BY_PATH]
+
+#+BEGIN_SRC sql
+SYS_CONNECT_BY_PATH(column, char)
+#+END_SRC
+
+- [SYS_CONTEXT]
+
+#+BEGIN_SRC sql
+SYS_CONTEXT('namespace', 'parameter' [, length ])
+#+END_SRC
+
+- [SYS_DBURIGEN]
+
+#+BEGIN_SRC sql
+SYS_DBURIGEN({ column | attribute }
+             [ rowid ]
+               [, { column | attribute }
+                  [ rowid ]
+               ]...
+             [, 'text ( )' ]
+            )
+#+END_SRC
+
+- [SYS_EXTRACT_UTC]
+
+#+BEGIN_SRC sql
+SYS_EXTRACT_UTC(datetime_with_timezone)
+#+END_SRC
+
+- [SYS_GUID]
+
+#+BEGIN_SRC sql
+SYS_GUID( )
+#+END_SRC
+
+- [SYS_TYPEID]
+
+#+BEGIN_SRC sql
+SYS_TYPEID(object_type_value)
+#+END_SRC
+
+- [SYS_XMLAGG]
+
+#+BEGIN_SRC sql
+SYS_XMLAGG(expr [, fmt ])
+#+END_SRC
+
+- [SYS_XMLGEN]
+
+#+BEGIN_SRC sql
+SYS_XMLGEN(expr [, fmt ])
+#+END_SRC
+
+- [SYSDATE]
+
+#+BEGIN_SRC sql
+SYSDATE
+#+END_SRC
+
+- [SYSTIMESTAMP]
+
+#+BEGIN_SRC sql
+SYSTIMESTAMP
+#+END_SRC
+
+- [TAN]
+
+#+BEGIN_SRC sql
+TAN(n)
+#+END_SRC
+
+- [TANH]
+
+#+BEGIN_SRC sql
+TANH(n)
+#+END_SRC
+
+- [TIMESTAMP_TO_SCN]
+
+#+BEGIN_SRC sql
+TIMESTAMP_TO_SCN(timestamp)
+#+END_SRC
+
+- [TO_BINARY_DOUBLE]
+
+#+BEGIN_SRC sql
+TO_BINARY_DOUBLE(expr [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_BINARY_FLOAT]
+
+#+BEGIN_SRC sql
+TO_BINARY_FLOAT(expr [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_BLOB]
+
+#+BEGIN_SRC sql
+TO_BLOB ( raw_value )
+#+END_SRC
+
+- [TO_CHAR (character)]
+
+#+BEGIN_SRC sql
+TO_CHAR(nchar | clob | nclob)
+#+END_SRC
+
+- [TO_CHAR (datetime)]
+
+#+BEGIN_SRC sql
+TO_CHAR({ datetime | interval } [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_CHAR (number)]
+
+#+BEGIN_SRC sql
+TO_CHAR(n [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_CLOB]
+
+#+BEGIN_SRC sql
+TO_CLOB(lob_column | char)
+#+END_SRC
+
+- [TO_DATE]
+
+#+BEGIN_SRC sql
+TO_DATE(char [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_DSINTERVAL]
+
+#+BEGIN_SRC sql
+TO_DSINTERVAL ( ' { sql_format | ds_iso_format } ' )
+#+END_SRC
+
+- [TO_LOB]
+
+#+BEGIN_SRC sql
+TO_LOB(long_column)
+#+END_SRC
+
+- [TO_MULTI_BYTE]
+
+#+BEGIN_SRC sql
+TO_MULTI_BYTE(char)
+#+END_SRC
+
+- [TO_NCHAR (character)]
+
+#+BEGIN_SRC sql
+TO_NCHAR({char | clob | nclob})
+#+END_SRC
+
+- [TO_NCHAR (datetime)]
+
+#+BEGIN_SRC sql
+TO_NCHAR({ datetime | interval }
+         [, fmt [, 'nlsparam' ] ]
+        )
+#+END_SRC
+
+- [TO_NCHAR (number)]
+
+#+BEGIN_SRC sql
+TO_NCHAR(n [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_NCLOB]
+
+#+BEGIN_SRC sql
+TO_NCLOB(lob_column | char)
+#+END_SRC
+
+- [TO_NUMBER]
+
+#+BEGIN_SRC sql
+TO_NUMBER(expr [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_SINGLE_BYTE]
+
+#+BEGIN_SRC sql
+TO_SINGLE_BYTE(char)
+#+END_SRC
+
+- [TO_TIMESTAMP]
+
+#+BEGIN_SRC sql
+TO_TIMESTAMP(char [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_TIMESTAMP_TZ]
+
+#+BEGIN_SRC sql
+TO_TIMESTAMP_TZ(char [, fmt [, 'nlsparam' ] ])
+#+END_SRC
+
+- [TO_YMINTERVAL]
+
+#+BEGIN_SRC sql
+TO_YMINTERVAL
+  ( '  { [+|-] years - months 
+       | ym_iso_format 
+       } ' )
+#+END_SRC
+
+- [TRANSLATE]
+
+#+BEGIN_SRC sql
+TRANSLATE(expr, from_string, to_string)
+#+END_SRC
+
+- [TRANSLATE ... USING]
+
+#+BEGIN_SRC sql
+TRANSLATE ( char USING
+          { CHAR_CS | NCHAR_CS }
+          )
+#+END_SRC
+
+- [TREAT]
+
+#+BEGIN_SRC sql
+TREAT(expr AS [ REF ] [ schema. ]type)
+#+END_SRC
+
+- [TRIM]
+
+#+BEGIN_SRC sql
+TRIM([ { { LEADING | TRAILING | BOTH }
+         [ trim_character ]
+       | trim_character
+       }
+       FROM 
+     ]
+     trim_source
+    )
+#+END_SRC
+
+- [TRUNC (date)]
+
+#+BEGIN_SRC sql
+TRUNC(date [, fmt ])
+#+END_SRC
+
+- [TRUNC (number)]
+
+#+BEGIN_SRC sql
+TRUNC(n1 [, n2 ])
+#+END_SRC
+
+- [TZ_OFFSET]
+
+#+BEGIN_SRC sql
+TZ_OFFSET({ 'time_zone_name'
+          | '{ + | - } hh : mi'
+          | SESSIONTIMEZONE
+          | DBTIMEZONE
+          }
+         )
+#+END_SRC
+
+- [UID]
+
+#+BEGIN_SRC sql
+UID
+#+END_SRC
+
+- [UNISTR]
+
+#+BEGIN_SRC sql
+UNISTR( string )
+#+END_SRC
+
+- [UPDATEXML]
+
+#+BEGIN_SRC sql
+UPDATEXML
+      (XMLType_instance,
+        XPath_string, value_expr
+          [, XPath_string, value_expr ]...
+        [, namespace_string ]
+      )
+#+END_SRC
+
+- [UPPER]
+
+#+BEGIN_SRC sql
+UPPER(char)
+#+END_SRC
+
+- [USER]
+
+#+BEGIN_SRC sql
+USER
+#+END_SRC
+
+- [user-defined function]
+
+#+BEGIN_SRC sql
+[ schema. ]
+{ [ package. ]function | user_defined_operator }
+[ @ dblink. ]
+[ ( [ [ DISTINCT | ALL ] expr [, expr ]... ] ) ]
+#+END_SRC
+
+- [USERENV]
+
+#+BEGIN_SRC sql
+USERENV('parameter')
+#+END_SRC
+
+- [VALUE]
+
+#+BEGIN_SRC sql
+VALUE(correlation_variable)
+#+END_SRC
+
+- [VAR_POP]
+
+#+BEGIN_SRC sql
+VAR_POP(expr) [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [VAR_SAMP]
+
+#+BEGIN_SRC sql
+VAR_SAMP(expr) [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [VARIANCE]
+
+#+BEGIN_SRC sql
+VARIANCE([ DISTINCT | ALL ] expr)
+        [ OVER (analytic_clause) ]
+#+END_SRC
+
+- [VSIZE]
+
+#+BEGIN_SRC sql
+VSIZE(expr)
+#+END_SRC
+
+- [WIDTH_BUCKET]
+
+#+BEGIN_SRC sql
+WIDTH_BUCKET
+   (expr, min_value, max_value, num_buckets)
+#+END_SRC
+
+- [XMLAGG]
+
+#+BEGIN_SRC sql
+XMLAGG(XMLType_instance [ order_by_clause ])
+#+END_SRC
+
+<a id="SQLQR476"></a>[XMLCAST]<a id="sthref760"></a><a id="sthref761"></a>
+
+#+BEGIN_SRC sql
+XMLCAST ( value_expression AS datatype )
+#+END_SRC
+
+- [XMLCDATA]
+
+#+BEGIN_SRC sql
+XMLCDATA ( value_expr )
+#+END_SRC
+
+- [XMLCOLATTVAL]
+
+#+BEGIN_SRC sql
+XMLCOLATTVAL
+  (value_expr [ AS { c_alias  | EVALNAME value_expr } ]
+    [, value_expr [ AS { c_alias  | EVALNAME value_expr } ]
+      ]...
+  )
+#+END_SRC
+
+- [XMLCOMMENT]
+
+#+BEGIN_SRC sql
+XMLCOMMENT ( value_expr )
+#+END_SRC
+
+- [XMLCONCAT]
+
+#+BEGIN_SRC sql
+XMLCONCAT(XMLType_instance [, XMLType_instance ]...)
+#+END_SRC
+
+- [XMLDIFF]
+
+#+BEGIN_SRC sql
+XMLDIFF ( XMLType_document, XMLType_document [ , integer, string ] )
+#+END_SRC
+
+- [XMLELEMENT]
+
+#+BEGIN_SRC sql
+XMLELEMENT
+ ( [ ENTITYESCAPING | NOENTITYESCAPING ]
+   [ NAME ]
+     { identifier
+     | EVALNAME value_expr
+     }
+   [, XML_attributes_clause ]
+   [, value_expr [ [AS] c_alias ]]...
+ )
+#+END_SRC
+
+- [XMLEXISTS]
+
+#+BEGIN_SRC sql
+XMLEXISTS ( XQuery_string [ XML_passing_clause ] )
+#+END_SRC
+
+- [XMLFOREST]
+
+#+BEGIN_SRC sql
+XMLFOREST
+  ( value_expr [ AS { c_alias | EVALNAME value_expr } ]
+    [, value_expr [ AS { c_alias | EVALNAME value_expr } ]
+      ]...
+  )
+#+END_SRC
+
+- [XMLISVALID]
+
+#+BEGIN_SRC sql
+XMLISVALID ( XMLType_instance [, XMLSchema_URL [, element ]] )
+#+END_SRC
+
+- [XMLPARSE]
+
+#+BEGIN_SRC sql
+XMLPARSE
+  ({ DOCUMENT | CONTENT } value_expr [ WELLFORMED ]
+  )
+#+END_SRC
+
+- [XMLPATCH]
+
+#+BEGIN_SRC sql
+XMLPATCH ( XMLType_document, XMLType_document )
+#+END_SRC
+
+- [XMLPI]
+
+#+BEGIN_SRC sql
+XMLPI
+ ( { [ NAME ] identifier
+   | EVALNAME value_expr
+   } [, value_expr ]
+ )
+#+END_SRC
+
+- [XMLQUERY]
+
+#+BEGIN_SRC sql
+XMLQUERY
+ ( XQuery_string 
+   [ XML_passing_clause ] 
+   RETURNING CONTENT [NULL ON EMPTY] 
+ )
+#+END_SRC
+
+- [XMLROOT]
+
+#+BEGIN_SRC sql
+XMLROOT
+  ( value_expr, VERSION 
+  { value_expr | NO VALUE }
+  [, STANDALONE { YES | NO | NO VALUE } ]
+  )
+#+END_SRC
+
+- [XMLSEQUENCE]
+
+#+BEGIN_SRC sql
+XMLSEQUENCE( XMLType_instance
+           | sys_refcursor_instance [, fmt ]
+           )
+#+END_SRC
+
+- [XMLSERIALIZE]
+
+#+BEGIN_SRC sql
+XMLSERIALIZE
+  ( { DOCUMENT | CONTENT } value_expr [ AS datatype ]
+    [ ENCODING xml_encoding_spec ]
+    [ VERSION string_literal ]
+    [ NO INDENT | { INDENT [SIZE = number] } ]
+    [ { HIDE | SHOW } DEFAULTS ]
+  )
+#+END_SRC
+
+- [XMLTABLE]
+
+#+BEGIN_SRC sql
+XMLTABLE
+ ( 
+  [ XMLnamespaces_clause , ] XQuery_string XMLTABLE_options 
+ )
+#+END_SRC
+
+- [XMLTRANSFORM]
+
+#+BEGIN_SRC sql
+XMLTRANSFORM(XMLType_instance, { XMLType_instance
+                               | string
+                               }
+                   )
+#+END_SRC
 * SQL Expressions
 ** Syntax for SQL Expression Types
+An expression is a combination of one or more values, operators, and SQL functions that evaluate to a value. An expression generally assumes the data type of its components.
+
+Expressions have several forms. The sections that follow show the syntax for each form of expression. Refer to [Chapter 5, "Subclauses"](sqlqr05.htm#g1004143) for the syntax of the subclauses.
+
+- [CASE expressions]
+
+#+BEGIN_SRC sql
+CASE { simple_case_expression
+     | searched_case_expression
+     }
+     [ else_clause ]
+     END
+#+END_SRC
+
+- [Column expressions]
+
+A column expression can be a simple expression, compound expression, function expression, or expression list, containing only columns of the subject table, constants, and deterministic functions.
+
+- [Compound expressions]
+
+#+BEGIN_SRC sql
+{ (expr)
+| { + | - | PRIOR } expr
+| expr { * | / | + | - | || } expr
+}
+
+Note: The double vertical bars are part of the syntax
+      (indicating concatenation) rather than BNF notation.
+#+END_SRC
+
+- [CURSOR expressions]
+
+#+BEGIN_SRC sql
+CURSOR (subquery)
+#+END_SRC
+
+- [Datetime expressions]
+
+#+BEGIN_SRC sql
+expr AT
+   { LOCAL
+   | TIME ZONE { ' [ + | - ] hh:mi'
+               | DBTIMEZONE
+               | 'time_zone_name'
+               | expr
+               }
+   }
+#+END_SRC
+
+- [Function expressions]
+
+You can use any built-in SQL function or user-defined function as an expression.
+
+- [Interval expressions]
+
+#+BEGIN_SRC sql
+( expr1 - expr2 )
+   { DAY [ (leading_field_precision) ] TO
+     SECOND [ (fractional_second_precision) ]
+   | YEAR [ (leading_field_precision) ] TO
+     MONTH
+   }
+#+END_SRC
+
+- [Model expressions]
+
+#+BEGIN_SRC sql
+{ measure_column <span class="bold">[</span> { condition | expr } [, { condition | expr } ]... <span class="bold">]</span>
+| aggregate_function 
+     { <span class="bold">[</span> { condition | expr } [, { condition | expr } ]... <span class="bold">]</span>
+     | <span class="bold">[</span> single_column_for_loop [, single_column_for_loop ]... <span class="bold">]</span>
+     | <span class="bold">[</span> multi_column_for_loop <span class="bold">]</span>
+     }
+| analytic_function
+}
+#+END_SRC
+
+- [Object access expressions]
+
+#+BEGIN_SRC sql
+{ table_alias.column.
+| object_table_alias.
+| (expr).
+}
+{ attribute [.attribute ]...
+  [.method ([ argument [, argument ]... ]) ]
+| method ([ argument [, argument ]... ])
+}
+#+END_SRC
+
+- [Placeholder expressions]
+
+#+BEGIN_SRC sql
+:host_variable
+   [ [ INDICATOR ]
+     :indicator_variable
+   ]
+#+END_SRC
+
+- [Scalar subquery expressions]
+
+A scalar subquery expression is a subquery that returns exactly one column value from one row.
+
+- [Simple expressions]
+
+#+BEGIN_SRC sql
+{ [ query_name.
+  | [schema.]
+    { table. | view. | materialized view. }
+  ] { column | ROWID }
+| ROWNUM
+| string
+| number
+| sequence. { CURRVAL | NEXTVAL }
+| NULL
+}
+#+END_SRC
+
+- [Type constructor expressions]
+
+#+BEGIN_SRC sql
+[ NEW ] [ schema. ]type_name
+   ([ expr [, expr ]... ])
+#+END_SRC
 * SQL Conditions
 ** Syntax for SQL Condition Types
+A condition specifies a combination of one or more expressions and logical (Boolean) operators and returns a value of `TRUE`, `FALSE`, or unknown.
+
+Conditions have several forms. The sections that follow show the syntax for each form of condition. Refer to [Chapter 5, "Subclauses"](sqlqr05.htm#g1004143) for the syntax of the subclauses.
+
+- [BETWEEN condition]
+
+#+BEGIN_SRC sql
+expr1 [ NOT ] BETWEEN expr2 AND expr3
+#+END_SRC
+
+- [Compound conditions]
+
+#+BEGIN_SRC sql
+{ (condition)
+| NOT condition
+| condition { AND | OR } condition
+}
+#+END_SRC
+
+- [EQUALS_PATH condition]
+
+#+BEGIN_SRC sql
+EQUALS_PATH
+    (column, path_string [, correlation_integer ])
+#+END_SRC
+
+- [EXISTS condition]
+
+#+BEGIN_SRC sql
+EXISTS (subquery)
+#+END_SRC
+
+- [Floating-point conditions]
+
+#+BEGIN_SRC sql
+expr IS [ NOT ] { NAN | INFINITE }
+#+END_SRC
+
+- [Group comparison conditions]
+
+#+BEGIN_SRC sql
+{ expr
+     { = | != | ^= | <> | > | < | >= | <= }
+     { ANY | SOME | ALL }
+     ({ expression_list | subquery })
+| ( expr [, expr ]... )
+  { = | != | ^= | <> }
+  { ANY | SOME | ALL }
+  ({ expression_list
+     [, expression_list ]...
+   | subquery
+   }
+  )
+}
+#+END_SRC
+
+where `!=`, `^=`, and `<>` test for inequality
+
+- [IN condition]
+
+#+BEGIN_SRC sql
+{ expr [ NOT ] IN ({ expression_list | subquery })
+| ( expr [, expr ]... )
+    [ NOT ] IN ({ expression_list [, expression_list ]...
+                | subquery
+                }
+               )
+}
+#+END_SRC
+
+- [IS A SET condition]
+
+#+BEGIN_SRC sql
+nested_table IS [ NOT ] A SET
+#+END_SRC
+
+- [IS ANY condition]
+
+#+BEGIN_SRC sql
+[ dimension_column IS ] ANY
+#+END_SRC
+
+- [IS EMPTY condition]
+
+#+BEGIN_SRC sql
+nested_table IS [ NOT ] EMPTY
+#+END_SRC
+
+- [IS OF <span class="italic">type</span> condition]
+
+#+BEGIN_SRC sql
+expr IS [ NOT ] OF [ TYPE ]
+   ([ ONLY ] [ schema. ] type
+      [, [ ONLY ] [ schema. ] type ]...
+   )
+#+END_SRC
+
+- [IS PRESENT condition]
+
+#+BEGIN_SRC sql
+cell_reference IS PRESENT
+#+END_SRC
+
+- [LIKE condition]
+
+#+BEGIN_SRC sql
+char1 [ NOT ] { LIKE | LIKEC | LIKE2 | LIKE4 }
+  char2 [ ESCAPE esc_char ]
+#+END_SRC
+
+- [Logical conditions]
+
+#+BEGIN_SRC sql
+{ NOT | AND | OR }
+#+END_SRC
+
+- [MEMBER condition]
+
+#+BEGIN_SRC sql
+expr [ NOT ] MEMBER [ OF ] nested_table
+#+END_SRC
+
+- [Null conditions]
+
+#+BEGIN_SRC sql
+expr IS [ NOT ] NULL
+#+END_SRC
+
+- [REGEXP_LIKE condition]
+
+#+BEGIN_SRC sql
+REGEXP_LIKE(source_char, pattern
+            [, match_param ]
+           )
+#+END_SRC
+
+- [Simple comparison conditions]
+
+#+BEGIN_SRC sql
+{ expr 
+  { = | != | ^= | <> | > | < | >= | <= }
+  expr
+| (expr [, expr ]...)
+  { = | != | ^= | <> }
+  ( expression_list | subquery )
+}
+#+END_SRC
+
+where `!=`, `^=`, and `<>` test for inequality
+
+- [SUBMULTISET condition]
+
+#+BEGIN_SRC sql
+nested_table1
+[ NOT ] SUBMULTISET [ OF ]
+nested_table2
+#+END_SRC
+
+- [UNDER_PATH condition]
+
+#+BEGIN_SRC sql
+UNDER_PATH (column [, levels ], path_string
+             [, correlation_integer ]
+           )
+#+END_SRC
 * Subclauses
 ** Syntax for Subclauses
 * Data Types
 ** Overview of Data Types
+A data type is a classification of a particular type of information or data. Each value manipulated by Oracle has a data type. The data type of a value associates a fixed set of properties with the value. These properties cause Oracle to treat values of one data type differently from values of another.
+
+The data types recognized by Oracle are:
+
+- ANSI-supported data types
+#+BEGIN_SRC sql
+{ CHARACTER [VARYING] (size)
+| { CHAR | NCHAR } VARYING (size)
+| VARCHAR (size)
+| NATIONAL { CHARACTER | CHAR }
+     [VARYING] (size)
+| { NUMERIC | DECIMAL | DEC }
+     [ (precision [, scale ]) ]
+| { INTEGER | INT | SMALLINT }
+| FLOAT [ (size) ]
+| DOUBLE PRECISION
+| REAL
+}
+#+END_SRC
+- Oracle built-in data types
+#+BEGIN_SRC sql
+{ character_datatypes
+| number_datatypes
+| long_and_raw_datatypes
+| datetime_datatypes
+| large_object_datatypes
+| rowid_datatypes
+}
+#+END_SRC
+- Oracle-supplied data types
+#+BEGIN_SRC sql
+{ any_types
+| XML_types
+| spatial_types
+| media_types
+| expression_filter_type
+}
+#+END_SRC
+- User-defined data types
+
+User-defined data types use Oracle built-in data types and other user-defined data types to model the structure and behavior of data in applications.
 ** Oracle Built-In Data Types
+This section describes the kinds of Oracle built-in data types.
+
+- character_datatypes
+
+#+BEGIN_SRC sql
+{ CHAR [ (size [ BYTE | CHAR ]) ]
+| VARCHAR2 (size [ BYTE | CHAR ])
+| NCHAR [ (size) ]
+| NVARCHAR2 (size)
+}
+#+END_SRC
+- datetime_datatypes
+
+#+BEGIN_SRC sql
+{ DATE
+| TIMESTAMP [ (fractional_seconds_precision) ]
+     [ WITH [ LOCAL ] TIME ZONE ]
+| INTERVAL YEAR [ (year_precision) ] TO MONTH
+| INTERVAL DAY [ (day_precision) ] TO SECOND
+     [ (fractional_seconds_precision) ]
+}
+#+END_SRC
+- large_object_datatypes
+
+#+BEGIN_SRC sql
+{ BLOB | CLOB | NCLOB | BFILE }
+#+END_SRC
+- long_and_raw_datatypes
+
+#+BEGIN_SRC sql
+{ LONG | LONG RAW | RAW (size) }
+#+END_SRC
+- number_datatypes
+
+#+BEGIN_SRC sql
+{ NUMBER [ (precision [, scale ]) ]
+| FLOAT [ (precision) ]
+| BINARY_FLOAT
+| BINARY_DOUBLE
+}
+#+END_SRC
+- rowid_datatypes
+
+#+BEGIN_SRC sql
+{ ROWID | UROWID [ (size) ] }
+#+END_SRC
+The codes listed for the data types are used internally by Oracle Database. The data type code of a column or object attribute is returned by the DUMP function.
 ** Oracle-Supplied Data Types
+
 ** Converting to Oracle Data Types
 * Format Models
 ** Overview of Format Models
