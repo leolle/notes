@@ -779,6 +779,10 @@ ln -s /home/weiwu/share/deep_learning/data/courses/dogscats/ /home/weiwu/project
 #+END_SRC
 
 *** find/search string
+- replace string in a file:
+#+BEGIN_SRC bash
+sed -i 's/old-text/new-text/g' input.txt
+#+END_SRC
 - find string in console:
 =C-S f=
 - Go to a specific line number using Less in Unix
@@ -1074,6 +1078,10 @@ readlink -f file.txt
 *** File attributes
 
 *** Access control lists
+- read certain line from a file:
+#+BEGIN_SRC bash
+cat 'file' | sed -n '25p'
+#+END_SRC
 - compress a file:
 #+BEGIN_SRC bash
 zip -r filename.zip target_dir

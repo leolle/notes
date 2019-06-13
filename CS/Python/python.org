@@ -1174,7 +1174,12 @@ textfile.close()
 https://docs.python.org/2.7/howto/unicode.html
 ** stringprep — Internet String Preparation
 ** readline — GNU readline interface
+- read certain line from a file:
+#+BEGIN_SRC python
+import linecache
+linecache.getline('Sample.txt', Number_of_Line)
 
+#+END_SRC
 * Data Types
 ** datetime — Basic date and time types
 - Converting unix timestamp string to readable date in Python
@@ -2290,7 +2295,7 @@ $ python3 test.py arg1 arg2 arg3
 ** builtins — Built-in objects
 ** __main__ — Top-level script environment
 ** warnings — Warning control
-- SettingWithCopyWarning in Pandas
+- SettingWithCopyWarning in Pandas, ignore pandas warning
 #+BEGIN_SRC python
 pd.options.mode.chained_assignment = None  # default='warn'
 #+END_SRC
@@ -2845,7 +2850,7 @@ def create_diseases_nodes(disease_infos):
 #+END_SRC
 - select rows by column values:
 #+BEGIN_SRC python
-df[(df['a'].isin(condition1)&(df['a'].isin(condition2))]
+df[(df['a'].isin(condition1))&&(df['a'].isin(condition2))]
 df[df['a']==a]
 df_insurance_disease = df_insurance[(df_insurance['type']=='医疗费用-疾病') & (df_insurance['year'].isin(years[4:]))]
 

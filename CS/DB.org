@@ -596,3 +596,1480 @@ Benefits depends on:
 
 - Standard default: *Serializable*
 - Some systems have default *Repeatable Read*
+* SQL Statements
+** Syntax for SQL Statements
+
+SQL statements are the means by which programs and users access data in an Oracle database.
+
+The sections that follow show each SQL statement and its related syntax. Refer to [Chapter 5, "Subclauses"](sqlqr05.htm#g1004143) for the syntax of the subclauses listed in the syntax for the statements.
+
+#+BEGIN_SRC txt
+
+
+See Also:
+
+Oracle Database SQL Language Reference for detailed information about Oracle SQL
+#+END_SRC
+
+- [ALTER CLUSTER]
+
+#+BEGIN_SRC sql
+ALTER CLUSTER [ schema. ]cluster
+  { physical_attributes_clause
+  | SIZE size_clause
+  | allocate_extent_clause
+  | deallocate_unused_clause
+  | { CACHE | NOCACHE }
+  } ...
+  [ parallel_clause ] ;
+#+END_SRC
+
+- [ALTER DATABASE]
+
+#+BEGIN_SRC sql
+ALTER DATABASE [ database ]
+  { startup_clauses
+  | recovery_clauses
+  | database_file_clauses
+  | logfile_clauses
+  | controlfile_clauses
+  | standby_database_clauses
+  | default_settings_clauses
+  | instance_clauses
+  | security_clause
+  } ;
+#+END_SRC
+
+- [ALTER DATABASE LINK]
+
+#+BEGIN_SRC sql
+ALTER DATABASE LINK dblink
+  { CONNECT TO user IDENTIFIED BY password [ dblink_authentication ]
+  | dblink_authentication
+  };
+#+END_SRC
+
+- [ALTER DIMENSION]
+
+#+BEGIN_SRC sql
+ALTER DIMENSION [ schema. ] dimension
+  { ADD { level_clause
+        | hierarchy_clause
+        | attribute_clause
+        | extended_attribute_clause
+        }
+  } ...
+  |
+  { DROP { LEVEL level [ RESTRICT | CASCADE ]
+         | HIERARCHY hierarchy
+         | ATTRIBUTE attribute [ LEVEL level [ COLUMN column ] ]...
+         }
+  } ...
+  |
+  COMPILE
+  ;
+#+END_SRC
+
+- [ALTER DISKGROUP]
+
+#+BEGIN_SRC sql
+ALTER DISKGROUP
+  { diskgroup_name
+      { { { add_disk_clause | drop_disk_clause }
+          [, { add_disk_clause | drop_disk_clause } ]...
+        | resize_disk_clause
+        } [ rebalance_diskgroup_clause ]
+      | disk_online_clause
+      | disk_offline_clause
+      | rebalance_diskgroup_clause
+      | check_diskgroup_clause
+      | diskgroup_template_clauses
+      | diskgroup_directory_clauses
+      | diskgroup_alias_clauses
+      | diskgroup_volume_clauses
+      | diskgroup_attributes
+      | modify_diskgroup_file
+      | drop_diskgroup_file_clause
+      | usergroup_clauses
+      | user_clauses
+      | file_permissions_clause
+      | file_owner_clause
+      }
+    | { diskgroup_name [, diskgroup_name ] ...
+      | ALL
+      } { undrop_disk_clause
+        | diskgroup_availability
+        | enable_disable_volume
+        }
+  } ;
+#+END_SRC
+
+- [ALTER FLASHBACK ARCHIVE]
+
+#+BEGIN_SRC sql
+ALTER FLASHBACK ARCHIVE flashback_archive
+  { SET DEFAULT
+  | { ADD | MODIFY } TABLESPACE tablespace [flashback_archive_quota]
+  | REMOVE TABLESPACE tablespace_name
+  | MODIFY RETENTION flashback_archive_retention
+  | PURGE { ALL | BEFORE { SCN expr | TIMESTAMP expr } }
+  | [NO] OPTIMIZE DATA
+  };
+#+END_SRC
+
+#+BEGIN_SRC txt
+
+
+Note:
+
+You can specify the `[NO]` `OPTIMIZE` `DATA` clause in this statement starting with Oracle Database 11g Release 2 (11.2.0.4).
+#+END_SRC
+
+- [ALTER FUNCTION]
+
+#+BEGIN_SRC sql
+ALTER FUNCTION [ schema. ] function function_compile_clause
+#+END_SRC
+
+- [ALTER INDEX]
+
+#+BEGIN_SRC sql
+ALTER INDEX [ schema. ]index
+  { { deallocate_unused_clause
+    | allocate_extent_clause
+    | shrink_clause
+    | parallel_clause
+    | physical_attributes_clause
+    | logging_clause
+    } ...
+  | rebuild_clause
+  | PARAMETERS ( 'ODCI_parameters' )
+               )
+  | COMPILE
+  | { ENABLE | DISABLE }
+  | UNUSABLE
+  | VISIBLE | INVISIBLE
+  | RENAME TO new_name
+  | COALESCE
+  | { MONITORING | NOMONITORING } USAGE
+  | UPDATE BLOCK REFERENCES
+  | alter_index_partitioning
+  }
+  ;
+#+END_SRC
+
+- [ALTER INDEXTYPE]
+
+#+BEGIN_SRC sql
+ALTER INDEXTYPE [ schema. ] indextype
+  { { ADD | DROP } [ schema. ] operator ( parameter_types ) 
+      [ , { ADD | DROP } [schema. ] operator ( parameter_types ) ]... [ using_type_clause ]
+  | COMPILE
+  }
+  [ WITH LOCAL [ RANGE ] PARTITION ] [ storage_table_clause ]
+  ;
+#+END_SRC
+
+- [ALTER JAVA]
+
+#+BEGIN_SRC sql
+ALTER JAVA
+  { SOURCE | CLASS } [ schema. ]object_name 
+  [ RESOLVER 
+      ( ( match_string [, ] { schema_name | - } )... )
+  ]
+  { { COMPILE | RESOLVE }
+  | invoker_rights_clause
+  } ;
+#+END_SRC
+
+- [ALTER LIBRARY]
+
+#+BEGIN_SRC sql
+ALTER LIBRARY [ schema. ] library_name library_compile_clause
+#+END_SRC
+
+- [ALTER MATERIALIZED VIEW]
+
+#+BEGIN_SRC sql
+ALTER MATERIALIZED VIEW
+  [ schema. ] materialized_view
+  [ physical_attributes_clause
+  | modify_mv_column_clause
+  | table_compression
+  | LOB_storage_clause [, LOB_storage_clause ]...
+  | modify_LOB_storage_clause [, modify_LOB_storage_clause ]...
+  | alter_table_partitioning
+  | parallel_clause
+  | logging_clause
+  | allocate_extent_clause
+  | deallocate_unused_clause
+  | shrink_clause
+  | { CACHE | NOCACHE }
+  ]
+  [ alter_iot_clauses ]
+  [ USING INDEX physical_attributes_clause ]
+  [ MODIFY scoped_table_ref_constraint
+  | alter_mv_refresh
+  ]
+  [ { ENABLE | DISABLE } QUERY REWRITE
+  | COMPILE
+  | CONSIDER FRESH
+  ] ;
+#+END_SRC
+
+- [ALTER MATERIALIZED VIEW LOG]
+
+#+BEGIN_SRC sql
+ALTER MATERIALIZED VIEW LOG [ FORCE ]
+  ON [ schema. ]table
+  [ physical_attributes_clause
+  | add_mv_log_column_clause
+  | alter_table_partitioning
+  | parallel_clause
+  | logging_clause
+  | allocate_extent_clause
+  | shrink_clause
+  | move_mv_log_clause
+  | { CACHE | NOCACHE }
+  ] [ mv_log_augmentation ] [  mv_log_purge_clause ]
+  ;
+#+END_SRC
+
+- [ALTER OPERATOR]
+
+#+BEGIN_SRC sql
+ALTER OPERATOR [ schema. ] operator
+  { add_binding_clause
+  | drop_binding_clause
+  | COMPILE
+  } ;
+#+END_SRC
+
+- [ALTER OUTLINE]
+
+#+BEGIN_SRC sql
+ALTER OUTLINE [ PUBLIC | PRIVATE ] outline
+  { REBUILD
+  | RENAME TO new_outline_name
+  | CHANGE CATEGORY TO new_category_name
+  | { ENABLE | DISABLE }
+  } ...
+  ;
+#+END_SRC
+
+- [ALTER PACKAGE]
+
+#+BEGIN_SRC sql
+ALTER PACKAGE [ schema. ] package package_compile_clause
+#+END_SRC
+
+- [ALTER PROCEDURE]
+
+#+BEGIN_SRC sql
+ALTER PROCEDURE [ schema. ] procedure procedure_compile_clause
+#+END_SRC
+
+- [ALTER PROFILE]
+
+#+BEGIN_SRC sql
+ALTER PROFILE profile LIMIT
+  { resource_parameters | password_parameters } ...
+  ;
+#+END_SRC
+
+- [ALTER RESOURCE COST]
+
+#+BEGIN_SRC sql
+ALTER RESOURCE COST
+  { { CPU_PER_SESSION
+    | CONNECT_TIME
+    | LOGICAL_READS_PER_SESSION
+    | PRIVATE_SGA
+    } integer
+  } ...
+  ;
+#+END_SRC
+
+- [ALTER ROLE]
+
+#+BEGIN_SRC sql
+ALTER ROLE role
+  { NOT IDENTIFIED
+  | IDENTIFIED
+      { BY password
+      | USING [ schema. ] package
+      | EXTERNALLY
+      | GLOBALLY
+      }
+  } ;
+#+END_SRC
+
+- [ALTER ROLLBACK SEGMENT]
+
+#+BEGIN_SRC sql
+ALTER ROLLBACK SEGMENT rollback_segment
+  { ONLINE
+  | OFFLINE
+  | storage_clause
+  | SHRINK [ TO size_clause ]
+  };
+#+END_SRC
+
+- [ALTER SEQUENCE]
+
+#+BEGIN_SRC sql
+ALTER SEQUENCE [ schema. ] sequence
+  { INCREMENT BY integer
+  | { MAXVALUE integer | NOMAXVALUE }
+  | { MINVALUE integer | NOMINVALUE }
+  | { CYCLE | NOCYCLE }
+  | { CACHE integer | NOCACHE }
+  | { ORDER | NOORDER }
+  } ...
+  ;
+#+END_SRC
+
+- [ALTER SESSION]
+
+#+BEGIN_SRC sql
+ALTER SESSION
+  { ADVISE { COMMIT | ROLLBACK | NOTHING }
+  | CLOSE DATABASE LINK dblink
+  | { ENABLE | DISABLE } COMMIT IN PROCEDURE
+  | { ENABLE | DISABLE } GUARD
+  | { ENABLE | DISABLE | FORCE } PARALLEL
+    { DML | DDL | QUERY } [ PARALLEL integer ]
+  | { ENABLE RESUMABLE [ TIMEOUT integer ] [ NAME string ]
+    | DISABLE RESUMABLE
+    }
+  | SYNC WITH PRIMARY   
+  | alter_session_set_clause
+  } ;
+#+END_SRC
+
+- [ALTER SYSTEM]
+
+#+BEGIN_SRC sql
+ALTER SYSTEM
+  { archive_log_clause
+  | checkpoint_clause
+  | check_datafiles_clause
+  | distributed_recov_clauses
+  | FLUSH { SHARED_POOL | GLOBAL CONTEXT | BUFFER_CACHE
+          | REDO TO target_db_name [ [ NO ] CONFIRM APPLY ] }
+  | end_session_clauses
+  | SWITCH LOGFILE
+  | { SUSPEND | RESUME }
+  | quiesce_clauses
+  | rolling_migration_clauses
+  | security_clauses
+  | shutdown_dispatcher_clause
+  | REGISTER
+  | SET alter_system_set_clause
+        [ alter_system_set_clause ]...
+  | RESET alter_system_reset_clause
+          [ alter_system_reset_clause ]...
+  } ;
+#+END_SRC
+
+- [ALTER TABLE]
+
+#+BEGIN_SRC sql
+ALTER TABLE [ schema. ] table
+  [ alter_table_properties
+  | column_clauses
+  | constraint_clauses
+  | alter_table_partitioning
+  | alter_external_table
+  | move_table_clause
+  ]
+  [ enable_disable_clause
+  | { ENABLE | DISABLE } { TABLE LOCK | ALL TRIGGERS }
+  ] ...
+  ;
+#+END_SRC
+
+- [ALTER TABLESPACE]
+
+#+BEGIN_SRC sql
+ALTER TABLESPACE tablespace
+  { DEFAULT [ table_compression ] [ storage_clause ]
+  | MINIMUM EXTENT size_clause
+  | RESIZE size_clause
+  | COALESCE
+  | SHRINK SPACE [ KEEP size_clause]
+  | RENAME TO new_tablespace_name
+  | { BEGIN | END } BACKUP
+  | datafile_tempfile_clauses
+  | tablespace_logging_clauses
+  | tablespace_group_clause
+  | tablespace_state_clauses
+  | autoextend_clause
+  | flashback_mode_clause
+  | tablespace_retention_clause
+  } ;
+#+END_SRC
+
+- [ALTER TRIGGER]
+
+#+BEGIN_SRC sql
+ALTER TRIGGER [ schema. ] trigger
+  { ENABLE
+  | DISABLE
+  | RENAME TO new_name
+  | trigger_compile_clause
+  } ;
+#+END_SRC
+
+- [ALTER TYPE]
+
+#+BEGIN_SRC sql
+ALTER TYPE [ schema. ]type alter_type_clauses
+#+END_SRC
+
+- [ALTER USER]
+
+#+BEGIN_SRC sql
+ALTER USER
+  { user
+    { IDENTIFIED
+      { BY password [ REPLACE old_password ]
+      | EXTERNALLY [ AS 'certificate_DN' | AS 'kerberos_principal_name' ]
+      | GLOBALLY [ AS '[directory_DN]' ]
+      }
+    | DEFAULT TABLESPACE tablespace
+    | TEMPORARY TABLESPACE { tablespace | tablespace_group_name }
+    | { QUOTA { size_clause
+              | UNLIMITED
+              } ON tablespace
+      } ...
+    | PROFILE profile
+    | DEFAULT ROLE { role [, role ]...
+                   | ALL [ EXCEPT role [, role ] ... ]
+                   | NONE
+                   }
+    | PASSWORD EXPIRE
+    | ACCOUNT { LOCK | UNLOCK }
+    | ENABLE EDITIONS [ FORCE ]
+    } ...
+  | user [, user ]... proxy_clause
+  } ;
+#+END_SRC
+
+- [ALTER VIEW]
+
+#+BEGIN_SRC sql
+ALTER VIEW [ schema. ] view
+  { ADD out_of_line_constraint
+  | MODIFY CONSTRAINT constraint
+      { RELY | NORELY }
+  | DROP { CONSTRAINT constraint
+         | PRIMARY KEY
+         | UNIQUE (column [, column ]...)
+         }
+  | COMPILE
+  | { READ ONLY | READ WRITE }
+  } ;
+#+END_SRC
+
+- [ANALYZE]
+
+#+BEGIN_SRC sql
+ANALYZE
+  { { TABLE [ schema. ] table
+    | INDEX [ schema. ] index
+    } [ partition_extension_clause ]
+  | CLUSTER [ schema. ] cluster
+  }
+  { validation_clauses
+  | LIST CHAINED ROWS [ into_clause ]
+  | DELETE [ SYSTEM ] STATISTICS
+  } ;
+#+END_SRC
+
+- [ASSOCIATE STATISTICS]
+
+#+BEGIN_SRC sql
+ASSOCIATE STATISTICS WITH
+  { column_association | function_association }
+  [ storage_table_clause ] ;
+#+END_SRC
+
+- [AUDIT]
+
+#+BEGIN_SRC sql
+AUDIT
+  { audit_operation_clause [ auditing_by_clause | IN SESSION CURRENT ]
+  | audit_schema_object_clause
+  | NETWORK
+  } [ BY { SESSION | ACCESS } ]
+    [ WHENEVER [ NOT ] SUCCESSFUL ]
+;
+#+END_SRC
+
+- [CALL]
+
+#+BEGIN_SRC sql
+CALL
+  { routine_clause
+  | object_access_expression
+  }
+  [ INTO :host_variable
+    [ [ INDICATOR ] :indicator_variable ] ] ;
+#+END_SRC
+
+- [COMMENT]
+
+#+BEGIN_SRC sql
+COMMENT ON
+  { COLUMN [ schema. ]
+    { table. | view. | materialized_view. } column
+  | EDITION edition_name
+  | INDEXTYPE [ schema. ] indextype
+  | MATERIALIZED VIEW materialized_view
+  | MINING MODEL [ schema. ] model
+  | OPERATOR [ schema. ] operator
+  | TABLE [ schema. ] { table | view }
+  }
+  IS string ;
+#+END_SRC
+
+- [COMMIT]
+
+#+BEGIN_SRC sql
+COMMIT [ WORK ]
+  [ [ COMMENT string ]
+    | [ WRITE [ WAIT | NOWAIT ] [ IMMEDIATE | BATCH ]
+    ]
+  | FORCE string [, integer ]
+  ] ;
+#+END_SRC
+
+- [CREATE CLUSTER]
+
+#+BEGIN_SRC sql
+CREATE CLUSTER [ schema. ] cluster
+  (column datatype [ SORT ]
+    [, column datatype [ SORT ] ]...
+  )
+  [ { physical_attributes_clause
+    | SIZE size_clause
+    | TABLESPACE tablespace
+    | { INDEX
+      | [ SINGLE TABLE ]
+        HASHKEYS integer [ HASH IS expr ]
+      }
+    }...
+  ]
+  [ parallel_clause ]
+  [ NOROWDEPENDENCIES | ROWDEPENDENCIES ]
+  [ CACHE | NOCACHE ] ;
+#+END_SRC
+
+- [CREATE CONTEXT]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] CONTEXT namespace
+  USING [ schema. ] package
+  [ INITIALIZED { EXTERNALLY | GLOBALLY }
+  | ACCESSED GLOBALLY
+  ] ;
+#+END_SRC
+
+- [CREATE CONTROLFILE]
+
+#+BEGIN_SRC sql
+CREATE CONTROLFILE
+  [ REUSE ] [ SET ] DATABASE database
+  [ logfile_clause ]
+  { RESETLOGS | NORESETLOGS }
+  [ DATAFILE file_specification
+             [, file_specification ]... ]
+  [ MAXLOGFILES integer
+  | MAXLOGMEMBERS integer
+  | MAXLOGHISTORY integer
+  | MAXDATAFILES integer
+  | MAXINSTANCES integer
+  | { ARCHIVELOG | NOARCHIVELOG }
+  | FORCE LOGGING
+  ]...
+  [ character_set_clause ] ;
+#+END_SRC
+
+- [CREATE DATABASE]
+
+#+BEGIN_SRC sql
+CREATE DATABASE [ database ]
+  { USER SYS IDENTIFIED BY password
+  | USER SYSTEM IDENTIFIED BY password
+  | CONTROLFILE REUSE
+  | MAXDATAFILES integer
+  | MAXINSTANCES integer
+  | CHARACTER SET charset
+  | NATIONAL CHARACTER SET charset
+  | SET DEFAULT
+      { BIGFILE | SMALLFILE } TABLESPACE
+  | database_logging_clauses
+  | tablespace_clauses
+  | set_time_zone_clause
+  }... ;
+#+END_SRC
+
+- [CREATE DATABASE LINK]
+
+#+BEGIN_SRC sql
+CREATE [ SHARED ] [ PUBLIC ] DATABASE LINK dblink
+  [ CONNECT TO
+    { CURRENT_USER
+    | user IDENTIFIED BY password [ dblink_authentication ]
+    }
+  | dblink_authentication
+  ]...
+  [ USING connect_string ] ;
+#+END_SRC
+
+- [CREATE DIMENSION]
+
+#+BEGIN_SRC sql
+CREATE DIMENSION [ schema. ] dimension
+  level_clause ...
+  { hierarchy_clause
+  | attribute_clause
+  | extended_attribute_clause
+  }...
+;
+#+END_SRC
+
+- [CREATE DIRECTORY]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] DIRECTORY directory
+  AS 'path_name' ;
+#+END_SRC
+
+- [CREATE DISKGROUP]
+
+#+BEGIN_SRC sql
+CREATE DISKGROUP diskgroup_name
+  [ { HIGH | NORMAL | EXTERNAL } REDUNDANCY ]
+  { [ QUORUM | REGULAR ][  FAILGROUP failgroup_name ]
+  DISK qualified_disk_clause [, qualified_disk_clause]...
+  } ...
+  [ ATTRIBUTE { 'attribute_name' = 'attribute_value' }
+              [, 'attribute_name' = 'attribute_value' ]... ]
+;
+#+END_SRC
+
+- [CREATE EDITION]
+
+#+BEGIN_SRC sql
+CREATE EDITION edition
+  [ AS CHILD OF parent_edition ] ;
+#+END_SRC
+
+- [CREATE FLASHBACK ARCHIVE]
+
+#+BEGIN_SRC sql
+CREATE FLASHBACK ARCHIVE [DEFAULT] flashback_archive
+  TABLESPACE tablespace
+  [flashback_archive_quota]
+  [ [NO] OPTIMIZE DATA ]
+  flashback_archive_retention
+;
+#+END_SRC
+
+#+BEGIN_SRC txt
+
+
+Note:
+
+You can specify the `[NO]` `OPTIMIZE` `DATA` clause in this statement starting with Oracle Database 11g Release 2 (11.2.0.4).
+#+END_SRC
+
+- [CREATE FUNCTION]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] FUNCTION plsql_source
+#+END_SRC
+
+- [CREATE INDEX]
+
+#+BEGIN_SRC sql
+CREATE [ UNIQUE | BITMAP ] INDEX [ schema. ] index
+  ON { cluster_index_clause
+     | table_index_clause
+     | bitmap_join_index_clause
+     }
+[ UNUSABLE ] ;
+#+END_SRC
+
+- [CREATE INDEXTYPE]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] INDEXTYPE [ schema. ] indextype
+  FOR [ schema. ] operator (paramater_type [, paramater_type ]...)
+        [, [ schema. ] operator (paramater_type [, paramater_type ]...)
+        ]...
+  using_type_clause
+  [WITH LOCAL [RANGE] PARTITION ]
+  [ storage_table_clause ]
+;
+#+END_SRC
+
+- [CREATE JAVA]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] [ AND { RESOLVE | COMPILE } ] [ NOFORCE ]
+  JAVA { { SOURCE | RESOURCE } NAMED [ schema. ] primary_name
+       | CLASS [ SCHEMA schema ]
+       }
+  [ invoker_rights_clause ]
+  [ RESOLVER ( (match_string [,] { schema_name | - })...) ]
+  { USING { BFILE (directory_object_name, server_file_name)
+          | { CLOB | BLOB | BFILE } subquery
+          | 'key_for_BLOB'
+          }
+  | AS source_char
+  } ;
+#+END_SRC
+
+- [CREATE LIBRARY]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] LIBRARY plsql_source
+#+END_SRC
+
+- [CREATE MATERIALIZED VIEW]
+
+#+BEGIN_SRC sql
+CREATE MATERIALIZED VIEW [ schema. ] materialized_view
+  [ OF [ schema. ] object_type ]
+  [ ( { scoped_table_ref_constraint
+      | column_alias [ENCRYPT [encryption_spec]]
+      }
+      [, { scoped_table_ref_constraint
+         | column_alias [ENCRYPT [encryption_spec]]
+         }
+      ]...
+    )
+  ]
+  { ON PREBUILT TABLE
+    [ { WITH | WITHOUT } REDUCED PRECISION ]
+  | physical_properties materialized_view_props
+  }
+  [ USING INDEX
+    [ physical_attributes_clause
+    | TABLESPACE tablespace
+    ]...
+  | USING NO INDEX
+  ]
+  [ create_mv_refresh ]
+  [ FOR UPDATE ]
+  [ { DISABLE | ENABLE } QUERY REWRITE ]
+AS subquery ;
+#+END_SRC
+
+- [CREATE MATERIALIZED VIEW LOG]
+
+#+BEGIN_SRC sql
+CREATE MATERIALIZED VIEW LOG ON [ schema. ] table
+  [ physical_attributes_clause
+  | TABLESPACE tablespace
+  | logging_clause
+  | { CACHE | NOCACHE }
+  ]...
+  [ parallel_clause ]
+  [ table_partitioning_clauses ]
+  [ WITH [ { OBJECT ID
+         | PRIMARY KEY
+         | ROWID
+         | SEQUENCE
+         | COMMIT SCN
+         }
+           [ { , OBJECT ID
+             | , PRIMARY KEY
+             | , ROWID
+             | , SEQUENCE
+             | , COMMIT SCN
+             }
+           ]... ]
+    (column [, column ]...)
+    [ new_values_clause ]
+  ] [ mv_log_purge_clause ] 
+;
+#+END_SRC
+
+- [CREATE OPERATOR]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] OPERATOR
+   [ schema. ] operator binding_clause ;
+#+END_SRC
+
+- [CREATE OUTLINE]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ]
+   [ PUBLIC | PRIVATE ] OUTLINE [ outline ]
+   [ FROM [ PUBLIC | PRIVATE ] source_outline ]
+   [ FOR CATEGORY category ]
+   [ ON statement ] ;
+#+END_SRC
+
+- [CREATE PACKAGE]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] PACKAGE plsql_source
+#+END_SRC
+
+- [CREATE PACKAGE BODY]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] PACKAGE BODY plsql_source
+#+END_SRC
+
+- [CREATE PFILE]
+
+#+BEGIN_SRC sql
+CREATE PFILE [= 'pfile_name' ]
+   FROM { SPFILE [= 'spfile_name']
+        | MEMORY
+        } ;
+#+END_SRC
+
+- [CREATE PROCEDURE]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] PROCEDURE plsql_source
+#+END_SRC
+
+- [CREATE PROFILE]
+
+#+BEGIN_SRC sql
+CREATE PROFILE profile
+   LIMIT { resource_parameters
+         | password_parameters
+         }...
+;
+#+END_SRC
+
+- [CREATE RESTORE POINT]
+
+#+BEGIN_SRC sql
+CREATE RESTORE POINT restore_point
+   [ AS OF {TIMESTAMP | SCN} expr ]
+   [ PRESERVE
+   | GUARANTEE FLASHBACK DATABASE
+   ];
+#+END_SRC
+
+- [CREATE ROLE]
+
+#+BEGIN_SRC sql
+CREATE ROLE role
+   [ NOT IDENTIFIED
+   | IDENTIFIED { BY password
+                | USING [ schema. ] package
+                | EXTERNALLY
+                | GLOBALLY
+                }
+   ] ;
+#+END_SRC
+
+- [CREATE ROLLBACK SEGMENT]
+
+#+BEGIN_SRC sql
+CREATE [ PUBLIC ] ROLLBACK SEGMENT rollback_segment
+  [ TABLESPACE tablespace | storage_clause ]...];
+#+END_SRC
+
+- [CREATE SCHEMA]
+
+#+BEGIN_SRC sql
+CREATE SCHEMA AUTHORIZATION schema
+   { create_table_statement
+   | create_view_statement
+   | grant_statement
+   }...
+;
+#+END_SRC
+
+- [CREATE SEQUENCE]
+
+#+BEGIN_SRC sql
+CREATE SEQUENCE [ schema. ] sequence
+   [ { INCREMENT BY | START WITH } integer
+   | { MAXVALUE integer | NOMAXVALUE }
+   | { MINVALUE integer | NOMINVALUE }
+   | { CYCLE | NOCYCLE }
+   | { CACHE integer | NOCACHE }
+   | { ORDER | NOORDER }
+   ]...
+;
+#+END_SRC
+
+- [CREATE SPFILE]
+
+#+BEGIN_SRC sql
+CREATE SPFILE [= 'spfile_name' ]
+  FROM { PFILE [= 'pfile_name' ]
+       | MEMORY
+       } ;
+#+END_SRC
+
+- [CREATE SYNONYM]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] [ PUBLIC ] SYNONYM
+   [ schema. ] synonym
+   FOR [ schema. ] object [ @ dblink ] ;
+#+END_SRC
+
+- [CREATE TABLE]
+
+#+BEGIN_SRC sql
+CREATE [ GLOBAL TEMPORARY ] TABLE [ schema. ] table
+  { relational_table | object_table | XMLType_table } ;
+#+END_SRC
+
+- [CREATE TABLESPACE]
+
+#+BEGIN_SRC sql
+CREATE
+   [ BIGFILE | SMALLFILE ]
+   { permanent_tablespace_clause
+   | temporary_tablespace_clause
+   | undo_tablespace_clause
+   } ;
+#+END_SRC
+
+- [CREATE TRIGGER]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] TRIGGER plsql_source
+#+END_SRC
+
+- [CREATE TYPE]
+
+#+BEGIN_SRC sql
+CREATE [OR REPLACE] TYPE plsql_source
+#+END_SRC
+
+- [CREATE TYPE BODY]
+
+#+BEGIN_SRC sql
+CREATE [ OR REPLACE ] TYPE BODY plsql_source
+#+END_SRC
+
+- [CREATE USER]
+
+#+BEGIN_SRC sql
+CREATE USER user
+   IDENTIFIED { BY password
+              | EXTERNALLY [ AS 'certificate_DN' | AS 'kerberos_principal_name' ]
+              | GLOBALLY [ AS '[ directory_DN ]' ]
+              }
+   [ DEFAULT TABLESPACE tablespace
+   | TEMPORARY TABLESPACE
+        { tablespace | tablespace_group_name }
+   | { QUOTA { size_clause | UNLIMITED } ON tablespace }...
+   | PROFILE profile
+   | PASSWORD EXPIRE
+   | ACCOUNT { LOCK | UNLOCK }
+     [ DEFAULT TABLESPACE tablespace
+     | TEMPORARY TABLESPACE
+          { tablespace | tablespace_group_name }
+     | { QUOTA { size_clause | UNLIMITED } ON tablespace }...
+     | PROFILE profile
+     | PASSWORD EXPIRE
+     | ACCOUNT { LOCK | UNLOCK }
+     | ENABLE EDITIONS
+     ]...
+  ] ;
+#+END_SRC
+
+- [CREATE VIEW]
+
+#+BEGIN_SRC sql
+CREATE [OR REPLACE]
+  [[NO] FORCE] [EDITIONING] VIEW [schema.] view
+   [ ( { alias [ inline_constraint... ]
+       | out_of_line_constraint
+       }
+         [, { alias [ inline_constraint...]
+            | out_of_line_constraint
+     }
+  ]
+     )
+   | object_view_clause
+   | XMLType_view_clause
+   ]
+   AS subquery [ subquery_restriction_clause ] ;
+#+END_SRC
+
+- [DELETE]
+
+#+BEGIN_SRC sql
+DELETE [ hint ]
+   [ FROM ]
+   { dml_table_expression_clause
+   | ONLY (dml_table_expression_clause)
+   } [ t_alias ]
+     [ where_clause ]
+     [ returning_clause ]
+     [error_logging_clause];
+#+END_SRC
+
+- [DISASSOCIATE STATISTICS]
+
+#+BEGIN_SRC sql
+DISASSOCIATE STATISTICS FROM
+   { COLUMNS [ schema. ]table.column
+               [, [ schema. ]table.column ]...
+   | FUNCTIONS [ schema. ]function
+                 [, [ schema. ]function ]...
+   | PACKAGES [ schema. ]package
+                [, [ schema. ]package ]...
+   | TYPES [ schema. ]type
+             [, [ schema. ]type ]...
+   | INDEXES [ schema. ]index
+               [, [ schema. ]index ]...
+   | INDEXTYPES [ schema. ]indextype
+                  [, [ schema. ]indextype ]...
+   }
+   [ FORCE ] ;
+#+END_SRC
+
+- [DROP CLUSTER]
+
+#+BEGIN_SRC sql
+DROP CLUSTER [ schema. ] cluster
+   [ INCLUDING TABLES [ CASCADE CONSTRAINTS ] ] ;
+#+END_SRC
+
+- [DROP CONTEXT]
+
+#+BEGIN_SRC sql
+DROP CONTEXT namespace ;
+#+END_SRC
+
+- [DROP DATABASE]
+
+#+BEGIN_SRC sql
+DROP DATABASE ;
+#+END_SRC
+
+- [DROP DATABASE LINK]
+
+#+BEGIN_SRC sql
+DROP [ PUBLIC ] DATABASE LINK dblink ;
+#+END_SRC
+
+- [DROP DIMENSION]
+
+#+BEGIN_SRC sql
+DROP DIMENSION [ schema. ] dimension ;
+#+END_SRC
+
+- [DROP DIRECTORY]
+
+#+BEGIN_SRC sql
+DROP DIRECTORY directory_name ;
+#+END_SRC
+
+- [DROP DISKGROUP]
+
+#+BEGIN_SRC sql
+DROP DISKGROUP diskgroup_name
+   [  FORCE INCLUDING CONTENTS
+   | { INCLUDING | EXCLUDING } CONTENTS
+   ];
+#+END_SRC
+
+- [DROP EDITION]
+
+#+BEGIN_SRC sql
+DROP EDITION edition [CASCADE];
+#+END_SRC
+
+- [DROP FLASHBACK ARCHIVE]
+
+#+BEGIN_SRC sql
+DROP FLASHBACK ARCHIVE flashback_archive;
+#+END_SRC
+
+- [DROP FUNCTION]
+
+#+BEGIN_SRC sql
+DROP FUNCTION [ schema. ] function_name ;
+#+END_SRC
+
+- [DROP INDEX]
+
+#+BEGIN_SRC sql
+DROP INDEX [ schema. ] index [ FORCE ] ;
+#+END_SRC
+
+- [DROP INDEXTYPE]
+
+#+BEGIN_SRC sql
+DROP INDEXTYPE [ schema. ] indextype [ FORCE ] ;
+#+END_SRC
+
+- [DROP JAVA]
+
+#+BEGIN_SRC sql
+DROP JAVA { SOURCE | CLASS | RESOURCE }
+  [ schema. ] object_name ;
+#+END_SRC
+
+- [DROP LIBRARY]
+
+#+BEGIN_SRC sql
+DROP LIBRARY library_name ;
+#+END_SRC
+
+- [DROP MATERIALIZED VIEW]
+
+#+BEGIN_SRC sql
+DROP MATERIALIZED VIEW [ schema. ] materialized_view
+   [ PRESERVE TABLE ] ;
+#+END_SRC
+
+- [DROP MATERIALIZED VIEW LOG]
+
+#+BEGIN_SRC sql
+DROP MATERIALIZED VIEW LOG ON [ schema. ] table ;
+#+END_SRC
+
+- [DROP OPERATOR]
+
+#+BEGIN_SRC sql
+DROP OPERATOR [ schema. ] operator [ FORCE ] ;
+#+END_SRC
+
+- [DROP OUTLINE]
+
+#+BEGIN_SRC sql
+DROP OUTLINE outline ;
+#+END_SRC
+
+- [DROP PACKAGE]
+
+#+BEGIN_SRC sql
+DROP PACKAGE [ BODY ] [ schema. ] package ;
+#+END_SRC
+
+- [DROP PROCEDURE]
+
+#+BEGIN_SRC sql
+DROP PROCEDURE [ schema. ] procedure ;
+#+END_SRC
+
+- [DROP PROFILE]
+
+#+BEGIN_SRC sql
+DROP PROFILE profile [ CASCADE ] ;
+#+END_SRC
+
+- [DROP RESTORE POINT]
+
+#+BEGIN_SRC sql
+DROP RESTORE POINT restore_point ;
+#+END_SRC
+
+- [DROP ROLE]
+
+#+BEGIN_SRC sql
+DROP ROLE role ;
+#+END_SRC
+
+- [DROP ROLLBACK SEGMENT]
+
+#+BEGIN_SRC sql
+DROP ROLLBACK SEGMENT rollback_segment ;
+#+END_SRC
+
+- [DROP SEQUENCE]
+
+#+BEGIN_SRC sql
+DROP SEQUENCE [ schema. ] sequence_name ;
+#+END_SRC
+
+- [DROP SYNONYM]
+
+#+BEGIN_SRC sql
+DROP [PUBLIC] SYNONYM [ schema. ] synonym [FORCE] ;
+#+END_SRC
+
+- [DROP TABLE]
+
+#+BEGIN_SRC sql
+DROP TABLE [ schema. ] table
+  [ CASCADE CONSTRAINTS ] [ PURGE ] ;
+#+END_SRC
+
+- [DROP TABLESPACE]
+
+#+BEGIN_SRC sql
+DROP TABLESPACE tablespace 
+   [ INCLUDING CONTENTS [ {AND | KEEP} DATAFILES ]
+     [ CASCADE CONSTRAINTS ]
+   ] ;
+#+END_SRC
+
+- [DROP TRIGGER]
+
+#+BEGIN_SRC sql
+DROP TRIGGER [ schema. ] trigger ;
+#+END_SRC
+
+- [DROP TYPE]
+
+#+BEGIN_SRC sql
+DROP TYPE [ schema. ] type_name [ FORCE | VALIDATE ] ;
+#+END_SRC
+
+- [DROP TYPE BODY]
+
+#+BEGIN_SRC sql
+DROP TYPE BODY [ schema. ] type_name ;
+#+END_SRC
+
+- [DROP USER]
+
+#+BEGIN_SRC sql
+DROP USER user [ CASCADE ] ;
+#+END_SRC
+
+- [DROP VIEW]
+
+#+BEGIN_SRC sql
+DROP VIEW [ schema. ] view [ CASCADE CONSTRAINTS ] ;
+#+END_SRC
+
+- [EXPLAIN PLAN]
+
+#+BEGIN_SRC sql
+EXPLAIN PLAN
+   [ SET STATEMENT_ID = string ]
+   [ INTO [ schema. ] table [ @ dblink ] ]
+FOR statement ;
+#+END_SRC
+
+- [FLASHBACK DATABASE]
+
+#+BEGIN_SRC sql
+FLASHBACK [ STANDBY ] DATABASE [ database ]
+   { TO { { SCN | TIMESTAMP } expr
+        | RESTORE POINT restore_point
+        }
+   | TO BEFORE { SCN | TIMESTAMP} expr
+               | RESETLOGS 
+               }
+   } ;
+#+END_SRC
+
+- [FLASHBACK TABLE]
+
+#+BEGIN_SRC sql
+FLASHBACK TABLE
+   [ schema. ] table
+     [, [ schema. ] table ]...
+   TO { { { SCN | TIMESTAMP } expr
+        | RESTORE POINT restore_point
+        } [ { ENABLE | DISABLE } TRIGGERS ]
+      | BEFORE DROP [ RENAME TO table ]
+      } ;
+#+END_SRC
+
+- [GRANT]
+
+#+BEGIN_SRC sql
+GRANT { grant_system_privileges
+      | grant_object_privileges
+      } ;
+#+END_SRC
+
+- [INSERT]
+
+#+BEGIN_SRC sql
+INSERT [ hint ]
+   { single_table_insert | multi_table_insert } ;
+#+END_SRC
+
+- [LOCK TABLE]
+
+#+BEGIN_SRC sql
+LOCK TABLE [ schema. ] { table | view }
+   [ partition_extension_clause
+   | @ dblink
+   ] [, [ schema. ] { table | view }
+      [ partition_extension_clause
+      | @ dblink
+      ]
+     ]...
+   IN lockmode MODE
+   [ NOWAIT  
+   | WAIT integer
+   ] ;
+#+END_SRC
+
+- [MERGE]
+
+#+BEGIN_SRC sql
+MERGE [ hint ]
+   INTO [ schema. ] { table | view } [ t_alias ]
+   USING { [ schema. ] { table | view }
+         | subquery 
+         } [ t_alias ]
+   ON ( condition )
+   [ merge_update_clause ]
+   [ merge_insert_clause ]
+   [ error_logging_clause ] ;
+#+END_SRC
+
+- [NOAUDIT]
+
+#+BEGIN_SRC sql
+NOAUDIT 
+   { audit_operation_clause [ auditing_by_clause ]
+   | audit_schema_object_clause
+   | NETWORK
+   }
+   [ WHENEVER [ NOT ] SUCCESSFUL ] ;
+#+END_SRC
+
+- [PURGE]
+
+#+BEGIN_SRC sql
+PURGE { { TABLE table | INDEX index }
+      | { RECYCLEBIN | DBA_RECYCLEBIN }
+      | TABLESPACE tablespace [ USER username ]
+      } ;
+#+END_SRC
+
+- [RENAME]
+
+#+BEGIN_SRC sql
+RENAME old_name TO new_name ;
+#+END_SRC
+
+- [REVOKE]
+
+#+BEGIN_SRC sql
+REVOKE { revoke_system_privileges
+       | revoke_object_privileges
+       } ;
+#+END_SRC
+
+- [ROLLBACK]
+
+#+BEGIN_SRC sql
+ROLLBACK [ WORK ]
+   [ TO [ SAVEPOINT ] savepoint
+   | FORCE string
+   ] ;
+#+END_SRC
+
+- [SAVEPOINT]
+
+#+BEGIN_SRC sql
+SAVEPOINT savepoint ;
+#+END_SRC
+
+- [SELECT]
+
+#+BEGIN_SRC sql
+subquery [ for_update_clause ] ;
+#+END_SRC
+
+- [SET CONSTRAINT[S]]
+
+#+BEGIN_SRC sql
+SET { CONSTRAINT | CONSTRAINTS }
+    { constraint [, constraint ]...
+    | ALL
+    }
+    { IMMEDIATE | DEFERRED } ;
+#+END_SRC
+
+- [SET ROLE]
+
+#+BEGIN_SRC sql
+SET ROLE
+   { role [ IDENTIFIED BY password ]
+     [, role [ IDENTIFIED BY password ] ]...
+   | ALL [ EXCEPT role [, role ]... ]
+   | NONE
+   } ;
+#+END_SRC
+
+- [SET TRANSACTION]
+
+#+BEGIN_SRC sql
+SET TRANSACTION
+   { { READ { ONLY | WRITE }
+     | ISOLATION LEVEL
+       { SERIALIZABLE | READ COMMITTED }
+     | USE ROLLBACK SEGMENT rollback_segment
+     } [ NAME string ]
+   | NAME string
+   } ;
+#+END_SRC
+
+- [TRUNCATE_CLUSTER]
+
+#+BEGIN_SRC sql
+TRUNCATE CLUSTER [schema.] cluster
+  [ {DROP | REUSE} STORAGE ] ;
+#+END_SRC
+
+- [TRUNCATE_TABLE]
+
+#+BEGIN_SRC sql
+TRUNCATE TABLE [schema.] table
+  [ {PRESERVE | PURGE} MATERIALIZED VIEW LOG ]
+  [ {DROP [ ALL ] | REUSE} STORAGE ] ;
+#+END_SRC
+
+#+BEGIN_SRC txt
+
+
+Note:
+
+You can specify the `ALL` keyword in this statement starting with Oracle Database 11g Release 2 (11.2.0.2).
+#+END_SRC
+
+- [UPDATE]
+
+#+BEGIN_SRC sql
+UPDATE [ hint ]
+   { dml_table_expression_clause
+   | ONLY (dml_table_expression_clause)
+   } [ t_alias ]
+   update_set_clause
+   [ where_clause ]
+   [ returning_clause ]
+   [error_logging_clause] ;
+#+END_SRC
+* SQL Functions
+** Syntax for SQL Functions
+* SQL Expressions
+** Syntax for SQL Expression Types
+* SQL Conditions
+** Syntax for SQL Condition Types
+* Subclauses
+** Syntax for Subclauses
+* Data Types
+** Overview of Data Types
+** Oracle Built-In Data Types
+** Oracle-Supplied Data Types
+** Converting to Oracle Data Types
+* Format Models
+** Overview of Format Models
+** Number Format Models
+** Number Format Elements
+** Datetime Format Models
+** Datetime Format Elements
