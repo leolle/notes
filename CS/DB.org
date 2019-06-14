@@ -112,7 +112,7 @@ P & ALTER
 - CASE
   #+BEGIN_SRC sql
     UPDATE tableName SET columnName =
-    CASE
+hznl    CASE
       WHEN column_1 = somevalue1
         THEN newValue;
   #+END_SRC
@@ -2464,7 +2464,15 @@ FEATURE_VALUE( [ schema . ] model [, feature_id ] mining_attribute_clause )
 #+END_SRC
 
 - [FIRST]
+get the first row from groups:
+#+BEGIN_SRC sql
+select min(id) keep(dense_rank first order by kind) id
+     , val
+     , min(kind) kind
+  from mytable
+ group by val;
 
+#+END_SRC
 #+BEGIN_SRC sql
 aggregate_function
    KEEP
@@ -3896,7 +3904,24 @@ An expression is a combination of one or more values, operators, and SQL functio
 Expressions have several forms. The sections that follow show the syntax for each form of expression. Refer to [Chapter 5, "Subclauses"](sqlqr05.htm#g1004143) for the syntax of the subclauses.
 
 - [CASE expressions]
-
+classification of a column:
+#+BEGIN_SRC sql
+select distinct grid,
+                         hznl,
+                         case
+                           when hznl between 0 and 6 then
+                            '童年'
+                           when hznl between 7 and 17 then
+                            '少年'
+                           when hznl between 18 and 40 then
+                            '青年'
+                           when hznl between 41 and 65 then
+                            '中年'
+                           when hznl >= 66 then
+                            '老年'
+                         end as 年龄段
+          from rule_final
+#+END_SRC
 #+BEGIN_SRC sql
 CASE { simple_case_expression
      | searched_case_expression
