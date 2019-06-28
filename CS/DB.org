@@ -1527,11 +1527,48 @@ CREATE [ OR REPLACE ] [ PUBLIC ] SYNONYM
 #+END_SRC
 
 - [CREATE TABLE]
+#+BEGIN_SRC sql
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE daily';
+EXCEPTION
+   WHEN OTHERS THEN NULL;
+END;
+/
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE daily (
+  id number(10) check (id > 0) NOT NULL,
+  title varchar2(128) DEFAULT NULL,
+  user_id varchar2(45) DEFAULT NULL,
+  createtime varchar2(45) DEFAULT NULL,
+  imgurl clob,
+  body clob,
+  url varchar2(256) DEFAULT NULL,
+  status number(3) DEFAULT '0',
+  rank number(3) DEFAULT '0' check (rank > 0),
+  PRIMARY KEY (id)
+) ;
+
+-- Generate ID using sequence and trigger
+CREATE SEQUENCE daily_seq START WITH 1 INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER daily_seq_tr
+ BEFORE INSERT ON daily FOR EACH ROW
+ WHEN (NEW.id IS NULL)
+BEGIN
+ SELECT daily_seq.NEXTVAL INTO :NEW.id FROM DUAL;
+END;
+/
+
+CREATE INDEX dailytitle ON daily (title);
+#+END_SRC
 
 #+BEGIN_SRC sql
 CREATE [ GLOBAL TEMPORARY ] TABLE [ schema. ] table
   { relational_table | object_table | XMLType_table } ;
 #+END_SRC
+check sql which created this table in PLSQL:
+right click table -> 然后右键“DBMS_元数据”“DDL”
 
 - [CREATE TABLESPACE]
 
@@ -1809,7 +1846,18 @@ DROP [PUBLIC] SYNONYM [ schema. ] synonym [FORCE] ;
 DROP TABLE [ schema. ] table
   [ CASCADE CONSTRAINTS ] [ PURGE ] ;
 #+END_SRC
+drop table if exists
+#+BEGIN_SRC sql
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || table_name;
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
 
+#+END_SRC
 - [DROP TABLESPACE]
 
 #+BEGIN_SRC sql
@@ -2471,6 +2519,11 @@ select min(id) keep(dense_rank first order by kind) id
      , min(kind) kind
   from mytable
  group by val;
+
+select team, max(age) as age,
+       max(person) keep (dense_rank first order by age desc) as person
+from t
+group by team;
 
 #+END_SRC
 #+BEGIN_SRC sql
@@ -3511,6 +3564,7 @@ TO_CLOB(lob_column | char)
 
 #+BEGIN_SRC sql
 TO_DATE(char [, fmt [, 'nlsparam' ] ])
+to_date(char, "YYYYMMDDHHMISS")
 #+END_SRC
 
 - [TO_DSINTERVAL]

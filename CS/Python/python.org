@@ -677,6 +677,10 @@ int64
   - which returns tuples of the values and which is generally faster as iterrows.
 ** Text Sequence Type — str
 ** Binary Sequence Types — bytes, bytearray, memoryview
+- convert bytes into string:
+#+BEGIN_SRC python
+b"abcde".decode("utf-8") 
+#+END_SRC
 ** Set Types — set, frozenset
 - access an element in a set.
 #+BEGIN_SRC python
@@ -2228,6 +2232,7 @@ pyenv versions
 * Python Runtime Services
 ** sysconfig — Provide access to Python’s configuration information
 ** os, sys — System-specific parameters and functions
+- 
 - get environment variables
 #+BEGIN_SRC python
 import os
@@ -2594,7 +2599,7 @@ the_first_day_of_previous_month = the_last_day_of_previous_month.replace(day=1)
 #+END_SRC
 - N month before:
 #+BEGIN_SRC python
-today - pd.Timedelta(1, unit=’M’)
+today - pd.Timedelta(1, unit='M')
 #+END_SRC
 - pandas columns into default dictionary:
 #+BEGIN_SRC python
@@ -2611,6 +2616,10 @@ for group in df2.groupby('type'):
     data = group[1]
     if group[0] == 'A':
         print group[1].min()
+#+END_SRC
+- pd.to_datetimeindex error:
+#+BEGIN_SRC python
+
 #+END_SRC
 - apply to a column for each row:
 #+BEGIN_SRC python
@@ -2777,6 +2786,14 @@ small_groups = df_nanjing[df_nanjing['group_sn'].isin(group_size[group_size < 8]
 - create a dataframe from a dictionary:
 #+BEGIN_SRC python
 df = pd.DataFrame.from_dict({}, orient='index')
+#+END_SRC
+- get unique value counts within each group:
+#+BEGIN_SRC python
+import pandas as pd
+df = pd.DataFrame({'date': ['2013-04-01','2013-04-01','2013-04-01','2013-04-02', '2013-04-02'],
+    'user_id': ['0001', '0001', '0002', '0002', '0002'],
+    'duration': [30, 15, 20, 15, 30]})
+df.groupby('date').agg({'user_id':pd.Series.nunique})
 #+END_SRC
 - get unique columns value groups:
 #+BEGIN_SRC python
@@ -3414,6 +3431,10 @@ array([1, 2, 3, 4])
 >>> plt.title("Histogram with 'auto' bins")
 >>> plt.show()
 #+END_SRC
+- which quantile:
+#+BEGIN_SRC python
+df_average_cost['COST_LEVEL'] = pd.qcut(df_average_cost['MED_AMOUNT'], 3, labels=["high", "medium", "low"])
+#+END_SRC
 - quantile:
 #+BEGIN_SRC python
 numpy.quantile(a, q, axis=None, out=None, overwrite_input=False, interpolation='linear', keepdims=False)
@@ -3753,6 +3774,11 @@ pd.get_dummies(data[["color","price"]])
 
 * Deep Learning
 ** Tensorflow
+- disable tensorflow warnings:
+#+BEGIN_SRC python
+os.environ["TF_CPP_MIN_LOG_LEVEL"]="2"
+#+END_SRC
+
 - install tensorflow:
 #+BEGIN_SRC bash
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
@@ -3760,16 +3786,39 @@ conda install tensorflow-gpu==1.3
 conda config --set show_channel_urls yes
 conda install tensorflow-gpu==1.3
 #+END_SRC
+
 - test drive:
 #+BEGIN_SRC bash
 python -m tensorflow.models.image.mnist.convolutional
 #+END_SRC
+
 *** GPU test:
 [[file:./tensorflow.py][tensorflow]]
 #+INCLUDE: "tensorflow.py"
 ** Computer Vision
 *** style transfer
 *** basic operation
+- convert an image into grey:
+#+BEGIN_SRC python
+In [1]: from PIL import Image
+
+In [2]: image = Image.open('/tmp/capcha.png')
+
+In [7]: image = image.convert('L')
+
+In [3]: data = image.load()
+   ...: w, h = image.size
+   ...: for i in range(w):
+   ...:     for j in range(h):
+   ...:         if data[i, j] > 125:
+   ...:             data[i, j] = 255  # 纯白
+   ...:         else:
+   ...:             data[i, j] = 0  # 纯黑
+
+image.save('clean_captcha.png')
+
+
+#+END_SRC
 - show image in jupyter notebook:
 #+BEGIN_SRC python
 from IPython.display import Image

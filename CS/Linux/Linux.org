@@ -725,6 +725,7 @@ ls *.zip | xargs -n1 unzip -o -P infected
 #+BEGIN_SRC shell
 # tar.gz
 tar -xvzf rebol.tar.gz
+tar -xvjSf *.tar.bz2
 # batch extract
 ls *.tar.gz | xargs -n1 tar xzvf
 简介
