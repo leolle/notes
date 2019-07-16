@@ -190,7 +190,16 @@ BB one      33
    two      44
    six      55
 #+end_src
-To take the cross section of the 1st level and 1st axis the index:
+
+- select by value from the second column in the multindex
+#+BEGIN_SRC python
+df_patient.loc[(slice(None), 'I63'), :]
+# or 
+idx = pd.IndexSlice
+df_sample = df_patient.loc[idx[:,['I63']], :]
+#+END_SRC
+
+- To take the cross section of the 1st level and 1st axis the index:
 #+begin_src emacs-lisp :tangle yes
 In [67]: df.xs('BB',level=0,axis=0)  #Note : level and axis are optional, and default to zero
 Out[67]:
@@ -200,7 +209,7 @@ two      44
 six      55
 #+end_src
 
-Slicing a multi-index with xs, method #2
+- Slicing a multi-index with xs, method #2
 #+begin_src emacs-lisp :tangle yes
 In [69]: index = list(itertools.product(['Ada','Quinn','Violet'],['Comp','Math','Sci']))
 

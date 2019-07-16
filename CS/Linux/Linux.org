@@ -543,7 +543,10 @@ xev
 - count file number under a directory
 #+BEGIN_SRC bash
 ls -1 | wc -l
+# count all the files recursively
+find DIR_NAME -type f | wc -l
 #+END_SRC
+
 - check md5
 #+BEGIN_SRC bash
 md5sum filename
