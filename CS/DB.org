@@ -173,7 +173,7 @@ hznl    CASE
   - GRANT statement ON table TO who
   - REVOKE statement ON table FROM who
 
-- deadlock
+- deadlock, ORA-00054: 资源正忙，要求指定 NOWAIT
 #+BEGIN_SRC sql
 select * from v$locked_object
 
@@ -2514,17 +2514,11 @@ FEATURE_VALUE( [ schema . ] model [, feature_id ] mining_attribute_clause )
 - [FIRST]
 get the first row from groups:
 #+BEGIN_SRC sql
-select min(id) keep(dense_rank first order by kind) id
-     , val
-     , min(kind) kind
-  from mytable
- group by val;
-
-select team, max(age) as age,
-       max(person) keep (dense_rank first order by age desc) as person
-from t
-group by team;
-
+select person_id, clinic_type as HOSP_TYPE_PREFERENCE,
+from   (select person_id, clinic_type, count(*) cnt, max(count(*)) over (partition by person_id) max_count
+        from   t_first_choice_hosp_type
+        group by person_id, clinic_type)
+where  cnt = max_count
 #+END_SRC
 #+BEGIN_SRC sql
 aggregate_function
@@ -2773,7 +2767,15 @@ MAKE_REF({ table | view } , key [, key ]...)
 #+END_SRC
 
 - [MAX]
+#+BEGIN_SRC sql
+-- select the max count value
+select val, title
+from   (select val, title, count(*) cnt, max(count(*)) over (partition by val) max_count
+        from   a1
+        group by val, title)
+where  cnt = max_count;
 
+#+END_SRC
 #+BEGIN_SRC sql
 MAX([ DISTINCT | ALL ] expr) [ OVER (analytic_clause) ]
 #+END_SRC

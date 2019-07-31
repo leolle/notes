@@ -83,7 +83,8 @@ A special form of backpropagation is called backpropagation through time, or BPT
 
 - Batch Normalization
 
-Batch Normalization does what is says: it normalizes mini-batches as they’re fed into a neural-net layer. Batch normalization has two potential benefits: it can accelerate learning because it allows you to employ higher learning rates, and also regularizes that learning.
+Batch Normalization does what is says: it normalizes mini-batches as they’re fed into a neural-net layer. 
+Batch normalization has two potential benefits: it can accelerate learning because it allows you to employ higher learning rates, and also regularizes that learning.
 
 Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
 Overview	of mini-batch gradient descent (U. Toronto)
@@ -106,7 +107,10 @@ The process of transforming data in to a set of zeros and ones. An example would
 
 - Channel
 
-Channel is a word used when speaking of convolutional networks. ConvNets treat color images as volumes; that is, an image has height, width and depth. The depth is the number of channels, which coincide with how you encode colors. RGB images have three channels, for red, green and blue respectively.
+Channel is a word used when speaking of convolutional networks. 
+ConvNets treat color images as volumes; that is, an image has height, width and depth. 
+The depth is the number of channels, which coincide with how you encode colors. 
+RGB images have three channels, for red, green and blue respectively.
 
 
 - Class
@@ -232,7 +236,12 @@ An embedding is a representation of input, or an encoding. For example, a neural
 
 - Epoch vs. Iteration
 
-In machine-learning parlance, an epoch is a complete pass through a given dataset. That is, by the end of one epoch, your neural network – be it a restricted Boltzmann machine, convolutional net or deep-belief network – will have been exposed to every record to example within the dataset once. Not to be confused with an iteration, which is simply one update of the neural net model’s parameters. Many iterations can occur before an epoch is over. Epoch and iteration are only synonymous if you update your parameters once for each pass through the whole dataset; if you update using mini-batches, they mean different things. Say your data has 2 minibatches: A and B. .numIterations(3) performs training like AAABBB, while 3 epochs looks like ABABAB.
+In machine-learning parlance, an epoch is a complete pass through a given dataset. 
+That is, by the end of one epoch, your neural network – be it a restricted Boltzmann machine, convolutional net or deep-belief network – will have been exposed to every record to example within the dataset once. 
+Not to be confused with an iteration, which is simply one update of the neural net model’s parameters. 
+Many iterations can occur before an epoch is over. 
+Epoch and iteration are only synonymous if you update your parameters once for each pass through the whole dataset; if you update using mini-batches, they mean different things. 
+Say your data has 2 minibatches: A and B. .numIterations(3) performs training like AAABBB, while 3 epochs looks like ABABAB.
 
 
 - Extract, transform, load (ETL)
@@ -351,9 +360,10 @@ An iteration is an update of weights after analysing a batch of input records. S
 
 - Learning rate
 Neural networks are often trained by gradient descent on the weights. This means at each iteration we use backpropagation to calculate the derivative of the loss function with respect to each weight and subtract it from that weight.
-However, if you actually try that, the weights will change far too much each iteration, which will make them “overcorrect” and the loss will actually increase/diverge. So in practice, people usually multiply each derivative by a small value called the “learning rate” before they subtract it from its corresponding weight.
+However, if you actually try that, the weights will change far too much each iteration, which will make them “overcorrect” and the loss will actually increase/diverge. 
+So in practice, people usually multiply each derivative by a small value called the “learning rate” before they subtract it from its corresponding weight.
 
-$$W:=W−η∇LW:=W−η∇L$$
+$$W:=W−η∇L$$
 
 This η here is called the learning rate.
 

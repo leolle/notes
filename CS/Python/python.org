@@ -442,6 +442,13 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- create a0 to a9:
+#+BEGIN_SRC python
+import itertools
+infectious_big_list = [['A{}'.format(i) for i in range(10, 100)], ['A0{}'.format(i) for i in range(0, 10)], ['B{}'.format(i) for i in range(10, 100)], ['B0{}'.format(i) for i in range(0, 10)]]
+infectious_disease_cd = list(itertools.chain.from_iterable(infectious_big_list))
+mapping_illustrated_disease = {x:True for x in infectious_disease_cd}
+#+END_SRC
 - multiply a list with another list:
 #+BEGIN_SRC python
 def multiply_strings(x, col=('med_code', 'med_usage')):
@@ -1373,6 +1380,12 @@ np.set_printoptions(suppress=True)
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
 ** os.path — Common pathname manipulations
+- delete a file:
+#+BEGIN_SRC python
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+#+END_SRC
+
 - change file name
 #+BEGIN_SRC python
 import os
@@ -1385,6 +1398,7 @@ def change_filename(dir_name, filename, suffix, extension=None):
 
 
 #+END_SRC
+
 - move file
 #+BEGIN_SRC python
 import os
@@ -1718,6 +1732,191 @@ g = Graph(host="192.168.4.36",  # neo4j 搭载服务器的ip地址，ifconfig可
             http_port=7474,  # neo4j 服务器监听的端口号
             user="neo4j",  # 数据库user name，如果没有更改过，应该是neo4j
             password="neo4j123")
+#+END_SRC
+** mysql
+*** create
+- create table
+#+BEGIN_SRC sql
+-- Create table
+create table PATIENT_PROFILE
+(
+  PERSON_ID                VARCHAR2(50) not null,
+  PERSON_AGE               INTEGER not null,
+  PERSON_SEX               VARCHAR2(10) not null,
+  AGE_GROUP                VARCHAR2(10) not null,
+  RISK_SCORE               VARCHAR2(10) default 1,
+  CHRONIC_DIS              VARCHAR2(10) default 'False',
+  INFECTIOUS_DIS           VARCHAR2(10) default 'False',
+  TUMOR                    VARCHAR2(10) default 'False',
+  PSYCHIATRIC              VARCHAR2(10) default 'False',
+  IMPLANTABLE_DEV          VARCHAR2(10) default 'False',
+  TREATMENT_PERC_LV        VARCHAR2(10) default 'low',
+  INSPECTION_PERC_LV       VARCHAR2(10) default 'low',
+  DRUG_PERC_LV             VARCHAR2(10) default 'low',
+  OUTPATIENT_PERC_LV       VARCHAR2(10) default 'low',
+  DRUG_PURCH_AVG_LV        VARCHAR2(10) default 'low',
+  SELF_SURPP_PERC_LV       VARCHAR2(10) default 'low',
+  CUM_OUTPATIENT_LV        VARCHAR2(10) default 'low',
+  CUM_HOSP_LV              VARCHAR2(10) default 'low',
+  HOSP_AVG_LV              VARCHAR2(10) default 'low',
+  OUTPATIENT_AVG_LV        VARCHAR2(10) default 'low',
+  DRUG_PURCH_FREQ_LV       VARCHAR2(10) default 'low',
+  OUTPATIENT_FREQ_LV       VARCHAR2(10) default 'low',
+  HOSP_FREQ_LV             VARCHAR2(10) default 'low',
+  HOSP_PREFERENCE          VARCHAR2(10),
+  FIRST_VISIT_PREFERENCE   VARCHAR2(10),
+  TRAILING_12_MONTHS_LEVEL VARCHAR2(10) default 'low',
+  TRAILING_36_MONTHS_LEVEL VARCHAR2(10) default 'low',
+  SHORT_TERM               VARCHAR2(10) default 'False',
+  LONG_TERM                VARCHAR2(10) default 'False'
+)
+tablespace WUXI
+  pctfree 10
+  initrans 1
+  maxtrans 255;
+-- Add comments to the table 
+comment on table PATIENT_PROFILE
+  is '个人用户画像';
+-- Add comments to the columns 
+comment on column PATIENT_PROFILE.PERSON_SEX
+  is '描述患者的生理性别
+';
+comment on column PATIENT_PROFILE.AGE_GROUP
+  is '0-6 童年，7-17 少年， 18-40 青年， 41-65 中年， 66以上老年
+';
+comment on column PATIENT_PROFILE.RISK_SCORE
+  is '健康风险等级
+';
+comment on column PATIENT_PROFILE.CHRONIC_DIS
+  is '慢性病患者';
+comment on column PATIENT_PROFILE.INFECTIOUS_DIS
+  is '传染病病原携带者 ';
+comment on column PATIENT_PROFILE.TUMOR
+  is '恶性肿瘤患者 ';
+comment on column PATIENT_PROFILE.PSYCHIATRIC
+  is '精神疾病患者 ';
+comment on column PATIENT_PROFILE.IMPLANTABLE_DEV
+  is '植入性器材';
+comment on column PATIENT_PROFILE.TREATMENT_PERC_LV
+  is '治疗费用占比';
+comment on column PATIENT_PROFILE.INSPECTION_PERC_LV
+  is '检查费用占比';
+comment on column PATIENT_PROFILE.DRUG_PERC_LV
+  is '药物费用占比';
+comment on column PATIENT_PROFILE.OUTPATIENT_PERC_LV
+  is '门诊住院费用比例';
+comment on column PATIENT_PROFILE.DRUG_PURCH_AVG_LV
+  is '单次平均购药金额';
+comment on column PATIENT_PROFILE.SELF_SURPP_PERC_LV
+  is '自负费用占比';
+comment on column PATIENT_PROFILE.CUM_OUTPATIENT_LV
+  is '累计门诊金额
+';
+comment on column PATIENT_PROFILE.CUM_HOSP_LV
+  is '累计住院金额';
+comment on column PATIENT_PROFILE.HOSP_AVG_LV
+  is '平均住院金额';
+comment on column PATIENT_PROFILE.OUTPATIENT_AVG_LV
+  is '平均门诊金额';
+comment on column PATIENT_PROFILE.DRUG_PURCH_FREQ_LV
+  is '药店购药频繁程度';
+comment on column PATIENT_PROFILE.OUTPATIENT_FREQ_LV
+  is '门诊就诊频繁程度';
+comment on column PATIENT_PROFILE.HOSP_FREQ_LV
+  is '住院就诊频繁程度
+';
+comment on column PATIENT_PROFILE.HOSP_PREFERENCE
+  is '就诊医院偏好
+1门诊、2药店购药、3住院
+';
+comment on column PATIENT_PROFILE.FIRST_VISIT_PREFERENCE
+  is '首选就诊偏好，对一次健康问题的首次就医方式的选择偏好。1门诊、2药店购药、3住院
+';
+comment on column PATIENT_PROFILE.TRAILING_12_MONTHS_LEVEL
+  is '近一年费用支出水平
+';
+comment on column PATIENT_PROFILE.TRAILING_36_MONTHS_LEVEL
+  is '近三年费用支出水平
+';
+comment on column PATIENT_PROFILE.SHORT_TERM
+  is '短期内再入院';
+comment on column PATIENT_PROFILE.LONG_TERM
+  is '长周期住院';
+
+#+END_SRC
+- create from select:
+#+BEGIN_SRC sql
+create table temp_pairs_id as
+select t1.GRID person_1, t2.GRID person_2, sysdate as crt_date
+  from MMAP_SHB_SPECIAL.Ck10_Ghdj t1
+#+END_SRC
+- create index
+- create multiple index
+*** select
+- select the first row in each group:
+#+BEGIN_SRC sql
+WITH summary AS (
+select person_id, hosp_lev, clinic_type, substr(out_diag_dis_cd, 0, 3) as icd3, to_date(substr(out_hosp_date, 0, 8), 'yyyymmdd') as discharge_date,
+ROW_NUMBER() OVER(PARTITION BY person_id, substr(out_diag_dis_cd, 0, 3) 
+                                 ORDER BY to_date(substr(out_hosp_date, 0, 8), 'yyyymmdd')) AS rk from t_kc21
+where out_diag_dis_cd is not null and clinic_type is not null)
+SELECT s.*
+  FROM summary s
+ WHERE s.rk = 1
+#+END_SRC
+*** insert
+- insert data into sql:
+#+BEGIN_SRC python
+cursor = CONN.cursor()
+s_insert = """INSERT INTO t_jbhlx (TBBH, JB_CD, HLFYSX, HLFYXX, HLZYTSSX, HLZYTSXX, LOGIN_ID, MODIFY_ID, DELE_FLG) VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9)"""
+for idx, row in df_sim.iterrows():
+    if counter % 1000 == 0:
+        print(idx)
+        print(counter)
+    counter += 1
+try:
+    cursor.execute(s_insert, (str(data.table_index.iloc[0]), #TBBH,
+                              accident_id, #JB_CD,
+                            str(cost_upper_bnd), #HLFYSX
+                            str(cost_lower_bnd), #HLFYXX
+                            str(period_upper_bnd), #HLZYTSSX
+                            str(period_lower_bnd), #HLZYTSXX
+                            'admin', #LOGIN_ID
+                            'admin', #MODIFY_ID
+                            '1'  #DELE_FLG
+    ))
+except cx_Oracle.IntegrityError:
+    pass
+CONN.commit()
+#+END_SRC
+- True\False
+can't insert True or False directly into table, need to turn True/False into string.
+
+*** delete
+- clear a table
+The TRUNCATE TABLE statement is used to remove all records from a table in Oracle. It performs the same function as a DELETE statement without a WHERE clause.
+#+BEGIN_SRC sql
+TRUNCATE TABLE [schema_name.]table_name
+#+END_SRC
+
+- delete a table
+#+BEGIN_SRC sql
+drop table name
+#+END_SRC
+*** update
+- update with python:
+#+BEGIN_SRC python
+s_insert = """update patient_profile set CHRONIC_DIS='{0}',INFECTIOUS_DIS='{1}', TUMOR='{2}', PSYCHIATRIC='{3}' where person_id={4}"""
+counter = 0
+for idx, row in df_disease.iterrows():
+    if counter % 100000 == 0:
+        print(counter)
+    counter += 1
+    cursor.execute(s_insert.format(str(row['慢性病患者']),
+                                   str(row['传染病病原携带者']),
+                                   str(row['恶性肿瘤患者']),
+                                   str(row['精神疾病患者']),
+                             str(idx)))
 #+END_SRC
 * Data Compression and Archiving
 ** zip
@@ -2664,6 +2863,10 @@ today - pd.Timedelta(1, unit='M')
 df_patient[['pid','med_clinic_id']].groupby('pid').apply(lambda x:x['med_clinic_id'].tolist()).to_dict()
 #+END_SRC
 
+- groupby order:
+#+BEGIN_SRC python
+df_most_visited_hospitals.sort_values(['PERSON_ID','DISCHARGE_DATE'],ascending=True).groupby(['PERSON_ID', 'ICD3']).first()
+#+END_SRC
 - filter by groupby count size:
 #+BEGIN_SRC python
 df_patient = df_patient.groupby(['hos_id', 'disease']).filter(lambda x:x['person_id'].unique().size>=3)
@@ -2848,6 +3051,13 @@ small_groups = df_nanjing[df_nanjing['group_sn'].isin(group_size[group_size < 8]
 #+BEGIN_SRC python
 df = pd.DataFrame.from_dict({}, orient='index')
 #+END_SRC
+
+- get max value counts column name in each group:
+#+BEGIN_SRC python
+df_sample1 = df_sample.sort_values(['person_id','discharge_date'],ascending=True).groupby(['person_id', 'icd3']).first().agg({'hosp_lev':pd.Series.value_counts})
+df_sample1.groupby(['person_id']).sum().idxmax(axis=1)
+#+END_SRC
+
 - get unique value counts within each group:
 #+BEGIN_SRC python
 import pandas as pd
@@ -3139,9 +3349,9 @@ filtered_1=b[‘TRADE_size’].apply(lambda x: 0 if x < 0 else x)
 b[‘TRADE_size’].loc[ b[‘TRADE_size’]<0, ‘TRADE_size’] = 0
 #+end_src
 
-- drop a lable:
+- drop columns/lables:
 #+BEGIN_SRC python
-DataFrame.drop(labels, axis=0, level=None, inplace=False, errors='raise')
+DataFrame.drop(labels, axis=1, level=None, inplace=False, errors='raise')
 #+END_SRC
 
 - check if any value is NaN in DataFrame
