@@ -43,13 +43,13 @@ To use formatted string literals, begin a string with f or F before the opening 
 >>> for name, phone in table.items():
 ...     print(f'{name:10} ==> {phone:10d}')
 ...
-Sjoerd     ==>       4127
+Sjoerd     ==>       412项目和7
 Jack       ==>       4098
 Dcab       ==>       7678
 
 >>> animals = 'eels'
 >>> print(f'My hovercraft is full of {animals}.')
-My hovercraft is full of eels.
+My hovercCouldn't connect to accessibility busraft is full of eels.
 >>> print(f'My hovercraft is full of {animals!r}.')
 My hovercraft is full of 'eels'.
 
@@ -66,7 +66,7 @@ spam and eggs
 eggs and spam
 
 >>> print('This {food} is {adjective}.'.format(
-...       food='spam', adjective='absolutely horrible'))
+...       food='spam', adjective=tern'absolutely horrible'))
 This spam is absolutely horrible.
 
 >>> print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred',
@@ -913,6 +913,13 @@ print(os.path.dirname(spacy.__file__))
 ** Warnings
 ** Exception hierarchy
 ** exception
+- oracle cx error:
+#+BEGIN_SRC python
+try:
+    xx
+except cx.DatabaseError:
+    continue
+#+END_SRC
 - retry:
 #+BEGIN_SRC python
 response = None
@@ -1554,6 +1561,10 @@ pkl_file.close()
 ** marshal — Internal Python object serialization
 ** dbm — Interfaces to Unix “databases”
 ** sqlite3 — DB-API interface for SQLite databases
+- ModuleNotFoundError: No module named 'MySQLdb'
+#+BEGIN_SRC bash
+pip install mysqlclient
+#+END_SRC
 - install mysql connector
 python ModuleNotFoundError: No module named 'mysql'
 #+BEGIN_SRC bash
@@ -2234,6 +2245,10 @@ jupyter kernelspec list
 jupyter kernelspec uninstall anaconda2.7
 #+END_SRC
 *** Extension & Configuration
+- install extension:
+#+BEGIN_SRC bash
+conda install -c conda-forge jupyter_contrib_nbextensions
+#+END_SRC
 - Enable line number by default
 #+BEGIN_SRC bash
 touch ~/.jupyter/static/custom/custom.js
@@ -2252,6 +2267,10 @@ define([
                     );
        }
       );
+#+END_SRC
+- enable auto complete
+#+BEGIN_SRC bash
+jupyter nbextension enable hinterland/hinterland
 #+END_SRC
 ** typical structure of the ipython notebook ipynb:
 1. imports
@@ -2865,6 +2884,8 @@ df_patient[['pid','med_clinic_id']].groupby('pid').apply(lambda x:x['med_clinic_
 
 - groupby order:
 #+BEGIN_SRC python
+# select the first row in each group, group have multindex.
+df_item.groupby(level=0, group_keys=False).apply(lambda x: x.sort_values('abs_diff', ascending=False)).groupby(level=0).head(3)
 df_most_visited_hospitals.sort_values(['PERSON_ID','DISCHARGE_DATE'],ascending=True).groupby(['PERSON_ID', 'ICD3']).first()
 #+END_SRC
 - filter by groupby count size:
@@ -2951,7 +2972,8 @@ df.groupby('A').mean()
 df.groupby('A').transform('mean')
 # is equalvilent to groupby("A").mean()
 df.set_index('A').groupby(level='A').transform('mean')
-
+# set column equal to groupby mean
+df_item_dis_lv['mean'] = df_item_dis_lv.groupby(['name', 'dis', 'JGDJ'])['MODEL_JE'].transform('mean')
 # agg is used when you have specific things you want to run for different columns or more than one thing run on the same column.
 
 df.groupby('A').agg(['mean', 'std'])
@@ -2960,6 +2982,7 @@ df.groupby('A').agg(['mean', 'std'])
 #+END_SRC
 
 - read oracle database UnicodeDecodeError 'gb' :
+set the language of the editor from Chinese to English.
 #+BEGIN_SRC python
 import cx_Oracle as cx
 import pandas as pd
@@ -3001,8 +3024,8 @@ for i in tqdm(range(0, int(len(s_med_clinic_id)/100), n)):
     except UnicodeDecodeError:
         continue
 df_regist.to_pickle("registration_data.pkl")
-
 #+END_SRC
+
 - find rows with nearest dates/value:
 #+BEGIN_SRC python
 df_result = pd.DataFrame()
@@ -3018,6 +3041,7 @@ for idx, value in enumerate(groups):
     result['hospitals'] = result['机构'].unique().shape[0]
     df_result = df_result.append(result.drop('checkin_diff',axis=1))
 #+END_SRC
+
 - save to excel sheet:
 #+BEGIN_SRC python
 writer = pd.ExcelWriter('nanjing_result.xlsx')
@@ -3070,6 +3094,10 @@ df.groupby('date').agg({'user_id':pd.Series.nunique})
 #+BEGIN_SRC python
 rels = ['疾病名称','诊疗大类2']
 rels_cure = df_cure.groupby(rels).size().reset_index()[rels].values.tolist()
+#+END_SRC
+- fill value must be in categories:
+#+BEGIN_SRC python
+
 #+END_SRC
 - fill na with previous column:
 #+BEGIN_SRC python
@@ -3145,6 +3173,9 @@ df_insurance_disease = df_insurance[(df_insurance['type']=='医疗费用-疾病'
 #+END_SRC
 - create tuples or dictionary from two columns:
 #+BEGIN_SRC python
+subset = hos_ids[['GHDJID', 'REAL_JE', 'hos_id']].reset_index()
+tuples = [tuple(x) for x in subset.values]
+# another method
 dict(df[['a', 'b']].values.tolist())
 [tuple(x) for x in df[['a', 'b', 'c']].values]
 #+END_SRC
@@ -3349,7 +3380,7 @@ filtered_1=b[‘TRADE_size’].apply(lambda x: 0 if x < 0 else x)
 b[‘TRADE_size’].loc[ b[‘TRADE_size’]<0, ‘TRADE_size’] = 0
 #+end_src
 
-- drop columns/lables:
+- drop columns/lable:
 #+BEGIN_SRC python
 DataFrame.drop(labels, axis=1, level=None, inplace=False, errors='raise')
 #+END_SRC
@@ -3469,6 +3500,13 @@ s + datetime.timedelta(minutes=5)
 - resample by a column:
 need to set the index as a datetime index, then use the resample function.
 
+- resample at a fraction but keep at least one:
+#+BEGIN_SRC python
+med_id_sample = df_patient.groupby(['JGID','CYZDDM3']).apply(lambda x :x.iloc[random.choice(range(0,len(x)))])['GHDJID'].values
+med_id_sample1 = df_patient.groupby(['JGID','CYZDDM3']).apply(lambda x: x.sample(frac=0.1))['GHDJID'].values
+med_id_samples = np.unique(np.concatenate((med_id_sample, med_id_sample1)))
+df_patient[df_patient['GHDJID'].isin(med_id_samples)]
+#+END_SRC
 - resample by month and keep the last valid row
 #+BEGIN_SRC python
 benchmark_weight.index.name = 'Date'
