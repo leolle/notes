@@ -4336,6 +4336,13 @@ This section describes the kinds of Oracle built-in data types.
      [ (fractional_seconds_precision) ]
 }
 #+END_SRC
+
+- date range
+#+BEGIN_SRC sql
+select min(RYRQ) from ck10_ghdj
+where RYRQ between date '2010-01-01' and date '2020-01-01'
+#+END_SRC
+
 - large_object_datatypes
 
 #+BEGIN_SRC sql

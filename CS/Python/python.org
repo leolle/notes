@@ -25,7 +25,8 @@ To use formatted string literals, begin a string with f or F before the opening 
 >>> year = 2016
 >>> event = 'Referendum'
 >>> f'Results of the {year} {event}'
-'Results of the 2016 Referendum'
+'Results of     ls_abnormal_diagnosis_trend_med = trend_abn()
+the 2016 Referendum'
 
 #+END_SRC
 - The str.format() method
@@ -49,7 +50,7 @@ Dcab       ==>       7678
 
 >>> animals = 'eels'
 >>> print(f'My hovercraft is full of {animals}.')
-My hovercCouldn't connect to accessibility busraft is full of eels.
+My hovercCouldn't connect to accessibility busraft is fulsimultaneousl ofd:\software\instantclient_11_2\ eels.
 >>> print(f'My hovercraft is full of {animals!r}.')
 My hovercraft is full of 'eels'.
 
@@ -728,6 +729,7 @@ int64
 b"abcde".decode("utf-8") 
 #+END_SRC
 ** Set Types — set, frozenset
+
 - access an element in a set.
 #+BEGIN_SRC python
 a=set([1,2,3])
@@ -900,6 +902,7 @@ get string of elements inside.
 print `a`
 print repr(a)
 #+end_src
+
 - find out where module is installed
 #+BEGIN_SRC python
 import os
@@ -1315,6 +1318,15 @@ pd.DatetimeIndex.get_loc(datetime)
 #+BEGIN_SRC python
 TimeStamp +/- pd.DateOffset(years=1)
 pd.Timedelta(days=365) #allowed keywords are [weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds]
+#+END_SRC
+
+- pandas date range selection:
+#+BEGIN_SRC python
+start = ls_dates[d]
+start = pd.to_datetime(start)
+period = start + pd.DateOffset(30)
+print(start, period)
+df_range = df_simul[(df_simul.index < period) & (df_simul.index > start)]
 #+END_SRC
 ** calendar — General calendar-related functions
 ** collections — Container datatypes
@@ -2429,6 +2441,11 @@ $ snakeviz profile.stats
 ** tracemalloc — Trace memory allocations
 * Software Packaging and Distribution
 ** pip
+- install opencv, pytorch:
+#+BEGIN_SRC bash
+pip install opencv-python torch
+#+END_SRC
+
 - install with a wheel .whl file:
 #+BEGIN_SRC bash
 pip install *.whl
@@ -2727,6 +2744,15 @@ pkg_resources.require("gensim==3.7.2")  # this exact version
 pkg_resources.require("gensim>=3.7.2")  # this version or higher
 
 #+END_SRC
+- Removing an environment
+To remove an environment, in your terminal window or an Anaconda Prompt, run:
+#+BEGIN_SRC bash
+conda remove --name myenv --all
+# You may instead use conda env remove --name myenv.
+# To verify that the environment was removed, in your terminal window or an Anaconda Prompt, run:
+conda info --envs
+#+END_SRC
+
 - create conda virtualenv:
 #+BEGIN_SRC shell
 # 创建 conda 虚拟环境（ :code:`env_name` 是您希望创建的虚拟环境名）
@@ -2868,7 +2894,7 @@ pd.set_option('display.width', 1000)
 - first day of the previous month:
 #+BEGIN_SRC python
 today = datetime.datetime.today()
-the_last_day_of_previous_month = today  datetime.timedelta(days=1)
+the_last_day_of_previous_month = today.datetime.timedelta(days=1)
 the_first_day_of_previous_month = the_last_day_of_previous_month.replace(day=1)
 #+END_SRC
 
@@ -2981,6 +3007,11 @@ df.groupby('A').agg(['mean', 'std'])
 
 #+END_SRC
 
+- groupby aggregate to list:
+#+BEGIN_SRC python
+df.groupby('a')['b'].apply(list)
+#+END_SRC
+
 - read oracle database UnicodeDecodeError 'gb' :
 set the language of the editor from Chinese to English.
 #+BEGIN_SRC python
@@ -3024,6 +3055,21 @@ for i in tqdm(range(0, int(len(s_med_clinic_id)/100), n)):
     except UnicodeDecodeError:
         continue
 df_regist.to_pickle("registration_data.pkl")
+#+END_SRC
+
+- filter rows by number, groupby filter:
+#+BEGIN_SRC python
+df_item = t_order.groupby(['name']).filter(lambda x:x['hos_id'].unique().size>=10)
+#+END_SRC
+
+- resample groupby aggregate:
+#+BEGIN_SRC python
+df_simul_sample = df_simul_sample.resample('1H')['PERSON_ID'].agg(list)
+#+END_SRC
+
+- convert columns from capital to lower:
+#+BEGIN_SRC python
+df_patient = df_patient.rename(columns = lambda x: x.lower())
 #+END_SRC
 
 - find rows with nearest dates/value:
@@ -3076,6 +3122,13 @@ small_groups = df_nanjing[df_nanjing['group_sn'].isin(group_size[group_size < 8]
 df = pd.DataFrame.from_dict({}, orient='index')
 #+END_SRC
 
+-filter by value counts:
+#+BEGIN_SRC python
+df_person_count = df_simul['PERSON_ID'].value_counts()
+# filter person id count is less than 3 times
+df_simul = df_simul[df_simul['PERSON_ID'].isin(df_person_count[df_person_count>3].index)]
+
+#+END_SRC
 - get max value counts column name in each group:
 #+BEGIN_SRC python
 df_sample1 = df_sample.sort_values(['person_id','discharge_date'],ascending=True).groupby(['person_id', 'icd3']).first().agg({'hosp_lev':pd.Series.value_counts})
@@ -3380,6 +3433,11 @@ filtered_1=b[‘TRADE_size’].apply(lambda x: 0 if x < 0 else x)
 b[‘TRADE_size’].loc[ b[‘TRADE_size’]<0, ‘TRADE_size’] = 0
 #+end_src
 
+- drop all rows value equal to 0:
+#+BEGIN_SRC python
+df.loc[~(df==0).all(axis=1)]
+#+END_SRC
+
 - drop columns/lable:
 #+BEGIN_SRC python
 DataFrame.drop(labels, axis=1, level=None, inplace=False, errors='raise')
@@ -3476,6 +3534,12 @@ df_pivot_industries_asset_weights = pd.pivot_table(
         columns=['industry', 'symbol'])
 #+end_src
 
+- pivot time series to hourly
+#+BEGIN_SRC python
+df['hour'] = df['date'].dt.hour
+df['day'] = df['date'].dt.datetime
+pd.pivot_table(df,index='hour',columns='day',values='pb',aggfunc=np.sum)
+#+END_SRC
 - change the time or date or a datetime:
 #+begin_src python
 end = end.replace(hour=23, minute=59, second=59)
@@ -3841,6 +3905,11 @@ Return the sorted, unique values in ar1 that are not in ar2
 #+BEGIN_SRC python
 np.setdiff1d(ar1, ar2)
 #+END_SRC
+- turn a list of tuples into a list:
+#+BEGIN_SRC python
+[item for t in lt for item in t]
+#+END_SRC
+
 - sorted a list of tuples
 #+BEGIN_SRC python
 sorted(enumerate(sims), key=lambda item: -item[1])
