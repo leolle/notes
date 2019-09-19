@@ -502,8 +502,8 @@ for f in $(ls $CONTENT); do
   --arch_decoder ppm_bilinear_deepsup \
   --fc_dim 2048 \
   --result $STYLE
-    
-done 
+
+done
 #+END_SRC
 - centos PATH file
 #+BEGIN_SRC txt
@@ -1050,6 +1050,12 @@ make
 ls
 ./test
 #+END_SRC
+*** update/install git
+    yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+
+    yum install git
+
+    git --version
 
 ** BOOTING AND SHUTTING DOWN
 *** Bootstrapping
