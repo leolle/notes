@@ -175,7 +175,7 @@ hznl    CASE
 
 - deadlock, ORA-00054: 资源正忙，要求指定 NOWAIT
 #+BEGIN_SRC sql
-select * from v$locked_object
+select * from v$locked_object;
 
 select object_name,machine,s.sid,s.serial#
 from v$locked_object l,dba_objects o ,v$session s
@@ -762,7 +762,7 @@ ALTER INDEX [ schema. ]index
 
 #+BEGIN_SRC sql
 ALTER INDEXTYPE [ schema. ] indextype
-  { { ADD | DROP } [ schema. ] operator ( parameter_types ) 
+  { { ADD | DROP } [ schema. ] operator ( parameter_types )
       [ , { ADD | DROP } [schema. ] operator ( parameter_types ) ]... [ using_type_clause ]
   | COMPILE
   }
@@ -774,8 +774,8 @@ ALTER INDEXTYPE [ schema. ] indextype
 
 #+BEGIN_SRC sql
 ALTER JAVA
-  { SOURCE | CLASS } [ schema. ]object_name 
-  [ RESOLVER 
+  { SOURCE | CLASS } [ schema. ]object_name
+  [ RESOLVER
       ( ( match_string [, ] { schema_name | - } )... )
   ]
   { { COMPILE | RESOLVE }
@@ -943,7 +943,7 @@ ALTER SESSION
   | { ENABLE RESUMABLE [ TIMEOUT integer ] [ NAME string ]
     | DISABLE RESUMABLE
     }
-  | SYNC WITH PRIMARY   
+  | SYNC WITH PRIMARY
   | alter_session_set_clause
   } ;
 #+END_SRC
@@ -1396,7 +1396,7 @@ CREATE MATERIALIZED VIEW LOG ON [ schema. ] table
            ]... ]
     (column [, column ]...)
     [ new_values_clause ]
-  ] [ mv_log_purge_clause ] 
+  ] [ mv_log_purge_clause ]
 ;
 #+END_SRC
 
@@ -1861,7 +1861,7 @@ END;
 - [DROP TABLESPACE]
 
 #+BEGIN_SRC sql
-DROP TABLESPACE tablespace 
+DROP TABLESPACE tablespace
    [ INCLUDING CONTENTS [ {AND | KEEP} DATAFILES ]
      [ CASCADE CONSTRAINTS ]
    ] ;
@@ -1914,7 +1914,7 @@ FLASHBACK [ STANDBY ] DATABASE [ database ]
         | RESTORE POINT restore_point
         }
    | TO BEFORE { SCN | TIMESTAMP} expr
-               | RESETLOGS 
+               | RESETLOGS
                }
    } ;
 #+END_SRC
@@ -1959,7 +1959,7 @@ LOCK TABLE [ schema. ] { table | view }
       ]
      ]...
    IN lockmode MODE
-   [ NOWAIT  
+   [ NOWAIT
    | WAIT integer
    ] ;
 #+END_SRC
@@ -1970,7 +1970,7 @@ LOCK TABLE [ schema. ] { table | view }
 MERGE [ hint ]
    INTO [ schema. ] { table | view } [ t_alias ]
    USING { [ schema. ] { table | view }
-         | subquery 
+         | subquery
          } [ t_alias ]
    ON ( condition )
    [ merge_update_clause ]
@@ -1981,7 +1981,7 @@ MERGE [ hint ]
 - [NOAUDIT]
 
 #+BEGIN_SRC sql
-NOAUDIT 
+NOAUDIT
    { audit_operation_clause [ auditing_by_clause ]
    | audit_schema_object_clause
    | NETWORK
@@ -2345,7 +2345,7 @@ CUBE_TABLE
 #+BEGIN_SRC sql
 CUME_DIST(expr[,expr ]...) WITHIN GROUP
   (ORDER BY expr [ DESC | ASC ]
-                 [ NULLS { FIRST | LAST } ] 
+                 [ NULLS { FIRST | LAST } ]
             [, expr [ DESC | ASC ]
                     [ NULLS { FIRST | LAST } ]
             ]...
@@ -2536,7 +2536,7 @@ aggregate_function
 - [FIRST_VALUE]
 
 #+BEGIN_SRC sql
-FIRST_VALUE 
+FIRST_VALUE
   { (expr) [ {RESPECT | IGNORE} NULLS ]
   | (expr [ {RESPECT | IGNORE} NULLS ])
   }
@@ -2648,7 +2648,7 @@ ITERATION_NUMBER
 
 #+BEGIN_SRC sql
 LAG
-  { ( value_expr [, offset [, default]]) [ { RESPECT | IGNORE } NULLS ] 
+  { ( value_expr [, offset [, default]]) [ { RESPECT | IGNORE } NULLS ]
   | ( value_expr [ { RESPECT | IGNORE } NULLS ] [, offset [, default]] )
   }
   OVER ([ query_partition_clause ] order_by_clause)
@@ -2687,7 +2687,7 @@ LAST_VALUE
 
 #+BEGIN_SRC sql
 LEAD
-  { ( value_expr [, offset [, default]] ) [ { RESPECT | IGNORE } NULLS ] 
+  { ( value_expr [, offset [, default]] ) [ { RESPECT | IGNORE } NULLS ]
   | ( value_expr [ { RESPECT | IGNORE } NULLS ] [, offset [, default]] )
   }
   OVER ([ query_partition_clause ] order_by_clause)
@@ -2879,7 +2879,7 @@ NLSSORT(char [, 'nlsparam' ])
 
 #+BEGIN_SRC sql
 NTH_VALUE(measure_expr, n)
-  [ FROM { FIRST | LAST } ][ { RESPECT | IGNORE } NULLS ] 
+  [ FROM { FIRST | LAST } ][ { RESPECT | IGNORE } NULLS ]
   OVER (analytic_clause)
 #+END_SRC
 
@@ -3034,14 +3034,14 @@ PREDICTION_DETAILS ( [ schema . ] model mining_attribute_clause )
 - [PREDICTION_PROBABILITY]
 
 #+BEGIN_SRC sql
-PREDICTION_PROBABILITY ( [ schema . ] model [ , class ] 
+PREDICTION_PROBABILITY ( [ schema . ] model [ , class ]
    mining_attribute_clause )
 #+END_SRC
 
 - [PREDICTION_SET]
 
 #+BEGIN_SRC sql
-PREDICTION_SET ( [ schema . ] model [ , bestN [ , cutoff ] ] 
+PREDICTION_SET ( [ schema . ] model [ , bestN [ , cutoff ] ]
   [ cost_matrix_clause ] mining_attribute_clause )
 #+END_SRC
 
@@ -3167,14 +3167,14 @@ REGEXP_SUBSTR(source_char, pattern
 - [REGR_AVGX], <a id="sthref568"></a><a id="sthref569"></a>[REGR_AVGY], <a id="sthref570"></a><a id="sthref571"></a>[REGR_COUNT], <a id="sthref572"></a><a id="sthref573"></a>[REGR_INTERCEPT], <a id="sthref574"></a><a id="sthref575"></a>[REGR_R2], <a id="sthref576"></a><a id="sthref577"></a>[REGR_SLOPE], <a id="sthref578"></a><a id="sthref579"></a>[REGR_SXX], <a id="sthref580"></a><a id="sthref581"></a>[REGR_SXY], <a id="sthref582"></a><a id="sthref583"></a>[REGR_SYY]
 
 #+BEGIN_SRC sql
-{ REGR_SLOPE 
-| REGR_INTERCEPT 
-| REGR_COUNT 
-| REGR_R2 
+{ REGR_SLOPE
+| REGR_INTERCEPT
+| REGR_COUNT
+| REGR_R2
 | REGR_AVGX
-| REGR_AVGY 
-| REGR_SXX 
-| REGR_SYY 
+| REGR_AVGY
+| REGR_SXX
+| REGR_SYY
 | REGR_SXY
 }
 (expr1 , expr2)
@@ -3646,8 +3646,8 @@ TO_TIMESTAMP_TZ(char [, fmt [, 'nlsparam' ] ])
 
 #+BEGIN_SRC sql
 TO_YMINTERVAL
-  ( '  { [+|-] years - months 
-       | ym_iso_format 
+  ( '  { [+|-] years - months
+       | ym_iso_format
        } ' )
 #+END_SRC
 
@@ -3678,7 +3678,7 @@ TRIM([ { { LEADING | TRAILING | BOTH }
          [ trim_character ]
        | trim_character
        }
-       FROM 
+       FROM
      ]
      trim_source
     )
@@ -3905,9 +3905,9 @@ XMLPI
 
 #+BEGIN_SRC sql
 XMLQUERY
- ( XQuery_string 
-   [ XML_passing_clause ] 
-   RETURNING CONTENT [NULL ON EMPTY] 
+ ( XQuery_string
+   [ XML_passing_clause ]
+   RETURNING CONTENT [NULL ON EMPTY]
  )
 #+END_SRC
 
@@ -3915,7 +3915,7 @@ XMLQUERY
 
 #+BEGIN_SRC sql
 XMLROOT
-  ( value_expr, VERSION 
+  ( value_expr, VERSION
   { value_expr | NO VALUE }
   [, STANDALONE { YES | NO | NO VALUE } ]
   )
@@ -3945,8 +3945,8 @@ XMLSERIALIZE
 
 #+BEGIN_SRC sql
 XMLTABLE
- ( 
-  [ XMLnamespaces_clause , ] XQuery_string XMLTABLE_options 
+ (
+  [ XMLnamespaces_clause , ] XQuery_string XMLTABLE_options
  )
 #+END_SRC
 
@@ -4045,7 +4045,7 @@ You can use any built-in SQL function or user-defined function as an expression.
 
 #+BEGIN_SRC sql
 { measure_column <span class="bold">[</span> { condition | expr } [, { condition | expr } ]... <span class="bold">]</span>
-| aggregate_function 
+| aggregate_function
      { <span class="bold">[</span> { condition | expr } [, { condition | expr } ]... <span class="bold">]</span>
      | <span class="bold">[</span> single_column_for_loop [, single_column_for_loop ]... <span class="bold">]</span>
      | <span class="bold">[</span> multi_column_for_loop <span class="bold">]</span>
@@ -4242,7 +4242,7 @@ REGEXP_LIKE(source_char, pattern
 - [Simple comparison conditions]
 
 #+BEGIN_SRC sql
-{ expr 
+{ expr
   { = | != | ^= | <> | > | < | >= | <= }
   expr
 | (expr [, expr ]...)

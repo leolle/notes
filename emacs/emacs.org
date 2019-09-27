@@ -464,6 +464,11 @@ sudo pip install jedi epc pylint flake8 ipython==5.3 yaft
 #+END_SRC
 
 install package jedi elpy magit
+*** workon an virtual environment
+1.  (setenv "WORKON_HOME" "~/anaconda3/envs")
+2. pyvenv activate
+3. pyvenv workon
+
 ** Keybinding
 | Keybinding | Description                    |
 | C-M-i      | anaconda-mode-complete         |

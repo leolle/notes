@@ -86,9 +86,9 @@ Jack: 4098; Sjoerd: 4127; Dcab: 8637678
 #+END_SRC
 - print into file:
 #+BEGIN_SRC python
-#  python 3.x syntax. 
-print(args, file=f1) 
-# For python 2.x use 
+#  python 3.x syntax.
+print(args, file=f1)
+# For python 2.x use
 print >> f1, args.
 
 #+END_SRC
@@ -110,7 +110,7 @@ table_resulta = t[0]
 b = t[1]
 #+end_src
 *** normal argument, args, kwargs
-*args and **kwargs allow you to pass a variable number of arguments to a function. 
+*args and **kwargs allow you to pass a variable number of arguments to a function.
 - *args:
 #+BEGIN_SRC python
 def test_var_args(f_arg, *argv):
@@ -462,7 +462,7 @@ def multiply_strings(x, col=('med_code', 'med_usage')):
     ls_new = []
     for i in range(len(ls_x)):
         # remove stop words
-        if int(ls_y[i]) < 50: 
+        if int(ls_y[i]) < 50:
             ls_new.append((ls_x[i]+',')*int(ls_y[i]))
         else:
             ls_new.append((ls_x[i]+','))
@@ -486,7 +486,7 @@ def find_sub_list(sl,l):
         if l[ind:ind+sll]==sl:
             return ind,ind+sll-1
 
-print find_sub_list(['my','name','is'], greeting)    
+print find_sub_list(['my','name','is'], greeting)
 #+END_SRC
 - is list equal:
 #+BEGIN_SRC python
@@ -726,7 +726,7 @@ int64
 ** Binary Sequence Types — bytes, bytearray, memoryview
 - convert bytes into string:
 #+BEGIN_SRC python
-b"abcde".decode("utf-8") 
+b"abcde".decode("utf-8")
 #+END_SRC
 ** Set Types — set, frozenset
 
@@ -1281,7 +1281,7 @@ for i in tqdm(range(10)):
 # enumerate
 for i in enumerate(tqdm(list)):
     do things()
-# pandas 
+# pandas
 df = pd.DataFrame(np.random.randint(0, int(1e8), (10000, 1000)))
 
 # Create and register a new `tqdm` instance with `pandas`
@@ -1797,10 +1797,10 @@ tablespace WUXI
   pctfree 10
   initrans 1
   maxtrans 255;
--- Add comments to the table 
+-- Add comments to the table
 comment on table PATIENT_PROFILE
   is '个人用户画像';
--- Add comments to the columns 
+-- Add comments to the columns
 comment on column PATIENT_PROFILE.PERSON_SEX
   is '描述患者的生理性别
 ';
@@ -1880,7 +1880,7 @@ select t1.GRID person_1, t2.GRID person_2, sysdate as crt_date
 #+BEGIN_SRC sql
 WITH summary AS (
 select person_id, hosp_lev, clinic_type, substr(out_diag_dis_cd, 0, 3) as icd3, to_date(substr(out_hosp_date, 0, 8), 'yyyymmdd') as discharge_date,
-ROW_NUMBER() OVER(PARTITION BY person_id, substr(out_diag_dis_cd, 0, 3) 
+ROW_NUMBER() OVER(PARTITION BY person_id, substr(out_diag_dis_cd, 0, 3)
                                  ORDER BY to_date(substr(out_hosp_date, 0, 8), 'yyyymmdd')) AS rk from t_kc21
 where out_diag_dis_cd is not null and clinic_type is not null)
 SELECT s.*
@@ -2511,7 +2511,7 @@ pyenv versions
 * Python Runtime Services
 ** sysconfig — Provide access to Python’s configuration information
 ** os, sys — System-specific parameters and functions
-- 
+-
 - get environment variables
 #+BEGIN_SRC python
 import os
@@ -2917,7 +2917,7 @@ df_most_visited_hospitals.sort_values(['PERSON_ID','DISCHARGE_DATE'],ascending=T
 - filter by groupby count size:
 #+BEGIN_SRC python
 df_patient = df_patient.groupby(['hos_id', 'disease']).filter(lambda x:x['person_id'].unique().size>=3)
-#+END_SRC 
+#+END_SRC
 
 - apply to each group in groupby:
 #+BEGIN_SRC python
@@ -2926,6 +2926,28 @@ for group in df2.groupby('type'):
     data = group[1]
     if group[0] == 'A':
         print group[1].min()
+#+END_SRC
+
+- groupby qcut:
+#+BEGIN_SRC python
+df = pd.DataFrame({'A':'foo foo foo bar bar bar'.split(),
+                   'B':[0.1, 0.5, 1.0]*2})
+
+df['C'] = df.groupby(['A'])['B'].transform(
+                     lambda x: pd.qcut(x, 3, labels=range(1,4)))
+print(df)
+# if error ValueError: Length mismatch: Expected axis has 5564 elements, new values have 78421 elements
+# Groupby does not group the NaNs:
+df_patient['disease_code'].fillna('unk', inplace=True)
+#+END_SRC
+
+- average times groupby:
+#+BEGIN_SRC python
+df_patient.reset_index().groupby('disease_code').apply(lambda x:['med_clinic_id'].count()/x['person_id'].nunique())
+#+END_SRC
+- ValueError: Bin edges must be unique:
+#+BEGIN_SRC python
+pd.qcut(df['column'].rank(method='first'), nbins)
 #+END_SRC
 
 - pd.to_datetimeindex error:
@@ -3030,9 +3052,9 @@ engine = create_engine('oracle://MMAPV41:MMAPV411556@192.168.4.32:1521/orcl?char
 
 conn=cx.connect('MMAPV41/MMAPV411556@192.168.4.32/orcl')
 sql_regist = """
-select med_clinic_id, person_id, person_nm, person_sex, 
-person_age, in_hosp_date, out_hosp_date, 
-med_ser_org_no, clinic_type, in_diag_dis_nm, out_diag_doc_cd, 
+select med_clinic_id, person_id, person_nm, person_sex,
+person_age, in_hosp_date, out_hosp_date,
+med_ser_org_no, clinic_type, in_diag_dis_nm, out_diag_doc_cd,
 med_amout, hosp_lev from t_kc21
 """
 df_regist = pd.read_sql_query(sql_regist, engine)
@@ -3040,9 +3062,9 @@ df_regist = pd.read_sql_query(sql_regist, engine)
 s_med_clinic_id = pd.read_pickle('med_clinic_id.pkl')
 n = 100
 sql_regist = """
-select med_clinic_id, person_id, person_nm, person_sex, 
-person_age, in_hosp_date, out_hosp_date, 
-med_ser_org_no, clinic_type, in_diag_dis_nm, out_diag_doc_cd, 
+select med_clinic_id, person_id, person_nm, person_sex,
+person_age, in_hosp_date, out_hosp_date,
+med_ser_org_no, clinic_type, in_diag_dis_nm, out_diag_doc_cd,
 med_amout, hosp_lev from t_kc21 where med_clinic_id in (%s)
 """
 df_regist = pd.DataFrame()
@@ -3111,6 +3133,14 @@ df_nanjing = pd.read_excel('result.xlsx',dtype={'证件号':str,
                                                 '个人ID':str},
                          parse_dates=['入院日期','出院日期'])
 #+END_SRC
+
+- groupby ratio:
+#+BEGIN_SRC python
+df_items_sum = df_items.groupby(['disease_code', 'soc_srt_dire_nm']).agg({'amount': 'sum'})
+# Change: groupby state_office and divide by sum
+df_items_ratio = df_items_sum.groupby(level=0).apply(lambda x:
+                                                 100 * x / float(x.sum()))
+#+END_SRC
 - groupby group size:
 #+BEGIN_SRC python
 group_size = df_nanjing.groupby(['group_sn'])['个人ID'].unique().apply(len)
@@ -3133,6 +3163,13 @@ df_simul = df_simul[df_simul['PERSON_ID'].isin(df_person_count[df_person_count>3
 #+BEGIN_SRC python
 df_sample1 = df_sample.sort_values(['person_id','discharge_date'],ascending=True).groupby(['person_id', 'icd3']).first().agg({'hosp_lev':pd.Series.value_counts})
 df_sample1.groupby(['person_id']).sum().idxmax(axis=1)
+#+END_SRC
+
+- groupby value counts max count name:
+#+BEGIN_SRC python
+s_count = df_patient.groupby('disease_code')['mon'].value_counts()
+s_count.name = 'cnt_mon'
+df_disease['cnt_mon'] = s_count.reset_index().pivot(index='disease_code', columns='mon', values='cnt_mon').idxmax(axis=1)
 #+END_SRC
 
 - get unique value counts within each group:
@@ -3502,7 +3539,9 @@ h       NaN -1.053898 -0.019369  bar  False        NaT
 - rename column names:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
+df = df.rename(columns={'a':'A'})
 #+end_src
+
   - rename according to column value type:
     #+BEGIN_SRC python
     name = {2:'idname', 23:'value', 4:'variable'}
@@ -3577,6 +3616,14 @@ benchmark_weight.index.name = 'Date'
 m = benchmark_weight.index.to_period('m')
 benchmark_weight = benchmark_weight.reset_index().groupby(m).last().set_index('Date')
 benchmark_weight.index.name = ''
+#+END_SRC
+
+- groupby item ratio:
+#+BEGIN_SRC python
+df_items_sum = df_items.groupby(['disease_code', 'soc_srt_dire_nm']).agg({'amount': 'sum'})
+# Change: groupby state_office and divide by sum
+df_items_ratio = df_items_sum.groupby(level=0).apply(lambda x:
+                                                 100 * x / float(x.sum()))
 #+END_SRC
 
 - groupby and sort by another column:
@@ -3926,6 +3973,8 @@ np.random.shuffle(arr)
 target_symbols = target_symbols[arr[:position_limit]]
 #+END_SRC
 ** plot:
+- %matplotlib inline
+To set this up, before any plotting or import of matplotlib is performed you must execute the %matplotlib magic command. This performs the necessary behind-the-scenes setup for IPython to work correctly hand in hand with matplotlib; it does not, however, actually execute any Python import commands, that is, no names are added to the namespace.
 *** subplot with the same axis:
 pandas plot.
 using matplotlib:
@@ -4131,7 +4180,7 @@ nx.draw(G, with_labels=True)
 from sklearn.preprocessing import LabelEncoder
 class_label = LabelEncoder()
 data["label"] = class_label.fit_transform(data["label"].values)
-# or 
+# or
 label_mapping = {label:idx for idx,label in enumerate(np.unique(data["label"]))}
 
 #+END_SRC
@@ -4146,7 +4195,7 @@ X[:,0] = color_label.fit_transform(X[:,0])
 #设置颜色列使用oneHot编码
 one_hot = OneHotEncoder(categorical_features=[0])
 print(one_hot.fit_transform(X).toarray())
-# or 
+# or
 pd.get_dummies(data[["color","price"]])
 #+END_SRC
 
@@ -4205,7 +4254,7 @@ In [3]: data = image.load()
 
 image.save('clean_captcha.png')
 
-img = cv2.imread(r'D:/UNI/Y3/DIA/2K18/lab.jpg') 
+img = cv2.imread(r'D:/UNI/Y3/DIA/2K18/lab.jpg')
 RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 gray = cv2.cvtColor(RGB_img, cv2.COLOR_RGB2GRAY)
 equ = cv2.equalizeHist(gray)
@@ -4216,7 +4265,7 @@ plt.imshow(gray, cmap='gray', vmin = 0, vmax = 255)
 - show image in jupyter notebook:
 #+BEGIN_SRC python
 from IPython.display import Image
-Image(filename=content_seg_path) 
+Image(filename=content_seg_path)
 #+END_SRC
 
 - read image into numpy arrays:
@@ -4242,7 +4291,7 @@ from torchvision import transforms
 from torchvision.utils import save_image
 def open_image(image_path, image_size=None):
     """
-    
+
     """
     image = Image.open(image_path)
     _transforms = []
@@ -4269,7 +4318,7 @@ def cat_images(fname, ls_images_path):
         if images[-1].shape[1] > max_width:
             max_width = images[-1].shape[1]
         total_height += images[-1].shape[0]
-    
+
     def cat_arrays(total_height,max_width,arrays):
         # create a new array with a size large enough to contain all the images
         final_array = np.zeros((total_height,max_width,3),dtype=np.uint8)
@@ -4319,7 +4368,7 @@ def vis_overlay(original_im, seg_map):
 #+END_SRC
 * NLP
 ** Keywords
-- corpus 
+- corpus
 #+BEGIN_SRC python
 input_text_translations = """
 The Chinese government’s top management obviously also hopes to avoid the deterioration of the Sino-US conflict. The Sino-US trade war has started. After the Sino-US trade war began, it emphasized that China has "five advantages" in the trade war. He stressed: "We must especially prevent Sino-US cooperation. Trade conflict spreads to the ideological field
@@ -4357,4 +4406,3 @@ df_topic_word_dis = pd.DataFrame([x[1].split(' + ') for x in topic_distribution]
 # frequency of word
 dictionary.dfs[dictionary.token2id["血清α羟基丁酸脱氢酶测定"]]/dictionary.num_docs
 #+END_SRC
-
