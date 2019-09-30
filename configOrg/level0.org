@@ -1,4 +1,6 @@
 # -*- mode: org; -*-
+#+MACRO: author Wei Wu
+#+MACRO: email victor.wuv@gmail.com
 
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/bigblow.css"/>

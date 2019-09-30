@@ -3,12 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-07-16 Mon 19:30 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title></title>
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="weiwu" />
+<!-- 2019-09-30 Mon 10:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -53,13 +52,98 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
@@ -76,6 +160,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -92,6 +189,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="../styles/demo/css/demo.css"/>
@@ -101,7 +199,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -149,24 +247,24 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline19">1. NLP workflow:</a>
+<li><a href="#orgc885f6c">1. NLP workflow:</a>
 <ul>
-<li><a href="#orgheadline9">1.1. Sentiment analysis</a>
+<li><a href="#orgba6589b">1.1. Sentiment analysis</a>
 <ul>
-<li><a href="#orgheadline7">1.1.1. Use cases</a></li>
-<li><a href="#orgheadline8">1.1.2. Steps of generating sentiment values in GS</a></li>
+<li><a href="#org61cef1c">1.1.1. Use cases</a></li>
+<li><a href="#org96a8e29">1.1.2. Steps of generating sentiment values in GS</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline15">1.2. Word2vec</a>
+<li><a href="#org8fb43d9">1.2. Word2vec</a>
 <ul>
-<li><a href="#orgheadline13">1.2.1. Use cases</a></li>
-<li><a href="#orgheadline14">1.2.2. Steps of finding similar words in GS</a></li>
+<li><a href="#org4d33f97">1.2.1. Use cases</a></li>
+<li><a href="#org5c6ead2">1.2.2. Steps of finding similar words in GS</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline18">1.3. Information Extraction</a>
+<li><a href="#org519fbe2">1.3. Information Extraction</a>
 <ul>
-<li><a href="#orgheadline16">1.3.1. relation extraction</a></li>
-<li><a href="#orgheadline17">1.3.2. knowledge extraction from scientific publications for ease paper reading</a></li>
+<li><a href="#orgfaf0dfd">1.3.1. relation extraction</a></li>
+<li><a href="#org148bd86">1.3.2. knowledge extraction from scientific publications for ease paper reading</a></li>
 </ul>
 </li>
 </ul>
@@ -186,26 +284,26 @@ for the JavaScript code in this tag.
 <tbody>
 <tr>
 <td class="org-left"><b>Author</b></td>
-<td class="org-left">weiwu (victor.wuv@gmail.com)</td>
+<td class="org-left">Wei Wu (victor.wuv@gmail.com)</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-07-16 19:30:13</td>
+<td class="org-left">2019-09-30 10:37:28</td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">1</span> NLP workflow:</h2>
+<div id="outline-container-orgc885f6c" class="outline-2">
+<h2 id="orgc885f6c"><span class="section-number-2">1</span> NLP workflow:</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <a href="https://docs.google.com/document/d/1RN49VzAcGFhjHUvXbmYNwyGc0h8ock9jsZ45cv62HUQ/edit?usp=sharing">link</a>
 </p>
 </div>
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">1.1</span> Sentiment analysis</h3>
+<div id="outline-container-orgba6589b" class="outline-3">
+<h3 id="orgba6589b"><span class="section-number-3">1.1</span> Sentiment analysis</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 A sentiment value determines attitude, which may be a judgment or evaluation, affective state or the intended emotional communication. The sentiment value is labeled as 0 (negative), 1 (neutral) or 2 (positive).
@@ -228,12 +326,19 @@ At the same time, we can use this technique to give a sentiment value of the cur
 </ul>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">1.1.1</span> Use cases</h4>
+<div id="outline-container-org61cef1c" class="outline-4">
+<h4 id="org61cef1c"><span class="section-number-4">1.1.1</span> Use cases</h4>
 <div class="outline-text-4" id="text-1-1-1">
-</div><ol class="org-ol"><li><a id="orgheadline3"></a>Map stock name related to the news/report statement input into its sentiment value, then we can set them as factors, which can be applied to<br  /><ol class="org-ol"><li><a id="orgheadline1"></a>Factor model - univariate test<br  /></li>
-<li><a id="orgheadline2"></a>Stock selection - pick stocks labeled as 2<br  /></li></ol></li>
-<li><a id="orgheadline4"></a>Compute average sentiment values in time series, presenting sentiment of overall public opinions, which can be applied to<br  /><div class="outline-text-5" id="text-1-1-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org98cdb92"></a>Map stock name related to the news/report statement input into its sentiment value, then we can set them as factors, which can be applied to<br />
+<ol class="org-ol">
+<li><a id="org28019e2"></a>Factor model - univariate test<br /></li>
+<li><a id="orgc1c7e15"></a>Stock selection - pick stocks labeled as 2<br /></li>
+</ol>
+</li>
+<li><a id="org0403a71"></a>Compute average sentiment values in time series, presenting sentiment of overall public opinions, which can be applied to<br />
+<div class="outline-text-5" id="text-1-1-1-2">
 <p>
 Defining and predicting public opinions for investors/analysts who cares (more efficient and probably more accurate than human’s instinct judgement)
 </p>
@@ -241,12 +346,14 @@ Defining and predicting public opinions for investors/analysts who cares (more e
 <p>
 Eg 短期交易者, dispersion (data and function variance), 与market opinion相对/同做trading
 </p>
-</div></li>
-<li><a id="orgheadline5"></a>Source is important, diverse and complete enough: possible standard - a database can make completely random sampling<br  /></li>
-<li><a id="orgheadline6"></a>News sentiment analysis, together with keyword extraction, see below<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">1.1.2</span> Steps of generating sentiment values in GS</h4>
+</li>
+<li><a id="orga8a3ce0"></a>Source is important, diverse and complete enough: possible standard - a database can make completely random sampling<br /></li>
+<li><a id="org481a1b1"></a>News sentiment analysis, together with keyword extraction, see below<br /></li>
+</ol>
+</div>
+<div id="outline-container-org96a8e29" class="outline-4">
+<h4 id="org96a8e29"><span class="section-number-4">1.1.2</span> Steps of generating sentiment values in GS</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ol class="org-ol">
 <li>Load report summaries from a relational database, here we use Juyuan MySQL database (see below screenshot).</li>
@@ -318,8 +425,8 @@ Output is time series.
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">1.2</span> Word2vec</h3>
+<div id="outline-container-org8fb43d9" class="outline-3">
+<h3 id="org8fb43d9"><span class="section-number-3">1.2</span> Word2vec</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Word2vec is a group of related models for word embeddings. We provide a specific process of how to use it to find similar words.
@@ -331,19 +438,24 @@ Output: word embedding model
 </p>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-4">
-<h4 id="orgheadline13"><span class="section-number-4">1.2.1</span> Use cases</h4>
+<div id="outline-container-org4d33f97" class="outline-4">
+<h4 id="org4d33f97"><span class="section-number-4">1.2.1</span> Use cases</h4>
 <div class="outline-text-4" id="text-1-2-1">
-</div><ol class="org-ol"><li><a id="orgheadline10"></a>Searching relevant papers: providing similar keywords of papers to the paper title we already have<br  /><div class="outline-text-5" id="text-1-2-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org57598df"></a>Searching relevant papers: providing similar keywords of papers to the paper title we already have<br />
+<div class="outline-text-5" id="text-1-2-1-1">
 <p>
 ‘The Decision Tree Approach to Stock Selection’: find other papers by looking for similar keywords of ‘decision tree classifier’, ‘random forest’, ‘stock prediction’&#x2026;
 </p>
-</div></li>
-<li><a id="orgheadline11"></a>Node2vec for GS tasks<br  /></li>
-<li><a id="orgheadline12"></a>Policy instance<br  /></li></ol>
 </div>
-<div id="outline-container-orgheadline14" class="outline-4">
-<h4 id="orgheadline14"><span class="section-number-4">1.2.2</span> Steps of finding similar words in GS</h4>
+</li>
+<li><a id="org764a5fa"></a>Node2vec for GS tasks<br /></li>
+<li><a id="org69b8fb5"></a>Policy instance<br /></li>
+</ol>
+</div>
+<div id="outline-container-org5c6ead2" class="outline-4">
+<h4 id="org5c6ead2"><span class="section-number-4">1.2.2</span> Steps of finding similar words in GS</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <ol class="org-ol">
 <li>Select corpus, which can be an user interested domain from wikipedia, analyst reports and research files. Assume GS having a category tree of default corpus and there is also an API for users to insert their own sources.</li>
@@ -445,11 +557,12 @@ Other possible methods: <a href="http://www.aclweb.org/anthology/D15-1036">http:
 </div>
 
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">1.3</span> Information Extraction</h3>
+<div id="outline-container-org519fbe2" class="outline-3">
+<h3 id="org519fbe2"><span class="section-number-3">1.3</span> Information Extraction</h3>
 <div class="outline-text-3" id="text-1-3">
-</div><div id="outline-container-orgheadline16" class="outline-4">
-<h4 id="orgheadline16"><span class="section-number-4">1.3.1</span> relation extraction</h4>
+</div>
+<div id="outline-container-orgfaf0dfd" class="outline-4">
+<h4 id="orgfaf0dfd"><span class="section-number-4">1.3.1</span> relation extraction</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 从文本中抽取两个实体之间的投资关系。
@@ -580,8 +693,8 @@ Other possible methods: <a href="http://www.aclweb.org/anthology/D15-1036">http:
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-4">
-<h4 id="orgheadline17"><span class="section-number-4">1.3.2</span> knowledge extraction from scientific publications for ease paper reading</h4>
+<div id="outline-container-org148bd86" class="outline-4">
+<h4 id="org148bd86"><span class="section-number-4">1.3.2</span> knowledge extraction from scientific publications for ease paper reading</h4>
 </div>
 </div>
 </div>

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- 2018-08-28 Tue 07:34 -->
-<meta  charset="utf-8">
-<meta  name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
-<meta  name="generator" content="Org-mode">
-<meta  name="author" content="weiwu">
+<!-- 2019-09-30 Mon 10:36 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lrm;</title>
+<meta name="generator" content="Org mode">
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -51,13 +50,98 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
@@ -74,6 +158,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -90,6 +187,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
@@ -100,7 +198,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -156,24 +254,25 @@ for the JavaScript code in this tag.
 <tbody>
 <tr>
 <td class="org-left"><b>Author</b></td>
-<td class="org-left">weiwu (victor.wuv@gmail.com)</td>
+<td class="org-left">Wei Wu (victor.wuv@gmail.com)</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-08-28 07:34:36</td>
+<td class="org-left">2019-09-30 10:36:44</td>
 </tr>
 </tbody>
 </table>
 </div>
 
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3">Workflow</h2>
-<div class="outline-text-2" id="text-orgheadline3">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1">quant</h3>
-<div class="outline-text-3" id="text-orgheadline1">
+<div id="outline-container-org43a1d3d" class="outline-2">
+<h2 id="org43a1d3d">Workflow</h2>
+<div class="outline-text-2" id="text-org43a1d3d">
+</div>
+<div id="outline-container-org088ac29" class="outline-3">
+<h3 id="org088ac29">quant</h3>
+<div class="outline-text-3" id="text-org088ac29">
 <ol class="org-ol">
 <li>define goal.</li>
 <li>search paper/report.</li>
@@ -190,9 +289,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2">data analysis</h3>
-<div class="outline-text-3" id="text-orgheadline2">
+<div id="outline-container-org7c97a07" class="outline-3">
+<h3 id="org7c97a07">data analysis</h3>
+<div class="outline-text-3" id="text-org7c97a07">
 <ol class="org-ol">
 <li>分析</li>
 <li>实验仿真</li>
@@ -203,15 +302,17 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline134" class="outline-2">
-<h2 id="orgheadline134">Deep Learning</h2>
-<div class="outline-text-2" id="text-orgheadline134">
-</div><div id="outline-container-orgheadline133" class="outline-3">
-<h3 id="orgheadline133">Natural Language Processing</h3>
-<div class="outline-text-3" id="text-orgheadline133">
-</div><div id="outline-container-orgheadline4" class="outline-4">
-<h4 id="orgheadline4"><span class="done DONE">DONE</span> entity relationship extraction <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-19 Mon&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-21 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline4">
+<div id="outline-container-orgbd67f81" class="outline-2">
+<h2 id="orgbd67f81">Deep Learning</h2>
+<div class="outline-text-2" id="text-orgbd67f81">
+</div>
+<div id="outline-container-org8ea9785" class="outline-3">
+<h3 id="org8ea9785">Natural Language Processing</h3>
+<div class="outline-text-3" id="text-org8ea9785">
+</div>
+<div id="outline-container-org2b1452a" class="outline-4">
+<h4 id="org2b1452a"><span class="done DONE">DONE</span> entity relationship extraction <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-19 Mon&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-21 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org2b1452a">
 <ul class="org-ul">
 <li>命名实体识别</li>
 </ul>
@@ -248,9 +349,9 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-5">
-<h5 id="orgheadline5"><span class="done DONE">DONE</span> 语料收集:<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-21 Wed&gt;</span></span></h5>
-<div class="outline-text-5" id="text-orgheadline5">
+<div id="outline-container-org2d749b8" class="outline-5">
+<h5 id="org2d749b8"><span class="done DONE">DONE</span> 语料收集:<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-21 Wed&gt;</span></span></h5>
+<div class="outline-text-5" id="text-org2d749b8">
 <ul class="org-ul">
 <li>目标语料格式：</li>
 </ul>
@@ -396,10 +497,13 @@ for the JavaScript code in this tag.
 </table>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-5">
-<h5 id="orgheadline16">实体和关系的联合抽取处理思想：<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-22 Thu&gt; </span></span> -</h5>
-<div class="outline-text-5" id="text-orgheadline16">
-</div><ul class="org-ul"><li><a id="orgheadline6"></a>goal<br ><div class="outline-text-6" id="text-orgheadline6">
+<div id="outline-container-orgc38a2fe" class="outline-5">
+<h5 id="orgc38a2fe">实体和关系的联合抽取处理思想：<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-22 Thu&gt; </span></span> -</h5>
+<div class="outline-text-5" id="text-orgc38a2fe">
+</div>
+<ul class="org-ul">
+<li><a id="org00e9b51"></a>goal<br>
+<div class="outline-text-6" id="text-org00e9b51">
 <ol class="org-ol">
 <li>利用NER<sub>IDCNN</sub><sub>CRF的实体识别得到语料里面的实体</sub>，现有模型支持人名，组织机构和位置。</li>
 <li>RE<sub>BGRU</sub><sub>2ATT关系识别</sub>。</li>
@@ -413,22 +517,32 @@ Conceptually the method can be applied to Chinese event extraction if you have a
 However, it would require significant changes on the code for feature generation. The current code makes use of the outputs of Stanford CoreNLP (English) and features extracted from English resources like WordNet, FrameNet, and NELL.
 </p>
 </div>
-<ul class="org-ul"><li><a id="orgheadline7"></a>Entity extraction<br ><div class="outline-text-7" id="text-orgheadline7">
+<ul class="org-ul">
+<li><a id="org9117a0a"></a>Entity extraction<br>
+<div class="outline-text-7" id="text-org9117a0a">
 <p>
 Extract company, signal, strategy from text documents.
 </p>
-</div></li>
-<li><a id="orgheadline8"></a>Relation extraction<br ><div class="outline-text-7" id="text-orgheadline8">
+</div>
+</li>
+<li><a id="org350b8c6"></a>Relation extraction<br>
+<div class="outline-text-7" id="text-org350b8c6">
 <p>
 Extract relation between entities, which can create a knowledge network.
 </p>
-</div></li>
-<li><a id="orgheadline9"></a>Event extraction<br ></li></ul></li>
+</div>
+</li>
+<li><a id="org7832680"></a>Event extraction<br></li>
+</ul>
+</li>
 
 
-<li><a id="orgheadline10"></a><span class="done DONE">DONE</span> pseudo code<br ><div class="outline-text-6" id="text-orgheadline10">
-</div></li>
-<li><a id="orgheadline11"></a>review<br ><div class="outline-text-6" id="text-orgheadline11">
+<li><a id="org331514c"></a><span class="done DONE">DONE</span> pseudo code<br>
+<div class="outline-text-6" id="text-org331514c">
+</div>
+</li>
+<li><a id="orga0e034d"></a>review<br>
+<div class="outline-text-6" id="text-orga0e034d">
 <ul class="org-ul">
 <li>the limits of GRU, its memory performance without attention, find out the threshold.</li>
 <li class="off"><code>[&#xa0;]</code> selecting GRU or LSTM Depends on length of input sentence.</li>
@@ -436,18 +550,26 @@ Extract relation between entities, which can create a knowledge network.
 <li class="off"><code>[&#xa0;]</code> use quantitative research, economic indicator formula, analyst report as training data.</li>
 <li class="off"><code>[&#xa0;]</code> what's gold-standard entity information.</li>
 </ul>
-</div></li>
-<li><a id="orgheadline12"></a>study book DL for RE.<br ><div class="outline-text-6" id="text-orgheadline12">
+</div>
+</li>
+<li><a id="org2f71542"></a>study book DL for RE.<br>
+<div class="outline-text-6" id="text-org2f71542">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> GRU network, difference between LSTM. simpler.</li>
 <li class="off"><code>[&#xa0;]</code> entity mention detection的过程和处理结构.</li>
 </ul>
-</div></li>
+</div>
+</li>
 
 
-<li><a id="orgheadline14"></a>bugs:<br ><ul class="org-ul"><li><a id="orgheadline13"></a>multiple white space in the entities.<br ></li></ul></li>
+<li><a id="org2f206bc"></a>bugs:<br>
+<ul class="org-ul">
+<li><a id="org1a38580"></a>multiple white space in the entities.<br></li>
+</ul>
+</li>
 
-<li><a id="orgheadline15"></a><span class="done DONE">DONE</span> presentation<br ><div class="outline-text-6" id="text-orgheadline15">
+<li><a id="org4171f82"></a><span class="done DONE">DONE</span> presentation<br>
+<div class="outline-text-6" id="text-org4171f82">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> RNN structure.</li>
 <li class="on"><code>[X]</code> how to use RNN to extract entity.</li>
@@ -458,12 +580,14 @@ Extract relation between entities, which can create a knowledge network.
 <li class="on"><code>[X]</code> 看deep learning for information extraction书relation extraction和event extraction.</li>
 <li class="on"><code>[X]</code> 写summary。</li>
 </ul>
-</div></li></ul>
+</div>
+</li>
+</ul>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-5">
-<h5 id="orgheadline17">TextRank</h5>
-<div class="outline-text-5" id="text-orgheadline17">
+<div id="outline-container-orgb017331" class="outline-5">
+<h5 id="orgb017331">TextRank</h5>
+<div class="outline-text-5" id="text-orgb017331">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> test text rank example.</li>
 <li class="on"><code>[X]</code> paper - TextRank: Bringing Order into Texts.</li>
@@ -471,13 +595,17 @@ Extract relation between entities, which can create a knowledge network.
 <li class="on"><code>[X]</code> pseudo code.</li>
 </ul>
 </div>
-<ul class="org-ul"><li><a id="orgheadline18"></a><span class="done DONE">DONE</span> Keywords extraction<br ><div class="outline-text-6" id="text-orgheadline18">
+<ul class="org-ul">
+<li><a id="org99c2ee7"></a><span class="done DONE">DONE</span> Keywords extraction<br>
+<div class="outline-text-6" id="text-org99c2ee7">
 <p>
 Extract the keywords from a text document or news.
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline19"></a><span class="done DONE">DONE</span> implementation usecase on GS.<br ><div class="outline-text-6" id="text-orgheadline19">
+<li><a id="org2d9bf86"></a><span class="done DONE">DONE</span> implementation usecase on GS.<br>
+<div class="outline-text-6" id="text-org2d9bf86">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> create a research article node of pdf format.</li>
 <li class="on"><code>[X]</code> convert the pdf to text.</li>
@@ -487,12 +615,16 @@ Extract the keywords from a text document or news.
 <li class="on"><code>[X]</code> create highlight nodes on GS.</li>
 <li class="on"><code>[X]</code> list tool documents.</li>
 </ul>
-</div></li>
-<li><a id="orgheadline20"></a><span class="done DONE">DONE</span> customize textrank to textrank4zh, change output keywords number.<br ><div class="outline-text-6" id="text-orgheadline20">
-</div></li>
-<li><a id="orgheadline21"></a>train model to recognize company, indicator, signal.<br ></li>
-<li><a id="orgheadline22"></a>deep learning Named Entity Recognization(NER) model on GS.<br ></li>
-<li><a id="orgheadline23"></a>问题<br ><div class="outline-text-6" id="text-orgheadline23">
+</div>
+</li>
+<li><a id="orgdf54ae7"></a><span class="done DONE">DONE</span> customize textrank to textrank4zh, change output keywords number.<br>
+<div class="outline-text-6" id="text-orgdf54ae7">
+</div>
+</li>
+<li><a id="org3a27585"></a>train model to recognize company, indicator, signal.<br></li>
+<li><a id="org916ac51"></a>deep learning Named Entity Recognization(NER) model on GS.<br></li>
+<li><a id="org12f740c"></a>问题<br>
+<div class="outline-text-6" id="text-org12f740c">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> 什么是textrank算法.</li>
 </ul>
@@ -503,8 +635,10 @@ It's a <b>graph-based ranking</b> algorithm that deciding on the importance of a
 <li class="on"><code>[X]</code> 它能解决什么问题。extractive summarization, keywords extraction.</li>
 <li class="on"><code>[X]</code> 对语言类型（中英文）是否有要求：对语言没有要求。</li>
 </ul>
-</div></li>
-<li><a id="orgheadline24"></a><span class="done DONE">DONE</span> extract the structure of a document, represent as a graph<br ><div class="outline-text-6" id="text-orgheadline24">
+</div>
+</li>
+<li><a id="org4a3ad39"></a><span class="done DONE">DONE</span> extract the structure of a document, represent as a graph<br>
+<div class="outline-text-6" id="text-org4a3ad39">
 <p>
 <a href="https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topsearchbox&amp;tid=report&amp;w=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0">https://www.iwencai.com/msgconsule/search?qs=pc_~soniu~info~all~resultpage~topsearchbox&amp;tid=report&amp;w=%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0</a>
 </p>
@@ -514,15 +648,18 @@ It's a <b>graph-based ranking</b> algorithm that deciding on the importance of a
 <p><img src="././img/knowledge_graph_report.png" alt="knowledge_graph_report.png">
 </p>
 </div>
-</div></li></ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-orgheadline36" class="outline-4">
-<h4 id="orgheadline36"><span class="todo TODO">TODO</span> information extraction system<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-04 Wed&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline36">
-</div><div id="outline-container-orgheadline25" class="outline-5">
-<h5 id="orgheadline25">extract the knowledge from company and products.</h5>
-<div class="outline-text-5" id="text-orgheadline25">
+<div id="outline-container-orgfd7f3f5" class="outline-4">
+<h4 id="orgfd7f3f5"><span class="todo TODO">TODO</span> information extraction system<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-04 Wed&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgfd7f3f5">
+</div>
+<div id="outline-container-orgbe2fab7" class="outline-5">
+<h5 id="orgbe2fab7">extract the knowledge from company and products.</h5>
+<div class="outline-text-5" id="text-orgbe2fab7">
 
 <div class="figure">
 <p><img src="./img/knowledge_graph_fruit.png" alt="knowledge_graph_fruit.png">
@@ -530,14 +667,16 @@ It's a <b>graph-based ranking</b> algorithm that deciding on the importance of a
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline26" class="outline-5">
-<h5 id="orgheadline26">extract keywords from documents, create a knowledge graph.</h5>
+<div id="outline-container-org9250e6a" class="outline-5">
+<h5 id="org9250e6a">extract keywords from documents, create a knowledge graph.</h5>
 </div>
-<div id="outline-container-orgheadline27" class="outline-5">
-<h5 id="orgheadline27"><span class="done DONE">DONE</span> opinion sentiment analysis. <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-09 Fri&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-16 Fri&gt;</span></span></h5>
-<div class="outline-text-5" id="text-orgheadline27">
+<div id="outline-container-orgad5b09f" class="outline-5">
+<h5 id="orgad5b09f"><span class="done DONE">DONE</span> opinion sentiment analysis. <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-09 Fri&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-16 Fri&gt;</span></span></h5>
+<div class="outline-text-5" id="text-orgad5b09f">
 </div>
-<ul class="org-ul"><li><a id="orgheadline28"></a><span class="done DONE">DONE</span> read<sub>RMDB</sub><sub>table</sub> -&gt; NLP<sub>sentiment</sub><sub>analysis</sub> -&gt; generate<sub>sentiment</sub><sub>signal</sub>.<br ><div class="outline-text-6" id="text-orgheadline28">
+<ul class="org-ul">
+<li><a id="org932ff8d"></a><span class="done DONE">DONE</span> read<sub>RMDB</sub><sub>table</sub> -&gt; NLP<sub>sentiment</sub><sub>analysis</sub> -&gt; generate<sub>sentiment</sub><sub>signal</sub>.<br>
+<div class="outline-text-6" id="text-org932ff8d">
 <p>
 <a href="https://nlp.stanford.edu/courses/cs224n/2011/reports/nccohen-aatreya-jameszjj.pdf">sentiment prediction</a>
 </p>
@@ -562,8 +701,10 @@ SVM, HMM, naive bayes, 最大熵, K-NN, Dictionary.
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> search paper and books how to use sentiment analysis.</li>
 </ul>
-</div></li>
-<li><a id="orgheadline29"></a><span class="done DONE">DONE</span> train sentiment classification model.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="review">review</span></span><br ><div class="outline-text-6" id="text-orgheadline29">
+</div>
+</li>
+<li><a id="orge56a8a0"></a><span class="done DONE">DONE</span> train sentiment classification model.&#xa0;&#xa0;&#xa0;<span class="tag"><span class="review">review</span></span><br>
+<div class="outline-text-6" id="text-orge56a8a0">
 <p>
 review:
 </p>
@@ -573,62 +714,87 @@ review:
 </ol>
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline30"></a>improvement:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="improvement">improvement</span></span><br ><div class="outline-text-7" id="text-orgheadline30">
+<ul class="org-ul">
+<li><a id="org74e82ad"></a>improvement:&#xa0;&#xa0;&#xa0;<span class="tag"><span class="improvement">improvement</span></span><br>
+<div class="outline-text-7" id="text-org74e82ad">
 <ol class="org-ol">
 <li>应该早点把与sentiment classification action不太相关的步骤省略。</li>
 <li>训练的步骤代码早点应该弄清楚：怎么调用，可以做几个分类？</li>
 <li>不要hard code一些自己加进去的逻辑，如positive probability *2;</li>
 </ol>
-</div></li></ul></li></ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 
-<div id="outline-container-orgheadline35" class="outline-5">
-<h5 id="orgheadline35">information retrieval system</h5>
-<div class="outline-text-5" id="text-orgheadline35">
-</div><ul class="org-ul"><li><a id="orgheadline34"></a>goal<br ><ul class="org-ul"><li><a id="orgheadline31"></a>question and answering from a document<br ><div class="outline-text-7" id="text-orgheadline31">
+<div id="outline-container-org9087774" class="outline-5">
+<h5 id="org9087774">information retrieval system</h5>
+<div class="outline-text-5" id="text-org9087774">
+</div>
+<ul class="org-ul">
+<li><a id="orgd8c79f6"></a>goal<br>
+<ul class="org-ul">
+<li><a id="org1e55ebd"></a>question and answering from a document<br>
+<div class="outline-text-7" id="text-org1e55ebd">
 <ul class="org-ul">
 <li>what is tha data.</li>
 <li>what is the algorithm.</li>
 <li>what is the conclusion.</li>
 </ul>
-</div></li>
-<li><a id="orgheadline32"></a>News summary<br ><div class="outline-text-7" id="text-orgheadline32">
+</div>
+</li>
+<li><a id="orgaa0df8f"></a>News summary<br>
+<div class="outline-text-7" id="text-orgaa0df8f">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> classify 1 year of analyst research articles.</li>
 <li class="on"><code>[X]</code> convert PDFs to text files.</li>
 <li class="off"><code>[&#xa0;]</code> summerize articles</li>
 </ul>
-</div></li>
-<li><a id="orgheadline33"></a>syntactic parsing<br ></li></ul></li></ul>
+</div>
+</li>
+<li><a id="orgcf3bc00"></a>syntactic parsing<br></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline37" class="outline-4">
-<h4 id="orgheadline37">Latent Dirichlet Allocation(LDA)</h4>
-<div class="outline-text-4" id="text-orgheadline37">
+<div id="outline-container-org2b04a2d" class="outline-4">
+<h4 id="org2b04a2d">Latent Dirichlet Allocation(LDA)</h4>
+<div class="outline-text-4" id="text-org2b04a2d">
 <p>
 Latent Dirichlet allocation (LDA) is a generative statistical model that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar. For example, if observations are words collected into documents, it posits that each document is a mixture of a small number of topics and that each word's creation is attributable to one of the document's topics.
 </p>
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline38"></a><span class="todo TODO">TODO</span> Word Embedding<br ><div class="outline-text-6" id="text-orgheadline38">
+<ul class="org-ul">
+<li><a id="org774fa49"></a><span class="todo TODO">TODO</span> Word Embedding<br>
+<div class="outline-text-6" id="text-org774fa49">
 <p>
 Recommend similar words.
 </p>
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> change skill instance input as node.</li>
 </ul>
-</div></li>
-<li><a id="orgheadline39"></a><span class="done DONE">DONE</span> Sentiment analysis<br ><div class="outline-text-6" id="text-orgheadline39">
+</div>
+</li>
+<li><a id="org90593d7"></a><span class="done DONE">DONE</span> Sentiment analysis<br>
+<div class="outline-text-6" id="text-org90593d7">
 <p>
 To create a sentiment index for a keyword, which can be provided as a indicator.
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline40"></a><span class="todo TODO">TODO</span> DeepDive<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-23 Mon&gt;</span></span><br ><div class="outline-text-6" id="text-orgheadline40">
+<li><a id="org0ea4c86"></a><span class="todo TODO">TODO</span> DeepDive<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-23 Mon&gt;</span></span><br>
+<div class="outline-text-6" id="text-org0ea4c86">
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline41"></a>function<br ><div class="outline-text-7" id="text-orgheadline41">
+<ul class="org-ul">
+<li><a id="orgb59af07"></a>function<br>
+<div class="outline-text-7" id="text-orgb59af07">
 <p>
 deepdive适合从unstructured data里面找出event, 而我们从scholar上爬下来的数据已经可以变成structured-data了，所以用实体消歧工具之后做entity linking即可。
 </p>
@@ -636,29 +802,35 @@ deepdive适合从unstructured data里面找出event, 而我们从scholar上爬�
 <p>
 deepdive的输入数据为unstructured-data，他需要利用Stanford CoreNLP从句子里面提取语义信息，包括词干，词性信息（主谓宾等），识别出来的实体，还有句子特征来帮助做信息抽取。
 </p>
-</div></li>
-<li><a id="orgheadline42"></a>feature<br ></li>
-
-<li><a id="orgheadline43"></a>advantage<br ></li>
-
-<li><a id="orgheadline44"></a><span class="done DONE">DONE</span> start from structured data, entity linking these data.<br ><div class="outline-text-7" id="text-orgheadline44">
-</div></li></ul></li></ul>
 </div>
-<div id="outline-container-orgheadline45" class="outline-4">
-<h4 id="orgheadline45"><span class="done DONE">DONE</span> Word Embedding(Word2Vec):<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-01 Fri&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-31 Sun&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline45">
+</li>
+<li><a id="orgccca1e1"></a>feature<br></li>
+
+<li><a id="orgc512513"></a>advantage<br></li>
+
+<li><a id="org2114bb8"></a><span class="done DONE">DONE</span> start from structured data, entity linking these data.<br>
+<div class="outline-text-7" id="text-org2114bb8">
 </div>
-<div id="outline-container-orgheadline46" class="outline-5">
-<h5 id="orgheadline46">Goal/use case</h5>
-<div class="outline-text-5" id="text-orgheadline46">
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgc735254" class="outline-4">
+<h4 id="orgc735254"><span class="done DONE">DONE</span> Word Embedding(Word2Vec):<span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-01 Fri&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-12-31 Sun&gt;</span></span></h4>
+<div class="outline-text-4" id="text-orgc735254">
+</div>
+<div id="outline-container-org4ecf97c" class="outline-5">
+<h5 id="org4ecf97c">Goal/use case</h5>
+<div class="outline-text-5" id="text-org4ecf97c">
 <ul class="org-ul">
 <li>use such word2vec to find similar keywords.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline47" class="outline-5">
-<h5 id="orgheadline47">jobs: 数据收集， 清洗</h5>
-<div class="outline-text-5" id="text-orgheadline47">
+<div id="outline-container-org192e61e" class="outline-5">
+<h5 id="org192e61e">jobs: 数据收集， 清洗</h5>
+<div class="outline-text-5" id="text-org192e61e">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> train analyst report and save model on hdfs, load this model as a j node.</li>
 <li class="off"><code>[&#xa0;]</code> gs similar words function test use analyst report.</li>
@@ -678,7 +850,7 @@ deepdive的输入数据为unstructured-data，他需要利用Stanford CoreNLP从
 <li class="off"><code>[&#xa0;]</code> create LSTM networks on xarray data.</li>
 <li class="on"><code>[X]</code> create test program to run word embedding, to visualize output.</li>
 <li class="off"><code>[&#xa0;]</code> <b>What is fueling heavy investment in machine learning in the financial industry and how does it fit into customers’ workflows?</b>
-  A lot of our customers’ workflows are being automated, entirely or partially. What they’re doing today is more on the cognitive side: strategy and portfolio selection, formulating the investment theses, etc. People are trying to solve many, many problems in finance using these methods, because they allow for the building of more sophisticated intelligence into trading and client facing workflows. These methods can improve efficiency, or, crucially, allow us to approach problems which heretofore were intractable – due to complicated interactions in the data, complexity of the problem, availability of data or computational resources, and so on.</li>
+A lot of our customers’ workflows are being automated, entirely or partially. What they’re doing today is more on the cognitive side: strategy and portfolio selection, formulating the investment theses, etc. People are trying to solve many, many problems in finance using these methods, because they allow for the building of more sophisticated intelligence into trading and client facing workflows. These methods can improve efficiency, or, crucially, allow us to approach problems which heretofore were intractable – due to complicated interactions in the data, complexity of the problem, availability of data or computational resources, and so on.</li>
 <li class="on"><code>[X]</code> provide xarray data to Zhou.</li>
 <li class="on"><code>[X]</code> provide Sun Chinese wiki.</li>
 <li class="on"><code>[X]</code> network Bloomberg about tensorflow.</li>
@@ -739,13 +911,13 @@ better phrasing results.</li>
 </div>
 </div>
 
-<div id="outline-container-orgheadline48" class="outline-4">
-<h4 id="orgheadline48"><span class="done DONE">DONE</span> Chinese wiki model. <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-01 Mon&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-12 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline48">
+<div id="outline-container-org4e88814" class="outline-4">
+<h4 id="org4e88814"><span class="done DONE">DONE</span> Chinese wiki model. <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-01 Mon&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-12 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org4e88814">
 </div>
-<div id="outline-container-orgheadline49" class="outline-5">
-<h5 id="orgheadline49">jobs: 训练中文维基数据，嵌入GS</h5>
-<div class="outline-text-5" id="text-orgheadline49">
+<div id="outline-container-org372eca7" class="outline-5">
+<h5 id="org372eca7">jobs: 训练中文维基数据，嵌入GS</h5>
+<div class="outline-text-5" id="text-org372eca7">
 <ul class="org-ul">
 <li>choose model using most related model, use wiki category relation similarity to choose model, train specific field category model. get the related category tree, use regular expression to get responding categories from the wiki xml file.</li>
 <li class="on"><code>[X]</code> train financial fields model(58+ categories).</li>
@@ -766,6 +938,7 @@ preprocessing workflow.
 <li>标点（撇号'，所有格,缩写如don’t），符号（%,#,&amp;,?,@,\,/,",是否保留）</li>
 <li>大小写转换（句首大写转小写，保留全部大写词，专有名词首字母大写保留）</li>
 </ol>
+
 <p>
 中文分词（主要利用结巴分词）
 </p>
@@ -792,9 +965,9 @@ preprocessing workflow.
 </div>
 </div>
 
-<div id="outline-container-orgheadline50" class="outline-4">
-<h4 id="orgheadline50"><span class="done DONE">DONE</span> Building the Wikipedia Knowledge Graph in Neo4j <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-13 Sat&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-09 Fri&gt;</span></span></h4>
-<div class="outline-text-4" id="text-orgheadline50">
+<div id="outline-container-org6ac56bc" class="outline-4">
+<h4 id="org6ac56bc"><span class="done DONE">DONE</span> Building the Wikipedia Knowledge Graph in Neo4j <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-01-13 Sat&gt; </span></span> - <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-03-09 Fri&gt;</span></span></h4>
+<div class="outline-text-4" id="text-org6ac56bc">
 <p>
 <a href="file:///home/weiwu/website/leolle.github.io/CS/MachineLearning/NaturalLanguageProcessing.html">NLP</a>
 </p>
@@ -803,9 +976,9 @@ preprocessing workflow.
 <li class="on"><code>[X]</code> pulling wiki knowledge categories(id), pages(id) and relations to local csv, sql file.</li>
 </ul>
 </div>
-<div id="outline-container-orgheadline51" class="outline-5">
-<h5 id="orgheadline51"><span class="done DONE">DONE</span> Data dumps/Import -&gt; create nodes</h5>
-<div class="outline-text-5" id="text-orgheadline51">
+<div id="outline-container-org58fec4f" class="outline-5">
+<h5 id="org58fec4f"><span class="done DONE">DONE</span> Data dumps/Import -&gt; create nodes</h5>
+<div class="outline-text-5" id="text-org58fec4f">
 <ul class="org-ul">
 <li>methods</li>
 </ul>
@@ -852,9 +1025,9 @@ preprocessing workflow.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline52" class="outline-5">
-<h5 id="orgheadline52"><span class="done DONE">DONE</span> create wiki knowledge graph -&gt; create edges</h5>
-<div class="outline-text-5" id="text-orgheadline52">
+<div id="outline-container-org44084c1" class="outline-5">
+<h5 id="org44084c1"><span class="done DONE">DONE</span> create wiki knowledge graph -&gt; create edges</h5>
+<div class="outline-text-5" id="text-org44084c1">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> extract gid from get skill to graph.</li>
 <li class="on"><code>[X]</code> importing wiki categories and page edge relation to Neo4j.</li>
@@ -904,21 +1077,27 @@ node.names.chinese = simple Chinese title
 <code>C-M-r</code> in gs, create 查路径, drag GID: 81F49335AC9C4D84A5F27F7A02AAABBA into the input box, input Parent GID in the parent box.
 </p>
 </div>
-<ul class="org-ul"><li><a id="orgheadline53"></a>Thomson Reuters Knowledge graph perim<br ><div class="outline-text-6" id="text-orgheadline53">
+<ul class="org-ul">
+<li><a id="org00d0e4d"></a>Thomson Reuters Knowledge graph perim<br>
+<div class="outline-text-6" id="text-org00d0e4d">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> read how to use the RFM dataset.</li>
 </ul>
-</div></li>
-<li><a id="orgheadline54"></a>relation extraction from training data<br ><div class="outline-text-6" id="text-orgheadline54">
+</div>
+</li>
+<li><a id="org11f7de1"></a>relation extraction from training data<br>
+<div class="outline-text-6" id="text-org11f7de1">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> search paper and public code.</li>
 <li class="on"><code>[X]</code> Stanford NLP relation extraction video.</li>
 </ul>
-</div></li></ul>
 </div>
-<div id="outline-container-orgheadline55" class="outline-5">
-<h5 id="orgheadline55"><span class="done DONE">DONE</span> manual import unsaved categories and edges into Neo4j.</h5>
-<div class="outline-text-5" id="text-orgheadline55">
+</li>
+</ul>
+</div>
+<div id="outline-container-orgf491fdd" class="outline-5">
+<h5 id="orgf491fdd"><span class="done DONE">DONE</span> manual import unsaved categories and edges into Neo4j.</h5>
+<div class="outline-text-5" id="text-orgf491fdd">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> find unsaved categories under 金融 category.</li>
 <li class="on"><code>[X]</code> save those to a sql file.</li>
@@ -927,19 +1106,29 @@ node.names.chinese = simple Chinese title
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline112" class="outline-4">
-<h4 id="orgheadline112"><span class="todo TODO">TODO</span> NLP information system workflow<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-11 Wed&gt; </span></span> -</h4>
-<div class="outline-text-4" id="text-orgheadline112">
-</div><div id="outline-container-orgheadline75" class="outline-5">
-<h5 id="orgheadline75">Overview:</h5>
-<div class="outline-text-5" id="text-orgheadline75">
-</div><ul class="org-ul"><li><a id="orgheadline56"></a>GS can easily help users increase working efficiency on:<br ><div class="outline-text-6" id="text-orgheadline56">
+<div id="outline-container-org76cd6bc" class="outline-4">
+<h4 id="org76cd6bc"><span class="todo TODO">TODO</span> NLP information system workflow<span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-11 Wed&gt; </span></span> -</h4>
+<div class="outline-text-4" id="text-org76cd6bc">
+</div>
+<div id="outline-container-org4b3a171" class="outline-5">
+<h5 id="org4b3a171">Overview:</h5>
+<div class="outline-text-5" id="text-org4b3a171">
+</div>
+<ul class="org-ul">
+<li><a id="org46591c7"></a>GS can easily help users increase working efficiency on:<br>
+<div class="outline-text-6" id="text-org46591c7">
 <ul class="org-ul">
 <li>Idea search on data/document</li>
 <li>Model building</li>
 </ul>
-</div></li>
-<li><a id="orgheadline74"></a>NLP information system integrated into document search.<br ><ul class="org-ul"><li><a id="orgheadline63"></a>Increase working efficiency features:<br ><ul class="org-ul"><li><a id="orgheadline57"></a>Interaction between GS current task of workflow and web browser page.<br ><div class="outline-text-8" id="text-orgheadline57">
+</div>
+</li>
+<li><a id="org5ed60eb"></a>NLP information system integrated into document search.<br>
+<ul class="org-ul">
+<li><a id="orgefdd336"></a>Increase working efficiency features:<br>
+<ul class="org-ul">
+<li><a id="orgf30d6d6"></a>Interaction between GS current task of workflow and web browser page.<br>
+<div class="outline-text-8" id="text-orgf30d6d6">
 <p>
 Interaction is based on:
 </p>
@@ -947,81 +1136,113 @@ Interaction is based on:
 <li>Context information of workflow, current main task</li>
 <li>Web browser page content</li>
 </ul>
-</div></li>
-<li><a id="orgheadline58"></a>Recommend documents based on user profile.<br ></li>
-<li><a id="orgheadline59"></a>Find user preferred data, indicator, factor, strategies, models.<br ></li>
-<li><a id="orgheadline60"></a>Find connected data/company/node from knowledge graph.<br ></li>
-<li><a id="orgheadline61"></a>User defined policy can be automatically triggered on schedule or by action.<br ></li>
-<li><a id="orgheadline62"></a>Users in a group can collaboratively finish the same goal.<br ></li></ul></li>
-<li><a id="orgheadline68"></a>Use case:<br ><ul class="org-ul"><li><a id="orgheadline64"></a>Switch current main task according to browsing website page.<br ></li>
-<li><a id="orgheadline65"></a>GS automatically highlight entities on web browser page based on current main task.<br ></li>
-<li><a id="orgheadline66"></a>Store labeled text for training corpus.<br ></li>
-<li><a id="orgheadline67"></a>Provide user preferred data, indicator, factor, strategies, models trained from wiki categories and page.<br ></li></ul></li>
-<li><a id="orgheadline69"></a>Principle of use case i:<br ><div class="outline-text-7" id="text-orgheadline69">
+</div>
+</li>
+<li><a id="org351256d"></a>Recommend documents based on user profile.<br></li>
+<li><a id="orgf3e7d83"></a>Find user preferred data, indicator, factor, strategies, models.<br></li>
+<li><a id="org3bcf146"></a>Find connected data/company/node from knowledge graph.<br></li>
+<li><a id="orgb8d5059"></a>User defined policy can be automatically triggered on schedule or by action.<br></li>
+<li><a id="org69d77a4"></a>Users in a group can collaboratively finish the same goal.<br></li>
+</ul>
+</li>
+<li><a id="org3f25544"></a>Use case:<br>
+<ul class="org-ul">
+<li><a id="orgb5a1834"></a>Switch current main task according to browsing website page.<br></li>
+<li><a id="org8d8dce2"></a>GS automatically highlight entities on web browser page based on current main task.<br></li>
+<li><a id="orgb93bce3"></a>Store labeled text for training corpus.<br></li>
+<li><a id="orgdd03bb2"></a>Provide user preferred data, indicator, factor, strategies, models trained from wiki categories and page.<br></li>
+</ul>
+</li>
+<li><a id="org1af2f3d"></a>Principle of use case i:<br>
+<div class="outline-text-7" id="text-org1af2f3d">
 <ul class="org-ul">
 <li>Use text summarization tool can extract theme of page content.</li>
 <li>Use the extracted theme to trigger a current main task change.</li>
 </ul>
-</div></li>
-<li><a id="orgheadline70"></a>Principle of use case ii:<br ><div class="outline-text-7" id="text-orgheadline70">
+</div>
+</li>
+<li><a id="orgd7ab4ec"></a>Principle of use case ii:<br>
+<div class="outline-text-7" id="text-orgd7ab4ec">
 <ul class="org-ul">
 <li>Embedding all node text from current main task together with text from page content.</li>
 <li>Find similar sentences from current main task’s vector.</li>
 </ul>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline71"></a>Define policy, state variable, reward:<br ><div class="outline-text-7" id="text-orgheadline71">
+<li><a id="org5c6f98d"></a>Define policy, state variable, reward:<br>
+<div class="outline-text-7" id="text-org5c6f98d">
 <p>
 Policy and state variable:
 </p>
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline72"></a>Reward:<br ><div class="outline-text-8" id="text-orgheadline72">
+<ul class="org-ul">
+<li><a id="org067dfd1"></a>Reward:<br>
+<div class="outline-text-8" id="text-org067dfd1">
 <ul class="org-ul">
 <li>If agent finds target data, indicator, factor, strategies, models and continue his workflow.</li>
 <li>If user shares this document in the group, or agent shares it to other users.</li>
 <li>If user labeled additional text from the document.</li>
 <li>If user check this document again.</li>
 </ul>
-</div></li></ul></li>
-<li><a id="orgheadline73"></a>technique/library description:<br ><div class="outline-text-7" id="text-orgheadline73">
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org355e911"></a>technique/library description:<br>
+<div class="outline-text-7" id="text-org355e911">
 <p>
 <a href="https://docs.google.com/spreadsheets/d/1j10vRQhwOWBLtYsJjsbgXqI5XyCDagSF708pano1JEc/edit#gid=0">https://docs.google.com/spreadsheets/d/1j10vRQhwOWBLtYsJjsbgXqI5XyCDagSF708pano1JEc/edit#gid=0</a>
 </p>
-</div></li></ul></li></ul>
 </div>
-<div id="outline-container-orgheadline102" class="outline-5">
-<h5 id="orgheadline102">use cases:</h5>
-<div class="outline-text-5" id="text-orgheadline102">
-</div><ul class="org-ul"><li><a id="orgheadline76"></a><span class="done DONE">DONE</span> Use case 1:<br ><div class="outline-text-6" id="text-orgheadline76">
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-orgbbee6ea" class="outline-5">
+<h5 id="orgbbee6ea">use cases:</h5>
+<div class="outline-text-5" id="text-orgbbee6ea">
+</div>
+<ul class="org-ul">
+<li><a id="org15a44e6"></a><span class="done DONE">DONE</span> Use case 1:<br>
+<div class="outline-text-6" id="text-org15a44e6">
 <p>
 Switch current main task according to browsing website page:
 </p>
 </div>
-<ul class="org-ul"><li><a id="orgheadline77"></a>Input: Example document:<br ><div class="outline-text-7" id="text-orgheadline77">
+<ul class="org-ul">
+<li><a id="org3a06900"></a>Input: Example document:<br>
+<div class="outline-text-7" id="text-org3a06900">
 <p>
 20170122-长江证券-长江证券金融工程：基于网络的动量选股策略
 </p>
-</div></li>
-<li><a id="orgheadline78"></a>URL:<br ><div class="outline-text-7" id="text-orgheadline78">
+</div>
+</li>
+<li><a id="orga522bd3"></a>URL:<br>
+<div class="outline-text-7" id="text-orga522bd3">
 <p>
 <a href="http://q.gftchina.com:13567/DocUIHTML/pdf/web/viewer.html?file=/vqservice/vq/docs/BB362E31FF4D41C234A804E3653030B1">http://q.gftchina.com:13567/DocUIHTML/pdf/web/viewer.html?file=/vqservice/vq/docs/BB362E31FF4D41C234A804E3653030B1</a>
 </p>
-</div></li>
-<li><a id="orgheadline79"></a>Available tools:<br ><div class="outline-text-7" id="text-orgheadline79">
+</div>
+</li>
+<li><a id="org60be31a"></a>Available tools:<br>
+<div class="outline-text-7" id="text-org60be31a">
 <ul class="org-ul">
 <li>TextRank summarization</li>
 <li>Tokenization</li>
 <li>Word Embedding</li>
 </ul>
-</div></li>
-<li><a id="orgheadline80"></a>Description:<br ><div class="outline-text-7" id="text-orgheadline80">
+</div>
+</li>
+<li><a id="org9cfcbca"></a>Description:<br>
+<div class="outline-text-7" id="text-org9cfcbca">
 <ul class="org-ul">
 <li>extract document theme from opened website.</li>
 </ul>
 
 <div class="org-src-container">
-
 <pre class="src src-python"><span style="color: #F92672;">def</span> <span style="color: #A6E22E;">extract_theme</span><span style="color: #AE81FF;">(</span>text<span style="color: #AE81FF;">)</span>:
     <span style="color: #FD971F;">tr4w</span> = TextRank4Keyword<span style="color: #AE81FF;">()</span>
 
@@ -1042,32 +1263,42 @@ Output:
 策略模型
 股价股票
 </pre>
-</div></li>
-<li><a id="orgheadline81"></a>Store theme to state variable.<br ></li>
-<li><a id="orgheadline82"></a>Trigger workflow policy change task action.<br ><div class="outline-text-7" id="text-orgheadline82">
+</div>
+</li>
+<li><a id="org5324678"></a>Store theme to state variable.<br></li>
+<li><a id="org21d8090"></a>Trigger workflow policy change task action.<br>
+<div class="outline-text-7" id="text-org21d8090">
 <ol class="org-ol">
 <li>说明library, algorithm 的使用场景。</li>
 <li>比较bag of words与textrank的使用效果。</li>
 <li>前期花了很多时间在数据准备的工具制作上，给后期使用数据提供了方便，接下来还需要把一些算法具体的细节搞明白，如跟其它算法相比有什么不同，有什么优势，效果怎么样等。</li>
 <li>列出还没完全搞明白算法。</li>
 </ol>
-</div></li></ul></li>
+</div>
+</li>
+</ul>
+</li>
 
-<li><a id="orgheadline83"></a><span class="done DONE">DONE</span> Use case 2:<br ><div class="outline-text-6" id="text-orgheadline83">
+<li><a id="org223f55c"></a><span class="done DONE">DONE</span> Use case 2:<br>
+<div class="outline-text-6" id="text-org223f55c">
 <p>
 highlight entities/sentences according to GS current main task.
 </p>
 </div>
-<ul class="org-ul"><li><a id="orgheadline84"></a>Input: current task nodes text and web page content<br ></li>
-<li><a id="orgheadline85"></a>example task: 查找动量指标, equivalent want.<br ></li>
-<li><a id="orgheadline86"></a>Available tools/techniques:<br ><div class="outline-text-7" id="text-orgheadline86">
+<ul class="org-ul">
+<li><a id="orgcbf2157"></a>Input: current task nodes text and web page content<br></li>
+<li><a id="org841fcc8"></a>example task: 查找动量指标, equivalent want.<br></li>
+<li><a id="orgcb576b7"></a>Available tools/techniques:<br>
+<div class="outline-text-7" id="text-orgcb576b7">
 <ul class="org-ul">
 <li>Word embedding</li>
 <li>LDA</li>
 <li>Named Entity Recognition</li>
 </ul>
-</div></li>
-<li><a id="orgheadline87"></a>Description<br ><div class="outline-text-7" id="text-orgheadline87">
+</div>
+</li>
+<li><a id="org6445956"></a>Description<br>
+<div class="outline-text-7" id="text-org6445956">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> Embedding all nodes text.</li>
 <li class="off"><code>[&#xa0;]</code> Find nearest vectors between entities/sentences and current node.</li>
@@ -1084,8 +1315,10 @@ model.most_similar(u'策略')
 model.most_similar(u'模型')
 '指标', '散户', '网络', '策略', '数值', '最高价', '目录', '组分', '联系人', '专题报告', '基础', '股价', '历史数据', '股票走势'
 </pre>
-</div></li>
-<li><a id="orgheadline88"></a>context: 选择了节点，打开了相关的网页<br ><div class="outline-text-7" id="text-orgheadline88">
+</div>
+</li>
+<li><a id="orga0ad83c"></a>context: 选择了节点，打开了相关的网页<br>
+<div class="outline-text-7" id="text-orga0ad83c">
 <p>
 goal:
 </p>
@@ -1094,8 +1327,14 @@ goal:
 <li>根据网页内容找出可能的task下一步动作，例如是制作某个因子，建立某个模型等。</li>
 <li>通过node的信息，如category, Oset, event，relation，找出网页对应的entity。</li>
 </ol>
-</div></li></ul></li>
-<li><a id="orgheadline93"></a><span class="todo TODO">TODO</span> Use case 4:<br ><ul class="org-ul"><li><a id="orgheadline89"></a>Goal: 通过node的信息，如category, Oset, event，relation，找出网页对应的entity. 根据当前收集到的信息，自动高亮网页中关于基本面的关键字.<br ><div class="outline-text-7" id="text-orgheadline89">
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org5acc741"></a><span class="todo TODO">TODO</span> Use case 4:<br>
+<ul class="org-ul">
+<li><a id="orgec889b4"></a>Goal: 通过node的信息，如category, Oset, event，relation，找出网页对应的entity. 根据当前收集到的信息，自动高亮网页中关于基本面的关键字.<br>
+<div class="outline-text-7" id="text-orgec889b4">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> collect Oset dictionary
 <ul class="org-ul">
@@ -1103,56 +1342,82 @@ goal:
 </ul></li>
 <li class="off"><code>[&#xa0;]</code> collect relationship dictionary</li>
 </ul>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline90"></a>input(node, task, url):<br ><div class="outline-text-7" id="text-orgheadline90">
+<li><a id="orgff4fea8"></a>input(node, task, url):<br>
+<div class="outline-text-7" id="text-orgff4fea8">
 <p>
 Task: 当前任务的前一步是在构造基本面因子任务。
 Selected node: 福耀玻璃(i)
 Url: 查看福耀玻璃的网页信息，<a href="https://xueqiu.com/3075122481/105256619">https://xueqiu.com/3075122481/105256619</a>
 </p>
-</div></li>
-<li><a id="orgheadline91"></a>Tools:<br ><div class="outline-text-7" id="text-orgheadline91">
+</div>
+</li>
+<li><a id="org30729e1"></a>Tools:<br>
+<div class="outline-text-7" id="text-org30729e1">
 <p>
 OSet scheme.
 </p>
-</div></li>
-<li><a id="orgheadline92"></a>Output:<br ><div class="outline-text-7" id="text-orgheadline92">
+</div>
+</li>
+<li><a id="org097fa8e"></a>Output:<br>
+<div class="outline-text-7" id="text-org097fa8e">
 <p>
 营业收入，利润，净利润，毛利率，每股收益，财务指标，市值，市盈率，市净率，PE，市场占有率，增长率等。
 </p>
-</div></li></ul></li>
-<li><a id="orgheadline97"></a>Use case 5:<br ><ul class="org-ul"><li><a id="orgheadline94"></a>Goal: automatically collect relation(based on existed scheme like 投资，兼并) in the website content, recommend keyword pair.<br ></li>
-<li><a id="orgheadline95"></a>input(url, task, node)<br ><div class="outline-text-7" id="text-orgheadline95">
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org2533625"></a>Use case 5:<br>
+<ul class="org-ul">
+<li><a id="orgbe7221b"></a>Goal: automatically collect relation(based on existed scheme like 投资，兼并) in the website content, recommend keyword pair.<br></li>
+<li><a id="orgd25c050"></a>input(url, task, node)<br>
+<div class="outline-text-7" id="text-orgd25c050">
 <p>
 Url: 查看福耀玻璃的网页信息，<a href="https://xueqiu.com/3075122481/105256619">https://xueqiu.com/3075122481/105256619</a>
 Task: 查找数据
 Selected node: 福耀玻璃(i)
 </p>
-</div></li>
-<li><a id="orgheadline96"></a>Output:<br ><div class="outline-text-7" id="text-orgheadline96">
+</div>
+</li>
+<li><a id="org715fdd4"></a>Output:<br>
+<div class="outline-text-7" id="text-org715fdd4">
 <p>
 加拿大皇家银行增持
 </p>
-</div></li></ul></li>
-<li><a id="orgheadline101"></a>Use case 6:<br ><ul class="org-ul"><li><a id="orgheadline98"></a>Goal: automatically recommend next step task/model use website extracted relation.<br ></li>
-<li><a id="orgheadline99"></a>input(url, task, node, relation)<br ><div class="outline-text-7" id="text-orgheadline99">
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org7d54402"></a>Use case 6:<br>
+<ul class="org-ul">
+<li><a id="org3d05196"></a>Goal: automatically recommend next step task/model use website extracted relation.<br></li>
+<li><a id="org8de0051"></a>input(url, task, node, relation)<br>
+<div class="outline-text-7" id="text-org8de0051">
 <p>
 Url: 查看福耀玻璃的网页信息，<a href="https://xueqiu.com/3075122481/105256619">https://xueqiu.com/3075122481/105256619</a>
 Task: 查找数据
 Selected node: 福耀玻璃(i)
 Relation: 加拿大皇家银行增持
 </p>
-</div></li>
-<li><a id="orgheadline100"></a>Output:<br ><div class="outline-text-7" id="text-orgheadline100">
+</div>
+</li>
+<li><a id="org053739e"></a>Output:<br>
+<div class="outline-text-7" id="text-org053739e">
 <p>
 Similar stocks(under the same industry)  increase holding event happened.
 </p>
-</div></li></ul></li></ul>
 </div>
-<div id="outline-container-orgheadline103" class="outline-5">
-<h5 id="orgheadline103">news recommendation with RL</h5>
-<div class="outline-text-5" id="text-orgheadline103">
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="outline-container-org8c7021e" class="outline-5">
+<h5 id="org8c7021e">news recommendation with RL</h5>
+<div class="outline-text-5" id="text-org8c7021e">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> web scraping case study.</li>
 </ul>
@@ -1177,8 +1442,12 @@ Similar stocks(under the same industry)  increase holding event happened.
 <li class="off"><code>[&#xa0;]</code> focused crawler with reinforcement learning.</li>
 </ul>
 </div>
-<ul class="org-ul"><li><a id="orgheadline109"></a>detecting and visualizing emerging technology trends.<br ><ul class="org-ul"><li><a id="orgheadline104"></a>steps breakdown to create such workflow.<br ></li>
-<li><a id="orgheadline105"></a>主题词网络分析<br ><div class="outline-text-7" id="text-orgheadline105">
+<ul class="org-ul">
+<li><a id="orge7e085c"></a>detecting and visualizing emerging technology trends.<br>
+<ul class="org-ul">
+<li><a id="orgc0814eb"></a>steps breakdown to create such workflow.<br></li>
+<li><a id="org45d36a9"></a>主题词网络分析<br>
+<div class="outline-text-7" id="text-org45d36a9">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> propose use case details.</li>
 <li class="on"><code>[X]</code> list available web crawler.</li>
@@ -1186,24 +1455,31 @@ Similar stocks(under the same industry)  increase holding event happened.
 <li class="off"><code>[&#xa0;]</code> unit test crawler.</li>
 <li class="off"><code>[&#xa0;]</code> create crawling function.</li>
 </ul>
-</div></li>
-<li><a id="orgheadline106"></a>主题词时间序列分析<br ></li>
-<li><a id="orgheadline107"></a>主题词s curve分析<br ></li>
-<li><a id="orgheadline108"></a>extract title, author, date from pdf.<br ></li></ul></li>
-<li><a id="orgheadline110"></a>Search answer on the website based on the keywords from the documents combined with the question.<br ><div class="outline-text-6" id="text-orgheadline110">
+</div>
+</li>
+<li><a id="org9e4d6e6"></a>主题词时间序列分析<br></li>
+<li><a id="orgfcdb371"></a>主题词s curve分析<br></li>
+<li><a id="org8ab73da"></a>extract title, author, date from pdf.<br></li>
+</ul>
+</li>
+<li><a id="org9170819"></a>Search answer on the website based on the keywords from the documents combined with the question.<br>
+<div class="outline-text-6" id="text-org9170819">
 <p>
 Use attention/theme to give hints of the conversation.
 </p>
-</div></li>
-<li><a id="orgheadline111"></a>entity linking<br ></li></ul>
+</div>
+</li>
+<li><a id="org120ace1"></a>entity linking<br></li>
+</ul>
 </div>
 </div>
-<div id="outline-container-orgheadline132" class="outline-4">
-<h4 id="orgheadline132">scholar paper download:</h4>
-<div class="outline-text-4" id="text-orgheadline132">
-</div><div id="outline-container-orgheadline113" class="outline-5">
-<h5 id="orgheadline113">Download metadata with the article title:</h5>
-<div class="outline-text-5" id="text-orgheadline113">
+<div id="outline-container-org8c8aaa9" class="outline-4">
+<h4 id="org8c8aaa9">scholar paper download:</h4>
+<div class="outline-text-4" id="text-org8c8aaa9">
+</div>
+<div id="outline-container-orgd71101e" class="outline-5">
+<h5 id="orgd71101e">Download metadata with the article title:</h5>
+<div class="outline-text-5" id="text-orgd71101e">
 <ol class="org-ol">
 <li class="on"><code>[X]</code> Find meta data with article title from crossref.org API.</li>
 
@@ -1212,9 +1488,9 @@ Use attention/theme to give hints of the conversation.
 </div>
 </div>
 
-<div id="outline-container-orgheadline114" class="outline-5">
-<h5 id="orgheadline114"><span class="done DONE">DONE</span> Download a  article.</h5>
-<div class="outline-text-5" id="text-orgheadline114">
+<div id="outline-container-org2a7b5f6" class="outline-5">
+<h5 id="org2a7b5f6"><span class="done DONE">DONE</span> Download a  article.</h5>
+<div class="outline-text-5" id="text-org2a7b5f6">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> Search for articles on Google Scholar and download them.</li>
 <li class="on"><code>[X]</code> Download pdf directly if possible.</li>
@@ -1226,26 +1502,31 @@ The actual pdf source url behind sci-hub is embedded in a iframe with the link l
 </ul>
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline115"></a><span class="done DONE">DONE</span> run code on GS.<br ><div class="outline-text-6" id="text-orgheadline115">
-</div></li>
+<ul class="org-ul">
+<li><a id="orgb0958a5"></a><span class="done DONE">DONE</span> run code on GS.<br>
+<div class="outline-text-6" id="text-orgb0958a5">
+</div>
+</li>
 
-<li><a id="orgheadline116"></a><span class="todo TODO">TODO</span> upload article and metadata on GS.<br ></li>
+<li><a id="org7bb6df5"></a><span class="todo TODO">TODO</span> upload article and metadata on GS.<br></li>
 
-<li><a id="orgheadline117"></a>entity linking for author.<br ></li>
+<li><a id="orgd65a064"></a>entity linking for author.<br></li>
 
-<li><a id="orgheadline118"></a><span class="todo TODO">TODO</span> extract table and figure from pdf.<br ><div class="outline-text-6" id="text-orgheadline118">
+<li><a id="org2ff08b3"></a><span class="todo TODO">TODO</span> extract table and figure from pdf.<br>
+<div class="outline-text-6" id="text-org2ff08b3">
 <p>
 use pdfminer.six dumppdf.py
 </p>
-</div></li>
-<li><a id="orgheadline119"></a>rename an uploaded pdf.<br ></li>
+</div>
+</li>
+<li><a id="org4faa28b"></a>rename an uploaded pdf.<br></li>
 
-<li><a id="orgheadline120"></a>Usage:<br ><div class="outline-text-6" id="text-orgheadline120">
+<li><a id="orga3d3475"></a>Usage:<br>
+<div class="outline-text-6" id="text-orga3d3475">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> 1. Download with the article title:</li>
 </ul>
 <div class="org-src-container">
-
 <pre class="src src-python"><span style="color: #FD971F;">sh</span> = SciHub<span style="color: #AE81FF;">()</span>
 <span style="color: #FD971F;">title</span> = &#8220;&#8221;&#8220;Improving Traffic Locality <span style="color: #F92672;">in</span> BitTorrent via Biased Neighbor Selection&#8221;&#8220;&#8221;
 <span style="color: #FD971F;">meta</span> = sh.find_meta<span style="color: #AE81FF;">(</span>title<span style="color: #AE81FF;">)</span>
@@ -1256,44 +1537,57 @@ use pdfminer.six dumppdf.py
 <ul class="org-ul">
 <li class="on"><code>[X]</code> 2. Search for articles on Google Scholar and download them:</li>
 </ul>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline121"></a>issues:<br ><div class="outline-text-6" id="text-orgheadline121">
+<li><a id="org5774c6d"></a>issues:<br>
+<div class="outline-text-6" id="text-org5774c6d">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> captcha验证</li>
 <li class="off"><code>[&#xa0;]</code> 上传DOI, pdf到服务器</li>
 </ul>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline122"></a>twitter account monitoring.<br ><div class="outline-text-6" id="text-orgheadline122">
+<li><a id="org762a09b"></a>twitter account monitoring.<br>
+<div class="outline-text-6" id="text-org762a09b">
 <p>
 monitor AI accounts' newsest tweets, send tweets including the paper mentioned to users daily.
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline123"></a><span class="todo TODO">TODO</span> design a QT UI for the downloader.<br ></li>
+<li><a id="orga8a792c"></a><span class="todo TODO">TODO</span> design a QT UI for the downloader.<br></li>
 
-<li><a id="orgheadline124"></a>add tensorflow &amp; estimator into Jupyter notebook.<br ><div class="outline-text-6" id="text-orgheadline124">
+<li><a id="org37bee89"></a>add tensorflow &amp; estimator into Jupyter notebook.<br>
+<div class="outline-text-6" id="text-org37bee89">
 <p>
 <a href="https://docs.google.com/document/d/1Zm4SsJlHI8cB--E55Kki38QVHclbClZcBtQoaJX4TJU/edit?usp=sharing">https://docs.google.com/document/d/1Zm4SsJlHI8cB--E55Kki38QVHclbClZcBtQoaJX4TJU/edit?usp=sharing</a>
 </p>
-</div></li></ul>
+</div>
+</li>
+</ul>
 </div>
 
-<div id="outline-container-orgheadline131" class="outline-5">
-<h5 id="orgheadline131">machine reading for scientific paper.</h5>
-<div class="outline-text-5" id="text-orgheadline131">
-</div><ul class="org-ul"><li><a id="orgheadline125"></a>machine reading/comprehension for scientific paper.<br ><div class="outline-text-6" id="text-orgheadline125">
+<div id="outline-container-orgd68b8fd" class="outline-5">
+<h5 id="orgd68b8fd">machine reading for scientific paper.</h5>
+<div class="outline-text-5" id="text-orgd68b8fd">
+</div>
+<ul class="org-ul">
+<li><a id="org1fbabcf"></a>machine reading/comprehension for scientific paper.<br>
+<div class="outline-text-6" id="text-org1fbabcf">
 <p>
 Hermann, K. M., Kočiský, T., Grefenstette, E., Espeholt, L., Kay, W., Suleyman, M., &amp; Blunsom, P. (2015). Teaching Machines to Read and Comprehend, 1–9. <a href="https://doi.org/10.1109/72.410363">https://doi.org/10.1109/72.410363</a>
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline126"></a>transfer article summary bullets into questions.<br ></li>
+<li><a id="orgb1e999d"></a>transfer article summary bullets into questions.<br></li>
 
-<li><a id="orgheadline127"></a>event extraction from scientific paper.<br ></li>
+<li><a id="orgc9e62bd"></a>event extraction from scientific paper.<br></li>
 
-<li><a id="orgheadline128"></a>extract abstract/reference/full-text from scholar paper.<br ><div class="outline-text-6" id="text-orgheadline128">
+<li><a id="org7ecd2ac"></a>extract abstract/reference/full-text from scholar paper.<br>
+<div class="outline-text-6" id="text-org7ecd2ac">
 <p>
 Lopez, P., &amp; Romary, L. (2010). HUMB : Automatic Key Term Extraction from Scientific Articles in GROBID. Proceedings of the 5th International Workshop on Semantic Evaluation, (July), 248–251. Retrieved from <a href="http://aclweb.org/anthology/S/S10/S10-1055.pdf">http://aclweb.org/anthology/S/S10/S10-1055.pdf</a>
 </p>
@@ -1301,9 +1595,11 @@ Lopez, P., &amp; Romary, L. (2010). HUMB : Automatic Key Term Extraction from Sc
 <p>
 Romary, L., &amp; Lopez, P. (2017). GROBID - Information Extraction from Scientific Publications To cite this version : HAL Id : hal-01673305.
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline129"></a>extract core claims/sentences.<br ><div class="outline-text-6" id="text-orgheadline129">
+<li><a id="orgc0f5560"></a>extract core claims/sentences.<br>
+<div class="outline-text-6" id="text-orgc0f5560">
 <p>
 Jansen, T., &amp; Kuhn, T. (2017). Extracting core claims from scientific articles. Communications in Computer and Information Science, 765, 32–46. <a href="https://doi.org/10.1007/978-3-319-67468-1_3">https://doi.org/10.1007/978-3-319-67468-1_3</a>
 </p>
@@ -1311,9 +1607,11 @@ Jansen, T., &amp; Kuhn, T. (2017). Extracting core claims from scientific articl
 <p>
 Augenstein, I., Das, M., Riedel, S., Vikraman, L., &amp; McCallum, A. (2017). SemEval 2017 Task 10: ScienceIE - Extracting Keyphrases and Relations from Scientific Publications. <a href="https://doi.org/10.18653/v1/S17-2091">https://doi.org/10.18653/v1/S17-2091</a>
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline130"></a>information extraction for scientific paper.<br ><div class="outline-text-6" id="text-orgheadline130">
+<li><a id="orga22820d"></a>information extraction for scientific paper.<br>
+<div class="outline-text-6" id="text-orga22820d">
 <p>
 Chen, J., &amp; Chen, H. (2013). A structured information extraction algorithm for scientific papers based on feature rules learning. Journal of Software, 8(1), 55–62. <a href="https://doi.org/10.4304/jsw.8.1.55-62">https://doi.org/10.4304/jsw.8.1.55-62</a>
 </p>
@@ -1321,14 +1619,16 @@ Chen, J., &amp; Chen, H. (2013). A structured information extraction algorithm f
 <p>
 Ronzano, F., &amp; Saggion, H. (2016). Knowledge extraction and modeling from scientific publications. Lecture Notes in Computer Science (Including Subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics), 9792 LNCS, 11–25. <a href="https://doi.org/10.1007/978-3-319-53637-8_2">https://doi.org/10.1007/978-3-319-53637-8_2</a>
 </p>
-</div></li></ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline135" class="outline-2">
-<h2 id="orgheadline135">Paper Summary</h2>
+<div id="outline-container-org04eac30" class="outline-2">
+<h2 id="org04eac30">Paper Summary</h2>
 </div>
 </div>
 </body>

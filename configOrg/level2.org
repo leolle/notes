@@ -11,6 +11,9 @@
 # #+HTML_HEAD: <script src="https://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 # #+HTML_HEAD: <script src="../../styles/readtheorg/js/jquery.stickytableheaders.min.js"></script>
 
+#+MACRO: author Wei Wu
+#+MACRO: email victor.wuv@gmail.com
+
 # --------------
 # demo
 # --------------

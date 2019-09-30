@@ -1888,6 +1888,18 @@ SELECT s.*
  WHERE s.rk = 1
 #+END_SRC
 *** insert
+- insert by batches:
+#+BEGIN_SRC python
+from tqdm import tqdm
+def chunker(seq, size):
+    return (seq[pos:pos + size] for pos in range(0, len(seq), size))
+chunksize = 500
+with tqdm(total=len(df_disease)) as pbar:
+    for i, cdf in enumerate(chunker(df_disease, chunksize)):
+        cdf.to_sql(con=engine, name="disease_profile", if_exists="append", index=False)
+        pbar.update(chunksize)
+#+END_SRC
+
 - insert data into sql:
 #+BEGIN_SRC python
 cursor = CONN.cursor()
@@ -2730,8 +2742,17 @@ pip install git+https://github.com/quantopian/zipline.git
 conda uninstall tqdm
 easy_install git+https://github.com/quantopian/zipline.git
 #+END_SRC
-- change conda source:
+
+- change conda source/configuration:
 #+BEGIN_SRC shell
+vim ~/.condarc
+channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+show_channel_urls: true
+
+# or
 conda config --add channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'
 conda config --set show_channel_urls yes
 #+END_SRC
@@ -4230,8 +4251,8 @@ python -m tensorflow.models.image.mnist.convolutional
 #+END_SRC
 
 *** GPU test:
-[[file:./tensorflow.py][tensorflow]]
-#+INCLUDE: "tensorflow.py"
+[[file:./tensorflow_example.py][tensorflow]]
+#+INCLUDE: "tensorflow_example.py"
 ** Computer Vision
 *** style transfer
 *** basic operation

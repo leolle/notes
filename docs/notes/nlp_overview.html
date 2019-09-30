@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- 2018-08-17 Fri 11:20 -->
-<meta  charset="utf-8">
-<meta  name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
-<meta  name="generator" content="Org-mode">
-<meta  name="author" content="weiwu">
+<!-- 2019-09-30 Mon 10:37 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lrm;</title>
+<meta name="generator" content="Org mode">
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -51,13 +50,98 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
@@ -74,6 +158,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -90,6 +187,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
@@ -100,7 +198,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -178,29 +276,32 @@ for the JavaScript code in this tag.
 <tbody>
 <tr>
 <td class="org-left"><b>Author</b></td>
-<td class="org-left">weiwu (victor.wuv@gmail.com)</td>
+<td class="org-left">Wei Wu (victor.wuv@gmail.com)</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2018-08-17 11:20:48</td>
+<td class="org-left">2019-09-30 10:37:26</td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<div id="outline-container-orgheadline22" class="outline-2">
-<h2 id="orgheadline22">Natural Language Processing</h2>
-<div class="outline-text-2" id="text-orgheadline22">
-</div><div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17">Personalized Intelligent Agents(PIA)</h3>
-<div class="outline-text-3" id="text-orgheadline17">
-</div><div id="outline-container-orgheadline12" class="outline-4">
-<h4 id="orgheadline12">Objective:</h4>
-<div class="outline-text-4" id="text-orgheadline12">
-</div><div id="outline-container-orgheadline1" class="outline-5">
-<h5 id="orgheadline1">Short Term</h5>
-<div class="outline-text-5" id="text-orgheadline1">
+<div id="outline-container-org2da1c5b" class="outline-2">
+<h2 id="org2da1c5b">Natural Language Processing</h2>
+<div class="outline-text-2" id="text-org2da1c5b">
+</div>
+<div id="outline-container-org147c1a2" class="outline-3">
+<h3 id="org147c1a2">Personalized Intelligent Agents(PIA)</h3>
+<div class="outline-text-3" id="text-org147c1a2">
+</div>
+<div id="outline-container-orged31e12" class="outline-4">
+<h4 id="orged31e12">Objective:</h4>
+<div class="outline-text-4" id="text-orged31e12">
+</div>
+<div id="outline-container-org1f2dade" class="outline-5">
+<h5 id="org1f2dade">Short Term</h5>
+<div class="outline-text-5" id="text-org1f2dade">
 <ul class="org-ul">
 <li>make traditional and mature NLP model customizable visually by end users at multiple levels e.g., training data, model parameter.</li>
 <li>incorporate customizable NLP signals into both qualitative and quantitative investment strategies and research process.</li>
@@ -210,9 +311,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-5">
-<h5 id="orgheadline2">Long Term</h5>
-<div class="outline-text-5" id="text-orgheadline2">
+<div id="outline-container-org256b060" class="outline-5">
+<h5 id="org256b060">Long Term</h5>
+<div class="outline-text-5" id="text-org256b060">
 <ul class="org-ul">
 <li>context sensitive, Personalized Intelligent Agents, forming an eco-system collaborating, competing and evolving together on behalf of their owners.</li>
 <li>Graph2vec, 把word2vec应用在用户wo\rkflow使用序列上，根据用户使用app/func的顺序，把app/func看做单词，也是可以形成这样的序列数据，进而训练处每个app对应的向量。利用这个向量计算app之间的相似度，把真正内容相关的app聚合在一起，推荐给用户。</li>
@@ -221,24 +322,34 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<ul class="org-ul"><li><a id="orgheadline3"></a>智能投顾<br ><div class="outline-text-6" id="text-orgheadline3">
+<ul class="org-ul">
+<li><a id="org24f0b7d"></a>智能投顾<br>
+<div class="outline-text-6" id="text-org24f0b7d">
 <ul class="org-ul">
 <li>基于金融理财产品知识图谱的语义查询。知识图谱从互联网上公开信息构建，并支持如“高收益”这样的语义搜索。</li>
 <li>搜索相关主题的股票，及其新闻，公告，如“雄安题材”，“苹果主题”，“独角兽”等。</li>
 </ul>
-</div></li>
-<li><a id="orgheadline4"></a>金融新闻Bots<br ><div class="outline-text-6" id="text-orgheadline4">
+</div>
+</li>
+<li><a id="orgbbd6fdf"></a>金融新闻Bots<br>
+<div class="outline-text-6" id="text-orgbbd6fdf">
 <ul class="org-ul">
 <li>实时监控各大金融新闻网站的数据，构建了一个监控平台。 根据用户输入的自然语言问题，自动推送与其相关的新闻，并标记其中和用户输入问题相关的段落。</li>
 <li>Event-Driven Stock prediction, using sentiment analysis on the web-crawling tokens/documents with doc2vec.</li>
 </ul>
 </div>
-<ul class="org-ul"><li><a id="orgheadline5"></a>金融搜索<br ><div class="outline-text-7" id="text-orgheadline5">
+<ul class="org-ul">
+<li><a id="orgb1fd02e"></a>金融搜索<br>
+<div class="outline-text-7" id="text-orgb1fd02e">
 <p>
 显示当前关键词所有的新闻消息，公告，根据消息数量得出的热度。
 </p>
-</div></li></ul></li>
-<li><a id="orgheadline6"></a>智能选股<br ><div class="outline-text-6" id="text-orgheadline6">
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org102297f"></a>智能选股<br>
+<div class="outline-text-6" id="text-org102297f">
 <table>
 
 
@@ -269,9 +380,11 @@ for the JavaScript code in this tag.
 </tr>
 </tbody>
 </table>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgheadline7"></a>知识图谱分析<br ><div class="outline-text-6" id="text-orgheadline7">
+<li><a id="org1ae1730"></a>知识图谱分析<br>
+<div class="outline-text-6" id="text-org1ae1730">
 <p>
 关系可以是企业的上下游、合作、竞争对手、子母公司、投资、对标等关系，可以是高管与企业间的任职等关系，也可以是行业间的逻辑关系，实体则是投资机构、投资人、企业等等，把它们用知识图谱表示出来，从而进行更深入的知识推理。
 </p>
@@ -295,13 +408,19 @@ for the JavaScript code in this tag.
 <p><img src="../img/knowledge_graph_organization.png" alt="knowledge_graph_organization.png">
 </p>
 </div>
-</div></li>
-<li><a id="orgheadline11"></a>Event-Driven Strategies<br ><ul class="org-ul"><li><a id="orgheadline8"></a>Goal:<br ><div class="outline-text-7" id="text-orgheadline8">
+</div>
+</li>
+<li><a id="org6be1d4f"></a>Event-Driven Strategies<br>
+<ul class="org-ul">
+<li><a id="org3eeb65d"></a>Goal:<br>
+<div class="outline-text-7" id="text-org3eeb65d">
 <p>
 Detect event from announcement, predict stock price.
 </p>
-</div></li>
-<li><a id="orgheadline9"></a>events:<br ><div class="outline-text-7" id="text-orgheadline9">
+</div>
+</li>
+<li><a id="org14a332c"></a>events:<br>
+<div class="outline-text-7" id="text-org14a332c">
 <ul class="org-ul">
 <li>Earnings Releases:</li>
 </ul>
@@ -320,30 +439,37 @@ M&amp;A tends to produce dramatic increases or decreases in share prices dependi
 <p>
 Spin-offs tend to see an initial decline in share price as institutional investors who received shares sell off their stake to comply with regulatory requirements or other rules, thereby creating opportunities for traders.
 </p>
-</div></li>
-<li><a id="orgheadline10"></a>Tool:<br ><div class="outline-text-7" id="text-orgheadline10">
+</div>
+</li>
+<li><a id="org0a9c38b"></a>Tool:<br>
+<div class="outline-text-7" id="text-org0a9c38b">
 <p>
 Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Networks, CNN.
 </p>
-</div></li></ul></li></ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-4">
-<h4 id="orgheadline13">Overview Steps:</h4>
-<div class="outline-text-4" id="text-orgheadline13">
+<div id="outline-container-orge4f3843" class="outline-4">
+<h4 id="orge4f3843">Overview Steps:</h4>
+<div class="outline-text-4" id="text-orge4f3843">
 <ul class="org-ul">
 <li>数据爬虫 -&gt; 数据清洗(干净数据) -&gt; 语义分析, 命名实体识别(识别金融实体、实体提取及消歧、关系提取,分区语义网络) -&gt; 文档树/表 -&gt; 图谱(根据业务需要，定义并识别金融实体间的各种关系，进而生成知识图谱) -&gt; 本体，本体存储 -&gt; 语用分析 -&gt; 分析推理，逻辑(定义并表达业务逻辑，通过在知识图谱上实现各种具体任务来体现数据价值，如推理等，实现数据到智能的升华。)</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-4">
-<h4 id="orgheadline16">Data</h4>
-<div class="outline-text-4" id="text-orgheadline16">
-</div><div id="outline-container-orgheadline14" class="outline-5">
-<h5 id="orgheadline14">Text Labeled with (semi) structured data</h5>
-<div class="outline-text-5" id="text-orgheadline14">
+<div id="outline-container-org67e3ba2" class="outline-4">
+<h4 id="org67e3ba2">Data</h4>
+<div class="outline-text-4" id="text-org67e3ba2">
+</div>
+<div id="outline-container-org9d73c24" class="outline-5">
+<h5 id="org9d73c24">Text Labeled with (semi) structured data</h5>
+<div class="outline-text-5" id="text-org9d73c24">
 <ul class="org-ul">
 <li class="on"><code>[X]</code> wiki page titles and page text, wiki category</li>
 <li class="off"><code>[&#xa0;]</code> company filings text, filing classification, event time series data (attributes manually extracted)</li>
@@ -355,9 +481,9 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline15" class="outline-5">
-<h5 id="orgheadline15">Text Unlabeled</h5>
-<div class="outline-text-5" id="text-orgheadline15">
+<div id="outline-container-org65999a6" class="outline-5">
+<h5 id="org65999a6">Text Unlabeled</h5>
+<div class="outline-text-5" id="text-org65999a6">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> analyst research reports, analyst research reports, report classification, analyst ranking</li>
 <li class="off"><code>[&#xa0;]</code> textbooks</li>
@@ -366,12 +492,13 @@ Named Entity Recognization, Entity Relation Extraction, Recurrent Neural Network
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="todo TODO">TODO</span> Knowledge Graph</h3>
-<div class="outline-text-3" id="text-orgheadline20">
-</div><div id="outline-container-orgheadline18" class="outline-5">
-<h5 id="orgheadline18">知识图谱的架构</h5>
-<div class="outline-text-5" id="text-orgheadline18">
+<div id="outline-container-org71117a8" class="outline-3">
+<h3 id="org71117a8"><span class="todo TODO">TODO</span> Knowledge Graph</h3>
+<div class="outline-text-3" id="text-org71117a8">
+</div>
+<div id="outline-container-org7bce4b8" class="outline-5">
+<h5 id="org7bce4b8">知识图谱的架构</h5>
+<div class="outline-text-5" id="text-org7bce4b8">
 <p>
 <a href="http://www.xml-data.org/dzkj-nature/html/201645589.htm">http://www.xml-data.org/dzkj-nature/html/201645589.htm</a>
 logical structure:
@@ -393,9 +520,9 @@ logical structure:
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline19" class="outline-5">
-<h5 id="orgheadline19">知识图谱构建过程</h5>
-<div class="outline-text-5" id="text-orgheadline19">
+<div id="outline-container-orga77bfdc" class="outline-5">
+<h5 id="orga77bfdc">知识图谱构建过程</h5>
+<div class="outline-text-5" id="text-orga77bfdc">
 <p>
 知识图谱的构建过程是从原始数据出发，采用一系列自动或半自动的技术手段，从原始数据中提取出知识要素，并将其存入知识库的数据层和模式层的过程。
 </p>
@@ -419,9 +546,9 @@ logical structure:
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21">Key technique and application</h3>
-<div class="outline-text-3" id="text-orgheadline21">
+<div id="outline-container-org1dcb571" class="outline-3">
+<h3 id="org1dcb571">Key technique and application</h3>
+<div class="outline-text-3" id="text-org1dcb571">
 <table>
 
 

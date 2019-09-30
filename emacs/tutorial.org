@@ -18,7 +18,7 @@
 #+EMAIL: guanghui.qu@cocos2d-x.org
 #+OPTIONS: toc:3 num:nil
 #+STARTUP: showall
-
+#+MACRO: stringp test
 [[https://travis-ci.org/emacs-china/Spacemacs-rocks.svg?branch=master]]
 
 * Spacemacs Rocks 第二季

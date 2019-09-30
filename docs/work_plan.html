@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- 2019-01-18 Fri 15:14 -->
-<meta  charset="utf-8">
-<meta  name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
-<meta  name="generator" content="Org-mode">
-<meta  name="author" content="weiwu">
+<!-- 2019-09-30 Mon 09:55 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lrm;</title>
+<meta name="generator" content="Org mode">
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -51,13 +50,98 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
@@ -74,6 +158,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -90,6 +187,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet" type="text/css" />
@@ -111,7 +209,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -167,24 +265,25 @@ for the JavaScript code in this tag.
 <tbody>
 <tr>
 <td class="org-left"><b>Author</b></td>
-<td class="org-left">weiwu (victor.wuv@gmail.com)</td>
+<td class="org-left">Wei Wu (victor.wuv@gmail.com)</td>
 </tr>
 
 <tr>
 <td class="org-left"><b>Date</b></td>
-<td class="org-left">2019-01-18 15:14:21</td>
+<td class="org-left">2019-09-30 09:55:59</td>
 </tr>
 </tbody>
 </table>
 </div>
 
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3">Workflow</h2>
-<div class="outline-text-2" id="text-orgheadline3">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1">quant</h3>
-<div class="outline-text-3" id="text-orgheadline1">
+<div id="outline-container-orgd0b5ff0" class="outline-2">
+<h2 id="orgd0b5ff0">Workflow</h2>
+<div class="outline-text-2" id="text-orgd0b5ff0">
+</div>
+<div id="outline-container-org56a2207" class="outline-3">
+<h3 id="org56a2207">quant</h3>
+<div class="outline-text-3" id="text-org56a2207">
 <ol class="org-ol">
 <li>define goal.</li>
 <li>search paper/report.</li>
@@ -201,9 +300,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2">data analysis</h3>
-<div class="outline-text-3" id="text-orgheadline2">
+<div id="outline-container-org31453e1" class="outline-3">
+<h3 id="org31453e1">data analysis</h3>
+<div class="outline-text-3" id="text-org31453e1">
 <ol class="org-ol">
 <li>分析</li>
 <li>实验仿真</li>
@@ -214,9 +313,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="todo TODO">TODO</span> 交易回测系统的修改</h2>
-<div class="outline-text-2" id="text-orgheadline4">
+<div id="outline-container-org4c2e810" class="outline-2">
+<h2 id="org4c2e810"><span class="todo TODO">TODO</span> 交易回测系统的修改</h2>
+<div class="outline-text-2" id="text-org4c2e810">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> 风险模型要自己可以跑。</li>
 <li class="off"><code>[&#xa0;]</code> 对比Quantopian risk model, <a href="https://www.youtube.com/watch?v=JNEv_jHu6Is">https://www.youtube.com/watch?v=JNEv_jHu6Is</a></li>
@@ -224,18 +323,18 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5">risk model</h2>
-<div class="outline-text-2" id="text-orgheadline5">
+<div id="outline-container-orgb9046a0" class="outline-2">
+<h2 id="orgb9046a0">risk model</h2>
+<div class="outline-text-2" id="text-orgb9046a0">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> 修改一下readme.org.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6">组合优化，</h2>
-<div class="outline-text-2" id="text-orgheadline6">
+<div id="outline-container-orge4266f1" class="outline-2">
+<h2 id="orge4266f1">组合优化，</h2>
+<div class="outline-text-2" id="text-orge4266f1">
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> 输入利率，权重，价格，可以回测，无需加入复权信息。</li>
 <li class="off"><code>[&#xa0;]</code> BlackLitterman 参考华泰的策略，再用ipynb做一遍。</li>
@@ -243,9 +342,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7">Find alpha</h2>
-<div class="outline-text-2" id="text-orgheadline7">
+<div id="outline-container-org94e2a96" class="outline-2">
+<h2 id="org94e2a96">Find alpha</h2>
+<div class="outline-text-2" id="text-org94e2a96">
 <p>
 <a href="./finance/alpha.html">Find Alpha</a>
 </p>
@@ -256,22 +355,24 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10">Deep Learning</h2>
-<div class="outline-text-2" id="text-orgheadline10">
-</div><div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9">Natural Language Processing</h3>
-<div class="outline-text-3" id="text-orgheadline9">
-</div><div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8">entity relationship extraction</h4>
+<div id="outline-container-org6c81048" class="outline-2">
+<h2 id="org6c81048">Deep Learning</h2>
+<div class="outline-text-2" id="text-org6c81048">
+</div>
+<div id="outline-container-org351f464" class="outline-3">
+<h3 id="org351f464">Natural Language Processing</h3>
+<div class="outline-text-3" id="text-org351f464">
+</div>
+<div id="outline-container-org25c7e4a" class="outline-4">
+<h4 id="org25c7e4a">entity relationship extraction</h4>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11">Paper Summary</h2>
-<div class="outline-text-2" id="text-orgheadline11">
+<div id="outline-container-orga277e28" class="outline-2">
+<h2 id="orga277e28">Paper Summary</h2>
+<div class="outline-text-2" id="text-orga277e28">
 <p>
 <a href="./notes/PaperSummary.html">Paper Summary</a>
 </p>
