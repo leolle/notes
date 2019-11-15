@@ -166,7 +166,20 @@ After call
 #+END_SRC
 Common examples for decorators are classmethod() and staticmethod().
 *** classmethod(function)
-Return a class method for function.
+Return a c    today = datetime.datetime.today().replace(day=1)
+    template_start_date = (today - pd.Timedelta(7, unit='M')). \
+        replace(day=1).strftime("%Y-%m-%d")
+    template_end_date = ((today - pd.Timedelta(1, unit='M')).replace(day=1)
+                         - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    info('build all templates from %s to %s' %(template_start_date, template_end_date))
+    build_all_templates(template_start_date, template_end_date)
+
+    # todo: run test data
+    last_day_of_previous_month = today - datetime.timedelta(days=1)
+    first_day_of_previous_month = last_day_of_previous_month.replace(day=1)
+    from_date = first_day_of_previous_month.strftime("%Y-%m-%d")
+    to_date = last_day_of_previous_month.strftime("%Y-%m-%d")
+lass method for function.
 
 A class method receives the class as implicit first argument, just like an instance method receives the instance. To declare a class method, use this idiom:
 

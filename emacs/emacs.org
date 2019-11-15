@@ -169,6 +169,8 @@ Here’s how to execute the macro 37 times (you use ‘C-u’ to provide the 37)
 - kill project buffer:
 =M-m k=
 
+- clean python buffer:
+=C-c M-o=
 | 命令    | 	说明             |
 | M-a     | 	定位到一行的开头 |
 | M-e     | 	定位到一行的结尾 |

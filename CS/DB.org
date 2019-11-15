@@ -62,6 +62,11 @@
 * SQL Language
 ** Command
 *** CREATE & DROCY041670521US 11183 - Google Search
+- select table owner:
+#+BEGIN_SRC
+SELECT owner,Table_name FROM all_tables WHERE owner='identified above' ORDER BY owner,Table_name ;
+#+END_SRC
+
 P & ALTER
 #+BEGIN_SRC sql
   CREATE DATABASE dbname;

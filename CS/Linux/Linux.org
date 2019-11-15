@@ -190,7 +190,7 @@ cuda 9 need nvidia driver above 384.00.
 #+BEGIN_SRC bash
 sudo init 3
 # carefully choosing options when you have multiple cards installed.
-sudo sh cuda_9.1.85_387.26_linux.run
+sudo sh cuda_9.1.85_387.26_lifind . -type f -newermt 20190826 \! -newermt 20190906nux.run
 
 #+END_SRC
 
@@ -553,6 +553,12 @@ vim /etc/profile
 exec $SHELL -l
 source ~/.zshrc
 #+END_SRC
+
+- list all the users of a group:
+#+BEGIN_SRC bash
+cat /etc/group
+#+END_SRC
+
 - list all files by:
 #+BEGIN_SRC bash
 -r, --reverse
@@ -566,9 +572,16 @@ sort by WORD instead of name: none -U, extension -X, size -S, time -t, version -
 -t     sort by modification time, newest first
 
 #+END_SRC
+
+- split file:
+#+BEGIN_SRC shell
+split -d -l 10000 source.csv tempfile.part
+#+END_SRC
+
 - show running log:
 #+BEGIN_SRC bash
 tail -f -n 100 wiki_upload.log
+tail -f -n +1 yourfile.txt | nl
 #+END_SRC
 - show absolute path of file:
 #+BEGIN_SRC bash
@@ -847,6 +860,12 @@ less +320123 filename
   - -p /pattern/ open file at /pattern/ (as clo)
   - & /pattern/ show lines containing /pattern/ (like grep)
 
+- find file between a date range:
+#+begin_src shell
+find . -type f -newermt 20190826 \! -newermt 20190906
+#+end_src
+
+
 - find string or regex in files
 #+begin_src shell
 # grep = global regular expression parser
@@ -869,6 +888,12 @@ ps -ef | grep mysql
 #+BEGIN_SRC bash
 awk '!seen[$0]++' filename
 #+END_SRC
+
+- draw lines without enough fields:
+#+BEGIN_SRC shell
+awk -F , 'NF == 11' <input_file > output_file
+#+END_SRC
+
 - check python versions:
 #+BEGIN_SRC shell
 sudo find / -type f -executable -iname 'python*' -exec file -i '{}' \; | awk -F: '/x-executable; charset=binary/ {print $1}' | xargs readlink -f | sort -u | xargs -I % sh -c 'echo -n "%: "; % -V'
@@ -1511,6 +1536,7 @@ sudo mount -t cifs -o username="gft" //192.168.1.126/share ~/share
 - check port availability:
 #+BEGIN_SRC bash
 netstat -na -f inet | grep LISTEN
+lsof -i -P -n | grep LISTEN
 # example netstat -na -f inet | grep 5277
 #+END_SRC
 *** Inspection of live interface activity
@@ -1652,6 +1678,53 @@ sudo apt-get install vinagre -y
 *** Using command-line tools with Windows
 *** Windows compliance with email and web standards
 *** Sharing files with Samba and CIFS
+
+- samba file, :
+#+BEGIN_SRC bash
+(tfgpu) ➜  bijie_groups_API git:(master) ✗ less /etc/samba/smb.conf
+[global]
+        workgroup = WORKGROUP
+        security = user
+
+        passdb backend = tdbsam
+
+        printing = cups
+        printcap name = cups
+        load printers = yes
+        cups options = raw
+
+[homes]
+        comment = Home Directories
+        valid users = %S, %D%w%S
+        browseable = No
+        read only = No
+        inherit acls = Yes
+
+[printers]
+        comment = All Printers
+        path = /var/tmp
+        printable = Yes
+        create mask = 0600
+        browseable = No
+
+[print$]
+        comment = Printer Drivers
+        path = /var/lib/samba/drivers
+        write list = @printadmin root
+        force group = @printadmin
+        create mask = 0664
+        directory mask = 0775
+
+[projects]
+        path = /home/wuwei/projects
+        valid users = wuwei
+        writeable = yes
+        browseable = yes
+        read only = no
+
+(tfgpu) ➜  bijie_groups_API git:(master) ✗ smbclient -L //localhost/
+#+END_SRC
+
 *** Sharing printers with Samba
 *** Debugging Samba
 *** Active Directory authentication
