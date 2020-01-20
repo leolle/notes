@@ -42,12 +42,14 @@ svn checkout http://192.168.1.30/svn/gftchina/Hanadev/trunk/WaveFront/
 *** Suggested background
 *** Friction between UNIX and Linux
 *** Linux distributions
+
 - centos version:
 #+BEGIN_SRC bash
 cat /etc/redhat-release
 uname -m && cat /etc/*release
 lsb_release -a
 #+END_SRC
+
 *** Example systems used in this book
 *** System-specific administration tools
 *** Notation and typographical conventions
@@ -1183,7 +1185,21 @@ sudo userdel -r username
 *** Managing users with system-specific tools
 *** Reducing risk with PAM
 *** Centralizing account management
+*** Grand user prevelige
+- add user into a group
+#+BEGIN_SRC shell
+usermod -aG username groups
+#+END_SRC
 
+- remove user from a group
+#+BEGIN_SRC shell
+usermod -G "" username
+#+END_SRC
+
+- check user's group
+#+BEGIN_SRC shell
+groups username
+#+END_SRC
 
 ** STORAGE
 *** I just want to add a disk!
@@ -1537,6 +1553,7 @@ sudo mount -t cifs -o username="gft" //192.168.1.126/share ~/share
 #+BEGIN_SRC bash
 netstat -na -f inet | grep LISTEN
 lsof -i -P -n | grep LISTEN
+ps aux | grep 8899
 # example netstat -na -f inet | grep 5277
 #+END_SRC
 *** Inspection of live interface activity

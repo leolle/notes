@@ -4382,3 +4382,57 @@ The codes listed for the data types are used internally by Oracle Database. The 
 ** Number Format Elements
 ** Datetime Format Models
 ** Datetime Format Elements
+* Syntax
+- find table name from a column name:
+#+BEGIN_SRC sql
+select table_name, column_name from dba_tab_columns where column_name like '%THE_COLUMN_YOU_LOOK_FOR(CAPITAL)%';
+#+END_SRC
+- change language from unknown to Chinese:
+create windows environment system variable
+NLS_LANG
+AMERICAN_AMERICA.AL32UTF8
+或 SIMPLIFIED CHINESE_CHINA.ZHS16GBK
+
+- quantile, percentile:
+
+#+BEGIN_SRC sql
+SELECT
+  f.title,
+  ROUND(100.0 * (SELECT COUNT(*) FROM film AS f2 WHERE f2.length <= f.length) / totals.film_count, 1) AS percentile
+FROM film f
+CROSS JOIN (
+  SELECT COUNT(*) AS film_count
+  FROM film
+) AS totals
+ORDER BY percentile DESC;
+#+END_SRC
+** clickhouse
+
+- show tables and columns:
+#+BEGIN_SRC sql
+SELECT
+   *
+FROM
+   pg_catalog.pg_tables
+WHERE
+   schemaname != 'pg_catalog'
+AND schemaname != 'information_schema';
+
+select table_schema,
+       table_name,
+       ordinal_position as position,
+       column_name,
+       data_type,
+       case when character_maximum_length is not null
+            then character_maximum_length
+            else numeric_precision end as max_length,
+       is_nullable,
+       column_default as default_value
+from information_schema.columns
+where table_schema not in ('information_schema', 'pg_catalog')
+order by table_schema,
+         table_name,
+         ordinal_position;
+
+
+#+END_SRC

@@ -22,7 +22,7 @@ https://cr.console.aliyun.com/?spm=5176.1971733.0.2.67788153k1LQf2#/accelerator
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
-  "registry-mirrors": ["https://8jnw0wgr.mirror.aliyuncs.com"]
+  "registry-mirrors": ["https://tslxqqy2.mirror.aliyuncs.com"]
 }
 EOF
 sudo systemctl daemon-reload
@@ -86,6 +86,47 @@ docker rmi image_name
 #+BEGIN_SRC bash
 docker ps -l
 #+END_SRC
+
+- delete all listed container ids:
+#+BEGIN_SRC bash
+docker rm 'sudo docker ps -aq --no-trunc'
+docker ps -aq --no-trunc
+#+END_SRC
+
+- remove containers exited * days ago:
+#+BEGIN_SRC shell
+docker ps --all | grep " [days]* ago" | awk '{print $1}' | xargs docker rm
+docker images | grep " [days]* ago" | awk '{print $3}' | xargs docker rmi
+docker images | grep " [hours]* ago" | awk '{print $3}' | xargs docker rmi
+#+END_SRC
+
+- dockerfile debian 和pip使用国内源
+python官方镜像是基于debian的。国内使用时定制一下，加快下载速度。
+
+1 debian本身使用国内源
+dockfile中:
+
+#国内debian源
+ADD sources.list /etc/apt/
+sources.list在dockerfile同目录下：
+deb http://mirrors.ustc.edu.cn/debian/ stretch main non-free contrib
+deb http://mirrors.ustc.edu.cn/debian/ stretch-updates main non-free contrib
+deb http://mirrors.ustc.edu.cn/debian/ stretch-backports main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/debian/ stretch main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/debian/ stretch-updates main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/debian/ stretch-backports main non-free contrib
+deb http://mirrors.ustc.edu.cn/debian-security/ stretch/updates main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/debian-security/ stretch/updates main non-free contrib
+
+2 pip使用国内源
+#用国内源加速大包的安装
+COPY pip.conf /etc/pip.conf
+
+pip.conf
+
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+
 - What is docker.io in relation to docker-ce and docker-ee?
 Older versions of Docker were called docker or docker-engine or docker.io
 

@@ -162,13 +162,14 @@ In the example we will create a simple example which will print some statement b
 Before call
 After call
 4
-
 #+END_SRC
+
 Common examples for decorators are classmethod() and staticmethod().
 *** classmethod(function)
 Return a c    today = datetime.datetime.today().replace(day=1)
     template_start_date = (today - pd.Timedelta(7, unit='M')). \
-        replace(day=1).strftime("%Y-%m-%d")
+        replac
+
     template_end_date = ((today - pd.Timedelta(1, unit='M')).replace(day=1)
                          - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
     info('build all templates from %s to %s' %(template_start_date, template_end_date))
@@ -211,7 +212,35 @@ Static methods in Python are similar to those found in Java or C++. Also see cla
 
 For more information on static methods, consult the documentation on the standard type hierarchy in The standard type hierarchy.
 
+- break a function takes too long/timeout
+#+BEGIN_SRC python
+from functools import wraps
+import errno
+import os
+import signal
 
+class TimeoutError(Exception):
+    pass
+
+def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
+    def decorator(func):
+        def _handle_timeout(signum, frame):
+            raise TimeoutError(error_message)
+
+        def wrapper(*args, **kwargs):
+            signal.signal(signal.SIGALRM, _handle_timeout)
+            signal.alarm(seconds)
+            try:
+                result = func(*args, **kwargs)
+            finally:
+                signal.alarm(0)
+            return result
+
+        return wraps(func)(wrapper)
+
+    return decorator
+
+#+END_SRC
 ** Closures
 Closures are nothing but functions that are returned by another function. We use closures to remove code duplication. In the following example we create a simple closure for adding numbers.
 #+BEGIN_SRC python
@@ -456,6 +485,36 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- float step:
+#+BEGIN_SRC python
+for i in numpy.arange(0, 1, 0.1):
+    pass
+#+END_SRC
+
+- reverse order:
+#+BEGIN_SRC python
+def frange(start, stop=None, step=None):
+    # if stop and step argument is None set start=0.0 and step = 1.0
+    start = float(start)
+    if stop == None:
+        stop = start + 0.0
+        start = 0.0
+    if step == None:
+        step = 1.0
+
+    print("start= ", start, "stop= ", stop, "step= ", step)
+
+    count = 0
+    while True:
+        temp = float(start + count * step)
+        if step > 0 and temp >= stop:
+            break
+        elif step < 0 and temp <= stop:
+            break
+        yield temp
+        count += 1
+
+#+END_SRC
 - create a0 to a9:
 #+BEGIN_SRC python
 import itertools
@@ -796,6 +855,12 @@ dict1.update(dict2)
 with open('./data/disease.pkl', 'wb') as f:
     pickle.dump(dict_intravenous_thrombolysis, f)
 #+END_SRC
+
+- load dictionary pickle:
+#+BEGIN_SRC python
+pickle.load(open("save.p", "rb" ))
+#+END_SRC
+
 - dump dictionary into json:
 #+BEGIN_SRC python
 import json
@@ -846,6 +911,13 @@ def in_values(s, d):
     return False
 
 in_values('cow', animals)
+#+END_SRC
+
+- merge/combine two dictionaries:
+#+BEGIN_SRC python
+d1 = {1:1}
+d2 = {2:2}
+d1.update(d2)
 #+END_SRC
 
 - sort a dict by its value:
@@ -1269,8 +1341,16 @@ print(
     ).strftime('%Y-%m-%d %H:%M:%S')
 )
 
+- create a datetime
+datetime.datetime.strptime('2000-01-01', '%Y-%m-%d')
+
 #+END_SRC
 ** Time
+- convert datetime into year month:
+#+BEGIN_SRC python
+df['month_year'] = pd.to_datetime(df['birth_date']).dt.to_period('M')
+#+END_SRC
+
 - create timestamp:
 #+BEGIN_SRC python
 >>> pd.to_datetime('13000101', format='%Y%m%d', errors='ignore')
@@ -1306,6 +1386,11 @@ df.groupby(0).progress_apply(lambda x: x**2)
 
 #+end_src
 
+- a column of list of strings into a list of float :
+#+BEGIN_SRC python
+df_patient['item_cost'] = df_patient['item_cost'].apply(lambda x : pd.to_numeric(x))
+#+END_SRC
+
 - string to datetime:
 #+begin_src python
 time.strptime(string[, format])
@@ -1314,6 +1399,7 @@ time.strptime(string[, format])
 - datetime, Timestamp, datetime64
 pandas, Timestamp
 np.dtype('<M8[ns]')
+timestamp has timezone information.
 
 -- DatetimeIndex is composed by Timestamps.
 #+BEGIN_SRC python
@@ -1396,12 +1482,15 @@ On a typical machine running Python, there are 53 bits of precision available fo
 it’s again replaced with a binary approximation, whose exact value is
 
 2.67499999999999982236431605997495353221893310546875
+
 - precision, scientific number:
 #+BEGIN_SRC python
 import numpy as np
 np.set_printoptions(suppress=True)
 %precision %.4g
+pd.set_option('display.float_format', lambda x: '%.4f' % x)
 #+END_SRC
+
 ** fractions — Rational numbers
 ** random — Generate pseudo-random numbers
 ** statistics — Mathematical statistics functions
@@ -1769,6 +1858,71 @@ g = Graph(host="192.168.4.36",  # neo4j 搭载服务器的ip地址，ifconfig可
             user="neo4j",  # 数据库user name，如果没有更改过，应该是neo4j
             password="neo4j123")
 #+END_SRC
+
+- insert nodes and edges:
+#+BEGIN_SRC python
+from py2neo import Graph, Node
+g = Graph(host="192.168.4.36",  # neo4j 搭载服务器的ip地址，ifconfig可获取到
+        http_port=7474,  # neo4j 服务器监听的端口号
+        user="neo4j",  # 数据库user name，如果没有更改过，应该是neo4j
+        password="neo4j123")
+def create_node(label, nodes):
+    count = 0
+    for node_name in tqdm(nodes):
+        node = Node(label, name=node_name)
+        # g.schema.create_uniqueness_constraint(label, node_name)
+        try:
+            g.create(node)
+            count += 1
+        except ClientError:
+            continue
+        # debug(count)
+    return
+
+
+'''创建实体关联边'''
+def create_relationship(start_node, end_node, edges, rel_type, rel_name):
+    count = 0
+    # 去重处理
+    set_edges = []
+    for edge in edges:
+        try:
+            set_edges.append('###'.join(edge))
+        except TypeError:
+            continue
+    all = len(set(set_edges))
+    for edge in tqdm(set(set_edges)):
+        edge = edge.split('###')
+        p = edge[0]
+        q = edge[1]
+        if p==q:
+            continue
+        query = "match(p:%s),(q:%s) where p.name='%s'and q.name='%s' create (p)-[rel:%s{name:'%s'}]->(q)" % (
+            start_node, end_node, p, q, rel_type, rel_name)
+        try:
+            g.run(query)
+            count += 1
+            # debug(rel_type)
+        except Exception as e:
+            info(e)
+    return
+
+'''创建知识图谱中心疾病的节点'''
+def create_diseases_nodes(disease_infos):
+    count = 0
+    for disease_dict in tqdm(disease_infos):
+        node = Node("Disease", name=disease_dict['name'], desc=disease_dict['desc'],
+                    prevent=disease_dict['prevent'] ,cause=disease_dict['cause'],
+                    easy_get=disease_dict['easy_get'],cure_lasttime=disease_dict['cure_lasttime'],
+                    cure_department=disease_dict['cure_department']
+                    ,cure_way=disease_dict['cure_way'] , cured_prob=disease_dict['cured_prob'])
+        g.create(node)
+        # count += 1
+        # debug(count)
+    return
+
+#+END_SRC
+
 ** mysql
 *** create
 - create table
@@ -2354,6 +2508,17 @@ nx.find_cycle(G)
 list(nx.simple_cycles(G))
 #+END_SRC
 
+- find sub graph:
+#+BEGIN_SRC python
+data_sub = nx.connected_component_subgraphs(G, copy=True)
+subgraphs = list(data_sub
+#+END_SRC
+
+- draw graph:
+#+BEGIN_SRC python
+nx.draw(G)
+
+#+END_SRC
 
 * Internet Protocols and Support
 ** webbrowser — Convenient Web-browser controller
@@ -2466,6 +2631,22 @@ $ snakeviz profile.stats
 ** tracemalloc — Trace memory allocations
 * Software Packaging and Distribution
 ** pip
+- pip cache dir:
+#+BEGIN_SRC bash
+import pip
+from distutils.version import LooseVersion
+
+if LooseVersion(pip.__version__) < LooseVersion('10'):
+    # older pip version
+    from pip.utils.appdirs import user_cache_dir
+else:
+    # newer pip version
+    from pip._internal.utils.appdirs import user_cache_dir
+
+print(user_cache_dir('pip'))
+print(user_cache_dir('wheel'))
+
+#+END_SRC
 - install opencv, pytorch:
 #+BEGIN_SRC bash
 pip install opencv-python torch
@@ -2608,6 +2789,14 @@ $ python3 test.py arg1 arg2 arg3
 #+BEGIN_SRC python
 pd.options.mode.chained_assignment = None  # default='warn'
 #+END_SRC
+
+- future warning:
+#+BEGIN_SRC python
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
+#+END_SRC
+
 - RuntimeWarning in numpy:
 numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
 #+BEGIN_SRC python
@@ -2890,6 +3079,20 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- set a column to tuple:
+#+BEGIN_SRC python
+pd_tmp = pd.DataFrame(np.random.rand(3,3))
+# pd_tmp["new_column"] = ("a",2)
+# ValueError: Length of values does not match length of index
+
+pd_tmp.assign(newc_olumn=pd_tmp.apply(lambda x: ('a', 2), 1))
+#+END_SRC
+
+- select index without some values in the index:
+#+BEGIN_SRC python
+df_entropy.loc[~df_entropy.index.isin(df_risky_sample_count.index)]
+#+END_SRC
+
 - scientific annotation in float:
 #+BEGIN_SRC python
 pd.set_option('display.float_format', lambda x: '%.4f' % x)
@@ -2935,6 +3138,16 @@ the_first_day_of_previous_month = the_last_day_of_previous_month.replace(day=1)
 - N month before:
 #+BEGIN_SRC python
 today - pd.Timedelta(1, unit='M')
+#+END_SRC
+
+- replace nan with None:
+#+BEGIN_SRC python
+df1 = df.where((pd.notnull(df)), None)
+#+END_SRC
+
+- pandas to list of tuples:
+#+BEGIN_SRC python
+list(zip(df_top_p['person_id'], df_top_p['hdd']))
 #+END_SRC
 
 - pandas columns into default dictionary:
@@ -3065,7 +3278,9 @@ df.groupby('A').agg(['mean', 'std'])
 
 - groupby aggregate to list:
 #+BEGIN_SRC python
-df.groupby('a')['b'].apply(list)
+list_int = df.groupby('a')['b'].apply(list)
+for y in list_int:
+    string = ','.join(str(x) for x in y)
 #+END_SRC
 
 - read oracle database UnicodeDecodeError 'gb' :
@@ -4439,4 +4654,26 @@ topic_distribution = lda_model.show_topics(num_words=50)
 df_topic_word_dis = pd.DataFrame([x[1].split(' + ') for x in topic_distribution]).T
 # frequency of word
 dictionary.dfs[dictionary.token2id["血清α羟基丁酸脱氢酶测定"]]/dictionary.num_docs
+#+END_SRC
+
+- one hot transformation:
+#+BEGIN_SRC python
+dataset = [['Milk', 'Onion', 'Nutmeg', 'Kidney Beans', 'Eggs', 'Yogurt'],
+           ['Dill', 'Onion', 'Nutmeg', 'Kidney Beans', 'Eggs', 'Yogurt'],
+           ['Milk', 'Apple', 'Kidney Beans', 'Eggs'],
+           ['Milk', 'Unicorn', 'Corn', 'Kidney Beans', 'Yogurt'],
+           ['Corn', 'Onion', 'Onion', 'Kidney Beans', 'Ice cream', 'Eggs']]
+dictionary = corpora.Dictionary(dataset)
+corpus = [[dictionary.token2id[y] for y in text] for text in dataset]
+#+END_SRC
+
+- word to id:
+
+#+BEGIN_SRC python
+    word_to_id = dict()
+    id_to_word = dict()
+    for i, token in enumerate(set(df_vi_mapping['ITEM_NAME'])):
+        word_to_id[token] = i
+        id_to_word[i] = token
+
 #+END_SRC
