@@ -166,7 +166,9 @@ After call
 
 Common examples for decorators are classmethod() and staticmethod().
 *** classmethod(function)
-Return a c    today = datetime.datetime.today().replace(day=1)
+Return a c    todadf['sort=False'] = df.groupby('col', sort=False).ngroup()
+df['sort=True'] = df.groupby('col', sort=True).ngroup()
+y = datetime.datetime.today().replace(day=1)
     template_start_date = (today - pd.Timedelta(7, unit='M')). \
         replac
 
@@ -3174,6 +3176,46 @@ for group in df2.groupby('type'):
     if group[0] == 'A':
         print group[1].min()
 #+END_SRC
+
+- groupby function apply order:
+#+BEGIN_SRC python
+from numpy.random import randint
+df = pd.DataFrame({'B': randint(10, size=10)})
+df['sort=False'] = df.groupby('B', sort=False).ngroup()
+df['sort=True'] = df.groupby('B', sort=True).ngroup()
+
+def groupbyngroup(self, ascending=True):
+    """
+    Number each group from 0 to the number of groups - 1.
+    This is the enumerative complement of cumcount.  Note that the
+    numbers given to the groups match the order in which the groups
+    would be seen when iterating over the groupby object, not the
+    order they are first observed.
+    ""
+#+END_SRC
+
+#+RESULT:
+: In [9]: df
+: Out[9]:
+:    A  B  sort=False  sort=True
+: 0  c  7           0          3
+: 1  b  0           1          0
+: 2  c  9           2          4
+: 3  c  7           0          3
+: 4  a  3           3          2
+: 5  c  2           4          1
+: 6  a  3           3          2
+: 7  c  9           2          4
+: 8  c  2           4          1
+: 9  a  0           1          0
+
+- groupby get the index name:
+#+BEGIN_SRC python
+from numpy.random import randint
+df = pd.DataFrame({'B': randint(10, size=10)})
+df.apply(lambda x: x.name)
+#+END_SRC
+
 
 - groupby qcut:
 #+BEGIN_SRC python
