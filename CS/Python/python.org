@@ -166,7 +166,7 @@ After call
 
 Common examples for decorators are classmethod() and staticmethod().
 *** classmethod(function)
-Return a c    todadf['sort=False'] = df.groupby('col', sort=False).ngroup()
+Return a c    todadf['sortdf_temp.xs(idx_lv1[0], level=1)=False'] = df.groupby('col', sort=False).ngroup()
 df['sort=True'] = df.groupby('col', sort=True).ngroup()
 y = datetime.datetime.today().replace(day=1)
     template_start_date = (today - pd.Timedelta(7, unit='M')). \
@@ -3142,6 +3142,14 @@ the_first_day_of_previous_month = the_last_day_of_previous_month.replace(day=1)
 today - pd.Timedelta(1, unit='M')
 #+END_SRC
 
+- set a list to a location in dataframe ValueError: Must have equal len keys and value when setting with an iterable
+#+BEGIN_SRC python
+df = pd.DataFrame(data={'A': [1, 2, 3], 'B': ['x', None, 'z']})
+df.at[1, 'B'] = ['m', 'n']
+# or
+df.set_value(1, 'B', abc)
+#+END_SRC
+
 - replace nan with None:
 #+BEGIN_SRC python
 df1 = df.where((pd.notnull(df)), None)
@@ -3294,10 +3302,34 @@ med_hos_id_mapping.set_index('med_clinic_id')['hos_id'].to_dict()
 #+BEGIN_SRC python
 pd.DataFrame.from_records([tuples])
 #+END_SRC
+
+- find value with multiindex:
+#+BEGIN_SRC python
+arrays = pd.MultiIndex.from_arrays(idx_map_vi_levels.values.T, names=[1,2,3,4,5])
+for item in ls_items:
+    index = [vals for x, vals in enumerate(arrays) if vals[-1]==item or vals[-2]==item]
+
+df_temp_order = pd.DataFrame()
+ls_lvs = []
+levels = [0, 1, 2, 3, 4]
+for l in levels:
+    s_temp = df_temp.groupby(level=l).sum()
+    idx_lv1 = s_temp[s_temp['cost']>100].index
+    drop_lv1 = [vals for x, vals in enumerate(mul_arrays) if vals[l] in s_temp[s_temp['cost']<=100].index]
+    df_temp = df_temp.drop(index=drop_lv1)
+    if len(df_temp) == len(idx_lv1):
+        print('not enough depth')
+        ls_lvs.append(s_temp[s_temp['cost']>100].index)
+        break
+    else:
+        ls_lvs.append(s_temp[s_temp['cost']<=100].index)
+#+END_SRC
+
 - create multiple index for index:
 #+BEGIN_SRC python
 similarity_rank.index = pd.MultiIndex.from_tuples(similarity_rank.index)
 #+END_SRC
+
 - groupby, transform, agg:
 #+BEGIN_SRC python
 df = pd.DataFrame(dict(A=list('aabb'), B=[1, 2, 3, 4], C=[0, 9, 0, 9]))
@@ -4365,6 +4397,23 @@ figure = ax.get_figure()
 figure.savefig('./images/%s.png'%(str(person_ids)))
 
 #+END_SRC
+
+- convert list of lists to count matrix, plot heatmap:
+#+BEGIN_SRC python
+from gensim import corpora, models, similarities
+from gensim.matutils import jaccard
+from gensim.matutils import corpus2dense
+
+processed_corpus = copy(df_count)
+dictionary = corpora.Dictionary(processed_corpus)
+corpus = [[dictionary.token2id[y] for y in text] for text in processed_corpus]
+bow_corpus = [dictionary.doc2bow(text) for text in processed_corpus]
+tfidf = models.TfidfModel(bow_corpus)
+num_features = len(dictionary.dfs)
+df_count_heatmap = pd.DataFrame(corpus2dense(bow_corpus, num_terms = num_features).T, columns=[list(dict(dictionary).values())])
+ax = sns.heatmap(df_count_heatmap.T)
+#+END_SRC
+
 *** plot a 3d figure:
 #+begin_src python :tangle yes
 from mpl_toolkits.mplot3d import Axes3D
@@ -4408,6 +4457,18 @@ prop = mfm.FontProperties(fname=font_path)
 plt.text(0.5, 0.5, s=u'测试', fontproperties=prop)
 plt.show()
 
+# or
+font_path = "/home/wuwei/projects/temp/captcha-tensorflow/fonts/huawenxihei.ttf"
+from matplotlib.font_manager import FontProperties
+myfont=FontProperties(fname=font_path,size=14)
+sns.set(font=myfont.get_name())
+# 房价数据存储到字典中，数据纯属虚构
+city_price = {'深圳': 55000,'上海': 48000, '北京': 45000, '厦门': 35000, '广州': 33000}
+
+# 作条形图
+sns.barplot(x=[k for k, _ in city_price.items()], y=[v for _, v in city_price.items()])
+sns.despine(left=True)
+plt.title('房价排行', color='gray', fontsize=14, weight='bold')
 #+END_SRC
 
 *** stacked barplot, portfolio change

@@ -867,6 +867,12 @@ less +320123 filename
 find . -type f -newermt 20190826 \! -newermt 20190906
 #+end_src
 
+- find file by name and show file size:
+#+BEGIN_SRC shell
+find / -maxdepth 10 -size +100000 -exec ls -lh {} +
+
+find ./ -name '*.pkl' -exec ls -lh {} +
+#+END_SRC
 
 - find string or regex in files
 #+begin_src shell
@@ -903,15 +909,18 @@ sudo find / -type f -executable -iname 'python*' -exec file -i '{}' \; | awk -F:
 # 2
 ls -ls /usr/bin/python*
 #+END_SRC
+
 - search all strings in a file:
 #+BEGIN_SRC bash
 grep "_" vocabulary > phrase_vocab
 #+END_SRC
+
 - search a folder name under a subfolder
 #+BEGIN_SRC bash
 find . -name "name*"
 find . -path '*/folder/subfolder'
 #+END_SRC
+
 *** zsh
 #+BEGIN_SRC shell
 # If you come from bash you might have to change your $PATH.
