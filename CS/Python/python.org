@@ -487,7 +487,7 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
-- float step:
+- float range step:
 #+BEGIN_SRC python
 for i in numpy.arange(0, 1, 0.1):
     pass
@@ -4412,6 +4412,12 @@ tfidf = models.TfidfModel(bow_corpus)
 num_features = len(dictionary.dfs)
 df_count_heatmap = pd.DataFrame(corpus2dense(bow_corpus, num_terms = num_features).T, columns=[list(dict(dictionary).values())])
 ax = sns.heatmap(df_count_heatmap.T)
+
+query_bow = dictionary.doc2bow(processed_corpus[-1])
+sims = index[tfidf[query_bow]]
+qualified_doc_num = [x for x, v in enumerate(sims) if v>sim_threashold and x!=(len(bow_corpus)-1)]
+# empty rows and columns are excluded from subsets
+df_result.at[index_1, 'subset'] = [v for x,v in enumerate(subsets) if x in qualified_doc_num]
 #+END_SRC
 
 *** plot a 3d figure:
@@ -4720,6 +4726,122 @@ def vis_overlay(original_im, seg_map):
 #+END_SRC
 * NLP
 ** Keywords
+- association rules data mining:
+#+BEGIN_SRC python
+# categories
+G = nx.DiGraph()
+df_vi_mapping.apply(lambda x: G.add_edge(x['PARENT_ID'], x['ID']), axis=1)
+Gl = nx.Graph()
+df_vi_mapping.apply(lambda x: Gl.add_edge(x['PARENT_ID'], x['ID']), axis=1)
+# check if there're cycle
+data_sub = nx.connected_component_subgraphs(Gl, copy=True)
+all_sub = [list(i.nodes()) for i in data_sub]
+
+level_leaves_nodes = [x for x,y in G.out_degree() if y == 0]
+level_head_nodes = [y for x,y in G.in_edges() if x=='0']
+map_vi_levels = pd.DataFrame([list(path) for x in level_leaves_nodes for path in nx.all_simple_paths(G, source='0', target=x)])
+map_vi_levels = map_vi_levels.sort_values(list([0, 1, 2, 3, 4, 5]))
+idx_map_vi_levels = map_vi_levels[[1,2,3,4,5]].fillna(method='ffill', axis=1)
+map_vi_levels = map_vi_levels[[1,2,3,4,5]].fillna(method='ffill', axis=1)
+arrays = pd.MultiIndex.from_arrays(idx_map_vi_levels.values.T, names=[1,2,3,4,5])
+
+levels = [0, 1, 2, 3, 4]
+def shrink_concept(patient):
+    print(patient['med_clinic_id'])
+    ls_items = patient['item_code_check']
+    dict_cost = dict(zip(patient['item_code'], patient['item_cost']))
+
+    # 构建多索引项目花费DataFrame
+    df_temp = pd.DataFrame()
+    for item in ls_items:
+        index = [vals for x, vals in enumerate(arrays) if vals[-1]==item or vals[-2]==item]
+        if len(index) > 1:
+            df_temp = df_temp.append(pd.DataFrame(index=pd.MultiIndex.from_tuples([index[0]]), columns=['cost'], data=float(dict_cost[item])))
+        elif len(index) == 1:
+            df_temp = df_temp.append(pd.DataFrame(index=pd.MultiIndex.from_tuples(index), columns=['cost'], data=float(dict_cost[item])))
+
+    # 逐层获取概念
+    df_temp_order = pd.DataFrame()
+    ls_lvs = []
+    # 先把大于100块的取出来，并删除
+    threashold_idx = df_temp[df_temp['cost']>=100].index
+    if len(threashold_idx) > 0:
+        ls_lvs.append(threashold_idx.get_level_values(4))
+        df_temp = df_temp.drop(index=threashold_idx)
+
+    mul_arrays = df_temp.index
+    for l in levels:
+        s_temp = df_temp.groupby(level=l).sum()
+        idx_lv1 = s_temp[s_temp['cost']>100].index
+        drop_lv1 = [vals for x, vals in enumerate(mul_arrays) if vals[l] in s_temp[s_temp['cost']<=100].index]
+        if len(drop_lv1) > 0:
+            df_temp = df_temp.drop(index=drop_lv1)
+        else:
+            continue
+        if len(df_temp) == len(idx_lv1):
+            # print('not enough depth')
+            ls_lvs.append(s_temp[s_temp['cost']>100].index)
+            break
+        else:
+            ls_lvs.append(s_temp[s_temp['cost']<=100].index)
+
+        # 最终的shinkage list
+    ls_lvs_unique1 = set()
+
+    for x in ls_lvs:
+        ls_lvs_unique1.update(set(x))
+
+    return ls_lvs_unique1
+# find similar subsets and extra items
+sim_threashold = 0.5
+df_abnormal_items = pd.DataFrame(columns=['hos', 'dis', 'abnormal_item', 'rule', 'subset'])
+for index in tqdm(range(len(dict_disease_seed_graph_1))):
+    # print(index)
+    index_1 = dict_disease_seed_graph_1[index][0]
+    dis = df_result.loc[index_1, 'dis']
+    hos = df_result.loc[index_1, 'hos']
+
+    subsets = [x[1:-1] for x in dict_disease_seed_graph_1[index_1][1] if x[1][1]==dis and
+                                      x[1][0]!=hos]
+    # exclude rule whose unique hospital number is less than 3
+    if len(set([x[0][0] for x in subsets])) < 3:
+        continue
+
+    # remove rule with items not like most of other rule itemsets
+    processed_corpus = [x[1] for x in subsets] + [df_result.loc[index_1, 'itemsets_all']]
+    dictionary = corpora.Dictionary(processed_corpus)
+    corpus = [[dictionary.token2id[y] for y in text] for text in processed_corpus]
+    bow_corpus = [dictionary.doc2bow(text) for text in processed_corpus]
+    tfidf = models.TfidfModel(bow_corpus)
+    num_features = len(reduce(lambda x, y: set(x) | set(y), corpus))
+    index = similarities.SparseMatrixSimilarity(tfidf[bow_corpus], num_features=num_features)
+    query_bow = dictionary.doc2bow(processed_corpus[-1])
+    sims = index[tfidf[query_bow]]
+    qualified_doc_num = [x for x, v in enumerate(sims) if v>sim_threashold and x!=(len(bow_corpus)-1)]
+
+    # empty rows and columns are excluded from subsets
+    df_result.at[index_1, 'subset'] = [v for x,v in enumerate(subsets) if x in qualified_doc_num]
+
+    if len(df_result.at[index_1, 'subset']) < 3:
+        continue
+
+    all_subsets = set()
+    for x in df_result.at[index_1, 'subset']:
+            all_subsets.update(x[1])
+
+    # extra_items = all sets - aggregation of subsets
+    extra_items = df_result.loc[index_1, 'itemsets_all'].difference(all_subsets)
+    if len(extra_items) > 0 and len(all_subsets) > 0:
+        df_temp = pd.DataFrame([[df_result.loc[index_1, 'hos'],
+                      df_result.loc[index_1, 'dis'],
+                      [dict_vi_mapid2name[int(y)] for y in extra_items],
+                     [dict_vi_mapid2name[int(x)] for x in df_result.loc[index_1, 'itemsets_all']],
+                    [(y[0], [dict_vi_mapid2name[int(x)] for x in y[1]]) for y in df_result.at[index_1, 'subset']]]],
+                               columns=['hos', 'dis', 'abnormal_item', 'rule', 'subset'])
+        df_abnormal_items = pd.concat([df_abnormal_items, df_temp])
+df_abnormal_items['abnormal_item'] = df_abnormal_items['abnormal_item'].apply(frozenset)
+#+END_SRC
+
 - corpus
 #+BEGIN_SRC python
 input_text_translations = """
@@ -4757,6 +4879,13 @@ topic_distribution = lda_model.show_topics(num_words=50)
 df_topic_word_dis = pd.DataFrame([x[1].split(' + ') for x in topic_distribution]).T
 # frequency of word
 dictionary.dfs[dictionary.token2id["血清α羟基丁酸脱氢酶测定"]]/dictionary.num_docs
+
+from collections import defaultdict
+frequency = defaultdict(int)
+for text in df_result['itemsets_name']:
+    for token in text:
+        frequency[token] += 1
+sorted(frequency.items(), key=lambda k_v: k_v[1], reverse=True)
 #+END_SRC
 
 - one hot transformation:
