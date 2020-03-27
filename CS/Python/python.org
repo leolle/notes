@@ -302,6 +302,12 @@ text = '{'a':1}'
 eval(text) # will turn text from a string object into a dictionary object
 #+END_SRC
 ** Comparisons
+
+- rich comparison, float compares with tuple or list:
+#+BEGIN_SRC python
+all(float < np.array(list))
+#+END_SRC
+
 ** Numeric Types — int, float, complex
 - ValueError: ("invalid literal for int() with base 10:
 #+BEGIN_SRC python
@@ -3251,6 +3257,25 @@ pd.qcut(df['column'].rank(method='first'), nbins)
 #+BEGIN_SRC python
 
 #+END_SRC
+
+- add multiple empty columns:
+#+BEGIN_SRC python
+mydf = mydf.reindex(columns = mydf.columns.tolist() + ['newcol1','newcol2'])
+#+END_SRC
+
+- return multiple columns when apply:
+#+BEGIN_SRC python
+def trans(x):
+    queries = [x['med_name']]
+    sim_indices, sim_values = tm.get_most_similarities(queries, topn=1)
+    sim_docs = standard_terminologies[sim_indices]
+    x['name'] = standard_terminologies[sim_indices][0][0]
+    x['sim_val'] = sim_values[0][0]
+    x['pay_pro'] = df_name_dict.iloc[sim_indices.tolist()[0]]['SELF_PAY_PRO'].values[0]
+    return x
+df_patient.apply(lambda x:trans(x), axis=1)
+#+END_SRC
+
 - apply to a column for each row:
 #+BEGIN_SRC python
 df = pd.DataFrame([[1,2,3],[4,5,6]], columns=['a','b','c'])
@@ -3783,6 +3808,20 @@ from functools import reduce
 reduce(lambda x, y: x+y, range(1,101))
 #+END_SRC
 
+- find extra items:
+#+BEGIN_SRC python
+def extra_item(row):
+    if row['subsets'] is not None:
+        if len(row) > 0:
+            subsets = reduce(lambda x, y: x|y, [z[1] for z in row['subsets']])
+            extra = row['itemsets'] - subsets
+            return [dict_vi[x] for x in extra]
+        else:
+            return None
+    else:
+        return None
+#+END_SRC
+
 - if array a is a subset of another array b:
 #+BEGIN_SRC python
 set(B).issubset(set(A))
@@ -4011,6 +4050,11 @@ b    2    4
 *** Index
 
 **** Index manuplication
+- assign list to dataframe:
+#+BEGIN_SRC python
+df_result.at[index_1, 'subset'] = [v for x,v in enumerate(subsets) if x in qualified_doc_num]
+#+END_SRC
+
 - set column as datetime index
 #+begin_src python
 index = index.set_index(pd.DatetimeIndex(index['tradeDate'])).drop('tradeDate', axis=1)
