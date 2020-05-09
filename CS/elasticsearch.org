@@ -1,0 +1,138 @@
+#+SETUPFILE: ../configOrg/level2.org
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: python2
+#+DATE: <2017-05-24 Wed>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+
+* python连接es
+  from elasticsearch_dsl.connections import connections
+  es = connections.create_connection(ArticleType._doc_type.using)
+  或者
+  from elasticsearch_dsl.connections import connections
+  es = connections.create_connection(hosts=["localhost"])
+  或者原生态连接
+  from elasticsearch import Elasticsearch
+  client = Elasticsearch(hosts=["127.0.0.1"])
+
+* 创建索引/定义mapping
+from elasticsearch_dsl import DocType, Date, Nested, Boolean, \
+analyzer, InnerObjectWrapper, Completion, Keyword, Text, Integer
+
+from elasticsearch_dsl.analysis import CustomAnalyzer as _CustomAnalyzer
+
+from elasticsearch_dsl.connections import connections
+connections.create_connection(hosts=["localhost"])
+
+class CustomAnalyzer(_CustomAnalyzer):
+    def get_analysis_definition(self):
+        return {}
+
+
+ik_analyzer = CustomAnalyzer("ik_max_word", filter=["lowercase"])
+
+class ArticleType(DocType):
+    #伯乐在线文章类型
+    suggest = Completion(analyzer=ik_analyzer)
+    title = Text(analyzer="ik_max_word")
+    create_date = Date()
+    url = Keyword()
+    url_object_id = Keyword()
+    front_image_url = Keyword()
+    front_image_path = Keyword()
+    praise_nums = Integer()
+    comment_nums = Integer()
+    fav_nums = Integer()
+    tags = Text(analyzer="ik_max_word")
+    content = Text(analyzer="ik_max_word")
+
+    class Meta:
+        index = "jobbole"
+        doc_type = "article"
+
+if __name__ == "__main__":
+    ArticleType.init()
+
+* analyze接口
+  words = es.indices.analyze(index=index, analyzer="ik_max_word", params={'filter':["lowercase"]}, body=text)
+  相当于kibana里使用如下命令
+  GET _analyze
+  {
+      "analyzer": "ik_max_word",
+      "text": text
+   }
+
+* suggest接口
+   s = ArticleType.search()
+   s = s.suggest('my_suggest', key_words, completion={
+            "field":"suggest",
+            "fuzzy":{ "fuzziness":2 },
+            "size":10
+        })
+   suggestions = s.execute_suggest()
+   对应kibana：
+   POST music/_search
+   {
+    "suggest": {
+        "my_suggest" : {
+            "prefix" : key_words,
+            "completion" : {
+                "field" : "suggest" ,
+                "fuzzy":{ "fuzziness":2 },
+                "size":10
+            }
+        }
+      }
+    }
+
+* search接口
+  elaticsearch原生接口，跟kibana差不多
+          response = client.search(
+            index= "jobbole",
+            body={
+                "query":{
+                    "multi_match":{
+                        "query":key_words,
+                        "fields":["tags", "title", "content"]
+                    }
+                },
+                "from":(page-1)*10,
+                "size":10,
+                "highlight": {
+                    "pre_tags": ['<span class="keyWord">'],
+                    "post_tags": ['</span>'],
+                    "fields": {
+                        "title": {},
+                        "content": {},
+                    }
+                }
+            }
+        )
+    相当于kibana：
+    GET jobbole/_search
+   {
+     "query":{
+         "multi_match":{
+            "query":key_words,
+            "fields":["tags", "title", "content"]
+          }
+     },
+     "from":0,
+     "size":10,
+     "highlight": {
+         "pre_tags": ["<span class='linux'>"],
+         "post_tags": ["</span>"],
+         "fields": {
+             "title": {},
+             "content": {}
+         }
+     }
+   }

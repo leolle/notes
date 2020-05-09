@@ -726,4 +726,30 @@ Chen, J., & Chen, H. (2013). A structured information extraction algorithm for s
 
 Ronzano, F., & Saggion, H. (2016). Knowledge extraction and modeling from scientific publications. Lecture Notes in Computer Science (Including Subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics), 9792 LNCS, 11–25. https://doi.org/10.1007/978-3-319-53637-8_2
 
+*** Tech Winning
+
+**** clustering
+
+**** 电子病历结构化
+
+**** 知识图谱可视化
+
+**** 群体风险
+
+**** 大数据平台
+- 画像
+- 可视化
+- docker部署
+
+**** LDA模型
+
+**** 病历相似性
+
+**** 异常趋势，时间序列异常
+
+**** 组套检查，关联规则
+
+**** 串换项目
+
+
 * Paper Summary

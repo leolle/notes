@@ -70,7 +70,7 @@ eggs and spam
 ...       food='spam', adjective=tern'absolutely horrible'))
 This spam is absolutely horrible.
 
->>> print('The story of {0}, {1}, and {other}.'.format('Bill', 'Manfred',
+>>> print('The story of {0}, {1}, and .cpython-37.pyc{other}.'.format('Bill', 'Manfred',
                                                        other='Georg'))
 The story of Bill, Manfred, and Georg.
 
@@ -858,6 +858,12 @@ b.plot()
 #+BEGIN_SRC python
 dict1.update(dict2)
 #+END_SRC
+
+- rename key:
+#+BEGIN_SRC python
+dict['new'] = dict.pop('old')
+#+END_SRC
+
 - dump dictionary into pickle:
 #+BEGIN_SRC python
 with open('./data/disease.pkl', 'wb') as f:
@@ -2930,6 +2936,18 @@ from StateMachine import StateMachine
 from MouseAction import MouseAction
 #+end_src
 
+- move pyc to root directory:
+#+BEGIN_SRC python
+import os
+import shutil
+for root, dirs, files in os.walk(cwd):
+    print(root, "consumes, ")
+    for file in files:
+        if file.endswith('.pyc'):
+            names = file.split('.')
+            shutil.move(join(root, file), join(os.path.dirname(root),names[0]+'.'+names[2]))
+#+END_SRC
+
 - check module path:
 #+begin_src python
 import os
@@ -3175,7 +3193,10 @@ df_patient[['pid','med_clinic_id']].groupby('pid').apply(lambda x:x['med_clinic_
 #+BEGIN_SRC python
 # select the first row in each group, group have multindex.
 df_item.groupby(level=0, group_keys=False).apply(lambda x: x.sort_values('abs_diff', ascending=False)).groupby(level=0).head(3)
+
+# select rows by person id and icd 3, not only person id
 df_most_visited_hospitals.sort_values(['PERSON_ID','DISCHARGE_DATE'],ascending=True).groupby(['PERSON_ID', 'ICD3']).first()
+
 #+END_SRC
 - filter by groupby count size:
 #+BEGIN_SRC python
@@ -3465,6 +3486,31 @@ df_nanjing.to_excel(writer,'全部分组')
 big_groups.to_excel(writer,'超大组')
 writer.save()
 #+END_SRC
+
+- add extra sheet to excel file:
+#+BEGIN_SRC python
+import pandas as pd
+import numpy as np
+from openpyxl import load_workbook
+
+path = r"C:\Users\fedel\Desktop\excelData\PhD_data.xlsx"
+
+book = load_workbook(path)
+writer = pd.ExcelWriter(path, engine = 'openpyxl')
+writer.book = book
+
+x3 = np.random.randn(100, 2)
+df3 = pd.DataFrame(x3)
+
+x4 = np.random.randn(100, 2)
+df4 = pd.DataFrame(x4)
+
+df3.to_excel(writer, sheet_name = 'x3')
+df4.to_excel(writer, sheet_name = 'x4')
+writer.save()
+writer.close()
+#+END_SRC
+
 - concate multiple columns into one column:
 #+BEGIN_SRC python
 diff_checkout_next_checkin['date'] = dataframe.loc[index, columns].stack().sort_values()
@@ -3518,6 +3564,11 @@ df_sample1.groupby(['person_id']).sum().idxmax(axis=1)
 s_count = df_patient.groupby('disease_code')['mon'].value_counts()
 s_count.name = 'cnt_mon'
 df_disease['cnt_mon'] = s_count.reset_index().pivot(index='disease_code', columns='mon', values='cnt_mon').idxmax(axis=1)
+#+END_SRC
+
+- get the index of max value in 2d array:
+#+BEGIN_SRC python
+np.unravel_index(np.argmax(sim_indices, axis=None), sim_indices.shape)
 #+END_SRC
 
 - get unique value counts within each group:
