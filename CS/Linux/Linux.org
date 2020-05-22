@@ -1781,3 +1781,8 @@ service docker start
 #+BEGIN_SRC bash
 docker exec -it container的ID /bin/bash
 #+END_SRC
+*** redash
+**** internal server error
+     #+BEGING_SRC bash
+     docker-compose run --rm server create_db
+     #+END_SRC

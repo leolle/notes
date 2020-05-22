@@ -2717,12 +2717,16 @@ LEAST(expr [, expr ]...)
 #+END_SRC
 
 - [LISTAGG]
-join column by groups
+join column by groups, aggregate group by
 #+BEGIN_SRC sql
 select grid as person_id,
 listagg(jgid,',') within group( order by jgid ) as hospitals
   from rule_final t1 group by t1.grdi
+
+-- If you are using ClickHouse, just do
+SELECT id, groupArray(object) FROM Table GROUP BY id
 #+END_SRC
+
 #+BEGIN_SRC sql
 LISTAGG(measure_expr [, 'delimiter'])
   WITHIN GROUP (order_by_clause) [OVER query_partition_clause]

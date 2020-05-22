@@ -215,6 +215,7 @@ Static methods in Python are similar to those found in Java or C++. Also see cla
 For more information on static methods, consult the documentation on the standard type hierarchy in The standard type hierarchy.
 
 - break a function takes too long/timeout
+Only for Linux:
 #+BEGIN_SRC python
 from functools import wraps
 import errno
@@ -243,6 +244,40 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
     return decorator
 
 #+END_SRC
+
+For Windows, because Windows doesn't support signal.SIGNALRM function:
+#+BEGIN_SRC python
+from contextlib import contextmanager
+import threading
+import _thread
+
+class TimeoutException(Exception):
+    def __init__(self, msg=''):
+        self.msg = msg
+
+@contextmanager
+def time_limit(seconds, msg=''):
+    timer = threading.Timer(seconds, lambda: _thread.interrupt_main())
+    timer.start()
+    try:
+        yield
+    except KeyboardInterrupt:
+        raise TimeoutException("Timed out for operation {}".format(msg))
+    finally:
+        # if the action ends in specified time, timer is canceled
+        timer.cancel()
+
+import time
+# ends after 5 seconds
+with time_limit(5, 'sleep'):
+    for i in range(10):
+        time.sleep(1)
+
+# this will actually end after 10 seconds
+with time_limit(5, 'sleep'):
+    time.sleep(10)
+#+END_SRC
+
 ** Closures
 Closures are nothing but functions that are returned by another function. We use closures to remove code duplication. In the following example we create a simple closure for adding numbers.
 #+BEGIN_SRC python
@@ -493,6 +528,11 @@ StopIteration
 ...     print(i)
 #+END_SRC
 ** Sequence Types — list, tuple, range
+- list boolean indexing:
+#+BEGIN_SRC python
+filtered_list = [i for (i, v) in zip(list_a, filter) if v]
+#+END_SRC
+
 - float range step:
 #+BEGIN_SRC python
 for i in numpy.arange(0, 1, 0.1):
@@ -2686,6 +2726,9 @@ index-url=http://mirrors.aliyun.com/pypi/simple/
 trusted-host=mirrors.aliyun.com
 #trusted-host=mirrors.ustc.edu.cn
 #+end_src
+
+or run pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
 - generate a requirements file:
 #+BEGIN_SRC bash
 pip freeze > requirements.txt
@@ -3401,6 +3444,14 @@ df.groupby('A').agg(['mean', 'std'])
 list_int = df.groupby('a')['b'].apply(list)
 for y in list_int:
     string = ','.join(str(x) for x in y)
+#+END_SRC
+
+- read clickhouse:
+#+BEGIN_SRC python
+result, columns = clickhouse_conn.execute(sql,
+                                 with_column_types=True)
+df = pd.DataFrame(result, columns=[tuple[0] for tuple in columns])
+df.head()
 #+END_SRC
 
 - read oracle database UnicodeDecodeError 'gb' :
