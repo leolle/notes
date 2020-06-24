@@ -1359,6 +1359,12 @@ textfile.close()
 matches = re.findall("(<(\d{4,5})>)?", filetext)
 
 #+END_SRC
+- remove digits from end of a string:
+#+BEGIN_SRC python
+import re
+
+cleaned = re.sub(r'\d+$', '', yourstring)
+#+END_SRC
 
 - read line by line:
 #+BEGIN_SRC python
@@ -1370,6 +1376,20 @@ reg = re.compile("(<(\d{4,5})>)?")
 for line in textfile:
     matches += reg.findall(line)
 textfile.close()
+#+END_SRC
+
+- replace string with a dictionary in a sentence:
+#+BEGIN_SRC python
+
+d ={"C":"-", "ABC":"-", "CSAMPLEABC":"-:)-"}
+
+def find_replace_multi_ordered(string, dictionary):
+    # sort keys by length, in reverse order
+    for item in sorted(dictionary.keys(), key = len, reverse = True):
+        string = re.sub(item, dictionary[item], string)
+    return string
+
+find_replace_multi_ordered(s, d)
 #+END_SRC
 
 ** difflib — Helpers for computing deltas
@@ -2517,6 +2537,12 @@ define([
 #+BEGIN_SRC bash
 jupyter nbextension enable hinterland/hinterland
 #+END_SRC
+
+- clear jupyter notebook ouput in all cells:
+#+BEGIN_SRC bash
+jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace xxx.ipynb
+#+END_SRC
+
 ** typical structure of the ipython notebook ipynb:
 1. imports
 2. get data
@@ -2530,6 +2556,7 @@ summary:
 - make a multi-project utils library
 - each cell should have one and only one output
 - try to keep code inside notebooks.
+
 
 ** fetch data from yahoo
 install pandas-datareader first.
@@ -4186,6 +4213,16 @@ pandas.DataFrame.equals()
 df.index.names = ['Date']
 #+end_src
 
+- split train test for a dataframe:
+#+BEGIN_SRC python
+train=df.sample(frac=0.8,random_state=200) #random state is a seed value
+test=df.drop(train.index)
+# or
+from sklearn.model_selection import train_test_split
+
+train, test = train_test_split(df, test_size=0.2)
+#+END_SRC
+
 - for loop in pandas dataframe:
 #+begin_src python
 for index, value in DataFrame:
@@ -4299,6 +4336,26 @@ df_med_similarity_adj_matrix.index = pd.MultiIndex.from_tuples(df_med_similarity
 df_med_similarity_adj_matrix.reset_index().pivot(index='level_0', columns='level_1', values='similarity')
 #+END_SRC
 ** numpy
+- convert a list of arrays to 3d array:
+#+BEGIN_SRC python
+import numpy as np
+
+l1 = []
+# create list of arrays
+for i in range(5):
+    l1.append(np.random.random((5, 3)))
+
+# convert list of arrays into 3-dimensional array
+d = np.dstack(l1)
+
+d.shape #(5,3,5)
+#+END_SRC
+
+- get index of a value from array:
+#+BEGIN_SRC python
+np.where(array==value)
+#+END_SRC
+
 - numpy unique without sort:
 #+BEGIN_SRC python
 >>> import numpy as np
@@ -4628,6 +4685,29 @@ plt.title('房价排行', color='gray', fontsize=14, weight='bold')
 pivot_df_insurance_accident = df_insurance_accident.pivot(
     index='year', columns='cat_age_sex', values='basic_insurance_fee')
 pivot_df_insurance_disease.plot.bar(title='医疗保险-疾病纯保费',stacked=True, figsize=(10,7))
+
+#+END_SRC
+*** tsne:
+- visualize features:
+#+BEGIN_SRC python
+%matplotlib inline
+from sklearn import datasets
+digits = datasets.load_digits()
+# Take the first 500 data points: it's hard to see 1500 points
+X = digits.data[:500]
+y = digits.target[:500]
+from sklearn.manifold import TSNE
+tsne = TSNE(n_components=2, random_state=0)
+X_2d = tsne.fit_transform(X)
+target_ids = range(len(digits.target_names))
+
+from matplotlib import pyplot as plt
+plt.figure(figsize=(6, 5))
+colors = 'r', 'g', 'b', 'c', 'm', 'y', 'k', 'w', 'orange', 'purple'
+for i, c, label in zip(target_ids, colors, digits.target_names):
+    plt.scatter(X_2d[y == i, 0], X_2d[y == i, 1], c=c, label=label)
+plt.legend()
+plt.show()
 
 #+END_SRC
 ** scipy
@@ -5032,6 +5112,16 @@ for text in df_result['itemsets_name']:
     for token in text:
         frequency[token] += 1
 sorted(frequency.items(), key=lambda k_v: k_v[1], reverse=True)
+
+# get the frequency of word in corpus:
+tokenized_data = [list(jieba.cut(x)) for x in standard_terminologies]
+dictionary = corpora.Dictionary(tokenized_data)
+dictionary1 = copy(dictionary)
+dictionary1.filter_extremes(no_below=10, no_above=0.05)
+d_freq = {}
+for i in dictionary.token2id.keys():
+    d_freq[i] = dictionary.dfs[dictionary.token2id[i]]/dictionary.num_docs
+frequency_of_words = [(k, d_freq[k]) for k in sorted(d_freq, key=d_freq.get, reverse=True)]
 #+END_SRC
 
 - one hot transformation:
