@@ -1705,6 +1705,12 @@ sudo apt-get install vinagre -y
 *** Windows compliance with email and web standards
 *** Sharing files with Samba and CIFS
 
+- mount with sambaclient:
+#+BEGIN_SRC bash
+# add domain for windows
+sudo mount -t cifs -o user=wuwei,password=samba123,uid=1000,gid=1000,iocharset=utf8,rw,dir_mode=0777,file_mode=0777 //192.168.4.36/projects /home/weiwu/sambashare
+#+END_SRC
+
 - samba file, :
 #+BEGIN_SRC bash
 (tfgpu) ➜  bijie_groups_API git:(master) ✗ less /etc/samba/smb.conf

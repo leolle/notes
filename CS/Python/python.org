@@ -3004,6 +3004,13 @@ sys.path.insert(0,parentdir)
 from State import State
 from StateMachine import StateMachine
 from MouseAction import MouseAction
+# or
+if os.path.split(os.path.abspath(__file__))[0] != os.getcwd():
+    from .graph import Graph, get_shortest_paths_among_nodes, complement_paths,\
+        get_nodes_from_paths, get_edges_from_paths_on_graph
+    from .utils import convert_string, FastIndexing, get_topn_values
+else:
+    from graph import Graph, get_shortest_paths_among_nodes, complement_paths,\
 #+end_src
 
 - move pyc to root directory:
@@ -3247,6 +3254,16 @@ df.set_value(1, 'B', abc)
 - replace nan with None:
 #+BEGIN_SRC python
 df1 = df.where((pd.notnull(df)), None)
+#+END_SRC
+
+- insert a column at the front of a dataframe:
+#+BEGIN_SRC python
+df.insert(loc=0, column='项目是否一样', value=list)
+#+END_SRC
+
+- sort all the columns:
+#+BEGIN_SRC python
+df.sort_values(df.columns.tolist())
 #+END_SRC
 
 - pandas to list of tuples:
@@ -3563,6 +3580,21 @@ writer = pd.ExcelWriter('nanjing_result.xlsx')
 df_nanjing.to_excel(writer,'全部分组')
 big_groups.to_excel(writer,'超大组')
 writer.save()
+#+END_SRC
+
+- append dataframe at the end of an excel sheet:
+#+BEGIN_SRC python
+if os.path.isfile(path):
+    #writer = pd.ExcelWriter(path, engine='openpyxl')
+    startrow = writer.sheets['Sheet1'].max_row
+    print('max sheet row number', startrow)
+    patterns.to_excel(writer, sheet_name='Sheet1', startrow=startrow, index = False, header= False)
+    writer.save()
+else:
+    writer = pd.ExcelWriter(path)
+    patterns.to_excel(writer, sheet_name='Sheet1', index=False)
+    writer.save()
+
 #+END_SRC
 
 - add extra sheet to excel file:
@@ -4054,6 +4086,13 @@ df_bbg = df_bbg.rename(columns = lambda x: x.)
 #+BEGIN_SRC python
 df_long_term = small_groups.groupby('个人ID').progress_apply(lambda x: long_term_hospitalization(x[['入院日期', '出院日期']], days=30))
 #+END_SRC
+
+- pivot table with value True or False:
+#+BEGIN_SRC python
+df = pd.DataFrame({'company':['a','b','c','b'], 'partner':['x','x','y','y'], 'str':['just','some','random','words']})
+df.groupby(['company', 'partner']).size().unstack(fill_value=0).astype(bool)
+#+END_SRC
+
 - pandas long format to pivot:
 #+begin_src python
 pivoted = df.pivot('name1','name2','name3')
@@ -5136,7 +5175,6 @@ corpus = [[dictionary.token2id[y] for y in text] for text in dataset]
 #+END_SRC
 
 - word to id:
-
 #+BEGIN_SRC python
     word_to_id = dict()
     id_to_word = dict()
