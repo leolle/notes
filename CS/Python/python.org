@@ -3688,6 +3688,7 @@ df = pd.DataFrame({'date': ['2013-04-01','2013-04-01','2013-04-01','2013-04-02',
     'user_id': ['0001', '0001', '0002', '0002', '0002'],
     'duration': [30, 15, 20, 15, 30]})
 df.groupby('date').agg({'user_id':pd.Series.nunique})
+df_items = df_patient.groupby(['hos_id', d_v4_columns['medical_id']], as_index=True)[d_v4_columns['soc_med_name']].aggregate(lambda x: set([y for y in x if y is not None]))
 #+END_SRC
 - get unique columns value groups:
 #+BEGIN_SRC python
@@ -4146,6 +4147,11 @@ benchmark_weight.index.name = 'Date'
 m = benchmark_weight.index.to_period('m')
 benchmark_weight = benchmark_weight.reset_index().groupby(m).last().set_index('Date')
 benchmark_weight.index.name = ''
+#+END_SRC
+
+- groupby boolean ratio:
+#+BEGIN_SRC python
+df_items_sum = df_items.groupby(['disease_code', 'soc_srt_dire_nm'])['boolean'].lambda(x: sum(x))
 #+END_SRC
 
 - groupby item ratio:
