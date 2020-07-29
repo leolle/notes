@@ -895,6 +895,7 @@ ps -ef | grep mysql
 - remove duplicated lines from a file:
 #+BEGIN_SRC bash
 awk '!seen[$0]++' filename
+cat yourfile | sort | uniq > yourfile_nodups
 #+END_SRC
 
 - draw lines without enough fields:

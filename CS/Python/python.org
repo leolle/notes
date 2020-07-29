@@ -850,6 +850,18 @@ b"abcde".decode("utf-8")
 #+END_SRC
 ** Set Types — set, frozenset
 
+- union all:
+#+BEGIN_SRC python
+from functools import reduce
+def join_ratio(data):
+    #newdata = data.apply(set)
+    join = reduce(lambda x, y: x & y , [x for x in data])
+
+    union = reduce(lambda x, y: x | y , [x for x in data])
+    ratio = len(join) / len(union)
+    return  join, ratio
+#+END_SRC
+
 - access an element in a set.
 #+BEGIN_SRC python
 a=set([1,2,3])
@@ -2592,7 +2604,7 @@ list(nx.simple_cycles(G))
 - find sub graph:
 #+BEGIN_SRC python
 data_sub = nx.connected_component_subgraphs(G, copy=True)
-subgraphs = list(data_sub
+subgraphs = list(data_sub)
 #+END_SRC
 
 - draw graph:
@@ -4149,9 +4161,10 @@ benchmark_weight = benchmark_weight.reset_index().groupby(m).last().set_index('D
 benchmark_weight.index.name = ''
 #+END_SRC
 
-- groupby boolean ratio:
+- groupby boolean sum ratio:
 #+BEGIN_SRC python
-df_items_sum = df_items.groupby(['disease_code', 'soc_srt_dire_nm'])['boolean'].lambda(x: sum(x))
+df_items['boolean'] = df_items['boolean'].map({True:1, False:0})
+df_items_sum = df_items.groupby(['disease_code', 'soc_srt_dire_nm'])['boolean'].sum()
 #+END_SRC
 
 - groupby item ratio:
@@ -4560,6 +4573,18 @@ ax = contract_data.plot(legend=True)
 continuous_price.plot(legend=True, style='k--', ax=ax)
 plt.show()
 #+END_SRC
+
+- x axis label doesn't save and show:
+#+BEGIN_SRC python
+fig, ax = plt.subplots()
+ax = df_final_result['item_amount'].reset_index().groupby('med_inv_item_type_name').boxplot(['item_amount'])
+ax.set_xticklabels(ax.get_xticklabels(),rotation=90)
+figure = ax.get_figure()
+figure.savefig('./result/images/组%s.png'%(str(i_sub)), bbox_inches='tight')
+
+#+END_SRC
+
+
 *** multiple figure一次绘制多个图形
 - same plot, 多个figure:
 #+BEGIN_SRC python
@@ -4723,7 +4748,12 @@ city_price = {'深圳': 55000,'上海': 48000, '北京': 45000, '厦门': 35000,
 sns.barplot(x=[k for k, _ in city_price.items()], y=[v for _, v in city_price.items()])
 sns.despine(left=True)
 plt.title('房价排行', color='gray', fontsize=14, weight='bold')
+
+# networkx chinese
+# replace /home/wuwei/anaconda3/envs/tfgpu/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf with any other font
+
 #+END_SRC
+
 
 *** stacked barplot, portfolio change
 #+BEGIN_SRC python
