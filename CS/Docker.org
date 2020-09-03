@@ -74,6 +74,12 @@ docker run --publish=7474:7474 --publish=7687:7687 --env=NEO4J_AUTH=none --volum
 ** access neo4j in webbrowser
 put the localhost url in bolt: 127.0.0.1
 * Docker commands
+- install docker-compose:
+1. download docker-compose-Linux-x86_64 https://github.com/docker/compose/releases
+2. sudo mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
+3. sudo chmod +x /usr/local/bin/docker-compose
+4. check docker-compose -v
+
 - list all images
 #+BEGIN_SRC bash
 docker images
@@ -264,4 +270,10 @@ db.products.find( { qty: { $gt: 25 } } )
 - count
 #+BEGIN_SRC mongodb
 db.xueqiu.count()
+#+END_SRC
+* Clickhouse
+- run clickhouse
+
+#+BEGIN_SRC bash
+docker run -d --name ch_server --ulimit nofile=262144:262144 --volume=/home/davanci/database:/var/lib/clickhouse  --volume=/home/davanci/files:/files -p 9001:9000 -p 8123:8123 yandex/clickhouse-server
 #+END_SRC

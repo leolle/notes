@@ -1243,6 +1243,8 @@ sudo gedit /etc/fstab
 （这点十分重要，一定要记得编辑该文件，不然重启电脑后系统将不会保存之前的挂载操作）
 /dev/hdd5            /usr/local/superman    ext3    defaults        1 1
 
+# mount samba on local disk
+sudo mount -t cifs -o user=wuwei,password=samba123,uid=1000,gid=1000,iocharset=utf8,rw,dir_mode=0777,file_mode=0777 //192.168.4.36/projects /home/weiwu/sambashare
 
 #+END_SRC
 *** Storage hardware
@@ -1565,6 +1567,8 @@ netstat -na -f inet | grep LISTEN
 lsof -i -P -n | grep LISTEN
 ps aux | grep 8899
 # example netstat -na -f inet | grep 5277
+# for windows
+netstat -aon | findstr "8080"
 #+END_SRC
 *** Inspection of live interface activity
 *** Packet sniffers

@@ -310,6 +310,16 @@ True
 #+END_SRC
 ** iterator
 An object representing a stream of data. Repeated calls to the iterator’s next() method return successive items in the stream. When no more data are available a StopIteration exception is raised instead. At this point, the iterator object is exhausted and any further calls to its next() method just raise StopIteration again. Iterators are required to have an __iter__() method that returns the iterator object itself so every iterator is also iterable and may be used in most places where other iterables are accepted. One notable exception is code which attempts multiple iteration passes. A container object (such as a list) produces a fresh new iterator each time you pass it to the iter() function or use it in a for loop. Attempting this with an iterator will just return the same exhausted iterator object used in the previous iteration pass, making it appear like an empty container.
+- skip next iteration in a for loop:
+#+BEGIN_SRC python
+p = iter(list)
+for i in p:
+    if xx:
+        next(p)
+        next(p)
+#+END_SRC
+
+
 ** generator
 A function which returns an iterator. It looks like a normal function except that it contains yield statements for producing a series of values usable in a for-loop or that can be retrieved one at a time with the next() function. Each yield temporarily suspends processing, remembering the location execution state (including local variables and pending try-statements). When the generator resumes, it picks-up where it left-off (in contrast to functions which start fresh on every invocation).
 ** generator expression
@@ -979,6 +989,32 @@ def in_values(s, d):
 in_values('cow', animals)
 #+END_SRC
 
+- get location:
+#+BEGIN_SRC python
+import json
+from urllib.request import urlopen, quote
+import requests
+def getlnglat(address):
+    uachoice = random.choice(ua)
+    headers["User-Agent"] = uachoice
+
+    url = 'http://api.map.baidu.com/geocoding/v3/'
+    output = 'json'
+    ak =  # 百度地图ak，具体申请自行百度，提醒需要在“控制台”-“设置”-“启动服务”-“正逆地理编码”，启动
+    address = quote(address) # 由于本文地址变量为中文，为防止乱码，先用quote进行编码
+    uri = url + '?' + 'address=' + address  + '&output=' + output + '&ak=' + ak
+    response = requests.get(uri, headers=headers, timeout=20) #使用有代理参数的请求
+#     if response.status_code == 200:
+#         print("请求成功！")
+#     req = requests.get(url=uri)
+    res = response.content.decode()
+    temp = json.loads(res)
+    lat = temp['result']['location']['lat']
+    lng = temp['result']['location']['lng']
+    level = temp['result']['level']
+    return lat, lng, level   # 纬度 latitude   ，   经度 longitude  ，
+#+END_SRC
+
 - merge/combine two dictionaries:
 #+BEGIN_SRC python
 d1 = {1:1}
@@ -1442,6 +1478,15 @@ df['month_year'] = pd.to_datetime(df['birth_date']).dt.to_period('M')
 >>> pd.to_datetime('13000101', format='%Y%m%d', errors='ignore')
 datetime.datetime(1300, 1, 1, 0, 0)
 #+END_SRC
+- remove timezone
+#+BEGIN_SRC python
+# check if column type is datetime64
+from pandas.api.types import is_datetime64_any_dtype as is_datetime
+if is_datetime(df['IN_HOSP_DATE'].dtype):
+    df['IN_HOSP_DATE'] = df['IN_HOSP_DATE'].dt.tz_localize(None)
+    df['OUT_HOSP_DATE'] = df['OUT_HOSP_DATE'].dt.tz_localize(None)
+#+END_SRC
+
 - get specific timezone datetime
 #+begin_src python
 tz = pytz.timezone('America/Los_Angeles')
@@ -1453,6 +1498,8 @@ los_angeles_time = datetime.now(tz)
 - use tqdm as a status bar:
 #+begin_src python
 from tqdm import tqdm
+# without starting a new line
+# from tqdm import notebook.tqdm as tqdm
 from time import sleep
 for i in tqdm(range(10)):
     sleep(0.1)
@@ -2724,6 +2771,17 @@ $ snakeviz profile.stats
 ** tracemalloc — Trace memory allocations
 * Software Packaging and Distribution
 ** pip
+
+- pip download modules from requirements.txt:
+#+BEGIN_SRC bash
+pip download --destination-directory packages -r requirements.txt
+#+END_SRC
+
+- pip install from local files alied with requirements.txt
+#+BEGIN_SRC bash
+pip install --no-index --find-links=packages -r requirements.txt
+#+END_SRC
+
 - pip cache dir:
 #+BEGIN_SRC bash
 import pip
@@ -3980,6 +4038,7 @@ pd.concat([a.ix[z[reduce(lambda x, y: x | z[y], z, False)].index],b.ix[z[reduce(
 #+BEGIN_SRC python
 from functools import reduce
 reduce(lambda x, y: x+y, range(1,101))
+reduce(lambda x, y: set(x) | set(y), df_targets[df_targets['ratio']>0.7]['person_id'].apply(set))
 #+END_SRC
 
 - find extra items:
@@ -4319,6 +4378,9 @@ index variable value
 
 pd.merge(A, B, how='left', on=['index', 'variable'])
 index variable value value
+
+result = pd.merge(left, right, on=['key1', 'key2'])
+
 **** update
 update dataframe1 with dataframe2
 
@@ -5218,4 +5280,13 @@ corpus = [[dictionary.token2id[y] for y in text] for text in dataset]
         word_to_id[token] = i
         id_to_word[i] = token
 
+#+END_SRC
+
+- word2vec:
+#+BEGIN_SRC python
+from gensim.models import Word2Vec
+from gensim.models import KeyedVectors
+file5000 = '/share/Tencent_AILab_ChineseEmbedding.txt'
+wv_from_text = KeyedVectors.load_word2vec_format(file5000, binary=False)
+[x[0] for x in wv_from_text.most_similar('俗称',topn=20)]
 #+END_SRC

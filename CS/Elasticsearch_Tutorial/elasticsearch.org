@@ -12,8 +12,155 @@
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
+* Basic operations:
+- config file location:
+/usr/share/elasticsearch/config/elasticsearch.yml
+
+- 查看当前节点的所有 Index
+
+#+BEGIN_SRC bash
+curl -X GET 'http://localhost:9200/_cat/indices?v'
+#+END_SRC
+
+- test elasticsearch
+#+BEGIN_SRC bash
+curl localhost:9200
+#+END_SRC
+
+- 列出每个 Index 所包含的 Type
+#+BEGIN_SRC bash
+curl 'localhost:9200/_mapping?pretty=true'
+#+END_SRC
+
+- check index:
+#+BEGIN_SRC bash
+http://192.168.4.36:9200/beijin_icd_code_name
+#+END_SRC
+
+- 新建 Index
+#+BEGIN_SRC bash
+curl -X PUT 'localhost:9200/weather'
+#+END_SRC
+
+- 删除这个 Index
+#+BEGIN_SRC bash
+curl -X DELETE 'localhost:9200/weather'
+#+END_SRC
+
+- 新建一个 Index，指定需要分词的字段。
+#+BEGIN_SRC bash
+curl -X PUT 'localhost:9200/accounts' -d '
+{
+  "mappings": {
+    "person": {
+      "properties": {
+        "user": {
+          "type": "text",
+          "analyzer": "ik_max_word",
+          "search_analyzer": "ik_max_word"
+        },
+        "title": {
+          "type": "text",
+          "analyzer": "ik_max_word",
+          "search_analyzer": "ik_max_word"
+        },
+        "desc": {
+          "type": "text",
+          "analyzer": "ik_max_word",
+          "search_analyzer": "ik_max_word"
+        }
+      }
+    }
+  }
+}'
+#+END_SRC
+
+- 新增记录
+#+BEGIN_SRC bash
+# 请求路径是/accounts/person/1，最后的1是该条记录的 Id
+curl -X PUT 'localhost:9200/accounts/person/1' -d '
+{
+  "user": "张三",
+  "title": "工程师",
+  "desc": "数据库管理"
+}'
+#+END_SRC
+
+- 查看记录
+#+BEGIN_SRC bash
+curl 'localhost:9200/accounts/person/1?pretty=true'
+#+END_SRC
+
+- 删除记录
+#+BEGIN_SRC bash
+curl -X DELETE 'localhost:9200/accounts/person/1'
+#+END_SRC
+
+- 更新记录
+#+BEGIN_SRC bash
+curl -X PUT 'localhost:9200/accounts/person/1' -d '
+{
+    "user" : "张三",
+    "title" : "工程师",
+    "desc" : "数据库管理，软件开发"
+}'
+
+{
+  "_index":"accounts",
+  "_type":"person",
+  "_id":"1",
+  "_version":2,
+  "result":"updated",
+  "_shards":{"total":2,"successful":1,"failed":0},
+  "created":false
+}
+#+END_SRC
+
+- 返回所有记录
+#+BEGIN_SRC bash
+curl 'localhost:9200/accounts/person/_search'
+#+END_SRC
+
+- 全文搜索
+#+BEGIN_SRC bash
+curl 'localhost:9200/accounts/person/_search'  -d '
+{
+  "query" : { "match" : { "desc" : "软件" }}
+}'
+#+END_SRC
+
+- 多个搜索关键字
+#+BEGIN_SRC bash
+curl 'localhost:9200/accounts/person/_search'  -d '
+{
+  "query" : { "match" : { "desc" : "软件 系统" }}
+}'
+#+END_SRC
+
+- search query
+#+BEGIN_SRC bash
+http://192.168.4.36:9200/yiduyun_operation_name/_search?pretty
+http://192.168.4.36:9200/beijin_icd_code_name/_search?&pretty=true
+http://192.168.4.36:9200/nation_icd_code_name/_search?q=足趾骨折&pretty=true&size=10
+#+END_SRC
+
+- check all index
+#+BEGIN_SRC bash
+http://192.168.4.36:9200/_cat/indices
+#+END_SRC
+
+-
+#+BEGIN_SRC bash
+
+#+END_SRC
+
+-
+#+BEGIN_SRC bash
+
+#+END_SRC
 
 * python连接es
+#+BEGIN_SRC bash
   from elasticsearch_dsl.connections import connections
   es = connections.create_connection(ArticleType._doc_type.using)
   或者
@@ -23,7 +170,10 @@
   from elasticsearch import Elasticsearch
   client = Elasticsearch(hosts=["127.0.0.1"])
 
+#+END_SRC
+
 * 创建索引/定义mapping
+#+BEGIN_SRC bash
 from elasticsearch_dsl import DocType, Date, Nested, Boolean, \
 analyzer, InnerObjectWrapper, Completion, Keyword, Text, Integer
 
@@ -60,17 +210,23 @@ class ArticleType(DocType):
 
 if __name__ == "__main__":
     ArticleType.init()
+#+END_SRC
+
 
 * analyze接口
+#+BEGIN_SRC bash
   words = es.indices.analyze(index=index, analyzer="ik_max_word", params={'filter':["lowercase"]}, body=text)
-  相当于kibana里使用如下命令
+  #相当于kibana里使用如下命令
   GET _analyze
   {
       "analyzer": "ik_max_word",
       "text": text
    }
 
+#+END_SRC
+
 * suggest接口
+#+BEGIN_SRC bash
    s = ArticleType.search()
    s = s.suggest('my_suggest', key_words, completion={
             "field":"suggest",
@@ -92,8 +248,11 @@ if __name__ == "__main__":
         }
       }
     }
+#+END_SRC
+
 
 * search接口
+#+BEGIN_SRC bash
   elaticsearch原生接口，跟kibana差不多
           response = client.search(
             index= "jobbole",
@@ -136,3 +295,4 @@ if __name__ == "__main__":
          }
      }
    }
+#+END_SRC
