@@ -1241,6 +1241,7 @@ if not text:
 from nltk.corpus import wordnet
 if not wordnet.synsets(word) and not word.isdigit()
 #+END_SRC
+
 - jieba cut, remove signs.
 #+BEGIN_SRC python
 punct = set(u''':!),.:;?]}¢'"、。〉》」』】〕〗〞︰︱︳﹐､﹒
@@ -1425,7 +1426,6 @@ for line in textfile:
     matches += reg.findall(line)
 textfile.close()
 #+END_SRC
-
 - replace string with a dictionary in a sentence:
 #+BEGIN_SRC python
 
@@ -1438,6 +1438,11 @@ def find_replace_multi_ordered(string, dictionary):
     return string
 
 find_replace_multi_ordered(s, d)
+#+END_SRC
+
+- search for Chinese:
+#+BEGIN_SRC python
+zhmodel = re.compile(u'[\u4e00-\u9fa5]')
 #+END_SRC
 
 ** difflib — Helpers for computing deltas
@@ -1518,6 +1523,10 @@ tqdm.pandas()
 df.groupby(0).progress_apply(lambda x: x**2)
 
 #+end_src
+- replace space in dataframe
+#+BEGIN_SRC python
+df.replace('\s+', '_',regex=True,inplace=True)
+#+END_SRC
 
 - a column of list of strings into a list of float :
 #+BEGIN_SRC python
@@ -3873,6 +3882,11 @@ drinks['beer_servings'] = drinks.beer_servings.astype(float)
 drinks['beer_servings'] = drinks.beer_servings.astype('str)
 
 #+END_SRC
+- read csv error:
+encoding="iso-8859-1"
+encoding='utf-8'
+encoding='gbk'
+
 - read csv without header, delimiter is space:
 #+BEGIN_SRC python
 vocab = pd.read_csv("/home/weiwu/share/deep_learning/data/model/phrase/zhwiki/categories/三板.vocab",delim_whitespace=True,header=None)
@@ -5289,4 +5303,105 @@ from gensim.models import KeyedVectors
 file5000 = '/share/Tencent_AILab_ChineseEmbedding.txt'
 wv_from_text = KeyedVectors.load_word2vec_format(file5000, binary=False)
 [x[0] for x in wv_from_text.most_similar('俗称',topn=20)]
+#+END_SRC
+
+- sentence embedding:
+
+#+BEGIN_SRC python
+index2word_set = set(wv_from_text.index2word)
+
+def avg_feature_vector(sentence, model, index2word_set, stop_words, num_features=200):
+    #words = cut_words.max_forward_cut(sentence)
+    feature_vec = np.zeros((num_features, ), dtype='float32')
+    n_words = 0
+    for word in sentence:
+        word = word.lower()
+        if word in index2word_set and word not in stop_words:
+            n_words += 1
+            feature_vec = np.add(feature_vec, model[word])
+    if (n_words > 0):
+        feature_vec = np.divide(feature_vec, n_words)
+    return feature_vec
+#+END_SRC
+
+- doc2vec:
+
+#+BEGIN_SRC python
+def segment(sentence: str):
+    """
+    结巴分词，并去除停用词
+    """
+    resp = []
+    sentence_depart = jieba.cut(sentence.strip())
+    for word in sentence_depart:
+        if word != "":
+            resp.append(word)
+    return resp
+
+def read_corpus(ls):
+    for i, line in enumerate(ls):
+        yield gensim.models.doc2vec.TaggedDocument(segment(line), [i])
+"""
+训练 Doc2Vec 模型
+"""
+train_corpus = list(read_corpus(ls_words))
+model = gensim.models.doc2vec.Doc2Vec(vector_size=300, min_count=2, epochs=10, window=2)
+print(len(train_corpus))
+model.build_vocab(train_corpus)
+model.train(train_corpus, total_examples=model.corpus_count, epochs=model.epochs)
+model.save("doc2vec.model")
+
+model = gensim.models.doc2vec.Doc2Vec.load("doc2vec.model")
+def embed_text(sentences):
+    """
+    将所有的句子转化为向量
+    """
+    resp = []
+    for s in sentences:
+        resp.append(model.infer_vector(segment(s)).tolist())
+    return resp
+query = '白内障'
+input_vector = model.infer_vector(segment(query)).tolist()
+#+END_SRC
+
+- max cut jieba segment:
+#+BEGIN_SRC python
+from gensim.models import KeyedVectors
+file5000 = '/share/Tencent_AILab_ChineseEmbedding.bin'
+wv_from_text = KeyedVectors.load_word2vec_format(file5000, binary=True)
+
+import max_cut
+import pickle
+dict_cut = pickle.load(open("/home/wuwei/projects/temp/text_matching/data/dict_cut_words.pkl", "rb" ))
+stop_words_file = './data/stop_words.txt'
+with open(stop_words_file, encoding='utf8') as fin:
+    stop_words = set(line.strip() for line in fin if line.strip())
+cut_words = max_cut.CutWords('/home/wuwei/projects/temp/text_matching/Model/word_embedding/800w-dict.txt', stop_words)
+
+def avg_feature_vector(phrase, model, index2word_set, num_features=200):
+    #words = cut_words.max_forward_cut(sentence)
+    feature_vec = np.zeros((num_features, ), dtype='float32')
+    n_words = 0
+    phrase = phrase.lower()
+    sentence = [x for x in jieba.cut(phrase)]
+    new_sentence = []
+    for i, word in enumerate(sentence):
+        if word not in index2word_set:
+            if word in dict_cut:
+                words = dict_cut[word]
+            else:
+                words = cut_words.max_forward_cut(word)
+                dict_cut[word] = words
+            new_sentence.extend(words)
+        else:
+            new_sentence.extend([word])
+    new_sentence = [x for x in new_sentence if x in index2word_set]
+    for i, word in enumerate(new_sentence):
+        n_words += 1
+        feature_vec = np.add(feature_vec, model[word])
+    if (n_words > 0):
+        feature_vec = np.divide(feature_vec, n_words)
+        return feature_vec.tolist()
+    else:
+        print(phrase)
 #+END_SRC
