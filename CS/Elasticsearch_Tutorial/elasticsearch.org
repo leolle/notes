@@ -91,6 +91,12 @@ curl -X PUT 'localhost:9200/accounts/person/1' -d '
 curl 'localhost:9200/accounts/person/1?pretty=true'
 #+END_SRC
 
+- search by id field:
+
+#+BEGIN_SRC python
+http://192.168.4.36:9200/test-vector-index/_source/44114
+#+END_SRC
+
 - 删除记录
 #+BEGIN_SRC bash
 curl -X DELETE 'localhost:9200/accounts/person/1'
@@ -142,6 +148,7 @@ curl 'localhost:9200/accounts/person/_search'  -d '
 http://192.168.4.36:9200/yiduyun_operation_name/_search?pretty
 http://192.168.4.36:9200/beijin_icd_code_name/_search?&pretty=true
 http://192.168.4.36:9200/nation_icd_code_name/_search?q=足趾骨折&pretty=true&size=10
+http://192.168.4.36:9200/test-vector-index-1/_search?q=entity:HIV&size=200&pretty
 #+END_SRC
 
 - check all index
@@ -321,3 +328,24 @@ if __name__ == "__main__":
 过滤查询（Filtering queries）只是简单的检查包含或者排除，这就使得计算起来非常快。考虑到至少有一个过滤查询（filtering query）的结果是 “稀少的”（很少匹配的文档），并且经常使用不评分查询（non-scoring queries），结果会被缓存到内存中以便快速读取，所以有各种各样的手段来优化查询结果。
 
 相反，评分查询（scoring queries）不仅仅要找出匹配的文档，还要计算每个匹配文档的相关性，计算相关性使得它们比不评分查询费力的多。同时，查询结果并不缓存。
+
+** query by vector:
+- vector
+#+BEGIN_SRC python
+resp = es.search(index='test-vector-index', body={
+     "_source": ["entity"],
+     "query": {
+         "script_score": {
+             "query": {
+                 "match_all": {}
+             },
+             "script": {
+                 "source": "cosineSimilarity(params.queryVector, doc['entity_vector'])",
+                 "params": {
+                     "queryVector": input_vector
+                 }
+             }
+         }
+     }
+ })
+#+END

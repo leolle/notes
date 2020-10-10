@@ -549,7 +549,7 @@ for i in numpy.arange(0, 1, 0.1):
     pass
 #+END_SRC
 
-- reverse order:
+- reverse order float range:
 #+BEGIN_SRC python
 def frange(start, stop=None, step=None):
     # if stop and step argument is None set start=0.0 and step = 1.0
@@ -580,6 +580,7 @@ infectious_big_list = [['A{}'.format(i) for i in range(10, 100)], ['A0{}'.format
 infectious_disease_cd = list(itertools.chain.from_iterable(infectious_big_list))
 mapping_illustrated_disease = {x:True for x in infectious_disease_cd}
 #+END_SRC
+
 - multiply a list with another list:
 #+BEGIN_SRC python
 def multiply_strings(x, col=('med_code', 'med_usage')):
@@ -1408,7 +1409,7 @@ textfile.close()
 matches = re.findall("(<(\d{4,5})>)?", filetext)
 
 #+END_SRC
-- remove digits from end of a string:
+- re replace remove digits from end of a string:
 #+BEGIN_SRC python
 import re
 
@@ -3378,6 +3379,11 @@ for group in df2.groupby('type'):
         print group[1].min()
 #+END_SRC
 
+- groupby filter by quantile:
+
+#+BEGIN_SRC python
+df_query[df_query.groupby("entity")['entity_sim'].transform(lambda x : (x<(x.quantile(0.1)))).eq(1)]
+#+END_SRC
 - groupby function apply order:
 #+BEGIN_SRC python
 from numpy.random import randint
@@ -3950,6 +3956,12 @@ df = pd.DataFrame(data={'a':[1,2],'b':[3,3]})
 df = pd.DataFrame(np.diag(s), columns=Q.index)
 #+END_SRC
 
+- plsql switch schema:
+#+BEGIN_SRC python
+sql_switch_schema = """alter session set current_schema=jxnc"""
+cursor.execute(sql_switch_schema)
+#+END_SRC
+
 - connection with mysql:
 #+begin_src python
 pandas.read_sql_query(sql, con=engine):
@@ -4041,7 +4053,7 @@ df.apply(lambda x: x / x.sum() * 100, axis=0)
 - pandas has null value:
 #+BEGIN_SRC python
 df.isnull().values.any()
-
+pd.isna(v['omaha_entity1'])
 #+END_SRC
 - find all the values of TRUE in a dataframe:
 #+begin_src python
@@ -4827,7 +4839,10 @@ plt.title('房价排行', color='gray', fontsize=14, weight='bold')
 
 # networkx chinese
 # replace /home/wuwei/anaconda3/envs/tfgpu/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf with any other font
-
+font_path = "/home/wuwei/projects/temp/captcha-tensorflow/fonts/huawenxihei.ttf"
+from matplotlib.font_manager import FontProperties
+myfont=FontProperties(fname=font_path,size=14)
+nx.draw(subgraphs[1], with_labels=True, font_family='SimHei')
 #+END_SRC
 
 
@@ -4908,6 +4923,17 @@ nx.write_gexf(G, 'file/path.gexf')
 #+BEGIN_SRC python
 nx.draw(G, with_labels=True)
 #+END_SRC
+
+- highlight node in network:
+#+BEGIN_SRC python
+# generate node positions:
+pos = nx.spring_layout(G)
+# draw graph
+nx.draw_networkx(G, pos=pos, font_size=10, node_color='green', font_color='black', font_family='SimHei')
+# draw subgraph for highlights
+nx.draw_networkx(G.subgraph('胸膜炎'), pos=pos, font_size=10, node_color='red', font_color='green', font_family='SimHei')
+#+END_SRC
+
 * Machine learning:
 ** data processing:
 - coding, mapping a list into range:
@@ -5324,6 +5350,7 @@ def avg_feature_vector(sentence, model, index2word_set, stop_words, num_features
     return feature_vec
 #+END_SRC
 
+
 - doc2vec:
 
 #+BEGIN_SRC python
@@ -5404,4 +5431,63 @@ def avg_feature_vector(phrase, model, index2word_set, num_features=200):
         return feature_vec.tolist()
     else:
         print(phrase)
+#+END_SRC
+
+- calculate vector similarity:
+#+BEGIN_SRC python
+def vec_sim(query1, query2):
+    subject_vector1, subject_vector2 = avg_feature_vector(query1, wv_from_text, index2word_set),\
+                        avg_feature_vector(query2, wv_from_text, index2word_set)
+    sim = 1 - spatial.distance.cosine(subject_vector1, subject_vector2)
+    if math.isnan(sim):
+        sim = 0
+    return sim
+
+from scipy import spatial
+import math
+from tqdm import notebook, tqdm
+df_query['entity_sim'] = None
+for i, v in notebook.tqdm(df_query.iterrows()):
+    entity_vector, value_vector = avg_feature_vector(df_query.loc[i, 'lclj'], wv_from_text, index2word_set),\
+                            avg_feature_vector(df_query.loc[i, 'omaha_entity1'], wv_from_text, index2word_set)
+    sim = 1 - spatial.distance.cosine(entity_vector, value_vector)
+    if math.isnan(sim):
+        sim = 0
+    df_query.loc[i, 'entity_sim'] = sim
+#+END_SRC
+
+- string query similarities:
+#+BEGIN_SRC python
+def get_topn_values(arr, topn, axis=-1, ascending=False):
+    '''
+    从相似度一维数组获取最大(或最小)的top_n个索引及相似度.
+    '''
+    if type(arr) is not np.ndarray:
+        arr = np.array(arr)
+    if len(arr.shape) == 1:
+        if not ascending:
+            ind = np.argpartition(arr, -topn)[-topn:]
+            ind = ind[np.argsort(arr[ind])[::-1]]
+        else:
+            ind = np.argpartition(arr, topn)[:topn]
+            ind = ind[np.argsort(arr[ind])]
+        return (ind, arr[ind])
+    elif len(arr.shape) == 2:
+        if axis == 0 or axis == -2:
+            arr = arr.T
+        ind = np.zeros([arr.shape[0], topn], dtype='int')
+        val = np.zeros([arr.shape[0], topn], dtype=arr.dtype)
+        for i in range(arr.shape[0]):
+            ind[i], val[i] = get_topn_values(arr[i], topn=topn, ascending=ascending)
+        if axis == 0 or axis == -2:
+            ind = ind.T
+            val = val.T
+        return (ind, val)
+    else:
+        assert len(arr.shape) in (1, 2)
+
+
+def get_semantic_sims(queries, candidates=None):
+    sims = np.array([[vec_sim(s1, s2) for s2 in candidates] for s1 in queries], dtype=np.float32)
+    return sims
 #+END_SRC
