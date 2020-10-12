@@ -1087,6 +1087,11 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
 #+END_SRC
+
+- history and timestamp:
+#+BEGIN_SRC bash
+history -E
+#+END_SRC
 *** make cmake compile
 **** cmake
 http://derekmolloy.ie/hello-world-introductions-to-cmake/
@@ -1596,6 +1601,30 @@ tcpdump ip proto \\icmp
 *** Mandatory Access Control (MAC)
 *** Cryptographic security tools
 *** Firewalls
+#+BEGIN_SRC bash
+# status
+systemctl list-unit-files|grep firewalld.service
+# or
+systemctl status firewalld.service
+
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+
+systemctl start firewalld.service # 启动一个服务：
+systemctl stop firewalld.service # 关闭一个服务：
+systemctl restart firewalld.service # 重启一个服务
+systemctl status firewalld.service # 显示一个服务的状态：
+systemctl enable firewalld.service # 在开机时启用一个服务：
+systemctl disable firewalld.service # 在开机时禁用一个服务：
+systemctl is-enabled firewalld.service;echo $?   # 查看服务是否开机启动：
+systemctl list-unit-files|grep enabled # 查看已启动的服务列表：
+
+firewall-cmd --list-ports # 查看已经开放的端口：
+firewall-cmd --zone=public --add-port=80/tcp --permanent  # 开启端口
+
+firewall-cmd --reload #重启firewall
+
+#+END_SRC
 *** Linux firewall features
 *** IPFilter for UNIX systems
 *** Virtual private networks (VPNs)
