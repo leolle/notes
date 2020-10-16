@@ -1190,6 +1190,7 @@ tar -cvjSf folder.tar.bz2 folder
 *** The /etc/group file
 *** Adding users: the basic steps
 *** Adding users with useradd
+
 *** Adding users in bulk with newusers (Linux)
 *** Removing users
 - delete user

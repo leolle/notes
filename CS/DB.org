@@ -4220,6 +4220,15 @@ cell_reference IS PRESENT
 #+BEGIN_SRC sql
 char1 [ NOT ] { LIKE | LIKEC | LIKE2 | LIKE4 }
   char2 [ ESCAPE esc_char ]
+
+-- If you really want to search for actual percent sign or underscore characters with the LIKE operator, you need to suppress the special meaning of those characters. You can do this with the ESCAPE option of the LIKE operator
+SQL> select empno, begindate, comments
+2 from history
+3 where comments like '%0\%%' escape '\';
+EMPNO BEGINDATE COMMENTS
+-------- ----------- ----------------------------------------------------
+7566 01-JUN-1989 From accounting to human resources; 0% salary change
+7788 15-APR-1985 Transfer to human resources; 0% salary raise
 #+END_SRC
 
 - [Logical conditions]
