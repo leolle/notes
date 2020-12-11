@@ -165,24 +165,9 @@ After call
 #+END_SRC
 
 Common examples for decorators are classmethod() and staticmethod().
+
 *** classmethod(function)
-Return a c    todadf['sortdf_temp.xs(idx_lv1[0], level=1)=False'] = df.groupby('col', sort=False).ngroup()
-df['sort=True'] = df.groupby('col', sort=True).ngroup()
-y = datetime.datetime.today().replace(day=1)
-    template_start_date = (today - pd.Timedelta(7, unit='M')). \
-        replac
-
-    template_end_date = ((today - pd.Timedelta(1, unit='M')).replace(day=1)
-                         - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-    info('build all templates from %s to %s' %(template_start_date, template_end_date))
-    build_all_templates(template_start_date, template_end_date)
-
-    # todo: run test data
-    last_day_of_previous_month = today - datetime.timedelta(days=1)
-    first_day_of_previous_month = last_day_of_previous_month.replace(day=1)
-    from_date = first_day_of_previous_month.strftime("%Y-%m-%d")
-    to_date = last_day_of_previous_month.strftime("%Y-%m-%d")
-lass method for function.
+Return a class method for function.
 
 A class method receives the class as implicit first argument, just like an instance method receives the instance. To declare a class method, use this idiom:
 
@@ -861,6 +846,15 @@ b"abcde".decode("utf-8")
 #+END_SRC
 ** Set Types — set, frozenset
 
+- turn list into set keep sequence/order of list
+#+BEGIN_SRC python
+>>> from  more_itertools import unique_everseen
+>>> items = [1, 2, 0, 1, 3, 2]
+>>> list(unique_everseen(items))
+[1, 2, 0, 3]
+
+#+END_SRC
+
 - union all:
 #+BEGIN_SRC python
 from functools import reduce
@@ -1100,6 +1094,26 @@ print(os.path.dirname(spacy.__file__))
 
 * Built-in Exceptions
 ** Base classes
+
+- inherit from base class super:
+#+BEGIN_SRC python
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * self.length + 2 * self.width
+
+class Square(Rectangle):
+    def __init__(self, length):
+        super().__init__(length, length)
+
+#+END_SRC
+
 ** Concrete exceptions
 ** Warnings
 ** Exception hierarchy
@@ -2401,6 +2415,17 @@ URL_SEARCH = config.URL_SEARCH
 ** plistlib — Generate and parse Mac OS X .plist files
 * Cryptographic Services
 ** hashlib — Secure hashes and message digests
+
+#+BEGIN_SRC python
+import binascii
+def encrypt(string: str):
+#     return str(int.from_bytes(string.encode('utf-8'), byteorder='big'))
+    return str(int(binascii.hexlify(string.encode("utf-8")), 16))
+
+def num2str(number: str):
+    return binascii.unhexlify(format(number, "x").encode("utf-8")).decode("utf-8")
+#+END_SRC
+
 ** hmac — Keyed-Hashing for Message Authentication
 ** secrets — Generate secure random numbers for managing secrets
 * Generic Operating System Services
@@ -3581,6 +3606,11 @@ result, columns = clickhouse_conn.execute(sql,
                                  with_column_types=True)
 df = pd.DataFrame(result, columns=[tuple[0] for tuple in columns])
 df.head()
+#+END_SRC
+
+- insert into clickhouse:
+#+BEGIN_SRC python
+client.execute("INSERT INTO your_table VALUES", df.to_dict('records'))
 #+END_SRC
 
 - read oracle database UnicodeDecodeError 'gb' :
