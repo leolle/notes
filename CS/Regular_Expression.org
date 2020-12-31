@@ -216,6 +216,12 @@ indicates one or more occurrences of the preceding element.
 Used to match between m and n occurences of the previous character. The example tries to match between three and five w's.
 
 ** cases examples:
+- string between brackets:
+#+BEGIN_SRC python
+pattern = re.compile('\(([^)]+)\)')
+data = json.loads(pattern.findall(html)[0])
+#+END_SRC
+
 - url:
 https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)
 

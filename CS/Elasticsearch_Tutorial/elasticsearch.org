@@ -73,6 +73,32 @@ curl -X PUT 'localhost:9200/accounts' -d '
     }
   }
 }'
+
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "my_stop": {
+          "type": "stop",
+          "stopwords_path": "analysis/stop_words.txt"
+        },
+        "my_synonym": {
+          "type": "synonym",
+          "synonyms_path": "analysis/synonym.txt"
+        }
+      },
+      "analyzer": {
+        "ik_synonym": {
+          "type": "custom",
+          "tokenizer": "ik_max_word",
+          "filter": ["my_stop","my_synonym"]
+        }
+      }
+    }
+  }
+}
+
+
 #+END_SRC
 
 - 新增记录

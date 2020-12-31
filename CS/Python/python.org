@@ -230,7 +230,7 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 
 #+END_SRC
 
-For Windows, because Windows doesn't support signal.SIGNALRM function:
+For Windows, because Windows doesn't support signal, timeout, .SIGNALRM function:
 #+BEGIN_SRC python
 from contextlib import contextmanager
 import threading
@@ -1485,7 +1485,7 @@ print(
 
 - create a datetime
 datetime.datetime.strptime('2000-01-01', '%Y-%m-%d')
-
+pd.datetime.now().date()
 #+END_SRC
 ** Time
 - convert datetime into year month:
@@ -1832,6 +1832,23 @@ pkl_file.close()
 ** marshal — Internal Python object serialization
 ** dbm — Interfaces to Unix “databases”
 ** sqlite3 — DB-API interface for SQLite databases
+
+- show tables:
+#+BEGIN_SRC python
+import sqlite3
+import pandas as pd
+# Create your connection.
+conn = sqlite3.connect('link_1_label.sqlite')
+
+cursor = conn.cursor()
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+print(cursor.fetchall())
+
+sql = 'select * from HS_tags_sort'
+pd.read_sql_query(sql, conn)
+
+#+END_SRC
+
 - ModuleNotFoundError: No module named 'MySQLdb'
 #+BEGIN_SRC bash
 pip install mysqlclient
@@ -3510,7 +3527,7 @@ Out[182]:
 0  1  2  3   7         0
 1  4  5  6  34         1
 #+END_SRC
-- permutation of an array:
+- permutation of an array, combination:
 #+BEGIN_SRC python
 person_id = df_disease_sample['person_id'].unique()
 from itertools import permutations
@@ -5520,4 +5537,34 @@ def get_topn_values(arr, topn, axis=-1, ascending=False):
 def get_semantic_sims(queries, candidates=None):
     sims = np.array([[vec_sim(s1, s2) for s2 in candidates] for s1 in queries], dtype=np.float32)
     return sims
+#+END_SRC
+
+- deep walk:
+#+BEGIN_SRC python
+G = nx.from_pandas_edgelist(df, "entityName1", "entityName2", edge_attr=True, create_using=nx.Graph())
+get_randomwalk('布洛芬颗粒', 10)
+def get_randomwalk(node, path_length):
+
+    random_walk = [node]
+
+    for i in range(path_length-1):
+        temp = list(G.neighbors(node))
+        temp = list(set(temp) - set(random_walk))
+        if len(temp) == 0:
+            break
+
+        random_node = random.choice(temp)
+        random_walk.append(random_node)
+        node = random_node
+
+    return random_walk
+
+# get list of all nodes from the graph
+all_nodes = list(G.nodes())
+
+random_walks = []
+for n in tqdm(all_nodes):
+    for i in range(5):
+        random_walks.append(get_randomwalk(n,10))
+
 #+END_SRC

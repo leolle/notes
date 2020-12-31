@@ -140,6 +140,49 @@ cat /proc/driver/nvidia/version
 lspci | grep -i nvidia
 lsmod | grep nvidia
 #+END_SRC
+
+- new on centos:
+#+BEGIN_SRC bash
+vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+service network restart
+
+yum install wget
+wget O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+yum clean all
+yum makecache
+
+yum install vim lrzsz bzip2 unzip tree lsof traceoute
+
+systemctl restart network
+
+# step 1: 安装必要的一些系统工具
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+# Step 2: 添加软件源信息
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# Step 3: 更新并安装 Docker-CE
+sudo yum makecache fast
+sudo yum -y install docker-ce
+# Step 4: 开启Docker服务
+sudo service docker start
+
+vim /etc/clickhouse-server/config.xml
+
+yum install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo chsh -s /bin/zsh root
+
+curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+
+wget http://opensource.wandisco.com/rhel/7/git/x86_64/git-2.22.0-1.WANdisco.437.x86_64.rpm
+yum install git-2.22.0-1.WANdisco.437.x86_64.rpm -y
+
+sudo yum install yum-utils
+sudo rpm --import https://repo.clickhouse.tech/CLICKHOUSE-KEY.GPG
+sudo yum-config-manager --add-repo https://repo.clickhouse.tech/rpm/stable/x86_64
+sudo yum install clickhouse-server clickhouse-client
+
+#+END_SRC
 **** Setup Linux Nvidia GPU
 1. check & install linux headers
 #+BEGIN_SRC bash

@@ -15,6 +15,102 @@
 
 ** beautifulsoup
 BeautifulSoup is a very popular web scraping library among Python programmers which constructs a Python object based on the structure of the HTML code and also deals with bad markup reasonably well, but it has one drawback: it’s slow.
+#+BEGIN_SRC python
+from bs4 import BeautifulSoup
+
+html = '''
+<html><head><title>The Dormouse's story</title></head>
+<body>
+<p class="title"><b>The Dormouse's story</b></p>
+
+<p class="story">Once upon a time there were three little sisters; and their names were
+<a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
+<a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
+<a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+and they lived at the bottom of a well.</p>
+<p class="story">...</p>
+'''
+
+soup = BeautifulSoup(html,'lxml')
+# title
+print(soup.title.text)
+print(soup.find_all('p'))
+
+# class
+print(soup.title.name)
+print(soup.title.string)
+print(soup.title.parent.name)
+print(soup.p)
+print(soup.p["class"])
+print(soup.a)
+print(soup.find_all('a'))
+print(soup.find(id='link3'))
+print(soup.a['href'])
+#+END_SRC
+
+** selenium
+
+#+BEGIN_SRC python
+import sys
+
+import requests
+import time
+import datetime
+import random
+import pandas as pd
+
+from lxml import etree
+from selenium import webdriver
+from tqdm import tqdm
+import json
+
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+caps = DesiredCapabilities.FIREFOX
+caps['loggingPrefs'] = {'performance': 'ALL'}
+driver = webdriver.PhantomJS('/home/wuwei/projects/text_data_mining/catch_wechat/phantomjs-2.1.1-linux-x86_64/bin/phantomjs', desired_capabilities=caps)
+driver.get('http://spds.qhrb.com.cn/SP12/SPOverSee1.aspx')
+table = driver.find_element_by_css_selector('#form1 > div.main > table')
+tr = table.find_elements_by_tag_name('tr')
+len(tr[0].find_elements_by_tag_name('td'))
+tr[1].find_elements_by_tag_name('td')[1].text
+data = table.find_elements_by_css_selector('#form1 > div.main > table > tbody')
+# read page content into pandas
+html = driver.page_source
+pd.read_html(html)[1]
+
+# jump to the next page
+fp_next = driver.find_element_by_xpath('//*[@id="AspNetPager1"]/a[12]')
+fp_next.click()
+#+END_SRC
+
+- login
+#+BEGIN_SRC python
+from selenium import webdriver
+import time
+
+driver = webdriver.Firefox()
+driver.get("https://www.baidu.com/")
+time.sleep(3)
+driver.find_element("userName").send_keys("1356046")
+driver.find_element("password").send_keys("x9122")
+driver.find_element("linkText","登录").click()
+
+cookies = driver.get_cookies()
+print (type(cookies))
+# print ("".join(cookies))
+f1 = open('cookie.txt', 'w')
+f1.write(json.dumps(cookies))
+f1.close
+
+f1 = open('cookie.txt')
+cookie = f1.read()
+cookie =json.loads(cookie)
+for c in cookie:
+    driver.add_cookie(c)
+# # 刷新页面
+driver.refresh()
+#+END_SRC
 
 ** lxml
 lxml is an XML parsing library (which also parses HTML) with a pythonic API based on ElementTree. (lxml is not part of the Python standard library.)
@@ -135,4 +231,23 @@ cd webcrawl/scrapy/quotes
 scrapy crawl quotes -o quotes.json
 # or
 scrapy crawl quotes -o quotes-humor.json -a tag=humor
+#+END_SRC
+
+** proxy
+- ip proxy tool
+https://github.com/qiyeboy/IPProxyPool
+#+BEGIN_SRC python
+import requests
+import json
+r = requests.get('http://192.168.4.36:8555/?types=0&count=5&country=国内')
+ip_ports = json.loads(r.text)
+print ip_ports
+ip = ip_ports[0][0]
+port = ip_ports[0][1]
+proxies={
+    'http':'http://%s:%s'%(ip,port),
+    'https':'http://%s:%s'%(ip,port)
+}
+r = requests.get('http://ip.chinaz.com/',proxies=proxies)
+r.encoding='utf-8'
 #+END_SRC
