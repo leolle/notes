@@ -1498,6 +1498,12 @@ df['month_year'] = pd.to_datetime(df['birth_date']).dt.to_period('M')
 >>> pd.to_datetime('13000101', format='%Y%m%d', errors='ignore')
 datetime.datetime(1300, 1, 1, 0, 0)
 #+END_SRC
+
+- int datetime into epoch timestamp
+#+BEGIN_SRC python
+lambda x: int(time.mktime(datetime.datetime.strptime(str(x), '%Y%m%d').timetuple()))
+#+END_SRC
+
 - remove timezone
 #+BEGIN_SRC python
 # check if column type is datetime64
@@ -2441,6 +2447,9 @@ def encrypt(string: str):
 
 def num2str(number: str):
     return binascii.unhexlify(format(number, "x").encode("utf-8")).decode("utf-8")
+
+def encrypt(string: str):
+    return base64.encodestring(string.encode("utf-8")).decode('utf-8')
 #+END_SRC
 
 ** hmac — Keyed-Hashing for Message Authentication
@@ -2689,6 +2698,30 @@ data = data.dropna()
 #+end_src
 
 ** email — An email and MIME handling package
+- attach multiple charts:
+#+BEGIN_SRC python
+def attach_image(path, filename, msg, text=''):
+    with open(path, 'rb') as f:
+        msgAlternative = MIMEMultipart('alternative')
+        msg.attach(msgAlternative)
+
+        msgText = MIMEText(filename)
+        msgAlternative.attach(msgText)
+
+        # We reference the image in the IMG SRC attribute by the ID we give it below
+#         msgText = MIMEText('<b>Some <i>HTML</i> text</b> and an image.<br><img src="cid:%s"><br>'%filename, 'html')
+        msgText = MIMEText('%s<br><img src="cid:%s"><br>'%(text, filename), 'html')
+        msgAlternative.attach(msgText)
+
+        # This example assumes the image is in the current directory
+        fp = open(path, 'rb')
+        msgImage = MIMEImage(fp.read())
+        fp.close()
+
+        # Define the image's ID as referenced above
+        msgImage.add_header('Content-ID', '<%s>'%filename)
+        msg.attach(msgImage)
+#+END_SRC
 ** json — JSON encoder and decoder
 ** Graph
 *** networkx
@@ -2819,8 +2852,13 @@ $ snakeviz profile.stats
 #+END_SRC
 
 ** timeit — Measure execution time of small code snippets
+
 ** trace — Trace or track Python statement execution
 ** tracemalloc — Trace memory allocations
+- memory usage of an object:
+#+BEGIN_SRC python
+print('all_data占据内存约: {:.2f} GB'.format(df_temp.memory_usage().sum()/ (1024**3)))
+#+END_SRC
 * Software Packaging and Distribution
 ** pip
 
@@ -3304,6 +3342,8 @@ except subprocess.CalledProcessError:
 * Data Analysis:
 ** pandas:
 [[file:./pandas.org][advanced pandas]]
+- apply to a dataframe is more efficient than access to index and change value.
+
 - set a column to tuple:
 #+BEGIN_SRC python
 pd_tmp = pd.DataFrame(np.random.rand(3,3))
@@ -4146,6 +4186,9 @@ df.loc[~(df==0).all(axis=1)]
 - drop columns/lable:
 #+BEGIN_SRC python
 DataFrame.drop(labels, axis=1, level=None, inplace=False, errors='raise')
+
+# delete column with all zeros:
+df.loc[:, (df != 0).all(axis=0)]
 #+END_SRC
 
 - check if any value is NaN in DataFrame

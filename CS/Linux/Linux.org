@@ -19,6 +19,7 @@
 *** Essential duties of the system administrator
 - terminate ssh connection
 =C-d=
+
 - edit&run python code at shell
 #+BEGIN_SRC bash
 python -c "import spacy; spacy.load('en'); print('OK')"
@@ -718,6 +719,11 @@ sudo gem install pdf-extract-0.1.1.gem
 
 #+END_SRC
 *** Python scripting
+- background command:
+#+BEGIN_SRC bash
+nohup python import_new_knowledge_20210302_5.py > mycommand5.out 2>&1 &
+#+END_SRC
+
 - python packages path
 /home/wuwei/anaconda3/envs/tfgpu/lib/python3.6/site-packages
 *** Scripting best practices
@@ -1787,6 +1793,9 @@ sudo apt-get install vinagre -y
 #+BEGIN_SRC bash
 # add domain for windows
 sudo mount -t cifs -o user=wuwei,password=samba123,uid=1000,gid=1000,iocharset=utf8,rw,dir_mode=0777,file_mode=0777 //192.168.4.36/projects /home/weiwu/sambashare
+mount -t cifs -o username=tech-winning/wuwei,password= //192.168.16.71/CloudStation ./windows
+
+smbclient --user=DEV-WUWEI //192.168.16.71/CloudStation
 #+END_SRC
 
 - samba file, :
