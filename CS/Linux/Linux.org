@@ -189,6 +189,7 @@ sudo yum install clickhouse-server clickhouse-client
 #+BEGIN_SRC bash
 # list linux kernal header version
 ls -l /usr/src/kernels/
+uname -m && cat /etc/*release
 uname -r # which should equal to previous result
 # centos
 yum install kernel-devel-$(uname -r) kernel-headers-$(uname -r)
@@ -820,6 +821,11 @@ du -sh *
 #+BEGIN_SRC bash
 # du only for directories
 du -sh ./*/
+#+END_SRC
+
+- show cpu information:
+#+BEGIN_SRC bash
+lscpu
 #+END_SRC
 - unzip a compressed file:
 #+BEGIN_SRC shell

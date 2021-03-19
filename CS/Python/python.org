@@ -3054,6 +3054,27 @@ warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 ** abc — Abstract Base Classes
 ** atexit — Exit handlers
 ** traceback — Print or retrieve a stack traceback
+- print function will convert object in memory into string and out to the standard io port. convert print content into an object:
+#+BEGIN_SRC python
+from io import StringIO
+import sys
+
+def print_audio_tagging_result(value):
+    print(f"value = {value}")
+
+tag_list = []
+for i in range(0,1):
+    save_stdout = sys.stdout
+    result = StringIO()
+    sys.stdout = result
+    print_audio_tagging_result(i)
+    sys.stdout = save_stdout
+    tag_list.append(result.getvalue())
+print(tag_list)
+
+#+END_SRC
+
+
 ** __future__ — Future statement definitions
 从Python 2.7到Python 3.x就有不兼容的一些改动，比如2.x里的字符串用'xxx'表示str，Unicode字符串用u'xxx'表示unicode，而在3.x中，所有字符串都被视为unicode，因此，写u'xxx'和'xxx'是完全一致的，而在2.x中以'xxx'表示的str就必须写成b'xxx'，以此表示“二进制字符串”。
 
@@ -4717,6 +4738,32 @@ np.setdiff1d(ar1, ar2)
 - turn a list of tuples into a list:
 #+BEGIN_SRC python
 [item for t in lt for item in t]
+#+END_SRC
+
+- pinyin sorted:
+#+BEGIN_SRC python
+from itertools import chain
+from pypinyin import pinyin, Style
+
+
+def to_pinyin(s):
+    '''转拼音
+
+    :param s: 字符串或列表
+    :type s: str or list
+    :return: 拼音字符串
+    >>> to_pinyin('你好吗')
+    'ni3hao3ma'
+    >>> to_pinyin(['你好', '吗'])
+    'ni3hao3ma'
+    '''
+    return ''.join(chain.from_iterable(pinyin(s, style=Style.TONE3)))
+
+
+print(sorted(['美国', '中国', '日本']))  # 美m 中z 日r abcdefghijkl[m]nopq[r]stuvwsy[z]
+# ['中国', '日本', '美国']
+print(sorted(['美国', '中国', '日本'], key=to_pinyin))  # 美m 中z 日r abcdefghijkl[m]nopq[r]stuvwsy[z]
+
 #+END_SRC
 
 - sorted a list of tuples
