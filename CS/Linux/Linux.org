@@ -78,7 +78,7 @@ sh cuda_9.0.176_384.81_linux.run
 **** use conda
 1. remove cuda
 2. downgrade nvidia to 384.69
-3. conda create -n tfgpu python=3.6.8
+3. conda create -n tfgpu python=3.6.8 # conda create -n example --clone base # conda create -n example --offline
 4. conda activate tfgpu
 5. conda install cuda=9.0
 6. conda install tensorflow-gpu ipython pytorch
@@ -1177,6 +1177,18 @@ ls
     yum install git
 
     git --version
+- download yum rpm package:
+#+BEGIN_SRC bash
+yum reinstall -y --downloadonly --downloaddir=/home/wuwei/Downloads/zsh unzip
+# or
+repotrack unzip
+#+END_SRC
+
+- list packages installed:
+#+BEGIN_SRC bash
+rpm -qa
+#+END_SRC
+
 
 ** BOOTING AND SHUTTING DOWN
 *** Bootstrapping
@@ -1318,7 +1330,10 @@ sudo fdisk -l
 - list size of all files and directories:
 #+BEGIN_SRC bash
 df -sh *
+# find file by name and show sizes
+find ./ -name '*patient*.pkl' | awk '{print $1}' | xargs du -sh
 #+END_SRC
+
 *** Storage hardware interfaces
 *** Peeling the onion: the software side of storage
 *** Attachment and low-level management of drives

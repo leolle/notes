@@ -131,8 +131,7 @@ arg3: 3
 
 #+END_SRC
 ** trouble shooting
-- linux python FileNotFoundEr
-ror: [Errno 2] No such file or directory:
+- linux python FileNotFoundError: [Errno 2] No such file or directory:
 
 try to use absolute path instead of relative path to read a file.
 
@@ -165,6 +164,41 @@ After call
 #+END_SRC
 
 Common examples for decorators are classmethod() and staticmethod().
+A staticmethod is a method that knows nothing about the class or instance it was called on. It just gets the arguments that were passed, no implicit first argument. It is basically useless in Python -- you can just use a module function instead of a staticmethod.
+
+A classmethod, on the other hand, is a method that gets passed the class it was called on, or the class of the instance it was called on, as first argument. This is useful when you want the method to be a factory for the class: since it gets the actual class it was called on as first argument, you can always instantiate the right class, even when subclasses are involved. Observe for instance how dict.fromkeys(), a classmethod, returns an instance of the subclass when called on a subclass:
+
+>>> class DictSubclass(dict):
+...     def __repr__(self):
+...         return "DictSubclass"
+...
+>>> dict.fromkeys("abc")
+{'a': None, 'c': None, 'b': None}
+>>> DictSubclass.fromkeys("abc")
+DictSubclass
+>>>
+- runtime decorator:
+#+BEGIN_SRC python
+import time
+def timeit(method):
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+        if 'log_time' in kw:
+            name = kw.get('log_name', method.__name__.upper())
+            kw['log_time'][name] = int((te - ts) * 1000)
+        else:
+            print(( '%r  %2.2f ms') % \
+                  (method.__name__, (te - ts) * 1000))
+        return result
+    return timed
+
+@timeit
+def read_sql(sql):
+    df = pd.read_sql(sql, con=engine)
+    return df
+#+END_SRC
 
 *** classmethod(function)
 Return a class method for function.
@@ -330,6 +364,14 @@ eval the value of a variable name from string.
 #+BEGIN_SRC python
 text = '{'a':1}'
 eval(text) # will turn text from a string object into a dictionary object
+#+END_SRC
+
+- convert string into variable:
+#+BEGIN_SRC python
+for ex in ['SZSE', 'SSE', 'CFFEX', 'SHFE', 'DCE', 'CZCE']:
+    varname = "df_" + ex
+    new_value = pro.opt_basic(exchange=ex)
+    globals()[varname]=new_value
 #+END_SRC
 ** Comparisons
 
@@ -1423,6 +1465,12 @@ textfile.close()
 matches = re.findall("(<(\d{4,5})>)?", filetext)
 
 #+END_SRC
+
+- replace cell string in py file downloaded from jupyter notebook:
+#+BEGIN_SRC python
+# In\[[\d]+\]:
+#+END_SRC
+
 - re replace remove digits from end of a string:
 #+BEGIN_SRC python
 import re
@@ -1554,6 +1602,12 @@ df.replace('\s+', '_',regex=True,inplace=True)
 df_patient['item_cost'] = df_patient['item_cost'].apply(lambda x : pd.to_numeric(x))
 #+END_SRC
 
+- remove all digit strings:
+#+BEGIN_SRC python
+df_cq['name'] = df_cq['soc_srt_dire_nm'].str.replace('\d+', '',regex=True)
+ls_cq = df_cq[df_cq['name'].apply(len)>0]['soc_srt_dire_nm'].tolist()
+#+END_SRC
+
 - string to datetime:
 #+begin_src python
 time.strptime(string[, format])
@@ -1580,6 +1634,16 @@ pd.DatetimeIndex.get_loc(datetime)
 #+BEGIN_SRC python
 TimeStamp +/- pd.DateOffset(years=1)
 pd.Timedelta(days=365) #allowed keywords are [weeks, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds]
+#+END_SRC
+
+- sum of timedelta:
+#+BEGIN_SRC python
+np.sum(timedelta)
+#+END_SRC
+
+- timedelta to hours:
+#+BEGIN_SRC python
+td / np.timedelta64(1, 'h')
 #+END_SRC
 
 - pandas date range selection:
@@ -1663,6 +1727,17 @@ pd.set_option('display.float_format', lambda x: '%.4f' % x)
 ** operator — Standard operators as functions
 * File and Directory Access
 ** pathlib — Object-oriented filesystem paths
+- basics:
+#+BEGIN_SRC python
+from pathlib import Path
+p = Path('.')
+#+END_SRC
+
+- join path:
+#+BEGIN_SRC python
+pathlib.Path(__file__).parent.parent / 'qhrb_overview_2021_04_03_total.pkl'
+#+END_SRC
+
 ** os.path — Common pathname manipulations
 - delete a file:
 #+BEGIN_SRC python
@@ -2273,7 +2348,31 @@ CONN.commit()
 #+END_SRC
 - True\False
 can't insert True or False directly into table, need to turn True/False into string.
-
+- insert via engine:
+#+BEGIN_SRC python
+from sqlalchemy import create_engine
+from sqlalchemy import MetaData
+from sqlalchemy import Table
+from sqlalchemy.orm import sessionmaker
+conn = engine.connect()
+# Open the session
+Session = sessionmaker(bind=engine)
+session = Session()
+# Create MetaData instance
+metadata = MetaData()
+#print(metadata.tables)
+# reflect db schema to MetaData
+metadata.reflect(bind=engine)
+# Get Table
+table_name = 't_kc22'
+ex_table = metadata.tables[table_name]
+print(ex_table)
+listToWrite = df_22_temp.to_dict(orient='records')
+try:
+    conn.execute(ex_table.insert(), listToWrite)
+except Exception as e:
+    print(e)
+#+END_SRC
 *** delete
 - clear a table
 The TRUNCATE TABLE statement is used to remove all records from a table in Oracle. It performs the same function as a DELETE statement without a WHERE clause.
@@ -2571,8 +2670,31 @@ import logging
 ylog.set_level(logging.DEBUG)
 ylog.console_on()
 ylog.filelog_on("app")
-
 #+END_SRC
+
+- replace the logging with loguru:
+#+BEGIN_SRC python
+import logging
+from loguru import logger
+class InterceptHandler(logging.Handler):
+    def emit(self, record):
+        # Get corresponding Loguru level if it exists
+        try:
+            level = logger.level(record.levelname).name
+        except ValueError:
+            level = record.levelno
+
+        # Find caller from where originated the logged message
+        frame, depth = logging.currentframe(), 2
+        while frame.f_code.co_filename == logging.__file__:
+            frame = frame.f_back
+            depth += 1
+
+        logger.opt(depth=depth, exception=record.exc_info).log(level, record.getMessage())
+
+logging.basicConfig(handlers=[InterceptHandler()], level=0)
+#+END_SRC
+
 ** logging.config — Logging configuration
 ** logging.handlers — Logging handlers
 ** getpass — Portable password input
@@ -2608,6 +2730,12 @@ import threading
 
 * Internet Data Handling
 ** Jupyter notebook
+- ipython memory usage:
+#+BEGIN_SRC python
+import ipython_memory_usage
+%ipython_memory_usage_start
+#+END_SRC
+
 *** Using a virtualenv in an IPython notebook
 1. Install the ipython kernel module into your virtualenv
 #+BEGIN_SRC python
@@ -2661,6 +2789,11 @@ jupyter nbextension enable hinterland/hinterland
 - clear jupyter notebook ouput in all cells:
 #+BEGIN_SRC bash
 jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace xxx.ipynb
+#+END_SRC
+
+- ipython history size
+#+BEGIN_SRC ipython
+%config TerminalInteractiveShell.history_length=100000
 #+END_SRC
 
 ** typical structure of the ipython notebook ipynb:
@@ -2766,6 +2899,11 @@ nx.draw(G)
 ** smtpd — SMTP Server
 ** telnetlib — Telnet client
 ** uuid — UUID objects according to RFC 4122
+- random hex:
+#+BEGIN_SRC python
+import uuid
+uuid.uuid4().hex
+#+END_SRC
 ** socketserver — A framework for network servers
 ** http.server — HTTP servers
 ** http.cookies — HTTP state management
@@ -2901,7 +3039,7 @@ pip install *.whl
 #+BEGIN_SRC bash
 pip install -U pip
 #+END_SRC
-- add below setup to ~/.pip/pip.conf
+- add below setup to ~/.pip/pip.conf on unix or %APPDATA%\pip\pip.conf on Windows
 #+begin_src txt
 [global]
 #index-url=https://pypi.mirrors.ustc.edu.cn/simple/
@@ -3192,6 +3330,10 @@ if os.path.split(os.path.abspath(__file__))[0] != os.getcwd():
     from .utils import convert_string, FastIndexing, get_topn_values
 else:
     from graph import Graph, get_shortest_paths_among_nodes, complement_paths,\
+# or
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
 #+end_src
 
 - move pyc to root directory:
@@ -3434,7 +3576,7 @@ df.at[1, 'B'] = ['m', 'n']
 df.set_value(1, 'B', abc)
 #+END_SRC
 
-- replace nan with None:
+- replace nan with None fillna:
 #+BEGIN_SRC python
 df1 = df.where((pd.notnull(df)), None)
 #+END_SRC
@@ -3468,6 +3610,12 @@ df_item.groupby(level=0, group_keys=False).apply(lambda x: x.sort_values('abs_di
 df_most_visited_hospitals.sort_values(['PERSON_ID','DISCHARGE_DATE'],ascending=True).groupby(['PERSON_ID', 'ICD3']).first()
 
 #+END_SRC
+
+- group by value counts contraint:
+#+BEGIN_SRC python
+df.groupby(['out_diag_doc_cd'])['in_hosp_date_date'].value_counts().loc[lambda x : x>1]
+#+END_SRC
+
 - filter by groupby count size:
 #+BEGIN_SRC python
 df_patient = df_patient.groupby(['hos_id', 'disease']).filter(lambda x:x['person_id'].unique().size>=3)
@@ -3540,9 +3688,14 @@ print(df)
 df_patient['disease_code'].fillna('unk', inplace=True)
 #+END_SRC
 
+- re-index:
+#+BEGIN_SRC python
+df_his_data = df_his_data.reset_index().drop('index', axis=1)
+#+END_SRC
+
 - average times groupby:
 #+BEGIN_SRC python
-df_patient.reset_index().groupby('disease_code').apply(lambda x:['med_clinic_id'].count()/x['person_id'].nunique())
+df_patient.reset_index().groupby('disease_code').apply(lambda x:x['med_clinic_id'].count()/x['person_id'].nunique())
 #+END_SRC
 - ValueError: Bin edges must be unique:
 #+BEGIN_SRC python
@@ -3691,6 +3844,29 @@ df.head()
 client.execute("INSERT INTO your_table VALUES", df.to_dict('records'))
 #+END_SRC
 
+- bulk insert:
+#+BEGIN_SRC python
+from sqlalchemy import create_engine
+from sqlalchemy import MetaData
+from sqlalchemy.orm import sessionmaker
+
+conn = engine.connect()
+# Open the session
+Session = sessionmaker(bind=engine)
+session = Session()
+# Create MetaData instance
+metadata = MetaData()
+# reflect db schema to MetaData
+metadata.reflect(bind=engine)
+# Get Table
+table_name = 't_kc21'
+ex_table = metadata.tables[table_name]
+print(ex_table)
+
+listToWrite = df_21.to_dict(orient='records')
+conn.execute(ex_table.insert(), listToWrite)
+#+END_SRC
+
 - read oracle database UnicodeDecodeError 'gb' :
 set the language of the editor from Chinese to English.
 #+BEGIN_SRC python
@@ -3701,7 +3877,6 @@ import os
 from tqdm import *
 import os
 from sqlalchemy import create_engine
-
 
 os.environ['NLS_LANG'] = 'SIMPLIFIED CHINESE_CHINA.UTF8'
 
@@ -3846,6 +4021,7 @@ small_groups = df_nanjing[df_nanjing['group_sn'].isin(group_size[group_size < 8]
 #+END_SRC
 - create a dataframe from a dictionary:
 #+BEGIN_SRC python
+# from a dictionary of dictionaries
 df = pd.DataFrame.from_dict({}, orient='index')
 #+END_SRC
 
@@ -4168,6 +4344,17 @@ pd.isna(v['omaha_entity1'])
 z=(a!=b)
 pd.concat([a.ix[z[reduce(lambda x, y: x | z[y], z, False)].index],b.ix[z[reduce(lambda x, y: x | z[y], z, False)].index]],axis=1)
 #+end_src
+
+- map:
+#+BEGIN_SRC python
+>>> numbers = [-2, -1, 0, 1, 2]
+
+>>> abs_values = list(map(abs, numbers))
+>>> abs_values
+[2, 1, 0, 1, 2]
+
+#+END_SRC
+
 - reduce
 #+BEGIN_SRC python
 from functools import reduce
@@ -4322,6 +4509,16 @@ pd.pivot_table(df,index='hour',columns='day',values='pb',aggfunc=np.sum)
 #+begin_src python
 end = end.replace(hour=23, minute=59, second=59)
 #+end_src
+
+- every weekday before 20th in each month:
+#+BEGIN_SRC python
+ls = pd.bdate_range(start='2021', end='2030')
+ls_20 = [x.replace(day=20) for x in ls]
+df = pd.concat([pd.Series(ls), pd.Series(ls_20)], axis=1)
+df[2] = df[0] - df[1]
+df = df[df[2]<np.timedelta64(1, 'D')]
+df = df.loc[df.groupby(1)[2].idxmax()]
+#+END_SRC
 
 - 万德 wind python pandas
 #+begin_src python
@@ -4593,6 +4790,11 @@ df_med_similarity_adj_matrix.index = pd.MultiIndex.from_tuples(df_med_similarity
 df_med_similarity_adj_matrix.reset_index().pivot(index='level_0', columns='level_1', values='similarity')
 #+END_SRC
 ** numpy
+- convert a list of arrays to dataframe:
+#+BEGIN_SRC python
+pd.DataFrame(np.concatenate(ls_df))
+#+END_SRC
+
 - convert a list of arrays to 3d array:
 #+BEGIN_SRC python
 import numpy as np
@@ -4954,6 +5156,16 @@ fig is the :class:matplotlib.figure.Figure object.
 /usr/share/fonts/truetype/wqy/wqy-microhei.ttc: 文泉驿等宽微米黑,文泉驛等寬微米黑,WenQuanYi Micro Hei Mono:style=Regular
 #+END_SRC
 #+BEGIN_SRC python
+import matplotlib.font_manager as font_manager
+
+font_dirs = ['/my/custom/font/dir', ]
+font_files = font_manager.findSystemFonts(fontpaths=font_dirs)
+font_list = font_manager.createFontList(font_files)
+font_manager.fontManager.ttflist.extend(font_list)
+print(font_list)
+mpl.rcParams['font.family'] = 'My Custom Font'
+
+# or
 import matplotlib.font_manager as mfm
 import matplotlib.pyplot as plt
 font_path = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"

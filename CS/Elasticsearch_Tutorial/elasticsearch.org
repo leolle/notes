@@ -13,6 +13,55 @@
 #+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
 
 * Basic operations:
+- initilization
+#+BEGIN_SRC bash
+启动docker:
+systemctl start docker
+
+国内源：
+vim /etc/docker/daemon.json
+{
+  "registry-mirrors": ["https://tslxqqy2.mirror.aliyuncs.com"]
+}
+
+新建容器：
+docker pull elasticsearch:7.6.2
+
+docker run -p 9200:9200 -p 9300:9300 -d -e "discovery.type=single-node" --name es1 docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+
+全网访问：
+docker cp elasticsearch.yml es:/usr/share/elasticsearch/config/elasticsearch.yml
+
+#cluster.name: "docker-cluster"
+#network.host: 0.0.0.0
+
+把词典放入ES
+docker cp synonym_omaha.txt es:/usr/share/elasticsearch/config/analysis/
+docker cp synonym.txt es:/usr/share/elasticsearch/config/analysis/
+docker cp stop_words.txt es:/usr/share/elasticsearch/config/analysis/
+
+cd config/analysis
+chown elasticsearch:root synonym.txt
+chown elasticsearch:root synonym_omaha.txt
+chown elasticsearch:root stop_words.txt
+
+stop_words.txt  synonym.txt  synonym_omaha.txt
+
+分词插件
+/home/wuwei/projects/temp/d3/chapter16-elasticsearch/elasticsearch-5.5.1/config/analysis-ik
+
+/home/wuwei/projects/temp/d3/20191DataScience-2b231abd540848b377ca1ebc2ffd2e8ecddf3b9b/elasticsearch-analysis-ik-7.6.2.zip
+/home/wuwei/projects/temp/d3/20191DataScience-2b231abd540848b377ca1ebc2ffd2e8ecddf3b9b/analysis-ik/elasticsearch-analysis-ik-7.6.2.jar
+
+/usr/share/elasticsearch/plugins/analysis-ik/elasticsearch-analysis-ik-7.6.2.jar
+
+bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.6.2/elasticsearch-analysis-ik-7.6.2.zip
+
+
+使用：
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvi-full-text-search
+#+END_SRC
+
 - config file location:
 /usr/share/elasticsearch/config/elasticsearch.yml
 
@@ -169,6 +218,19 @@ curl 'localhost:9200/accounts/person/_search'  -d '
 }'
 #+END_SRC
 
+- cut words
+#+BEGIN_SRC bash
+curl -X POST "localhost:9200/_analyze" -H 'Content-Type: application/json' -d '
+{
+  "analyzer": "ik_smart",
+  "text":      "脑梗"
+}'
+curl -X POST "localhost:9200/_analyze"  -d '
+{"analyzer": "ik_synonym",
+"text":      "番茄"}'
+#+END_SRC
+
+
 - search query
 #+BEGIN_SRC bash
 http://192.168.4.36:9200/yiduyun_operation_name/_search?pretty
@@ -245,6 +307,102 @@ if __name__ == "__main__":
     ArticleType.init()
 #+END_SRC
 
+* insert document into an index
+- create and insert
+#+BEGIN_SRC python
+from elasticsearch_dsl import Document, Text, Keyword, Completion, analyzer, DenseVector
+from elasticsearch_dsl.connections import connections
+connections.create_connection(hosts=['192.168.4.33'])
+
+from elasticsearch_dsl import Document, Completion, Text, Date, Keyword, Integer
+from elasticsearch_dsl.analysis import CustomAnalyzer as _CustomAnalyzer
+from elasticsearch import helpers
+from elasticsearch import Elasticsearch
+es = Elasticsearch()
+
+# create index
+print("begin create index")
+setting = {
+    "settings": {
+        "number_of_replicas": 0,
+        "number_of_shards": 2,
+        "analysis": {
+              "filter": {
+                "my_synonym": {
+                  "type": "synonym",
+                  "synonyms_path": "analysis/synonym_omaha.txt"
+                },
+                "my_stop": {
+                  "type": "stop",
+                  "stopwords_path": "analysis/stop_words.txt"
+                }
+              },
+              "analyzer": {
+                "ik_synonym": {
+                  "type": "custom",
+                  "tokenizer": "ik_max_word",
+                  "filter": ["my_synonym", "my_stop"]
+                }
+              }
+            }
+    },
+    "mappings": {
+        "properties": {
+            "entity": {
+                "type": "text"
+            },
+            "semanticTag": {
+                "type": "keyword"
+            },
+            "property": {
+                "type": "keyword"
+            },
+            "value": {
+                "type": "text"
+            },
+            "valueTag": {
+                "type": "keyword"
+            },
+            "entity_vector": {
+                "type": "dense_vector",
+                "dims": 200
+            },
+            "value_vector": {
+                "type": "dense_vector",
+                "dims": 200
+            }
+        }
+    }
+}
+es.indices.create(index='omaha-vector-index-20210325', body=setting)
+
+# insert
+for x, y in cdf.iterrows():
+    if y['entity'] not in saved:
+        vec_entity = avg_feature_vector(y['entity'], wv_from_text, index2word_set)
+        saved[y['entity']] = vec_entity
+    if y['value'] not in saved:
+        vec_value = avg_feature_vector(y['value'], wv_from_text, index2word_set)
+        saved[y['value']] = vec_value
+    request = {'_op_type': 'index',  # 操作 index update create delete
+               '_index': 'omaha-vector-index-20210325',  # index
+               '_id': x,
+               '_source':
+                   {
+                       'entity': y['entity'],
+                       'entityId': y['entityId'],
+                       'semanticTag': y['semanticTag'],
+                       'property': y['property'],
+                       'value': y['value'],
+                       'valueId': y['valueId'],
+                       'valueTag': y['valueTag'],
+                       'entity_vector': saved[y['entity']],
+                       'value_vector': saved[y['value']],
+                   }
+               }
+    requests.append(request)
+helpers.bulk(es, requests)
+#+END_SRC
 
 * analyze接口
 #+BEGIN_SRC bash
