@@ -46,6 +46,8 @@ print(soup.a)
 print(soup.find_all('a'))
 print(soup.find(id='link3'))
 print(soup.a['href'])
+# find href
+soup.find('p').attr('href')
 #+END_SRC
 
 ** selenium
