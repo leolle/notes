@@ -1355,6 +1355,9 @@ sudo chmod u+w myfolder
 *** cron: schedule commands
 *** The format of crontab files
 *** Crontab management
+#+BEGIN_SRC bash
+0,10,20,30,40,50 * * * * PYTHONPATH=/home/wuwei/projects/ylib/ /home/wuwei/anaconda3/envs/tfgpu/bin/python /home/wuwei/projects/text_data_mining/bitcoin/package/btc_real.py >> ~/cron_btc_real.log 2>&1
+#+END_SRC
 *** Linux and Vixie-cron extensions
 *** Some common uses for cron
 
