@@ -1608,6 +1608,11 @@ df_cq['name'] = df_cq['soc_srt_dire_nm'].str.replace('\d+', '',regex=True)
 ls_cq = df_cq[df_cq['name'].apply(len)>0]['soc_srt_dire_nm'].tolist()
 #+END_SRC
 
+- parse all digit from string column:
+#+BEGIN_SRC python
+df_stock_daily['rank'].str.extract('(\d+)').astype(int)
+#+END_SRC
+
 - string to datetime:
 #+begin_src python
 time.strptime(string[, format])
@@ -3823,6 +3828,20 @@ df.groupby('A').agg(['mean', 'std'])
 
 
 #+END_SRC
+- groupby generate new columns:
+#+BEGIN_SRC python
+df_result_summary = df_result_detail.groupby(
+    ['risk_grp_no', 'risk_grp_name', 'fqz_type', 'tel', 'resd_regn']
+).agg(
+    sumamt=pd.NamedAgg('sumamt', 'sum'),
+    hifp_pay=pd.NamedAgg('hifp_pay', 'sum'),
+    acct_pay=pd.NamedAgg('acct_pay', 'sum'),
+    grp_psncnt=pd.NamedAgg(d_col['person_id'], 'nunique'),
+    mdtrt_psncnt=pd.NamedAgg(d_col['medical_id'], 'nunique'),
+    maw_ipt_cnt=pd.NamedAgg(d_col['medical_id'], 'nunique'),
+    mdtrt_cnt=pd.NamedAgg(d_col['medical_id'], 'count'))
+df_result_summary.reset_index(inplace=True)
+#+END_SRC
 
 - groupby aggregate to list:
 #+BEGIN_SRC python
@@ -3837,6 +3856,10 @@ result, columns = clickhouse_conn.execute(sql,
                                  with_column_types=True)
 df = pd.DataFrame(result, columns=[tuple[0] for tuple in columns])
 df.head()
+#+END_SRC
+- create clickhouse table:
+#+BEGIN_SRC python
+create table wuxi_ads_grouprisk.risk_zy_jtzy_table3 ENGINE=MergeTree() ORDER BY tuple() SETTINGS index_granularity = 8192 as select 1
 #+END_SRC
 
 - insert into clickhouse:
