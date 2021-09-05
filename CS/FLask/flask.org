@@ -79,8 +79,21 @@ def signin():
     return answer
 
 
+
 if __name__ == '__main__':
     host, port = '0.0.0.0', 5277
     s = "* Running on http://{}:{}/".format(host, port)
     pywsgi.WSGIServer((host, port), app).serve_forever()
+#+END_SRC
+
+- requests.method:
+
+#+BEGIN_SRC python
+if request.method == "POST":
+    # HTTP Method POST. That means the form was submitted by a user
+    # and we can find her filled out answers using the request.POST QueryDict
+else:
+    # Normal GET Request (most likely).
+    # We should probably display the form, so it can be filled
+    # out by the user and submitted. 
 #+END_SRC

@@ -1508,6 +1508,17 @@ find_replace_multi_ordered(s, d)
 zhmodel = re.compile(u'[\u4e00-\u9fa5]')
 #+END_SRC
 
+- if a column contains Chinese:
+#+BEGIN_SRC python
+for i in df.columns:
+    if i in ['股票简称', 'code', '股票代码']:
+        continue
+    elif df[i].astype(str).str.contains(u'[\u4e00-\u9fa5]').any():
+        continue
+    else:
+        df[i] = df[i].astype(float)
+#+END_SRC
+
 ** difflib — Helpers for computing deltas
 ** textwrap — Text wrapping and filling
 ** unicodedata — Unicode Database
@@ -1649,6 +1660,21 @@ np.sum(timedelta)
 - timedelta to hours:
 #+BEGIN_SRC python
 td / np.timedelta64(1, 'h')
+#+END_SRC
+
+- convert into 亿:
+#+BEGIN_SRC python
+0!.00,,"亿"
+#+END_SRC
+
+- change the column order to the first column:
+#+BEGIN_SRC python
+# shift column 'Name' to first position
+first_column = df.pop('股票简称')
+  
+# insert column using insert(position,column_name,
+# first_column) function
+df.insert(0, '股票简称', first_column)
 #+END_SRC
 
 - pandas date range selection:
@@ -3104,7 +3130,13 @@ pyenv versions
 * Python Runtime Services
 ** sysconfig — Provide access to Python’s configuration information
 ** os, sys — System-specific parameters and functions
--
+- set environment in windows:
+#+BEGIN_SRC shell
+set PYTHONPATH="F:\projects\env\Scripts"
+python -c "import distutils.sysconfig; print(distutils.sysconfig.get_config_var('VERSION'))"
+pause
+#+END_SRC
+
 - get environment variables
 #+BEGIN_SRC python
 import os
@@ -3613,7 +3645,11 @@ df_item.groupby(level=0, group_keys=False).apply(lambda x: x.sort_values('abs_di
 
 # select rows by person id and icd 3, not only person id
 df_most_visited_hospitals.sort_values(['PERSON_ID','DISCHARGE_DATE'],ascending=True).groupby(['PERSON_ID', 'ICD3']).first()
+#+END_SRC
 
+- multiindex join on level:
+#+BEGIN_SRC python
+df1.join(df).sort_index(level=0, axis=1)
 #+END_SRC
 
 - group by value counts contraint:
@@ -3640,6 +3676,22 @@ for group in df2.groupby('type'):
 #+BEGIN_SRC python
 df_query[df_query.groupby("entity")['entity_sim'].transform(lambda x : (x<(x.quantile(0.1)))).eq(1)]
 #+END_SRC
+
+- delete a subset from a list:
+#+BEGIN_SRC python
+def multidelete(values, todelete):
+    todelete=np.array(todelete)
+    shift=np.triu((todelete>=todelete[:,None]),1).sum(0)
+    return np.delete(values,todelete+shift)
+# or 
+list_1 = ["a", "b"]
+list_2 = ["a", "b", "c"]
+
+for element in list_1:
+    if element in list_2:
+        list_2.remove(element)
+#+END_SRC
+
 - groupby function apply order:
 #+BEGIN_SRC python
 from numpy.random import randint
@@ -3710,6 +3762,12 @@ pd.qcut(df['column'].rank(method='first'), nbins)
 - pd.to_datetimeindex error:
 #+BEGIN_SRC python
 
+#+END_SRC
+
+- numpy value counts frequency:
+#+BEGIN_SRC python
+unique, counts = np.unique(continueGame, return_counts=True)
+np.asarray((unique, counts)).T
 #+END_SRC
 
 - add multiple empty columns:
@@ -4533,7 +4591,7 @@ pd.pivot_table(df,index='hour',columns='day',values='pb',aggfunc=np.sum)
 end = end.replace(hour=23, minute=59, second=59)
 #+end_src
 
-- every weekday before 20th in each month:
+- every weekday business day before 20th in each month:
 #+BEGIN_SRC python
 ls = pd.bdate_range(start='2021', end='2030')
 ls_20 = [x.replace(day=20) for x in ls]
@@ -4541,6 +4599,13 @@ df = pd.concat([pd.Series(ls), pd.Series(ls_20)], axis=1)
 df[2] = df[0] - df[1]
 df = df[df[2]<np.timedelta64(1, 'D')]
 df = df.loc[df.groupby(1)[2].idxmax()]
+#+END_SRC
+
+- Keep the first rows of continuous specific values in a pandas data frame?
+#+BEGIN_SRC python
+a = df['is_open']
+mask = (a.shift(1) != a) & ((a.shift(-1) == a) | (a.shift(-2) == a)) & (a == 1)
+df[mask]
 #+END_SRC
 
 - 万德 wind python pandas
@@ -4668,7 +4733,7 @@ index = index.set_index(pd.DatetimeIndex(index['tradeDate'])).drop('tradeDate', 
 #+begin_src python
 pd.concat([df1, df2], axis=0).sort_index()
 pd.concat([df1, df2], axis=1)
-result = df1.join(df2, how='outer’)
+result = df1.join(df2, how='outer')
 #+end_src
 
 - check if the index is datetimeindex:
@@ -4849,6 +4914,99 @@ array([1, 2, 3, 4])
 [4, 2, 1, 3]
 
 #+END_SRC
+
+- bokeh plot:
+#+BEGIN_SRC python
+x_column = "datetime"
+y_column1 = "close"
+y_column2 = "vol"
+y_column3 = "cum_delta"
+# Bokeh plot
+# cross = CrosshairTool()
+# cross.line_color = 'white'
+# cross.line_alpha = 0.7
+# Bokeh plot
+output_file("twin_axis.html")
+
+y_overlimit = 0.05 # show y axis below and above y min and max value
+# Add hover to this comma-separated string and see what changes
+TOOLS = 'wheel_zoom, box_zoom, pan, box_select, crosshair,reset'
+
+# create a new plot with the toolbar below
+p = figure(plot_width=800, plot_height=400, x_axis_type='datetime', tools=TOOLS)
+#         HoverTool(tooltips=[('date', '@DateTime{%F}')],
+#           formatters={'@DateTime': 'datetime'})
+
+hover = HoverTool(
+    tooltips = [
+        ('datetime', '@DateTime{%F}'),
+        ("(x,y)", "($y, $x)")
+    ],
+    formatters={
+        '@DateTime': 'datetime',
+        'Value' : 'printf',
+    },    
+)
+p.add_tools(hover)
+p.toolbar.active_scroll = p.select_one(WheelZoomTool)
+#p = figure()
+#p.toolbar.active_inspect = [cross]
+
+# FIRST AXIS
+p.line(df[x_column], df[y_column1], legend=y_column1, line_width=1, color="blue")
+p.y_range = Range1d(
+    df[y_column1].min(), df[y_column1].max()
+)
+# SECOND AXIS
+y_column2_range = y_column2 + "_range"
+p.extra_y_ranges = {
+    y_column2_range: Range1d(
+        start=df[y_column2].min() * (1 - y_overlimit),
+        end=df[y_column2].max() * (1 + y_overlimit),
+    )
+}
+p.add_layout(LinearAxis(y_range_name=y_column2_range), "right")
+
+p.line(
+    df[x_column],
+    df[y_column2],
+    legend=y_column2,
+    line_width=1,
+    y_range_name=y_column2_range,
+    color="green",
+)
+# Second figure
+p2 = figure(plot_width=800, plot_height=400, x_axis_type='datetime', tools=TOOLS)
+p2.add_tools(hover)
+p2.toolbar.active_scroll = p.select_one(WheelZoomTool)
+# FIRST AXIS
+p2.line(df[x_column], df[y_column1], legend=y_column1, line_width=1, color="blue")
+p2.y_range = Range1d(
+    df[y_column1].min(), df[y_column1].max()
+)
+
+# SECOND AXIS
+y_column3_range = y_column3 + "_range"
+p2.extra_y_ranges = {
+    y_column3_range: Range1d(
+        start=df[y_column3].min() * (1 - y_overlimit),
+        end=df[y_column3].max() * (1 + y_overlimit),
+    )
+}
+p2.add_layout(LinearAxis(y_range_name=y_column3_range), "right")
+
+p2.line(
+    df[x_column],
+    df[y_column3],
+    legend=y_column3,
+    line_width=1,
+    y_range_name=y_column3_range,
+    color="green",
+)
+
+show(row(p, p2))
+#+END_SRC
+
 - plot histogram:
 #+BEGIN_SRC python
 >>> import matplotlib.pyplot as plt
