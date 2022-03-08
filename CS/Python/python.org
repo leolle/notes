@@ -38,6 +38,7 @@ the 2016 Referendum'
 ' 42572654 YES votes  49.67%'
 
 #+END_SRC
+
 - Formatted String Literals
 #+BEGIN_SRC python
 >>> table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
@@ -570,6 +571,16 @@ StopIteration
 filtered_list = [i for (i, v) in zip(list_a, filter) if v]
 #+END_SRC
 
+- np.poly1d(p)指一阶的mse:
+#+BEGIN_SRC python
+p1 = np.poly1d(p)
+y_fit = p1(x)
+mse = metrics.mean_squared_error(y, y_fit)
+if p_cnt == 1:
+    poly1d = mse
+
+#+END_SRC
+
 - float range step:
 #+BEGIN_SRC python
 for i in numpy.arange(0, 1, 0.1):
@@ -683,6 +694,13 @@ list.remove('value')
 - tuple vs set
 A set is a slightly different concept from a list or a tuple. A set, in Python, is just like the mathematical set. It does not hold duplicate values, and is unordered. However, it is not immutable unlike a tuple.Jan 9, 2018
 
+- concatenate daterange from combined date and time :
+#+BEGIN_SRC python
+from datetime import datetime, time
+ix_list = [pd.date_range(start=datetime.combine(x, time.fromisoformat('09:15:00')), periods=346, freq='min') for x in df['date'].unique()]
+df_idx = pd.DatetimeIndex(np.unique(np.hstack(ix_list)))
+#+END_SRC
+
 - combine list of lists into one list, join list of lists
 #+BEGIN_SRC python
 import itertools
@@ -690,7 +708,19 @@ a = [["a","b"], ["c"]]
 print list(itertools.chain.from_iterable(a))
 # or
 lambda: (lambda b: map(b.extend, big_list))([])
+# or
+[j for i in ls_weight_users for j in i]
 #+END_SRC
+
+- check if two lists are equal:
+import itertools
+a = ["a", "b", "c"]
+b = ["a", "c", "b"]
+a.sort()
+b.sort()
+assert a == b
+#+END_SRC
+
 - find difference of two lists:
 #+begin_src python
 a = [1,2,3,2,1,5,6,5,5,5]
@@ -698,9 +728,20 @@ import collections
 print [item for item, count in collections.Counter(a).items() if count > 1]
 #+end_src
 
+- element counter from array of list:
+#+begin_src python
+totals = Counter(i for i in list(itertools.chain.from_iterable(df_temp.values)))
+#+end_src
+
+
 - 列表生成式list comprehension
 #+begin_src python
 [a.lower() for a in x=['Hello', 'World', 18, 'Apple', None] if isinstance(a,str)]
+#+end_src
+
+- file path parameter:
+#+begin_src python
+fig.savefig(f'./png/{num}.{dropout}.{kernel_size}.{levels}.{nhid}'+'.png')
 #+end_src
 
 - read file to a list:
@@ -723,6 +764,7 @@ with open('outfile', 'wb') as fp:
 with open ('outfile', 'rb') as fp:
     itemlist = pickle.load(fp)
 #+end_src
+
 - save a list of Chinese string to a file:
 #+BEGIN_SRC python
 values = [u'股市']
@@ -730,6 +772,7 @@ import codecs
 with codecs.open("file.txt", "w", encoding="utf-8") as d:
     d.write(str(x0))
 #+END_SRC
+
 - for item in the list:
 #+begin_src python
 thefile.write("%s\n" % item)
@@ -737,6 +780,20 @@ thefile.write("%s\n" % item)
 
 - replace comma as next line (enter):
 choose extend mode: replace ',' as \r\n
+
+- split ls_codes
+#+BEGIN_SRC python
+ls_codes = np.array_split(ls_codes, np.ceil(len(ls_codes)/100))
+df_daily = pd.DataFrame()
+# 获取日线成交量
+for i in ls_codes:
+    df_temp = pro.daily(ts_code=','.join(i), start_date='20210101')
+    df_daily = pd.concat([df_temp, df_daily])
+df_daily['trade_date'] = pd.to_datetime(df_daily['trade_date'])
+df_daily.sort_values('trade_date')
+df_daily.iloc[:, 2:] = df_daily.iloc[:, 2:].apply(pd.to_numeric)
+df_daily['code'] = df_daily['ts_code'].apply(lambda x: x[:-3])
+#+END_SRC
 
 - split strings by space delimiter from reverse:
 #+begin_src python
@@ -908,6 +965,11 @@ def join_ratio(data):
     ratio = len(join) / len(union)
     return  join, ratio
 #+END_SRC
+
+- get a value from a set:
+#+BEGIN_SRC python
+e = next(iter(a))
+element = a.pop(0)
 
 - access an element in a set.
 #+BEGIN_SRC python
@@ -1127,6 +1189,19 @@ print `a`
 print repr(a)
 #+end_src
 
+- get proxies:
+#+BEGIN_SRC python
+with open(Path(r'F:\projects\wencai') / 'proxies.txt', 'r') as f:
+    ls_ip_ports = f.readlines()
+    ls_ip_ports = [x.strip() for x in ls_ip_ports]
+
+def get_proxy():
+    proxies = {
+      "http": random.choice(ls_ip_ports)
+    }
+    return proxies
+#+END_SRC
+
 - find out where module is installed
 #+BEGIN_SRC python
 import os
@@ -1219,6 +1294,7 @@ else:
     body = resp.read()
 
 #+END_SRC
+
 - create an exception:
 #+BEGIN_SRC python
 class ConstraintError(Exception):
@@ -1241,6 +1317,7 @@ except Networkerror,e:
     print e.args
     print e.message
 #+END_SRC
+
 - clean-up actions
 #+BEGIN_SRC python
 >>> def divide(x, y):
@@ -1469,6 +1546,11 @@ matches = re.findall("(<(\d{4,5})>)?", filetext)
 - replace cell string in py file downloaded from jupyter notebook:
 #+BEGIN_SRC python
 # In\[[\d]+\]:
+#+END_SRC
+
+- search for strings after a colon:
+#+BEGIN_SRC python
+:(.*)
 #+END_SRC
 
 - re replace remove digits from end of a string:
@@ -1764,10 +1846,57 @@ from pathlib import Path
 p = Path('.')
 #+END_SRC
 
+- copy and rename:
+#+BEGIN_SRC python
+from pathlib import Path
+import shutil
+
+
+def copy_and_rename(src: str, dst: str):
+    """copy and rename a file as new-<name>"""
+    new_name = "new-" + Path(dst).name
+    new_dst = Path(dst).with_name(new_name)
+    shutil.copy2(src, new_dst)
+    shutil.copytree(
+        "./copy-from-me", "./copy-to-me", copy_function=copy_and_rename, dirs_exist_ok=True
+)
+#+END_SRC
+
+- copy from clipboard:
+#+BEGIN_SRC python
+from tkinter import Tk  # Python 3
+#from Tkinter import Tk # for Python 2.x
+Tk().clipboard_get()
+#+END_SRC
+
+
 - join path:
 #+BEGIN_SRC python
 pathlib.Path(__file__).parent.parent / 'qhrb_overview_2021_04_03_total.pkl'
 #+END_SRC
+
+- pathlib walk:
+#+BEGIN_SRC python
+def walk(path): 
+    for p in Path(path).iterdir(): 
+        if p.is_dir(): 
+            yield from walk(p)
+            continue
+        yield p.resolve()
+
+# recursively traverse all files from current directory
+for p in walk(Path('南怀瑾南禅七日讲座(MP3)')): 
+    print(p)
+#+END_SRC
+
+- current dir:
+#+BEGIN_SRC python
+from pathlib import Path
+get_current_working_dir = str(Path('.').absolute())
+root_path = os.path.dirname(__file__) if '__file__' in dir() else os.getcwd()
+#+END_SRC
+
+
 
 ** os.path — Common pathname manipulations
 - delete a file:
@@ -1786,6 +1915,7 @@ def change_filename(dir_name, filename, suffix, extension=None):
         extension = ext
     return os.path.join(dir_name, path + suffix + extension)
 
+output_file = Pathlib('file').with_name('new_' + p.stem).with_suffix('.mp3')
 
 #+END_SRC
 
@@ -1911,6 +2041,9 @@ pickle.dump(selfref_list, output, -1)
 
 output.close()
 pickle.dump( x0, open( "x0.pkl", "wb" ) )
+
+with gzip.open(new_data_head_path / 'pkl tick' / product / dump_file_name, 'wb', compresslevel=1) as fp:
+    cPickle.dump(data, fp)
 #+END_SRC
 
 *** load:
@@ -2487,6 +2620,7 @@ arg2: two
 arg3: 3
 
 #+END_SRC
+
 - construct argparse for test:
 #+BEGIN_SRC python
 class argparse(dict):
@@ -2533,6 +2667,7 @@ class argparse(dict):
         super(argparse, self).__delitem__(key)
         del self.__dict__[key]
 #+END_SRC
+
 ** configparser — Configuration file parser
 - use yaml and config file.
 #+BEGIN_SRC yaml
@@ -2605,8 +2740,13 @@ argument_default - The global default value for arguments (default: None)
 conflict_handler - The strategy for resolving conflicting optionals (usually unnecessary)
 add_help - Add a -h/--help option to the parser (default: True)
 allow_abbrev - Allows long options to be abbreviated if the abbreviation is unambiguous. (default: True)
+
 *** argument_default
 #+BEGIN_SRC python
+parser.add_argument('--feature', dest='feature', action='store_true')
+parser.add_argument('--no-feature', dest='feature', action='store_false')
+parser.set_defaults(feature=True)
+
 >>> parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
 >>> parser.add_argument('--foo')
 >>> parser.add_argument('bar', nargs='?')
@@ -2812,14 +2952,21 @@ define([
        }
       );
 #+END_SRC
+
 - enable auto complete
 #+BEGIN_SRC bash
 jupyter nbextension enable hinterland/hinterland
 #+END_SRC
 
+ - attention for the content:
+#+BEGIN_SRC html
+ <font color="red">注意：</font>
+#+END_SRC
+
 - clear jupyter notebook ouput in all cells:
 #+BEGIN_SRC bash
 jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace xxx.ipynb
+jupyter nbconvert my_input_notebook.ipynb --to notebook --ClearOutputPreprocessor.enabled=True --stdout > my_output_notebook.ipynb
 #+END_SRC
 
 - ipython history size
@@ -3057,6 +3204,12 @@ print(user_cache_dir('pip'))
 print(user_cache_dir('wheel'))
 
 #+END_SRC
+
+- execute cmd command with variable parameter
+#+BEGIN_SRC bash
+!ffmpeg -i {input_file} {output_file}
+#+END_SRC
+
 - install opencv, pytorch:
 #+BEGIN_SRC bash
 pip install opencv-python torch
@@ -3206,6 +3359,7 @@ $ python3 test.py arg1 arg2 arg3
 ** warnings — Warning control
 - SettingWithCopyWarning in Pandas, ignore pandas warning
 #+BEGIN_SRC python
+# A value is trying to be set on a copy of a slice from a DataFrame.
 pd.options.mode.chained_assignment = None  # default='warn'
 #+END_SRC
 
@@ -3544,6 +3698,16 @@ except subprocess.CalledProcessError:
 [[file:./pandas.org][advanced pandas]]
 - apply to a dataframe is more efficient than access to index and change value.
 
+- pandas apply if elif else:
+#+BEGIN_SRC python
+lambda x: x*10 if x<2 else (x**2 if x<4 else x+10)
+#+END_SRC
+
+- apply to every element in a dataframe:
+#+BEGIN_SRC python
+df_user_overview = df_user_overview.applymap(convert_unit)
+#+END_SRC
+
 - set a column to tuple:
 #+BEGIN_SRC python
 pd_tmp = pd.DataFrame(np.random.rand(3,3))
@@ -3591,6 +3755,12 @@ pd.set_option('display.width', 1000)
 >>> df['p1'], df['p2'], df['p3'], df['p4'], df['p5'], df['p6'] = \
 >>>     zip(*df['num'].map(powers))
 
+#+END_SRC
+
+- change/set time:
+#+BEGIN_SRC python
+datetime.time(hour=13)
+datetime.datetime.today().replace(hour=13)
 #+END_SRC
 
 - first day of the previous month:
@@ -3656,6 +3826,12 @@ df1.join(df).sort_index(level=0, axis=1)
 #+BEGIN_SRC python
 df.groupby(['out_diag_doc_cd'])['in_hosp_date_date'].value_counts().loc[lambda x : x>1]
 #+END_SRC
+
+- filter by month:
+#+BEGIN_SRC python
+df_symbol_fold = df_symbol[df_symbol['Date'].apply(lambda x: x.strftime("%Y%m"))==fold]
+#+END_SRC
+
 
 - filter by groupby count size:
 #+BEGIN_SRC python
@@ -3948,6 +4124,47 @@ listToWrite = df_21.to_dict(orient='records')
 conn.execute(ex_table.insert(), listToWrite)
 #+END_SRC
 
+- biggest 10 rows in each group:
+#+BEGIN_SRC sql
+SELECT     
+    code,
+    lv2,
+    amount,     
+    dense_rank
+FROM (    
+    SELECT         
+        lv2,         
+        code,
+        amount,         
+        dense_rank    
+    FROM     
+    (        
+        SELECT             
+        lv2,     
+        groupArray(code) AS arr_code,        
+        groupArray(amount) AS arr_val,             
+        arrayEnumerateDense(arr_val) AS dense_rank        
+        FROM         
+        (            
+            SELECT 
+                DISTINCT code, amount,                 
+                lv2            
+            FROM top_industry            
+            ORDER BY amount DESC        
+         )        
+         GROUP BY lv2    
+    )    
+    ARRAY JOIN         
+    	arr_code as code,
+        arr_val AS amount,         
+        dense_rank    
+    ORDER BY         
+    lv2 ASC,         
+    dense_rank ASC
+)WHERE dense_rank <= 10;
+#+END_SRC
+
+
 - read oracle database UnicodeDecodeError 'gb' :
 set the language of the editor from Chinese to English.
 #+BEGIN_SRC python
@@ -4113,6 +4330,7 @@ df_person_count = df_simul['PERSON_ID'].value_counts()
 df_simul = df_simul[df_simul['PERSON_ID'].isin(df_person_count[df_person_count>3].index)]
 
 #+END_SRC
+
 - get max value counts column name in each group:
 #+BEGIN_SRC python
 df_sample1 = df_sample.sort_values(['person_id','discharge_date'],ascending=True).groupby(['person_id', 'icd3']).first().agg({'hosp_lev':pd.Series.value_counts})
@@ -4277,6 +4495,12 @@ sentences_DJA = [s.encode('utf-8').split() for s in na_str_DJA_news]
 DataFrame.rank(axis=0, method='average', numeric_only=None, na_option='keep', ascending=True, pct=False)[source]
 Compute numerical data ranks (1 through n) along axis. Equal values are assigned a rank that is the average of the ranks of those values
 
+- n largest value and column name, idxmax(n)
+#+BEGIN_SRC python
+pd.concat([df_buy_sell_ratio_industry.apply(lambda s: s.nlargest(3).index.tolist(), axis=1), \
+          df_buy_sell_ratio_industry.apply(lambda s: s.nlargest(3).tolist(), axis=1)], axis=1)
+#+END_SRC
+
 - n largest value
 DataFrame.nlargest(n, columns, keep='first')
 Get the rows of a DataFrame sorted by the n largest values of columns.
@@ -4292,6 +4516,7 @@ Get the rows of a DataFrame sorted by the n largest values of columns.
 2   8  d NaN
 
 #+END_SRC
+
 - quantile
 DataFrame.quantile(q=0.5, axis=0, numeric_only=True, interpolation='linear')[source]
 Return values at the given quantile over requested axis, a la numpy.percentile.
@@ -4426,6 +4651,12 @@ z=(a!=b)
 pd.concat([a.ix[z[reduce(lambda x, y: x | z[y], z, False)].index],b.ix[z[reduce(lambda x, y: x | z[y], z, False)].index]],axis=1)
 #+end_src
 
+- groupby combine columns with same columns:
+#+BEGIN_SRC python
+df_top_stocks['name'].to_frame().T.groupby(lambda x:x, axis=1).sum()
+df_top_stocks.reset_index().drop('value', axis=1).groupby('index').agg(lambda col: col.tolist()).T
+#+END_SRC
+
 - map:
 #+BEGIN_SRC python
 >>> numbers = [-2, -1, 0, 1, 2]
@@ -4478,6 +4709,11 @@ DataFrame.drop(labels, axis=1, level=None, inplace=False, errors='raise')
 
 # delete column with all zeros:
 df.loc[:, (df != 0).all(axis=0)]
+#+END_SRC
+
+- Split a column into 3 columns in pandas:
+#+BEGIN_SRC python
+df[['lastname', 'firstname', 'middle initial']] = df['name'].str.split(expand=True)
 #+END_SRC
 
 - check if any value is NaN in DataFrame
@@ -4555,6 +4791,7 @@ name = {'INNERCODE': 'contract_code', 'OPTIONCODE': 'contract_name',
 data.rename(columns=lambda x: name[x], inplace=True)
 
   #+END_SRC
+
 - remove characters after space:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x.)
@@ -4664,6 +4901,8 @@ df_input_text_entity.sort_values(['score'],ascending=False).groupby('mention').h
 - filter two dataframe by columns' value
 #+BEGIN_SRC python
 pd.merge(df_input_text_entity_0, df_input_text_entity_1, on=['mention', 'entity'])
+# or left join with b key is null
+df_new = df_left.merge(df_right, on=['opendate', 'code'], suffixes=('', '_y'), indicator='i', how='outer').query('i == "left_only"').drop('i', 1).dropna(axis=1)
 #+END_SRC
 
 *** multiplying
@@ -4750,6 +4989,12 @@ pandas.DataFrame.equals()
 - change index name:
 #+begin_src python
 df.index.names = ['Date']
+#+end_src
+
+- access without keyerror, Pandas .loc without KeyError.
+#+begin_src python
+good_keys = df.index.intersection(all_keys)
+df.loc[good_keys]
 #+end_src
 
 - split train test for a dataframe:
@@ -4853,6 +5098,7 @@ df2[~df2.index.duplicated()]
 
 ***** remove duplicated rows
 #+BEGIN_SRC python
+# notepad ++ : ^(.*?)$\s+?^(?=.*^\1$)
 pandas.DataFrame.drop_duplicates(subset=None, keep='first', inplace=False)
 # subset : column label or sequence of labels, optional
 #+END_SRC
@@ -4878,6 +5124,50 @@ df_med_similarity_adj_matrix.index = pd.MultiIndex.from_tuples(df_med_similarity
 df_med_similarity_adj_matrix.reset_index().pivot(index='level_0', columns='level_1', values='similarity')
 #+END_SRC
 ** numpy
+- rolling apply:
+#+BEGIN_SRC python
+def roll_np(df: pd.DataFrame, apply_func: callable, window: int, return_col_num: int, **kwargs):
+    """
+    rolling with multiple columns on 2 dim pd.Dataframe
+    * the result can apply the function which can return pd.Series with multiple columns
+
+    call apply function with numpy ndarray
+    :param return_col_num: 返回的列数
+    :param apply_func:
+    :param df:
+    :param window
+    :param kwargs:
+    :return:
+    """
+
+    # move index to values
+    v = df.reset_index().values
+
+    dim0, dim1 = v.shape
+    stride0, stride1 = v.strides
+
+    stride_values = stride(v, (dim0 - (window - 1), window, dim1), (stride0, stride0, stride1))
+
+    result_values = np.full((dim0, return_col_num), np.nan)
+
+    for idx, values in enumerate(stride_values, window - 1):
+        # values : col 1 is index, other is value
+        result_values[idx,] = apply_func(values, **kwargs)
+
+    return result_values
+
+def own_func_np(narr, **kwargs):
+    """
+    :param narr:
+    :return:
+    """
+
+    c = narr[:, 1]
+    d = narr[:, 2]
+    return np.mean(c), np.max(c) + np.min(d)
+#+END_SRC
+
+
 - convert a list of arrays to dataframe:
 #+BEGIN_SRC python
 pd.DataFrame(np.concatenate(ls_df))
@@ -4913,6 +5203,16 @@ array([1, 2, 3, 4])
 >>> [a[index] for index in sorted(indexes)]
 [4, 2, 1, 3]
 
+#+END_SRC
+
+- plot scatter x o:
+
+#+BEGIN_SRC python
+fig, ax = plt.subplots()
+ax.scatter(target[target['ret']>0][['STO_K_WEEK']],target[target['ret']>0][['NDH40']], marker='^')
+ax.scatter(target[target['ret']<0][['STO_K_WEEK']],target[target['ret']<0][['NDH40']], marker='o')
+
+plt.show()
 #+END_SRC
 
 - bokeh plot:
@@ -5083,8 +5383,16 @@ Arrays to stack. All of them must have the same first dimension.
 >>> b = np.array((2,3,4))
 >>> np.column_stack((a,b))
 
+
+#+END_SRC
 - expand 1-D numpy array to 2-D:
 
+- code to symbol:
+#+BEGIN_SRC python
+from tushare.stock import cons as ct
+symbol = ct._code_to_symbol(code)
+# or
+symbol = code + '.' + ct._code_to_symbol(code)[:2].upper()
 #+END_SRC
 
 - expand the shape of an array:
@@ -5186,7 +5494,12 @@ plt.show()
 #+BEGIN_SRC python
 fig, ax = plt.subplots()
 ax = df_final_result['item_amount'].reset_index().groupby('med_inv_item_type_name').boxplot(['item_amount'])
+plt.xticks(rotation=45)
+# labels are printed when set_xticklabels called
 ax.set_xticklabels(ax.get_xticklabels(),rotation=90)
+# ignore labels printed when set_xticklabels called
+_ = ax.set_xticklabels(ax.get_xticklabels(),rotation=90)
+
 figure = ax.get_figure()
 figure.savefig('./result/images/组%s.png'%(str(i_sub)), bbox_inches='tight')
 
@@ -5209,6 +5522,11 @@ plt.figure()
 plt.plot(data2)
 
 plt.show()
+#+END_SRC
+
+- RuntimeWarning: Glyph 8722 missing from current font
+#+BEGIN_SRC python
+plt.rc('axes', unicode_minus=False)
 #+END_SRC
 
 - multiple subplots 在同一个窗口显示多个图形
@@ -5303,6 +5621,12 @@ df_result.at[index_1, 'subset'] = [v for x,v in enumerate(subsets) if x in quali
 
 *** plot a 3d figure:
 #+begin_src python :tangle yes
+import plotly.express as px
+fig = px.scatter_3d(target, x='CUBEFIT5', y='DOBV_20', z='ret',
+                    color='ret')
+fig.show()
+# https://plotly.com/python/3d-scatter-plots/
+
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
@@ -5337,6 +5661,14 @@ fig is the :class:matplotlib.figure.Figure object.
 /usr/share/fonts/truetype/wqy/wqy-microhei.ttc: 文泉驿等宽微米黑,文泉驛等寬微米黑,WenQuanYi Micro Hei Mono:style=Regular
 #+END_SRC
 #+BEGIN_SRC python
+import seaborn as sns
+font_path = "C:\Windows\Fonts\simhei.ttf"
+from matplotlib.font_manager import FontProperties
+myfont=FontProperties(fname=font_path,size=14)
+sns.set(font=myfont.get_name())
+
+# or
+
 import matplotlib.font_manager as font_manager
 
 font_dirs = ['/my/custom/font/dir', ]
@@ -5725,6 +6057,7 @@ def shrink_concept(patient):
         ls_lvs_unique1.update(set(x))
 
     return ls_lvs_unique1
+
 # find similar subsets and extra items
 sim_threashold = 0.5
 df_abnormal_items = pd.DataFrame(columns=['hos', 'dis', 'abnormal_item', 'rule', 'subset'])
@@ -5788,13 +6121,19 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 test_model = word_tokenize(input_text_translations.lower())
 
+vectorizer = CountVectorizer(tokenizer=lambda doc: doc, lowercase=False)
+X = vectorizer.fit_transform(df.head(20).fillna(' ').values.tolist())
+df_freq = pd.DataFrame(zip(vectorizer.get_feature_names(), X.toarray().sum(axis=0)))
+df_freq.sort_values(1, ascending=False)
+
 wordstest_model = sent_tokenize(input_text_translations)
 test_model = [word_tokenize(_d.lower()) for _d in docs]
 dictionary = corpora.Dictionary(test_model, prune_at=2000000)
 # for key in dictionary.iterkeys():
 #     print key,dictionary.get(key),dictionary.dfs[key]
 corpus_model = [dictionary.doc2bow(test) for test in test_model]
-tfidf_model = models.TfidfModel(corpus_model)
+tfidf_model = models.TfidfModel(corpus_mod
+el)
 # 对语料生成tfidf
 corpus_tfidf = tfidf_model[corpus_model]
 d = {dictionary.get(id): value for doc in corpus_tfidf for id, value in doc}
@@ -6051,3 +6390,22 @@ for n in tqdm(all_nodes):
         random_walks.append(get_randomwalk(n,10))
 
 #+END_SRC
+
+- create custom dataloader:
+#+BEGIN_SRC python
+import torch
+import numpy as np
+from torch.utils.data import TensorDataset, DataLoader
+
+my_x = [np.array([[1.0,2],[3,4]]),np.array([[5.,6],[7,8]])] # a list of numpy arrays
+my_y = [np.array([4.]), np.array([2.])] # another list of numpy arrays (targets)
+
+tensor_x = torch.Tensor(my_x) # transform to torch tensor
+tensor_y = torch.Tensor(my_y)
+
+my_dataset = TensorDataset(tensor_x,tensor_y) # create your datset
+my_dataloader = DataLoader(my_dataset) # create your dataloader
+#+END_SRC
+
+- pytorch ignore scientific mode:
+torch.set_printoptions(precision=2, sci_mode=False)

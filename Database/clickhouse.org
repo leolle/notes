@@ -1,0 +1,41 @@
+#+TITLES: clickhouse
+#+KEYWORD: database
+#+SETUPFILE: ../configOrg/level1.org
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+DATE: <2021-09-19 Tue>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+- rename table/DATABASE
+#+BEGIN_SRC sql
+RENAME TABLE ... to ...
+RENAME DATABASE ... to ...
+#+END_SRC
+
+- subtract of two queries:
+#+BEGIN_SRC sql
+select a.instrument, (asum - bsum) as diff from 
+(select instrument, sum(varietyProfit) as asum from future.dapanshou_variety_profit
+where date>=date_sub(DAY , 1, today())
+group by instrument
+order by instrument) a,  (select instrument, sum(varietyProfit) as bsum from future.dapanshou_variety_profit
+where date in (select arr_val[7] as date from (
+select groupArray(date) AS arr_val,
+    arrayEnumerate(arr_val) AS row_number,         
+    arrayEnumerateDense(arr_val) AS dense_rank,         
+    arrayEnumerateUniq(arr_val) AS uniq_rank    
+  from (select distinct date
+          from future.dapanshou_variety_profit
+         order by date desc
+         ) a))
+group by instrument
+order by instrument) b
+where a.instrument=b.instrument;
+#+END_SRC

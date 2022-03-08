@@ -1,0 +1,90 @@
+#+SETUPFILE: ../configOrg/level2.org
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:nil arch:headline author:t c:nil
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t
+#+OPTIONS: num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t
+#+OPTIONS: title:t toc:t todo:t |:t
+#+TITLES: pytorch
+#+DATE: <2021-12-21 Tue>
+#+AUTHORS: weiwu
+#+EMAIL: victor.wuv@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.5.1 (Org mode 8.3.4)
+
+#+BEGIN_SRC python
+
+#+END_SRC
+
+- custom dataloader:
+#+BEGIN_SRC python
+
+class CustomDataset(torch.utils.data.Dataset):#需要继承data.Dataset
+    def __init__(self, train, label):
+        # TODO
+        # 1. Initialize file path or list of file names.
+        self.toTensor = transforms.ToTensor()
+        self.train_data = train
+        self.label_data = label
+        
+    def __getitem__(self, index):
+        # TODO
+        # 1. Read one data from file (e.g. using numpy.fromfile, PIL.Image.open).
+        # 2. Preprocess the data (e.g. torchvision.Transform).
+        # 3. Return a data pair (e.g. image and label).
+        #这里需要注意的是，第一步：read one data，是一个data
+        train_data = self.train_data[index]
+        label = self.label_data[index]
+        train_data = np.array(train_data).astype(np.float)
+        train_data = train_data.reshape(1, train_data.shape[0], train_data.shape[1])
+        train_data = self.toTensor(train_data)
+#         label_data = np.array(label).astype(np.float)
+#         label_data = label_data.reshape(1, label_data.shape[0], label_data.shape[1])
+#         label_data = self.toTensor(label_data)
+        return train_data
+    
+    def __len__(self):
+        # You should change 0 to the total size of your dataset.
+        return len(self.train_data)
+# 5. 创建数据集的可迭代对象，也就是说一个batch一个batch的读取数据
+inputs = CustomDataset(X_train, y_train)
+train_loader = torch.utils.data.DataLoader(dataset=inputs, batch_size=BATCH_SIZE, shuffle=False)
+train_loader = torch.utils.data.DataLoader(dataset=list(zip(X_train, y_train)), batch_size=BATCH_SIZE, shuffle=False)
+test_loader = torch.utils.data.DataLoader(dataset=list(zip(X_test, y_test)), batch_size=BATCH_SIZE, shuffle=True)
+
+########## or :
+
+tensor_x_train = torch.Tensor(X_train) # transform to torch tensor
+tensor_y_train = torch.Tensor(y_train)
+tensor_x_test = torch.Tensor(X_test) # transform to torch tensor
+tensor_y_test = torch.Tensor(y_test)
+my_dataset1 = torch.utils.data.TensorDataset(tensor_x_train,tensor_y_train) # create your datset
+my_dataset2 = torch.utils.data.TensorDataset(tensor_x_test,tensor_y_test) # create your datset
+train_loader = torch.utils.data.DataLoader(my_dataset1, batch_size=BATCH_SIZE, shuffle=True) # create your dataloader
+test_loader = torch.utils.data.DataLoader(my_dataset2, batch_size=BATCH_SIZE, shuffle=True) # create your dataloader
+
+#+END_SRC
+
+- turn numpy array into tensor:
+#+BEGIN_SRC python
+t = torch.from_numpy(arr)
+#+END_SRC
+
+- change dtype:
+#+BEGIN_SRC python
+t = target.to(torch.float)
+#+END_SRC
+
+- save and load model
+#+BEGIN_SRC python
+torch.save(the_model.state_dict(), PATH)
+the_model.load_state_dict(torch.load(PATH))
+#+END_SRC
+
+- print parameters:
+#+BEGIN_SRC python
+for name,parameters in net.named_parameters():
+    print(name,':',parameters.size())
+#+END_SRC
+
+

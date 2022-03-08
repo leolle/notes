@@ -134,12 +134,19 @@ sudo pip install --upgrade virtualenv
 #+BEGIN_SRC bash
 sudo apt-get install vinagre
 #+END_SRC
+
 5. install nvidia driver
 check nvidia driver:
 #+BEGIN_SRC bash
 cat /proc/driver/nvidia/version
 lspci | grep -i nvidia
 lsmod | grep nvidia
+#+END_SRC
+
+- uninstall of make install:
+#+BEGIN_SRC bash
+make uninstall
+make clean
 #+END_SRC
 
 - new on centos:
