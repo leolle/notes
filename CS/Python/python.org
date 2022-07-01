@@ -1433,6 +1433,32 @@ str = "0000000this is string example....wow!!!0000000";
 print(str.strip( '0' ))
 #+END_SRC
 
+- random one hot:
+#+BEGIN_SRC python
+import random
+# initialize data
+n_samples = 55
+n_1_5 = 35
+n_classes = 4
+x = np.zeros((n_samples, n_classes))
+J = np.random.choice(n_classes, n_samples)
+y = np.zeros((n_1_5, n_classes))
+Y = np.random.choice(n_classes, n_1_5)
+
+# assign with advanced indexing
+x[np.arange(n_samples), J] = 1
+y[np.arange(n_1_5), Y] = 1.5
+q = np.concatenate((x, y), axis=0)
+scores = []
+for p in range(1000000):
+    a = np.zeros((n_1_5+n_samples, n_classes))
+    A = np.random.choice(n_classes, n_1_5+n_samples)
+    a[np.arange(n_1_5+n_samples), A] = 1
+    score = np.sum(a * q)
+    scores.append(score)
+#+END_SRC
+
+
 - checks whether the string consists of alphabetic characters only.
 #+BEGIN_SRC python 2
 #!/usr/bin/python
@@ -3946,6 +3972,11 @@ unique, counts = np.unique(continueGame, return_counts=True)
 np.asarray((unique, counts)).T
 #+END_SRC
 
+- unique arrays from a list of arrays:
+#+BEGIN_SRC python
+arr_ins = np.unique(ls_ins, axis=0)
+#+END_SRC
+
 - add multiple empty columns:
 #+BEGIN_SRC python
 mydf = mydf.reindex(columns = mydf.columns.tolist() + ['newcol1','newcol2'])
@@ -4091,14 +4122,24 @@ result, columns = clickhouse_conn.execute(sql,
 df = pd.DataFrame(result, columns=[tuple[0] for tuple in columns])
 df.head()
 #+END_SRC
+
 - create clickhouse table:
 #+BEGIN_SRC python
+ CREATE TABLE IF NOT EXISTS future.tssb_model  (
+  date Date,    
+  market String,     
+  signal Nullable(Float),
+  model String,
+  ret  Nullable(Float)
+ )ENGINE = ReplacingMergeTree() PRIMARY KEY (date, market, model) order by (date, market, model);
+
 create table wuxi_ads_grouprisk.risk_zy_jtzy_table3 ENGINE=MergeTree() ORDER BY tuple() SETTINGS index_granularity = 8192 as select 1
 #+END_SRC
 
 - insert into clickhouse:
 #+BEGIN_SRC python
 client.execute("INSERT INTO your_table VALUES", df.to_dict('records'))
+clickhouse_conn.execute("OPTIMIZE TABLE future.tbquant_daily FINAL")
 #+END_SRC
 
 - bulk insert:
@@ -4497,8 +4538,12 @@ Compute numerical data ranks (1 through n) along axis. Equal values are assigned
 
 - n largest value and column name, idxmax(n)
 #+BEGIN_SRC python
+# for pivot table
 pd.concat([df_buy_sell_ratio_industry.apply(lambda s: s.nlargest(3).index.tolist(), axis=1), \
           df_buy_sell_ratio_industry.apply(lambda s: s.nlargest(3).tolist(), axis=1)], axis=1)
+# for raw dataframe
+df_instrument_output.groupby('Date').apply(pd.DataFrame.nlargest, n=5, columns='COMM2')
+
 #+END_SRC
 
 - n largest value
@@ -4674,6 +4719,12 @@ reduce(lambda x, y: x+y, range(1,101))
 reduce(lambda x, y: set(x) | set(y), df_targets[df_targets['ratio']>0.7]['person_id'].apply(set))
 #+END_SRC
 
+- drop duplicates in a list of arrays:
+#+BEGIN_SRC python
+a = [np.array([1,2,3]), np.array([1,2,3]), np.array([2,3,4])]
+np.unique(a, axis=0)
+#+END_SRC
+
 - find extra items:
 #+BEGIN_SRC python
 def extra_item(row):
@@ -4772,6 +4823,34 @@ e  0.057802  0.761948 -0.712964  bar   True 2012-01-01
 f -0.443160 -0.974602  1.047704  bar  False 2012-01-01
 h       NaN -1.053898 -0.019369  bar  False        NaT
 #+END_SRC
+
+- generate random datetime:
+#+begin_src python
+import random
+import time
+def str_time_prop(start, end, time_format, prop):
+    """Get a time at a proportion of a range of two formatted times.
+
+    start and end should be strings specifying times formatted in the
+    given format (strftime-style), giving an interval [start, end].
+    prop specifies how a proportion of the interval to be taken after
+    start.  The returned time will be in the specified format.
+    """
+
+    stime = time.mktime(time.strptime(start, time_format))
+    etime = time.mktime(time.strptime(end, time_format))
+
+    ptime = stime + prop * (etime - stime)
+
+    return time.strftime(time_format, time.localtime(ptime))
+
+
+def random_date(start, end, prop):
+    return str_time_prop(start, end, '%Y/%m/%d %I:%M:%S', prop)
+    
+print(random_date("2008/1/1 1:30:00", "2009/1/1 4:50:00", random.random()))
+#+end_src
+
 - rename column names:
 #+begin_src python
 df_bbg = df_bbg.rename(columns = lambda x: x[:4].replace(' ',''))
@@ -5904,6 +5983,19 @@ content = scipy.misc.imread(contentImg, mode='RGB')
 import scipy.misc
 rgb = scipy.misc.toimage(np_array)
 cv2.imwrite('color_img.jpg', np_array)
+#+END_SRC
+
+- compare images:
+#+BEGIN_SRC python
+img_input = cv2.cvtColor(img_rgb[top+688:top+688+26, (left+265):(left+295),], cv2.COLOR_BGR2GRAY)
+res = cv2.matchTemplate(img_input, img_gray, cv2.TM_CCOEFF_NORMED)
+#+END_SRC
+
+- image ocr:
+#+BEGIN_SRC python
+import pytesseract
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.image_to_string(img_rgb[top+688:top+688+26, (left+110):right,], lang='chi_sim')
 #+END_SRC
 
 - read image into torch tensor:
